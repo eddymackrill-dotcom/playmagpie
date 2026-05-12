@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(sed -i \"s/text-5xl font-extrabold text-white/text-5xl font-extrabold text-[#7BB8D4]/g\" app/reviews/[slug]/page.tsx)",
+      "Bash(sed -i \"s/hover:border-white\\\\/20 rounded-2xl p-5 transition-all group/hover:border-[#7BB8D4]\\\\/20 rounded-2xl p-5 transition-all group/g\" app/guides/page.tsx)",
+      "Bash(sed -i \"s/hover:text-\\\\[#f5f5f5\\\\] transition-colors mb-1/hover:text-[#7BB8D4] transition-colors mb-1/g\" app/guides/page.tsx)",
+      "Bash(sed -i \"s/bg-white hover:bg-\\\\[#f5f5f5\\\\] text-black font-bold py-3/bg-[#7BB8D4] hover:bg-[#8fc4d8] text-[#0a0a0a] font-bold py-3/g\" app/contact/page.tsx)",
+      "Bash(sed -i \"s/focus:border-white\\\\/40/focus:border-[#7BB8D4]\\\\/50/g\" app/contact/page.tsx)",
+      "Bash(sed -i 's/bg-white\\\\/5 border border-white\\\\/10 rounded-full px-4 py-1\\\\.5 mb-4/bg-[#7BB8D4]\\\\/10 border border-[#7BB8D4]\\\\/20 rounded-full px-4 py-1.5 mb-4/g' app/fast-withdrawal-casinos/page.tsx app/high-roller-casinos/page.tsx app/no-kyc-casinos/page.tsx)",
+      "Bash(sed -i 's/text-white text-sm font-medium\">Verified Payout Times/text-[#7BB8D4] text-sm font-medium\">Verified Payout Times/g; s/text-white text-sm font-medium\">👑 VIP/text-[#7BB8D4] text-sm font-medium\">👑 VIP/g; s/text-white text-sm font-medium\">🔓 Zero/text-[#7BB8D4] text-sm font-medium\">🔓 Zero/g' app/fast-withdrawal-casinos/page.tsx app/high-roller-casinos/page.tsx app/no-kyc-casinos/page.tsx)",
+      "Bash(sed -i 's/w-2 h-2 rounded-full bg-white animate-pulse/w-2 h-2 rounded-full bg-[#7BB8D4] animate-pulse/g' app/fast-withdrawal-casinos/page.tsx)",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://www.bitstarz.com/favicon.ico\" -o \"C:/projects/aff_website/public/logos/bitstarz.png\")",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://bc.game/favicon.ico\" -o \"C:/projects/aff_website/public/logos/bc-game.png\")",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://cloudbet.com/favicon.ico\" -o \"C:/projects/aff_website/public/logos/cloudbet.png\")",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://miraxcasino.com/favicon.ico\" -o \"C:/projects/aff_website/public/logos/mirax-casino.png\")",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://7bitcasino.com/favicon.ico\" -o \"C:/projects/aff_website/public/logos/7bit-casino.png\")",
+      "Bash(curl -sL \"https://www.google.com/s2/favicons?sz=64&domain=bc.game\" -o \"C:/projects/aff_website/public/logos/bc-game.png\")",
+      "Bash(curl -sL \"https://www.google.com/s2/favicons?sz=64&domain=miraxcasino.com\" -o \"C:/projects/aff_website/public/logos/mirax-casino.png\")",
+      "Bash(curl -sL \"https://www.google.com/s2/favicons?sz=64&domain=7bitcasino.com\" -o \"C:/projects/aff_website/public/logos/7bit-casino.png\")"
+    ]
+  }
+}
