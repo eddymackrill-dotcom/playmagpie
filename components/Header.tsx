@@ -30,6 +30,9 @@ export default function Header() {
             <span className="font-bold text-[#f5f5f5] text-lg tracking-tight">
               PlayMagpie
             </span>
+            <span className="text-[10px] font-semibold text-[#666666] border border-[#444444] rounded px-1 py-0.5 leading-none">
+              18+
+            </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">

@@ -74,12 +74,34 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[#222222] pt-8">
-          <p className="text-[#888888] text-xs leading-relaxed mb-3">
-            PlayMagpie is an independent affiliate review site. We may earn commissions when you sign up through our links — this never influences our scores or rankings. Always gamble responsibly. Check your local laws before playing.
+          <p className="text-[#666666] text-xs leading-relaxed mb-3">
+            PlayMagpie is an independent affiliate review website. We may earn commissions when you sign up to casinos through our links. This does not affect our reviews or ratings.
           </p>
-          <p className="text-[#444444] text-xs">
-            © {new Date().getFullYear()} PlayMagpie. All rights reserved.
-          </p>
+          <div className="border-t border-[#1a1a1a] pt-4 mt-4">
+            <p className="text-[#666666] text-xs leading-relaxed mb-3">
+              PlayMagpie is intended for players in jurisdictions where online gambling with offshore operators is permitted. This website does not target UK residents. UK residents should only gamble at operators licensed by the UK Gambling Commission (UKGC). Gambling can be addictive — please play responsibly.{' '}
+              <a
+                href="https://www.begambleaware.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-[#888888] transition-colors"
+              >
+                BeGambleAware.org
+              </a>{' '}
+              |{' '}
+              <a
+                href="https://www.gamcare.org.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-[#888888] transition-colors"
+              >
+                GamCare.org.uk
+              </a>
+            </p>
+            <p className="text-[#444444] text-xs">
+              © {new Date().getFullYear()} PlayMagpie. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
