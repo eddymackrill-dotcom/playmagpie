@@ -8,3 +8,14 @@ export const CRYPTO_LIST = [
   { symbol: 'SOL', name: 'Solana', slug: 'solana' },
   { symbol: 'BNB', name: 'BNB', slug: 'bnb' },
 ]
+
+export const COUNTRY_LIST = [
+  { name: 'Canada', slug: 'canada', currency: 'CAD' },
+  { name: 'Australia', slug: 'australia', currency: 'AUD' },
+  { name: 'New Zealand', slug: 'new-zealand', currency: 'NZD' },
+  { name: 'Ireland', slug: 'ireland', currency: 'EUR' },
+  { name: 'Germany', slug: 'germany', currency: 'EUR' },
+  { name: 'Netherlands', slug: 'netherlands', currency: 'EUR' },
+  { name: 'Norway', slug: 'norway', currency: 'NOK' },
+  { name: 'Japan', slug: 'japan', currency: 'JPY' },
+]
