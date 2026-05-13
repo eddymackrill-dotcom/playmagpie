@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/high-roller-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/no-kyc-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/guides`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/compare`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/contact`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
   ]
@@ -30,5 +31,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...casinoReviewPages, ...guidePages]
+  const comparisonPages: MetadataRoute.Sitemap = []
+  for (let i = 0; i < casinos.length; i++) {
+    for (let j = 0; j < casinos.length; j++) {
+      if (i !== j) {
+        comparisonPages.push({
+          url: `${BASE_URL}/compare/${casinos[i].slug}-vs-${casinos[j].slug}`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.65,
+        })
+      }
+    }
+  }
+
+  return [...staticPages, ...casinoReviewPages, ...guidePages, ...comparisonPages]
 }
