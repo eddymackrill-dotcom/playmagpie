@@ -16,6 +16,7 @@ const casinoMetaDescriptions: Record<string, string> = {
   cloudbet: 'Cloudbet review 2026. Trusted since 2013 — 5 BTC welcome bonus, no withdrawal limits, excellent sportsbook for crypto bettors. Rated 8.7/10 by PlayMagpie.',
   'mirax-casino': 'Mirax Casino review 2026. 325% bonus up to $3,250 + 250 free spins, 7,000+ games, fast crypto withdrawals in under 15 minutes. Rated 8.6/10.',
   '7bit-casino': '7Bit Casino review 2026. No-KYC Bitcoin casino since 2014 — instant withdrawals, 7,000+ games, weekly reload bonuses and VIP cashback. Rated 8.8/10.',
+  shuffle: 'Shuffle Casino review 2026. Native SHFL token, rakeback VIP rewards, 10,000+ games and instant crypto withdrawals. 12 cryptocurrencies accepted. Rated 8.2/10.',
 }
 
 const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
@@ -43,6 +44,11 @@ const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
     { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
     { title: 'Best Crypto for Gambling in 2026', slug: 'best-crypto-for-gambling-2026' },
+  ],
+  shuffle: [
+    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
+    { title: 'Best Crypto for Gambling in 2026', slug: 'best-crypto-for-gambling-2026' },
+    { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
   ],
 }
 
@@ -181,6 +187,40 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     {
       question: 'What are Mirax Casino KYC requirements?',
       answer: 'Mirax Casino has Light KYC requirements. Most players can register, deposit and play without submitting identity documents. Mirax Casino KYC verification may be triggered for larger withdrawal amounts or when account review flags a compliance check. Crypto-only players operating at standard stakes typically do not encounter identity verification at Mirax. The light KYC approach is standard across the 7Bit Partners network.',
+    },
+  ],
+  shuffle: [
+    {
+      question: 'Is Shuffle Casino legit?',
+      answer: 'Shuffle Casino is a legitimate crypto casino licensed by Curaçao through Natural Nine B.V., operating since 2022. Is Shuffle Casino legit? Independent testing confirms fast crypto withdrawals, a functional rakeback system, and provably fair outcomes on Shuffle Original games. PlayMagpie rates Shuffle 8.2/10 for trust. As a relatively newer brand it has built a positive reputation, though it has a shorter track record than decade-old rivals like BitStarz or 7Bit Casino.',
+    },
+    {
+      question: 'What are Shuffle Casino withdrawal times?',
+      answer: 'Shuffle Casino withdrawal time for cryptocurrency is instant to 10 minutes for most transactions. Crypto withdrawals are processed automatically on-chain for standard amounts. Shuffle Casino\'s payout speed earns an 8.8/10 withdrawal score on PlayMagpie. Note that larger withdrawals may trigger a KYC review which can extend processing time. Choosing fast-confirmation networks like SOL, TRX or MATIC speeds up on-chain settlement significantly.',
+    },
+    {
+      question: 'Does Shuffle Casino require KYC verification?',
+      answer: 'Shuffle Casino has Light KYC requirements. Most players can register, deposit and play without submitting identity documents. Shuffle Casino KYC checks are triggered at withdrawal for larger amounts — typically when transactions exceed set thresholds. The tiered approach means basic play is frictionless, but high-value withdrawals may require government ID and proof of address before funds are released. Standard crypto-only players at normal stakes rarely encounter verification requests.',
+    },
+    {
+      question: 'What is the Shuffle Casino bonus for 2026?',
+      answer: 'The Shuffle Casino bonus for 2026 is a 100% deposit match up to $1,000 on your first deposit, plus ongoing SHFL token rewards and rakeback. Importantly, the Shuffle Casino bonus must be activated via live chat before depositing — it is not applied automatically. Wagering requirements are 35x, above the industry average. SHFL token rewards and daily rakeback provide additional ongoing value that partially offsets the higher wagering threshold on the initial welcome offer.',
+    },
+    {
+      question: 'What crypto does Shuffle Casino accept?',
+      answer: 'Shuffle Casino crypto options include 12 cryptocurrencies: BTC, ETH, LTC, USDT, USDC, SOL, DOGE, BNB, XRP, TRX, MATIC and the native SHFL token. This covers major coins across multiple blockchains. Shuffle Casino crypto withdrawals are processed instantly to 10 minutes with no casino-side fees. The inclusion of SHFL allows players to hold and use the platform\'s native token for rewards, wagers and rakeback accumulation.',
+    },
+    {
+      question: 'What is the Shuffle SHFL token?',
+      answer: 'The Shuffle SHFL token is the platform\'s native cryptocurrency used for rewards, rakeback distribution and periodic airdrops. Active Shuffle players earn SHFL through wagering activity, and loyalty airdrops reward long-term users. The SHFL token can be held, traded or used directly on the platform for bets and rewards. This native token model gives Shuffle a differentiated rewards structure compared to traditional cashback-only VIP programmes at rival casinos.',
+    },
+    {
+      question: 'How does the Shuffle Casino VIP programme work?',
+      answer: 'The Shuffle Casino VIP programme is built around rakeback — a percentage of the house edge returned to players based on wagering volume. Higher tiers unlock increased rakeback rates, priority withdrawals, elevated betting limits and exclusive bonuses. SHFL token rewards stack on top of standard rakeback earnings. The Shuffle Casino VIP system has transparent progression criteria, making it accessible for players who want to maximise their long-term return through sustained play.',
+    },
+    {
+      question: 'Is Shuffle Casino worth joining in 2026?',
+      answer: 'This Shuffle Casino review 2026 highlights a strong game library (10,000+ titles including provably fair Originals), instant crypto withdrawals for most players, a unique SHFL token rewards ecosystem, and a solid rakeback-based VIP programme. The main caveats: the 35x welcome bonus wagering requirement is above average, the bonus requires live chat activation, and larger withdrawals may trigger KYC review. Overall Shuffle earns 8.2/10 from PlayMagpie — a compelling choice for players drawn to the SHFL token ecosystem and rakeback model.',
     },
   ],
   '7bit-casino': [

@@ -93,7 +93,7 @@ const features = [
 
 export default function HomePage() {
   const featured = getFeaturedCasinos()
-  const top = getTopCasinos(5)
+  const top = getTopCasinos(6)
   const topCasino = top[0]
 
   return (

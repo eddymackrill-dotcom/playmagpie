@@ -31,7 +31,7 @@ export default function HeroSection() {
 
         <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-[#888888]">
           {[
-            '5 casinos reviewed',
+            '6 casinos reviewed',
             'Updated daily',
             'No paid placements',
             'Independent scores',

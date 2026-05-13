@@ -202,6 +202,43 @@ export const casinos: Casino[] = [
     featured: true,
     badges: ['No KYC', 'Fast Payouts', 'VIP', 'Crypto'],
   },
+  {
+    name: 'Shuffle',
+    slug: 'shuffle',
+    logo: '/logos/shuffle.png',
+    licence: 'Curaçao (Natural Nine B.V.)',
+    acceptedCryptos: ['BTC', 'ETH', 'LTC', 'USDT', 'USDC', 'SOL', 'DOGE', 'BNB', 'XRP', 'TRX', 'MATIC', 'SHFL'],
+    withdrawalTime: 'Instant to 10 minutes',
+    minDeposit: '$20',
+    kycLevel: 'Light',
+    vipProgram: true,
+    bonusSummary: '100% deposit bonus up to $1,000 plus SHFL token rewards and rakeback',
+    restrictedCountries: ['US', 'UK', 'AU', 'NL', 'FR'],
+    trustScore: 8.2,
+    withdrawalScore: 8.8,
+    bonusFairnessScore: 7.8,
+    kycScore: 8.0,
+    affiliateUrl: 'https://shuffle.com?r=XvbI9QwSTw',
+    reviewSummary:
+      'Shuffle is a fast-growing crypto casino and sportsbook that launched in 2022, built around its own native SHFL token and a community-driven rakeback rewards model. The platform hosts 10,000+ games from major providers alongside Shuffle Originals — provably fair in-house games with independently verifiable outcomes. Crypto withdrawals are processed instantly to 10 minutes for most transactions across 12 supported cryptocurrencies. The SHFL token enables ongoing airdrop rewards and stacked rakeback, giving active players continuous value beyond the initial welcome bonus. The main caveats: a 35x wagering requirement on the welcome offer is above the industry average, the bonus must be activated via live chat rather than automatically, and KYC checks can be triggered at withdrawal for larger amounts.',
+    pros: [
+      '10,000+ games including Shuffle Originals — provably fair in-house titles',
+      'Instant to 10-minute crypto withdrawals across most supported networks',
+      'Native SHFL token with airdrop rewards for active players',
+      '12 cryptocurrency options including BTC, ETH, SOL, USDC and SHFL',
+      'Strong rakeback-based VIP programme with transparent tier progression',
+      'Excellent 24/7 customer support via live chat',
+    ],
+    cons: [
+      '35x wagering requirement on welcome bonus — above industry average',
+      'Welcome bonus must be activated via live chat, not automatically',
+      'KYC verification can be triggered at withdrawal for larger amounts',
+      'Curaçao licence only — less regulated than MGA-licensed alternatives',
+      'Some reports of temporary holds on high-value withdrawals pending review',
+    ],
+    featured: true,
+    badges: ['Fast Payouts', 'VIP', 'Crypto'],
+  },
 ]
 
 export function getCasinoBySlug(slug: string): Casino | undefined {
