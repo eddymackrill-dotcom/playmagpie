@@ -46,6 +46,179 @@ const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
   ],
 }
 
+const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
+  bitstarz: [
+    {
+      question: 'Is BitStarz legit?',
+      answer: 'BitStarz is a legitimate, award-winning crypto casino licensed by Curaçao eGaming (Antillephone N.V.). Is BitStarz legit? Yes — it has operated since 2014, won multiple "Best Bitcoin Casino" awards, and has a proven track record of paying out winnings without dispute. PlayMagpie independently rates it 9.2/10 for trust, the highest score in our current rankings, based on licensing quality, payout history and player feedback.',
+    },
+    {
+      question: 'What are BitStarz withdrawal times in 2026?',
+      answer: 'BitStarz withdrawal time in 2026 remains among the fastest in the industry. Crypto withdrawals are typically processed in under 10 minutes from request to wallet arrival. Bitcoin, Ethereum, Litecoin and other major coins are cleared almost instantly once approved. This consistently fast payout speed is a primary reason BitStarz earns a 9.5/10 withdrawal score on PlayMagpie — the top withdrawal rating across all reviewed casinos.',
+    },
+    {
+      question: 'Does BitStarz offer a no deposit bonus?',
+      answer: 'BitStarz does not currently offer a no deposit bonus for new players in 2026. The welcome offer is a deposit-based package worth up to 5 BTC plus 200 free spins spread across your first four deposits. Some regions may occasionally see limited promotional no deposit free spins — check the BitStarz promotions page for current offers available in your country, as these change regularly.',
+    },
+    {
+      question: 'What is the BitStarz minimum deposit?',
+      answer: 'The BitStarz minimum deposit is $20 or the crypto equivalent at current exchange rates. For Bitcoin this is approximately 0.0003 BTC. Crypto deposits are processed instantly and credited to your account after one blockchain confirmation, allowing you to start playing within minutes of funding your account. No deposit fees are charged by BitStarz; standard network fees apply on the blockchain side.',
+    },
+    {
+      question: 'How do BitStarz Bitcoin withdrawals work?',
+      answer: 'BitStarz Bitcoin withdrawal times average under 10 minutes from request to wallet arrival. Withdrawals are processed during support hours with a strong track record of clearing within one blockchain confirmation. There are no withdrawal fees charged by BitStarz, though standard Bitcoin network fees apply. The BitStarz bitcoin withdrawal process is straightforward: request via the cashier, confirm your wallet address, and funds arrive within minutes in most cases.',
+    },
+    {
+      question: 'What are BitStarz KYC verification requirements?',
+      answer: 'BitStarz has Light KYC requirements. Standard play requires only email registration — no documents at signup. BitStarz KYC verification is triggered for larger fiat withdrawals or when account activity flags a compliance review. Crypto-only players operating below higher withdrawal thresholds typically never need to submit identity documents. The light KYC model is designed to balance regulatory compliance with player privacy.',
+    },
+    {
+      question: 'How does the BitStarz VIP program work?',
+      answer: 'The BitStarz VIP program rewards high-volume players with exclusive benefits: dedicated account managers, higher withdrawal limits, bespoke bonuses, priority cashback and invitations to real-world events. BitStarz VIP status is invite-only, assessed based on your deposit and wagering history. The programme operates across multiple tiers, each delivering progressively better perks. Active high-value players are typically contacted directly by the BitStarz VIP team.',
+    },
+    {
+      question: 'How does BitStarz compare to other crypto casinos?',
+      answer: 'BitStarz vs competitors: BitStarz leads on trust and reputation with the highest score in our rankings (9.2/10) and the most industry awards since 2014. Compared to BC.Game, BitStarz scores higher for trust but BC.Game supports 100+ cryptocurrencies versus BitStarz\'s six. Compared to 7Bit Casino, BitStarz offers a larger welcome bonus (5 BTC vs 1.5 BTC) but both share fast withdrawals and light KYC policies.',
+    },
+  ],
+  'bc-game': [
+    {
+      question: 'Is BC.Game legit?',
+      answer: 'BC.Game is a legitimate crypto casino licensed under Curaçao eGaming, operating since 2017. Is BC.Game legit? Yes — independent testing confirms fast withdrawals, a verified no-KYC policy maintained consistently since launch, and provably fair outcomes on original games. PlayMagpie rates BC.Game 8.9/10 for trust based on licensing quality, payout history and its no-KYC track record across over seven years of operation.',
+    },
+    {
+      question: 'What are BC.Game withdrawal times in 2026?',
+      answer: 'BC.Game withdrawal time in 2026 is instant to 10 minutes for most supported cryptocurrencies. The platform processes withdrawals automatically through its blockchain infrastructure with no manual review required for standard amounts. This near-instant processing across 100+ cryptocurrencies earns BC.Game a 9.3/10 withdrawal score on PlayMagpie — second only to BitStarz in our current rankings for payout speed.',
+    },
+    {
+      question: 'Does BC.Game require KYC verification?',
+      answer: 'BC.Game is a strict no-KYC casino. You can register, deposit, play and withdraw using only an email address — no identity documents, selfies or proof of address are ever required. The BC.Game no KYC policy applies to all withdrawal sizes and all 100+ supported cryptocurrencies. This makes it the top choice among privacy-focused players who want to gamble without submitting personal information to any third party.',
+    },
+    {
+      question: 'What are the best BC.Game bonus codes for 2026?',
+      answer: 'BC.Game bonus codes for 2026 can unlock additional free spins or enhanced deposit match offers beyond the standard welcome package of up to 300% across four deposits plus 200 free spins. Check the BC.Game promotions page or trusted affiliate partners for current bonus codes. Using a bonus code at signup may increase your first-deposit offer. Bonus terms including wagering requirements vary — always read full T&Cs before claiming.',
+    },
+    {
+      question: 'Is BC.Game a good Bitcoin casino?',
+      answer: 'As a BC.Game bitcoin casino, BTC is fully supported for deposits, withdrawals and in-game wagering. Bitcoin withdrawals are processed on-chain with typical confirmation times under 10 minutes. BC.Game is also compatible with 100+ other cryptocurrencies, making it the most versatile crypto gambling platform for Bitcoin players who also hold altcoins or prefer privacy coins. The 10,000+ game library includes provably fair Bitcoin-native originals.',
+    },
+    {
+      question: 'What is the BC.Game minimum deposit?',
+      answer: 'The BC.Game minimum deposit is just $5 or the crypto equivalent — one of the lowest thresholds in the industry. This makes BC.Game accessible for players testing the platform at low stakes before committing larger sums. The minimum is calculated at current exchange rates, so small amounts of most supported cryptocurrencies qualify. No deposit fees are charged by BC.Game itself; standard blockchain network fees apply.',
+    },
+    {
+      question: 'How do BC.Game VIP rewards work?',
+      answer: 'The BC.Game VIP rewards programme uses a tiered ranking system where players earn XP through wagering activity. Higher ranks unlock dedicated VIP managers, weekly cashback, higher withdrawal limits and exclusive deposit bonuses. BC.Game VIP rewards scale significantly at top tiers, making it particularly valuable for high-volume players. Unlike some invite-only VIP systems, BC.Game\'s tiers are transparent and progression-based.',
+    },
+    {
+      question: 'What crypto options does BC.Game support?',
+      answer: 'BC.Game crypto options are the widest of any major casino — over 100 cryptocurrencies accepted for deposits and withdrawals. Supported coins include Bitcoin, Ethereum, USDT, SOL, BNB, DOGE, LTC, XRP, TRX, USDC, ADA, MATIC, BCH and many more. BC.Game crypto options span multiple blockchains including ERC-20, TRC-20, BEP-20 and native chains, giving players maximum flexibility in managing funds without forced conversions.',
+    },
+  ],
+  cloudbet: [
+    {
+      question: 'Is Cloudbet legit?',
+      answer: 'Cloudbet is a legitimate, long-established crypto casino and sportsbook founded in 2013. Is Cloudbet legit? Yes — it holds dual licensing from Curaçao eGaming and the Kahnawake Gaming Commission, has processed withdrawals reliably through multiple crypto market cycles, and has zero reported unresolved withdrawal disputes in over a decade. PlayMagpie rates Cloudbet 8.7/10 for trust, reflecting its strong regulatory standing and operational history.',
+    },
+    {
+      question: 'What are Cloudbet withdrawal times in 2026?',
+      answer: 'Cloudbet withdrawal time in 2026 is instant to 30 minutes for cryptocurrency transactions. Most withdrawals are processed automatically without manual review. Bitcoin withdrawals typically clear in one blockchain confirmation. Cloudbet imposes no withdrawal limits, which is a critical advantage for high-roller players who need large sums processed quickly without hitting daily or weekly caps that restrict other casinos.',
+    },
+    {
+      question: 'What is the Cloudbet Bitcoin bonus?',
+      answer: 'The Cloudbet bitcoin bonus is a 100% deposit match up to 5 BTC on your first deposit — one of the largest single-deposit BTC bonuses available in 2026. The Cloudbet bitcoin bonus is released incrementally as you wager through the platform, rather than as a lump sum. This structure rewards active players and aligns the bonus release with real gambling activity. Ongoing reload bonuses are also available for returning players.',
+    },
+    {
+      question: 'What is the Cloudbet minimum deposit?',
+      answer: 'The Cloudbet minimum deposit is 0.001 BTC or the equivalent in other supported cryptocurrencies — lower than the dollar-denominated minimums at many competitors. Exact minimum deposit thresholds vary by cryptocurrency; check the Cloudbet cashier for per-coin figures. Deposits are credited after one blockchain confirmation. No deposit fees are charged by Cloudbet; standard network fees apply.',
+    },
+    {
+      question: 'What are Cloudbet KYC requirements?',
+      answer: 'Cloudbet has Light KYC requirements. Standard play and routine crypto withdrawals are available without identity verification. Cloudbet KYC requirements are triggered for very large withdrawal amounts or when account activity warrants a compliance review. For crypto-only players operating at normal stake levels, identity checks are rarely encountered. This light-touch approach balances regulatory compliance with a smooth player experience.',
+    },
+    {
+      question: 'Is Cloudbet good for high rollers?',
+      answer: 'Cloudbet is widely regarded as one of the best casinos for high rollers. Key Cloudbet high roller features include no withdrawal limits, large single-bet maximums across casino and sportsbook, a dedicated VIP programme with personal account managers, and a 5 BTC welcome bonus. High rollers also benefit from priority support, enhanced cashback through the VIP tier system, and the ability to withdraw any amount without restriction.',
+    },
+    {
+      question: 'What crypto options does Cloudbet support?',
+      answer: 'Cloudbet crypto options include 10 major cryptocurrencies: BTC, ETH, USDT, USDC, SOL, BNB, DOGE, LTC, BCH and PAX. The selection covers the most widely held coins while remaining curated for reliability and processing speed. All Cloudbet crypto options can be used for deposits, withdrawals and in-game wagering without conversion fees. This focused list suits players who hold mainstream crypto rather than niche altcoins.',
+    },
+    {
+      question: 'How good is the Cloudbet sportsbook?',
+      answer: 'The Cloudbet sportsbook is rated among the best in the crypto betting space. It covers hundreds of markets across football, basketball, tennis, cricket, esports and more. Live in-play betting is available with real-time odds. In this Cloudbet sportsbook review, standout features include competitive crypto odds, high betting limits suited to high rollers, and seamless integration with the casino platform for unified account management and instant fund movement.',
+    },
+  ],
+  'mirax-casino': [
+    {
+      question: 'Is Mirax Casino legit?',
+      answer: 'Mirax Casino is a legitimate crypto casino licensed under Curaçao eGaming, operating since 2022 as part of the established 7Bit Partners network. Is Mirax Casino legit? Yes — the 7Bit Partners network has over a decade of industry experience operating reputable brands with consistent payout records. PlayMagpie rates Mirax Casino 8.6/10 for trust, accounting for its newer status alongside the proven operator infrastructure behind it.',
+    },
+    {
+      question: 'What are Mirax Casino withdrawal times?',
+      answer: 'Mirax Casino withdrawal time for cryptocurrency transactions is instant to 15 minutes. Most crypto withdrawals are processed automatically and arrive in your wallet within minutes of approval. Fiat withdrawal times can be longer depending on the payment method. Mirax Casino\'s fast crypto payout speeds earn it an 8.8/10 withdrawal score on PlayMagpie. The instant-to-15-minute window applies to all major supported cryptocurrencies.',
+    },
+    {
+      question: 'What is the Mirax Casino bonus for 2026?',
+      answer: 'The Mirax Casino bonus for 2026 is a 325% welcome package across your first four deposits, worth up to $3,250 plus 250 free spins. This is one of the most generous welcome offers available at any crypto casino in 2026. Mirax Casino bonuses carry wagering requirements — full terms are available on the Mirax site and should be read before claiming. Ongoing promotions include reload bonuses and VIP-exclusive offers.',
+    },
+    {
+      question: 'What is the Mirax Casino minimum deposit?',
+      answer: 'The Mirax Casino minimum deposit is $20 or the crypto equivalent at current exchange rates. This applies to all payment methods including Bitcoin, Ethereum, USDT and other supported cryptocurrencies. Mirax Casino minimum deposit thresholds are in line with industry standards. Crypto deposits are typically credited after one blockchain confirmation, with no deposit fees charged by the casino itself.',
+    },
+    {
+      question: 'What crypto does Mirax Casino accept?',
+      answer: 'Mirax Casino crypto support covers seven major cryptocurrencies: BTC, ETH, USDT, LTC, DOGE, BCH and XRP. Mirax Casino crypto withdrawals are processed instantly to 15 minutes with no additional fees charged by the casino. While the crypto selection is smaller than BC.Game\'s 100+ options, it covers the major coins most players use. All Mirax crypto transactions are handled on-chain with standard network fees applying.',
+    },
+    {
+      question: 'Is Mirax Casino worth joining in 2026?',
+      answer: 'This Mirax Casino review 2026 highlights three key strengths: an exceptional welcome bonus (325% up to $3,250 plus 250 free spins), a 7,000+ game library from top providers including Evolution and Pragmatic Play, and fast crypto payouts within 15 minutes. Backed by the experienced 7Bit Partners network, Mirax earns an 8.6/10 trust score. The main consideration is its shorter track record compared to older crypto casinos like BitStarz or 7Bit.',
+    },
+    {
+      question: 'How does the Mirax Casino VIP programme work?',
+      answer: 'The Mirax Casino VIP programme rewards loyal players with tiered benefits including cashback on losses, higher withdrawal limits, personal account management and exclusive bonuses unavailable to standard players. Mirax Casino VIP status is earned through sustained wagering activity — higher tiers unlock progressively better perks. As part of the 7Bit Partners network, Mirax VIP players benefit from infrastructure and support systems proven across multiple established brands.',
+    },
+    {
+      question: 'What are Mirax Casino KYC requirements?',
+      answer: 'Mirax Casino has Light KYC requirements. Most players can register, deposit and play without submitting identity documents. Mirax Casino KYC verification may be triggered for larger withdrawal amounts or when account review flags a compliance check. Crypto-only players operating at standard stakes typically do not encounter identity verification at Mirax. The light KYC approach is standard across the 7Bit Partners network.',
+    },
+  ],
+  '7bit-casino': [
+    {
+      question: 'Is 7Bit Casino legit?',
+      answer: '7Bit Casino is a legitimate and well-established Bitcoin casino that has operated since 2014. Is 7Bit Casino legit? Yes — with over a decade of reliable operation, a strict no-KYC policy maintained throughout, and consistent payout performance across thousands of player transactions, it is one of the most trusted Bitcoin casinos available. PlayMagpie rates 7Bit Casino 8.8/10 for trust, reflecting its long track record and player-first policies.',
+    },
+    {
+      question: 'What are 7Bit Casino withdrawal times?',
+      answer: '7Bit Casino withdrawal time for crypto is instant to 10 minutes, making it one of the fastest-paying casinos in PlayMagpie\'s rankings. Bitcoin and other supported cryptocurrencies are processed automatically with no manual review required for standard withdrawal amounts. The 9.1/10 withdrawal score reflects consistently fast performance over years of operation. Large withdrawals may occasionally require additional processing time.',
+    },
+    {
+      question: 'Does 7Bit Casino require KYC?',
+      answer: '7Bit Casino no KYC policy applies to all crypto withdrawals regardless of amount. Players registering with email only can deposit, play and withdraw cryptocurrency without ever submitting identity documents, selfies or proof of address. The 7Bit Casino no KYC policy has been consistently maintained since 2014 — making it one of the most reliable privacy-preserving casinos for long-term players who value anonymity above all.',
+    },
+    {
+      question: 'What is the 7Bit Casino Bitcoin bonus for 2026?',
+      answer: 'The 7Bit Casino bitcoin bonus for 2026 is a 100% match up to 1.5 BTC on your first deposit plus 100 free spins. Subsequent deposits unlock further reload bonuses as part of the welcome package. Weekly reload bonuses also run continuously, providing ongoing value beyond the initial offer. The 7Bit Casino bitcoin bonus carries wagering requirements — check the full T&Cs on the 7Bit site before claiming any offer.',
+    },
+    {
+      question: 'What is the 7Bit Casino minimum deposit?',
+      answer: 'The 7Bit Casino minimum deposit is $10 or the crypto equivalent — lower than BitStarz ($20) and Mirax ($20), making it accessible for players who want to test the platform at lower stakes. This minimum applies across all eight supported cryptocurrencies: BTC, ETH, USDT, LTC, DOGE, BCH, XRP and BNB. Crypto deposits are credited after one blockchain confirmation with no casino-side deposit fees.',
+    },
+    {
+      question: 'What crypto options does 7Bit Casino support?',
+      answer: '7Bit Casino crypto options cover eight cryptocurrencies: BTC, ETH, USDT, LTC, DOGE, BCH, XRP and BNB. This covers the major coins most crypto casino players use for gambling. All 7Bit Casino crypto withdrawals are processed instantly to 10 minutes with no fees charged by the casino — only standard blockchain network fees apply. The curated eight-coin selection prioritises reliability and processing speed over breadth.',
+    },
+    {
+      question: 'How does the 7Bit Casino VIP program work?',
+      answer: 'The 7Bit Casino VIP program is a structured multi-tier system rewarding players with escalating benefits as wagering volume increases. Higher tiers unlock increased cashback percentages, higher withdrawal limits, a dedicated account manager and exclusive VIP-only bonuses. Unlike invite-only VIP programmes, the 7Bit Casino VIP program is progression-based — all players can advance through tiers by meeting wagering thresholds, with no referral or special access required.',
+    },
+    {
+      question: 'Is 7Bit Casino worth using in 2026?',
+      answer: 'This 7Bit Casino review 2026 confirms its position as a top-tier no-KYC Bitcoin casino. Key strengths: operating since 2014 with a flawless payout track record, instant to 10-minute crypto withdrawals, a 7,000+ game library including provably fair originals, and a strict no-KYC policy throughout. The 1.5 BTC welcome bonus cap is lower than some rivals, but overall 7Bit Casino earns an 8.8/10 trust score and remains a top pick for anonymity-focused players.',
+    },
+  ],
+}
+
 export async function generateMetadata(props: PageProps<'/reviews/[slug]'>): Promise<Metadata> {
   const { slug } = await props.params
   const casino = getCasinoBySlug(slug)
@@ -79,6 +252,7 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
   if (!casino) notFound()
 
   const relatedGuides = casinoRelatedGuides[slug] ?? []
+  const faqs = casinoFAQs[slug] ?? []
 
   const kycDescription =
     casino.kycLevel === 'None'
@@ -137,52 +311,41 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
     ],
   }
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: `Is ${casino.name} safe and legitimate?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `${casino.name} is licensed by ${casino.licence} and has a trust score of ${casino.trustScore}/10 on PlayMagpie's independent rating system.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `How fast are ${casino.name} crypto withdrawals?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `${casino.name} processes crypto withdrawals in ${casino.withdrawalTime.toLowerCase()}. Withdrawal score: ${casino.withdrawalScore}/10.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `Does ${casino.name} require KYC verification?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `${casino.name} has ${casino.kycLevel} KYC requirements. ${kycDescription}`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `What is the ${casino.name} welcome bonus?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: casino.bonusSummary,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `What cryptocurrencies does ${casino.name} accept?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `${casino.name} accepts the following cryptocurrencies: ${casino.acceptedCryptos.join(', ')}.`,
-        },
-      },
-    ],
-  }
+  const faqSchema = faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: `Is ${casino.name} safe and legitimate?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `${casino.name} is licensed by ${casino.licence} and has a trust score of ${casino.trustScore}/10 on PlayMagpie's independent rating system.`,
+            },
+          },
+          {
+            '@type': 'Question',
+            name: `How fast are ${casino.name} crypto withdrawals?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `${casino.name} processes crypto withdrawals in ${casino.withdrawalTime.toLowerCase()}. Withdrawal score: ${casino.withdrawalScore}/10.`,
+            },
+          },
+        ],
+      }
 
   return (
     <>
@@ -292,6 +455,32 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
               </Link>
             ))}
           </div>
+        </section>
+
+        {/* FAQ Section */}
+        {faqs.length > 0 && (
+          <section className="mt-12 pt-10 border-t border-[#222222]">
+            <h2 className="text-xl font-bold text-white mb-2">{casino.name} — Frequently Asked Questions</h2>
+            <p className="text-[#888888] text-sm mb-8">
+              Common questions from players researching {casino.name} in 2026.
+            </p>
+            <div className="space-y-4">
+              {faqs.map((faq) => (
+                <div key={faq.question} className="bg-[#111111] border border-[#222222] rounded-xl p-5">
+                  <h3 className="text-white font-semibold mb-2 text-base">{faq.question}</h3>
+                  <p className="text-[#888888] text-sm leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Final CTA */}
+        <section className="mt-12 pt-10 border-t border-[#222222] text-center">
+          <p className="text-[#888888] text-sm mb-4">
+            Ready to play at {casino.name}? Check the latest bonus offers on their site.
+          </p>
+          <CTAButton href={casino.affiliateUrl} label={`Visit ${casino.name}`} variant="primary" size="lg" external />
         </section>
       </div>
     </>

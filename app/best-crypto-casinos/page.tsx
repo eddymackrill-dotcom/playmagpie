@@ -38,7 +38,7 @@ const breadcrumbSchema = {
 }
 
 export default function BestCryptoCasinosPage() {
-  const top = getTopCasinos(6)
+  const top = getTopCasinos(5)
   const cryptoFocused = casinos.filter((c) => c.acceptedCryptos.length >= 4)
 
   return (
