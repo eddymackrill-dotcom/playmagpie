@@ -30,3 +30,13 @@ export const GAME_TYPES = [
   { name: 'Plinko', slug: 'plinko' },
   { name: 'Poker', slug: 'poker' },
 ]
+
+export const BONUS_TYPES = [
+  { name: 'Welcome Bonus', slug: 'welcome-bonus' },
+  { name: 'No Deposit Bonus', slug: 'no-deposit-bonus' },
+  { name: 'Reload Bonus', slug: 'reload-bonus' },
+  { name: 'Cashback', slug: 'cashback' },
+  { name: 'Free Spins', slug: 'free-spins' },
+  { name: 'VIP Bonus', slug: 'vip-bonus' },
+  { name: 'High Roller Bonus', slug: 'high-roller-bonus' },
+]

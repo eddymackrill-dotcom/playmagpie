@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { casinos } from '@/lib/casinos'
 import { guides } from '@/lib/guides'
-import { CRYPTO_LIST, COUNTRY_LIST, GAME_TYPES } from '@/lib/programmatic'
+import { CRYPTO_LIST, COUNTRY_LIST, GAME_TYPES, BONUS_TYPES } from '@/lib/programmatic'
 
 const BASE_URL = 'https://playmagpie.com'
 
@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/crypto`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/country`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/game`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/bonus`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/guides`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/compare`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
@@ -56,6 +57,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
+  const bonusPages: MetadataRoute.Sitemap = BONUS_TYPES.map((bonus) => ({
+    url: `${BASE_URL}/bonus/${bonus.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.75,
+  }))
+
   const comparisonPages: MetadataRoute.Sitemap = []
   for (let i = 0; i < casinos.length; i++) {
     for (let j = 0; j < casinos.length; j++) {
@@ -70,5 +78,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  return [...staticPages, ...casinoReviewPages, ...guidePages, ...cryptoPages, ...countryPages, ...gamePages, ...comparisonPages]
+  return [...staticPages, ...casinoReviewPages, ...guidePages, ...cryptoPages, ...countryPages, ...gamePages, ...bonusPages, ...comparisonPages]
 }
