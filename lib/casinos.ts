@@ -239,6 +239,43 @@ export const casinos: Casino[] = [
     featured: true,
     badges: ['Fast Payouts', 'VIP', 'Crypto'],
   },
+  {
+    name: 'Duelbits',
+    slug: 'duelbits',
+    logo: '/logos/duelbits.png',
+    licence: 'Curacao (Antillephone N.V.)',
+    acceptedCryptos: ['BTC', 'ETH', 'LTC', 'USDT', 'USDC', 'DOGE', 'SOL', 'BNB', 'BCH', 'XRP', 'TRX', 'MATIC'],
+    withdrawalTime: 'Instant to 5 minutes',
+    minDeposit: '$10',
+    kycLevel: 'None',
+    vipProgram: true,
+    bonusSummary: 'Up to $30 cashback weekly plus Duelbits Originals rewards and seasonal promotions',
+    restrictedCountries: ['US', 'UK', 'AU', 'NL', 'FR'],
+    trustScore: 8.5,
+    withdrawalScore: 9.2,
+    bonusFairnessScore: 8.4,
+    kycScore: 9.3,
+    affiliateUrl: 'https://go.duelbits.io/visit/?bta=38006&brand=duelbits',
+    reviewSummary:
+      'Duelbits is a modern crypto-native casino and sportsbook launched in 2020, built around its own Duelbits Originals games — provably fair slots, crash, plinko and dice with cryptographically verifiable outcomes. The platform operates a no-KYC policy for crypto play and withdrawals, with only basic checks triggered for unusual activity, and processes most crypto payouts in under 5 minutes across 12 supported cryptocurrencies. The bonus structure is cashback-focused rather than headline match: up to $30 weekly cashback plus continuous Duelbits Originals rewards and seasonal leaderboard promotions, which delivers better real expected value than high-wagering match bonuses for active players. Duelbits is particularly popular with streamers and high rollers — the VIP system runs on rakeback rather than tier-locked bonuses, and the platform interface is cleaner and more crypto-native than older brands.',
+    pros: [
+      'No KYC required for crypto play and withdrawals — basic checks only',
+      'Instant crypto withdrawals — typically processed in under 5 minutes',
+      'Duelbits Originals — provably fair house games (slots, crash, plinko, dice)',
+      '12 supported cryptocurrencies including BTC, ETH, USDT, SOL, BNB and MATIC',
+      'Weekly cashback up to $30 plus seasonal bonuses and Originals rewards',
+      'Streamer-friendly with an active community and frequent leaderboard events',
+      'Modern interface designed for crypto users — clean cashier and account flows',
+    ],
+    cons: [
+      'Welcome bonus is cashback-focused rather than a large deposit match',
+      'Smaller game library than older established casinos like BC.Game or BitStarz',
+      'Curaçao licence only — less regulated than MGA-licensed alternatives',
+      'Some restricted jurisdictions including US, UK and Australia',
+    ],
+    featured: true,
+    badges: ['No KYC', 'Fast Payouts', 'VIP', 'Crypto'],
+  },
 ]
 
 export function getCasinoBySlug(slug: string): Casino | undefined {

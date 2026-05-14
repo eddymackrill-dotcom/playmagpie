@@ -5,7 +5,7 @@ A modern crypto casino affiliate website built with Next.js 16, TypeScript and T
 ## Features
 
 - **13+ pages** — Homepage, 4 casino list pages, dynamic review template, guides index + 5 guide pages, About, Contact, Privacy, Terms
-- **6 casinos** including real BitStarz data with full data models
+- **7 casinos** including real BitStarz data with full data models
 - **Premium dark UI** with amber/gold accents
 - **Fully responsive** — mobile, tablet, desktop
 - **Full SEO suite** — sitemap.xml, robots.txt, Open Graph, Twitter cards, JSON-LD review schema, canonical URLs on every page
