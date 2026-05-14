@@ -3,7 +3,7 @@ import { casinos } from '@/lib/casinos'
 import { guides } from '@/lib/guides'
 import { CRYPTO_LIST, COUNTRY_LIST, GAME_TYPES, BONUS_TYPES } from '@/lib/programmatic'
 
-const BASE_URL = 'https://playmagpie.com'
+const BASE_URL = 'https://www.playmagpie.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

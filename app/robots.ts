@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/privacy', '/terms'],
       },
     ],
-    sitemap: 'https://playmagpie.com/sitemap.xml',
+    sitemap: 'https://www.playmagpie.com/sitemap.xml',
   }
 }

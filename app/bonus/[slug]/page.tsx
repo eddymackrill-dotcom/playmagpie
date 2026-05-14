@@ -44,9 +44,9 @@ export default async function BonusPage(props: PageProps<'/bonus/[slug]'>) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://playmagpie.com' },
-      { '@type': 'ListItem', position: 2, name: 'Bonuses', item: 'https://playmagpie.com/bonus' },
-      { '@type': 'ListItem', position: 3, name: bonus.name, item: `https://playmagpie.com/bonus/${bonus.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
+      { '@type': 'ListItem', position: 2, name: 'Bonuses', item: 'https://www.playmagpie.com/bonus' },
+      { '@type': 'ListItem', position: 3, name: bonus.name, item: `https://www.playmagpie.com/bonus/${bonus.slug}` },
     ],
   }
 

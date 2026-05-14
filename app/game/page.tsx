@@ -27,8 +27,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://playmagpie.com' },
-    { '@type': 'ListItem', position: 2, name: 'Crypto Casinos by Game Type', item: 'https://playmagpie.com/game' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
+    { '@type': 'ListItem', position: 2, name: 'Crypto Casinos by Game Type', item: 'https://www.playmagpie.com/game' },
   ],
 }
 

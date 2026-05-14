@@ -318,12 +318,12 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
     author: {
       '@type': 'Organization',
       name: 'PlayMagpie',
-      url: 'https://playmagpie.com',
+      url: 'https://www.playmagpie.com',
     },
     publisher: {
       '@type': 'Organization',
       name: 'PlayMagpie',
-      url: 'https://playmagpie.com',
+      url: 'https://www.playmagpie.com',
     },
     itemReviewed: {
       '@type': 'Organization',
@@ -338,16 +338,16 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
     },
     datePublished: '2026-01-01',
     dateModified: '2026-05-12',
-    url: `https://playmagpie.com/reviews/${casino.slug}`,
+    url: `https://www.playmagpie.com/reviews/${casino.slug}`,
   }
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://playmagpie.com' },
-      { '@type': 'ListItem', position: 2, name: 'Best Crypto Casinos', item: 'https://playmagpie.com/best-crypto-casinos' },
-      { '@type': 'ListItem', position: 3, name: casino.name, item: `https://playmagpie.com/reviews/${casino.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
+      { '@type': 'ListItem', position: 2, name: 'Best Crypto Casinos', item: 'https://www.playmagpie.com/best-crypto-casinos' },
+      { '@type': 'ListItem', position: 3, name: casino.name, item: `https://www.playmagpie.com/reviews/${casino.slug}` },
     ],
   }
 

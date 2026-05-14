@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   description:
     'Independent ratings for crypto casinos. Find the best platforms for fast withdrawals, no-KYC play, VIP rewards and big bonuses in 2026.',
-  metadataBase: new URL('https://playmagpie.com'),
+  metadataBase: new URL('https://www.playmagpie.com'),
   openGraph: {
     type: 'website',
     siteName: 'PlayMagpie',

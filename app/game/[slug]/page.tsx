@@ -53,8 +53,8 @@ export default async function GamePage(props: PageProps<'/game/[slug]'>) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://playmagpie.com' },
-      { '@type': 'ListItem', position: 2, name: `${game.name} Casinos`, item: `https://playmagpie.com/game/${game.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
+      { '@type': 'ListItem', position: 2, name: `${game.name} Casinos`, item: `https://www.playmagpie.com/game/${game.slug}` },
     ],
   }
 

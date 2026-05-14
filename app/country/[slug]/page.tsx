@@ -53,8 +53,8 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://playmagpie.com' },
-      { '@type': 'ListItem', position: 2, name: `${country.name} Casinos`, item: `https://playmagpie.com/country/${country.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
+      { '@type': 'ListItem', position: 2, name: `${country.name} Casinos`, item: `https://www.playmagpie.com/country/${country.slug}` },
     ],
   }
 

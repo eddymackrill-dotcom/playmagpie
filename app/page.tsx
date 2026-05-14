@@ -33,10 +33,10 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'PlayMagpie',
-  url: 'https://playmagpie.com',
+  url: 'https://www.playmagpie.com',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://playmagpie.com/best-crypto-casinos?q={search_term_string}',
+    target: 'https://www.playmagpie.com/best-crypto-casinos?q={search_term_string}',
     'query-input': 'required name=search_term_string',
   },
 }
@@ -45,8 +45,8 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'PlayMagpie',
-  url: 'https://playmagpie.com',
-  logo: 'https://playmagpie.com/magpie-logo.png',
+  url: 'https://www.playmagpie.com',
+  logo: 'https://www.playmagpie.com/magpie-logo.png',
   description:
     'Independent affiliate review site rating crypto casinos on withdrawal speed, bonus fairness, KYC friction and platform trust.',
   sameAs: [],

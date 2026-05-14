@@ -58,8 +58,8 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://playmagpie.com' },
-      { '@type': 'ListItem', position: 2, name: `${crypto.name} Casinos`, item: `https://playmagpie.com/crypto/${crypto.slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
+      { '@type': 'ListItem', position: 2, name: `${crypto.name} Casinos`, item: `https://www.playmagpie.com/crypto/${crypto.slug}` },
     ],
   }
 

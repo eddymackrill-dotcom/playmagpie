@@ -77,7 +77,7 @@ Add a new entry to `lib/casinos.ts` following the `Casino` type. The casino will
 
 ## Domain
 
-Update `https://playmagpie.com` in these three files when your domain changes:
+Update `https://www.playmagpie.com` in these three files when your domain changes:
 
 - `app/layout.tsx` — `metadataBase`
 - `app/sitemap.ts` — `BASE_URL`

@@ -99,8 +99,8 @@ export default async function ComparePage(props: PageProps<'/compare/[slug]'>) {
     '@type': 'WebPage',
     name: `${c1.name} vs ${c2.name} — Head-to-Head Comparison 2026`,
     description: `Independent comparison of ${c1.name} and ${c2.name} covering withdrawal speed, bonus fairness, KYC policy and trust score.`,
-    url: `https://playmagpie.com/compare/${slug}`,
-    publisher: { '@type': 'Organization', name: 'PlayMagpie', url: 'https://playmagpie.com' },
+    url: `https://www.playmagpie.com/compare/${slug}`,
+    publisher: { '@type': 'Organization', name: 'PlayMagpie', url: 'https://www.playmagpie.com' },
     dateModified: '2026-05-13',
   }
 
@@ -108,9 +108,9 @@ export default async function ComparePage(props: PageProps<'/compare/[slug]'>) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://playmagpie.com' },
-      { '@type': 'ListItem', position: 2, name: 'Compare Casinos', item: 'https://playmagpie.com/compare' },
-      { '@type': 'ListItem', position: 3, name: `${c1.name} vs ${c2.name}`, item: `https://playmagpie.com/compare/${slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
+      { '@type': 'ListItem', position: 2, name: 'Compare Casinos', item: 'https://www.playmagpie.com/compare' },
+      { '@type': 'ListItem', position: 3, name: `${c1.name} vs ${c2.name}`, item: `https://www.playmagpie.com/compare/${slug}` },
     ],
   }
 

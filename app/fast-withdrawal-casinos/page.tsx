@@ -30,8 +30,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://playmagpie.com' },
-    { '@type': 'ListItem', position: 2, name: 'Fast Withdrawal Casinos', item: 'https://playmagpie.com/fast-withdrawal-casinos' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
+    { '@type': 'ListItem', position: 2, name: 'Fast Withdrawal Casinos', item: 'https://www.playmagpie.com/fast-withdrawal-casinos' },
   ],
 }
 

@@ -6,8 +6,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://playmagpie.com' },
-    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://playmagpie.com/guides' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://www.playmagpie.com/guides' },
   ],
 }
 
