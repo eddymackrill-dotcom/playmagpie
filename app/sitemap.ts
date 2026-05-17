@@ -29,6 +29,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
+  const withdrawalPageSlugs = ['bitstarz', 'mirax-casino', '7bit-casino']
+  const casinoWithdrawalPages: MetadataRoute.Sitemap = withdrawalPageSlugs.map((slug) => ({
+    url: `${BASE_URL}/reviews/${slug}/withdrawal`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.75,
+  }))
+
   const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
     url: `${BASE_URL}/guides/${guide.slug}`,
     lastModified: new Date(),
@@ -78,5 +86,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  return [...staticPages, ...casinoReviewPages, ...guidePages, ...cryptoPages, ...countryPages, ...gamePages, ...bonusPages, ...comparisonPages]
+  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...guidePages, ...cryptoPages, ...countryPages, ...gamePages, ...bonusPages, ...comparisonPages]
 }
