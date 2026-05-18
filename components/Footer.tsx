@@ -38,6 +38,22 @@ export default function Footer() {
               Independent ratings for crypto casinos. Scored on withdrawals, bonuses,
               KYC friction and VIP value — so you find the right platform fast.
             </p>
+            <a
+              href="https://x.com/MagpieGG"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow PlayMagpie on X"
+              className="inline-flex items-center justify-center mt-5 text-[#888888] hover:text-[#7BB8D4] transition-colors"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="currentColor"
+                className="w-[18px] h-[18px]"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
           </div>
 
           <div>

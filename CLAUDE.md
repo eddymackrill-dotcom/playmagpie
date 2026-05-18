@@ -67,6 +67,20 @@ Every programmatic page should include at least 3 specific, verifiable data poin
 
 Don't invent numbers. If you don't have data, either get it from `lib/casinos.ts` or omit the claim entirely. Wrong data is worse than no data.
 
+## On numerical data (and other verifiable facts)
+
+When researching facts for new content — regulator names, tax rates, statute citations, exchange licensing status, dates a regulator came into force, gambling-tax percentages — use a research subagent to cross-check against primary sources before publishing. Note source URLs in a comment block at the top of the relevant data file so they can be spot-checked later.
+
+This is what worked for the country page strengthening: verified facts (DIA licensing milestones, Section 613(2) TCA 1997, GGL operational date, kansspelbelasting rate progression) made the content rank. Invented facts would get the site penalised.
+
+Rule of thumb for what to verify externally rather than trust from training data:
+* Anything date-stamped within the past 18 months (new regulators, tax rate changes, exchange licensing)
+* Statute citations and section numbers
+* Operational status of foreign exchanges in specific jurisdictions
+* Any "current" claim about a regulator or law that may have moved on since training cutoff
+
+If a single fact can't be verified to a primary source, omit it — don't bluff. Flagging "we don't have a verified figure to share" in copy is more credible than inventing one.
+
 ## Each page must be genuinely different
 
 The failure mode of programmatic SEO is producing 50 pages where only the casino name changes. Google's Helpful Content algorithm explicitly targets this pattern.
@@ -79,6 +93,23 @@ For each page in a programmatic set, vary:
 * **Examples and use-cases** — a "withdrawal" page for a sportsbook-focused casino should discuss sportsbook withdrawal patterns; one for a slots-heavy casino should discuss slot bonus wagering before withdrawal
 
 If two pages in a batch could swap their bodies and still make sense after a name find-and-replace, they're too templated. Rewrite them.
+
+## What we've learned about Google indexing
+
+Search Console reports two failure states that look similar but mean different things — and the fixes are different:
+
+* **"Crawled - currently not indexed"** — Google visited the page and chose not to index it. This is a content quality signal. The fix is to strengthen the content, then click "Validate Fix" in Search Console.
+* **"Discovered - currently not indexed"** — Google knows the URL exists but hasn't crawled it yet. This is a crawl queue issue, not a quality issue. The fix is to submit via Request Indexing to push Google to visit the page.
+
+Don't confuse the two. Strengthening the content of a "Discovered" page doesn't help — Google hasn't seen it yet. Requesting indexing for a "Crawled - currently not indexed" page just makes Google re-reject it without changes.
+
+**The canary case: /country/new-zealand.** Google crawled it and rejected it as "Crawled - currently not indexed." Comparing it to /country/canada (indexed and ranking) showed the difference was content depth: Canada had ~150 words of dense, country-specific intro content covering five elements (regulator, exchanges, tax treatment, currency friction, regional regulatory variation). NZ had ~80 words and skipped most of those. Strengthening NZ to Canada's depth was the fix.
+
+**The pattern that works for "Crawled - currently not indexed":** bring the page up to ~150 words of locally-grounded content covering whatever the five-element analogue is for that page type. For country pages it's regulator + exchanges + tax + currency friction + regional variation. For other page types the elements differ but the principle is the same — specific, verifiable, locally relevant facts in volume.
+
+**Each page must have a structurally different opening hook** — not the same template with names swapped. NZ leads on regulatory transition dates, Ireland leads on a tax statute, Germany leads on the licensing regime, Netherlands leads on the kansspelbelasting rate hike. Google's Helpful Content algorithm explicitly targets name-swap templating.
+
+**General principle:** if a page sits in "Crawled - currently not indexed", that's Google telling you the content depth is below threshold. Don't argue with the signal. Strengthen the content.
 
 ## Self-audit before deploy
 
@@ -120,6 +151,12 @@ When building new pages, add 3-5 contextual internal links to existing pages. Us
 5. Run `git status` to confirm what's changing
 6. Commit with a descriptive message ("Add withdrawal pages for BitStarz, Mirax, 7Bit")
 7. `git push origin master` — Vercel auto-deploys
+
+## Social presence
+
+* **X account:** [@MagpieGG](https://x.com/MagpieGG) — linked from the footer
+* Brand voice on X is identical to the site: direct, editorial, anti-shill. No emoji-heavy crypto-bro posting, no "GM frens", no hype-style affiliate spam.
+* Posts can reference real on-site analysis (rankings, withdrawal data, country-specific regulatory notes) — but read like a person who knows the niche, not a content calendar.
 
 ## When in doubt
 
