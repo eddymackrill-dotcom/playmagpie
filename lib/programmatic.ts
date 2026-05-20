@@ -17,6 +17,7 @@ export const COUNTRY_LIST = [
   { name: 'Germany', slug: 'germany', currency: 'EUR' },
   { name: 'Netherlands', slug: 'netherlands', currency: 'EUR' },
   { name: 'Norway', slug: 'norway', currency: 'NOK' },
+  { name: 'Sweden', slug: 'sweden', currency: 'SEK' },
   { name: 'Japan', slug: 'japan', currency: 'JPY' },
 ]
 
