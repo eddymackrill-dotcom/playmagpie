@@ -65,6 +65,9 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'p', text: 'Card withdrawals are subject to bank processing cycles that have not meaningfully improved in decades. The casino typically initiates the refund within 24 hours, but the card network and your bank then process it on their own schedule. Visa and Mastercard withdrawals generally clear in 1–3 business days. Weekend transactions are queued until Monday. Some banks apply additional holds on gambling-related transactions, and many credit card networks have restricted gambling transactions entirely, making credit card deposits impossible at most regulated sites.' },
     { type: 'h3', text: '#5 — Bank transfer: 2–7 business days' },
     { type: 'p', text: 'Bank transfers are the slowest and most friction-heavy method. They require full KYC, involve correspondent banking relationships that add processing delays, and are subject to AML compliance reviews on both the casino and bank side. International wire transfers can take 3–5 business days in normal circumstances. For players in jurisdictions with restrictive banking relationships with gambling operators, bank transfers may be rejected outright. There is no practical reason to use bank transfer when crypto alternatives are available.' },
+    { type: 'h2', text: 'Withdrawal speed at the casinos we review' },
+    { type: 'p', text: 'Across the seven crypto casinos in PlayMagpie\'s rankings, five carry withdrawal scores at or above 9.0/10 — meaning consistently fast, automated payout pipelines: BitStarz 9.5/10 (under-10-minute typical processing), BC.Game 9.3/10 (instant to 10 minutes across 100+ supported cryptocurrencies), Duelbits 9.2/10 (instant to 5 minutes, the fastest verified end-to-end), 7Bit Casino 9.1/10 (instant to 10 minutes, no-KYC throughout) and Cloudbet 9.0/10 (instant to 30 minutes with no withdrawal limits). The score gap between 9.5 and 9.0 represents the difference between "almost always under 10 minutes" and "almost always under 30 minutes" — both fast in the broader landscape, but if you cash out frequently, the speed difference compounds.' },
+    { type: 'p', text: 'The two casinos in the 8.0–9.0 band — Mirax (8.8/10, instant to 15 minutes) and Shuffle (8.8/10, instant to 10 minutes with potential KYC review on larger amounts) — still beat any non-crypto method. The variable that bumps a casino from 9.x to 8.x in our scoring is usually a structural caveat: temporary holds on flagged withdrawals, larger-amount KYC triggers, or batch-processing windows. None of these affect routine play; all of them can matter on a big win.' },
     { type: 'h2', text: 'How to check your withdrawal status' },
     { type: 'p', text: 'Once a casino sends your transaction, you will typically receive a transaction ID (TXID). Paste this into the relevant blockchain explorer — Tronscan for TRC-20 transactions, Solscan for Solana, Etherscan for Ethereum, and Blockchain.com or Mempool.space for Bitcoin. These explorers show you real-time confirmation status, number of confirmations received, and the transaction fee paid. If a transaction has been broadcast to the network but is showing as unconfirmed for an unusually long time, this points to network congestion or a low fee setting rather than a casino problem.' },
     { type: 'h2', text: 'Tips for the fastest withdrawals' },
@@ -105,6 +108,10 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'p', text: 'Many bonuses include a maximum withdrawal limit on winnings derived from bonus play. A common structure is a $200 or $500 cap regardless of actual winnings. This means if you hit a large win during bonus wagering — say, $5,000 on a $500 bonus — you can only withdraw $200 or $500 of that amount, with the remainder forfeited. Maximum win caps are most common in smaller welcome bonuses and free spin offers. High-value match bonuses at reputable casinos typically do not have win caps, or set them at a reasonable multiple of the deposit (e.g., 5x or 10x).' },
     { type: 'h2', text: 'Time limits' },
     { type: 'p', text: 'Bonuses expire if wagering requirements are not met within a specified window — commonly 7, 14 or 30 days. Time limits matter most for larger bonuses with high wagering requirements. If you cannot realistically meet a 40x wagering requirement within 7 days at your normal play volume, the bonus will expire and both the bonus funds and any winnings generated will be forfeited. Accepting a bonus you cannot complete within the time limit is equivalent to accepting a withdrawal restriction on your account.' },
+    { type: 'h2', text: 'Worked examples from casinos we review' },
+    { type: 'p', text: 'Take Mirax Casino\'s headline offer: 325% up to $3,250 plus 250 free spins, spread across the first four deposits. The 325% headline is real — it\'s the largest match in our current rankings. The cost of clearing it is the question. With wagering applied to bonus funds (read the current terms for the multiplier and game contribution split), getting to a withdrawable balance from the full $3,250 bonus means real-money play volume well into five figures. On a slot library with 96% RTP, that wagering volume implies a four-figure expected loss before the bonus converts. The bonus is generous on paper; whether it\'s genuinely worth clearing depends on how aggressively you were planning to play anyway.' },
+    { type: 'p', text: 'BitStarz documents a different kind of catch: a 25% admin fee on bonus-related withdrawals — flagged in our review as the one most players don\'t see coming. The 5 BTC welcome headline is also real. But if you clear the bonus and want to withdraw the resulting winnings, 25% comes off at the cashier. That changes the effective expected value of the bonus meaningfully. A $5,000 BTC-equivalent win after clearing the bonus arrives in your wallet as $3,750. Whether you\'d still take the bonus knowing that is the better way to think about it than the headline number alone.' },
+    { type: 'p', text: 'Across the seven casinos we review, the bonuses with the cleanest math are usually the rakeback and weekly cashback offers at platforms like Duelbits ($30 weekly cashback) and Cloudbet (VIP cashback rates) — no wagering, no maximum win caps, no admin fees on the way out. That\'s the structural reason cashback beats most match bonuses for active players.' },
     { type: 'h2', text: 'The bonuses actually worth taking' },
     { type: 'p', text: 'Cashback offers with no wagering requirements are the most player-friendly bonus type available. The casino returns a percentage of net losses — typically 10–20% — with no strings attached. What you win, you keep. These are standard in VIP programmes at casinos like BitStarz, Cloudbet and BC.Game. Reload bonuses with low wagering (under 25x) are worthwhile for regular players. Free spins are lower risk but also lower value — read the maximum win cap carefully. First deposit match bonuses at 20–30x wagering with no game restrictions are reasonable. Anything with 40x+ wagering, restricted game lists, and a win cap is a marketing tool, not a player incentive.' },
     { type: 'h2', text: 'Summary checklist before accepting any bonus' },
@@ -124,6 +131,9 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'p', text: 'TRC-20 USDT fees are under $0.01 per transaction in virtually all conditions. Bitcoin fees fluctuate with network demand. At times of low congestion, BTC fees can be under $1. During peak demand periods in 2024 and 2025, fees spiked to $50–$100 per transaction. For frequent depositors and withdrawers, USDT on TRC-20 is substantially cheaper over time.' },
     { type: 'h2', text: 'Availability at casinos' },
     { type: 'p', text: 'Bitcoin has a slight edge on availability — virtually every crypto casino accepts BTC, including some smaller platforms that only support Bitcoin. USDT is accepted at all major crypto casinos but may not be available at the very smallest operators. For the platforms reviewed on PlayMagpie — BitStarz, BC.Game, Cloudbet, Mirax Casino, and 7Bit Casino — both BTC and USDT are supported. In practice, availability is not a meaningful differentiator for players using reputable platforms.' },
+    { type: 'h2', text: 'TRC-20 USDT support across the casinos we review' },
+    { type: 'p', text: 'The catch with USDT is that the same coin runs on multiple networks. ERC-20 (Ethereum) USDT carries the same gas-fee exposure as ETH itself — slow and expensive. TRC-20 (Tron) USDT is the version that delivers the speed and cost advantages described above. Looking at our seven reviewed casinos: BC.Game lists 100+ cryptocurrencies including TRC-20 USDT explicitly. Duelbits supports 12 cryptos including USDT TRC-20. Cloudbet\'s 10-coin lineup includes USDT and USDC across supported chains. BitStarz, Mirax Casino, 7Bit Casino and Shuffle all support USDT — verify the network selection at the cashier before depositing, since sending TRC-20 USDT to an ERC-20 address results in lost funds.' },
+    { type: 'p', text: 'Practical rule: if the casino lists USDT support and has been operating for more than a year, it almost certainly enables TRC-20. The deposit screen in the cashier confirms which networks are accepted — pick TRC-20 unless your wallet only holds ERC-20 USDT and you don\'t want to bridge.' },
     { type: 'h2', text: 'The case for choosing Bitcoin' },
     { type: 'p', text: 'Bitcoin makes sense if you hold BTC as a long-term investment and want to use it at casinos without converting to stablecoins. Some players prefer to keep all of their wealth in BTC and treat casino deposits as transactions from their existing holdings. In this case, the volatility is not an added risk — it was already present in their portfolio. Bitcoin also makes sense for players in jurisdictions where stablecoin acquisition is harder than BTC, or where exchange-based BTC purchases are the most accessible on-ramp.' },
     { type: 'h2', text: 'The PlayMagpie verdict' },
@@ -134,6 +144,28 @@ const guideContent: Record<string, ContentBlock[]> = {
 // FAQ data per guide. Only include questions actually answered in the guide content
 // (per CLAUDE.md: don't generate FAQ schema with questions you didn't answer on the page).
 const guideFAQs: Record<string, { question: string; answer: string }[]> = {
+  'how-crypto-casino-withdrawals-work': [
+    {
+      question: 'How long should a crypto casino withdrawal take?',
+      answer: 'On TRC-20 (Tron) or Solana, under 5 minutes end-to-end including the casino\'s internal processing. On Bitcoin, 10–60 minutes depending on network conditions. On Ethereum, 1–15 minutes for the chain itself but gas fees can spike. Anything longer than that points to KYC review, manual batch processing on the casino side, or a flagged transaction — not a blockchain issue.',
+    },
+    {
+      question: 'Why is my casino withdrawal pending?',
+      answer: 'The two most common causes are mid-process KYC verification (the casino is asking for ID or proof of address before releasing funds) and manual review for unusual activity. Network congestion on Bitcoin can also delay confirmation, though that\'s usually visible on the blockchain explorer rather than as a "pending" status in the casino UI. Light-KYC platforms like BitStarz, Cloudbet, Mirax and Shuffle reserve the right to trigger ID checks on larger withdrawals; no-KYC platforms (BC.Game, 7Bit, Duelbits) avoid this entirely for routine play.',
+    },
+    {
+      question: 'Do I need KYC to withdraw crypto from an online casino?',
+      answer: 'At no-KYC casinos like BC.Game, 7Bit Casino and Duelbits, no — withdrawals process without identity documents at any amount, by policy. At Light-KYC casinos (BitStarz, Cloudbet, Mirax, Shuffle), routine withdrawals usually don\'t require KYC, but larger amounts or activity that flags compliance checks can trigger document requests. If KYC matters to you, the policy is documented in each casino\'s review.',
+    },
+    {
+      question: 'Which network should I use for the fastest withdrawal?',
+      answer: 'TRC-20 (Tron) for USDT, Solana for any SOL-native or Solana-bridged coin, or Polygon for MATIC and USDC on Polygon. All three confirm in under 30 seconds with fees below $0.01. Avoid Bitcoin and Ethereum mainnet for routine small withdrawals — both work, but you pay in either time or fees. Always verify the casino supports your chosen network before requesting the withdrawal.',
+    },
+    {
+      question: 'What if I send a casino withdrawal to the wrong network?',
+      answer: 'Funds are lost. Sending TRC-20 USDT to an ERC-20 address (or vice versa) results in tokens sitting at an address the receiving wallet can\'t read on that chain. Recovery is technically possible in narrow cases if the receiving wallet supports multiple chains and the network can be derived, but the realistic outcome is permanent loss. Always copy the deposit address from the matching network selector at the casino and confirm one or two characters before broadcasting.',
+    },
+  ],
   'best-crypto-for-gambling': [
     {
       question: 'What is the best cryptocurrency for online gambling in 2026?',
@@ -155,6 +187,75 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
       question: 'Do any casinos accept Monero (XMR)?',
       answer: 'Monero support at general-market crypto casinos is rare and varies by operator. XMR is the only cryptocurrency with native protocol-level transaction privacy, so it has appeal for privacy-first players, but the list of operators accepting it is narrow and changes more often than other coin listings. Verify on the casino\'s current cashier page if privacy is your decisive factor.',
     },
+  ],
+  'how-casino-bonuses-really-work': [
+    {
+      question: 'What is a wagering requirement and why does it matter?',
+      answer: 'A wagering requirement (also called playthrough) specifies how many times you must bet through the bonus amount before the bonus converts to withdrawable cash. A $500 bonus at 30x means $15,000 in total bets. Statistically, wagering $15,000 on a 96% RTP slot library implies around $600 in expected losses — more than the bonus value itself in many cases. Wagering under 20x can offer real value; over 40x rarely does; over 60x should be declined entirely.',
+    },
+    {
+      question: 'Why do different games contribute different amounts to wagering?',
+      answer: 'Casinos use contribution percentages to steer players toward higher-house-edge games. Slots contribute 100% — $1 bet = $1 toward wagering. Blackjack, roulette, baccarat usually contribute 5–10%. Live dealer often contributes 0–10%. If you primarily play table games, a 30x wagering requirement effectively becomes 300x+ for your preferred game type. Always check the contribution table before accepting a bonus if you don\'t play slots.',
+    },
+    {
+      question: 'Is a 300% bonus always better than a 100% bonus?',
+      answer: 'No. A 300% bonus with 50x wagering and a $200 max-win cap is typically worth far less than a 100% bonus with 25x wagering and no cap. The headline percentage is the most marketed number and the least relevant for real expected value. Calculate the wagering requirement in dollars, factor in your game contribution percentage, and check whether a max-win cap applies before comparing offers.',
+    },
+    {
+      question: 'Should I take the welcome bonus or decline it?',
+      answer: 'Decline if: the wagering requirement exceeds 40x; the time limit is too short for your normal play volume; there\'s a low max-win cap relative to the bonus; or the bonus excludes your preferred game type. For active players who plan to wager the requirement anyway on slots, a 20–30x match bonus with no game restrictions is often worth taking. For players who plan to deposit, play briefly, and withdraw quickly, the bonus becomes a withdrawal restriction — usually better declined.',
+    },
+    {
+      question: 'Do all casino bonuses have a maximum win cap?',
+      answer: 'No. Smaller welcome bonuses and free-spin offers commonly include a max-win cap (often $200–$500). Larger match bonuses at reputable platforms typically don\'t cap winnings, or set the cap at a reasonable multiple of the deposit (5x or 10x). Cashback offers and rakeback rewards almost never have caps. Always read the maximum withdrawal clause in the bonus terms before depositing — a $5,000 win on a $500 bonus is worth $200 with a $200 cap.',
+    },
+  ],
+  'bitcoin-vs-usdt-casinos': [
+    {
+      question: 'Is USDT better than Bitcoin for online casinos?',
+      answer: 'For most players, yes. USDT on TRC-20 is faster (under 3 seconds vs 10–60 minutes), cheaper (under $0.01 vs unpredictable), and more stable (1:1 USD peg vs market volatility). Bitcoin makes sense only if you already hold BTC and prefer not to convert, or if you actively want price exposure alongside your gaming. For players acquiring crypto specifically to gamble, USDT on TRC-20 is the better default.',
+    },
+    {
+      question: 'What is TRC-20 USDT and why does it matter?',
+      answer: 'USDT exists on multiple blockchains. TRC-20 is the version on the Tron network — confirms in under 3 seconds with fees under $0.01. ERC-20 is the version on Ethereum — 15–30 seconds per block but gas fees that can be $5–$30. Same token, very different transaction characteristics. Always select TRC-20 at the casino cashier when available; sending TRC-20 USDT to an ERC-20 address results in lost funds.',
+    },
+    {
+      question: 'Can I switch between BTC and USDT at the same casino?',
+      answer: 'Yes, at every major crypto casino. The seven platforms we review (BitStarz, BC.Game, Cloudbet, Mirax, 7Bit, Shuffle, Duelbits) all support both BTC and USDT for deposits and withdrawals. Most maintain separate balance ledgers per coin, so you can fund the account with BTC, play, withdraw to USDT — or any other combination. Welcome bonuses are usually denominated equivalently across coins.',
+    },
+    {
+      question: 'Is USDT safe given Tether\'s reserves history?',
+      answer: 'USDT carries counterparty risk that BTC doesn\'t — Tether Limited must maintain sufficient reserves to back each token, and the reserves question has been scrutinised extensively over the years. Tether has continued operating without incident through multiple market cycles. The structural risk exists; in practice, USDT has functioned as expected for crypto-native users. If counterparty risk is your decisive factor, USDC (issued by Circle, audited monthly) is the more transparent stablecoin alternative.',
+    },
+    {
+      question: 'Are there casinos that only accept Bitcoin?',
+      answer: 'Some smaller and older Bitcoin-specialist casinos do, but among the platforms we review at PlayMagpie, all seven accept multiple coins including both BTC and USDT. BTC-only acceptance has become rare among credible operators since 2022 — stablecoin support is now table-stakes for any new launch. If you find a casino that accepts only Bitcoin, that\'s a credibility signal worth weighing.',
+    },
+  ],
+}
+
+// Per-guide intent-page links. Pairs with the worked examples — pointing readers
+// from informational content back to commercial intent pages where appropriate.
+const guideRelatedPages: Record<string, { label: string; href: string; teaser: string }[]> = {
+  'how-crypto-casino-withdrawals-work': [
+    { label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos', teaser: 'Ranked purely on payout speed' },
+    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'Cap-free cash-out for big wins' },
+    { label: 'No-KYC Casinos', href: '/no-kyc-casinos', teaser: 'Withdrawals without ID verification' },
+  ],
+  'best-crypto-for-gambling': [
+    { label: 'Bitcoin vs USDT — head-to-head', href: '/guides/bitcoin-vs-usdt-casinos', teaser: 'The two-coin focused comparison' },
+    { label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos', teaser: 'Where coin choice converts to speed' },
+    { label: 'Best Crypto Casinos', href: '/best-crypto-casinos', teaser: 'Full rankings across all categories' },
+  ],
+  'how-casino-bonuses-really-work': [
+    { label: 'High Roller Casinos', href: '/high-roller-casinos', teaser: 'Where VIP cashback beats welcome-bonus math' },
+    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'Cap-free cash-out when bonus play wins big' },
+    { label: 'Mirax Casino Review', href: '/reviews/mirax-casino', teaser: 'The 325%/$3,250 bonus structure in detail' },
+  ],
+  'bitcoin-vs-usdt-casinos': [
+    { label: 'Best Crypto for Gambling', href: '/guides/best-crypto-for-gambling', teaser: 'The broader guide across all major coins' },
+    { label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos', teaser: 'Where coin choice converts to speed' },
+    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'For when USDT-fast meets a big win' },
   ],
 }
 
@@ -188,6 +289,7 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
 
   const blocks: ContentBlock[] = guideContent[slug] ?? [{ type: 'p', text: guide.description }]
   const related = relatedCasinos[slug] ?? []
+  const relatedPages = guideRelatedPages[slug] ?? []
   const faqs = guideFAQs[slug] ?? []
 
   const guideUrl = `https://www.playmagpie.com/guides/${guide.slug}`
@@ -313,6 +415,26 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
                     {c.name} Review
                   </div>
                   <div className="text-[#888888] text-xs">{c.reason}</div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {relatedPages.length > 0 && (
+          <section className="mb-10">
+            <h2 className="text-xl font-bold text-white mb-4">Where to read next</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {relatedPages.map((p) => (
+                <Link
+                  key={p.href}
+                  href={p.href}
+                  className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-4 transition-all group"
+                >
+                  <div className="font-semibold text-[#f5f5f5] group-hover:text-[#7BB8D4] transition-colors mb-1 text-sm">
+                    {p.label}
+                  </div>
+                  <div className="text-[#888888] text-xs">{p.teaser}</div>
                 </Link>
               ))}
             </div>
