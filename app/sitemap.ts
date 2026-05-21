@@ -73,19 +73,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  const comparisonPages: MetadataRoute.Sitemap = []
-  for (let i = 0; i < casinos.length; i++) {
-    for (let j = 0; j < casinos.length; j++) {
-      if (i !== j) {
-        comparisonPages.push({
-          url: `${BASE_URL}/compare/${casinos[i].slug}-vs-${casinos[j].slug}`,
-          lastModified: new Date(),
-          changeFrequency: 'monthly',
-          priority: 0.65,
-        })
-      }
-    }
-  }
+  // Comparison allowlist — must mirror COMPARE_ALLOWLIST in app/compare/[slug]/page.tsx
+  const comparisonAllowlist = [
+    'bitstarz-vs-bc-game',
+    'cloudbet-vs-bitstarz',
+    '7bit-casino-vs-bitstarz',
+    'bc-game-vs-shuffle',
+    'mirax-casino-vs-bitstarz',
+  ]
+  const comparisonPages: MetadataRoute.Sitemap = comparisonAllowlist.map((slug) => ({
+    url: `${BASE_URL}/compare/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.65,
+  }))
 
   return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...guidePages, ...cryptoPages, ...countryPages, ...gamePages, ...bonusPages, ...comparisonPages]
 }

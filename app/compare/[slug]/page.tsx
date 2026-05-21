@@ -1,20 +1,25 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { casinos, getCasinoBySlug } from '@/lib/casinos'
+import { getCasinoBySlug } from '@/lib/casinos'
 import CTAButton from '@/components/CTAButton'
 import CasinoLogo from '@/components/CasinoLogo'
 
+// Comparison allowlist — only these pairs are pre-rendered and indexed.
+// Non-allowlisted pairs 404 via dynamicParams = false (Helpful Content fix:
+// template-cannibalisation across 42 generated pairs caused indexation failure).
+const COMPARE_ALLOWLIST = [
+  'bitstarz-vs-bc-game',
+  'cloudbet-vs-bitstarz',
+  '7bit-casino-vs-bitstarz',
+  'bc-game-vs-shuffle',
+  'mirax-casino-vs-bitstarz',
+]
+
+export const dynamicParams = false
+
 export async function generateStaticParams() {
-  const params: { slug: string }[] = []
-  for (let i = 0; i < casinos.length; i++) {
-    for (let j = 0; j < casinos.length; j++) {
-      if (i !== j) {
-        params.push({ slug: `${casinos[i].slug}-vs-${casinos[j].slug}` })
-      }
-    }
-  }
-  return params
+  return COMPARE_ALLOWLIST.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata(props: PageProps<'/compare/[slug]'>): Promise<Metadata> {
@@ -126,8 +131,6 @@ export default async function ComparePage(props: PageProps<'/compare/[slug]'>) {
     { label: 'VIP Program', a: c1.vipProgram ? 'Yes' : 'No', b: c2.vipProgram ? 'Yes' : 'No', win: cmp(c1.vipProgram ? 1 : 0, c2.vipProgram ? 1 : 0) },
     { label: 'Licence', a: c1.licence, b: c2.licence, win: 'tie' as const },
   ]
-
-  const otherCasinos = casinos.filter((c) => c.slug !== c1.slug && c.slug !== c2.slug)
 
   return (
     <>
@@ -502,25 +505,6 @@ export default async function ComparePage(props: PageProps<'/compare/[slug]'>) {
             </div>
           ))}
         </div>
-
-        {/* Related Comparisons */}
-        <section className="pt-8 border-t border-[#222222]">
-          <h2 className="text-lg font-bold text-[#f5f5f5] mb-4">More Comparisons</h2>
-          <div className="flex flex-wrap gap-2">
-            {otherCasinos.flatMap((c) => [
-              { label: `${c1.name} vs ${c.name}`, href: `/compare/${c1.slug}-vs-${c.slug}` },
-              { label: `${c2.name} vs ${c.name}`, href: `/compare/${c2.slug}-vs-${c.slug}` },
-            ]).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-3 py-1.5 bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-lg text-sm text-[#888888] hover:text-[#f5f5f5] transition-all"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </section>
 
       </div>
     </>
