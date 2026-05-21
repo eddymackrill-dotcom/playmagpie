@@ -16,8 +16,8 @@ export const guides: Guide[] = [
     category: 'Withdrawals',
   },
   {
-    title: 'Best Crypto for Gambling in 2026',
-    slug: 'best-crypto-for-gambling-2026',
+    title: 'Best Crypto for Gambling',
+    slug: 'best-crypto-for-gambling',
     description:
       'Bitcoin, USDT, SOL, TRX — which cryptocurrency gives you the fastest withdrawals and lowest fees at online casinos?',
     readTime: '6 min read',

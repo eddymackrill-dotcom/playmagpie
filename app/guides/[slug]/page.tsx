@@ -71,9 +71,9 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'p', text: 'Choose TRC-20 USDT or SOL for routine withdrawals. Avoid BTC withdrawals when mempool congestion is high — check Mempool.space before requesting. Always complete any required KYC in advance rather than mid-withdrawal. Use a non-custodial wallet you control rather than an exchange address — exchange crediting can add additional delays on top of the blockchain confirmation. Finally, check your casino\'s withdrawal schedule: some platforms process withdrawals 24/7 automatically, while others have defined processing windows.' },
   ],
 
-  'best-crypto-for-gambling-2026': [
+  'best-crypto-for-gambling': [
     { type: 'h2', text: 'Why your choice of cryptocurrency matters' },
-    { type: 'p', text: 'The cryptocurrency you use at an online casino affects four things directly: how fast your deposits and withdrawals clear, how much you pay in network fees, how stable your bankroll is in dollar terms, and how much privacy you retain. Most players default to Bitcoin out of familiarity, but for most gambling use cases it is not the optimal choice.' },
+    { type: 'p', text: 'The cryptocurrency you use at an online casino affects four things directly: how fast your deposits and withdrawals clear, how much you pay in network fees, how stable your bankroll is in dollar terms, and how much privacy you retain. Most players default to Bitcoin out of familiarity, but for most gambling use cases it is not the optimal choice. For the focused head-to-head on the two most-used coins, see our Bitcoin vs USDT comparison.' },
     { type: 'h2', text: 'USDT on TRC-20 — the practical best-in-class' },
     { type: 'p', text: 'USDT (Tether) on the Tron (TRC-20) network is the closest thing to a perfect gambling cryptocurrency available in 2026. It is a stablecoin — one USDT always equals one US dollar — which means your bankroll does not fluctuate with market movements between sessions. Tron confirmations typically complete in under 3 seconds. Network fees are consistently below $0.01. USDT on TRC-20 is accepted at virtually every crypto casino on the market. For players who want to gamble with predictable amounts without exposure to crypto volatility, this is the default choice.' },
     { type: 'p', text: 'The only genuine disadvantage of USDT is counterparty risk — Tether Limited, the issuer, must maintain sufficient reserves to back each token. This has been scrutinised extensively and Tether has continued operating without incident, but it is a structural risk that does not exist with decentralised cryptocurrencies.' },
@@ -87,7 +87,7 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'h2', text: 'XRP, LTC and DOGE — the mid-tier options' },
     { type: 'p', text: 'XRP (Ripple) is accepted at most major crypto casinos and offers fast 3–5 second confirmations with low fees. It is a solid alternative when USDT or SOL are not available. Litecoin (LTC) is slower than XRP but widely accepted and reliable. DOGE is accepted primarily at larger platforms and has an active community, but offers no practical advantage over the options above for gambling purposes.' },
     { type: 'h2', text: 'Privacy-focused options' },
-    { type: 'p', text: 'For players who prioritise transaction privacy above all else, Monero (XMR) is the only cryptocurrency with native, protocol-level privacy. Monero transactions are untraceable by design. Only a handful of casinos accept XMR — the no-KYC platforms are most likely to support it. If privacy is your priority, BC.Game is worth checking for current XMR support.' },
+    { type: 'p', text: 'For players who prioritise transaction privacy above all else, Monero (XMR) is the only cryptocurrency with native, protocol-level privacy. Monero transactions are untraceable by design. XMR support at general-market crypto casinos is rare and varies by operator — verify on the casino\'s current cashier page if privacy is your decisive factor, since this is one area where listed crypto support changes more often than other coins.' },
     { type: 'h2', text: 'The PlayMagpie recommendation' },
     { type: 'p', text: 'For most players: use USDT on TRC-20 as your primary gambling currency. It is stable, fast, cheap and universally accepted. Use SOL if your casino supports it and you want marginally faster withdrawals. Use BTC only if your specific casino does not support USDT or SOL, or if you deliberately want price exposure. Avoid ETH for small or frequent transactions due to gas fees. Check your specific casino\'s supported networks before depositing — transferring on the wrong network results in lost funds.' },
   ],
@@ -131,13 +131,40 @@ const guideContent: Record<string, ContentBlock[]> = {
   ],
 }
 
+// FAQ data per guide. Only include questions actually answered in the guide content
+// (per CLAUDE.md: don't generate FAQ schema with questions you didn't answer on the page).
+const guideFAQs: Record<string, { question: string; answer: string }[]> = {
+  'best-crypto-for-gambling': [
+    {
+      question: 'What is the best cryptocurrency for online gambling in 2026?',
+      answer: 'USDT on TRC-20 is the best default for most players — it is a USD-pegged stablecoin (so your bankroll value doesn\'t move between sessions), confirms in under 3 seconds on Tron, and costs under $0.01 per transaction. It is accepted at virtually every major crypto casino. Use SOL if your casino supports it and you want marginally faster finality; use BTC only if your specific casino doesn\'t support stablecoins or you deliberately want price exposure.',
+    },
+    {
+      question: 'Why is USDT better than Bitcoin for gambling?',
+      answer: 'Three reasons. Speed: TRC-20 USDT confirms in under 3 seconds; BTC takes 10–60 minutes depending on network conditions. Cost: USDT fees are consistently below $0.01; BTC fees fluctuate and can spike to $50+ during congestion. Stability: USDT is pegged 1:1 to USD, so a $500 deposit is still $500 when you withdraw; BTC value moves constantly. For active gambling, all three favour USDT unless you specifically want BTC price exposure.',
+    },
+    {
+      question: 'Is Solana fast enough to replace USDT on TRC-20?',
+      answer: 'Solana confirmations finalise in under a second with fees under $0.001, which is competitive with — and often faster than — TRC-20 USDT. The catch is casino acceptance: not every operator has added native SOL deposits and withdrawals yet, though the list grows each quarter. If your preferred casino supports SOL, it is a strong choice; if not, TRC-20 USDT remains the lower-friction option.',
+    },
+    {
+      question: 'What about Ethereum — is it good for casino deposits?',
+      answer: 'Ethereum is the second most widely accepted crypto at casinos, but it is the wrong choice for small or frequent transactions. Gas fees range from a few dollars at quiet times to $5–30 during congestion. For larger, infrequent withdrawals it is workable; for routine deposits and small withdrawals, the fee structure becomes meaningful. If TRC-20 USDT or Solana is available, prefer those.',
+    },
+    {
+      question: 'Do any casinos accept Monero (XMR)?',
+      answer: 'Monero support at general-market crypto casinos is rare and varies by operator. XMR is the only cryptocurrency with native protocol-level transaction privacy, so it has appeal for privacy-first players, but the list of operators accepting it is narrow and changes more often than other coin listings. Verify on the casino\'s current cashier page if privacy is your decisive factor.',
+    },
+  ],
+}
+
 const relatedCasinos: Record<string, { name: string; slug: string; reason: string }[]> = {
   'how-crypto-casino-withdrawals-work': [
     { name: 'BC.Game', slug: 'bc-game', reason: 'Instant withdrawals, 100+ cryptos' },
     { name: '7Bit Casino', slug: '7bit-casino', reason: 'Instant to 10-min payouts, no KYC' },
     { name: 'BitStarz', slug: 'bitstarz', reason: 'Under 10-min withdrawal guarantee' },
   ],
-  'best-crypto-for-gambling-2026': [
+  'best-crypto-for-gambling': [
     { name: 'BC.Game', slug: 'bc-game', reason: '100+ cryptocurrencies supported' },
     { name: 'Cloudbet', slug: 'cloudbet', reason: 'BTC, ETH, USDT, SOL, BNB and more' },
     { name: '7Bit Casino', slug: '7bit-casino', reason: 'Wide crypto support, no KYC required' },
@@ -161,6 +188,9 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
 
   const blocks: ContentBlock[] = guideContent[slug] ?? [{ type: 'p', text: guide.description }]
   const related = relatedCasinos[slug] ?? []
+  const faqs = guideFAQs[slug] ?? []
+
+  const guideUrl = `https://www.playmagpie.com/guides/${guide.slug}`
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -168,9 +198,42 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
       { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://www.playmagpie.com/guides' },
-      { '@type': 'ListItem', position: 3, name: guide.title, item: `https://www.playmagpie.com/guides/${guide.slug}` },
+      { '@type': 'ListItem', position: 3, name: guide.title, item: guideUrl },
     ],
   }
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guide.title,
+    description: guide.description,
+    author: {
+      '@type': 'Organization',
+      name: 'PlayMagpie',
+      url: 'https://www.playmagpie.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'PlayMagpie',
+      url: 'https://www.playmagpie.com',
+    },
+    datePublished: '2026-01-01',
+    dateModified: '2026-05-21',
+    url: guideUrl,
+    mainEntityOfPage: guideUrl,
+  }
+
+  const faqSchema = faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        })),
+      }
+    : null
 
   return (
     <>
@@ -178,6 +241,16 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <nav className="flex items-center gap-2 text-sm text-[#888888] mb-8">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -241,6 +314,23 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
                   </div>
                   <div className="text-[#888888] text-xs">{c.reason}</div>
                 </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {faqs.length > 0 && (
+          <section className="mb-10 pt-8 border-t border-[#222222]">
+            <h2 className="text-xl font-bold text-white mb-2">Frequently Asked Questions</h2>
+            <p className="text-[#888888] text-sm mb-6">
+              Common questions on {guide.title.toLowerCase()}.
+            </p>
+            <div className="space-y-4">
+              {faqs.map((faq) => (
+                <div key={faq.question} className="bg-[#111111] border border-[#222222] rounded-xl p-5">
+                  <h3 className="text-white font-semibold mb-2 text-base">{faq.question}</h3>
+                  <p className="text-[#888888] text-sm leading-relaxed">{faq.answer}</p>
+                </div>
               ))}
             </div>
           </section>

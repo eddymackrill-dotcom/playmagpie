@@ -28,7 +28,7 @@ const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
   ],
   'bc-game': [
     { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
-    { title: 'Best Crypto for Gambling in 2026', slug: 'best-crypto-for-gambling-2026' },
+    { title: 'Best Crypto for Gambling', slug: 'best-crypto-for-gambling' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
   ],
   cloudbet: [
@@ -38,17 +38,17 @@ const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
   ],
   'mirax-casino': [
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
-    { title: 'Best Crypto for Gambling in 2026', slug: 'best-crypto-for-gambling-2026' },
+    { title: 'Best Crypto for Gambling', slug: 'best-crypto-for-gambling' },
     { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
   ],
   '7bit-casino': [
     { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
-    { title: 'Best Crypto for Gambling in 2026', slug: 'best-crypto-for-gambling-2026' },
+    { title: 'Best Crypto for Gambling', slug: 'best-crypto-for-gambling' },
   ],
   shuffle: [
     { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
-    { title: 'Best Crypto for Gambling in 2026', slug: 'best-crypto-for-gambling-2026' },
+    { title: 'Best Crypto for Gambling', slug: 'best-crypto-for-gambling' },
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
   ],
   duelbits: [

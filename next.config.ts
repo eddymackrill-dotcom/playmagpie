@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         destination: '/guides/how-crypto-casino-withdrawals-work',
         permanent: true,
       },
+      {
+        source: '/guides/best-crypto-for-gambling-2026',
+        destination: '/guides/best-crypto-for-gambling',
+        permanent: true,
+      },
     ];
   },
 };
