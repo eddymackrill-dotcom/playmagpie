@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/contact',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
   openGraph: {
     url: '/contact',
     title: 'Contact PlayMagpie — Send Us Corrections & Suggestions',
