@@ -6,7 +6,9 @@ import { casinos } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 
 export async function generateStaticParams() {
-  return GAME_TYPES.map((g) => ({ slug: g.slug }))
+  // 'crash' is served by app/game/crash/page.tsx (static segment takes precedence
+  // over dynamic [slug]); excluded here to avoid build conflict.
+  return GAME_TYPES.filter((g) => g.slug !== 'crash').map((g) => ({ slug: g.slug }))
 }
 
 export async function generateMetadata(
