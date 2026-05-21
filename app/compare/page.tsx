@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { casinos } from '@/lib/casinos'
+import { getCasinoBySlug } from '@/lib/casinos'
+import { compareContent } from '@/lib/compare-content'
 import CasinoLogo from '@/components/CasinoLogo'
 
 export const metadata: Metadata = {
@@ -17,12 +18,18 @@ export const metadata: Metadata = {
 }
 
 export default function ComparePage() {
-  const pairs: { c1: (typeof casinos)[0]; c2: (typeof casinos)[0] }[] = []
-  for (let i = 0; i < casinos.length; i++) {
-    for (let j = i + 1; j < casinos.length; j++) {
-      pairs.push({ c1: casinos[i], c2: casinos[j] })
-    }
-  }
+  // Pairs are sourced from compareContent — the single allowlist source of truth.
+  // Direction matters (e.g. `bc-game-vs-shuffle` vs `shuffle-vs-bc-game`); only
+  // the canonical direction listed in compareContent has a page rendered.
+  const pairs = Object.keys(compareContent)
+    .map((slug) => {
+      const vsIdx = slug.indexOf('-vs-')
+      const c1 = getCasinoBySlug(slug.slice(0, vsIdx))
+      const c2 = getCasinoBySlug(slug.slice(vsIdx + 4))
+      if (!c1 || !c2) return null
+      return { slug, c1, c2 }
+    })
+    .filter((p): p is NonNullable<typeof p> => p !== null)
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
@@ -35,9 +42,9 @@ export default function ComparePage() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {pairs.map(({ c1, c2 }) => {
-          const href = `/compare/${c1.slug}-vs-${c2.slug}`
-          const w1 = c1.trustScore >= c2.trustScore ? c1 : c2
+        {pairs.map(({ slug, c1, c2 }) => {
+          const href = `/compare/${slug}`
+          const winner = c1.trustScore >= c2.trustScore ? c1 : c2
           return (
             <Link
               key={href}
@@ -72,7 +79,7 @@ export default function ComparePage() {
 
               <div className="flex items-center justify-between">
                 <span className="text-xs text-[#888888]">
-                  Winner: <span className="text-[#f5f5f5] font-semibold">{w1.name}</span>
+                  Higher trust: <span className="text-[#f5f5f5] font-semibold">{winner.name}</span>
                 </span>
                 <span className="text-[#7BB8D4] text-xs font-semibold group-hover:underline">Compare →</span>
               </div>

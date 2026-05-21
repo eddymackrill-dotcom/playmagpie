@@ -15,6 +15,12 @@ export type ComparePair = {
   faqs: { question: string; answer: string }[]
 }
 
+// The keys of compareContent define which compare pages actually render —
+// app/compare/[slug]/page.tsx 404s any slug not present here, regardless of
+// what's pre-rendered. app/compare/page.tsx derives its tile grid from
+// Object.keys(compareContent). The COMPARE_ALLOWLIST constants in
+// app/compare/[slug]/page.tsx and app/sitemap.ts must stay in sync with these
+// keys manually — they control pre-rendering and sitemap inclusion respectively.
 export const compareContent: Record<string, ComparePair> = {
   'bitstarz-vs-bc-game': {
     intro:
