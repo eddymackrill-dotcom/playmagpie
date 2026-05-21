@@ -24,14 +24,6 @@ export const guides: Guide[] = [
     category: 'Crypto',
   },
   {
-    title: 'Fastest Casino Payout Methods Ranked',
-    slug: 'fastest-casino-payout-methods',
-    description:
-      'A head-to-head comparison of every major payout method — crypto, e-wallets, and bank transfers — ranked by real withdrawal times.',
-    readTime: '7 min read',
-    category: 'Withdrawals',
-  },
-  {
     title: 'How Casino Bonuses Really Work',
     slug: 'how-casino-bonuses-really-work',
     description:

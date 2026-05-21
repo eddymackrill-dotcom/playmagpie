@@ -35,7 +35,10 @@ export async function generateMetadata(props: PageProps<'/guides/[slug]'>): Prom
   }
 }
 
-type ContentBlock = { type: 'h2'; text: string } | { type: 'p'; text: string }
+type ContentBlock =
+  | { type: 'h2'; text: string }
+  | { type: 'h3'; text: string }
+  | { type: 'p'; text: string }
 
 const guideContent: Record<string, ContentBlock[]> = {
   'how-crypto-casino-withdrawals-work': [
@@ -50,6 +53,18 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'p', text: 'For the fastest possible casino withdrawals, USDT on TRC-20 (Tron network) is the current gold standard. It combines the stability of a USD-pegged stablecoin with Tron\'s near-instant finality and fees typically under $0.01. Most top-tier crypto casinos support it, and it is the single most popular withdrawal method across fast-payout platforms. SOL-based tokens are equally fast. BTC should be treated as a 10–60 minute option depending on conditions.' },
     { type: 'h2', text: 'KYC: the biggest source of delays' },
     { type: 'p', text: 'Beyond the blockchain itself, Know Your Customer (KYC) verification is by far the most common cause of withdrawal delays. If a casino triggers a KYC check mid-withdrawal, your funds can be held for 24–72 hours while their compliance team processes your documents. Some casinos do this routinely above certain withdrawal thresholds. Others only ask at registration. No-KYC casinos — which include BC.Game and 7Bit Casino — do not require identity documents for crypto withdrawals at all, eliminating this delay entirely.' },
+    { type: 'h2', text: 'Payout methods ranked by speed' },
+    { type: 'p', text: 'The gap between crypto and traditional payout rails is not subtle. Here is what you can realistically expect from each method, ranked by real wall-clock withdrawal time end-to-end.' },
+    { type: 'h3', text: '#1 — Crypto on fast networks (TRX, SOL, MATIC): under 5 minutes' },
+    { type: 'p', text: 'Crypto withdrawals via Tron (TRC-20), Solana or Polygon are the fastest payout method available at any online casino — and it is not close. Once the casino broadcasts the transaction, funds typically arrive in your wallet within 10–30 seconds for Solana, under 1 minute for TRC-20 and 1–3 minutes for Polygon. Total wall-clock time from requesting a withdrawal to spendable funds is usually under 5 minutes including the casino\'s internal processing at automated platforms. Fees are negligible — often under $0.01 per transaction.' },
+    { type: 'h3', text: '#2 — Crypto on slower networks (BTC, ETH): 10 minutes to 2 hours' },
+    { type: 'p', text: 'Bitcoin and Ethereum withdrawals are still dramatically faster than any non-crypto method, but they are subject to network conditions. Bitcoin\'s 10-minute average block time means a best-case withdrawal takes around 10–20 minutes. During mempool congestion it can stretch to 60 minutes or beyond, and most casinos require 1–3 confirmations before treating the transaction as final. Ethereum is faster at 15–30 seconds per block but gas-fee variability makes it unpredictable in cost.' },
+    { type: 'h3', text: '#3 — E-wallets (Skrill, Neteller, MiFinity): 1–24 hours' },
+    { type: 'p', text: 'E-wallets are the fastest non-crypto option. Skrill and Neteller are widely accepted at licensed casinos, and processing typically completes within a few hours during business hours. The limitations are real, though: e-wallet transactions are subject to AML compliance checks that can hold funds for manual review, weekend or holiday processing often defers payouts to the next business day, and e-wallets themselves frequently block accounts or reverse transactions related to gambling — risk that goes beyond speed.' },
+    { type: 'h3', text: '#4 — Debit and credit cards: 1–5 business days' },
+    { type: 'p', text: 'Card withdrawals are subject to bank processing cycles that have not meaningfully improved in decades. The casino typically initiates the refund within 24 hours, but the card network and your bank then process it on their own schedule. Visa and Mastercard withdrawals generally clear in 1–3 business days. Weekend transactions are queued until Monday. Some banks apply additional holds on gambling-related transactions, and many credit card networks have restricted gambling transactions entirely, making credit card deposits impossible at most regulated sites.' },
+    { type: 'h3', text: '#5 — Bank transfer: 2–7 business days' },
+    { type: 'p', text: 'Bank transfers are the slowest and most friction-heavy method. They require full KYC, involve correspondent banking relationships that add processing delays, and are subject to AML compliance reviews on both the casino and bank side. International wire transfers can take 3–5 business days in normal circumstances. For players in jurisdictions with restrictive banking relationships with gambling operators, bank transfers may be rejected outright. There is no practical reason to use bank transfer when crypto alternatives are available.' },
     { type: 'h2', text: 'How to check your withdrawal status' },
     { type: 'p', text: 'Once a casino sends your transaction, you will typically receive a transaction ID (TXID). Paste this into the relevant blockchain explorer — Tronscan for TRC-20 transactions, Solscan for Solana, Etherscan for Ethereum, and Blockchain.com or Mempool.space for Bitcoin. These explorers show you real-time confirmation status, number of confirmations received, and the transaction fee paid. If a transaction has been broadcast to the network but is showing as unconfirmed for an unusually long time, this points to network congestion or a low fee setting rather than a casino problem.' },
     { type: 'h2', text: 'Tips for the fastest withdrawals' },
@@ -75,23 +90,6 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'p', text: 'For players who prioritise transaction privacy above all else, Monero (XMR) is the only cryptocurrency with native, protocol-level privacy. Monero transactions are untraceable by design. Only a handful of casinos accept XMR — the no-KYC platforms are most likely to support it. If privacy is your priority, BC.Game is worth checking for current XMR support.' },
     { type: 'h2', text: 'The PlayMagpie recommendation' },
     { type: 'p', text: 'For most players: use USDT on TRC-20 as your primary gambling currency. It is stable, fast, cheap and universally accepted. Use SOL if your casino supports it and you want marginally faster withdrawals. Use BTC only if your specific casino does not support USDT or SOL, or if you deliberately want price exposure. Avoid ETH for small or frequent transactions due to gas fees. Check your specific casino\'s supported networks before depositing — transferring on the wrong network results in lost funds.' },
-  ],
-
-  'fastest-casino-payout-methods': [
-    { type: 'h2', text: 'Why payout speed matters more than you think' },
-    { type: 'p', text: 'Withdrawal speed is one of the most underweighted factors when choosing an online casino. Players focus on bonuses and game selection, sign up, win — and then discover that accessing their winnings takes three to five business days. For crypto players, this is avoidable entirely. Here is a ranked breakdown of every major payout method, based on real withdrawal times rather than casino marketing claims.' },
-    { type: 'h2', text: '#1 — Crypto on fast networks (TRX, SOL, MATIC): Under 5 minutes' },
-    { type: 'p', text: 'Crypto withdrawals via Tron (TRC-20), Solana, or Polygon are the fastest payout method available at any online casino — and it is not close. Once the casino broadcasts the transaction, funds typically arrive in your wallet within 10–30 seconds for Solana, under 1 minute for TRC-20, and 1–3 minutes for Polygon. The total wall-clock time from requesting a withdrawal to having spendable funds is usually under 5 minutes, including the casino\'s internal processing time at automated platforms. Fees are negligible — often under $0.01 per transaction.' },
-    { type: 'h2', text: '#2 — Crypto on slower networks (BTC, ETH): 10 minutes to 2 hours' },
-    { type: 'p', text: 'Bitcoin and Ethereum withdrawals are still dramatically faster than any non-crypto method, but they are subject to network conditions. Bitcoin\'s 10-minute average block time means a best-case withdrawal takes around 10–20 minutes. During periods of mempool congestion, it can stretch to 60 minutes or beyond. Most casinos require 1–3 block confirmations before treating the transaction as final, adding further time. Ethereum is faster at 15–30 seconds per block but gas fee variability makes it unpredictable in cost.' },
-    { type: 'h2', text: '#3 — E-wallets (Skrill, Neteller, MiFinity): 1–24 hours' },
-    { type: 'p', text: 'E-wallet withdrawals are the fastest non-crypto option. Skrill and Neteller are widely accepted at licensed casinos, and processing typically completes within a few hours during business hours. The limitation is that e-wallets are subject to compliance checks — transactions that trigger AML flags can be held for manual review, and weekend or holiday processing often delays payouts to the next business day. E-wallets also frequently block accounts or reverse transactions related to gambling, which creates risk beyond the withdrawal speed question.' },
-    { type: 'h2', text: '#4 — Debit and credit cards: 1–5 business days' },
-    { type: 'p', text: 'Card withdrawals are subject to bank processing cycles that have not meaningfully improved in decades. The casino typically initiates the refund within 24 hours, but the card network and your bank then process it on their own schedule. Visa and Mastercard withdrawals generally clear in 1–3 business days. Weekend transactions are queued until Monday. Some banks apply additional holds on gambling-related transactions. Many credit card networks have also restricted gambling transactions entirely, making credit card deposits impossible at most regulated sites.' },
-    { type: 'h2', text: '#5 — Bank transfer: 2–7 business days' },
-    { type: 'p', text: 'Bank transfers are the slowest and most friction-heavy payout method. They require full KYC verification, involve correspondent banking relationships that add processing delays, and are subject to AML compliance reviews on both the casino and bank side. International wire transfers can take 3–5 business days in normal circumstances. For players in jurisdictions with restrictive banking relationships with gambling operators, bank transfers may be rejected outright. There is no practical reason to use bank transfer when crypto alternatives are available.' },
-    { type: 'h2', text: 'How to guarantee the fastest possible withdrawal' },
-    { type: 'p', text: 'Choose a casino with automated, 24/7 withdrawal processing — not a platform that batches withdrawals manually at set times. Use USDT on TRC-20 or SOL as your withdrawal currency. Complete any KYC requirements before requesting a withdrawal, not in response to a withdrawal being held. Keep your crypto in a self-custodial wallet (Metamask, Trust Wallet, Ledger) rather than an exchange — exchange crediting adds another variable. Verify you are sending to the correct network — sending TRC-20 USDT to an ERC-20 address results in lost funds.' },
   ],
 
   'how-casino-bonuses-really-work': [
@@ -143,11 +141,6 @@ const relatedCasinos: Record<string, { name: string; slug: string; reason: strin
     { name: 'BC.Game', slug: 'bc-game', reason: '100+ cryptocurrencies supported' },
     { name: 'Cloudbet', slug: 'cloudbet', reason: 'BTC, ETH, USDT, SOL, BNB and more' },
     { name: '7Bit Casino', slug: '7bit-casino', reason: 'Wide crypto support, no KYC required' },
-  ],
-  'fastest-casino-payout-methods': [
-    { name: 'BC.Game', slug: 'bc-game', reason: 'Fastest verified withdrawal times' },
-    { name: '7Bit Casino', slug: '7bit-casino', reason: 'Instant to 10-min payouts' },
-    { name: 'BitStarz', slug: 'bitstarz', reason: 'Consistently under 10 minutes' },
   ],
   'how-casino-bonuses-really-work': [
     { name: 'Mirax Casino', slug: 'mirax-casino', reason: '325% bonus up to $3,250 + 250 spins' },
@@ -210,6 +203,10 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
               <h2 key={i} className="text-xl font-bold text-[#f5f5f5] mt-8 mb-2 first:mt-0">
                 {block.text}
               </h2>
+            ) : block.type === 'h3' ? (
+              <h3 key={i} className="text-base font-bold text-[#f5f5f5] mt-6 mb-2">
+                {block.text}
+              </h3>
             ) : (
               <p key={i} className="text-[#888888] leading-relaxed">
                 {block.text}

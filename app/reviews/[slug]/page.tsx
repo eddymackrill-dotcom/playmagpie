@@ -23,18 +23,18 @@ const casinoMetaDescriptions: Record<string, string> = {
 const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
   bitstarz: [
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
-    { title: 'Fastest Casino Payout Methods Ranked', slug: 'fastest-casino-payout-methods' },
+    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
   ],
   'bc-game': [
     { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
     { title: 'Best Crypto for Gambling in 2026', slug: 'best-crypto-for-gambling-2026' },
-    { title: 'Fastest Casino Payout Methods Ranked', slug: 'fastest-casino-payout-methods' },
+    { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
   ],
   cloudbet: [
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
-    { title: 'Fastest Casino Payout Methods Ranked', slug: 'fastest-casino-payout-methods' },
+    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
   ],
   'mirax-casino': [
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
@@ -54,7 +54,7 @@ const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
   duelbits: [
     { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
-    { title: 'Fastest Casino Payout Methods Ranked', slug: 'fastest-casino-payout-methods' },
+    { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
   ],
 }
 
