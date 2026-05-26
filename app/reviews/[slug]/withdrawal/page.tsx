@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getCasinoBySlug } from '@/lib/casinos'
 import CTAButton from '@/components/CTAButton'
 
-const WITHDRAWAL_SLUGS = ['bitstarz', 'mirax-casino', '7bit-casino'] as const
+const WITHDRAWAL_SLUGS = ['bitstarz', 'mirax-casino', '7bit-casino', 'cloudbet'] as const
 
 export function generateStaticParams() {
   return WITHDRAWAL_SLUGS.map((slug) => ({ slug }))
@@ -25,6 +25,11 @@ const META: Record<(typeof WITHDRAWAL_SLUGS)[number], { title: string; descripti
     title: '7Bit Casino Withdrawal Times & Limits 2026 | PlayMagpie',
     description:
       '7Bit Casino pays out crypto in under 10 minutes with no KYC required at any withdrawal size. Honest breakdown of speeds across 8 supported coins.',
+  },
+  cloudbet: {
+    title: 'Cloudbet Withdrawal: No Limits, 10 Coins, Dual Licence | PlayMagpie',
+    description:
+      'Cloudbet imposes no withdrawal limits — rare among crypto casinos and the reason high rollers default to it. Speeds, the 10-coin lineup and dual Curaçao + Kahnawake licensing breakdown.',
   },
 }
 
@@ -83,7 +88,9 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
       ? BITSTARZ_FAQS
       : slug === 'mirax-casino'
       ? MIRAX_FAQS
-      : SEVENBIT_FAQS
+      : slug === '7bit-casino'
+      ? SEVENBIT_FAQS
+      : CLOUDBET_FAQS
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -126,6 +133,7 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
                 {slug === 'bitstarz' && 'BitStarz Withdrawal Times & Limits in 2026'}
                 {slug === 'mirax-casino' && 'Mirax Casino Withdrawals — How Fast, What KYC, Which Coins'}
                 {slug === '7bit-casino' && '7Bit Casino Withdrawal: No KYC, 8 Coins, Under 10 Minutes'}
+                {slug === 'cloudbet' && 'Cloudbet Withdrawal: No Limits, 10 Coins, Dual Regulator Cover'}
               </h1>
               <p className="text-[#555555] text-xs mt-2">Last updated: May 17, 2026</p>
             </div>
@@ -151,6 +159,7 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
         {slug === 'bitstarz' && <BitstarzContent />}
         {slug === 'mirax-casino' && <MiraxContent />}
         {slug === '7bit-casino' && <SevenBitContent />}
+        {slug === 'cloudbet' && <CloudbetContent />}
 
         <section className="mt-12 pt-10 border-t border-[#222222]">
           <h2 className="text-xl font-bold text-white mb-2">{casino.name} Withdrawal — FAQ</h2>
@@ -653,5 +662,219 @@ const SEVENBIT_FAQS = [
     question: 'Does 7Bit charge withdrawal fees on any coin?',
     answer:
       "7Bit does not charge a casino-side withdrawal fee on its supported cryptocurrencies — only standard blockchain network fees apply, and those are deducted by the network itself, not the casino. The network fee varies dramatically by coin: fractions of a cent on BNB, XRP, TRX-based stablecoins; meaningful dollar amounts on Ethereum during congestion; mempool-dependent on Bitcoin.",
+  },
+] as const
+
+/* ───────────── Cloudbet: lead with no withdrawal limits ───────────── */
+function CloudbetContent() {
+  return (
+    <>
+      <Para>
+        The thing that puts Cloudbet on a different footing from the other crypto
+        casinos covered on this site: it has no withdrawal limits. Not &quot;higher
+        limits at higher VIP tiers,&quot; not &quot;limits subject to verification&quot; — no
+        published per-transaction or per-day cap on what you can pull off the
+        platform. That single policy decision is the reason crypto high rollers
+        consistently surface Cloudbet at the top of any serious cash-out
+        conversation, and it&apos;s why the 9.0/10 withdrawal score sits where it
+        does despite a slightly slower headline window than BitStarz or 7Bit.
+      </Para>
+      <Para>
+        Speed-wise, the cashier processing window is instant to 30 minutes — wider
+        than the under-10-minute envelope at BitStarz and 7Bit, narrower than no
+        practical cap. The reason for the longer tail is real and worth knowing:
+        Cloudbet handles outsized withdrawals routinely, and that operational
+        reality occasionally pushes a payout into the upper end of the range
+        while the cashier confirms the request manually.
+      </Para>
+
+      <SectionHeading>No withdrawal limits — what that actually means at the cashier</SectionHeading>
+      <Para>
+        &quot;No limit&quot; is a phrase casinos use sloppily. At Cloudbet it has a precise
+        meaning: there is no published per-transaction maximum and no per-day
+        ceiling on crypto withdrawals across the standard cashier. A six-figure
+        BTC payout pulls through the same flow as a $200 request — same approval
+        path, same processing window, same support team. The cap on what comes
+        out the other end is your balance, not the platform&apos;s policy.
+      </Para>
+      <Para>
+        This is the operational difference that matters for serious bankrolls. At
+        most crypto casinos, a large withdrawal triggers an exceptions path:
+        compliance review, VIP-team approval, sometimes a renegotiated
+        per-transaction cap. At Cloudbet that exceptions path doesn&apos;t exist for
+        crypto withdrawals because the standard path already accommodates the
+        volume. For the broader category see{' '}
+        <Link href="/no-limit-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
+          crypto casinos with no withdrawal limits
+        </Link>
+        .
+      </Para>
+
+      <SectionHeading>The dual-regulator setup — Curaçao + Kahnawake</SectionHeading>
+      <Para>
+        Cloudbet operates under two licences: Curaçao eGaming and the Kahnawake
+        Gaming Commission (a First Nations regulator in Quebec, Canada,
+        active since 1996). The dual-licence posture is unusual among crypto
+        casinos — most operate under Curaçao alone. Kahnawake imposes its own
+        operational standards on top of the Curaçao framework: minimum
+        capitalisation, segregated player funds, dispute-resolution procedures.
+      </Para>
+      <Para>
+        For withdrawal-focused players the practical implication is the
+        dispute-recourse path. A withdrawal disagreement with a single-Curaçao
+        operator leaves you with one regulator to escalate to. With Cloudbet,
+        you have two. That redundancy doesn&apos;t come up often — Cloudbet&apos;s
+        payout track record since 2013 means escalations are rare — but the
+        backstop exists if it ever needs to be used.
+      </Para>
+
+      <SectionHeading>The 10-coin lineup — what each one means at the cashier</SectionHeading>
+      <Para>
+        Cloudbet supports BTC, ETH, USDT, USDC, SOL, BNB, DOGE, LTC, BCH and
+        PAX for deposits and withdrawals. The 10-coin spread is broader than
+        BitStarz (six), Mirax (seven) and 7Bit (eight). The standout choices
+        for withdrawal speed and cost:
+      </Para>
+      <KeyList
+        items={[
+          'SOL and BNB settle on-chain in seconds with fees in fractions of a cent — the fastest end-to-end paths on the platform.',
+          'USDT and USDC are the stablecoin options; the active network for each is shown at the cashier when you request the withdrawal.',
+          'PAX (Paxos Standard) is unusual to see on a crypto casino — it&apos;s a regulated USD-backed stablecoin issued by Paxos Trust, NYDFS-supervised.',
+          'LTC and DOGE clear in single-digit minutes and avoid Bitcoin congestion.',
+          'BTC, ETH and BCH behave as on every other platform — gated by mainnet conditions, not by Cloudbet.',
+        ]}
+      />
+      <Para>
+        The PAX option specifically deserves a note. Among major crypto casinos,
+        offering a NYDFS-supervised stablecoin alongside the standard USDT/USDC
+        pair signals a player base that includes US-comfort institutional
+        stablecoin users. That&apos;s a different mix than the typical
+        Curaçao-only crypto casino.
+      </Para>
+
+      <SectionHeading>The 0.001 BTC minimum and what it implies</SectionHeading>
+      <Para>
+        Cloudbet&apos;s minimum deposit is 0.001 BTC equivalent — at current BTC
+        pricing that&apos;s a meaningfully higher entry point than BitStarz&apos; flat
+        $20, BC.Game&apos;s $5 or Mirax&apos;s $20. The 0.001 BTC floor isn&apos;t
+        accidental: it&apos;s the casino signalling that the cashier infrastructure
+        is built around larger deposits and larger withdrawals, with proportionately
+        smaller volume at the entry tier. Casual $5-to-test players are not
+        Cloudbet&apos;s target market.
+      </Para>
+      <Para>
+        For the player profile Cloudbet is built around — crypto-native, willing
+        to deposit at the 0.001 BTC equivalent or above, valuing payout
+        reliability over headline match-bonus size — this is feature, not bug.
+        For full payment-method detail see{' '}
+        <Link href="/reviews/cloudbet/payment-methods" className="text-[#7BB8D4] hover:underline">
+          the Cloudbet payment methods page
+        </Link>
+        .
+      </Para>
+
+      <SectionHeading>KYC at the Cloudbet cashier</SectionHeading>
+      <Para>
+        Cloudbet is rated Light for KYC. The practical reading: standard
+        crypto-only play and standard-size withdrawals complete without document
+        verification. Light KYC can trigger on outsized withdrawal amounts —
+        consistent with Cloudbet&apos;s position as a high-roller venue, the
+        threshold sits high enough that ordinary players don&apos;t encounter it.
+        Cloudbet does not publish a specific dollar figure for the trigger and
+        we won&apos;t guess at one.
+      </Para>
+      <Para>
+        Players whose entire reason to use crypto casinos is anonymity, and who
+        want zero KYC at any amount as policy, are better served by{' '}
+        <Link href="/reviews/7bit-casino/withdrawal" className="text-[#7BB8D4] hover:underline">
+          7Bit Casino
+        </Link>
+        ,{' '}
+        <Link href="/reviews/bc-game" className="text-[#7BB8D4] hover:underline">
+          BC.Game
+        </Link>{' '}
+        or{' '}
+        <Link href="/reviews/duelbits" className="text-[#7BB8D4] hover:underline">
+          Duelbits
+        </Link>
+        . The category hub is{' '}
+        <Link href="/no-kyc-casinos" className="text-[#7BB8D4] hover:underline">
+          our no-KYC casinos page
+        </Link>
+        .
+      </Para>
+
+      <SectionHeading>Why 2013 matters — the longest payout track record in this batch</SectionHeading>
+      <Para>
+        Cloudbet has been operational since 2013, longer than BitStarz (2014),
+        7Bit (2014), BC.Game (2017), Mirax (2022) and every other casino on
+        this site. Across that span the platform has processed withdrawals
+        through the 2017 bull-and-bear cycle, the 2020-21 cycle and the
+        post-2022 reset without a recorded payout failure event surfacing in
+        community channels.
+      </Para>
+      <Para>
+        For a player making a decision about where to leave a balance that may
+        sit for months between play sessions, the 13-year continuous operation
+        is the single highest-confidence signal on the page. Brand age alone
+        isn&apos;t a guarantee of future behaviour — but 13 years of consistent
+        cashier reliability is the strongest historical evidence available
+        among the crypto casinos covered on this site.
+      </Para>
+
+      <SectionHeading>Cloudbet vs BitStarz vs 7Bit on withdrawal</SectionHeading>
+      <Para>
+        Speed: BitStarz and 7Bit both lead with instant-to-10-minutes;{' '}
+        <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">BitStarz</Link>{' '}
+        comes with the 25% bonus admin fee gotcha,{' '}
+        <Link href="/reviews/7bit-casino/withdrawal" className="text-[#7BB8D4] hover:underline">7Bit</Link>{' '}
+        doesn&apos;t. Cloudbet&apos;s instant-to-30-minute window is the widest of the
+        three but the only one with no withdrawal limit constraining the upper
+        bound on payout size.
+      </Para>
+      <Para>
+        Net read: Cloudbet is the choice when withdrawal-size capacity and
+        regulatory recourse matter more than shaving the headline-window
+        from 30 minutes down to 10. For casual play with a smaller bankroll the
+        speed edge at BitStarz or 7Bit may matter more in practice. For a
+        broader view see{' '}
+        <Link href="/fast-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
+          the fastest crypto casinos for withdrawal
+        </Link>{' '}
+        and{' '}
+        <Link href="/high-roller-casinos" className="text-[#7BB8D4] hover:underline">
+          the high roller crypto casinos
+        </Link>{' '}
+        category.
+      </Para>
+    </>
+  )
+}
+
+const CLOUDBET_FAQS = [
+  {
+    question: 'Does Cloudbet really have no withdrawal limit?',
+    answer:
+      "Yes — the standard cashier flow at Cloudbet has no published per-transaction or per-day maximum on crypto withdrawals. Large amounts pull through the same approval path as small ones, with the same processing window. The constraint on what comes out is your balance, not a platform-imposed cap. This is the operational differentiator versus most other crypto casinos, where outsized withdrawals push through an exceptions / VIP-approval path.",
+  },
+  {
+    question: 'How long does a Cloudbet Bitcoin withdrawal actually take?',
+    answer:
+      "Cloudbet's cashier-side processing window is instant to 30 minutes. After approval, on-chain Bitcoin confirmation depends on current mempool conditions — minutes during quiet periods, longer when the network is congested. The 30-minute upper bound is wider than BitStarz's under-10-minute window because Cloudbet handles outsized withdrawals as part of the standard flow, which occasionally pushes individual requests toward the upper end of the range.",
+  },
+  {
+    question: 'What does the Kahnawake licence give me that Curaçao alone doesn\'t?',
+    answer:
+      "The Kahnawake Gaming Commission is a First Nations regulator in Quebec, active since 1996, that imposes additional operational standards on licensees: minimum capitalisation, segregated player funds, and a dispute-resolution path that runs separately from the Curaçao framework. The practical implication for a player is a second regulator to escalate to if a withdrawal disagreement ever needs formal escalation. Cloudbet's payout track record means this rarely comes up, but the redundancy exists.",
+  },
+  {
+    question: 'Which Cloudbet coin clears fastest end-to-end?',
+    answer:
+      "SOL and BNB are the two standouts on the Cloudbet lineup for end-to-end speed — both settle on-chain in seconds once broadcast, with fees in fractions of a cent. USDT or USDC on a fast network (the active network is shown at the cashier when you request the withdrawal) are the next-fastest. LTC and DOGE clear in single-digit minutes. BTC is the slowest in the lineup because of network confirmation times.",
+  },
+  {
+    question: 'Why is Cloudbet\'s 0.001 BTC minimum so much higher than other casinos?',
+    answer:
+      "The 0.001 BTC minimum signals that Cloudbet's cashier and player support infrastructure are built around larger bankrolls — casual $5-to-test players are not the target market. Players depositing at the 0.001 BTC equivalent or above, valuing reliable payout processing over headline match-bonus size, are the profile Cloudbet is designed around. For casinos with lower entry minimums see BC.Game ($5) or 7Bit Casino ($10).",
   },
 ] as const
