@@ -53,6 +53,10 @@ const faqs = [
     question: 'Does network choice matter for big withdrawals?',
     answer: 'Yes. A 5 BTC withdrawal on the Bitcoin network depends on block confirmation times and fee market — usually 10–30 minutes end-to-end. The same value moved as USDT on TRC-20 or SOL is sub-second on-chain and clears as soon as the casino approves. For large cash-outs the operational bottleneck is the casino\'s manual review queue, not the network — but using a fast-finality chain takes one variable out of the equation.',
   },
+  {
+    question: 'Why do most casinos not publish a maximum withdrawal limit?',
+    answer: 'Two reasons. First, withdrawal handling is often tiered — a standard account has an effective cap (usually expressed as "manual review required above X" rather than "withdrawals over X refused"), and VIP-tier players get that cap raised or eliminated through individual onboarding. Publishing a number invites disputes and reduces commercial flexibility. Second, regulators generally don\'t require a published cap — they require AML compliance, which is satisfied by the review trigger mechanism. Cloudbet is unusual in stating "no withdrawal limits" outright; the others document what triggers review at higher amounts but don\'t commit to a specific ceiling number.',
+  },
 ]
 
 const faqSchema = {
@@ -141,6 +145,99 @@ export default function NoLimitWithdrawalPage() {
           subtitle="Ranked on withdrawal posture — formal no-limit policy, KYC behaviour and payout speed at scale"
           casinos={ranked.slice(0, 3)}
         />
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-white mb-2">Stated withdrawal limits across our 7 casinos</h2>
+          <p className="text-[#888888] text-sm mb-6 max-w-3xl">
+            Honest framing: only one of the seven casinos in our reviews makes an explicit &quot;no withdrawal limit&quot;
+            statement. For the rest, the cashier T&amp;Cs don&apos;t publish a specific per-transaction or daily cap
+            number — what&apos;s documented is what triggers manual review at higher amounts. Sourced exclusively from
+            each casino&apos;s reviewSummary, pros and cons in our published reviews.
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-[#222222]">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-[#111111] border-b border-[#222222]">
+                  <th className="text-left px-4 py-3.5 text-[#888888] font-semibold">Casino</th>
+                  <th className="text-left px-4 py-3.5 text-[#888888] font-semibold">Stated max withdrawal</th>
+                  <th className="text-left px-4 py-3.5 text-[#888888] font-semibold hidden md:table-cell">What triggers review at scale</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  {
+                    slug: 'cloudbet',
+                    name: 'Cloudbet',
+                    limit: 'None (explicit)',
+                    trigger: 'Pros explicitly state “No withdrawal limits — critical for high-roller play”. Light KYC may apply at very large amounts.',
+                    explicit: true,
+                  },
+                  {
+                    slug: 'bitstarz',
+                    name: 'BitStarz',
+                    limit: 'Not documented',
+                    trigger: 'Light KYC for larger fiat withdrawals or when account activity flags a compliance review (per cons).',
+                    explicit: false,
+                  },
+                  {
+                    slug: 'bc-game',
+                    name: 'BC.Game',
+                    limit: 'Not documented',
+                    trigger: 'No-KYC policy throughout. Automatic processing for standard amounts (per reviewSummary).',
+                    explicit: false,
+                  },
+                  {
+                    slug: '7bit-casino',
+                    name: '7Bit Casino',
+                    limit: 'Not documented',
+                    trigger: '“Large withdrawals may occasionally require additional processing time” (per cons). No-KYC policy intact throughout.',
+                    explicit: false,
+                  },
+                  {
+                    slug: 'duelbits',
+                    name: 'Duelbits',
+                    limit: 'Not documented',
+                    trigger: 'No-KYC for crypto play; “basic checks reserved for unusual activity” (per pros).',
+                    explicit: false,
+                  },
+                  {
+                    slug: 'mirax-casino',
+                    name: 'Mirax Casino',
+                    limit: 'Not documented',
+                    trigger: '“Light KYC may be required for larger withdrawals” (per cons).',
+                    explicit: false,
+                  },
+                  {
+                    slug: 'shuffle',
+                    name: 'Shuffle',
+                    limit: 'Not documented',
+                    trigger: '“Some reports of temporary holds on high-value withdrawals pending review” (per cons). KYC can be triggered at withdrawal for larger amounts.',
+                    explicit: false,
+                  },
+                ].map((row, i) => (
+                  <tr
+                    key={row.slug}
+                    className={`border-b border-[#222222] last:border-0 hover:bg-[#1a1a1a]/60 transition-colors ${i % 2 !== 0 ? 'bg-[#111111]/40' : ''}`}
+                  >
+                    <td className="px-4 py-3.5">
+                      <Link href={`/reviews/${row.slug}`} className="font-semibold text-[#f5f5f5] hover:text-[#7BB8D4] transition-colors text-xs">
+                        {row.name}
+                      </Link>
+                    </td>
+                    <td className={`px-4 py-3.5 text-xs font-semibold leading-relaxed ${row.explicit ? 'text-[#7BB8D4]' : 'text-[#888888]'}`}>{row.limit}</td>
+                    <td className="px-4 py-3.5 text-[#888888] text-xs leading-relaxed hidden md:table-cell">{row.trigger}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[#555555] text-xs mt-3">
+            &quot;Not documented&quot; here means the casino doesn&apos;t publish a specific per-transaction or daily
+            cap in our reviewed materials — it does not mean limits don&apos;t exist operationally. VIP-tier
+            arrangements typically raise or eliminate caps for verified high-stakes players; that conversation usually
+            happens during VIP onboarding rather than on a public page.
+          </p>
+        </section>
 
         <section className="mt-12 space-y-6">
           <h2 className="text-2xl font-bold text-white">What &quot;No Withdrawal Limit&quot; Actually Means</h2>
