@@ -56,6 +56,14 @@ const faqs = [
     question: 'Do these casinos accept New Zealand accounts?',
     answer: 'None of the casinos listed here have New Zealand in their restricted-countries list as of our last review pass — but eligibility can change without notice. Verify acceptance on the operator\'s own terms before depositing.',
   },
+  {
+    question: 'What RTP can I expect on crypto pokies?',
+    answer: 'Most third-party slots from NetEnt, Pragmatic Play, Hacksaw Gaming and NoLimit City sit in the 95.5–96.5% RTP band — that\'s what you should treat as the realistic average across a session. Provably-fair Originals at BC.Game, Shuffle and Duelbits typically run higher at 97–99%. The trap to watch for is RTP variants: the same slot title can have a 96.5% and a 94% version, and operators can choose which to deploy. Always check the in-game info panel for the actual RTP at the operator you\'re playing on.',
+  },
+  {
+    question: 'Do I pay tax on crypto pokies winnings in New Zealand?',
+    answer: 'No, on the gambling side — casual gambling winnings are not income for individuals under IRD rules. The taxable activity is on the crypto side: IRD treats cryptoassets as property, and disposing of crypto (including to fund a casino deposit or convert winnings back to NZD) can trigger a taxable event independent of the casino round itself. If you on-ramp NZD → crypto → deposit → withdraw → NZD in a short window with no price movement, exposure is minimal. If you hold appreciated crypto for months before depositing, that disposal can trigger a taxable gain. Not tax advice — IRD\'s cryptoassets guidance is the authoritative reference.',
+  },
 ]
 
 const faqSchema = {
@@ -211,6 +219,95 @@ export default function CryptoPokiesNZPage() {
         </section>
 
         <section className="mt-12 space-y-6">
+          <h2 className="text-2xl font-bold text-white">Typical RTP by provider category</h2>
+          <p className="text-[#888888] leading-relaxed">
+            RTP varies by individual title — the figures below are the published ranges most slots from each provider
+            sit in. Specific titles can run higher or lower; always check the in-game info panel for the exact RTP at
+            the operator you&apos;re playing on, since some casinos run lower-RTP variants of the same game from the
+            same provider.
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-[#222222]">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-[#111111] border-b border-[#222222]">
+                  <th className="text-left px-4 py-3.5 text-[#888888] font-semibold">Provider category</th>
+                  <th className="text-left px-4 py-3.5 text-[#888888] font-semibold">Typical RTP range</th>
+                  <th className="text-left px-4 py-3.5 text-[#888888] font-semibold hidden md:table-cell">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { cat: 'NetEnt slots', rtp: '95.5–96.5%', notes: 'Classic-style slots. Generally in the 96.0% band; some marquee titles slightly higher.' },
+                  { cat: 'Pragmatic Play slots', rtp: '94–96.5%', notes: 'Wide variance. Be specific — operators can run lower-RTP variants of the same title.' },
+                  { cat: 'Hacksaw Gaming slots', rtp: '96–96.5%', notes: 'High-volatility specialist. RTP narrow-banded around 96.x%.' },
+                  { cat: 'NoLimit City slots', rtp: '96–96.5%', notes: 'Premium high-volatility output. RTP narrow-banded around 96.x%.' },
+                  { cat: 'Megaways / BTG slots', rtp: '~96.5% baseline', notes: 'Framework-licensed; operators may run lower variants. Check the info panel.' },
+                  { cat: 'Provably-fair Originals (BC.Game / Shuffle / Duelbits)', rtp: '97–99%', notes: 'In-house provably-fair titles typically top the RTP table.' },
+                  { cat: 'Live dealer (Evolution etc.)', rtp: '~98.5–99.5% (table-specific)', notes: 'Blackjack with optimal play ~99.5%; European roulette ~97.3%; game-show formats lower.' },
+                ].map((row, i) => (
+                  <tr key={row.cat} className={`border-b border-[#222222] last:border-0 hover:bg-[#1a1a1a]/60 transition-colors ${i % 2 !== 0 ? 'bg-[#111111]/40' : ''}`}>
+                    <td className="px-4 py-3.5 font-semibold text-[#f5f5f5] text-xs leading-relaxed">{row.cat}</td>
+                    <td className="px-4 py-3.5 text-[#7BB8D4] text-xs font-semibold leading-relaxed">{row.rtp}</td>
+                    <td className="px-4 py-3.5 text-[#888888] text-xs leading-relaxed hidden md:table-cell">{row.notes}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[#555555] text-xs">
+            RTP ranges are provider-level published figures. The provably-fair Originals figures match the in-game RTP
+            ranges documented for BC.Game, Shuffle and Duelbits Originals products.
+          </p>
+        </section>
+
+        <section className="mt-12 space-y-6">
+          <h2 className="text-2xl font-bold text-white">Provider coverage at each casino we review</h2>
+          <p className="text-[#888888] leading-relaxed">
+            Honest framing: only one of the seven casinos in our reviews documents a specific provider lineup. For the
+            others, library size and provably-fair Originals inclusion are confirmed, but specific third-party provider
+            names aren&apos;t enumerated in our reviews. The summary below reflects exactly what&apos;s documented —
+            check each operator&apos;s lobby for the current provider list before making a final decision.
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-[#222222]">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-[#111111] border-b border-[#222222]">
+                  <th className="text-left px-4 py-3.5 text-[#888888] font-semibold">Casino</th>
+                  <th className="text-left px-4 py-3.5 text-[#888888] font-semibold">Library size</th>
+                  <th className="text-left px-4 py-3.5 text-[#888888] font-semibold hidden md:table-cell">Provider detail in our review</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { slug: 'mirax-casino', name: 'Mirax Casino', size: '7,000+ titles', detail: 'Evolution, Pragmatic Play, NetEnt explicitly listed' },
+                  { slug: 'bitstarz', name: 'BitStarz', size: '3,000+ titles', detail: '"100+ providers" — broadest curation, specific names not enumerated' },
+                  { slug: 'bc-game', name: 'BC.Game', size: '10,000+ titles', detail: 'Provably-fair Originals confirmed; third-party providers not enumerated' },
+                  { slug: 'shuffle', name: 'Shuffle', size: '10,000+ titles', detail: 'Shuffle Originals confirmed; third-party providers not enumerated' },
+                  { slug: '7bit-casino', name: '7Bit Casino', size: '7,000+ titles', detail: 'Provably-fair originals confirmed; third-party providers not enumerated' },
+                  { slug: 'duelbits', name: 'Duelbits', size: 'Smaller third-party library', detail: 'Duelbits Originals (slots, crash, plinko, dice) confirmed' },
+                  { slug: 'cloudbet', name: 'Cloudbet', size: 'Lighter than competitors', detail: 'Sportsbook is the differentiator; slots library narrower' },
+                ].map((row, i) => (
+                  <tr key={row.slug} className={`border-b border-[#222222] last:border-0 hover:bg-[#1a1a1a]/60 transition-colors ${i % 2 !== 0 ? 'bg-[#111111]/40' : ''}`}>
+                    <td className="px-4 py-3.5">
+                      <Link href={`/reviews/${row.slug}`} className="font-semibold text-[#f5f5f5] hover:text-[#7BB8D4] transition-colors text-xs">
+                        {row.name}
+                      </Link>
+                    </td>
+                    <td className="px-4 py-3.5 text-[#7BB8D4] text-xs font-semibold leading-relaxed">{row.size}</td>
+                    <td className="px-4 py-3.5 text-[#888888] text-xs leading-relaxed hidden md:table-cell">{row.detail}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[#555555] text-xs">
+            Mirax is the only casino whose third-party provider lineup is documented specifically in our review. For the
+            others, we&apos;ve verified what the operator confirms about library size and Originals, but third-party
+            provider rosters can change without notice — verify on the operator&apos;s own lobby.
+          </p>
+        </section>
+
+        <section className="mt-12 space-y-6">
           <h2 className="text-2xl font-bold text-white">Practical NZ Notes</h2>
           <div className="bg-[#111111] border border-[#222222] rounded-2xl p-6 space-y-4">
             <div>
@@ -246,11 +343,25 @@ export default function CryptoPokiesNZPage() {
               </p>
             </div>
             <div>
-              <h3 className="text-white font-semibold mb-2">Tax position</h3>
+              <h3 className="text-white font-semibold mb-2">Tax on pokies winnings — IRD position</h3>
+              <p className="text-[#888888] text-sm leading-relaxed mb-3">
+                Casual gambling winnings are not income for individuals under IRD rules — the winnings themselves
+                aren&apos;t taxable. The line moves if you can be argued to be in the &quot;business of gambling&quot;,
+                which IRD applies narrowly (regular, professional-scale, demonstrable system); recreational pokies play
+                falls clearly on the non-taxable side.
+              </p>
+              <p className="text-[#888888] text-sm leading-relaxed mb-3">
+                The crypto side is where most of the actual tax mechanics live for NZ pokies players. IRD treats
+                cryptoassets as property rather than currency. Disposing of crypto — including converting it to fund a
+                casino deposit, or converting casino-withdrawn crypto back to NZD — can be a taxable event independent
+                of the casino activity itself. The taxable amount depends on your acquisition cost and the value at
+                disposal, and whether the asset was held with profit intent.
+              </p>
               <p className="text-[#888888] text-sm leading-relaxed">
-                Casual gambling winnings are not taxable for individuals under IRD rules; the tax position concerns crypto
-                disposal events, not casino activity itself. Long-held crypto used to fund deposits is a separate consideration
-                from the pokies winnings themselves.
+                Practical implication: if you on-ramp NZD → crypto → casino → crypto → NZD in a short window with no
+                price movement, the crypto-disposal tax exposure is minimal. If you hold appreciated crypto for months
+                before depositing, that disposal can trigger a taxable gain even before the casino round runs. None of
+                this is tax advice — IRD&apos;s cryptoassets guidance is the authoritative reference.
               </p>
             </div>
           </div>
