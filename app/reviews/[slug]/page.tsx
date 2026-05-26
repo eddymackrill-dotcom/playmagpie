@@ -20,6 +20,47 @@ const casinoMetaDescriptions: Record<string, string> = {
   duelbits: 'Duelbits review 2026. No-KYC crypto casino since 2020 — Duelbits Originals, instant under-5-minute withdrawals, weekly cashback and rakeback VIP. 12 cryptos accepted. Rated 8.5/10.',
 }
 
+// Sub-page index — per-casino contextual links to the deep-dive pages that
+// exist below this review. Sub-pages without an inbound link from the parent
+// review get deprioritised by search, so each entry below has natural anchor
+// text written to match the sub-page's actual angle, not generic phrasing.
+// Add entries here as new sub-pages ship.
+const casinoSubPages: Record<string, { href: string; label: string; teaser: string }[]> = {
+  bitstarz: [
+    {
+      href: '/reviews/bitstarz/withdrawal',
+      label: 'BitStarz withdrawal times and the 25% bonus admin fee, in detail',
+      teaser: 'When the bonus admin fee bites, KYC triggers at the cashier, and what each of the six supported coins means for clearing time.',
+    },
+  ],
+  'mirax-casino': [
+    {
+      href: '/reviews/mirax-casino/withdrawal',
+      label: 'Mirax cashier in detail — the 325% bonus and your first withdrawal',
+      teaser: 'How wagering on the welcome match interacts with your first eligible withdrawal, the seven supported coins, and why XRP clears fastest.',
+    },
+  ],
+  '7bit-casino': [
+    {
+      href: '/reviews/7bit-casino/withdrawal',
+      label: '7Bit withdrawal: no-KYC at any amount, eight coins, under 10 minutes',
+      teaser: 'What no-KYC actually means at the 7Bit cashier, the eight-coin lineup with per-network notes, and why a smaller welcome bonus helps payout-focused players.',
+    },
+  ],
+  cloudbet: [
+    {
+      href: '/reviews/cloudbet/withdrawal',
+      label: 'Cloudbet withdrawal: the no-limit policy, dual-regulator backstop, 10-coin lineup',
+      teaser: 'Why the standard cashier handles outsized payouts without an exceptions path, what the Kahnawake licence adds, and how SOL or BNB clear fastest end-to-end.',
+    },
+    {
+      href: '/reviews/cloudbet/payment-methods',
+      label: 'Cloudbet deposits — 10 cryptos, 0.001 BTC floor, zero fiat options',
+      teaser: 'Per-coin deposit behaviour, what the higher minimum signals about player profile, and why the Kahnawake segregated-funds requirement matters at deposit time.',
+    },
+  ],
+}
+
 const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
   bitstarz: [
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
@@ -332,6 +373,7 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
   if (!casino) notFound()
 
   const relatedGuides = casinoRelatedGuides[slug] ?? []
+  const subPages = casinoSubPages[slug] ?? []
   const faqs = casinoFAQs[slug] ?? []
 
   const kycDescription =
@@ -502,6 +544,30 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
         </div>
 
         <ReviewSection casino={casino} />
+
+        {/* Deep-dive sub-pages — only rendered when the parent review has dedicated sub-pages */}
+        {subPages.length > 0 && (
+          <section className="mt-12 pt-10 border-t border-[#222222]">
+            <h2 className="text-xl font-bold text-white mb-2">Go deeper on {casino.name}</h2>
+            <p className="text-[#888888] text-sm mb-6">
+              Dedicated pages for the parts of {casino.name} that most often surface specific player questions.
+            </p>
+            <div className={`grid grid-cols-1 ${subPages.length > 1 ? 'sm:grid-cols-2' : ''} gap-4`}>
+              {subPages.map((sp) => (
+                <Link
+                  key={sp.href}
+                  href={sp.href}
+                  className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all group"
+                >
+                  <div className="font-semibold text-[#f5f5f5] group-hover:text-[#7BB8D4] transition-colors text-sm leading-snug mb-2">
+                    {sp.label}
+                  </div>
+                  <p className="text-[#888888] text-xs leading-relaxed">{sp.teaser}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Related Guides */}
         {relatedGuides.length > 0 && (
