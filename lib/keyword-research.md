@@ -8,11 +8,11 @@ Rules: see `CLAUDE.md` > DataForSEO cost controls.
 
 | Date       | Query | Endpoint | Volume | Diff | Intent | Cost  | Notes |
 |------------|-------|----------|-------:|-----:|--------|------:|-------|
-| _no entries yet_ | | | | | | | |
+| 2026-05-26 | crypto casino ireland | kw_data/google_ads/search_volume | 50 | - | commercial | $0.05 | geo=ie, lang=en; comp=LOW (idx 7); CPC $3.93-$12.32; 2026-03 spike to 480 (likely VPN-test pollution — IE is a tested market, see lib/pollution-baseline.md); confirmation test after MCP password rotation |
 
 ## Spend running total
 
-- _no spend yet_
+- 2026-05: $0.05 (1 call)
 
 ## Conventions
 
