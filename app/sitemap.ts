@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/no-kyc-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/no-limit-withdrawal-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/best-crypto-pokies-nz`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
+    { url: `${BASE_URL}/bnb-crypto-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
     { url: `${BASE_URL}/crypto`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/country`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/game`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
@@ -30,9 +31,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  const withdrawalPageSlugs = ['bitstarz', 'mirax-casino', '7bit-casino']
+  const withdrawalPageSlugs = ['bitstarz', 'mirax-casino', '7bit-casino', 'cloudbet']
   const casinoWithdrawalPages: MetadataRoute.Sitemap = withdrawalPageSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/withdrawal`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.75,
+  }))
+
+  const paymentMethodsSlugs = ['cloudbet']
+  const casinoPaymentMethodsPages: MetadataRoute.Sitemap = paymentMethodsSlugs.map((slug) => ({
+    url: `${BASE_URL}/reviews/${slug}/payment-methods`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.75,
@@ -88,5 +97,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }))
 
-  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...guidePages, ...cryptoPages, ...countryPages, ...gamePages, ...bonusPages, ...comparisonPages]
+  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...guidePages, ...cryptoPages, ...countryPages, ...gamePages, ...bonusPages, ...comparisonPages]
 }

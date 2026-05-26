@@ -18,8 +18,10 @@ const META: Record<(typeof PAYMENT_METHODS_SLUGS)[number], { title: string; desc
   },
 }
 
+type PaymentMethodsPageProps = { params: Promise<{ slug: string }> }
+
 export async function generateMetadata(
-  props: PageProps<'/reviews/[slug]/payment-methods'>,
+  props: PaymentMethodsPageProps,
 ): Promise<Metadata> {
   const { slug } = await props.params
   if (!(PAYMENT_METHODS_SLUGS as readonly string[]).includes(slug)) return {}
@@ -44,9 +46,7 @@ export async function generateMetadata(
   }
 }
 
-export default async function PaymentMethodsPage(
-  props: PageProps<'/reviews/[slug]/payment-methods'>,
-) {
+export default async function PaymentMethodsPage(props: PaymentMethodsPageProps) {
   const { slug } = await props.params
   if (!(PAYMENT_METHODS_SLUGS as readonly string[]).includes(slug)) notFound()
   const casino = getCasinoBySlug(slug)

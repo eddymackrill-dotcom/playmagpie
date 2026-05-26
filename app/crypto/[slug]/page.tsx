@@ -9,14 +9,24 @@ export async function generateStaticParams() {
   return CRYPTO_LIST.map((c) => ({ slug: c.slug }))
 }
 
+// BNB is repositioned as the chain/coin reference page only. The commercial
+// "best BNB casinos" listicle lives at /bnb-crypto-casinos with explicit
+// canonical separation. See the BNB branch in this file's body for the
+// informational-only treatment, and the metadata switch immediately below
+// for the matching title/description/canonical for crypto/bnb.
 export async function generateMetadata(
   props: PageProps<'/crypto/[slug]'>
 ): Promise<Metadata> {
   const { slug } = await props.params
   const crypto = CRYPTO_LIST.find((c) => c.slug === slug)
   if (!crypto) return {}
-  const title = `Best ${crypto.name} Casinos 2026 — PlayMagpie`
-  const description = `Top crypto casinos accepting ${crypto.name}. Compare bonuses, withdrawal times and fees.`
+  const isBNB = crypto.symbol === 'BNB'
+  const title = isBNB
+    ? 'BNB on Crypto Casinos — Chain Mechanics, Fees, Networks | PlayMagpie'
+    : `Best ${crypto.name} Casinos 2026 — PlayMagpie`
+  const description = isBNB
+    ? 'How BNB works at crypto casinos — BNB Smart Chain mechanics, confirmation times, fee character. For the ranked list of BNB-accepting operators, see /bnb-crypto-casinos.'
+    : `Top crypto casinos accepting ${crypto.name}. Compare bonuses, withdrawal times and fees.`
   return {
     title,
     description,
@@ -39,7 +49,7 @@ const intros: Record<string, string> = {
   LTC: 'Litecoin (LTC) is one of the longest-established cryptocurrencies and remains widely accepted at crypto casinos. Block times average 2.5 minutes — four times faster than Bitcoin — making it a reliable middle-ground option for players who want non-stablecoin exposure without BTC-level confirmation delays. Network fees are consistently low, typically under $0.05 per transaction. LTC is supported by BitStarz, BC.Game, Cloudbet, Mirax, 7Bit and most other major crypto casinos. Welcome bonuses are usually offered in BTC-equivalent terms, so LTC depositors receive proportionally matched amounts. For players who prefer a proof-of-work coin with a long track record and faster settlement than Bitcoin, Litecoin remains a solid choice.',
   DOGE: 'Dogecoin (DOGE) is accepted at the majority of major crypto casinos and offers fast, cheap transactions with confirmation times around one minute. DOGE has built a large, active community and has become a legitimate payment option at platforms including BitStarz, BC.Game, Mirax Casino and 7Bit. Network fees are negligible and confirmation speeds are competitive with Litecoin. The main caveat with DOGE is price volatility — it tends to move on sentiment and social media trends, making it less stable than purpose-built stablecoins for bankroll management. For players who hold DOGE and want to use it directly at casinos, the option is well supported; for players choosing a coin specifically for gambling, stablecoins or faster networks are usually the better pick.',
   SOL: 'Solana (SOL) has become the premier high-performance blockchain for crypto gambling since 2024. Sub-second confirmation finality and fees consistently under $0.001 make it theoretically the fastest on-chain option available. Casino adoption has accelerated rapidly — BC.Game, Cloudbet and Shuffle all support native SOL deposits and withdrawals, and many platforms now offer USDC and USDT on the Solana network as well. The main consideration is that not every crypto casino has added SOL support yet, though the gap is closing each quarter. For players prioritising speed and minimal fees, SOL is now competitive with TRC-20 USDT and often faster.',
-  BNB: 'BNB (Binance Coin) is supported at a growing number of crypto casinos and offers fast confirmation times on the BNB Smart Chain with consistently low fees, typically under $0.20 per transaction. BC.Game, Cloudbet, Shuffle and 7Bit Casino all accept BNB deposits and withdrawals. BNB is most useful for players already holding it from Binance exchange usage or DeFi positions, as it avoids conversion overhead. Casino acceptance is narrower than BTC, ETH or USDT, so always verify your chosen platform supports BNB before depositing. For players within the Binance ecosystem, BNB deposits are a convenient option with minimal friction.',
+  BNB: 'BNB on BNB Smart Chain settles in roughly three seconds at sub-cent fees — among the cheapest end-to-end deposit and withdrawal paths at any crypto casino. Casino acceptance is narrower than for BTC, ETH or USDT: five of the seven casinos in our rankings accept BNB directly (BC.Game, Cloudbet, 7Bit Casino, Shuffle and Duelbits), while BitStarz and Mirax Casino do not. BNB is non-stablecoin — its dollar value moves with market sentiment, so balances held on platform across weeks drift relative to USD, unlike USDT or USDC. The practical use case is depositing what you already hold (typically from Binance exchange usage or BNB Chain DeFi positions) to avoid conversion overhead; there is no scenario where you would specifically buy BNB to gamble with rather than buying USDT or SOL. Make sure deposit and withdrawal addresses are on BNB Smart Chain (BEP-20), not BNB Beacon Chain — sending to the wrong network results in lost funds and casino cashiers do not catch this.',
 }
 
 function casinoAcceptsCrypto(casino: Casino, symbol: string): boolean {
@@ -53,13 +63,21 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
 
   const matching = casinos.filter((c) => casinoAcceptsCrypto(c, crypto.symbol))
   const intro = intros[crypto.symbol] ?? ''
+  const isBNB = crypto.symbol === 'BNB'
+
+  const headingLabel = isBNB
+    ? `BNB at Crypto Casinos — Chain Mechanics & Networks`
+    : `Best ${crypto.name} Casinos 2026`
+  const subHeadingLabel = isBNB
+    ? `BNB Smart Chain mechanics, deposit-side behaviour, and fee character at crypto casinos. The ranked listicle of BNB-accepting operators lives at /bnb-crypto-casinos.`
+    : `Top crypto casinos accepting ${crypto.name}. Compare bonuses, withdrawal times and fees.`
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
-      { '@type': 'ListItem', position: 2, name: `${crypto.name} Casinos`, item: `https://www.playmagpie.com/crypto/${crypto.slug}` },
+      { '@type': 'ListItem', position: 2, name: isBNB ? 'BNB Reference' : `${crypto.name} Casinos`, item: `https://www.playmagpie.com/crypto/${crypto.slug}` },
     ],
   }
 
@@ -73,43 +91,68 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
         <nav className="flex items-center gap-2 text-sm text-[#888888] mb-8">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span>/</span>
-          <span className="text-[#f5f5f5]">{crypto.name} Casinos</span>
+          <span className="text-[#f5f5f5]">{isBNB ? 'BNB Reference' : `${crypto.name} Casinos`}</span>
         </nav>
 
         <div className="mb-10">
           <div className="inline-flex items-center gap-2 bg-[#7BB8D4]/10 border border-[#7BB8D4]/20 rounded-full px-4 py-1.5 mb-4">
             <span className="text-[#7BB8D4] text-sm font-medium">{crypto.symbol}</span>
           </div>
-          <h1 className="text-4xl font-extrabold text-white mb-4">
-            Best {crypto.name} Casinos 2026
-          </h1>
-          <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            Top crypto casinos accepting {crypto.name}. Compare bonuses, withdrawal times and fees.
-          </p>
+          <h1 className="text-4xl font-extrabold text-white mb-4">{headingLabel}</h1>
+          <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">{subHeadingLabel}</p>
         </div>
 
         <section className="mb-12 prose prose-invert max-w-none">
-          <h2 className="text-2xl font-bold text-white mb-4">Gambling with {crypto.name}</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            {isBNB ? 'How BNB behaves at crypto casinos' : `Gambling with ${crypto.name}`}
+          </h2>
           <p className="text-[#888888] leading-relaxed">{intro}</p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-2">
-            {matching.length} {crypto.name} {matching.length === 1 ? 'Casino' : 'Casinos'} Ranked
-          </h2>
-          <p className="text-[#888888] text-sm mb-6">
-            Every platform below accepts {crypto.symbol} for deposits and withdrawals.
-          </p>
-          {matching.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {matching.map((casino, i) => (
-                <CasinoCard key={casino.slug} casino={casino} rank={i + 1} />
-              ))}
+        {isBNB ? (
+          <section className="mb-12 bg-[#111111] border border-[#7BB8D4]/20 rounded-2xl p-6 sm:p-8">
+            <div className="text-[#7BB8D4] text-sm font-medium uppercase tracking-wider mb-2">
+              Looking for the casino ranking?
             </div>
-          ) : (
-            <p className="text-[#888888]">No casinos in our index currently support {crypto.name} natively.</p>
-          )}
-        </section>
+            <h2 className="text-2xl font-bold text-white mb-3">
+              The full BNB casino comparison lives on its own page
+            </h2>
+            <p className="text-[#888888] mb-5 leading-relaxed">
+              This page covers the chain-level mechanics — what BNB Smart Chain actually
+              does at a casino cashier, fee character, network considerations. For the
+              ranked list of which casinos accept BNB, comparison table, per-operator
+              cashier notes and editor&apos;s pick, the dedicated commercial page is{' '}
+              <Link href="/bnb-crypto-casinos" className="text-[#7BB8D4] hover:underline font-medium">
+                the best BNB crypto casinos ranking
+              </Link>
+              .
+            </p>
+            <Link
+              href="/bnb-crypto-casinos"
+              className="inline-flex items-center gap-2 bg-[#7BB8D4] hover:bg-[#8fc4d8] text-[#0a0a0a] font-semibold px-5 py-2.5 rounded-lg transition-colors"
+            >
+              See the best BNB crypto casinos →
+            </Link>
+          </section>
+        ) : (
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-white mb-2">
+              {matching.length} {crypto.name} {matching.length === 1 ? 'Casino' : 'Casinos'} Ranked
+            </h2>
+            <p className="text-[#888888] text-sm mb-6">
+              Every platform below accepts {crypto.symbol} for deposits and withdrawals.
+            </p>
+            {matching.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {matching.map((casino, i) => (
+                  <CasinoCard key={casino.slug} casino={casino} rank={i + 1} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-[#888888]">No casinos in our index currently support {crypto.name} natively.</p>
+            )}
+          </section>
+        )}
 
         <div className="mt-10 pt-8 border-t border-[#222222]">
           <Link
