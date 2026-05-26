@@ -6,7 +6,9 @@ import { casinos } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 
 export async function generateStaticParams() {
-  return COUNTRY_LIST.map((c) => ({ slug: c.slug }))
+  // 'sweden' is served by app/country/sweden/page.tsx (static segment takes
+  // precedence over dynamic [slug]); excluded here to avoid build conflict.
+  return COUNTRY_LIST.filter((c) => c.slug !== 'sweden').map((c) => ({ slug: c.slug }))
 }
 
 export async function generateMetadata(
