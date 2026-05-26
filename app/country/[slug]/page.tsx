@@ -89,12 +89,53 @@ const countryContext: Record<string, string[]> = {
   ],
 }
 
+// Per-country related-pages tiles. Surfacing the deeper intent pages where
+// the country's player base actually overlaps with the topic (e.g. NZ + AU
+// share "pokies" terminology, so both link to /best-crypto-pokies-nz).
+const countryRelatedPages: Record<string, { label: string; href: string; teaser: string }[]> = {
+  'new-zealand': [
+    { label: 'Best Crypto Pokies for NZ', href: '/best-crypto-pokies-nz', teaser: 'Provider RTP ranges + IRD tax treatment of pokies winnings' },
+    { label: 'No-KYC Casinos', href: '/no-kyc-casinos', teaser: 'Privacy + bank-block-sidestep combined for offshore play' },
+    { label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos', teaser: 'When NZD bank-blocking pushes you to on-chain, payout speed matters' },
+  ],
+  australia: [
+    { label: 'Best Crypto Pokies for NZ', href: '/best-crypto-pokies-nz', teaser: 'Shared "pokies" terminology — same provider lineup applies in AU' },
+    { label: 'No-KYC Casinos', href: '/no-kyc-casinos', teaser: 'Sidestep ACMA DNS-blocks and AUD card restrictions' },
+    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'Cap-free cash-out matters more when on-ramp friction is high' },
+  ],
+  norway: [
+    { label: 'Crypto Casinos in Sweden', href: '/country/sweden', teaser: 'Nordic peer — different regime (licensed-restrictive vs monopoly), same crypto-funding logic' },
+    { label: 'No-KYC Casinos', href: '/no-kyc-casinos', teaser: 'Pairs with the Lottstift payment-block sidestep' },
+    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'When you sidestep NOK rails for a win that matters' },
+  ],
+  germany: [
+    { label: 'Crypto Casinos in Sweden', href: '/country/sweden', teaser: 'Adjacent EU regime — same offshore-driver dynamic at different scale' },
+    { label: 'Best Crypto for Gambling', href: '/guides/best-crypto-for-gambling', teaser: '§ 23 EStG holding-period mechanics affect coin choice for DE players' },
+  ],
+  netherlands: [
+    { label: 'Crypto Casinos in Sweden', href: '/country/sweden', teaser: 'EU peer — Sweden\'s one-bonus rule mirrors NL\'s tight licensee restrictions' },
+    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'Cap-free cash-out where the 37.8% kansspelbelasting hits hard' },
+  ],
+  canada: [
+    { label: 'Best Crypto for Gambling', href: '/guides/best-crypto-for-gambling', teaser: 'Decision matrix for picking the right chain at your casino' },
+    { label: 'High Roller Casinos', href: '/high-roller-casinos', teaser: 'Canadian crypto-friendly framing pairs well with VIP-tier play' },
+  ],
+  ireland: [
+    { label: 'Crypto Casinos in Sweden', href: '/country/sweden', teaser: 'EU peer — Sweden\'s licensed-restrictive regime contrasts with Ireland\'s tax-neutral position' },
+    { label: 'Best Crypto for Gambling', href: '/guides/best-crypto-for-gambling', teaser: 'SEPA + EUR on-ramp choice affects coin selection for IE players' },
+  ],
+  japan: [
+    { label: 'No-KYC Casinos', href: '/no-kyc-casinos', teaser: 'Operative regime sits outside Japanese law — privacy on the casino side matters' },
+  ],
+}
+
 export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
   const { slug } = await props.params
   const country = COUNTRY_LIST.find((c) => c.slug === slug)
   if (!country) notFound()
 
   const contentParagraphs = countryContext[slug] ?? []
+  const relatedPages = countryRelatedPages[slug] ?? []
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -150,6 +191,26 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
             ))}
           </div>
         </section>
+
+        {relatedPages.length > 0 && (
+          <section className="mb-12">
+            <h2 className="text-xl font-bold text-white mb-4">Related for {country.name} players</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {relatedPages.map((p) => (
+                <Link
+                  key={p.href}
+                  href={p.href}
+                  className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all group"
+                >
+                  <div className="font-semibold text-[#f5f5f5] group-hover:text-[#7BB8D4] transition-colors mb-1 text-sm">
+                    {p.label}
+                  </div>
+                  <div className="text-[#888888] text-xs leading-relaxed">{p.teaser}</div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         <div className="mt-10 pt-8 border-t border-[#222222]">
           <Link

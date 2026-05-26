@@ -185,6 +185,66 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* By region & focus — surfaces deeper intent pages */}
+        <section className="py-10">
+          <div className="mb-7">
+            <h2 className="text-2xl font-bold text-[#f5f5f5]">By region &amp; focus</h2>
+            <p className="text-[#888888] text-sm mt-1.5">
+              Country-specific framing, niche intent pages and our decision guides — for when the top rankings aren&apos;t the question you&apos;re asking.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              href="/country/sweden"
+              className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 hover:shadow-[0_0_30px_rgba(123,184,212,0.07)] rounded-2xl p-5 transition-all group"
+            >
+              <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-2">Country</div>
+              <h3 className="text-[#f5f5f5] font-semibold mb-2 group-hover:text-[#7BB8D4] transition-colors">
+                Crypto casinos in Sweden
+              </h3>
+              <p className="text-[#888888] text-sm leading-relaxed">
+                Spellag&apos;s one-bonus rule + 72–82% online casino channelisation — why Swedish players go offshore, and how Safello&apos;s MiCA CASP fits in.
+              </p>
+            </Link>
+            <Link
+              href="/best-crypto-pokies-nz"
+              className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 hover:shadow-[0_0_30px_rgba(123,184,212,0.07)] rounded-2xl p-5 transition-all group"
+            >
+              <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-2">NZ Pokies</div>
+              <h3 className="text-[#f5f5f5] font-semibold mb-2 group-hover:text-[#7BB8D4] transition-colors">
+                Best crypto pokies for NZ
+              </h3>
+              <p className="text-[#888888] text-sm leading-relaxed">
+                Provider RTP ranges, which casino documents which lineup, IRD tax treatment of pokies winnings vs crypto disposals.
+              </p>
+            </Link>
+            <Link
+              href="/no-limit-withdrawal-casinos"
+              className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 hover:shadow-[0_0_30px_rgba(123,184,212,0.07)] rounded-2xl p-5 transition-all group"
+            >
+              <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-2">Withdrawal Caps</div>
+              <h3 className="text-[#f5f5f5] font-semibold mb-2 group-hover:text-[#7BB8D4] transition-colors">
+                No-limit withdrawal casinos
+              </h3>
+              <p className="text-[#888888] text-sm leading-relaxed">
+                Cloudbet is the only operator on our list with an explicit no-cap policy — the rest documented, sourced from each casino&apos;s published terms.
+              </p>
+            </Link>
+            <Link
+              href="/guides/best-crypto-for-gambling"
+              className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 hover:shadow-[0_0_30px_rgba(123,184,212,0.07)] rounded-2xl p-5 transition-all group"
+            >
+              <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-2">Guide</div>
+              <h3 className="text-[#f5f5f5] font-semibold mb-2 group-hover:text-[#7BB8D4] transition-colors">
+                Best crypto for gambling
+              </h3>
+              <p className="text-[#888888] text-sm leading-relaxed">
+                Decision matrix — speed vs anonymity vs low fees vs stability. Pick the right chain for the priority you&apos;re actually optimising.
+              </p>
+            </Link>
+          </div>
+        </section>
+
         {/* Top No-KYC Section */}
         <TopRatedSection
           title="Top No-KYC Casinos"

@@ -147,14 +147,22 @@ export default function NoKYCPage() {
         </section>
 
         <section className="mt-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link href="/no-limit-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">No-Limit Withdrawal Casinos</div>
+              <div className="text-[#888888] text-sm">No-KYC + uncapped cash-out — the privacy + scale combination</div>
+            </Link>
+            <Link href="/best-crypto-pokies-nz" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">Best Crypto Pokies NZ</div>
+              <div className="text-[#888888] text-sm">Provably-fair Originals — verify each spin yourself, no third party needed</div>
+            </Link>
+            <Link href="/guides/best-crypto-for-gambling" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">Best Crypto for Gambling</div>
+              <div className="text-[#888888] text-sm">Anonymity is the casino-side decision — the coin choice still matters for speed and fees</div>
+            </Link>
             <Link href="/fast-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Fast Withdrawal Casinos</div>
               <div className="text-[#888888] text-sm">No-KYC and fastest payout times combined</div>
-            </Link>
-            <Link href="/best-crypto-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
-              <div className="font-semibold text-[#f5f5f5] mb-1">All Crypto Casinos</div>
-              <div className="text-[#888888] text-sm">Full rankings across all categories</div>
             </Link>
           </div>
         </section>

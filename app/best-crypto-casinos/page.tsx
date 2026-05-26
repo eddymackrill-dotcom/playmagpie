@@ -158,6 +158,18 @@ export default function BestCryptoCasinosPage() {
               <div className="font-semibold text-[#f5f5f5] mb-1">High Roller Casinos</div>
               <div className="text-[#888888] text-sm">VIP programmes and big limits</div>
             </Link>
+            <Link href="/no-limit-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">No-Limit Withdrawal Casinos</div>
+              <div className="text-[#888888] text-sm">Cap-free cash-out for big wins — Cloudbet is the explicit operator</div>
+            </Link>
+            <Link href="/guides/best-crypto-for-gambling" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">Best Crypto for Gambling</div>
+              <div className="text-[#888888] text-sm">Pick the chain — decision matrix by priority (speed / anonymity / fees)</div>
+            </Link>
+            <Link href="/country/sweden" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">Crypto Casinos in Sweden</div>
+              <div className="text-[#888888] text-sm">EU regulatory regime — Spellag one-bonus rule, channelisation data, on-ramps</div>
+            </Link>
           </div>
         </section>
       </div>

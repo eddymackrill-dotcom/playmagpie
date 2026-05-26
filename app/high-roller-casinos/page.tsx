@@ -159,7 +159,11 @@ export default function HighRollerPage() {
         </section>
 
         <section className="mt-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link href="/no-limit-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">No-Limit Withdrawal Casinos</div>
+              <div className="text-[#888888] text-sm">The other half of high-roller play — cash-out posture, not just bet size</div>
+            </Link>
             <Link href="/fast-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Fast Withdrawal Casinos</div>
               <div className="text-[#888888] text-sm">Critical for high-stakes play</div>
