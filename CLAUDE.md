@@ -154,6 +154,19 @@ Two pollution-aware rules override GSC-only scoring:
 
 Untested markets (Canada, Netherlands, Sweden, Japan, plus the rest of the world) remain scored against the original rules in the strategy section above.
 
+### DataForSEO cost controls
+
+DataForSEO MCP calls cost ~$0.05-0.10 each. Claude Code follows these rules without exception:
+
+- **GSC first, DataForSEO second.** Always check GSC data before calling DataForSEO. Only call DataForSEO when the question genuinely cannot be answered from existing GSC signal (e.g. validating volume for queries not yet ranking).
+- **Per-session call cap: 10.** If a content-selection or research session would need more than 10 DataForSEO calls, stop and ask the user before continuing. Surface the estimated cost.
+- **Batch where possible.** Use DataForSEO's batch endpoints (e.g. multi-keyword volume requests) rather than firing one call per keyword. A 20-keyword batch is one call, not twenty.
+- **Cache to `lib/keyword-research.md`.** Before any DataForSEO call, check whether the query is already cached. After any DataForSEO call, append the result to `lib/keyword-research.md` with the date. Never pay for the same query twice.
+- **Cost preview for >5 calls.** Any session that would use more than 5 DataForSEO calls must surface estimated cost to the user before proceeding ("This research would use ~8 calls, estimated $0.40-0.80. Proceed?").
+- **No exploratory research.** Refuse prompts like "tell me everything about this keyword universe" or "audit all potential pages." DataForSEO is for targeted validation, not discovery sweeps.
+
+The cache file `lib/keyword-research.md` is a flat markdown table — append one row per query, keep the spend running total current. See the file for the column structure.
+
 ### Selection rule (what to build next)
 
 When the user says "build content" without specifying, Claude Code:
