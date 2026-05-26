@@ -39,6 +39,10 @@ type ContentBlock =
   | { type: 'h2'; text: string }
   | { type: 'h3'; text: string }
   | { type: 'p'; text: string }
+  | {
+      type: 'matrix'
+      items: { priority: string; recommendation: string; rationale: string }[]
+    }
 
 const guideContent: Record<string, ContentBlock[]> = {
   'how-crypto-casino-withdrawals-work': [
@@ -91,6 +95,43 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'p', text: 'XRP (Ripple) is accepted at most major crypto casinos and offers fast 3–5 second confirmations with low fees. It is a solid alternative when USDT or SOL are not available. Litecoin (LTC) is slower than XRP but widely accepted and reliable. DOGE is accepted primarily at larger platforms and has an active community, but offers no practical advantage over the options above for gambling purposes.' },
     { type: 'h2', text: 'Privacy-focused options' },
     { type: 'p', text: 'For players who prioritise transaction privacy above all else, Monero (XMR) is the only cryptocurrency with native, protocol-level privacy. Monero transactions are untraceable by design. XMR support at general-market crypto casinos is rare and varies by operator — verify on the casino\'s current cashier page if privacy is your decisive factor, since this is one area where listed crypto support changes more often than other coins.' },
+    { type: 'h2', text: 'Decision matrix — what matters most to you?' },
+    { type: 'p', text: 'The right coin depends on what you\'re optimising for. Pick the priority that best matches your play, and use the recommended chain.' },
+    {
+      type: 'matrix',
+      items: [
+        {
+          priority: 'Speed (fastest end-to-end)',
+          recommendation: 'USDT on TRC-20, or SOL where supported',
+          rationale: 'Sub-second to 3-second on-chain finality with fees under $0.01 on both. Functionally instant if the casino\'s internal processing is automated. TRC-20 is universally accepted; SOL is added at BC.Game, Cloudbet, Shuffle and Duelbits per the casinos we review.',
+        },
+        {
+          priority: 'Anonymity (no-KYC at any size)',
+          recommendation: 'Any chain at a no-KYC casino — coin choice is secondary',
+          rationale: 'Anonymity is the casino-side decision, not the coin-side. BC.Game, 7Bit Casino and Duelbits operate no-KYC policies in lib/casinos.ts. Within those operators, choose your coin for speed and fees. Monero is the only protocol-level-private chain but casino support is narrow.',
+        },
+        {
+          priority: 'Lowest fees per transaction',
+          recommendation: 'USDT on TRC-20 (or SOL)',
+          rationale: 'Consistently under $0.01 per transaction on both. ETH gas can spike to $5–$30 during congestion — avoid for routine play. Bitcoin fees fluctuate with mempool demand; at low congestion under $1, at high congestion $50+.',
+        },
+        {
+          priority: 'Stability (no FX drift between sessions)',
+          recommendation: 'USDT or USDC on the fastest chain your casino accepts',
+          rationale: 'Stablecoins pegged 1:1 to USD remove crypto-side volatility entirely. USDT has wider casino acceptance (every casino we review supports it). USDC has stronger regulatory transparency (Circle, audited monthly) — pick on counterparty preference; speed characteristics are equivalent.',
+        },
+        {
+          priority: 'You already hold BTC and want to play with it',
+          recommendation: 'BTC mainnet — accepted everywhere',
+          rationale: 'Every casino we review accepts BTC. Tolerate 10–60 minute confirmation times and treat the volatility as already part of your existing portfolio exposure. Don\'t acquire BTC specifically to gamble — acquire USDT instead and avoid the FX drift on top of gambling variance.',
+        },
+        {
+          priority: 'First time / not sure which to choose',
+          recommendation: 'USDT on TRC-20 — the default',
+          rationale: 'Stable, fast, cheap, universally accepted. Acquire via a regulated exchange (Bitvavo, Kraken, Coinbase, or your country\'s licensed alternative), send to a self-custodial wallet, deposit on TRC-20 at the casino. Confirm the network selection at the cashier before broadcasting — wrong-network sends are not recoverable.',
+        },
+      ],
+    },
     { type: 'h2', text: 'The PlayMagpie recommendation' },
     { type: 'p', text: 'For most players: use USDT on TRC-20 as your primary gambling currency. It is stable, fast, cheap and universally accepted. Use SOL if your casino supports it and you want marginally faster withdrawals. Use BTC only if your specific casino does not support USDT or SOL, or if you deliberately want price exposure. Avoid ETH for small or frequent transactions due to gas fees. Check your specific casino\'s supported networks before depositing — transferring on the wrong network results in lost funds.' },
   ],
@@ -382,6 +423,19 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
               <h3 key={i} className="text-base font-bold text-[#f5f5f5] mt-6 mb-2">
                 {block.text}
               </h3>
+            ) : block.type === 'matrix' ? (
+              <div key={i} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 mb-4 not-prose">
+                {block.items.map((item, idx) => (
+                  <div key={idx} className="bg-[#111111] border border-[#222222] rounded-2xl p-5">
+                    <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-2">
+                      If your priority is
+                    </div>
+                    <h3 className="text-white font-semibold mb-3 text-base">{item.priority}</h3>
+                    <div className="text-[#7BB8D4] text-sm font-semibold mb-2">→ {item.recommendation}</div>
+                    <p className="text-[#888888] text-sm leading-relaxed">{item.rationale}</p>
+                  </div>
+                ))}
+              </div>
             ) : (
               <p key={i} className="text-[#888888] leading-relaxed">
                 {block.text}
