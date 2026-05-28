@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import { casinos } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
@@ -93,14 +94,22 @@ export default function FastWithdrawalPage() {
         <section className="mt-12 space-y-6">
           <h2 className="text-2xl font-bold text-white">Why Withdrawal Speed Matters</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
+            {([
               {
                 title: 'On-Chain vs Off-Chain',
                 body: 'True crypto withdrawals go directly to your wallet on-chain. Casinos that use internal credits or convert to fiat first will always be slower and carry more risk.',
               },
               {
                 title: 'KYC Delays',
-                body: 'The most common cause of slow withdrawals is mid-process KYC verification. No-KYC casinos eliminate this entirely — your crypto clears without a document check.',
+                body: (
+                  <>
+                    The most common cause of slow withdrawals is mid-process KYC verification. No-KYC casinos eliminate
+                    this entirely — your crypto clears without a document check. At Standard-KYC operators the holds can
+                    stretch days: <Link href="/reviews/roobet" className="text-[#7BB8D4] hover:underline">Roobet has
+                    documented AskGamblers cases</Link> at $20k, $84k, $97k, $111k and $115k where verified accounts
+                    sat in &quot;routine verification&quot; for multiple days.
+                  </>
+                ),
               },
               {
                 title: 'Network Choice',
@@ -110,7 +119,7 @@ export default function FastWithdrawalPage() {
                 title: 'Withdrawal Limits',
                 body: 'Some casinos impose daily or weekly limits. We list the maximum single-withdrawal limit for each casino — critical if you hit a big win.',
               },
-            ].map((card) => (
+            ] as { title: string; body: ReactNode }[]).map((card) => (
               <div key={card.title} className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
                 <h3 className="text-white font-semibold mb-2">{card.title}</h3>
                 <p className="text-[#888888] text-sm leading-relaxed">{card.body}</p>
