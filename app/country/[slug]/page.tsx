@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { COUNTRY_LIST } from '@/lib/programmatic'
-import { casinos } from '@/lib/casinos'
+import { casinos, casinoAcceptsCountry } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 
 export async function generateStaticParams() {
@@ -136,6 +136,9 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
 
   const contentParagraphs = countryContext[slug] ?? []
   const relatedPages = countryRelatedPages[slug] ?? []
+  // Casinos whose published terms exclude this country are filtered out — see
+  // casinoAcceptsCountry in lib/casinos.ts for matching mechanics.
+  const eligibleCasinos = casinos.filter((c) => casinoAcceptsCountry(c, slug))
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -186,7 +189,7 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
             Independent rankings — verify each platform accepts {country.name} accounts before depositing.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {casinos.map((casino, i) => (
+            {eligibleCasinos.map((casino, i) => (
               <CasinoCard key={casino.slug} casino={casino} rank={i + 1} />
             ))}
           </div>

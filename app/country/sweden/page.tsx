@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { casinos } from '@/lib/casinos'
+import { casinos, casinoAcceptsCountry } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
+
+const eligibleCasinos = casinos.filter((c) => casinoAcceptsCountry(c, 'sweden'))
 
 export const metadata: Metadata = {
   title: 'Best Crypto Casinos in Sweden 2026 — Spelinspektionen, On-Ramps & Tax',
@@ -200,7 +202,7 @@ export default function SwedenPage() {
                 </tr>
               </thead>
               <tbody>
-                {casinos.map((casino, i) => (
+                {eligibleCasinos.map((casino, i) => (
                   <tr
                     key={casino.slug}
                     className={`border-b border-[#222222] last:border-0 hover:bg-[#1a1a1a]/60 transition-colors ${i % 2 !== 0 ? 'bg-[#111111]/40' : ''}`}
@@ -236,11 +238,13 @@ export default function SwedenPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">All Crypto Casinos Ranked</h2>
           <p className="text-[#888888] text-sm mb-6">
-            Independent rankings — none of these casinos restrict Sweden in their published terms, but verify each
-            platform accepts your account before depositing.
+            Independent rankings — every casino shown below accepts Swedish accounts under its published terms.
+            Roobet is excluded here because Sweden sits on its restricted-territories list (roobet.com/terms §3.5);
+            see the Roobet review for context. Verify acceptance before depositing in case any operator updates its
+            terms.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {casinos.map((casino, i) => (
+            {eligibleCasinos.map((casino, i) => (
               <CasinoCard key={casino.slug} casino={casino} rank={i + 1} />
             ))}
           </div>
