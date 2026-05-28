@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { casinos } from '@/lib/casinos'
+import { casinos, getCasinoBySlug } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 
 export const metadata: Metadata = {
   title: 'Best Crypto Casinos for Crash Games 2026 — Aviator, JetX, Originals',
   description:
-    'Crypto casinos with the best crash game selection in 2026. BC.Game, Shuffle and Duelbits compared on Originals, Aviator coverage, RTP and no-KYC play.',
+    'Crypto casinos with the best crash game selection in 2026. BC.Game, Shuffle, Duelbits and Roobet compared on native Originals, Aviator coverage, RTP and KYC posture.',
   alternates: { canonical: '/game/crash' },
   openGraph: {
     url: '/game/crash',
@@ -18,12 +18,42 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Best Crypto Casinos for Crash Games 2026',
-    description: 'BC.Game, Shuffle and Duelbits compared on crash Originals, Aviator and provably-fair verification.',
+    description: 'BC.Game, Shuffle, Duelbits and Roobet compared on crash Originals, Aviator coverage and provably-fair verification.',
     images: ['/og-image.png'],
   },
 }
 
-const CRASH_CASINO_SLUGS = ['bc-game', 'duelbits', 'shuffle']
+// BC.Game / Shuffle / Duelbits lead — three operators with native provably-fair
+// crash Originals plus the strongest trust profiles in the crash category.
+// Roobet is included because Crash is the genre anchor for the Roobet brand
+// (alongside Snoop's HotBox, a Snoop-themed Crash variant), and excluding a
+// legitimate crash-led operator would make the page less useful. The
+// per-casino notes block below surfaces Roobet's withdrawal caveat where it
+// matters for the reader before they decide to play.
+const CRASH_CASINO_SLUGS = ['bc-game', 'duelbits', 'shuffle', 'roobet']
+
+// Per-casino crash-page notes. Each operator gets its own context paragraph
+// that frames its crash credentials honestly — for Roobet specifically the
+// note carries the withdrawalCaveat so the strength-with-caveat is visible
+// on the listing page itself, not just inside the full review.
+const PER_CASINO_CRASH_NOTES: Record<string, { angle: string; caveat?: string }> = {
+  'bc-game': {
+    angle:
+      'BC.Game runs the widest crash catalogue of the four — native Originals (Crash, Plinko, Dice and more) alongside Aviator, JetX and Spaceman from third parties. No-KYC at any withdrawal size and 100+ supported cryptocurrencies make it the cleanest crash-to-cashout path on this list.',
+  },
+  shuffle: {
+    angle:
+      'Shuffle pairs its native Crash Original with the SHFL token rewards economy — every crash round earns rakeback and counts toward SHFL airdrops regardless of multiplier outcome. The Light KYC model means most players never see a document check; larger withdrawals may trigger review.',
+  },
+  duelbits: {
+    angle:
+      'Duelbits is the most explicit on its in-house Crash product — provably-fair, sub-5-minute withdrawal headline, no-KYC for crypto play. Cashback-first welcome model rather than a deposit match, which suits volume crash play better than match-bonus operators where wagering caps cut early winnings.',
+  },
+  roobet: {
+    angle:
+      'Crash is the genre anchor for the Roobet brand — the native Crash Original is the flagship, with Snoop\'s HotBox running as a Snoop-themed variant alongside Mines, Towers, Dice, Plinko and the other Roobet Originals. ~6,000 third-party titles round out the catalogue. Trust score 6.8 reflects documented withdrawal-hold cases at $20k+ that the other three operators on this page do not have on record.',
+  },
+}
 
 const faqs = [
   {
@@ -36,7 +66,7 @@ const faqs = [
   },
   {
     question: 'Which crypto casinos have the best crash selection?',
-    answer: 'BC.Game, Shuffle and Duelbits are the three platforms with native crash Originals alongside third-party titles like Aviator (Spribe), JetX (SmartSoft) and Spaceman (Pragmatic Play). Duelbits is the most explicit on its in-house crash product. BC.Game runs the widest title selection at 10,000+ games total. Shuffle pairs Originals with its SHFL token rewards system.',
+    answer: 'Four platforms in our rankings run native provably-fair crash Originals: BC.Game, Shuffle, Duelbits and Roobet. BC.Game runs the widest third-party title list (Aviator, JetX, Spaceman) plus its own Originals at 10,000+ games total. Duelbits is the most explicit on its in-house crash product with sub-5-minute crypto withdrawals. Shuffle pairs Originals with the SHFL token rewards economy. Roobet is included because Crash is the genre anchor for its brand — its native Crash Original plus the Snoop\'s HotBox Crash variant are the flagship products — but its trust score (6.8) sits well below the other three because of documented withdrawal-hold cases at $20k+ amounts; see the Roobet review for the full picture.',
   },
   {
     question: 'What is the RTP on Aviator and other crash games?',
@@ -44,7 +74,7 @@ const faqs = [
   },
   {
     question: 'Can I play crash games without KYC?',
-    answer: 'Yes — BC.Game and Duelbits both operate no-KYC policies for crypto play, including crash. You can sign up with email, deposit, play and withdraw without submitting identity documents. Shuffle has Light KYC, with checks only triggered at larger withdrawal thresholds. For full anonymity, BC.Game or Duelbits are the default choices.',
+    answer: 'Yes — BC.Game and Duelbits both operate no-KYC policies for crypto play, including crash. You can sign up with email, deposit, play and withdraw without submitting identity documents. Shuffle has Light KYC, with checks only triggered at larger withdrawal thresholds. Roobet runs Standard KYC: basic personal data at deposit, with full ID checks triggered by withdrawal size or activity flags rather than a fixed dollar threshold. For full anonymity, BC.Game or Duelbits are the default choices.',
   },
 ]
 
@@ -100,14 +130,15 @@ export default function CrashCasinosPage() {
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Crash is one of the few casino formats that became popular through crypto and stayed there. The mechanic is
-            simple, the math is verifiable on-chain, and three platforms — BC.Game, Shuffle and Duelbits — run polished
-            in-house Originals alongside the genre benchmarks.
+            simple, the math is verifiable on-chain, and four operators in our rankings run native provably-fair Crash
+            Originals — BC.Game, Shuffle and Duelbits lead on trust, with Roobet as the fourth on the strength of its
+            Crash flagship and Snoop&apos;s HotBox variant.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           {[
-            { label: 'Native Crash Originals', value: '3 platforms', sub: 'BC.Game · Shuffle · Duelbits' },
+            { label: 'Native Crash Originals', value: '4 platforms', sub: 'BC.Game · Shuffle · Duelbits · Roobet' },
             { label: 'Typical Originals RTP', value: '97–99%', sub: 'Higher than most third-party slots' },
             { label: 'Fastest Crash Payouts', value: 'Under 5 min', sub: 'Duelbits — 9.2/10 withdrawal score' },
           ].map((s) => (
@@ -122,12 +153,53 @@ export default function CrashCasinosPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Top Casinos for Crash Games</h2>
           <p className="text-[#888888] text-sm mb-6">
-            Filtered to platforms with native provably-fair crash Originals — the three operators whose product matches the format properly.
+            Filtered to platforms with native provably-fair crash Originals. Ranked by trust score — see the per-casino notes below for the operational angle on each.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {ranked.map((casino, i) => (
               <CasinoCard key={casino.slug} casino={casino} rank={i + 1} />
             ))}
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-2">Per-operator crash notes</h2>
+          <p className="text-[#888888] text-sm mb-6">
+            What each operator brings to crash play specifically — and what to know before you deposit.
+          </p>
+          <div className="space-y-4">
+            {CRASH_CASINO_SLUGS.map((slug) => {
+              const casino = getCasinoBySlug(slug)
+              if (!casino) return null
+              const note = PER_CASINO_CRASH_NOTES[slug]
+              if (!note) return null
+              return (
+                <div key={slug} className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
+                  <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
+                    <Link
+                      href={`/reviews/${slug}`}
+                      className="font-bold text-[#f5f5f5] hover:text-[#7BB8D4] transition-colors text-base"
+                    >
+                      {casino.name}
+                    </Link>
+                    <span className="text-xs text-[#888888]">
+                      Trust <span className="text-[#7BB8D4] font-semibold">{casino.trustScore}</span>/10 ·
+                      Withdrawal <span className="text-[#7BB8D4] font-semibold">{casino.withdrawalScore}</span>/10 ·
+                      KYC {casino.kycLevel}
+                    </span>
+                  </div>
+                  <p className="text-[#888888] text-sm leading-relaxed mb-3">{note.angle}</p>
+                  {casino.withdrawalCaveat && (
+                    <div className="mt-3 border-l-2 border-[#7BB8D4]/40 pl-4 py-1 bg-[#7BB8D4]/[0.04] rounded-r">
+                      <div className="text-[#7BB8D4] text-xs font-semibold uppercase tracking-wide mb-1">
+                        Withdrawal caveat
+                      </div>
+                      <p className="text-[#bbbbbb] text-sm leading-relaxed">{casino.withdrawalCaveat}</p>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </section>
 
@@ -166,7 +238,7 @@ export default function CrashCasinosPage() {
               },
               {
                 title: 'In-house Originals',
-                body: 'BC.Game, Shuffle and Duelbits each run native crash games with provably-fair seeds — auditable by the player after every round. RTP typically sits in the same 97–99% band as Aviator, with the advantage of full seed verification on every spin.',
+                body: 'BC.Game, Shuffle, Duelbits and Roobet each run native crash games with provably-fair seeds — auditable by the player after every round. RTP typically sits in the same 97–99% band as Aviator, with the advantage of full seed verification on every spin. Roobet additionally runs the Snoop\'s HotBox Crash variant — a Snoop Dogg–themed reskin of the same provably-fair Crash mechanic.',
               },
             ].map((card) => (
               <div key={card.title} className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
@@ -180,8 +252,8 @@ export default function CrashCasinosPage() {
         <section className="mb-12 space-y-4">
           <h2 className="text-2xl font-bold text-white">How provably-fair crash actually verifies</h2>
           <p className="text-[#888888] leading-relaxed">
-            Crash games at BC.Game, Shuffle and Duelbits use a server-seed commitment model you can audit yourself. The
-            operator publishes a hashed server seed before play. You contribute a client seed. Each round combines both
+            Crash games at BC.Game, Shuffle, Duelbits and Roobet use a server-seed commitment model you can audit
+            yourself. The operator publishes a hashed server seed before play. You contribute a client seed. Each round combines both
             with a nonce to produce the crash multiplier. Once a session ends, the unhashed server seed is published —
             and you can independently re-run the hash to confirm it matches what was committed before any round was played.
           </p>
