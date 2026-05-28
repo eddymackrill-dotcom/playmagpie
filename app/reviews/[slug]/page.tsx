@@ -429,7 +429,10 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
     { label: 'Best Crypto Casinos', href: '/best-crypto-casinos' },
     ...(casino.withdrawalScore >= 9.0 ? [{ label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos' }] : []),
     ...(casino.kycLevel === 'None' ? [{ label: 'No-KYC Casinos', href: '/no-kyc-casinos' }] : []),
-    ...(casino.vipProgram ? [{ label: 'High Roller Casinos', href: '/high-roller-casinos' }] : []),
+    // Mirror the /high-roller-casinos filter (vipProgram AND trustScore >= 8.0)
+    // so this link only shows on review pages whose casino actually renders on
+    // the high-roller listing.
+    ...(casino.vipProgram && casino.trustScore >= 8.0 ? [{ label: 'High Roller Casinos', href: '/high-roller-casinos' }] : []),
     // Cloudbet is the only operator on our list with an explicit no-withdrawal-limit
     // policy (verified in its lib/casinos.ts pros). Surfacing /no-limit-withdrawal-casinos
     // from its review specifically rather than from every VIP casino, to keep the link

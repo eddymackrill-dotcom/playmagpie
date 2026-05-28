@@ -37,7 +37,12 @@ const breadcrumbSchema = {
 }
 
 export default function HighRollerPage() {
-  const vipCasinos = casinos.filter((c) => c.vipProgram)
+  // High-roller filter: VIP programme AND trustScore >= 8.0. The trust floor
+  // keeps the page consistent with its premise — "platforms built for serious
+  // players" cannot include operators with documented withdrawal-hold patterns
+  // on large wins. Excludes Roobet (6.8) at present; reapplies cleanly to any
+  // future low-trust VIP entry.
+  const vipCasinos = casinos.filter((c) => c.vipProgram && c.trustScore >= 8.0)
   const topVip = casinos.find((c) => c.badges.includes('High Roller'))
 
   return (
