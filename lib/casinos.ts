@@ -1,3 +1,19 @@
+// Roobet factual profile + reputational findings verified May 2026 against primary sources:
+// - Restricted territories + 2% fiat withdrawal fee on 11+/30-day: roobet.com/terms §3.5 + §10.8 (user-verified from live ToS)
+// - Operating entity Raw Entertainment B.V., Curaçao reg. 157205: Casino.Guru + AskGamblers profiles (Dec 2025)
+// - $84,000 unsolved AskGamblers complaint: https://www.askgamblers.com/casino-complaints/roobet-casino-account-wrongfully-locked-after-requesting-usd84-000-withdrawal-1
+// - Pattern of $20k-$115k withdrawal holds resolved via AskGamblers mediation: https://www.askgamblers.com/online-casinos/reviews/roobet-casino-casino/complaints
+// - Card-counting "low-risk play" confiscation case (Jan 2025): https://casino.guru/roobet-casino-player-s-funds-have-been-confiscated
+// - Self-exclusion failures: https://lcb.org/onlinecasinobonusforum/player-complaints/roobet-self-exclusion + https://casino.guru/roobet-casino-the-player-s-self-exclusion-failed
+// - Twitch gambling-stream ban (Oct 2022): https://www.nbcnews.com/tech/tech-news/twitch-announces-will-ban-users-streaming-unlicensed-gambling-content-rcna48663
+// - ASCI India referral to MIB (Feb 2025): https://www.storyboard18.com/gaming-news/exclusive-asci-to-report-snoop-dogg-backed-gambling-platform-roobet-to-mib-57751.htm
+// - Chelsea FC LatAm + Canada (excl. Ontario) partnership (Jan 2025): https://www.chelseafc.com/en/news/article/roobet-official-betting-partner-in-latin-america-and-canada
+// - Fast Track third-party breach (Oct 2025): https://www.vegasslotsonline.com/news/2025/10/13/roobet-says-users-arent-impacted-after-external-partner-suffered-cyber-attack/
+// - Curaçao LOK regime end of orange-seal transition (15 Oct 2025): https://gamblingtalk.net/news/curacao-to-end-orange-seal-system-on-15-october-2025-as-sublicensing-era-concludes
+// - Anjouan secondary licence ALSI-202507005 (per Casino.Guru, verified listing): https://casino.guru/roobet-casino-review
+// - Roowards 2.0 VIP product (30 tiers + invite-only top VIP Club): aggregated across thespike.gg, bitcoinchaser.com, gamechampions.com
+// - $200k/day max withdrawal + $10 min withdrawal + $10 min deposit: AskGamblers + thespike.gg (May 2026)
+
 export type Casino = {
   name: string
   slug: string
@@ -20,6 +36,13 @@ export type Casino = {
   cons: string[]
   featured: boolean
   badges: string[]
+  /**
+   * Optional. Replaces the generic "no middlemen, no holds" tail in ReviewSection's
+   * withdrawal block when set. Use when the casino has documented withdrawal holds
+   * that contradict the generic claim — keeps the review honest at the data layer
+   * rather than requiring a fork of the review template.
+   */
+  withdrawalCaveat?: string
 }
 
 export const casinos: Casino[] = [
@@ -276,7 +299,87 @@ export const casinos: Casino[] = [
     featured: true,
     badges: ['No KYC', 'Fast Payouts', 'VIP', 'Crypto'],
   },
+  {
+    name: 'Roobet',
+    slug: 'roobet',
+    logo: '/logos/roobet.png',
+    licence: 'Curaçao (Raw Entertainment B.V., reg. 157205) + Anjouan ALSI-202507005',
+    acceptedCryptos: ['BTC', 'ETH', 'LTC', 'USDT', 'USDC', 'XRP', 'TRX', 'DOGE'],
+    withdrawalTime: '~15 minutes for most crypto; BTC up to 24 hours; no weekend processing',
+    minDeposit: '$10',
+    kycLevel: 'Standard',
+    vipProgram: true,
+    bonusSummary: 'No traditional welcome bonus — 7-day 20% net-loss cashback capped near $1,400 plus a $5 sportsbook free bet (code MAXBONUS)',
+    // Full territory list lifted verbatim from roobet.com/terms §3.5 (user-verified
+    // May 2026). Stored as full country names rather than ISO codes — country-page
+    // exclusion is driven via casinoAcceptsCountry() which matches full names only,
+    // so this list also serves as the authoritative restricted-jurisdictions copy
+    // on the review page.
+    restrictedCountries: [
+      'Aruba', 'Australia', 'Belgium', 'Bonaire', 'Cuba', 'Curacao', 'Cyprus', 'Denmark',
+      'Germany', 'Gibraltar', 'Haiti', 'Israel', 'Iran', 'Iraq', 'Malta', 'Myanmar',
+      'Netherlands', 'Nicaragua', 'North Korea', 'Ontario', 'Portugal', 'Saba',
+      'Saint Maarten', 'Saint Martin', 'South Sudan', 'Spain', 'Statia', 'Syria',
+      'Sweden', 'United States', 'United Kingdom', 'Yemen', 'Zimbabwe',
+    ],
+    trustScore: 6.8,
+    withdrawalScore: 6.5,
+    bonusFairnessScore: 6.0,
+    kycScore: 6.5,
+    affiliateUrl: 'https://go.roobet.com/visit/?bta=45872&brand=roobet',
+    reviewSummary:
+      'Roobet has been operating since 2019 under Raw Entertainment B.V. (Curaçao registration 157205), with a secondary Anjouan licence picked up in 2025 as the Curaçao licensing regime moved from the legacy sub-licensee model to the post-LOK direct framework. The product is built around Roobet Originals — Crash is the flagship, with Mines, Towers, Dice, Plinko and the Snoop-branded HotBox variant alongside roughly 6,000 third-party slots and a full sportsbook that picked up regional partnership deals with Chelsea FC (Latin America plus Canada outside Ontario) and 100 Thieves in 2025. The honest picture has two sides. The catalogue is real, the originals are provably fair, and headline crypto withdrawals process in around 15 minutes across the 8 supported coins. The documented track record at the high-stakes end is harder to ignore — AskGamblers carries Roobet complaints at $20k, $84k, $97k, $111k and $115k where verified accounts saw cashouts held in "routine verification" for days, and the $84,000 case is publicly listed as Unsolved. Roobet T&C explicitly authorise winnings confiscation on "low-risk play," with a January 2025 card-counting case running ~$2,700-3,000 voided on those grounds. There is also no traditional welcome bonus — only net-loss cashback that only triggers if you lose. The restricted-territories list is unusually wide for a Curaçao operator, covering the UK, US, Germany, Netherlands, Sweden and Australia among others, which is itself useful signal about the platform\'s offshore positioning. Roobet is a usable platform for crash-led play at modest stakes; it is not where you want to be holding a five- or six-figure win waiting on a cashier review.',
+    pros: [
+      'Roobet Originals — Crash is the flagship, plus Mines, Towers, Dice, Plinko and the Snoop-branded HotBox variant, all provably fair',
+      '~6,000 third-party slots from providers including Pragmatic Play, Hacksaw, Play\'n GO, Push, Relax, Nolimit City and NetEnt',
+      'Full crypto sportsbook covering ~40 sports including esports, plus regional partnerships with Chelsea FC (LatAm + Canada outside Ontario) and 100 Thieves',
+      'Headline crypto withdrawal time of ~15 minutes across 8 supported coins (BTC, ETH, LTC, USDT, USDC, XRP, TRX, DOGE)',
+      '$10 minimum deposit and minimum withdrawal — accessible entry point for smaller bankrolls',
+      'Roowards 2.0 — 30-tier rakeback programme with rakeback drops every 30 minutes, plus invite-only top VIP Club above it',
+    ],
+    cons: [
+      'Documented pattern of withdrawal holds on large wins — AskGamblers complaints at $20k, $84k, $97k, $111k and $115k where verified accounts saw "routine verification" stretch days; the $84,000 case is publicly listed as Unsolved as of 2026',
+      'T&C permit winnings confiscation on "low-risk play" — Jan 2025 card-counting case voided $2,700-3,000 with Roobet stating "this decision is final" (case logged on Casino.Guru)',
+      'Self-exclusion has not been bulletproof — documented LCB.org case (2021, ~$200k lifetime exposure across three accounts) and Casino.Guru Ireland case (€1,061 deposited a month after a self-exclusion request, refund refused on the basis that the player had not disclosed gambling-problem status)',
+      'Offshore-only licensing — Curaçao (Raw Entertainment B.V., transitioning under post-LOK regime) plus secondary Anjouan ALSI-202507005; no Tier 1 regulator backing (UK GC, MGA, AGCO etc.)',
+      'No traditional welcome bonus — only a 7-day 20% net-loss cashback capped near $1,400 plus a $5 sports free bet; value only realised on losses',
+      'Notably wide restricted-territory list — UK, US, Germany, Netherlands, Sweden, Australia, Belgium, Denmark, Portugal, Spain, Cyprus, Malta and more excluded',
+      'Twitch banned Roobet streams in October 2022 alongside Stake, Rollbit and Duelbits — content presence is now Kick-led; ASCI in India referred Roobet to the Ministry of Information & Broadcasting in February 2025 over alleged UPI payment-partner claims',
+      '$200,000/day withdrawal cap and no weekend cashout processing — material constraints for the high-roller use case despite the Roowards VIP structure',
+      '2% fiat withdrawal fee triggered on every fiat cashout after the 10th in a rolling 30-day window (per terms §10.8)',
+    ],
+    featured: false,
+    badges: ['Crash Originals', 'Sportsbook', 'Crypto'],
+    withdrawalCaveat:
+      'Headline processing time is ~15 minutes for most cryptos (no weekend cashier). The honest caveat: AskGamblers carries multiple resolved-but-multi-day delay cases against Roobet at $20k+, and one publicly Unsolved $84,000 account-lock case. Expect KYC re-triggers on any sizeable cashout regardless of account tenure.',
+  },
 ]
+
+// Maps each country slug we have a page for to the token(s) we look for in a
+// casino's restrictedCountries array. Full country names ONLY — existing casinos
+// use ISO codes ('AU', 'NL') which are deliberately NOT in this map, so they
+// keep their current behaviour on country pages (rendered with the standard
+// "verify acceptance before depositing" warning). Roobet uses full country
+// names per its live ToS §3.5, so the filter only catches Roobet today.
+// Add ISO codes here later if we decide to enforce restriction filtering for
+// the rest of the catalogue — it would be a separate editorial decision.
+const COUNTRY_RESTRICTION_TOKENS: Record<string, string[]> = {
+  australia: ['Australia'],
+  canada: ['Canada'],
+  germany: ['Germany'],
+  ireland: ['Ireland'],
+  japan: ['Japan'],
+  netherlands: ['Netherlands'],
+  'new-zealand': ['New Zealand'],
+  norway: ['Norway'],
+  sweden: ['Sweden'],
+}
+
+export function casinoAcceptsCountry(casino: Casino, countrySlug: string): boolean {
+  const tokens = COUNTRY_RESTRICTION_TOKENS[countrySlug]
+  if (!tokens) return true
+  return !casino.restrictedCountries.some((r) => tokens.includes(r))
+}
 
 export function getCasinoBySlug(slug: string): Casino | undefined {
   return casinos.find((c) => c.slug === slug)
