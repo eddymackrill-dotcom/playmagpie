@@ -142,7 +142,9 @@ export default function ReviewSection({ casino }: { casino: Casino }) {
             </div>
           </div>
           <p className="text-[#888888] text-sm">
-            {casino.name} processes crypto withdrawals {casino.withdrawalTime.toLowerCase()}. Payouts go directly to the wallet address you specify — no middlemen, no holds.
+            {casino.withdrawalCaveat
+              ? casino.withdrawalCaveat
+              : `${casino.name} processes crypto withdrawals ${casino.withdrawalTime.toLowerCase()}. Payouts go directly to the wallet address you specify — no middlemen, no holds.`}
           </p>
         </div>
       </section>

@@ -18,6 +18,7 @@ const casinoMetaDescriptions: Record<string, string> = {
   '7bit-casino': '7Bit Casino review 2026. No-KYC Bitcoin casino since 2014 — instant withdrawals, 7,000+ games, weekly reload bonuses and VIP cashback. Rated 8.8/10.',
   shuffle: 'Shuffle Casino review 2026. Native SHFL token, rakeback VIP rewards, 10,000+ games and instant crypto withdrawals. 12 cryptocurrencies accepted. Rated 8.2/10.',
   duelbits: 'Duelbits review 2026. No-KYC crypto casino since 2020 — Duelbits Originals, instant under-5-minute withdrawals, weekly cashback and rakeback VIP. 12 cryptos accepted. Rated 8.5/10.',
+  roobet: 'Roobet review 2026 — Crash-led Originals, ~6,000 slots and a sportsbook. Honest take on documented withdrawal holds on $20k+ wins, the "low-risk play" T&C clause, and the offshore-only Curaçao + Anjouan licensing. Rated 6.8/10.',
 }
 
 // Sub-page index — per-casino contextual links to the deep-dive pages that
@@ -96,6 +97,11 @@ const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
     { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
+  ],
+  roobet: [
+    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
+    { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
+    { title: 'Best Crypto for Gambling', slug: 'best-crypto-for-gambling' },
   ],
 }
 
@@ -336,6 +342,40 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     {
       question: 'How does the Duelbits VIP programme work?',
       answer: 'The Duelbits VIP programme is built around rakeback rather than tier-locked bonuses — active players earn back a percentage of the house edge as withdrawable balance. Higher activity levels unlock increased rakeback rates and access to exclusive promotions, seasonal rewards and Originals leaderboards. Unlike traditional VIP tiers that gate benefits behind wagering thresholds, Duelbits scales rewards transparently with play, making it accessible for both mid-volume players and high rollers.',
+    },
+  ],
+  roobet: [
+    {
+      question: 'Is Roobet legit?',
+      answer: 'Roobet is a real operating casino licensed in Curaçao under Raw Entertainment B.V. (registration 157205), with a secondary Anjouan licence (ALSI-202507005 per Casino.Guru). It has been live since 2019 and signed visible partnerships with Chelsea FC and 100 Thieves in 2025. "Legit" is a different question to "safe at scale" — the operator is real and the games are real, but Roobet also has a documented pattern of withdrawal holds on large wins (AskGamblers cases at $20k, $84k, $97k, $111k and $115k; the $84,000 case is publicly listed as Unsolved) and T&C that explicitly permit confiscation on "low-risk play." PlayMagpie rates Roobet 6.8/10 for trust — usable at modest stakes, structurally risky for large wins.',
+    },
+    {
+      question: 'Does Roobet pay out big wins?',
+      answer: 'On the public record, Roobet does pay out most large wins — but often after multi-day "routine verification" holds that AskGamblers complaints have documented at $20,000, $84,000, $97,000, $111,000 and $115,000 amounts. Most of those cases were ultimately resolved via AskGamblers mediation. The exception is a $84,000 case publicly listed as Unsolved as of 2026, where a verified account with ~$6 million lifetime wagered was locked at the cashout request and asked for additional documentation including a handwritten "Roobet" selfie. The honest position: expect a KYC re-trigger on any sizeable cashout regardless of account tenure, and do not expect documented disputes to resolve fast.',
+    },
+    {
+      question: 'What is the Roobet welcome bonus?',
+      answer: 'Roobet does not run a traditional deposit-match welcome bonus. The current new-player offer is a 20% cashback on net losses across your first seven days, capped at approximately $1,400, plus a $5 sportsbook free bet under promo code MAXBONUS. Cashback only triggers if you lose — there is no headline "free $X on signup" element. Compared to operators like BitStarz (up to 5 BTC + 200 free spins) or Mirax (325% up to $3,250 + 250 free spins), Roobet\'s welcome value is structurally lower for players expecting upside.',
+    },
+    {
+      question: 'What countries does Roobet restrict?',
+      answer: 'Roobet\'s restricted-territories list under terms §3.5 is unusually wide for a Curaçao operator: Aruba, Australia, Belgium, Bonaire, Cuba, Curaçao, Cyprus, Denmark, Germany, Gibraltar, Haiti, Israel, Iran, Iraq, Malta, Myanmar, Netherlands, Nicaragua, North Korea, Ontario (province of Canada), Portugal, Saba, Saint Maarten, Saint Martin, South Sudan, Spain, Statia, Syria, Sweden, United States, United Kingdom, Yemen and Zimbabwe. That excludes the UK, US, most of Western and Northern Europe, Australia and Ontario specifically — verify your jurisdiction is not on the live list before depositing, as restricted-territory accounts are subject to closure and fund forfeiture under terms clause 6.4.',
+    },
+    {
+      question: 'Is Roobet no-KYC?',
+      answer: 'No. Roobet runs Standard KYC — Level 1 (basic personal data) is required at deposit, and Levels 2-4 (government ID, proof of address, source-of-funds) are triggered by withdrawal size, account activity flags, or compliance review. Roobet does not publish a fixed-dollar KYC threshold; observed triggers across complaint records run from around $10,000 to well above $50,000 depending on account history. If full anonymity is the priority, BC.Game, 7Bit Casino or Duelbits are no-KYC alternatives in our rankings.',
+    },
+    {
+      question: 'What are Roobet withdrawal limits?',
+      answer: 'Roobet\'s headline daily withdrawal cap is $200,000 USD-equivalent. The minimum withdrawal is $10 in crypto or $15 in fiat. Crypto withdrawals are stated at ~15 minutes for most coins, with Bitcoin specifically listed at up to 24 hours; fiat withdrawals run 1-5 days. There is no weekend cashier processing. Per Roobet\'s terms §10.8, a 2% fee applies to each fiat withdrawal after the 10th in any rolling 30-day window, including the 10th itself.',
+    },
+    {
+      question: 'Why was Roobet banned from Twitch?',
+      answer: 'Twitch announced in September 2022 that it would ban streams of "slots, roulette, or dice games" from gambling sites not licensed in the US or jurisdictions Twitch deemed to provide sufficient consumer protection. Curaçao\'s sub-licensee regime did not qualify, and Roobet was named alongside Stake.com, Rollbit and Duelbits when the ban took effect on 18 October 2022. The casino-affiliated streamer scene migrated largely to Kick in response — Roobet\'s current creator deals (Snoop Dogg, Nadeshot, TimTheTatman) run on Kick or independent channels rather than Twitch.',
+    },
+    {
+      question: 'How does Roobet compare to BC.Game or BitStarz?',
+      answer: 'Roobet vs BC.Game: BC.Game wins on no-KYC policy, 100+ crypto support, and a clean dispute record — trust 8.9 vs Roobet\'s 6.8. Roobet vs BitStarz: BitStarz wins on track record (since 2014, multiple "Best Bitcoin Casino" awards), withdrawal speed scores, and a substantially larger welcome bonus — trust 9.2 vs Roobet\'s 6.8. Roobet\'s distinct strengths are Crash-led Originals (BC.Game and BitStarz both have crash content, but Roobet\'s native Crash is the genre-anchor for the brand) and the sportsbook (BitStarz does not run a sportsbook; Cloudbet is the stronger sportsbook comparator). For most players asking the question, the trust delta is the dominant factor.',
     },
   ],
 }
