@@ -21,6 +21,14 @@ export const COUNTRY_LIST = [
   { name: 'Japan', slug: 'japan', currency: 'JPY' },
 ]
 
+// Poker removed 2026-05-30: no operator in the catalogue is a genuine
+// top pick for poker (Evolution live poker is available but the table-game
+// wagering-contribution profile is poor for any player using a welcome
+// bonus, and PvP poker is delegated to specialist rooms outside our review
+// scope: CoinPoker, SwC Poker). Per CLAUDE.md <2-genuine-fits refusal rule,
+// /game/poker should not exist. The dynamic [slug] route 404s via its
+// notFound() guard when the slug is absent from this array. See the
+// strategic decisions log in CLAUDE.md for context.
 export const GAME_TYPES = [
   { name: 'Slots', slug: 'slots' },
   { name: 'Blackjack', slug: 'blackjack' },
@@ -29,7 +37,6 @@ export const GAME_TYPES = [
   { name: 'Crash', slug: 'crash' },
   { name: 'Dice', slug: 'dice' },
   { name: 'Plinko', slug: 'plinko' },
-  { name: 'Poker', slug: 'poker' },
 ]
 
 export const BONUS_TYPES = [
