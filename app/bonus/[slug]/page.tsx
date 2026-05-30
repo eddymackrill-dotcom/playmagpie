@@ -5,8 +5,12 @@ import { BONUS_TYPES } from '@/lib/programmatic'
 import { BONUS_CONTENT, getCasinosForBonus } from '@/lib/bonus-content'
 import CasinoCard from '@/components/CasinoCard'
 
+// 'free-spins' is served by app/bonus/free-spins/page.tsx (static segment takes
+// precedence over dynamic [slug]); excluded here to avoid build conflict.
+const STATIC_SEGMENT_SLUGS = new Set(['free-spins'])
+
 export async function generateStaticParams() {
-  return BONUS_TYPES.map((b) => ({ slug: b.slug }))
+  return BONUS_TYPES.filter((b) => !STATIC_SEGMENT_SLUGS.has(b.slug)).map((b) => ({ slug: b.slug }))
 }
 
 export async function generateMetadata(
