@@ -2,6 +2,38 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { casinos, getCasinoBySlug } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+
+// Top 3 by trust from the curated 4 — BC.Game, Duelbits, Shuffle.
+// Roobet (4th curated, 6.8 trust) deliberately excluded from the strip
+// even though it appears in the per-operator notes below — the strip
+// is editorial recommendation, not catalogue completeness.
+const STRIP_CARDS: CTAStripCard[] = [
+  {
+    slug: 'bc-game',
+    facts: [
+      { label: 'Native Crash', value: 'Provably-fair Original + Aviator + JetX' },
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'None — at any size' },
+    ],
+  },
+  {
+    slug: 'duelbits',
+    facts: [
+      { label: 'Native Crash', value: 'Duelbits Originals Crash' },
+      { label: 'Withdrawal', value: 'Instant to 5 minutes (fastest)' },
+      { label: 'KYC', value: 'None for crypto play' },
+    ],
+  },
+  {
+    slug: 'shuffle',
+    facts: [
+      { label: 'Native Crash', value: 'Shuffle Originals + SHFL rakeback per round' },
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'Light — triggered at scale' },
+    ],
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Best Crypto Casinos for Crash Games 2026 — Aviator, JetX, Originals',
@@ -149,6 +181,11 @@ export default function CrashCasinosPage() {
             </div>
           ))}
         </div>
+
+        <CasinoCTAStrip
+          framing="Top 3 native-Crash operators by trust score. Roobet covered below despite ~6.8 trust given its Crash flagship."
+          cards={STRIP_CARDS}
+        />
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Top Casinos for Crash Games</h2>

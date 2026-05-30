@@ -2,6 +2,36 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { casinos, getCasinoBySlug } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+
+// Top 3 by trust from the dice-curated 4 — BC.Game, Duelbits, Shuffle.
+// Roobet excluded from the strip (covered in per-operator notes below).
+const STRIP_CARDS: CTAStripCard[] = [
+  {
+    slug: 'bc-game',
+    facts: [
+      { label: 'Dice Original', value: 'Foundational provably-fair dice' },
+      { label: 'House edge', value: '1% (99% RTP) across slider' },
+      { label: 'KYC', value: 'None — at any size' },
+    ],
+  },
+  {
+    slug: 'duelbits',
+    facts: [
+      { label: 'Dice Original', value: 'Fastest auto-bet cycle on the page' },
+      { label: 'Withdrawal', value: 'Instant to 5 minutes' },
+      { label: 'KYC', value: 'None for crypto play' },
+    ],
+  },
+  {
+    slug: 'shuffle',
+    facts: [
+      { label: 'Dice Original', value: 'Per-roll SHFL rakeback accrual' },
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'Light — triggered at scale' },
+    ],
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Best Crypto Casinos for Dice 2026 — Provably-Fair Originals & 99% RTP',
@@ -147,6 +177,11 @@ export default function DiceCasinosPage() {
             </div>
           ))}
         </div>
+
+        <CasinoCTAStrip
+          framing="Top 3 native-Dice operators by trust score. Roobet covered below despite ~6.8 trust given Dice's place in its Originals lineup."
+          cards={STRIP_CARDS}
+        />
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Top Casinos for Dice</h2>

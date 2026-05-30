@@ -2,6 +2,36 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { casinos, getCasinoBySlug } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+
+// Top 3 by trust from the plinko-curated 4 — BC.Game, Duelbits, Shuffle.
+// Roobet excluded from the strip (covered in per-operator notes below).
+const STRIP_CARDS: CTAStripCard[] = [
+  {
+    slug: 'bc-game',
+    facts: [
+      { label: 'Plinko Original', value: 'Full 8-16 row range + 3 volatility modes' },
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'None — for outlier cashouts' },
+    ],
+  },
+  {
+    slug: 'duelbits',
+    facts: [
+      { label: 'Plinko Original', value: 'Cashback-first welcome softens variance drag' },
+      { label: 'Withdrawal', value: 'Instant to 5 minutes (fastest)' },
+      { label: 'KYC', value: 'None for crypto play' },
+    ],
+  },
+  {
+    slug: 'shuffle',
+    facts: [
+      { label: 'Plinko Original', value: 'SHFL accrual per drop offsets variance' },
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'Light — triggered at scale' },
+    ],
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Best Crypto Casinos for Plinko 2026 — Originals, Row Count & Volatility',
@@ -146,6 +176,11 @@ export default function PlinkoCasinosPage() {
             </div>
           ))}
         </div>
+
+        <CasinoCTAStrip
+          framing="Top 3 native-Plinko operators by trust score. Roobet covered below despite ~6.8 trust given Plinko's place in its Originals lineup."
+          cards={STRIP_CARDS}
+        />
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Top Casinos for Plinko</h2>

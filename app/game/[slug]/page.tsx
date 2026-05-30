@@ -4,6 +4,118 @@ import Link from 'next/link'
 import { GAME_TYPES } from '@/lib/programmatic'
 import { casinos } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+
+// Per-game-type strip configuration. Each game slug surfaces 3 facts
+// tailored to that format's player intent. Top 3 selection uses the
+// page's existing all-8-casino render and picks by trust score with
+// optional format-specific facet override.
+const STRIP_BY_GAME: Record<string, CTAStripCard[]> = {
+  slots: [
+    {
+      slug: 'bitstarz',
+      facts: [
+        { label: 'Library', value: '3,000+ slots from 100+ providers' },
+        { label: 'Withdrawal', value: 'Under 10 minutes' },
+        { label: 'KYC', value: 'Light' },
+      ],
+    },
+    {
+      slug: 'bc-game',
+      facts: [
+        { label: 'Library', value: '10,000+ titles with Originals' },
+        { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+        { label: 'KYC', value: 'None — at any size' },
+      ],
+    },
+    {
+      slug: '7bit-casino',
+      facts: [
+        { label: 'Library', value: '7,000+ slots with provably-fair' },
+        { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+        { label: 'KYC', value: 'None — since 2014' },
+      ],
+    },
+  ],
+  blackjack: [
+    {
+      slug: 'bitstarz',
+      facts: [
+        { label: 'Live dealer', value: 'Evolution + Pragmatic Live' },
+        { label: 'Withdrawal', value: 'Under 10 minutes' },
+        { label: 'KYC', value: 'Light' },
+      ],
+    },
+    {
+      slug: 'bc-game',
+      facts: [
+        { label: 'Live dealer', value: 'Evolution full suite' },
+        { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+        { label: 'KYC', value: 'None — at any size' },
+      ],
+    },
+    {
+      slug: 'cloudbet',
+      facts: [
+        { label: 'Live dealer', value: 'Evolution + VIP / Salon Privé' },
+        { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' },
+        { label: 'KYC', value: 'Light — triggered at scale' },
+      ],
+    },
+  ],
+  roulette: [
+    {
+      slug: 'bitstarz',
+      facts: [
+        { label: 'Roulette', value: 'Evolution Lightning + European + French' },
+        { label: 'Withdrawal', value: 'Under 10 minutes' },
+        { label: 'KYC', value: 'Light' },
+      ],
+    },
+    {
+      slug: 'bc-game',
+      facts: [
+        { label: 'Roulette', value: 'Evolution + provably-fair in-house variant' },
+        { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+        { label: 'KYC', value: 'None — at any size' },
+      ],
+    },
+    {
+      slug: 'cloudbet',
+      facts: [
+        { label: 'Roulette', value: 'Evolution full suite, high bet limits' },
+        { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' },
+        { label: 'KYC', value: 'Light — triggered at scale' },
+      ],
+    },
+  ],
+  'live-dealer': [
+    {
+      slug: 'bitstarz',
+      facts: [
+        { label: 'Live dealer', value: 'Evolution + Pragmatic Play Live' },
+        { label: 'Withdrawal', value: 'Under 10 minutes' },
+        { label: 'KYC', value: 'Light' },
+      ],
+    },
+    {
+      slug: 'bc-game',
+      facts: [
+        { label: 'Live dealer', value: 'Evolution + game shows' },
+        { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+        { label: 'KYC', value: 'None — at any size' },
+      ],
+    },
+    {
+      slug: 'cloudbet',
+      facts: [
+        { label: 'Live dealer', value: 'Evolution VIP + Salon Privé up to €100k/hand' },
+        { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' },
+        { label: 'KYC', value: 'Light — triggered at scale' },
+      ],
+    },
+  ],
+}
 
 // Slugs served by static segments take precedence over this dynamic [slug]
 // template — listed here for exclusion to avoid build conflicts.
@@ -89,6 +201,13 @@ export default async function GamePage(props: PageProps<'/game/[slug]'>) {
             Top crypto casinos for playing {game.name}. Compare bonuses, game selection and withdrawal speeds.
           </p>
         </div>
+
+        {STRIP_BY_GAME[slug] && (
+          <CasinoCTAStrip
+            framing={`Top 3 ${game.name.toLowerCase()} picks by trust score. Trust-ranked, not paid placement.`}
+            cards={STRIP_BY_GAME[slug]}
+          />
+        )}
 
         <section className="mb-12 prose prose-invert max-w-none">
           <h2 className="text-2xl font-bold text-white mb-4">Playing {game.name} at Crypto Casinos</h2>
