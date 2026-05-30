@@ -3,7 +3,36 @@ import type { ReactNode } from 'react'
 import { casinos } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import Link from 'next/link'
+
+// Top 3 by withdrawalScore — the page's actual ranking metric.
+const STRIP_CARDS: CTAStripCard[] = [
+  {
+    slug: 'bitstarz',
+    facts: [
+      { label: 'Withdrawal', value: 'Under 10 minutes' },
+      { label: 'Speed score', value: '9.5/10' },
+      { label: 'KYC', value: 'Light' },
+    ],
+  },
+  {
+    slug: 'bc-game',
+    facts: [
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'Speed score', value: '9.3/10' },
+      { label: 'KYC', value: 'None' },
+    ],
+  },
+  {
+    slug: 'duelbits',
+    facts: [
+      { label: 'Withdrawal', value: 'Instant to 5 minutes' },
+      { label: 'Speed score', value: '9.2/10' },
+      { label: 'KYC', value: 'None' },
+    ],
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Fastest Withdrawal Casinos 2026 — Instant Crypto Payouts',
@@ -80,6 +109,11 @@ export default function FastWithdrawalPage() {
             </div>
           ))}
         </div>
+
+        <CasinoCTAStrip
+          framing="Top 3 by withdrawal score — same ranking the table below uses. Not paid placement."
+          cards={STRIP_CARDS}
+        />
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-6">Fastest Crypto Casinos — Ranked by Withdrawal Speed</h2>

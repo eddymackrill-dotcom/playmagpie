@@ -4,6 +4,36 @@ import { casinos, type Casino } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
 import CTAButton from '@/components/CTAButton'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+
+// Top 3 of BNB-accepting operators by trust score. BitStarz, Mirax and
+// Roobet don't accept BNB and are filtered out.
+const STRIP_CARDS: CTAStripCard[] = [
+  {
+    slug: 'bc-game',
+    facts: [
+      { label: 'Accepts BNB', value: '✓ on BNB Smart Chain' },
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'None — at any size' },
+    ],
+  },
+  {
+    slug: '7bit-casino',
+    facts: [
+      { label: 'Accepts BNB', value: '✓ added to 8-coin lineup' },
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'None — since 2014' },
+    ],
+  },
+  {
+    slug: 'cloudbet',
+    facts: [
+      { label: 'Accepts BNB', value: '✓ first-class option in 10-coin lineup' },
+      { label: 'Withdrawal', value: 'Instant to 30 minutes' },
+      { label: 'KYC', value: 'Light' },
+    ],
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Best BNB Crypto Casinos 2026 — Fast, Cheap, Smart Chain | PlayMagpie',
@@ -92,6 +122,11 @@ export default function BnbCryptoCasinosPage() {
           <Stat label="Typical fee" value="<$0.01" sub="Per transaction" />
           <Stat label="Cheapest entry" value="$5" sub="BC.Game minimum" />
         </div>
+
+        <CasinoCTAStrip
+          framing="Top 3 BNB-accepting operators by trust score. BitStarz, Mirax and Roobet don't accept BNB."
+          cards={STRIP_CARDS}
+        />
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-4">Why BNB at all — versus BTC, USDT, or SOL</h2>

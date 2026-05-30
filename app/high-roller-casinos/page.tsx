@@ -3,7 +3,39 @@ import { casinos } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
 import BonusBanner from '@/components/BonusBanner'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import Link from 'next/link'
+
+// Top 3 of vipProgram && trustScore >= 8.0 by trust — same filter the
+// page uses to exclude operators with documented withdrawal-hold patterns
+// on large wins. Cloudbet leads the page editorially on no-withdrawal-
+// limits but BitStarz / BC.Game / 7Bit lead on raw trust score.
+const STRIP_CARDS: CTAStripCard[] = [
+  {
+    slug: 'bitstarz',
+    facts: [
+      { label: 'VIP', value: 'Invite-only, dedicated host' },
+      { label: 'Withdrawal', value: 'Under 10 minutes' },
+      { label: 'Bonus', value: '5 BTC + 180 spins (4 deposits)' },
+    ],
+  },
+  {
+    slug: 'bc-game',
+    facts: [
+      { label: 'VIP', value: 'XP-tier progression-based' },
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'Bonus', value: '220% deposit rakeback, 4 stages' },
+    ],
+  },
+  {
+    slug: 'cloudbet',
+    facts: [
+      { label: 'VIP', value: 'No withdrawal limits at scale' },
+      { label: 'Withdrawal', value: 'Instant to 30 minutes' },
+      { label: 'Bonus', value: '5 BTC welcome match' },
+    ],
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Best High Roller Crypto Casinos 2026 — VIP Platforms',
@@ -84,6 +116,11 @@ export default function HighRollerPage() {
             </div>
           ))}
         </div>
+
+        <CasinoCTAStrip
+          framing="Three high-roller picks — BitStarz and BC.Game lead on trust score; Cloudbet's no-withdrawal-limits policy is the load-bearing differentiator at this stake band."
+          cards={STRIP_CARDS}
+        />
 
         {topVip && (
           <BonusBanner

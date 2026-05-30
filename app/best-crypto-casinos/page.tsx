@@ -3,7 +3,36 @@ import { casinos, getTopCasinos } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
 import BonusBanner from '@/components/BonusBanner'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import Link from 'next/link'
+
+// Top 3 by trustScore — same anchor metric the page is ranked on.
+const STRIP_CARDS: CTAStripCard[] = [
+  {
+    slug: 'bitstarz',
+    facts: [
+      { label: 'Withdrawal', value: 'Under 10 minutes' },
+      { label: 'KYC', value: 'Light' },
+      { label: 'Min deposit', value: '$20' },
+    ],
+  },
+  {
+    slug: 'bc-game',
+    facts: [
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'None — no documents at any size' },
+      { label: 'Min deposit', value: '$5' },
+    ],
+  },
+  {
+    slug: '7bit-casino',
+    facts: [
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'None — since 2014' },
+      { label: 'Min deposit', value: '$10' },
+    ],
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Best Crypto Casinos 2026 — Top Bitcoin & USDT Sites Ranked',
@@ -76,6 +105,11 @@ export default function BestCryptoCasinosPage() {
             </div>
           ))}
         </div>
+
+        <CasinoCTAStrip
+          framing="Top 3 by independent trust score — same ranking the page uses below. No paid placement."
+          cards={STRIP_CARDS}
+        />
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-6">Crypto Casino Comparison Table</h2>

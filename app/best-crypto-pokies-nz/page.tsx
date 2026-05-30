@@ -2,7 +2,38 @@ import type { Metadata } from 'next'
 import { casinos } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import Link from 'next/link'
+
+// Top 3 by trust score from the page's existing 7-casino curated grid.
+// Roobet is deliberately NOT included in this page's curation (separate
+// editorial decision logged in CLAUDE.md follow-up audit list).
+const STRIP_CARDS: CTAStripCard[] = [
+  {
+    slug: 'bitstarz',
+    facts: [
+      { label: 'Library', value: '3,000+ titles from 100+ providers' },
+      { label: 'Withdrawal', value: 'Under 10 minutes' },
+      { label: 'KYC', value: 'Light' },
+    ],
+  },
+  {
+    slug: 'bc-game',
+    facts: [
+      { label: 'Library', value: '10,000+ titles with Originals' },
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'None — no documents at any size' },
+    ],
+  },
+  {
+    slug: '7bit-casino',
+    facts: [
+      { label: 'Library', value: '7,000+ titles with Originals' },
+      { label: 'Withdrawal', value: 'Instant to 10 minutes' },
+      { label: 'KYC', value: 'None — since 2014' },
+    ],
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Best Crypto Pokies for NZ Players 2026 — Slot Libraries Compared',
@@ -123,6 +154,11 @@ export default function CryptoPokiesNZPage() {
             </div>
           ))}
         </div>
+
+        <CasinoCTAStrip
+          framing="Top 3 by trust score from the NZ-curated grid. Not paid placement."
+          cards={STRIP_CARDS}
+        />
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-6">Crypto Pokies Sites Ranked for NZ Players</h2>
