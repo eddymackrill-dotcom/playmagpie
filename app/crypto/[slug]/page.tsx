@@ -4,6 +4,56 @@ import Link from 'next/link'
 import { CRYPTO_LIST } from '@/lib/programmatic'
 import { casinos, type Casino } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+
+// Per-coin strip configuration. Top 3 of casinos accepting that coin
+// by trust score, with the "Accepts {SYMBOL}" anchor surfacing the
+// page's premise verbatim. BTC/ETH/USDT/LTC/DOGE are universal (all 8
+// reviewed casinos accept) so the top-3-by-trust resolves to BitStarz,
+// BC.Game, 7Bit. SOL/USDC/BNB have narrower acceptance — strips reflect
+// the actual subset.
+const STRIP_BY_CRYPTO: Record<string, CTAStripCard[]> = {
+  bitcoin: [
+    { slug: 'bitstarz', facts: [{ label: 'Accepts BTC', value: '✓ — under-10-min withdrawals' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts BTC', value: '✓ — 100+ coin lineup' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts BTC', value: '✓ — 8-coin lineup since 2014' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+  ],
+  ethereum: [
+    { slug: 'bitstarz', facts: [{ label: 'Accepts ETH', value: '✓' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts ETH', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts ETH', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+  ],
+  usdt: [
+    { slug: 'bitstarz', facts: [{ label: 'Accepts USDT', value: '✓' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts USDT', value: '✓ — multi-network' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts USDT', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+  ],
+  usdc: [
+    { slug: 'bc-game', facts: [{ label: 'Accepts USDC', value: '✓ — among 100+ coins' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
+    { slug: 'cloudbet', facts: [{ label: 'Accepts USDC', value: '✓ — in 10-coin lineup' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' }, { label: 'KYC', value: 'Light' }] },
+    { slug: 'duelbits', facts: [{ label: 'Accepts USDC', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 5 minutes (fastest)' }, { label: 'KYC', value: 'None for crypto play' }] },
+  ],
+  litecoin: [
+    { slug: 'bitstarz', facts: [{ label: 'Accepts LTC', value: '✓' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts LTC', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts LTC', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+  ],
+  dogecoin: [
+    { slug: 'bitstarz', facts: [{ label: 'Accepts DOGE', value: '✓' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts DOGE', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts DOGE', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+  ],
+  solana: [
+    { slug: 'bc-game', facts: [{ label: 'Accepts SOL', value: '✓ — sub-second finality' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
+    { slug: 'cloudbet', facts: [{ label: 'Accepts SOL', value: '✓ — first-class option' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' }, { label: 'KYC', value: 'Light' }] },
+    { slug: 'duelbits', facts: [{ label: 'Accepts SOL', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 5 minutes (fastest)' }, { label: 'KYC', value: 'None for crypto play' }] },
+  ],
+  bnb: [
+    { slug: 'bc-game', facts: [{ label: 'Accepts BNB', value: '✓ on BNB Smart Chain' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts BNB', value: '✓ in 8-coin lineup' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+    { slug: 'cloudbet', facts: [{ label: 'Accepts BNB', value: '✓ first-class in 10-coin lineup' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' }, { label: 'KYC', value: 'Light' }] },
+  ],
+}
 
 export async function generateStaticParams() {
   return CRYPTO_LIST.map((c) => ({ slug: c.slug }))
@@ -108,6 +158,13 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
           </h2>
           <p className="text-[#888888] leading-relaxed">{intro}</p>
         </section>
+
+        {STRIP_BY_CRYPTO[slug] && (
+          <CasinoCTAStrip
+            framing={`Top 3 ${crypto.symbol}-accepting operators by trust score. Not paid placement.`}
+            cards={STRIP_BY_CRYPTO[slug]}
+          />
+        )}
 
         {isBNB ? (
           <section className="mb-12 bg-[#111111] border border-[#7BB8D4]/20 rounded-2xl p-6 sm:p-8">
