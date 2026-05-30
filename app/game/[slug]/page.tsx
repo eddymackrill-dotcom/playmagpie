@@ -5,10 +5,14 @@ import { GAME_TYPES } from '@/lib/programmatic'
 import { casinos } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 
+// Slugs served by static segments take precedence over this dynamic [slug]
+// template — listed here for exclusion to avoid build conflicts.
+//   /game/crash → app/game/crash/page.tsx
+//   /game/dice  → app/game/dice/page.tsx
+const STATIC_SEGMENT_SLUGS = new Set(['crash', 'dice'])
+
 export async function generateStaticParams() {
-  // 'crash' is served by app/game/crash/page.tsx (static segment takes precedence
-  // over dynamic [slug]); excluded here to avoid build conflict.
-  return GAME_TYPES.filter((g) => g.slug !== 'crash').map((g) => ({ slug: g.slug }))
+  return GAME_TYPES.filter((g) => !STATIC_SEGMENT_SLUGS.has(g.slug)).map((g) => ({ slug: g.slug }))
 }
 
 export async function generateMetadata(
