@@ -19,7 +19,7 @@ const META: Record<(typeof WITHDRAWAL_SLUGS)[number], { title: string; descripti
   'mirax-casino': {
     title: 'Mirax Casino Withdrawal Times & Limits 2026 | PlayMagpie',
     description:
-      'Mirax Casino crypto withdrawals clear in 15 minutes or less. What the 325% welcome bonus means for your first payout, plus KYC and tier limits.',
+      'Mirax Casino crypto withdrawals clear in 15 minutes or less. What the 4-deposit welcome pack (up to 5 BTC + 150 spins) means for your first payout, plus KYC and tier limits.',
   },
   '7bit-casino': {
     title: '7Bit Casino Withdrawal Times & Limits 2026 | PlayMagpie',
@@ -359,18 +359,19 @@ const BITSTARZ_FAQS = [
   },
 ] as const
 
-/* ───────────── Mirax: lead with the 325% bonus + wagering implication ───────────── */
+/* ───────────── Mirax: lead with the welcome pack + wagering implication ───────────── */
 function MiraxContent() {
   return (
     <>
       <Para>
-        Mirax Casino&apos;s pitch is a 325% welcome package across four deposits, worth
-        up to $3,250 plus 250 free spins. That is the most generous match in our top
-        seven, and it&apos;s the single most relevant variable for your first
-        withdrawal — because bonus money carries wagering before it can be cleared off
-        the platform. The actual cashier speed is fast (instant to 15 minutes once you
-        get there) but the path to your first eligible withdrawal runs through the
-        wagering requirement on whichever portion of the welcome match you accepted.
+        Mirax Casino&apos;s pitch is a 4-deposit welcome pack with a 5 BTC headline
+        ceiling and 150 free spins distributed across the first two deposits. That
+        ties Mirax with BitStarz on raw BTC-denominated ceiling and avoids the 25%
+        admin fee BitStarz charges on bonus-related withdrawals — the single largest
+        hidden cost in the BitStarz cashier flow. The actual processing speed is fast
+        (instant to 15 minutes once you get there) but the path to your first
+        eligible withdrawal still runs through the wagering requirement on whichever
+        portion of the welcome match you accepted.
       </Para>
       <Para>
         That is the single thing the Search Console data for &quot;mirax casino review&quot;
@@ -379,24 +380,26 @@ function MiraxContent() {
         underneath.
       </Para>
 
-      <SectionHeading>The 325% bonus and your first withdrawal</SectionHeading>
+      <SectionHeading>The welcome pack and your first withdrawal</SectionHeading>
       <Para>
-        Mirax&apos;s welcome match is structured across the first four deposits, with
-        the headline 325% applying across the package — not as a single 325% match on
-        deposit one. The 250 free spins are released alongside. As with virtually
-        every match bonus in the industry, the funds carry a wagering requirement that
-        must be cleared before bonus-side winnings can be withdrawn. We don&apos;t have
-        a verified current x-multiplier we&apos;d publish without checking the live
-        T&amp;Cs on the Mirax cashier — sister-site 7Bit Casino sits around the industry-
-        standard mid-30s, which is a reasonable mental model.
+        Mirax&apos;s welcome match is structured across the first four deposits as
+        distinct stages. D1 is a 100% match up to 1.5 BTC + 100 free spins (no code
+        required). D2 is a 75% match up to 1.25 BTC + 50 free spins under promo code
+        W2. D3 is a cash-only match up to 1.25 BTC under code W3 — no free spins on
+        this stage. D4 is a cash-only match up to 1 BTC under code W4. Total package:
+        up to 5 BTC + 150 free spins, distributed 100-50-0-0 by deposit. Per the live
+        promotions page, free-spin winnings carry a 45x wagering requirement (distinct
+        from the 40x on cash deposit bonuses) and a &euro;100 max cashout cap.
       </Para>
       <Para>
         Practical implication: until you clear wagering on the bonus portion, only
         real-money-deposited balance (and winnings from real-money play) is freely
-        withdrawable. This is identical to BitStarz, BC.Game and most match-bonus
-        casinos — Mirax is not unusual here, but the size of the package means the
-        wagering volume is correspondingly larger than at venues offering smaller
-        matches.
+        withdrawable. This is identical to BitStarz, Cloudbet and most match-bonus
+        casinos — Mirax is not unusual here, but the absence of any equivalent of
+        BitStarz&apos;s 25% admin fee on bonus-related withdrawals means that
+        post-clearance, the full balance is yours rather than 75% of it. At the same
+        5 BTC headline ceiling, Mirax delivers approximately 25% more BTC-equivalent
+        value to the wallet than BitStarz does.
       </Para>
 
       <SectionHeading>KYC at the Mirax cashier</SectionHeading>
@@ -470,15 +473,19 @@ function MiraxContent() {
         Headline windows: BitStarz under 10 min, 7Bit instant to 10 min, Mirax
         instant to 15 min. Mirax is the slowest of the three on paper, but the gap
         is small enough that on-chain confirmation will usually dominate the total
-        time anyway. Where Mirax stands out is the bonus offer — 325% across four
-        deposits is materially larger than{' '}
+        time anyway. Where Mirax stands out is bonus-side cashier economics — the 5
+        BTC ceiling ties with{' '}
         <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">BitStarz&apos; 5 BTC package</Link>
-        {' '}in real dollar terms for most players, and Mirax does not impose the
-        25% bonus admin fee BitStarz does.
+        {' '}on headline, but Mirax does not impose the 25% bonus admin fee BitStarz
+        does. After fee, Mirax delivers ~25% more BTC-equivalent value at the same
+        headline ceiling.
       </Para>
       <Para>
-        Net read: Mirax is the choice when the welcome match is the priority and
-        you accept a slightly slower headline payout window. For a broader view see{' '}
+        Net read: Mirax is the choice when bonus-side withdrawal cleanliness is the
+        priority and you accept a slightly slower headline payout window. BitStarz
+        retains the spin-count lead (180 vs 150) and slightly faster cashier window.
+        7Bit&apos;s 325%/&euro;5,400 package is competitive on the spin side (250)
+        but trails substantially on raw BTC ceiling. For a broader view see{' '}
         <Link href="/fast-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
           the fastest crypto casinos for withdrawal
         </Link>
@@ -580,20 +587,27 @@ function SevenBitContent() {
         BTC-and-ETH-centric coin list.
       </Para>
 
-      <SectionHeading>Why the smaller welcome bonus actually helps withdrawals</SectionHeading>
+      <SectionHeading>The welcome pack — competitive with rivals, decoupled from the no-KYC story</SectionHeading>
       <Para>
-        7Bit&apos;s welcome offer is a 100% match up to 1.5 BTC plus 100 free
-        spins. That ceiling is smaller than BitStarz&apos;s 5 BTC headline and
-        materially smaller than Mirax&apos;s 325% across four deposits. We list
-        the lower cap openly in our cons.
+        7Bit&apos;s welcome offer is a 325% match up to &euro;5,400 plus 250 free
+        spins on Elvis Frog in Vegas, distributed across the 4-deposit welcome pack.
+        That headline now sits in competitive territory with rivals — Mirax tops out
+        at 5 BTC across 4 deposits with 150 spins, BitStarz at 5 BTC + 180 spins (with
+        the 25% admin-fee catch on bonus withdrawals). 7Bit&apos;s spin count is the
+        highest of the three. The previous version of this page argued that a
+        smaller welcome bonus actually helped withdrawals — that framing was tied to
+        7Bit&apos;s older 1.5 BTC ceiling and no longer applies.
       </Para>
       <Para>
-        Counter-intuitively, the smaller bonus is a feature for the
-        withdrawal-focused player: less bonus-locked balance means fewer
-        wagering-gated funds standing between you and your first eligible
-        withdrawal. If you intend to deposit, play modestly, and cash out,
-        a smaller welcome match clears faster than a 5 BTC package whose
-        wagering you may never realistically complete.
+        What that means for withdrawals: the welcome bonus is no longer the
+        structural trade-off it used to read as. The thing that actually
+        differentiates 7Bit on the cashier side is the no-KYC posture — every other
+        operator in this batch imposes Light or Standard KYC that can be triggered at
+        larger withdrawal amounts. 7Bit doesn&apos;t. That is the unique-to-7Bit
+        value prop for withdrawal-focused players, not the bonus structure. Free-spin
+        winnings carry a $100 max cashout per the published T&amp;C, with wagering in
+        the 40-45x range — that ceiling matters more for a spin-focused player than
+        a deposit-match player.
       </Para>
 
       <SectionHeading>VIP tier withdrawals</SectionHeading>
@@ -623,11 +637,13 @@ function SevenBitContent() {
         six and Mirax&apos;s seven.
       </Para>
       <Para>
-        The single trade-off is the welcome bonus ceiling — 7Bit&apos;s 1.5 BTC
-        cap is the smallest of the three. For players who don&apos;t use match
-        bonuses heavily, this is irrelevant or beneficial. For players whose
-        whole reason to sign up is the headline match, BitStarz or Mirax
-        will be the better fit. For category-level comparison see{' '}
+        The differentiator is the no-KYC posture, not the bonus ceiling. 7Bit&apos;s
+        325% match up to &euro;5,400 + 250 spin package is competitive with Mirax
+        (5 BTC + 150 spins) and BitStarz (5 BTC + 180 spins with the 25% admin fee
+        catch). On withdrawal specifically, the case for 7Bit is that document
+        verification will never come into play — regardless of how aggressively you
+        use the welcome match, the cashier-side flow is identical from the first
+        to the hundredth withdrawal. For category-level comparison see{' '}
         <Link href="/fast-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
           the fastest crypto casinos for withdrawal
         </Link>

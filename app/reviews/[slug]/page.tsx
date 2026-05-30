@@ -155,7 +155,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What are the best BC.Game bonus codes for 2026?',
-      answer: 'BC.Game bonus codes for 2026 can unlock additional free spins or enhanced deposit match offers beyond the standard welcome package of up to 300% across four deposits plus 200 free spins. Check the BC.Game promotions page or trusted affiliate partners for current bonus codes. Using a bonus code at signup may increase your first-deposit offer. Bonus terms including wagering requirements vary — always read full T&Cs before claiming.',
+      answer: 'BC.Game has moved away from the traditional deposit-match welcome model. The current welcome offer at bc.game/deposit-offer is a 220% Deposit Rakeback Welcome Bonus across four monthly stages — 180%+40% RakeBack (min $5 deposit), 240%+60% (min $10), 300%+100% (min $20), 360%+140% (min $30). No free-spins component. Locked balance unlocks as you wager rather than the wager-then-withdraw match model. Affiliate-code variants may exist for specific promotions; check the live deposit-offer page for any active codes at signup. Bonus terms including wagering requirements vary — always read full T&Cs before claiming.',
     },
     {
       question: 'Is BC.Game a good Bitcoin casino?',
@@ -219,7 +219,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What is the Mirax Casino bonus for 2026?',
-      answer: 'The Mirax Casino bonus for 2026 is a 325% welcome package across your first four deposits, worth up to $3,250 plus 250 free spins. This is one of the most generous welcome offers available at any crypto casino in 2026. Mirax Casino bonuses carry wagering requirements — full terms are available on the Mirax site and should be read before claiming. Ongoing promotions include reload bonuses and VIP-exclusive offers.',
+      answer: 'The Mirax Casino welcome offer in 2026 spans the first four deposits with a 5 BTC headline ceiling: 100% up to 1.5 BTC + 100 free spins on D1 (no code), 75% up to 1.25 BTC + 50 free spins on D2 (code W2), then cash-only matches of 1.25 BTC on D3 (code W3) and 1 BTC on D4 (code W4). Total: up to 5 BTC + 150 free spins across the welcome pack. That ties with BitStarz on BTC ceiling. Free-spin winnings carry a 45x wagering requirement (distinct from the 40x on cash deposit bonuses) and a €100 max cashout per the live promotions page. Mirax does not impose the 25% admin fee on bonus-related withdrawals that BitStarz documents. Ongoing promotions include weekly free spins, Monday Lootboxes and a 20% highroller cashback.',
     },
     {
       question: 'What is the Mirax Casino minimum deposit?',
@@ -231,7 +231,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Is Mirax Casino worth joining in 2026?',
-      answer: 'This Mirax Casino review 2026 highlights three key strengths: an exceptional welcome bonus (325% up to $3,250 plus 250 free spins), a 7,000+ game library from top providers including Evolution and Pragmatic Play, and fast crypto payouts within 15 minutes. Backed by the experienced 7Bit Partners network, Mirax earns an 8.6/10 trust score. The main consideration is its shorter track record compared to older crypto casinos like BitStarz or 7Bit.',
+      answer: 'This Mirax Casino review 2026 highlights three key strengths: a competitive welcome pack (up to 5 BTC + 150 free spins across the 4-deposit welcome pack, with no admin fee on bonus-related withdrawals), a 7,000+ game library from top providers including Evolution and Pragmatic Play, and fast crypto payouts within 15 minutes. Backed by the experienced 7Bit Partners network, Mirax earns an 8.6/10 trust score. The main consideration is its shorter track record compared to older crypto casinos like BitStarz or 7Bit.',
     },
     {
       question: 'How does the Mirax Casino VIP programme work?',
@@ -291,7 +291,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What is the 7Bit Casino Bitcoin bonus for 2026?',
-      answer: 'The 7Bit Casino bitcoin bonus for 2026 is a 100% match up to 1.5 BTC on your first deposit plus 100 free spins. Subsequent deposits unlock further reload bonuses as part of the welcome package. Weekly reload bonuses also run continuously, providing ongoing value beyond the initial offer. The 7Bit Casino bitcoin bonus carries wagering requirements — check the full T&Cs on the 7Bit site before claiming any offer.',
+      answer: 'The 7Bit Casino welcome offer in 2026 is a 325% match up to €5,400 plus 250 free spins across the 4-deposit welcome pack — sourced directly from 7bitcasino.com/bonuses. Per the published T&C the welcome bonus is wagered 40-45x (most BTC bonuses at 7Bit sit in that range) with a $100 max cashout from free-spin winnings on Elvis Frog in Vegas. Subsequent deposits unlock further reload bonuses as part of the welcome package. Weekly reload bonuses (25% match + 50 free spins on Monday) and Wednesday Free Spins (code WEDNESDAY) run continuously, providing ongoing value beyond the initial offer.',
     },
     {
       question: 'What is the 7Bit Casino minimum deposit?',
@@ -307,7 +307,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Is 7Bit Casino worth using in 2026?',
-      answer: 'This 7Bit Casino review 2026 confirms its position as a top-tier no-KYC Bitcoin casino. Key strengths: operating since 2014 with a flawless payout track record, instant to 10-minute crypto withdrawals, a 7,000+ game library including provably fair originals, and a strict no-KYC policy throughout. The 1.5 BTC welcome bonus cap is lower than some rivals, but overall 7Bit Casino earns an 8.8/10 trust score and remains a top pick for anonymity-focused players.',
+      answer: 'This 7Bit Casino review 2026 confirms its position as a top-tier no-KYC Bitcoin casino. Key strengths: operating since 2014 with a flawless payout track record, instant to 10-minute crypto withdrawals, a 7,000+ game library including provably fair originals, and a strict no-KYC policy throughout. The 325% match up to €5,400 + 250 free spins welcome package is competitive with rivals (matches Mirax on BTC-equivalent ceiling at a meaningful spread; beats BitStarz on spin count at 250 vs 180), and 7Bit earns an 8.8/10 trust score overall. Remains a top pick for anonymity-focused players where the no-KYC posture is the decisive factor.',
     },
   ],
   duelbits: [
