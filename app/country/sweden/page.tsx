@@ -1,9 +1,33 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { casinos, casinoAcceptsCountry } from '@/lib/casinos'
+import { casinos, casinoAcceptsCountry, type Casino } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
 const eligibleCasinos = casinos.filter((c) => casinoAcceptsCountry(c, 'sweden'))
+
+// Build a strip card from a Casino — same helper pattern as the dynamic
+// /country/[slug] route. Sweden is a static segment because of the rich
+// Spellag + tax-context content but its strip logic mirrors the dynamic
+// route exactly.
+function buildSwedenCard(casino: Casino): CTAStripCard {
+  const cryptoCount = casino.acceptedCryptos.includes('100+ more')
+    ? '100+'
+    : `${casino.acceptedCryptos.length}`
+  return {
+    slug: casino.slug,
+    facts: [
+      { label: 'Withdrawal', value: casino.withdrawalTime },
+      { label: 'KYC', value: casino.kycLevel },
+      { label: 'Cryptos', value: `${cryptoCount} accepted` },
+    ],
+  }
+}
+
+const SWEDEN_STRIP_CARDS: CTAStripCard[] = [...eligibleCasinos]
+  .sort((a, b) => b.trustScore - a.trustScore)
+  .slice(0, 3)
+  .map(buildSwedenCard)
 
 export const metadata: Metadata = {
   title: 'Best Crypto Casinos in Sweden 2026 — Spelinspektionen, On-Ramps & Tax',
@@ -129,6 +153,11 @@ export default function SwedenPage() {
             </div>
           ))}
         </div>
+
+        <CasinoCTAStrip
+          framing="Top 3 by trust score among operators accepting Swedish accounts (Roobet excluded — Sweden on its restricted list)."
+          cards={SWEDEN_STRIP_CARDS}
+        />
 
         <section className="mb-12 space-y-4">
           <h2 className="text-2xl font-bold text-white">Sweden&apos;s licensed-but-restrictive regime</h2>

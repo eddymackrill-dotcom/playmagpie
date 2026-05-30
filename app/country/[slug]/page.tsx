@@ -2,8 +2,25 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { COUNTRY_LIST } from '@/lib/programmatic'
-import { casinos, casinoAcceptsCountry } from '@/lib/casinos'
+import { casinos, casinoAcceptsCountry, type Casino } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+
+// Build a strip card from a Casino — handles BC.Game's "100+ more"
+// crypto-list entry as a friendly "100+" instead of 16.
+function buildCountryCard(casino: Casino): CTAStripCard {
+  const cryptoCount = casino.acceptedCryptos.includes('100+ more')
+    ? '100+'
+    : `${casino.acceptedCryptos.length}`
+  return {
+    slug: casino.slug,
+    facts: [
+      { label: 'Withdrawal', value: casino.withdrawalTime },
+      { label: 'KYC', value: casino.kycLevel },
+      { label: 'Cryptos', value: `${cryptoCount} accepted` },
+    ],
+  }
+}
 
 export async function generateStaticParams() {
   // 'sweden' is served by app/country/sweden/page.tsx (static segment takes
@@ -139,6 +156,13 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
   // Casinos whose published terms exclude this country are filtered out — see
   // casinoAcceptsCountry in lib/casinos.ts for matching mechanics.
   const eligibleCasinos = casinos.filter((c) => casinoAcceptsCountry(c, slug))
+  // Top 3 by trust score from eligible — drives the above-the-fold CTA strip.
+  // Renders nothing if fewer than 1 casino is eligible (component handles
+  // empty-resolved case). Restricted-territory filter respected by construction.
+  const stripCards: CTAStripCard[] = [...eligibleCasinos]
+    .sort((a, b) => b.trustScore - a.trustScore)
+    .slice(0, 3)
+    .map(buildCountryCard)
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -173,6 +197,11 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
             Top crypto casinos for {country.name} players. Compare bonuses, payment methods and withdrawal speeds for {country.currency} users.
           </p>
         </div>
+
+        <CasinoCTAStrip
+          framing={`Top 3 by trust score among operators accepting ${country.name} accounts. Restricted-territory filter applied.`}
+          cards={stripCards}
+        />
 
         <section className="mb-12 prose prose-invert max-w-none">
           <h2 className="text-2xl font-bold text-white mb-4">
