@@ -14,6 +14,26 @@
 // - Roowards 2.0 VIP product (30 tiers + invite-only top VIP Club): aggregated across thespike.gg, bitcoinchaser.com, gamechampions.com
 // - $200k/day max withdrawal + $10 min withdrawal + $10 min deposit: AskGamblers + thespike.gg (May 2026)
 
+// Bonus / welcome-package terms verified 2026-05-30 against each operator's
+// live promotions / T&C page (user-pulled directly, primary source). Prior
+// bonusSummary entries were stale by multiple revisions — corrected below.
+// - BC.Game current welcome offer: 220% Deposit Rakeback Welcome Bonus across
+//   4 monthly stages (180%+40% / 240%+60% / 300%+100% / 360%+140% RakeBack).
+//   No free spins component in the current structure. Source:
+//   https://bc.game/deposit-offer (verified 2026-05-30).
+// - BitStarz welcome package: 5 BTC + 180 free spins across first 4 deposits.
+//   180 free spins credited as 20 instant + 20/day for 8 consecutive days
+//   (T&C §2.7). Source: https://www.bitstarz.com/promotions T&C (last updated
+//   25 June 2025, verified 2026-05-30).
+// - Mirax Casino welcome pack: up to 5 BTC + 150 free spins across 4 deposits.
+//   D1: 1.5 BTC + 100 FS (no code); D2: 1.25 BTC + 50 FS (code W2); D3: 1.25
+//   BTC cash-only (code W3); D4: 1 BTC cash-only (code W4). Max cashout from
+//   free spins = €100. Source: https://miraxcasino.com/promotions (verified
+//   2026-05-30).
+// - 7Bit Casino welcome pack: 325% match up to €5,400 + 250 free spins across
+//   the 4-deposit welcome pack. Source: https://7bitcasino.com/bonuses
+//   (verified 2026-05-30).
+
 export type Casino = {
   name: string
   slug: string
@@ -56,7 +76,7 @@ export const casinos: Casino[] = [
     minDeposit: '$20',
     kycLevel: 'Light',
     vipProgram: true,
-    bonusSummary: 'Up to 5 BTC + 200 free spins across your first four deposits',
+    bonusSummary: 'Up to 5 BTC + 180 free spins across your first four deposits',
     restrictedCountries: ['US', 'UK', 'AU', 'NL', 'FR'],
     trustScore: 9.2,
     withdrawalScore: 9.5,
@@ -92,7 +112,7 @@ export const casinos: Casino[] = [
     minDeposit: '$5',
     kycLevel: 'None',
     vipProgram: true,
-    bonusSummary: 'Up to 300% deposit bonus + 200 free spins across first 4 deposits',
+    bonusSummary: '220% Deposit Rakeback Welcome — 4 monthly stages from 180%+40% RakeBack to 360%+140% RakeBack, locked balance unlocks as you wager (min $5)',
     restrictedCountries: ['US', 'FR', 'NL'],
     trustScore: 8.9,
     withdrawalScore: 9.3,
@@ -164,7 +184,7 @@ export const casinos: Casino[] = [
     minDeposit: '$20',
     kycLevel: 'Light',
     vipProgram: true,
-    bonusSummary: '325% up to $3,250 + 250 free spins across first 4 deposits',
+    bonusSummary: 'Up to 5 BTC + 150 free spins across first 4 deposits (100 on D1, 50 on D2, cash-only on D3/D4)',
     restrictedCountries: ['US', 'UK', 'AU', 'NL', 'FR'],
     trustScore: 8.6,
     withdrawalScore: 8.8,
@@ -200,7 +220,7 @@ export const casinos: Casino[] = [
     minDeposit: '$10',
     kycLevel: 'None',
     vipProgram: true,
-    bonusSummary: '100% up to 1.5 BTC + 100 free spins on first deposit, plus weekly reload bonuses',
+    bonusSummary: '325% match up to €5,400 + 250 free spins across the 4-deposit welcome pack, plus weekly reload bonuses',
     restrictedCountries: ['US', 'UK', 'AU', 'NL', 'FR'],
     trustScore: 8.8,
     withdrawalScore: 9.1,
