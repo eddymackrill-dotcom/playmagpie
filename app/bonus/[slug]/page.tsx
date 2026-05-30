@@ -4,6 +4,45 @@ import Link from 'next/link'
 import { BONUS_TYPES } from '@/lib/programmatic'
 import { BONUS_CONTENT, getCasinosForBonus } from '@/lib/bonus-content'
 import CasinoCard from '@/components/CasinoCard'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+
+// Per-bonus-type strip configuration. Cards tailored to each bonus's
+// player intent — welcome/reload/no-deposit cards lead with the
+// headline offer; cashback/vip cards lead with the recurring-value
+// mechanism; high-roller cards lead with VIP posture + withdrawal
+// limits.
+const STRIP_BY_BONUS: Record<string, CTAStripCard[]> = {
+  'welcome-bonus': [
+    { slug: 'bitstarz', facts: [{ label: 'Welcome', value: '5 BTC + 180 spins (4 deposits)' }, { label: 'Wagering', value: '40x bonus, 25% admin fee on bonus withdrawals' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
+    { slug: 'bc-game', facts: [{ label: 'Welcome', value: '220% Deposit Rakeback, 4 monthly stages' }, { label: 'Wagering', value: 'Locked balance unlocks as you wager' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Welcome', value: '325% up to €5,400 + 250 spins (4 deposits)' }, { label: 'Wagering', value: '40-45x range' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
+  ],
+  'no-deposit-bonus': [
+    { slug: 'bitstarz', facts: [{ label: 'No-deposit', value: 'Available regionally — check live promos' }, { label: 'Max cashout', value: '€100 cap (T&C §1.1)' }, { label: 'Wagering', value: '40x bonus sum' }] },
+    { slug: 'bc-game', facts: [{ label: 'No-deposit', value: 'Affiliate-code promos at signup' }, { label: 'Max cashout', value: 'Per-promo cap' }, { label: 'Wagering', value: 'Per-promo terms' }] },
+    { slug: '7bit-casino', facts: [{ label: 'No-deposit', value: 'Email promo codes for verified players' }, { label: 'Max cashout', value: 'Per-promo cap' }, { label: 'Wagering', value: '40-45x range' }] },
+  ],
+  'reload-bonus': [
+    { slug: 'bitstarz', facts: [{ label: 'Reload', value: 'Monday Reload — weekly cadence' }, { label: 'Wagering', value: '40x bonus' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
+    { slug: 'bc-game', facts: [{ label: 'Reload', value: 'Daily reload tied to VIP tier' }, { label: 'Wagering', value: 'Tier-dependent' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Reload', value: '25% Monday Reload + 50 free spins' }, { label: 'Wagering', value: '40-45x range' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
+  ],
+  cashback: [
+    { slug: 'bitstarz', facts: [{ label: 'Cashback', value: '15-25% at top VIP tiers' }, { label: 'Cadence', value: 'Monthly' }, { label: 'Wagering', value: 'No wagering at top tiers' }] },
+    { slug: 'bc-game', facts: [{ label: 'Cashback', value: 'Built into Deposit Rakeback Welcome + ongoing rakeback' }, { label: 'Cadence', value: 'Real-time accrual' }, { label: 'Wagering', value: 'None on rakeback' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Cashback', value: 'Up to 20% weekly net-loss cashback' }, { label: 'Cadence', value: 'Weekly' }, { label: 'Wagering', value: 'Per-tier terms' }] },
+  ],
+  'vip-bonus': [
+    { slug: 'bitstarz', facts: [{ label: 'VIP', value: 'Invite-only — dedicated host' }, { label: 'Cashback', value: '15-25% at top tiers' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
+    { slug: 'bc-game', facts: [{ label: 'VIP', value: 'XP-tier progression-based' }, { label: 'Rakeback', value: 'Real-time accrual on every wager' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
+    { slug: '7bit-casino', facts: [{ label: 'VIP', value: 'Tiered cashback + personal manager' }, { label: 'Cashback', value: 'Up to 20% weekly' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
+  ],
+  'high-roller-bonus': [
+    { slug: 'bitstarz', facts: [{ label: 'High-roller', value: 'Invite-only VIP, dedicated host' }, { label: 'Welcome', value: '5 BTC headline (25% admin-fee catch)' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
+    { slug: 'bc-game', facts: [{ label: 'High-roller', value: 'Top XP tiers + per-account negotiation' }, { label: 'Welcome', value: '220% Deposit Rakeback, scales with deposit' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
+    { slug: 'cloudbet', facts: [{ label: 'High-roller', value: 'No withdrawal limits — the load-bearing differentiator' }, { label: 'Welcome', value: '5 BTC match, no admin fee' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no cap' }] },
+  ],
+}
 
 // 'free-spins' is served by app/bonus/free-spins/page.tsx (static segment takes
 // precedence over dynamic [slug]); excluded here to avoid build conflict.
@@ -94,6 +133,13 @@ export default async function BonusPage(props: PageProps<'/bonus/[slug]'>) {
             Real terms — wagering multipliers, max cashout caps and game contributions decoded for every offer.
           </p>
         </div>
+
+        {STRIP_BY_BONUS[slug] && (
+          <CasinoCTAStrip
+            framing={`Top 3 by trust for ${bonus.name.toLowerCase()}. Trust-ranked, not paid placement.`}
+            cards={STRIP_BY_BONUS[slug]}
+          />
+        )}
 
         <section className="mb-12 prose prose-invert max-w-none">
           <h2 className="text-2xl font-bold text-white mb-4">How the {bonus.name} works in 2026</h2>
