@@ -34,19 +34,19 @@ const DICE_CASINO_SLUGS = ['bc-game', 'duelbits', 'shuffle', 'roobet']
 const PER_CASINO_DICE_NOTES: Record<string, { angle: string }> = {
   'bc-game': {
     angle:
-      'BC.Game Dice is one of the longest-running provably-fair Dice products in the market — adjustable win-chance slider with the corresponding multiplier scaling from 1.02x at 98% win chance up to ~99x at 1% win chance, full auto-bet presets (martingale, anti-martingale, Fibonacci, custom), and seed audit on every roll. No-KYC at any withdrawal size across 100+ supported cryptocurrencies makes it the cleanest dice-to-cashout path on this list.',
+      'BC.Game Dice predates much of the rest of the Originals catalogue and remains the high-frequency strategy-grinding format that drives most BC.Game Originals volume. Adjustable win-chance slider from ~1% to ~98% with multiplier scaling 1.02x to ~99x correspondingly, auto-bet cycles fast enough to validate a martingale or Fibonacci configuration over thousands of rolls in minutes. No-KYC at any withdrawal size keeps the bankroll-management iteration loop clean across all 100+ supported cryptocurrencies.',
   },
   shuffle: {
     angle:
-      'Shuffle Dice uses the same server-seed commitment model as the rest of Shuffle Originals — adjustable win-chance, auto-bet with the standard strategy presets, full audit log. Every roll counts toward SHFL token rakeback and airdrop accrual regardless of outcome, which adds a small steady return on top of the dice EV for active players grinding a strategy.',
+      'Shuffle Dice\'s distinctive feature is per-roll SHFL accrual. Dice is the format where this matters most: at 200+ rolls per minute on auto-bet, token rakeback compounds far faster than on lower-frequency formats like slots or crash. For an active dice grinder, the SHFL economy adds a steady positive return on top of the dice EV that operators without a native token can\'t structurally match.',
   },
   duelbits: {
     angle:
-      'Duelbits Dice ships in the Duelbits Originals lineup with a clean modern interface and fast auto-bet cycle suited to high-volume strategy play. No-KYC for crypto play means you can grind a dice strategy from email-only signup; sub-5-minute crypto withdrawals if you decide to cash out after a session.',
+      'Duelbits Dice ships with the fastest auto-bet cycle of the four operators on this page. That speed matters specifically for dice strategy testing — martingale parameters, win-chance thresholds and stop-loss conditions only validate over thousands of rolls, and Duelbits cuts that validation loop to single-digit minutes. Pair with the no-KYC posture for crypto play and a sub-5-minute crypto withdrawal headline on session cash-out.',
   },
   roobet: {
     angle:
-      'Roobet Dice is one of the founding Roobet Originals — adjustable win-chance, the standard auto-bet presets, full provably-fair seed verification. It sits alongside Crash, Mines, Towers, Plinko and the other Roobet house games. Trust score 6.8 with documented multi-day cashout holds at $20k+ — fine for testing a dice strategy at modest stakes, structurally riskier as a five-figure cashout destination.',
+      'Roobet Dice is one of the founding Roobet Originals — adjustable win-chance, the standard auto-bet presets, full provably-fair seed verification. Dice is one of the lowest-stakes-per-decision formats, so the documented withdrawal-hold caveat applies most when a long grinding session has accumulated total balance above the threshold range complaints have surfaced at ($20k-$84k+). Fine for strategy iteration at modest stakes; structurally riskier as a destination for long-grind balance accumulation that pushes into five-figure cash-out territory.',
   },
 }
 
@@ -68,12 +68,12 @@ const faqs = [
     answer: 'No. Martingale (double after a loss), anti-martingale (double after a win) and Fibonacci (increase stake by Fibonacci sequence after losses) all manipulate the size and timing of bets but do not change the underlying 1% house edge per roll. Over a sufficiently large sample, every strategy converges to the same negative expected value — the maths is the same regardless of bet-sizing logic. What auto-bet strategies actually do is reshape variance: martingale produces frequent small wins punctuated by occasional catastrophic losses when a long losing streak meets the table maximum. None of them are a way to extract positive EV from a 1% edge game. They are useful for executing a chosen variance profile, not for beating the maths.',
   },
   {
-    question: 'Which crypto casinos have the best dice game?',
-    answer: 'Four platforms in our rankings run native provably-fair Dice Originals: BC.Game, Shuffle, Duelbits and Roobet. BC.Game has the longest track record and the widest crypto support (100+ coins). Shuffle layers SHFL token rakeback on top of every roll. Duelbits offers the fastest crypto withdrawal headline (sub-5 minutes). Roobet ships Dice as part of its Originals suite but carries a lower trust score (6.8) due to documented withdrawal-hold cases at $20k+ amounts — see the Roobet review for the full picture before deciding to play.',
+    question: 'Which crypto casino is best for dice specifically?',
+    answer: 'Pick by what matters most for your dice style. For strategy iteration — testing martingale, Fibonacci or anti-martingale parameters at scale — Duelbits ships the fastest auto-bet cycle, which cuts the validation loop to single-digit minutes. For high-frequency volume with rakeback compounding, Shuffle\'s SHFL accrual per roll outpaces what non-token operators can structurally offer. For the longest track record and the cleanest no-KYC dice-to-cashout path, BC.Game runs the foundational provably-fair Dice product across 100+ supported coins. Roobet\'s Dice is part of the founding Originals lineup but the documented withdrawal-hold pattern means a long-grind accumulation pushing total balance into the $20k+ range is exactly the scenario where holds have historically surfaced — fine for strategy iteration at modest stakes, structurally bad fit for a long-grind accumulation cash-out.',
   },
   {
     question: 'Can I play crypto dice without KYC?',
-    answer: 'Yes — BC.Game and Duelbits both operate no-KYC policies for crypto play, including dice play and dice-winning withdrawals at any size. Shuffle has Light KYC, with checks only triggered at larger withdrawal thresholds rather than on dice play itself. Roobet runs Standard KYC — Level 1 data at deposit, with full ID verification triggered by withdrawal size or activity flags rather than a fixed dollar threshold. For full anonymity, BC.Game or Duelbits are the default choices.',
+    answer: 'Yes — at the two no-KYC operators on this page. BC.Game and Duelbits both keep crypto play and crypto withdrawals document-free at any size, which is the posture dice grinders want for long sessions where balance fluctuates substantially in both directions. Shuffle\'s Light KYC posture means basic play doesn\'t trigger checks but cumulative wagering volume above certain thresholds may surface a compliance review. Roobet\'s Standard KYC is the strictest of the four — Level 1 personal data is required at deposit, and Levels 2-4 are triggered by withdrawal size or activity-flag patterns rather than a fixed dollar threshold. For grind-style dice where you want zero friction on the cashout side regardless of session outcome, BC.Game or Duelbits are the defaults.',
   },
 ]
 
@@ -249,23 +249,27 @@ export default function DiceCasinosPage() {
         </section>
 
         <section className="mb-12 space-y-4">
-          <h2 className="text-2xl font-bold text-white">How provably-fair dice verifies</h2>
+          <h2 className="text-2xl font-bold text-white">How provably-fair dice verifies — one nonce, one number, one check</h2>
           <p className="text-[#888888] leading-relaxed">
-            Provably-fair dice at BC.Game, Shuffle, Duelbits and Roobet uses a server-seed commitment model.
-            Before play begins, the casino publishes a SHA-256 hash of a server seed it has generated. You
-            contribute a client seed (you can use the default the casino generates or pick your own). Each roll
-            combines the server seed, your client seed, and an incrementing nonce to produce the result via a
-            deterministic hash chain — the exact derivation is documented in each casino&apos;s provably-fair
-            article.
+            Dice is the simplest verification case across the Originals catalogue: each roll resolves to a
+            single output, and the audit is a single comparison. Before play, the operator publishes a
+            SHA-256 hash of a server seed. You contribute a client seed (you can use the default the casino
+            generates or pick your own). Each roll combines server seed + client seed + an incrementing
+            nonce through the casino&apos;s documented hash chain to produce one number — typically 0-9,999
+            or 0-99 depending on implementation — which is then compared against your win-chance threshold
+            to determine the outcome.
           </p>
           <p className="text-[#888888] leading-relaxed">
-            When you change your client seed, the casino reveals the unhashed server seed for the session that
-            just ended. You can independently re-hash that server seed and confirm it matches the original
-            commitment — which proves the casino chose the server seed before any of your rolls happened, not
-            after. The verification is a few lines of JavaScript or Python that you can run locally. This is
-            qualitatively different from third-party RNG slots audited by GLI or iTech Labs: with lab-tested RNG
-            you trust the certification at the population level; with provably-fair dice, you can verify each
-            individual roll.
+            When you change your client seed, the operator reveals the unhashed server seed for the
+            just-ended session. Re-running the SHA-256 hash locally proves the casino committed to the
+            seed before any of your rolls happened. The verification is a few lines of Python or
+            JavaScript per roll, fast enough that you can audit a full session of thousands of rolls in
+            seconds. This is the entry-level provably-fair format and the lightest verification load of
+            the three main Originals categories — dice produces one output per round, where{' '}
+            <Link href="/game/crash" className="text-[#7BB8D4] hover:text-[#8fc4d8] transition-colors">crash</Link>
+            {' '}produces one multiplier and{' '}
+            <Link href="/game/plinko" className="text-[#7BB8D4] hover:text-[#8fc4d8] transition-colors">Plinko</Link>
+            {' '}produces an N-step deflection sequence per round.
           </p>
         </section>
 

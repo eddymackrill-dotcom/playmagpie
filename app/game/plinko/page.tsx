@@ -33,26 +33,26 @@ const PLINKO_CASINO_SLUGS = ['bc-game', 'duelbits', 'shuffle', 'roobet']
 const PER_CASINO_PLINKO_NOTES: Record<string, { angle: string }> = {
   'bc-game': {
     angle:
-      'BC.Game Plinko has been in the Originals lineup since BC.Game launched in 2017 — 8-16 row customisation, three volatility modes (low, medium, high), full auto-bet with bet-amount strategies, and seed audit on every drop. No-KYC across all 100+ supported cryptocurrencies. The longest-running Plinko product in this list by several years.',
+      'BC.Game Plinko ships the full 8-to-16-row range plus all three volatility modes — wider configurability than the typical Plinko product. That breadth matters because Plinko\'s character changes substantially between configurations: 8-row low-vol is a tight-cluster grind; 16-row high-vol is an outlier-multiplier hunt. Being able to switch between modes inside the same balance, with no-KYC on either side of the cashout, is BC.Game\'s distinctive Plinko angle.',
   },
   shuffle: {
     angle:
-      'Shuffle Plinko uses the same server-seed model as the rest of Shuffle Originals — standard 8-16 row range and three volatility levels. Every drop earns SHFL token rakeback and counts toward airdrop accrual regardless of multiplier hit, which adds a small steady return on top of Plinko EV for active players. The token layer is the meaningful differentiator from other Plinko products.',
+      'Shuffle Plinko\'s SHFL accrual matters in a structurally different way than at Shuffle\'s other Originals. Plinko at high volatility is inherently negative-variance — long losing streaks between outlier hits — and the rakeback floor offsets the variance drag. For a player committing to high-multiplier hunting, the SHFL economy turns the dead time between outlier landings into something with steady positive EV instead of pure waiting.',
   },
   duelbits: {
     angle:
-      'Duelbits Plinko sits in the Duelbits Originals suite alongside Crash, Dice and Slots. Clean drop animation, full auto-bet for high-volume strategy play, no-KYC for crypto play. Sub-5-minute crypto withdrawal headline if you hit a high-volatility multiplier and decide to cash out.',
+      'Duelbits Plinko sits inside the cashback-first welcome model — and that fits Plinko\'s variance profile distinctively well. Even on a high-volatility session that doesn\'t land a major multiplier, the cash position contributes to the weekly cashback total, which softens the bankroll drawdown specifically on high-variance formats. Sub-5-minute crypto withdrawal headline applies if you do land the outlier and decide to cash out.',
   },
   roobet: {
     angle:
-      'Plinko is one of the Roobet Originals alongside Crash, Mines, Towers and Dice — standard 8-16 row range, three volatility modes, provably-fair seed verification. Trust score 6.8 with documented multi-day cashout holds at $20k+ amounts. Fine for testing high-volatility Plinko strategies at modest stakes; structurally riskier as a destination for a max-volatility outlier win.',
+      'Plinko is the highest-variance format in the Roobet Originals lineup — outlier drops from 16-row high-volatility can produce single-stake wins in the ~1,000x range. That makes Plinko one of the formats where the documented withdrawal-hold caveat is most likely to bite: a single max-volatility outlier multiplier is exactly the size of win that has historically triggered Roobet\'s documented holds at $20k+. Fine for testing variance settings at modest stakes; structurally the worst-fit Roobet format if your goal is to chase a single outlier and cash out fast.',
   },
 }
 
 const faqs = [
   {
-    question: 'What is provably-fair Plinko?',
-    answer: 'Provably-fair Plinko uses a server-seed commitment model. The casino publishes a hashed server seed before play; you contribute a client seed; each ball drop combines both with an incrementing nonce to determine the path the ball takes through the pegs. At session end the unhashed server seed is revealed, and you can independently re-hash it to confirm the casino committed to the seed before any drops happened. The path the ball takes is therefore deterministic from the seed combination — not chosen by the casino after seeing your stake.',
+    question: 'How is Plinko\'s provably-fair verification different from Dice and Crash?',
+    answer: 'Plinko\'s verification is heavier per round than its sibling Originals because each drop produces a sequence, not a single output. Dice resolves to one number (compared to your win-chance threshold) per roll. Crash resolves to one multiplier per round. Plinko produces an N-step sequence of left-or-right peg-deflection decisions — one per row, 8 to 16 total — that determines the ball\'s path and the bucket it lands in. Verifying a single Plinko drop is therefore N hash extractions versus one comparison for dice or one multiplier for crash. The underlying server-seed commitment model is identical across all three formats; the work involved in auditing a Plinko session is structurally larger than auditing a dice or crash session of equivalent length.',
   },
   {
     question: 'What is the RTP on Plinko?',
@@ -68,11 +68,11 @@ const faqs = [
   },
   {
     question: 'Can I play Plinko without KYC?',
-    answer: 'Yes — BC.Game and Duelbits operate no-KYC policies for crypto play and crypto withdrawals at any size, including Plinko winnings. Shuffle runs Light KYC with checks triggered at larger withdrawal thresholds rather than on Plinko play itself. Roobet runs Standard KYC, with full ID verification triggered by withdrawal size or activity flags rather than a fixed dollar threshold — relevant if you hit a high-volatility outlier multiplier and want to cash out the result. For full anonymity around an unexpected Plinko win, BC.Game or Duelbits are the default choices.',
+    answer: 'Yes at BC.Game and Duelbits — both keep crypto play and crypto withdrawals document-free at any size. This matters more for Plinko than for many other formats, because Plinko\'s distribution is bimodal: most drops finish with small losses or small gains, but the occasional outlier produces a single-drop win in the high-multiplier range — exactly the cashout-size that triggers KYC reviews at Light-KYC operators. Shuffle\'s Light KYC may surface a check at the larger withdrawal end. Roobet\'s Standard KYC triggers ID verification by withdrawal size or activity flags. For Plinko specifically, where you may want to cash out an unexpected outlier multiplier without document delay, BC.Game or Duelbits are the default no-friction picks.',
   },
   {
-    question: 'Which crypto casinos have the best Plinko?',
-    answer: 'Four operators in our rankings run a native provably-fair Plinko Original: BC.Game, Shuffle, Duelbits and Roobet. BC.Game has the longest track record and the widest crypto coverage (100+ coins). Shuffle layers SHFL token rakeback on every drop, which makes it marginally more EV-positive at sustained volume. Duelbits offers the fastest crypto withdrawal headline (sub-5 minutes). Roobet ships Plinko as part of its Originals suite but carries a lower trust score (6.8) due to documented withdrawal-hold cases at $20k+ — see the Roobet review for context before chasing a max-volatility outlier multiplier there.',
+    question: 'Which crypto casino is best for Plinko specifically?',
+    answer: 'Pick by what matters most for your Plinko style. For configuration breadth — the full 8-to-16 row range plus all three volatility modes inside the same balance — BC.Game runs the deepest setup. For outlier-multiplier hunting at high volatility, Shuffle\'s SHFL rakeback offsets the variance drag during dead-time stretches between hits, turning the negative-variance waiting into something with steady positive EV. For fast cash-out after landing a multiplier, Duelbits\' sub-5-minute headline is the shortest in the category and pairs with a cashback-first welcome structure that softens losses on miss-streaks. Roobet\'s Plinko is part of the founding Originals lineup but the documented withdrawal-hold pattern on outlier-size wins is exactly the failure mode high-volatility Plinko produces — fine for variance-setting iteration, structurally bad fit for a max-volatility outlier cash-out.',
   },
 ]
 
@@ -249,24 +249,27 @@ export default function PlinkoCasinosPage() {
         </section>
 
         <section className="mb-12 space-y-4">
-          <h2 className="text-2xl font-bold text-white">How provably-fair Plinko verifies</h2>
+          <h2 className="text-2xl font-bold text-white">How provably-fair Plinko verifies — the multi-deflection hash chain</h2>
           <p className="text-[#888888] leading-relaxed">
-            Plinko at BC.Game, Shuffle, Duelbits and Roobet uses the same server-seed commitment model as the
-            other provably-fair Originals. Before play, the casino publishes a SHA-256 hash of a server seed. You
-            contribute a client seed. Each drop combines the server seed, your client seed and an incrementing
-            nonce to produce a deterministic sequence of left-or-right peg deflections, which dictates the path
-            the ball takes through the board.
+            Plinko verification is structurally heavier than dice or crash. Each drop produces a sequence
+            of left-or-right peg-deflection decisions — one per row, so 8 to 16 deflections per drop
+            depending on configuration — that determines the path the ball takes through the board and the
+            bucket it lands in. The provably-fair model has to deterministically produce that whole
+            sequence from the seed combination, not just a single number or one multiplier output.
           </p>
           <p className="text-[#888888] leading-relaxed">
-            When you change your client seed, the unhashed server seed for the prior session is revealed and you
-            can independently re-hash it to confirm it matches the original commitment. The verification proves
-            the casino chose the seed sequence before any of your drops happened. Each operator publishes a
-            provably-fair article documenting the exact hash chain and the verification code you can run. For a
-            deeper explainer of the same mechanism applied to multiplier-curve games, see our{' '}
-            <Link href="/game/crash" className="text-[#7BB8D4] hover:text-[#8fc4d8] transition-colors">
-              crash casinos page
-            </Link>
-            {' '}— identical seed model, different game format.
+            The mechanics: the operator publishes a hashed server seed before play. You contribute a
+            client seed. Each drop combines server seed + client seed + an incrementing nonce, then runs
+            the resulting hash through a sequence of bit extractions — each bit determines one
+            peg-deflection direction. The full hash chain has to be auditable for each row to confirm the
+            ball&apos;s path matches what the deterministic seed expansion would have produced. Verifying
+            a single Plinko drop is therefore N hash extractions for an N-row board, versus one
+            comparison for{' '}
+            <Link href="/game/dice" className="text-[#7BB8D4] hover:text-[#8fc4d8] transition-colors">dice</Link>
+            {' '}or one multiplier output for{' '}
+            <Link href="/game/crash" className="text-[#7BB8D4] hover:text-[#8fc4d8] transition-colors">crash</Link>
+            . More verification work per round, but the same underlying server-seed commitment proves the
+            path sequence was determined before play, not chosen by the operator after seeing your stake.
           </p>
         </section>
 
