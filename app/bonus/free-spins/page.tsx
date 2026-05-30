@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BONUS_CONTENT, getCasinosForBonus } from '@/lib/bonus-content'
 import CasinoCard from '@/components/CasinoCard'
+import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
 // Verified per-casino free-spin data block — populated 2026-05-30 against each
 // operator's live T&C / promotions page. Cells marked "Not documented" are
@@ -105,6 +106,37 @@ const CASINO_HEADERS: { slug: 'bitstarz' | 'mirax-casino' | '7bit-casino'; name:
   { slug: '7bit-casino', name: '7Bit Casino' },
 ]
 
+// Above-the-fold strip cards — facts are drawn from the verified T&C data
+// in TABLE_ROWS above so the headline + strip + table all reference the
+// same primary-source figures. Wagering and max-cashout cells are the
+// strip's load-bearing comparable signals; spin count is the lead anchor.
+const STRIP_CARDS: CTAStripCard[] = [
+  {
+    slug: 'bitstarz',
+    facts: [
+      { label: 'Spins', value: '180 across welcome' },
+      { label: 'Wagering', value: '40x winnings (T&C §2.3)' },
+      { label: 'Max cashout', value: 'Not documented for welcome FS' },
+    ],
+  },
+  {
+    slug: 'mirax-casino',
+    facts: [
+      { label: 'Spins', value: '150 — 100/50/0/0 by deposit' },
+      { label: 'Wagering', value: '45x winnings' },
+      { label: 'Max cashout', value: '€100 (only published cap)' },
+    ],
+  },
+  {
+    slug: '7bit-casino',
+    facts: [
+      { label: 'Spins', value: '250 across welcome' },
+      { label: 'Wagering', value: '40-45x range' },
+      { label: 'Max cashout', value: 'Not documented' },
+    ],
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Best Free Spins Crypto Casinos 2026 — Verified T&C Comparison',
   description:
@@ -181,6 +213,11 @@ export default function FreeSpinsBonusPage() {
             rather than guess.
           </p>
         </div>
+
+        <CasinoCTAStrip
+          framing="Honest pre-summary — same three operators analysed in the verified-T&C table below. Trust-score ranked, not paid placement."
+          cards={STRIP_CARDS}
+        />
 
         <section className="mb-12 prose prose-invert max-w-none">
           <h2 className="text-2xl font-bold text-white mb-4">How free spins work in 2026</h2>
