@@ -238,6 +238,7 @@ export const casinos: Casino[] = [
       'Comprehensive VIP programme with tiered cashback and personal account management',
     ],
     cons: [
+      'Curaçao-only licensing without Tier-1 regulator backing — same offshore profile as Roobet, no MGA or UKGC oversight',
       'Live dealer game selection smaller than dedicated live casino platforms',
       'Fiat deposit and withdrawal options are limited',
     ],

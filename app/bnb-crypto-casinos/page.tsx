@@ -225,10 +225,11 @@ export default function BnbCryptoCasinosPage() {
               <h3 className="text-white font-semibold mb-2">For the largest welcome bonus</h3>
               <p className="text-[#888888] text-sm leading-relaxed mb-3">
                 Cloudbet&apos;s 100% match up to 5 BTC equivalent is the largest cash-match welcome on this list,
-                with Shuffle&apos;s 100% up to $1,000 next. BC.Game has moved to a structurally different
-                model — a 220% Deposit Rakeback Welcome across 4 monthly stages where locked balance unlocks
-                as you wager — which sits outside the headline-match comparison but may deliver more value to
-                active high-volume players over the first month.
+                with Shuffle&apos;s 100% up to $1,000 next. Players seeking a traditional BNB-denominated
+                cash-match welcome should look at Cloudbet or Shuffle. BC.Game&apos;s structure is now a
+                Deposit Rakeback Welcome (220% across 4 monthly stages, locked balance unlocking as you
+                wager) which may fit specific high-volume profiles but is not a like-for-like substitute
+                for what was previously claimed.
               </p>
               <Link href="/best-crypto-casinos" className="text-[#7BB8D4] text-sm hover:underline">
                 Compare all crypto casinos →
@@ -333,7 +334,7 @@ const BNB_FAQS = [
   {
     question: 'Are there any BNB-only welcome bonuses?',
     answer:
-      "None of the five BNB-accepting casinos run a BNB-specific welcome bonus. All offer their standard welcome packages denominated in BTC-equivalent or USD-equivalent terms, applied proportionally to BNB deposits. Cloudbet's 100% up to 5 BTC equivalent is the largest single-coin-denominated cash-match welcome on the list. BC.Game's structure is now a Deposit Rakeback Welcome (220% across 4 monthly stages) rather than a traditional match — locked balance unlocks as you wager rather than wagering-then-withdraw, which fits active BNB volume play differently than the cash-match operators on this list.",
+      "None of the five BNB-accepting casinos run a BNB-specific welcome bonus. All offer their standard welcome packages denominated in BTC-equivalent or USD-equivalent terms, applied proportionally to BNB deposits. Cloudbet's 100% up to 5 BTC equivalent is the largest single-coin-denominated cash-match welcome on the list. Players seeking a traditional BNB-denominated cash-match should look at Cloudbet or Shuffle. BC.Game's structure is now a Deposit Rakeback Welcome (220% across 4 monthly stages, locked balance unlocking as you wager) which may fit specific high-volume profiles but is not a like-for-like substitute for what was previously claimed.",
   },
   {
     question: "What's the cheapest BNB casino to deposit at?",
