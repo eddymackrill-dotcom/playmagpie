@@ -50,7 +50,7 @@ const faqs = [
   },
   {
     question: 'Why are Swedish licensed operators limited to one bonus per player?',
-    answer: 'Spellag 14 kap. § 9 restricts each licensee to offering only one bonus per player across their entire relationship — the bonus must be offered on the first occasion the player plays. The policy was introduced in 2019 as a player-protection measure to prevent ongoing bonus-driven engagement. It applies only to Spelinspektionen-licensed operators; offshore casinos are not bound by it, which is one structural reason their welcome offers (Mirax 325%/$3,250, BitStarz 5 BTC, BC.Game 300% across four deposits) significantly exceed what licensed Swedish operators can offer.',
+    answer: 'Spellag 14 kap. § 9 restricts each licensee to offering only one bonus per player across their entire relationship — the bonus must be offered on the first occasion the player plays. The policy was introduced in 2019 as a player-protection measure to prevent ongoing bonus-driven engagement. It applies only to Spelinspektionen-licensed operators; offshore casinos are not bound by it, which is one structural reason their welcome offers (Mirax up to 5 BTC + 150 spins across 4 deposits, BitStarz 5 BTC + 180 spins, BC.Game 220% Deposit Rakeback Welcome across 4 monthly stages) significantly exceed what licensed Swedish operators can offer.',
   },
   {
     question: 'Which Swedish exchange should I use to buy crypto for casino deposits?',

@@ -181,12 +181,12 @@ export default function CryptoPokiesNZPage() {
               {
                 slug: 'mirax-casino',
                 name: 'Mirax Casino',
-                summary: '7,000+ titles from Evolution, Pragmatic Play and NetEnt — the cleanest provider lineup at this library size. The 325% up to $3,250 welcome package is the most aggressive on the list; expect wagering to be cleared on slots before any cash-out, which is standard for bonus-clearance pokies sessions.',
+                summary: '7,000+ titles from Evolution, Pragmatic Play and NetEnt — the cleanest provider lineup at this library size. The 4-deposit welcome pack runs up to 5 BTC with 150 free spins (100 on D1, 50 on D2, cash-only on D3/D4); expect wagering to be cleared on slots before any cash-out, which is standard for bonus-clearance pokies sessions. Free-spin winnings carry a €100 max-cashout per the live T&C.',
               },
               {
                 slug: '7bit-casino',
                 name: '7Bit Casino',
-                summary: '7,000+ titles with provably-fair originals included. No-KYC since 2014 — the longest unbroken anonymous-play record on the list — and 9.1/10 withdrawal score. The 1.5 BTC welcome cap is lower than some rivals but the cash-out side is consistently friction-free.',
+                summary: '7,000+ titles with provably-fair originals included. No-KYC since 2014 — the longest unbroken anonymous-play record on the list — and 9.1/10 withdrawal score. The 325% match up to €5,400 welcome + 250 free spins is competitive with rivals, and the cash-out side is consistently friction-free.',
               },
               {
                 slug: 'bitstarz',
@@ -263,7 +263,7 @@ export default function CryptoPokiesNZPage() {
         <section className="mt-12 space-y-6">
           <h2 className="text-2xl font-bold text-white">Provider coverage at each casino we review</h2>
           <p className="text-[#888888] leading-relaxed">
-            Honest framing: only one of the seven casinos in our reviews documents a specific provider lineup. For the
+            Honest framing: only one of the eight casinos in our reviews documents a specific provider lineup. For the
             others, library size and provably-fair Originals inclusion are confirmed, but specific third-party provider
             names aren&apos;t enumerated in our reviews. The summary below reflects exactly what&apos;s documented —
             check each operator&apos;s lobby for the current provider list before making a final decision.

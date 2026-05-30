@@ -11,10 +11,10 @@ export async function generateStaticParams() {
 }
 
 const casinoMetaDescriptions: Record<string, string> = {
-  bitstarz: 'BitStarz review 2026. Award-winning Bitcoin casino — 5 BTC + 200 free spins, 3,000+ games, under 10-min crypto withdrawals. Rated 9.2/10 by PlayMagpie.',
+  bitstarz: 'BitStarz review 2026. Award-winning Bitcoin casino — 5 BTC + 180 free spins, 3,000+ games, under 10-min crypto withdrawals. Rated 9.2/10 by PlayMagpie.',
   'bc-game': 'BC.Game review 2026. No-KYC crypto casino — 100+ cryptocurrencies, instant withdrawals, 10,000+ games. Zero identity verification required. Rated 8.9/10.',
   cloudbet: 'Cloudbet review 2026. Trusted since 2013 — 5 BTC welcome bonus, no withdrawal limits, excellent sportsbook for crypto bettors. Rated 8.7/10 by PlayMagpie.',
-  'mirax-casino': 'Mirax Casino review 2026. 325% bonus up to $3,250 + 250 free spins, 7,000+ games, fast crypto withdrawals in under 15 minutes. Rated 8.6/10.',
+  'mirax-casino': 'Mirax Casino review 2026. Up to 5 BTC + 150 free spins across the 4-deposit welcome pack, 7,000+ games, fast crypto withdrawals in under 15 minutes. Rated 8.6/10.',
   '7bit-casino': '7Bit Casino review 2026. No-KYC Bitcoin casino since 2014 — instant withdrawals, 7,000+ games, weekly reload bonuses and VIP cashback. Rated 8.8/10.',
   shuffle: 'Shuffle Casino review 2026. Native SHFL token, rakeback VIP rewards, 10,000+ games and instant crypto withdrawals. 12 cryptocurrencies accepted. Rated 8.2/10.',
   duelbits: 'Duelbits review 2026. No-KYC crypto casino since 2020 — Duelbits Originals, instant under-5-minute withdrawals, weekly cashback and rakeback VIP. 12 cryptos accepted. Rated 8.5/10.',
@@ -37,15 +37,15 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
   'mirax-casino': [
     {
       href: '/reviews/mirax-casino/withdrawal',
-      label: 'Mirax cashier in detail — the 325% bonus and your first withdrawal',
-      teaser: 'How wagering on the welcome match interacts with your first eligible withdrawal, the seven supported coins, and why XRP clears fastest.',
+      label: 'Mirax cashier in detail — the 4-deposit welcome pack and your first withdrawal',
+      teaser: 'How wagering on the 5 BTC welcome match interacts with your first eligible withdrawal, the seven supported coins, and why XRP clears fastest.',
     },
   ],
   '7bit-casino': [
     {
       href: '/reviews/7bit-casino/withdrawal',
       label: '7Bit withdrawal: no-KYC at any amount, eight coins, under 10 minutes',
-      teaser: 'What no-KYC actually means at the 7Bit cashier, the eight-coin lineup with per-network notes, and why a smaller welcome bonus helps payout-focused players.',
+      teaser: 'What no-KYC actually means at the 7Bit cashier, the eight-coin lineup with per-network notes, and how the 325% / €5,400 welcome pack interacts with cash-out posture.',
     },
   ],
   cloudbet: [
@@ -117,7 +117,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Does BitStarz offer a no deposit bonus?',
-      answer: 'BitStarz does not currently offer a no deposit bonus for new players in 2026. The welcome offer is a deposit-based package worth up to 5 BTC plus 200 free spins spread across your first four deposits. Some regions may occasionally see limited promotional no deposit free spins — check the BitStarz promotions page for current offers available in your country, as these change regularly.',
+      answer: 'BitStarz does not currently offer a no deposit bonus for new players in 2026. The welcome offer is a deposit-based package worth up to 5 BTC plus 180 free spins spread across your first four deposits (20 spins credited instantly on first deposit, then 20 per day for eight consecutive days per T&C §2.7). Some regions may occasionally see limited promotional no deposit free spins — check the BitStarz promotions page for current offers available in your country, as these change regularly.',
     },
     {
       question: 'What is the BitStarz minimum deposit?',
@@ -137,7 +137,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'How does BitStarz compare to other crypto casinos?',
-      answer: 'BitStarz vs competitors: BitStarz leads on trust and reputation with the highest score in our rankings (9.2/10) and the most industry awards since 2014. Compared to BC.Game, BitStarz scores higher for trust but BC.Game supports 100+ cryptocurrencies versus BitStarz\'s six. Compared to 7Bit Casino, BitStarz offers a larger welcome bonus (5 BTC vs 1.5 BTC) but both share fast withdrawals and light KYC policies.',
+      answer: 'BitStarz vs competitors: BitStarz leads on trust and reputation with the highest score in our rankings (9.2/10) and the most industry awards since 2014. Compared to BC.Game, BitStarz scores higher for trust but BC.Game supports 100+ cryptocurrencies versus BitStarz\'s six. Compared to 7Bit Casino, BitStarz offers a larger BTC-denominated welcome ceiling (5 BTC vs 7Bit\'s 325% match up to €5,400) but both share fast withdrawals and light KYC policies; 7Bit\'s offer is more competitive than its old structure made it look.',
     },
   ],
   'bc-game': [
@@ -355,7 +355,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What is the Roobet welcome bonus?',
-      answer: 'Roobet does not run a traditional deposit-match welcome bonus. The current new-player offer is a 20% cashback on net losses across your first seven days, capped at approximately $1,400, plus a $5 sportsbook free bet under promo code MAXBONUS. Cashback only triggers if you lose — there is no headline "free $X on signup" element. Compared to operators like BitStarz (up to 5 BTC + 200 free spins) or Mirax (325% up to $3,250 + 250 free spins), Roobet\'s welcome value is structurally lower for players expecting upside.',
+      answer: 'Roobet does not run a traditional deposit-match welcome bonus. The current new-player offer is a 20% cashback on net losses across your first seven days, capped at approximately $1,400, plus a $5 sportsbook free bet under promo code MAXBONUS. Cashback only triggers if you lose — there is no headline "free $X on signup" element. Compared to operators like BitStarz (up to 5 BTC + 180 free spins) or Mirax (up to 5 BTC + 150 free spins across four deposits), Roobet\'s welcome value is structurally lower for players expecting upside.',
     },
     {
       question: 'What countries does Roobet restrict?',

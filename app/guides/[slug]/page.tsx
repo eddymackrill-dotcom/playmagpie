@@ -150,9 +150,9 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'h2', text: 'Time limits' },
     { type: 'p', text: 'Bonuses expire if wagering requirements are not met within a specified window — commonly 7, 14 or 30 days. Time limits matter most for larger bonuses with high wagering requirements. If you cannot realistically meet a 40x wagering requirement within 7 days at your normal play volume, the bonus will expire and both the bonus funds and any winnings generated will be forfeited. Accepting a bonus you cannot complete within the time limit is equivalent to accepting a withdrawal restriction on your account.' },
     { type: 'h2', text: 'Worked examples from casinos we review' },
-    { type: 'p', text: 'Take Mirax Casino\'s headline offer: 325% up to $3,250 plus 250 free spins, spread across the first four deposits. The 325% headline is real — it\'s the largest match in our current rankings. The cost of clearing it is the question. With wagering applied to bonus funds (read the current terms for the multiplier and game contribution split), getting to a withdrawable balance from the full $3,250 bonus means real-money play volume well into five figures. On a slot library with 96% RTP, that wagering volume implies a four-figure expected loss before the bonus converts. The bonus is generous on paper; whether it\'s genuinely worth clearing depends on how aggressively you were planning to play anyway.' },
+    { type: 'p', text: 'Take Mirax Casino\'s headline offer: up to 5 BTC across four deposits with 150 free spins distributed as 100 on D1 and 50 on D2 (D3 and D4 are cash-only matches). The BTC ceiling is real and competitive with the largest in our rankings. The cost of clearing it is the question. With wagering applied to bonus funds (read the current terms for the multiplier and game contribution split), getting to a withdrawable balance from a fully-claimed package means real-money play volume well into five figures of BTC-equivalent value. On a slot library with 96% RTP, that wagering volume implies a four-figure expected loss before the bonus converts. The bonus is generous on paper; whether it\'s genuinely worth clearing depends on how aggressively you were planning to play anyway.' },
     { type: 'p', text: 'BitStarz documents a different kind of catch: a 25% admin fee on bonus-related withdrawals — flagged in our review as the one most players don\'t see coming. The 5 BTC welcome headline is also real. But if you clear the bonus and want to withdraw the resulting winnings, 25% comes off at the cashier. That changes the effective expected value of the bonus meaningfully. A $5,000 BTC-equivalent win after clearing the bonus arrives in your wallet as $3,750. Whether you\'d still take the bonus knowing that is the better way to think about it than the headline number alone.' },
-    { type: 'p', text: 'Across the seven casinos we review, the bonuses with the cleanest math are usually the rakeback and weekly cashback offers at platforms like Duelbits ($30 weekly cashback) and Cloudbet (VIP cashback rates) — no wagering, no maximum win caps, no admin fees on the way out. That\'s the structural reason cashback beats most match bonuses for active players.' },
+    { type: 'p', text: 'Across the eight casinos we review, the bonuses with the cleanest math are usually the rakeback and weekly cashback offers at platforms like Duelbits ($30 weekly cashback) and Cloudbet (VIP cashback rates) — no wagering, no maximum win caps, no admin fees on the way out. BC.Game\'s 220% Deposit Rakeback Welcome Bonus has structurally moved to the same model — locked-balance unlocking as you wager rather than wagering-then-withdraw. Cashback beats most match bonuses for active players for exactly this reason.' },
     { type: 'h2', text: 'The bonuses actually worth taking' },
     { type: 'p', text: 'Cashback offers with no wagering requirements are the most player-friendly bonus type available. The casino returns a percentage of net losses — typically 10–20% — with no strings attached. What you win, you keep. These are standard in VIP programmes at casinos like BitStarz, Cloudbet and BC.Game. Reload bonuses with low wagering (under 25x) are worthwhile for regular players. Free spins are lower risk but also lower value — read the maximum win cap carefully. First deposit match bonuses at 20–30x wagering with no game restrictions are reasonable. Anything with 40x+ wagering, restricted game lists, and a win cap is a marketing tool, not a player incentive.' },
     { type: 'h2', text: 'Summary checklist before accepting any bonus' },
@@ -262,7 +262,7 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Can I switch between BTC and USDT at the same casino?',
-      answer: 'Yes, at every major crypto casino. The seven platforms we review (BitStarz, BC.Game, Cloudbet, Mirax, 7Bit, Shuffle, Duelbits) all support both BTC and USDT for deposits and withdrawals. Most maintain separate balance ledgers per coin, so you can fund the account with BTC, play, withdraw to USDT — or any other combination. Welcome bonuses are usually denominated equivalently across coins.',
+      answer: 'Yes, at every major crypto casino. The eight platforms we review (BitStarz, BC.Game, Cloudbet, Mirax, 7Bit, Shuffle, Duelbits, Roobet) all support both BTC and USDT for deposits and withdrawals. Most maintain separate balance ledgers per coin, so you can fund the account with BTC, play, withdraw to USDT — or any other combination. Welcome bonuses are usually denominated equivalently across coins.',
     },
     {
       question: 'Is USDT safe given Tether\'s reserves history?',
@@ -291,7 +291,7 @@ const guideRelatedPages: Record<string, { label: string; href: string; teaser: s
   'how-casino-bonuses-really-work': [
     { label: 'High Roller Casinos', href: '/high-roller-casinos', teaser: 'Where VIP cashback beats welcome-bonus math' },
     { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'Cap-free cash-out when bonus play wins big' },
-    { label: 'Mirax Casino Review', href: '/reviews/mirax-casino', teaser: 'The 325%/$3,250 bonus structure in detail' },
+    { label: 'Mirax Casino Review', href: '/reviews/mirax-casino', teaser: 'The 4-deposit / 5 BTC / 150 FS welcome structure in detail' },
   ],
   'bitcoin-vs-usdt-casinos': [
     { label: 'Best Crypto for Gambling', href: '/guides/best-crypto-for-gambling', teaser: 'The broader guide across all major coins' },
@@ -312,8 +312,8 @@ const relatedCasinos: Record<string, { name: string; slug: string; reason: strin
     { name: '7Bit Casino', slug: '7bit-casino', reason: 'Wide crypto support, no KYC required' },
   ],
   'how-casino-bonuses-really-work': [
-    { name: 'Mirax Casino', slug: 'mirax-casino', reason: '325% bonus up to $3,250 + 250 spins' },
-    { name: 'BitStarz', slug: 'bitstarz', reason: '5 BTC + 200 free spins package' },
+    { name: 'Mirax Casino', slug: 'mirax-casino', reason: 'Up to 5 BTC + 150 spins across 4 deposits' },
+    { name: 'BitStarz', slug: 'bitstarz', reason: '5 BTC + 180 free spins package' },
     { name: 'Cloudbet', slug: 'cloudbet', reason: '100% up to 5 BTC welcome bonus' },
   ],
   'bitcoin-vs-usdt-casinos': [

@@ -321,7 +321,7 @@ const BNB_FAQS = [
   {
     question: 'Why do only some crypto casinos accept BNB?',
     answer:
-      "BNB is supported by five of the seven casinos in our rankings — BC.Game, Cloudbet, 7Bit Casino, Shuffle and Duelbits. BitStarz and Mirax Casino don't currently accept BNB. The split largely reflects when each operator added newer chain support: BitStarz and Mirax have leaner six-and-seven-coin lineups focused on the more established chains, while the BNB-supporting five run broader 8-to-12-coin lineups including BNB Smart Chain.",
+      "BNB is supported by five of the eight casinos in our rankings — BC.Game, Cloudbet, 7Bit Casino, Shuffle and Duelbits. BitStarz, Mirax Casino and Roobet don't currently accept BNB. The split largely reflects when each operator added newer chain support: BitStarz, Mirax and Roobet have leaner six-to-eight-coin lineups focused on the more established chains, while the BNB-supporting five run broader 8-to-12-coin lineups including BNB Smart Chain.",
   },
   {
     question: 'Is BNB faster than USDT for casino deposits?',

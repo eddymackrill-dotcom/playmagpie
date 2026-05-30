@@ -90,7 +90,7 @@ export const casinos: Casino[] = [
       'Vast game library: 3,000+ titles including slots, live dealer and provably fair games',
       'Consistently fast crypto withdrawals — typically processed in under 10 minutes',
       'Accepts 6 cryptocurrencies including BTC, ETH, LTC, DOGE, BCH and USDT',
-      'Generous welcome package: up to 5 BTC + 200 free spins across four deposits',
+      'Generous welcome package: up to 5 BTC + 180 free spins across four deposits',
       '24/7 multilingual live chat support',
     ],
     cons: [
@@ -192,9 +192,9 @@ export const casinos: Casino[] = [
     kycScore: 8.6,
     affiliateUrl: 'https://mirax.partners/pua8ehgj5',
     reviewSummary:
-      'Mirax Casino launched in 2022 and is part of the 7Bit Partners network, which also operates 7Bit Casino — a brand with over a decade of industry experience. Despite being a newer brand, Mirax benefits from the infrastructure and relationships of an established operator. The welcome package is among the most generous in the market: 325% across four deposits up to $3,250 with 250 free spins. The game library covers 7,000+ titles and crypto withdrawals are typically processed within 15 minutes, with light KYC only triggered above higher withdrawal thresholds.',
+      'Mirax Casino launched in 2022 and is part of the 7Bit Partners network, which also operates 7Bit Casino — a brand with over a decade of industry experience. Despite being a newer brand, Mirax benefits from the infrastructure and relationships of an established operator. The welcome package spans the first four deposits with a 5 BTC headline ceiling: 1.5 BTC + 100 free spins on the first deposit, 1.25 BTC + 50 free spins on the second (code W2), then cash-only matches of 1.25 BTC on the third (code W3) and 1 BTC on the fourth (code W4). The free-spins component totals 150 across the pack with a €100 max cashout on free-spin winnings per the live promotions page. The game library covers 7,000+ titles and crypto withdrawals are typically processed within 15 minutes, with light KYC only triggered above higher withdrawal thresholds.',
     pros: [
-      'Exceptionally generous welcome package: 325% up to $3,250 + 250 free spins',
+      'Substantial welcome package: up to 5 BTC + 150 free spins across the 4-deposit pack (100 on D1, 50 on D2, cash-only on D3/D4)',
       'Part of the established 7Bit Partners network — proven operator infrastructure',
       '7,000+ games from top-tier providers including Evolution, Pragmatic Play and NetEnt',
       'Fast crypto withdrawals — typically instant to 15 minutes',
@@ -238,7 +238,6 @@ export const casinos: Casino[] = [
       'Comprehensive VIP programme with tiered cashback and personal account management',
     ],
     cons: [
-      'Welcome bonus capped at 1.5 BTC — lower ceiling than some competitors',
       'Live dealer game selection smaller than dedicated live casino platforms',
       'Fiat deposit and withdrawal options are limited',
     ],

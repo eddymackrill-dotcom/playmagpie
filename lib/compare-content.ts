@@ -82,7 +82,7 @@ export const compareContent: Record<string, ComparePair> = {
       "Same vintage, similar trust scores, identical welcome-bonus ceilings — but a clean structural split underneath. Cloudbet launched in 2013 with a casino+sportsbook proposition and a no-withdrawal-limits policy; BitStarz launched in 2014 as a pure-casino product that's collected 'Best Bitcoin Casino' awards since. The right pick comes down to whether you want a sportsbook in the same account, and how much you weight headline awards versus structural no-cap cash-out.",
     positioning: [
       "BitStarz holds the trust edge (9.2 vs 8.7) and the withdrawal speed edge (9.5 vs 9.0). Cloudbet holds the dual licensing (Curaçao + Kahnawake versus BitStarz's Curaçao-only) and — critically for high-rollers — the explicit no-withdrawal-limit policy that BitStarz doesn't formally claim. Both Light KYC. Both have VIP programmes with personal hosts at the top tiers.",
-      "Welcome bonuses tie on the BTC headline (5 BTC vs 5 BTC) but split on structure. BitStarz adds 200 free spins; Cloudbet doesn't. BitStarz documents a 25% admin fee on bonus-related withdrawals; Cloudbet doesn't. The math on which welcome is genuinely better depends entirely on whether you complete the wagering and what you withdraw.",
+      "Welcome bonuses tie on the BTC headline (5 BTC vs 5 BTC) but split on structure. BitStarz adds 180 free spins; Cloudbet doesn't. BitStarz documents a 25% admin fee on bonus-related withdrawals; Cloudbet doesn't. The math on which welcome is genuinely better depends entirely on whether you complete the wagering and what you withdraw.",
     ],
     scenarios: [
       {
@@ -101,7 +101,7 @@ export const compareContent: Record<string, ComparePair> = {
         conditions: [
           'You want the established award track record',
           'You value the slightly faster 9.5/10 withdrawal score',
-          'You want the 200 free spins alongside the matching BTC bonus',
+          'You want the 180 free spins alongside the matching BTC bonus',
           'You don\'t need a sportsbook',
         ],
       },
@@ -119,7 +119,7 @@ export const compareContent: Record<string, ComparePair> = {
       },
       {
         question: 'Which has the better welcome bonus, Cloudbet or BitStarz?',
-        answer: 'Both headline 5 BTC welcome bonuses. BitStarz adds 200 free spins; Cloudbet doesn\'t. BitStarz also applies a 25% admin fee on bonus-related withdrawals, which Cloudbet doesn\'t. If you\'ll clear the bonus and withdraw winnings, Cloudbet\'s clean structure delivers more effective value. If you value the free spins as their own bucket, BitStarz wins on raw inclusion.',
+        answer: 'Both headline 5 BTC welcome bonuses. BitStarz adds 180 free spins; Cloudbet doesn\'t. BitStarz also applies a 25% admin fee on bonus-related withdrawals, which Cloudbet doesn\'t. If you\'ll clear the bonus and withdraw winnings, Cloudbet\'s clean structure delivers more effective value. If you value the free spins as their own bucket, BitStarz wins on raw inclusion.',
       },
       {
         question: 'Is Cloudbet older than BitStarz?',

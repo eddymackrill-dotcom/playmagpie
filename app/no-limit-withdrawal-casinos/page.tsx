@@ -149,7 +149,7 @@ export default function NoLimitWithdrawalPage() {
         <section className="mt-12">
           <h2 className="text-2xl font-bold text-white mb-2">Stated withdrawal limits across our 7 casinos</h2>
           <p className="text-[#888888] text-sm mb-6 max-w-3xl">
-            Honest framing: only one of the seven casinos in our reviews makes an explicit &quot;no withdrawal limit&quot;
+            Honest framing: only one of the eight casinos in our reviews makes an explicit &quot;no withdrawal limit&quot;
             statement. For the rest, the cashier T&amp;Cs don&apos;t publish a specific per-transaction or daily cap
             number — what&apos;s documented is what triggers manual review at higher amounts. Sourced exclusively from
             each casino&apos;s reviewSummary, pros and cons in our published reviews.
@@ -295,7 +295,7 @@ export default function NoLimitWithdrawalPage() {
               {
                 slug: '7bit-casino',
                 name: '7Bit Casino',
-                summary: 'No-KYC for crypto withdrawals at any amount since 2014 — one of the longest unbroken policies on the list. 9.1/10 withdrawal score. The 1.5 BTC welcome bonus ceiling is lower than rivals, but the cash-out side is consistently fast and frictionless across the eight supported coins.',
+                summary: 'No-KYC for crypto withdrawals at any amount since 2014 — one of the longest unbroken policies on the list. 9.1/10 withdrawal score. The 325% match up to €5,400 welcome package + 250 free spins is competitive with rivals, and the cash-out side is consistently fast and frictionless across the eight supported coins.',
               },
               {
                 slug: 'shuffle',
@@ -305,7 +305,7 @@ export default function NoLimitWithdrawalPage() {
               {
                 slug: 'mirax-casino',
                 name: 'Mirax Casino',
-                summary: 'Instant-to-15-minute crypto payouts with an 8.8/10 withdrawal score. Light KYC may apply at larger amounts. The 325% welcome package up to $3,250 is the most aggressive bonus on the list — wagering through the bonus before withdrawing is the consideration, not the withdrawal mechanism itself.',
+                summary: 'Instant-to-15-minute crypto payouts with an 8.8/10 withdrawal score. Light KYC may apply at larger amounts. The 4-deposit welcome pack runs up to 5 BTC with 150 free spins (100 on D1, 50 on D2, cash-only on D3/D4) — wagering through the bonus before withdrawing is the consideration, not the withdrawal mechanism itself. Free-spin winnings carry a €100 cap per the live promotions page.',
               },
             ].map((c) => (
               <Link
