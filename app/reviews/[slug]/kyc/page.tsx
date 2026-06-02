@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getCasinoBySlug } from '@/lib/casinos'
 import CTAButton from '@/components/CTAButton'
 
-const KYC_SLUGS = ['bitstarz'] as const
+const KYC_SLUGS = ['bitstarz', 'bc-game'] as const
 
 export function generateStaticParams() {
   return KYC_SLUGS.map((slug) => ({ slug }))
@@ -15,6 +15,11 @@ const META: Record<(typeof KYC_SLUGS)[number], { title: string; description: str
     title: 'BitStarz KYC Requirements 2026: When Verification Triggers | PlayMagpie',
     description:
       'BitStarz runs Light KYC — most crypto players never upload a document. What actually triggers verification, which documents get asked for, and how the 25% bonus admin fee interacts with a held withdrawal.',
+  },
+  'bc-game': {
+    title: 'BC.Game KYC: Does It Require Verification? (2026) | PlayMagpie',
+    description:
+      'BC.Game runs a strict no-KYC policy — email signup, no documents ever required for crypto play or withdrawals. What that means in practice, where the operator-layer compliance line sits, and how it compares to Light-KYC rivals.',
   },
 }
 
@@ -68,7 +73,7 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
     ],
   }
 
-  const faqs = BITSTARZ_FAQS
+  const faqs = slug === 'bitstarz' ? BITSTARZ_FAQS : BCGAME_FAQS
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -109,6 +114,7 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
               </p>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
                 {slug === 'bitstarz' && 'BitStarz KYC: What Triggers Verification in 2026'}
+                {slug === 'bc-game' && 'BC.Game KYC: The Short Answer Is There Isn’t One'}
               </h1>
               <p className="text-[#555555] text-xs mt-2">Last updated: June 2, 2026</p>
             </div>
@@ -132,6 +138,7 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
         </div>
 
         {slug === 'bitstarz' && <BitstarzContent />}
+        {slug === 'bc-game' && <BcGameContent />}
 
         <section className="mt-12 pt-10 border-t border-[#222222]">
           <h2 className="text-xl font-bold text-white mb-2">{casino.name} KYC — FAQ</h2>
@@ -374,5 +381,124 @@ const BITSTARZ_FAQS = [
     question: 'Does verifying my BitStarz account make withdrawals faster?',
     answer:
       'It can remove a future friction point. If you complete any requested verification up front rather than mid-withdrawal, a later compliance flag won’t pause a payout while documents are reviewed. For players who expect to use fiat rails or play at higher volume, verifying early is the lower-friction path even though the casino doesn’t require it by default.',
+  },
+] as const
+
+/* ───────────── BC.Game: None — lead with "there is no KYC" ───────────── */
+function BcGameContent() {
+  return (
+    <>
+      <Para>
+        BC.Game has the shortest KYC section of any casino we review, because the policy
+        is the absence of one. Sign-up is email-and-password. There is no identity
+        document required to deposit, play or withdraw crypto — not at registration, not
+        at your first withdrawal, not at your hundredth. That strict no-KYC posture is
+        why BC.Game holds a 9.5/10 KYC score, the highest in our entire catalogue.
+      </Para>
+      <Para>
+        &quot;No KYC&quot; is a phrase a lot of casinos use loosely, so this page sets out
+        exactly what it means at BC.Game, where the one honest caveat sits, and how the
+        zero-document model compares with the Light-KYC operators players often shortlist
+        alongside it.
+      </Para>
+
+      <SectionHeading>What no-KYC actually means at BC.Game</SectionHeading>
+      <Para>
+        Precisely stated: in the standard cashier flow, BC.Game asks for no government ID,
+        no proof of address, and no selfie verification at any crypto withdrawal amount.
+        You create an account with an email address, fund it with any of the 100-plus
+        supported cryptocurrencies, and withdraw to a wallet you control. The $5 minimum
+        deposit means this applies from the smallest bankroll up — there is no
+        &quot;verified tier&quot; gating larger play.
+      </Para>
+      <Para>
+        That makes BC.Game one of the cleanest anonymity stories in crypto gambling:
+        the widest coin support on the market (100+ networks) combined with a policy of
+        never collecting identity documents. For players whose entire reason to use a
+        crypto casino is to avoid the document-upload funnel, this is the default
+        recommendation.
+      </Para>
+
+      <SectionHeading>The one honest caveat — operator-layer compliance</SectionHeading>
+      <Para>
+        No credible casino can promise it will never act on a transaction. BC.Game
+        handles compliance the way no-KYC operators do: through on-chain transaction
+        monitoring at the operator layer rather than up-front document collection. In
+        ordinary play that is invisible. The realistic scenario where it surfaces is
+        genuinely anomalous activity — the kind that would flag at any regulated financial
+        venue. For the overwhelming majority of players, no document is ever requested,
+        which is exactly what the no-KYC rating reflects. We&apos;d rather state that
+        nuance plainly than pretend an absolute that no operator can honour.
+      </Para>
+
+      <SectionHeading>100+ coins and why coin choice is secondary to policy</SectionHeading>
+      <Para>
+        BC.Game supports more cryptocurrencies than any other casino we review — BTC,
+        ETH, USDT, SOL, BNB, DOGE, LTC, XRP, TRX, USDC and a long tail beyond. For an
+        anonymity-focused player the important point is that the privacy comes from the
+        casino&apos;s no-KYC policy, not from the coin. You can pick your network purely for
+        speed and fees — TRC-20 USDT or SOL for near-instant low-cost withdrawals —
+        without trading off on verification, because there is no verification to trade
+        off against.
+      </Para>
+      <KeyList
+        items={[
+          'Email-only signup — no phone number or identity document required to open an account.',
+          'No KYC at deposit or withdrawal for crypto, at any amount, under the standard flow.',
+          '100+ supported cryptocurrencies — pick on speed and fees, since privacy is policy-level not coin-level.',
+          '$5 minimum deposit — the no-KYC posture applies from the smallest bankroll, with no verified-tier gating.',
+        ]}
+      />
+
+      <SectionHeading>BC.Game vs the Light-KYC operators</SectionHeading>
+      <Para>
+        The casinos players most often shortlist next to BC.Game are{' '}
+        <Link href="/reviews/bitstarz/kyc" className="text-[#7BB8D4] hover:underline">
+          BitStarz
+        </Link>{' '}
+        and{' '}
+        <Link href="/reviews/cloudbet/kyc" className="text-[#7BB8D4] hover:underline">
+          Cloudbet
+        </Link>
+        , both of which run Light KYC that can trigger on larger or fiat-side activity.
+        The trade is straightforward: BitStarz brings a longer award history and a
+        3,000-game library; Cloudbet brings no withdrawal limits and a dual regulator.
+        Neither matches BC.Game on the specific axis this page is about — keeping identity
+        documents out of the loop entirely. If that axis is your priority, BC.Game is the
+        pick; the broader set sits on{' '}
+        <Link href="/no-kyc-casinos" className="text-[#7BB8D4] hover:underline">
+          our no-KYC casinos hub
+        </Link>
+        .
+      </Para>
+    </>
+  )
+}
+
+const BCGAME_FAQS = [
+  {
+    question: 'Does BC.Game require KYC?',
+    answer:
+      'No. BC.Game operates a strict no-KYC policy for crypto play — account signup is email-and-password, and no government ID, proof of address or selfie is required to deposit, play or withdraw at any amount under the standard cashier flow. It holds the highest KYC score (9.5/10) in our catalogue for exactly this reason.',
+  },
+  {
+    question: 'Will BC.Game ever ask me for ID?',
+    answer:
+      'Under the standard flow, no document is requested. BC.Game handles compliance through on-chain transaction monitoring at the operator layer rather than up-front document collection, so the only realistic scenario where verification could arise is genuinely anomalous activity that would flag at any financial venue. For ordinary play — at any normal stake — no ID is ever asked for.',
+  },
+  {
+    question: 'Can I withdraw large amounts from BC.Game without verifying?',
+    answer:
+      'Yes — the no-KYC policy is not tiered by amount. There is no "verified level" you unlock for larger withdrawals; crypto withdrawals process without identity documents regardless of size under the standard flow. This is the structural difference from Light-KYC operators like BitStarz and Cloudbet, where larger amounts can trigger a verification request.',
+  },
+  {
+    question: 'Is BC.Game’s no-KYC policy safe?',
+    answer:
+      'No-KYC means no document collection, not no compliance. BC.Game has operated since 2017 and manages risk through transaction monitoring rather than identity files. The trade-off of any no-KYC, Curaçao-licensed operator is the absence of a Tier-1 regulator (MGA, UKGC) — players who prioritise heavy regulatory oversight over anonymity should weigh that. For privacy-first players, the no-document model is the entire appeal.',
+  },
+  {
+    question: 'Which crypto should I use at BC.Game for the most private withdrawal?',
+    answer:
+      'Because BC.Game’s privacy comes from its no-KYC policy rather than the coin, you can choose purely on speed and fees — TRC-20 USDT or SOL both settle in seconds for fractions of a cent. None of BC.Game’s 100+ supported coins requires identity verification to withdraw, so coin choice is a performance decision, not a privacy one.',
   },
 ] as const
