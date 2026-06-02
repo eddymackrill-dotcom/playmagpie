@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // KYC sub-page allowlist — must mirror KYC_SLUGS in app/reviews/[slug]/kyc/page.tsx
-  const kycPageSlugs = ['bitstarz', 'bc-game']
+  const kycPageSlugs = ['bitstarz', 'bc-game', 'cloudbet']
   const casinoKycPages: MetadataRoute.Sitemap = kycPageSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/kyc`,
     lastModified: new Date(),

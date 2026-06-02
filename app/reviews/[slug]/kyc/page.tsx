@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getCasinoBySlug } from '@/lib/casinos'
 import CTAButton from '@/components/CTAButton'
 
-const KYC_SLUGS = ['bitstarz', 'bc-game'] as const
+const KYC_SLUGS = ['bitstarz', 'bc-game', 'cloudbet'] as const
 
 export function generateStaticParams() {
   return KYC_SLUGS.map((slug) => ({ slug }))
@@ -20,6 +20,11 @@ const META: Record<(typeof KYC_SLUGS)[number], { title: string; description: str
     title: 'BC.Game KYC: Does It Require Verification? (2026) | PlayMagpie',
     description:
       'BC.Game runs a strict no-KYC policy — email signup, no documents ever required for crypto play or withdrawals. What that means in practice, where the operator-layer compliance line sits, and how it compares to Light-KYC rivals.',
+  },
+  cloudbet: {
+    title: 'Cloudbet KYC: No Limits, Verification Only at Scale | PlayMagpie',
+    description:
+      'Cloudbet is the rare casino where no withdrawal limits and Light KYC coexist — cash out unlimited amounts with verification reserved for the extreme top end. Where the trigger sits and what the dual licence means for it.',
   },
 }
 
@@ -73,7 +78,8 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
     ],
   }
 
-  const faqs = slug === 'bitstarz' ? BITSTARZ_FAQS : BCGAME_FAQS
+  const faqs =
+    slug === 'bitstarz' ? BITSTARZ_FAQS : slug === 'bc-game' ? BCGAME_FAQS : CLOUDBET_FAQS
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -115,6 +121,7 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
                 {slug === 'bitstarz' && 'BitStarz KYC: What Triggers Verification in 2026'}
                 {slug === 'bc-game' && 'BC.Game KYC: The Short Answer Is There Isn’t One'}
+                {slug === 'cloudbet' && 'Cloudbet KYC: Unlimited Withdrawals, Verification Only at Scale'}
               </h1>
               <p className="text-[#555555] text-xs mt-2">Last updated: June 2, 2026</p>
             </div>
@@ -139,6 +146,7 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
 
         {slug === 'bitstarz' && <BitstarzContent />}
         {slug === 'bc-game' && <BcGameContent />}
+        {slug === 'cloudbet' && <CloudbetContent />}
 
         <section className="mt-12 pt-10 border-t border-[#222222]">
           <h2 className="text-xl font-bold text-white mb-2">{casino.name} KYC — FAQ</h2>
@@ -500,5 +508,131 @@ const BCGAME_FAQS = [
     question: 'Which crypto should I use at BC.Game for the most private withdrawal?',
     answer:
       'Because BC.Game’s privacy comes from its no-KYC policy rather than the coin, you can choose purely on speed and fees — TRC-20 USDT or SOL both settle in seconds for fractions of a cent. None of BC.Game’s 100+ supported coins requires identity verification to withdraw, so coin choice is a performance decision, not a privacy one.',
+  },
+] as const
+
+/* ───────────── Cloudbet: Light at scale — lead with no-limits + KYC ceiling ───────────── */
+function CloudbetContent() {
+  return (
+    <>
+      <Para>
+        Cloudbet occupies a spot almost no other crypto casino does: it pairs no
+        withdrawal limits with Light KYC. You can cash out unlimited amounts through the
+        standard flow, and identity verification is reserved for the extreme top end
+        rather than applied as a routine gate. That combination — uncapped payouts with a
+        high, rarely-touched verification ceiling — is why Cloudbet scores 8.8/10 on KYC
+        and why high rollers treat it as a default.
+      </Para>
+      <Para>
+        This page is about where that verification ceiling actually sits, what the
+        dual-regulator setup means for it, and how Cloudbet&apos;s &quot;Light at scale&quot;
+        posture differs from both the zero-document operators and the routine-KYC ones.
+      </Para>
+
+      <SectionHeading>No withdrawal limit, but a verification ceiling</SectionHeading>
+      <Para>
+        Cloudbet&apos;s standout policy is the absence of a published per-transaction or
+        per-day withdrawal cap — a six-figure crypto payout pulls through the same path as
+        a small one. KYC is the counterpart to that openness. Because there is no limit
+        throttling large cash-outs, the platform reserves Light KYC for outsized
+        withdrawal amounts, consistent with its position as a high-roller venue. The
+        threshold sits high enough that ordinary players never encounter it, which is the
+        practical meaning of &quot;Light at scale&quot;: routine play is document-free, and the
+        verification gate only appears at the volume where any operator&apos;s compliance
+        obligations kick in.
+      </Para>
+      <Para>
+        The interaction with the no-limit policy is the part worth understanding. At most
+        casinos a very large withdrawal hits both a per-transaction cap and a KYC check.
+        At Cloudbet there is no cap — so verification at the top end is the single
+        mechanism standing between a large balance and the wallet, which is why it&apos;s
+        applied deliberately rather than routinely. Full cash-out mechanics are on{' '}
+        <Link href="/reviews/cloudbet/withdrawal" className="text-[#7BB8D4] hover:underline">
+          the Cloudbet withdrawal page
+        </Link>
+        .
+      </Para>
+
+      <SectionHeading>What the dual licence means for verification</SectionHeading>
+      <Para>
+        Cloudbet operates under two regulators: Curaçao eGaming and the Kahnawake Gaming
+        Commission, a First Nations regulator in Quebec active since 1996. The
+        dual-licence posture is unusual among crypto casinos and it shapes the compliance
+        side. Kahnawake layers its own standards — segregated player funds,
+        dispute-resolution procedures — on top of the Curaçao framework. For a player,
+        the practical implication is that any verification request comes from an operator
+        answerable to two regulators rather than one, and that there are two escalation
+        paths if a verified withdrawal is ever disputed.
+      </Para>
+
+      <SectionHeading>What documents Cloudbet asks for at the threshold</SectionHeading>
+      <Para>
+        When a withdrawal does reach the verification ceiling, the request is the standard
+        compliance set: a government photo ID and a recent proof of address, with
+        source-of-funds documentation possible at genuinely large amounts as is normal for
+        high-value crypto cash-outs anywhere. Cloudbet does not publish a specific dollar
+        figure for the trigger, and we won&apos;t guess at one — the verified-fact bar on
+        this site applies to thresholds as much as anything else.
+      </Para>
+      <KeyList
+        items={[
+          'Routine and mid-size crypto withdrawals: no document request under the standard flow.',
+          'Outsized withdrawals: Light KYC can trigger — government ID and recent proof of address.',
+          'Genuinely large cash-outs: source-of-funds documentation possible, standard for high-value crypto anywhere.',
+          'No published dollar threshold — the trigger is high and amount-driven, not a routine gate.',
+        ]}
+      />
+
+      <SectionHeading>Cloudbet vs full no-KYC and vs routine-KYC</SectionHeading>
+      <Para>
+        Cloudbet sits between two poles. Against a full no-KYC operator like{' '}
+        <Link href="/reviews/bc-game/kyc" className="text-[#7BB8D4] hover:underline">
+          BC.Game
+        </Link>{' '}
+        — which never collects documents at any size — Cloudbet does retain a top-end
+        verification ceiling, so a player who wants zero documents as an absolute should
+        choose the no-KYC route. Against a routine-KYC operator, Cloudbet is far lighter:
+        ordinary play is document-free and only the extreme top end is gated. The reason a
+        high roller often still picks Cloudbet over a no-KYC venue is the package around
+        it — no withdrawal limits, a dual regulator, and a payout track record since 2013.
+        For the limit-free angle specifically, see{' '}
+        <Link href="/no-limit-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
+          crypto casinos with no withdrawal limits
+        </Link>
+        ; for the broader high-stakes view,{' '}
+        <Link href="/high-roller-casinos" className="text-[#7BB8D4] hover:underline">
+          the best high roller crypto casinos
+        </Link>
+        .
+      </Para>
+    </>
+  )
+}
+
+const CLOUDBET_FAQS = [
+  {
+    question: 'Does Cloudbet require KYC?',
+    answer:
+      'Not for routine play. Cloudbet runs Light KYC and imposes no withdrawal limits, so ordinary and mid-size crypto withdrawals process without document collection. Verification is reserved for outsized withdrawal amounts, consistent with Cloudbet’s high-roller positioning. There is no published dollar threshold, and we don’t invent one.',
+  },
+  {
+    question: 'Can I withdraw a large amount from Cloudbet without verifying?',
+    answer:
+      'Up to a point. Cloudbet has no per-transaction or per-day withdrawal cap, so large cash-outs pull through the standard path — but because there is no limit throttling them, Light KYC can trigger at the extreme top end as the single compliance mechanism. Mid-size withdrawals routinely clear without documents; genuinely large ones may prompt verification and, at the highest amounts, source-of-funds documentation.',
+  },
+  {
+    question: 'What does the Kahnawake licence add on the KYC side?',
+    answer:
+      'Cloudbet holds dual licences — Curaçao eGaming and the Kahnawake Gaming Commission (active since 1996). Kahnawake layers additional standards including segregated player funds and a separate dispute-resolution path. On verification specifically, it means any KYC request comes from an operator answerable to two regulators, and there are two escalation routes if a verified withdrawal is ever disputed.',
+  },
+  {
+    question: 'Where does Cloudbet’s KYC threshold sit?',
+    answer:
+      'Cloudbet does not publish a specific dollar figure, and we won’t print one we can’t verify. The practical pattern is that ordinary and mid-size crypto withdrawals clear without documents, and verification appears only at outsized amounts — high enough that typical players never reach it. The trigger is amount-driven rather than a routine gate applied to every cash-out.',
+  },
+  {
+    question: 'Is Cloudbet better than a no-KYC casino for big withdrawals?',
+    answer:
+      'It depends on what you optimise for. A full no-KYC operator like BC.Game never collects documents at any size, which is the better fit if zero verification is an absolute. Cloudbet retains a top-end ceiling but pairs it with no withdrawal limits, a dual regulator, and a payout record since 2013 — which is why many high rollers prefer it despite the verification ceiling. For pure anonymity, choose no-KYC; for uncapped payouts with strong recourse, Cloudbet.',
   },
 ] as const
