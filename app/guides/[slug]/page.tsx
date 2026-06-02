@@ -43,6 +43,13 @@ type ContentBlock =
       type: 'matrix'
       items: { priority: string; recommendation: string; rationale: string }[]
     }
+  // Per-casino KYC breakdown. kycLevel/kycScore are pulled live from lib/casinos.ts
+  // at render time (single source of truth) — the block only carries the editorial
+  // "note" and an optional deep-link href to the casino's /kyc or main review page.
+  | {
+      type: 'kycposture'
+      items: { slug: string; href: string; note: string }[]
+    }
 
 const guideContent: Record<string, ContentBlock[]> = {
   'how-crypto-casino-withdrawals-work': [
@@ -180,6 +187,44 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'h2', text: 'The PlayMagpie verdict' },
     { type: 'p', text: 'For the majority of casino players, USDT on TRC-20 is the superior option: faster, cheaper, and predictable. It lets you gamble with a fixed dollar amount and understand your results clearly. Bitcoin is appropriate for players who already hold BTC and prefer not to convert, or who want deliberate price exposure alongside their gaming. If you are deciding which to acquire specifically for gambling, acquire USDT on TRC-20 via an exchange, send it to a self-custodial wallet, and deposit from there. Your experience will be faster and your bankroll more manageable.' },
   ],
+
+  'do-crypto-casinos-require-kyc': [
+    { type: 'h2', text: 'The short answer' },
+    { type: 'p', text: 'Some do, some don’t — and unlike at a licensed fiat casino, it is a genuine choice rather than a universal mandate. At a crypto casino, KYC (Know Your Customer identity verification) is set by the operator’s own policy, not imposed on every player by a Tier-1 regulator. Across the eight casinos we review, three never ask for documents on crypto play, four run a "Light" policy that only triggers on larger or fiat-side activity, and one applies Standard KYC with documented holds on large wins. So whether you will be asked for ID depends entirely on which operator you pick — and, at the Light-KYC ones, on how you play.' },
+
+    { type: 'h2', text: 'What KYC actually is at a crypto casino' },
+    { type: 'p', text: 'KYC is the process of confirming you are who you say you are — typically a government photo ID plus a recent proof of address. Licensed fiat casinos must run it on every player because their regulators and banking partners require it. Crypto casinos sit in a different position: settlement happens on-chain rather than through the banking system, and most operate under a Curaçao licence rather than a Tier-1 regulator like the UKGC or MGA. That gives them room to choose how much verification to apply — and they land in noticeably different places.' },
+    { type: 'p', text: 'The practical consequence is that "do I need to verify my identity" has no single answer for crypto casinos the way it does for a regulated fiat site. It is an operator-level decision, and it is one of the more meaningful differences between platforms — more meaningful, for a privacy-focused player, than the welcome bonus or the game count.' },
+
+    { type: 'h2', text: 'The three KYC postures, by operator' },
+    { type: 'p', text: 'We score each casino’s KYC posture on a 0–10 transparency-and-friction scale, recorded alongside the rest of its profile in our data. The scores sort into three bands: None (no documents collected on crypto play), Light (document-free for routine play, with verification reserved for larger or fiat-side activity), and Standard (verification applied more readily, including on large wins). Here is where each casino we review actually sits — the three with dedicated KYC pages link through to the full breakdown.' },
+    {
+      type: 'kycposture',
+      items: [
+        { slug: 'bc-game', href: '/reviews/bc-game/kyc', note: 'Strict no-KYC. Email-only signup, no documents at any withdrawal size under the standard flow — the cleanest anonymity story in our catalogue.' },
+        { slug: '7bit-casino', href: '/reviews/7bit-casino', note: 'No KYC for crypto withdrawals at any amount, held since 2014. Compliance handled by transaction monitoring, not up-front document collection.' },
+        { slug: 'duelbits', href: '/reviews/duelbits', note: 'No KYC for crypto play and withdrawals — only basic checks on unusual activity. Most crypto payouts clear in under 5 minutes.' },
+        { slug: 'bitstarz', href: '/reviews/bitstarz/kyc', note: 'Light KYC. Crypto-only play rarely triggers it; fiat-side activity or a flagged pattern can. No published dollar threshold.' },
+        { slug: 'cloudbet', href: '/reviews/cloudbet/kyc', note: 'Light at scale. No withdrawal limits, with verification reserved for outsized cash-outs. Dual Curaçao + Kahnawake licence.' },
+        { slug: 'mirax-casino', href: '/reviews/mirax-casino', note: 'Light KYC — same posture as sister brand 7Bit’s operator. Triggered above higher withdrawal thresholds rather than on routine play.' },
+        { slug: 'shuffle', href: '/reviews/shuffle', note: 'Light KYC that can trigger on larger withdrawals, with some reported temporary holds on high-value cash-outs pending review.' },
+        { slug: 'roobet', href: '/reviews/roobet', note: 'Standard KYC — the strictest here. Documented multi-day holds on large wins (AskGamblers cases at $20k–$115k); expect re-verification on any sizeable cashout.' },
+      ],
+    },
+
+    { type: 'h2', text: 'When KYC triggers — if it does' },
+    { type: 'p', text: 'At a no-KYC operator, nothing in ordinary play triggers a document request; compliance is handled in the background through on-chain transaction monitoring. At a Light-KYC operator, two things flip verification from exception to requirement. The first is fiat-side activity: the moment a deposit or withdrawal touches the regulated banking rails, identity verification becomes a compliance obligation the casino cannot opt out of. The second is an outsized or flagged crypto withdrawal — a large cash-out, or account behaviour the platform’s monitoring reads as unusual, can route a payout into manual review.' },
+    { type: 'p', text: 'Standard KYC works differently again. At an operator like Roobet, verification is applied more readily and — per the documented complaint record — can re-trigger on large wins even for accounts that have transacted before, which is the single biggest reason we score its KYC posture lowest in the catalogue. The lesson across all three bands is the same: routine crypto play is where no-KYC and Light-KYC look identical, and the large-withdrawal moment is where they diverge sharply.' },
+
+    { type: 'h2', text: 'What documents you’ll be asked for' },
+    { type: 'p', text: 'When verification does happen, the request is consistent across operators: a government-issued photo ID (passport, national ID or driving licence), a proof of address dated within the last few months (a utility bill or bank statement), and — only if you used a card or fiat rail — proof of that payment method. At genuinely large withdrawal amounts, source-of-funds documentation can be requested, which is standard for high-value crypto cash-outs anywhere, not specific to gambling. Turnaround at this class of operator is typically same-day to a couple of days once everything is submitted correctly.' },
+
+    { type: 'h2', text: 'How to avoid KYC entirely' },
+    { type: 'p', text: 'If keeping identity documents out of the loop is your priority, the route is straightforward: choose a no-KYC operator, play crypto-only, and withdraw to a self-custodial wallet you control. Among the casinos we review, BC.Game, 7Bit Casino and Duelbits all run no-KYC policies for crypto. The key point most guides miss is that the privacy comes from the casino’s policy, not from the coin — there is no "anonymous cryptocurrency" that bypasses a casino that requires KYC, and at a no-KYC casino your coin choice is purely a speed-and-fees decision. The category hub is our no-KYC crypto casinos page.' },
+
+    { type: 'h2', text: 'The honest trade-off' },
+    { type: 'p', text: 'No-KYC is not free of downsides. A casino that never collects identity documents is, almost by definition, one that operates outside the Tier-1 regulatory framework — Curaçao rather than the UKGC or MGA. That means lighter external oversight and, if a dispute ever escalates, a weaker formal recourse path than a Tier-1 licence would give you. The decision is a genuine trade between anonymity and oversight: privacy-first players are well served by the no-KYC operators, while players who weight regulatory protection more heavily should accept Light KYC as the cost of it. Neither answer is universally correct — which is exactly why this is an operator-level choice rather than an industry default.' },
+  ],
 }
 
 // FAQ data per guide. Only include questions actually answered in the guide content
@@ -273,6 +318,28 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
       answer: 'Some smaller and older Bitcoin-specialist casinos do, but among the platforms we review at PlayMagpie, all seven accept multiple coins including both BTC and USDT. BTC-only acceptance has become rare among credible operators since 2022 — stablecoin support is now table-stakes for any new launch. If you find a casino that accepts only Bitcoin, that\'s a credibility signal worth weighing.',
     },
   ],
+  'do-crypto-casinos-require-kyc': [
+    {
+      question: 'Do all crypto casinos require KYC?',
+      answer: 'No. Unlike licensed fiat casinos, crypto casinos set their own KYC policy rather than verifying every player by regulatory mandate. Of the eight casinos we review, three (BC.Game, 7Bit Casino and Duelbits) never ask for documents on crypto play, four run Light KYC that only triggers on larger or fiat-side activity, and one (Roobet) applies Standard KYC. Whether you need to verify depends entirely on which operator you choose.',
+    },
+    {
+      question: 'Which crypto casinos don’t require KYC?',
+      answer: 'Among the casinos we review, BC.Game, 7Bit Casino and Duelbits operate no-KYC policies for crypto — no government ID or proof of address is required to deposit, play or withdraw under the standard flow. BC.Game holds the highest KYC score in our catalogue (9.5/10) on the strength of an email-only signup with no documents at any withdrawal size. Compliance at these operators is handled through transaction monitoring rather than up-front document collection.',
+    },
+    {
+      question: 'What triggers a KYC check at a crypto casino?',
+      answer: 'At Light-KYC operators, two things flip verification from exception to requirement: fiat-side activity (any deposit or withdrawal touching regulated banking rails makes identity verification mandatory) and an outsized or flagged crypto withdrawal (a large cash-out, or unusual account behaviour, can route a payout into manual review). At no-KYC operators, routine play triggers nothing. At Standard-KYC operators like Roobet, verification can re-trigger on large wins even for previously-transacting accounts.',
+    },
+    {
+      question: 'What documents do crypto casinos ask for during KYC?',
+      answer: 'The standard set is a government-issued photo ID (passport, national ID or driving licence), a proof of address dated within the last few months (utility bill or bank statement), and — only if you used a card or fiat rail — proof of that payment method. At genuinely large withdrawal amounts, source-of-funds documentation can be requested, which is normal for high-value crypto cash-outs anywhere. Turnaround is typically same-day to a couple of days once submitted correctly.',
+    },
+    {
+      question: 'Is it safe to use a no-KYC casino?',
+      answer: 'No-KYC means no document collection, not no compliance — these operators manage risk through on-chain transaction monitoring instead of identity files. The real trade-off is regulatory: a casino that never collects documents almost always operates under a Curaçao licence rather than a Tier-1 regulator (UKGC, MGA), which means lighter oversight and a weaker formal recourse path if a dispute escalates. For privacy-first players the no-document model is the appeal; players who weight regulatory protection more heavily should accept Light KYC as the cost of it.',
+    },
+  ],
 }
 
 // Per-guide intent-page links. Pairs with the worked examples — pointing readers
@@ -298,6 +365,11 @@ const guideRelatedPages: Record<string, { label: string; href: string; teaser: s
     { label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos', teaser: 'Where coin choice converts to speed' },
     { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'For when USDT-fast meets a big win' },
   ],
+  'do-crypto-casinos-require-kyc': [
+    { label: 'BC.Game KYC', href: '/reviews/bc-game/kyc', teaser: 'The no-KYC pole — email-only, no documents ever' },
+    { label: 'BitStarz KYC', href: '/reviews/bitstarz/kyc', teaser: 'Light KYC — what actually triggers verification' },
+    { label: 'Cloudbet KYC', href: '/reviews/cloudbet/kyc', teaser: 'No limits, verification only at scale' },
+  ],
 }
 
 const relatedCasinos: Record<string, { name: string; slug: string; reason: string }[]> = {
@@ -320,6 +392,11 @@ const relatedCasinos: Record<string, { name: string; slug: string; reason: strin
     { name: 'BitStarz', slug: 'bitstarz', reason: 'BTC, USDT and 4 more cryptos' },
     { name: 'BC.Game', slug: 'bc-game', reason: 'BTC, USDT and 100+ more options' },
     { name: 'Cloudbet', slug: 'cloudbet', reason: 'BTC, USDT, SOL and 7 more cryptos' },
+  ],
+  'do-crypto-casinos-require-kyc': [
+    { name: 'BC.Game', slug: 'bc-game', reason: 'Strict no-KYC — highest KYC score (9.5/10)' },
+    { name: '7Bit Casino', slug: '7bit-casino', reason: 'No KYC on crypto withdrawals since 2014' },
+    { name: 'BitStarz', slug: 'bitstarz', reason: 'Light KYC — rarely triggered on crypto-only play' },
   ],
 }
 
@@ -435,6 +512,31 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
                     <p className="text-[#888888] text-sm leading-relaxed">{item.rationale}</p>
                   </div>
                 ))}
+              </div>
+            ) : block.type === 'kycposture' ? (
+              <div key={i} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 mb-4 not-prose">
+                {block.items.map((item, idx) => {
+                  const casino = casinos.find((c) => c.slug === item.slug)
+                  if (!casino) return null
+                  return (
+                    <Link
+                      key={idx}
+                      href={item.href}
+                      className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all group block"
+                    >
+                      <div className="flex items-center justify-between gap-3 mb-2">
+                        <h3 className="text-white font-semibold text-base group-hover:text-[#7BB8D4] transition-colors">
+                          {casino.name}
+                        </h3>
+                        <span className="text-[#7BB8D4] text-sm font-bold shrink-0">{casino.kycScore}/10</span>
+                      </div>
+                      <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-2">
+                        KYC: {casino.kycLevel}
+                      </div>
+                      <p className="text-[#888888] text-sm leading-relaxed">{item.note}</p>
+                    </Link>
+                  )
+                })}
               </div>
             ) : (
               <p key={i} className="text-[#888888] leading-relaxed">
