@@ -47,6 +47,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
+  // KYC sub-page allowlist — must mirror KYC_SLUGS in app/reviews/[slug]/kyc/page.tsx
+  const kycPageSlugs = ['bitstarz']
+  const casinoKycPages: MetadataRoute.Sitemap = kycPageSlugs.map((slug) => ({
+    url: `${BASE_URL}/reviews/${slug}/kyc`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.75,
+  }))
+
   const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
     url: `${BASE_URL}/guides/${guide.slug}`,
     lastModified: new Date(),
@@ -97,5 +106,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }))
 
-  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...guidePages, ...cryptoPages, ...countryPages, ...gamePages, ...bonusPages, ...comparisonPages]
+  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...casinoKycPages, ...guidePages, ...cryptoPages, ...countryPages, ...gamePages, ...bonusPages, ...comparisonPages]
 }
