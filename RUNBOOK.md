@@ -20,7 +20,7 @@ Prompts in this file are tested templates. Adjust placeholders in [brackets] bef
 Run a brief situation report for the past 7 days:
 
 1. GSC indexing status — any new pages that successfully indexed, any pages stuck in Discovered/Unknown to Google, any indexing regressions
-2. Top-performing queries — any new queries appearing in GSC, any meaningful position changes on existing queries (improvements or regressions of >5 positions)
+2. Top-performing queries — any new queries appearing in GSC, plus position changes on existing queries. Use compare_search_periods (or equivalent) against the prior 7-day window — flag any query showing a position change of >5 in either direction (improvement or regression). (Without an explicit prior-window comparison this step can't be executed rigorously — validation finding 2026-06-04.)
 3. CTR anomalies — any pages with high impressions but 0% CTR (suggests pollution); any pages with unusually high CTR (suggests rich result win)
 4. Production health — any Vercel deploy failures, any pages returning non-200, any sitemap discrepancies
 5. Audit list status — any items now actionable, any that should be deprioritised
