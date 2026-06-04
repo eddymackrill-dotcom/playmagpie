@@ -243,7 +243,12 @@ function BitstarzContent() {
         came from a bonus or bonus-derived winnings. Plain crypto-only play with no bonus
         attached is unaffected. The implication is straightforward: if you take the
         5 BTC welcome package, your first withdrawal off cleared bonus money will be
-        debited 25% before it leaves the cashier.
+        debited 25% before it leaves the cashier. That includes winnings cleared from
+        the package&apos;s 180 free spins, so the free-spins terms matter here too — see{' '}
+        <Link href="/bonus/free-spins" className="text-[#7BB8D4] hover:underline">
+          how the free-spins terms compare across casinos
+        </Link>
+        .
       </Para>
       <Para>
         Practical workaround for players who care about clean payouts: decline the
@@ -389,7 +394,13 @@ function MiraxContent() {
         this stage. D4 is a cash-only match up to 1 BTC under code W4. Total package:
         up to 5 BTC + 150 free spins, distributed 100-50-0-0 by deposit. Per the live
         promotions page, free-spin winnings carry a 45x wagering requirement (distinct
-        from the 40x on cash deposit bonuses) and a &euro;100 max cashout cap.
+        from the 40x on cash deposit bonuses) and a &euro;100 max cashout cap. That cap
+        — not the headline spin count — is what determines real free-spins value, which
+        is why it leads{' '}
+        <Link href="/bonus/free-spins" className="text-[#7BB8D4] hover:underline">
+          the &euro;100 free-spins cashout cap
+        </Link>{' '}
+        comparison against the other operators that run a spins pack.
       </Para>
       <Para>
         Practical implication: until you clear wagering on the bonus portion, only
@@ -607,7 +618,12 @@ function SevenBitContent() {
         value prop for withdrawal-focused players, not the bonus structure. Free-spin
         winnings carry a $100 max cashout per the published T&amp;C, with wagering in
         the 40-45x range — that ceiling matters more for a spin-focused player than
-        a deposit-match player.
+        a deposit-match player. For how that $100 ceiling stacks up against the other
+        spins packs, see{' '}
+        <Link href="/bonus/free-spins" className="text-[#7BB8D4] hover:underline">
+          free-spins cashout terms compared
+        </Link>
+        .
       </Para>
 
       <SectionHeading>VIP tier withdrawals</SectionHeading>
