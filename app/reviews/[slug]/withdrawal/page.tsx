@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getCasinoBySlug } from '@/lib/casinos'
 import CTAButton from '@/components/CTAButton'
 
-const WITHDRAWAL_SLUGS = ['bitstarz', 'mirax-casino', '7bit-casino', 'cloudbet'] as const
+const WITHDRAWAL_SLUGS = ['bitstarz', 'mirax-casino', '7bit-casino', 'cloudbet', 'duelbits'] as const
 
 export function generateStaticParams() {
   return WITHDRAWAL_SLUGS.map((slug) => ({ slug }))
@@ -30,6 +30,11 @@ const META: Record<(typeof WITHDRAWAL_SLUGS)[number], { title: string; descripti
     title: 'Cloudbet Withdrawal: No Limits, 10 Coins, Dual Licence | PlayMagpie',
     description:
       'Cloudbet imposes no withdrawal limits — rare among crypto casinos and the reason high rollers default to it. Speeds, the 10-coin lineup and dual Curaçao + Kahnawake licensing breakdown.',
+  },
+  duelbits: {
+    title: 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins | PlayMagpie',
+    description:
+      'Duelbits has the fastest headline withdrawal window in our catalogue — instant to 5 minutes — with no KYC on crypto withdrawals across 12 coins. How the speed, the no-KYC posture and the cashback-clean cashier fit together.',
   },
 }
 
@@ -90,7 +95,9 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
       ? MIRAX_FAQS
       : slug === '7bit-casino'
       ? SEVENBIT_FAQS
-      : CLOUDBET_FAQS
+      : slug === 'cloudbet'
+      ? CLOUDBET_FAQS
+      : DUELBITS_FAQS
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -134,6 +141,7 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
                 {slug === 'mirax-casino' && 'Mirax Casino Withdrawals — How Fast, What KYC, Which Coins'}
                 {slug === '7bit-casino' && '7Bit Casino Withdrawal: No KYC, 8 Coins, Under 10 Minutes'}
                 {slug === 'cloudbet' && 'Cloudbet Withdrawal: No Limits, 10 Coins, Dual Regulator Cover'}
+                {slug === 'duelbits' && 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins'}
               </h1>
               <p className="text-[#555555] text-xs mt-2">Last updated: May 17, 2026</p>
             </div>
@@ -160,6 +168,7 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
         {slug === 'mirax-casino' && <MiraxContent />}
         {slug === '7bit-casino' && <SevenBitContent />}
         {slug === 'cloudbet' && <CloudbetContent />}
+        {slug === 'duelbits' && <DuelbitsContent />}
 
         <section className="mt-12 pt-10 border-t border-[#222222]">
           <h2 className="text-xl font-bold text-white mb-2">{casino.name} Withdrawal — FAQ</h2>
@@ -908,5 +917,131 @@ const CLOUDBET_FAQS = [
     question: 'Why is Cloudbet\'s 0.001 BTC minimum so much higher than other casinos?',
     answer:
       "The 0.001 BTC minimum signals that Cloudbet's cashier and player support infrastructure are built around larger bankrolls — casual $5-to-test players are not the target market. Players depositing at the 0.001 BTC equivalent or above, valuing reliable payout processing over headline match-bonus size, are the profile Cloudbet is designed around. For casinos with lower entry minimums see BC.Game ($5) or 7Bit Casino ($10).",
+  },
+] as const
+
+/* ───────────── Duelbits: lead with the fastest payout window in the catalogue ───────────── */
+function DuelbitsContent() {
+  return (
+    <>
+      <Para>
+        Duelbits has the fastest headline withdrawal window of any casino in our
+        ratings: instant to 5 minutes. That is quicker than BitStarz and 7Bit
+        (instant-to-10), Mirax (instant-to-15) and Cloudbet (instant-to-30), and it is
+        the single reason a speed-focused crypto player shortlists Duelbits. The
+        under-5-minute figure is what earned it a 9.2/10 withdrawal score, and it pairs
+        with a no-KYC posture on crypto withdrawals — no document upload at the cashier —
+        which removes the other common source of payout delay.
+      </Para>
+      <Para>
+        This page covers what the under-5-minute window actually measures, how the
+        no-KYC policy works at the cashier, which of the 12 supported coins clear fastest
+        end to end, and why the cashback-first bonus model leaves fewer wagering
+        obstacles between a win and a withdrawal than a deposit-match casino.
+      </Para>
+
+      <SectionHeading>The under-5-minute window — what it measures</SectionHeading>
+      <Para>
+        The instant-to-5-minute figure is Duelbits&apos; cashier-side processing time —
+        the window from your withdrawal request to the transaction being broadcast to the
+        network. It is the fastest headline window in our catalogue. On-chain confirmation
+        after that depends on the coin you chose, not on Duelbits: chains like SOL, TRX
+        and MATIC settle in seconds, while BTC is gated by mempool conditions the same as
+        everywhere else. For a player who cashes out frequently, it&apos;s the
+        cashier-side speed that compounds, and Duelbits leads on it.
+      </Para>
+
+      <SectionHeading>No KYC at the Duelbits cashier</SectionHeading>
+      <Para>
+        Duelbits runs a no-KYC policy for crypto play and withdrawals — only basic checks
+        triggered for unusual activity, with no routine document upload at the cashier.
+        That earns a 9.3/10 KYC score, among the highest in our ratings. The effect on
+        withdrawal speed is direct: the most common cause of a slow payout elsewhere is a
+        mid-withdrawal KYC request holding funds for review, and with a no-KYC posture
+        that step doesn&apos;t exist for routine crypto-in, crypto-out play. Players for
+        whom anonymity is the priority should cross-shop{' '}
+        <Link href="/no-kyc-casinos" className="text-[#7BB8D4] hover:underline">
+          the no-KYC casinos hub
+        </Link>
+        .
+      </Para>
+
+      <SectionHeading>12 coins — the fast end of the lineup</SectionHeading>
+      <Para>
+        Duelbits supports 12 cryptocurrencies: BTC, ETH, LTC, USDT, USDC, DOGE, SOL, BNB,
+        BCH, XRP, TRX and MATIC. That is a broader lineup than BitStarz (6), Mirax (7),
+        7Bit (8) or Cloudbet (10). For pairing the under-5-minute cashier window with fast
+        on-chain settlement, the standouts are:
+      </Para>
+      <KeyList
+        items={[
+          'SOL, TRX and MATIC settle on-chain in seconds with negligible fees — the fastest end-to-end paths.',
+          'BNB on BNB Smart Chain is similarly quick and cheap.',
+          'USDT and USDC are the stablecoin options; the active network shown at the cashier determines clearing time.',
+          'LTC and DOGE clear in single-digit minutes and avoid Bitcoin congestion.',
+          'BTC, ETH and BCH behave as on every platform — gated by mainnet conditions, not by Duelbits.',
+        ]}
+      />
+
+      <SectionHeading>Why the cashback model means cleaner withdrawals</SectionHeading>
+      <Para>
+        Duelbits&apos; welcome structure is cashback-first — up to $30 weekly cashback
+        plus Duelbits Originals rewards and seasonal promotions — rather than a large
+        deposit-match bonus. For withdrawals specifically, that matters: a deposit match
+        carries wagering requirements that lock the bonus balance until cleared, and some
+        casinos (BitStarz, for one) deduct a 25% admin fee from bonus-derived withdrawals.
+        A cashback model has no large match balance to wager through before the funds you
+        win are withdrawable, so neither of those frictions applies in the same way. The
+        trade-off, which we list openly in our review, is that the headline welcome value
+        is smaller than a big match offer. For a withdrawal-focused player who plays and
+        cashes out rather than bonus-hunting, that is the right side of the trade.
+      </Para>
+
+      <SectionHeading>Duelbits vs the other fast no-KYC payers</SectionHeading>
+      <Para>
+        The closest comparisons in our catalogue are the other no-KYC operators with fast
+        cashiers:{' '}
+        <Link href="/reviews/7bit-casino/withdrawal" className="text-[#7BB8D4] hover:underline">
+          7Bit
+        </Link>{' '}
+        and BC.Game, both instant-to-10-minutes. Duelbits is faster on the headline window
+        (instant-to-5) and matches them on the no-KYC posture. Where 7Bit leads is track
+        record — a no-KYC policy held since 2014 versus Duelbits&apos; 2020 launch. Where
+        Duelbits leads is raw cashier speed and a broader 12-coin lineup. For the
+        category view of the fastest payout sites see{' '}
+        <Link href="/fast-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
+          the fastest crypto casinos for withdrawal
+        </Link>
+        .
+      </Para>
+    </>
+  )
+}
+
+const DUELBITS_FAQS = [
+  {
+    question: 'How fast are Duelbits withdrawals?',
+    answer:
+      "Duelbits' cashier-side processing window is instant to 5 minutes — the fastest headline window of any casino in our ratings, which is what earns its 9.2/10 withdrawal score. After the casino broadcasts the transaction, on-chain confirmation depends on the coin: SOL, TRX and MATIC settle in seconds, while BTC is gated by Bitcoin mempool conditions. End to end on a fast chain, a Duelbits withdrawal is usually complete within minutes.",
+  },
+  {
+    question: 'Does Duelbits require KYC to withdraw crypto?',
+    answer:
+      "No — Duelbits runs a no-KYC policy for crypto play and withdrawals, with only basic checks triggered for unusual activity and no routine document upload at the cashier. That earns a 9.3/10 KYC score. Verification may be requested if account activity flags an unusual pattern, but routine crypto-only play and withdrawal needs no identity documents.",
+  },
+  {
+    question: 'Which Duelbits coin withdraws fastest end to end?',
+    answer:
+      "Of the 12 coins Duelbits supports, SOL, TRX and MATIC settle on-chain in seconds with negligible fees — the fastest end-to-end paths. BNB on BNB Smart Chain is similarly quick. USDT or USDC on a fast network are the next-fastest stablecoin options; the active network is shown at the cashier. LTC and DOGE clear in single-digit minutes. BTC is the slowest, gated by network confirmation times rather than anything Duelbits does.",
+  },
+  {
+    question: 'Does Duelbits charge a bonus admin fee on withdrawals?',
+    answer:
+      "Duelbits' welcome structure is cashback-first — up to $30 weekly cashback plus Duelbits Originals rewards — rather than a large deposit match. Because there is no large match balance to wager through, the bonus-withdrawal frictions common at deposit-match casinos (wagering locks, and in BitStarz's case a 25% admin fee on bonus-derived withdrawals) don't apply in the same way. We don't have a documented casino-side per-coin withdrawal fee figure for Duelbits to quote; standard blockchain network fees always apply regardless of casino.",
+  },
+  {
+    question: 'Is Duelbits safe to use given it only launched in 2020?',
+    answer:
+      "Duelbits operates under a Curaçao (Antillephone N.V.) licence and has run a no-KYC, fast-payout cashier since its 2020 launch, earning an 8.5/10 trust score in our ratings. The honest caveat we list in the review is the Curaçao-only licensing — there's no Tier-1 regulator (MGA, UKGC) backing it, the same offshore profile as most crypto-native casinos. For withdrawal reliability specifically, the under-5-minute window and no-KYC posture are the load-bearing strengths.",
   },
 ] as const

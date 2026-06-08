@@ -60,6 +60,13 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
       teaser: 'Per-coin deposit behaviour, what the higher minimum signals about player profile, and why the Kahnawake segregated-funds requirement matters at deposit time.',
     },
   ],
+  duelbits: [
+    {
+      href: '/reviews/duelbits/withdrawal',
+      label: 'Duelbits withdrawal: under 5 minutes, no KYC, 12 coins',
+      teaser: 'Why the instant-to-5-minute window is the fastest in our catalogue, how the no-KYC cashier removes the usual payout-hold step, and which of the 12 coins clear fastest end to end.',
+    },
+  ],
 }
 
 const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
