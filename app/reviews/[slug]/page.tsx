@@ -438,6 +438,13 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
     // from its review specifically rather than from every VIP casino, to keep the link
     // contextually accurate rather than templated.
     ...(casino.slug === 'cloudbet' ? [{ label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos' }] : []),
+    // Carrier link for /crypto-casinos-with-sportsbook (2026-06-08). Both Cloudbet
+    // and Roobet run a sportsbook (verified in their lib/casinos.ts prose), so the
+    // link is contextually accurate; these two reviews are also the freshest-crawled
+    // (06-03 / 06-02), which propagates the new listicle into the crawl quickly.
+    ...(casino.slug === 'cloudbet' || casino.slug === 'roobet'
+      ? [{ label: 'Crypto Casinos With a Sportsbook', href: '/crypto-casinos-with-sportsbook' }]
+      : []),
   ]
 
   const reviewSchema = {
