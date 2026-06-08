@@ -114,6 +114,13 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
   const matching = casinos.filter((c) => casinoAcceptsCrypto(c, crypto.symbol))
   const intro = intros[crypto.symbol] ?? ''
   const isBNB = crypto.symbol === 'BNB'
+  const isDOGE = crypto.symbol === 'DOGE'
+  // DOGE strengthening: lead with a commercial comparison table of every
+  // DOGE-accepting operator (all facts from lib/casinos.ts), informational
+  // network depth moved below. Not split into a separate URL — see the BNB
+  // split precedent (the informational page still outranks its commercial
+  // split, and /crypto/dogecoin already outranks that whole experiment).
+  const dogeRanked = isDOGE ? [...matching].sort((a, b) => b.trustScore - a.trustScore) : []
 
   const headingLabel = isBNB
     ? `BNB at Crypto Casinos — Chain Mechanics & Networks`
@@ -152,18 +159,71 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">{subHeadingLabel}</p>
         </div>
 
-        <section className="mb-12 prose prose-invert max-w-none">
-          <h2 className="text-2xl font-bold text-white mb-4">
-            {isBNB ? 'How BNB behaves at crypto casinos' : `Gambling with ${crypto.name}`}
-          </h2>
-          <p className="text-[#888888] leading-relaxed">{intro}</p>
-        </section>
+        {!isDOGE && (
+          <section className="mb-12 prose prose-invert max-w-none">
+            <h2 className="text-2xl font-bold text-white mb-4">
+              {isBNB ? 'How BNB behaves at crypto casinos' : `Gambling with ${crypto.name}`}
+            </h2>
+            <p className="text-[#888888] leading-relaxed">{intro}</p>
+          </section>
+        )}
 
         {STRIP_BY_CRYPTO[slug] && (
           <CasinoCTAStrip
             framing={`Top 3 ${crypto.symbol}-accepting operators by trust score. Not paid placement.`}
             cards={STRIP_BY_CRYPTO[slug]}
           />
+        )}
+
+        {isDOGE && (
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-white mb-2">Best Dogecoin casinos compared</h2>
+            <p className="text-[#888888] text-sm mb-6">
+              All {matching.length} casinos in our ratings accept DOGE for deposits and
+              withdrawals — verified against{' '}
+              <code className="text-[#7BB8D4] bg-[#111111] px-1.5 py-0.5 rounded text-xs">lib/casinos.ts</code>.
+              Ranked by trust score.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-[#222222] text-left text-[#888888]">
+                    <th className="py-3 pr-4 font-medium">Casino</th>
+                    <th className="py-3 pr-4 font-medium">Crypto withdrawal window</th>
+                    <th className="py-3 pr-4 font-medium">Min deposit</th>
+                    <th className="py-3 pr-4 font-medium">KYC</th>
+                    <th className="py-3 pr-4 font-medium">Accepts DOGE</th>
+                    <th className="py-3 font-medium text-right">Trust</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {dogeRanked.map((c) => (
+                    <tr key={c.slug} className="border-b border-[#1a1a1a]">
+                      <td className="py-3 pr-4">
+                        <Link
+                          href={`/reviews/${c.slug}`}
+                          className="text-[#f5f5f5] hover:text-[#7BB8D4] font-medium"
+                        >
+                          {c.name}
+                        </Link>
+                      </td>
+                      <td className="py-3 pr-4 text-[#bbbbbb]">{c.withdrawalTime}</td>
+                      <td className="py-3 pr-4 text-[#bbbbbb]">{c.minDeposit}</td>
+                      <td className="py-3 pr-4 text-[#bbbbbb]">{c.kycLevel}</td>
+                      <td className="py-3 pr-4 text-[#7BB8D4]">✓</td>
+                      <td className="py-3 text-right font-bold text-[#7BB8D4]">{c.trustScore}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-[#555555] text-xs mt-3">
+              Withdrawal window is each operator&apos;s general crypto-cashier processing time
+              from our catalogue; we do not publish a separate per-coin DOGE timing. On-chain
+              Dogecoin confirmation is operator-independent — a property of the network, not
+              the casino.
+            </p>
+          </section>
         )}
 
         {isBNB ? (
@@ -208,6 +268,13 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
             ) : (
               <p className="text-[#888888]">No casinos in our index currently support {crypto.name} natively.</p>
             )}
+          </section>
+        )}
+
+        {isDOGE && (
+          <section className="mt-12 prose prose-invert max-w-none">
+            <h2 className="text-2xl font-bold text-white mb-4">How Dogecoin behaves at crypto casinos</h2>
+            <p className="text-[#888888] leading-relaxed">{intro}</p>
           </section>
         )}
 
