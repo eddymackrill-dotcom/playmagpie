@@ -17,11 +17,16 @@ Rules: see `CLAUDE.md` > DataForSEO cost controls.
 | 2026-06-02 | bitstarz bonus | kw_data/google_ads/search_volume | 10 | - | commercial | $0 | geo=ca; comp=LOW; CPC $7.14 (high commercial value); spiked to 40 in 2026-04; but ZERO GSC signal currently; batch |
 | 2026-06-02 | bitstarz wagering requirements | kw_data/google_ads/search_volume | <10 | - | informational | $0 | geo=ca; null volume (sub-floor); batch |
 | 2026-06-02 | duelbits withdrawal | kw_data/google_ads/search_volume | 10 | - | navigational | $0 | geo=ca; stable 10/mo; GSC "duelbits withdrawal time" already pos 10; batch |
+| 2026-06-08 | crypto sportsbook | kw_data/google_ads/search_volume | 170 | - | commercial | $0.075 | geo=ca, lang=en; comp=LOW; 12mo range 90-320; batch of 5 keywords — $0.075 total batch cost written against this lead row, remaining 4 rows $0 |
+| 2026-06-08 | crypto casino with sportsbook | kw_data/google_ads/search_volume | <10 | - | commercial | $0 | geo=ca; null volume (sub-floor); the exact-match phrasing is sub-floor but the head term "crypto sportsbook" carries the volume; batch |
+| 2026-06-08 | best crypto sportsbook | kw_data/google_ads/search_volume | 50 | - | commercial | $0 | geo=ca; comp=LOW; **CPC $25.67** (very high commercial value); 12mo range 30-110; batch |
+| 2026-06-08 | bitcoin sportsbook | kw_data/google_ads/search_volume | <10 | - | commercial | $0 | geo=ca; null volume (sub-floor) — "crypto" framing outweighs "bitcoin" for this term; batch |
+| 2026-06-08 | crypto betting sites | kw_data/google_ads/search_volume | 210 | - | commercial | $0 | geo=ca; comp=LOW; highest of the set, 12mo range 110-390; batch |
 
 ## Spend running total
 
 - 2026-05: $0.05 (1 call)
-- 2026-06: $0.075 (1 call — 8-keyword batch; MCP returned no explicit cost field, $0.075 is the standard per-call estimate for kw_data/google_ads/search_volume)
+- 2026-06: $0.15 (2 calls — 8-keyword KYC batch on 06-02 + 5-keyword sportsbook batch on 06-08; MCP returned no explicit cost field, $0.075/call standard estimate)
 
 ## Conventions
 
