@@ -51,3 +51,35 @@ FLAG (do not copy) any paid/PBN footprint as a §4 penalty risk.
 - Moz API: no key configured. Bing Webmaster: no key, site not verified. Common Crawl: reachable but **0 data for playmagpie.com** (too new — CC hasn't crawled it; expect 6–12 months).
 - To make the free path work: install the skill scripts + add Moz free-tier key (`MOZ_ACCESS_ID`/`MOZ_SECRET_KEY`, 10 req/mo) + verify site in Bing Webmaster Tools.
 - **Interim free baseline = GSC "Links" report (manual UI capture).** That + this DataForSEO t=0 (0 RD) is the starting scoreboard.
+
+---
+
+## RESULTS — Steps B + C (2026-06-09, free trial, $0)
+
+### Step C — competitor profile shape (`backlinks_summary`). FLAG: footprints NOT to copy.
+| Competitor | Rank | Backlinks | Ref. domains | Spam score | Dominant footprint (penalty-risk pattern — DO NOT COPY) |
+|---|--:|--:|--:|--:|---|
+| cryptomaniaks.com | 417 | 172,936 | 9,911 | **40** | Mass spam-blog network: `.online` 50k, `.xyz` 12k, `.space`, blogspot 9k; 65k "blogs" links. PBN-adjacent. |
+| cryptocasinos.com | 447 | 501,263 | 1,832 | 13 | Sitewide template links — 500k backlinks from 1.8k domains, ~97% in "section"/footer. |
+| cryptogambling.org | 501 | 110,462 | 528 | 6 | 97% footer links (106k of 110k) — sitewide/network badge, not editorial. |
+| affpapa.com | 498 | 409,808 | 2,566 | 3 | 94% **image** links (award badges — AffPapa iGaming Awards). |
+
+All four inflated their counts with **non-editorial** links (spam blogs / sitewide footers / badges). The headline backlink numbers overstate real authority.
+
+### Step B — `domain_intersection` (domains linking to ALL 4 competitors): 52 domains
+**~96% is SEO spam — the exact §4 penalty tactics. DO NOT COPY.** Representative entries: `great-choice-for-pbn-domains.co.uk`, `thebestbacklinksavailable.click`, `seobacklinks.agency`, `rankgrow.agency`, `kingranks.com`, `topbilliondirectory.com`, `australianwebdirectory.pro/.shop`, plus "website-worth"/metric-scraper pages (`getwebsiteworth.com`, `data-information-api.com`, `global-ranks.pages.dev`) that auto-list every domain, and junk-TLD blogs (`.ga`/`.xyz`/`.party`, spam scores 45–95).
+
+**Only 2 legitimate domains in the entire intersection:**
+- **bitcointalk.org** (rank 231) — the one genuine forum link source. Confirms the community map: Bitcointalk is where crypto-casino affiliates actually earn (nofollow) links.
+- **bc.game** (an operator) — links to all 4 affiliates. **Validates the operator-outreach route: operators DO link to affiliate review sites** (likely "as featured / partners / press" pages). The recon's most actionable positive.
+
+### Bottom line — the recon's value is confirmatory/negative
+The competitor link neighborhood in this niche is overwhelmingly PBN / directory / scraper spam — copying it = the §4 penalty risks. **There is no editorial shortcut to steal here.** The durable routes stand confirmed, unchanged:
+1. Original-research **asset** → editorial citations (the only scalable white-hat play).
+2. **Bitcointalk / community** participation (referral + nofollow).
+3. **Operator featured/partner links** (bc.game proves operators link out — pursue via the §3 outreach draft).
+
+The recon **saved spend on chasing a spam graph**; it did not surface a replicable editorial shortcut, because in this vertical there largely isn't one. That itself is worth knowing before pouring effort into competitor-mirroring.
+
+## Spend (final)
+Steps A + B + C = 6 calls, all **$0 (free trial)**. MCP surfaced no per-call cost field. Post-trial these would be ~$0.02–0.06 each. No further trial calls planned — the valuable data is captured above and persists in this file after cancellation.

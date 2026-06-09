@@ -32,5 +32,9 @@ the Transparency Report asset — not by either file existing.
 ## Expectations (honest)
 - Operator hit-rate: ~1-in-4 or worse; links often nofollow / low-value pages.
 - Community links: almost all nofollow — value is referral traffic + getting the asset seen.
-- Highest-value rows (asset-citation editorial targets) get added once the recon
-  (`lib/backlink-recon-2026-06-09.md`) and the Transparency Report asset exist.
+- Highest-value rows (asset-citation editorial targets) get added once the Transparency Report asset exists.
+
+## Recon findings (2026-06-09 — see lib/backlink-recon-2026-06-09.md)
+- **No competitor-backlink-copy route.** The domains linking to all 4 pure-play competitors are ~96% SEO spam (PBN/directory/scraper). Mirroring competitor links = the §4 penalty tactics. Do NOT pursue.
+- **Bitcointalk confirmed** as the one genuine community link source in the niche (already queued above).
+- **Operator featured/partner links validated** — bc.game links to all 4 competitor affiliates, so operators *do* link to review sites. This raises confidence in the Cloudbet/BitStarz/BC.Game outreach rows. When emailing, explicitly ask about a "featured reviews / partners / press" page (the §3 draft already does).
