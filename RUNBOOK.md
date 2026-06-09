@@ -56,6 +56,7 @@ Run a structural audit of the site. Goal: find class-of-problem issues before th
    - Inspect each via GSC single-URL endpoint (NOT batch — single is authoritative per the 2026-06-04 free-spins finding)
    - Categorise: indexed, Discovered-not-indexed, Unknown to Google, excluded
    - Surface any starvation patterns (URL Unknown despite being live and in sitemap)
+   - **Diff the current indexed-URL set against the saved baseline census** (lib/index-census-YYYY-MM-DD.md, first one 2026-06-09) — confirm growing vs churning with actual membership comparison, not inference. Added (∈ now, ∉ baseline) = growth; Dropped (∈ baseline, ∉ now) = churn and each drop needs investigation. Save a fresh dated census each month so the diff chain continues. Note the Discovered-vs-Unknown distinction: "Discovered – not indexed" = crawl-queue lag (page has a valid inbound link, leave it); "URL unknown to Google" = genuine orphan (hub tile not seen because the hub wasn't re-crawled — needs a carrier link from a same-batch-modified page).
 
 2. Internal-linking equity check:
    - For any page surfacing as starved in step 1, count inbound internal links via codebase grep
