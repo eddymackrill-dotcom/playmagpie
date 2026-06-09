@@ -81,5 +81,32 @@ The competitor link neighborhood in this niche is overwhelmingly PBN / directory
 
 The recon **saved spend on chasing a spam graph**; it did not surface a replicable editorial shortcut, because in this vertical there largely isn't one. That itself is worth knowing before pouring effort into competitor-mirroring.
 
-## Spend (final)
-Steps A + B + C = 6 calls, all **$0 (free trial)**. MCP surfaced no per-call cost field. Post-trial these would be ~$0.02–0.06 each. No further trial calls planned — the valuable data is captured above and persists in this file after cancellation.
+## Spend (running)
+Steps A + B + C = 6 calls + Step D (1 call) = 7 calls, all **$0 (free trial)**. MCP surfaced no per-call cost field. Post-trial ~$0.02–0.06 each.
+
+---
+
+## Step D — cryptomaniaks.com referring-domains deep-dive (2026-06-09, free trial)
+`backlinks_referring_domains`, filtered to **rank > 150 AND spam_score < 30**, sorted by rank, limit 60 → **28 domains returned**. Goal: isolate the editorial twin's GENUINE links from the spam/PBN/directory noise.
+
+**Caveat on "reason":** `referring_domains` returns domain + metrics, NOT the linking page URL or anchor text. The "likely reason" below is **inferred from each domain's identity/type**, not confirmed from the link context. To confirm anchors/source pages for the genuine few, a `backlinks_backlinks` pull (a few more trial calls) would be needed — not done yet.
+
+### The genuine / replicable handful (≈4 of 28)
+| Domain | Rank | Type | Follow? | Likely reason | Replicable by us? |
+|---|--:|---|---|---|---|
+| publish0x.com | 188 | Crypto content/blogging platform (write-to-earn) | Mixed (55 nofollow / 390) | A user post on the platform cited/linked cryptomaniaks | **Yes** — publish there or earn a mention (but it's UGC + partly nofollow) |
+| gokrypto.net | 247 | Crypto **forum / message-board** | Dofollow | A community/forum post | **Yes** — genuine participation (same lane as Bitcointalk) |
+| cryptsy.com | 175 | Crypto news/blog (old exchange domain, repurposed) | Dofollow | A crypto-news/blog mention | **Partially** — earn a news mention; verify the domain's current legitimacy first |
+| slots777.org | 196 | Gambling/slots directory | Image+anchor (badge-ish) | Directory listing / badge | **Maybe** — get listed, but low value |
+
+### The other ≈24 — PBN / link-injection (NOT replicable without penalty risk)
+Even after the rank>150, spam<30 filter, the bulk are **completely unrelated businesses each with hundreds-to-thousands of links to cryptomaniaks from a single domain** — the classic PBN / compromised-site / mass-injection footprint: `bestwesterndrycleaners.co.uk` (605), `emleather.co.za` (leather, 641), `turnkeymodular.ca` (modular homes, 1,296), `alkhazana.net` (2,324), `twobtextile.com` (textiles, 1,037), `solarandmore.com`, `fly2.travel`, `latam-translations.com`, `magnolialaser.com` (laser clinic), `river-gas.com`, `perhumas.or.id`, etc. A dry-cleaner linking a crypto-casino affiliate 600+ times is not editorial — it's injected. DataForSEO's `spam_score` doesn't catch these because it rates the *linking domain's own* profile, not whether the link is manipulative.
+
+### What this means (the honest answer to "what does a site like mine do to earn real links?")
+**Even the editorial twin's profile is ~85%+ PBN/injection at the high-rank tier.** Its genuine links are a thin handful from **crypto content platforms (Publish0x), crypto forums (gokrypto — same lane as Bitcointalk), and the occasional crypto-news mention** — mostly nofollow or low-value. There is **no clean editorial-citation engine to copy**: cryptomaniaks did not rank by earning high-authority editorial links; it ranked substantially on a manipulated link graph we should not replicate.
+
+The replicable, white-hat path for us is unchanged and now doubly evidenced:
+1. **Build the citable asset** (the Transparency Report) so we can earn the *rare genuine editorial/news mention* the competitors barely have — the one thing missing from their profiles that's actually defensible.
+2. **Crypto forums / content platforms** — Bitcointalk, gokrypto-style communities, Publish0x — genuine participation (mostly nofollow; value is referral + reach).
+3. **Operator featured/partner links** (bc.game proof from Step B).
+The recon's verdict across all four targets and this deep-dive: the niche's link graph is manipulated; there is no shortcut to copy, only the slow legitimate routes.
