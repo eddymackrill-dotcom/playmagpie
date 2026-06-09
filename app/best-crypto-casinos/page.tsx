@@ -143,8 +143,11 @@ export default function BestCryptoCasinosPage() {
               Our ranking methodology weighs four key factors: withdrawal speed (how quickly crypto actually hits
               your wallet), bonus fairness (wagering requirements, game contributions and caps — see our{' '}
               <Link href="/bonus/free-spins" className="text-[#7BB8D4] hover:underline">verified free-spins terms breakdown</Link>{' '}
-              for the cell-by-cell comparison against live T&amp;Cs), KYC friction (how much verification is
-              required and when), and platform trust (licence quality, reputation and provable fairness).
+              for the cell-by-cell comparison against live T&amp;Cs, and our{' '}
+              <Link href="/research/crypto-casino-bonus-transparency" className="text-[#7BB8D4] hover:underline">Bonus &amp; Withdrawal Transparency Report</Link>{' '}
+              for the gap between headline offers and real cashout terms across all eight casinos), KYC friction
+              (how much verification is required and when), and platform trust (licence quality, reputation and
+              provable fairness).
             </p>
             <p>
               For crypto players specifically, we also look at how many coins are supported, whether the casino

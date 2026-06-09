@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/best-crypto-pokies-nz`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
     { url: `${BASE_URL}/bnb-crypto-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
     { url: `${BASE_URL}/crypto-casinos-with-sportsbook`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/research/crypto-casino-bonus-transparency`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/crypto`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/country`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/game`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },

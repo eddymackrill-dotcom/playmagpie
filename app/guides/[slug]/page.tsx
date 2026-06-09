@@ -369,6 +369,7 @@ const guideRelatedPages: Record<string, { label: string; href: string; teaser: s
     { label: 'BC.Game KYC', href: '/reviews/bc-game/kyc', teaser: 'The no-KYC pole — email-only, no documents ever' },
     { label: 'BitStarz KYC', href: '/reviews/bitstarz/kyc', teaser: 'Light KYC — what actually triggers verification' },
     { label: 'Cloudbet KYC', href: '/reviews/cloudbet/kyc', teaser: 'No limits, verification only at scale' },
+    { label: 'Bonus & Withdrawal Transparency Report', href: '/research/crypto-casino-bonus-transparency', teaser: 'Headline offers vs the real cashout terms, all 8 sourced' },
   ],
 }
 

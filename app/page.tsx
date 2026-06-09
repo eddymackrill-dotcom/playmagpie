@@ -242,6 +242,18 @@ export default function HomePage() {
                 Decision matrix — speed vs anonymity vs low fees vs stability. Pick the right chain for the priority you&apos;re actually optimising.
               </p>
             </Link>
+            <Link
+              href="/research/crypto-casino-bonus-transparency"
+              className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 hover:shadow-[0_0_30px_rgba(123,184,212,0.07)] rounded-2xl p-5 transition-all group"
+            >
+              <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-2">Research</div>
+              <h3 className="text-[#f5f5f5] font-semibold mb-2 group-hover:text-[#7BB8D4] transition-colors">
+                Bonus &amp; withdrawal transparency report
+              </h3>
+              <p className="text-[#888888] text-sm leading-relaxed">
+                We checked 8 casinos&apos; bonus terms against their live T&amp;Cs — the gap between the headline offer and the real cashout cost, every figure sourced.
+              </p>
+            </Link>
           </div>
         </section>
 
