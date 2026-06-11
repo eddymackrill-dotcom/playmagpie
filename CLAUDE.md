@@ -360,6 +360,8 @@ When building new pages, add 3-5 contextual internal links to existing pages. Us
 6. Commit with a descriptive message ("Add withdrawal pages for BitStarz, Mirax, 7Bit")
 7. `git push origin master` — Vercel auto-deploys
 
+Subagents inherit the hold-for-push rule: only the orchestrating session pushes, and only on explicit user approval (rule added 2026-06-11 after a subagent's unauthorised — harmless but out-of-process — push of commit 5f71a93).
+
 ## Social presence
 
 * **X account:** [@MagpieGG](https://x.com/MagpieGG) — linked from the footer

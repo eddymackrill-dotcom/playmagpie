@@ -166,6 +166,11 @@ export default function FastWithdrawalPage() {
           <h2 className="text-xl font-bold text-white mb-4">Fast Withdrawal Casino Reviews</h2>
           <p className="text-[#888888] text-sm mb-5">
             Read full reviews for each fast-payout casino — withdrawal times tested, bonus terms analysed, KYC requirements listed.
+            For cashier-level detail we&apos;ve gone deepest on{' '}
+            <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">BitStarz withdrawal times</Link>
+            {' '}— including the 25% bonus admin fee most reviews skip — and{' '}
+            <Link href="/reviews/duelbits/withdrawal" className="text-[#7BB8D4] hover:underline">Duelbits&apos; under-5-minute payouts</Link>,
+            the fastest in our catalogue.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {fastCasinos.map((casino) => (

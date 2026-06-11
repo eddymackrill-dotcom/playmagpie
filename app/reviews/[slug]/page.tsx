@@ -118,10 +118,10 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
       question: 'Is BitStarz legit?',
       answer: 'BitStarz is a legitimate, award-winning crypto casino licensed by Curaçao eGaming (Antillephone N.V.). Is BitStarz legit? Yes — it has operated since 2014, won multiple "Best Bitcoin Casino" awards, and has a proven track record of paying out winnings without dispute. PlayMagpie independently rates it 9.2/10 for trust, the highest score in our current rankings, based on licensing quality, payout history and player feedback.',
     },
-    {
-      question: 'What are BitStarz withdrawal times in 2026?',
-      answer: 'BitStarz withdrawal time in 2026 remains among the fastest in the industry. Crypto withdrawals are typically processed in under 10 minutes from request to wallet arrival. Bitcoin, Ethereum, Litecoin and other major coins are cleared almost instantly once approved. This consistently fast payout speed is a primary reason BitStarz earns a 9.5/10 withdrawal score on PlayMagpie — the top withdrawal rating across all reviewed casinos.',
-    },
+    // Withdrawal-intent FAQs deliberately removed (2026-06-11): the dedicated
+    // /reviews/bitstarz/withdrawal sub-page owns that query cluster per the
+    // validated displacement pattern — duplicating Q&A here put the parent in
+    // competition with its own sub-page on "bitstarz withdrawal" queries.
     {
       question: 'Does BitStarz offer a no deposit bonus?',
       answer: 'BitStarz does not currently offer a no deposit bonus for new players in 2026. The welcome offer is a deposit-based package worth up to 5 BTC plus 180 free spins spread across your first four deposits (20 spins credited instantly on first deposit, then 20 per day for eight consecutive days per T&C §2.7). Some regions may occasionally see limited promotional no deposit free spins — check the BitStarz promotions page for current offers available in your country, as these change regularly.',
@@ -129,10 +129,6 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     {
       question: 'What is the BitStarz minimum deposit?',
       answer: 'The BitStarz minimum deposit is $20 or the crypto equivalent at current exchange rates. For Bitcoin this is approximately 0.0003 BTC. Crypto deposits are processed instantly and credited to your account after one blockchain confirmation, allowing you to start playing within minutes of funding your account. No deposit fees are charged by BitStarz; standard network fees apply on the blockchain side.',
-    },
-    {
-      question: 'How do BitStarz Bitcoin withdrawals work?',
-      answer: 'BitStarz Bitcoin withdrawal times average under 10 minutes from request to wallet arrival. Withdrawals are processed during support hours with a strong track record of clearing within one blockchain confirmation. There are no withdrawal fees charged by BitStarz, though standard Bitcoin network fees apply. The BitStarz bitcoin withdrawal process is straightforward: request via the cashier, confirm your wallet address, and funds arrive within minutes in most cases.',
     },
     {
       question: 'What are BitStarz KYC verification requirements?',
