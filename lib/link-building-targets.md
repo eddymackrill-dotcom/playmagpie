@@ -88,10 +88,6 @@ The Transparency Report is better original research than competitors' thin listi
 hook. Target the kind of site that already links to weaker competitor resources and would plausibly
 cite stronger, sourced data.
 
-- **Find the targets:** while the DataForSEO trial is live (cancel 2026-06-22), pull `backlinks`
-  on a specific competitor *resource page* (e.g. a cryptomaniaks/cryptocasinos "bonus terms" or
-  "withdrawal" article) to list the blogs/news that cited it. Or Google for pages discussing
-  "crypto casino bonus terms / wagering / withdrawal limits" that link out.
 - **Target type:** mid-tier crypto blogs, personal-finance/gambling explainers, and "is X casino
   legit" writeups — sites that cite *data*, not the mega-publishers (their links are PR-driven,
   unreachable).
@@ -101,6 +97,37 @@ cite stronger, sourced data.
 - **Effort:** Med–High, rejection-heavy. **Follow:** dofollow when earned.
 - **Penalty line:** genuine "here's a better source" outreach only — no payment, no "link to me and
   I'll link to you." Editorial merit is the only currency.
+
+### Lane measured (2026-06-11, DataForSEO `backlinks/live`, 2 calls, $0.043 — trial)
+
+Pulled the dofollow citers of the two best competitor bonus resource pages. **Verdict: the
+"harvest competitor citers" lane is near-dead — 101 dofollow citing pages pulled, 2 genuine.**
+
+- **`cryptomaniaks.com/gambling/crypto-casinos/promotions`** (the editorial twin's bonus-terms
+  guide): 112 dofollow backlinks total, top 100 pulled. **98 of 100 are a single hacked-site
+  injection network** — identical "@SEO_CARTEL IN TELEGRAM" anchors sprayed across rank-0,
+  unrelated compromised sites (dry cleaners, universities, leather shops — the recon's Step D
+  footprint exactly). 2 genuine editorial citers survived vetting (rows below).
+- **`cryptogambling.org/articles/welcome-bonus-gimmick/`** (the closest comparable's
+  consumer-protection bonus article — the nearest analogue to our Transparency Report):
+  **1 dofollow citer in total** — a Bitcointalk thread (topic 2643533; Cloudflare-blocked, link
+  context unverified; Bitcointalk is already a pipeline row). Even the niche's most "earnable"
+  bonus-transparency article earned effectively zero editorial citations.
+
+Implication: prospect this lane via Google ("pages discussing bonus terms / wagering /
+withdrawal limits that link out") and journalist sourcing (§5) — NOT via competitor backlink
+harvesting; the competitor citer pool barely exists once spam is removed.
+
+### Named targets (vetted survivors) — ranked by value-to-effort
+
+| # | Site | Citing page | What they cited | Pitch angle | Contact route | Follow? | Value-to-effort |
+|---|------|-------------|-----------------|-------------|---------------|---------|-----------------|
+| 1 | **riskitwisely.com** (gambling-risk explainer; rank 23, spam 0) | riskitwisely.com/how-crypto-gambling-is-changing-risk-calculations/ | cryptomaniaks' generic promotions hub, in-content anchor "bonuses at crypto casinos" in the "Bonuses in Odds Perception" section (bonus EV discussion) | Their EV-of-bonuses argument is exactly what the Transparency Report *quantifies* — headline bonus vs live-T&C reality (admin fees, wagering math). Offer the report as the stronger, sourced citation alongside/replacing the generic hub link. | No plain-text email; footer lists founder + Alpharetta GA address + phone; author byline "Sabrina Arthuroniee" with profile page — use site contact details | dofollow | ★★★☆☆ |
+| 2 | **hiveex.com** (crypto education/news; rank 113, spam 5) | hiveex.com/news/whats-next-for-cryptocurrency-regulation-and-real-use/ | cryptomaniaks promotions hub, in-content anchor "cryptocurrency casino promotions" (placement feels niche-edit-ish; site shows gambling-vertical sponsored bias) | Weaker fit — the citing article is about regulation/adoption, not bonuses. Pitch the report's consumer-protection angle ("verified terms vs marketing claims") for a *future* gambling piece rather than a link swap on this one. | contact@hiveex.com (confirmed on /contact/) | dofollow | ★★☆☆☆ |
+
+**Vetting caveat (both rows):** each is plausibly a real editorial site (bylines, contact pages,
+substantive content) but the cryptomaniaks links carry a paid-niche-edit smell. Outreach is fine —
+but if either replies with a price, that's `rel="sponsored"` territory: decline per the penalty line.
 
 ## 5. Journalist sourcing (HARO successors) — the highest-value lane
 

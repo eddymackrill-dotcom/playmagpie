@@ -9,6 +9,7 @@ Backlinks API 14-day free trial**. Saved to repo so it persists after the trial 
 | Date | Call | Targets | Cost | Notes |
 |------|------|---------|-----:|-------|
 | 2026-06-09 | `backlinks_bulk_referring_domains` (Step A) | 10 | $0 (free trial) | Succeeded, full data for all 10. MCP response did **not** include a `cost` field, so exact per-call price isn't confirmable from the response — on the trial, spend is $0. Trial permitted the bulk endpoint with no cap hit. |
+| 2026-06-11 | `backlinks/backlinks/live` ×2 (skyscraper citer harvest) | cryptomaniaks `/gambling/crypto-casinos/promotions` + cryptogambling.org `/articles/welcome-bonus-gimmick/` | $0.043 ($0.023 + $0.02003, per API `cost` field; billed against trial) | REST API direct (MCP not loaded this session). Dofollow-only, limit 100, rank-desc. Result: 101 citing pages → 98 = one hacked-site injection network ("@SEO_CARTEL" anchors), 2 genuine, 1 Bitcointalk thread. Named targets + dead-lane verdict written to `lib/link-building-targets.md` §4. |
 
 Running trial spend: **$0** (free trial active). Post-trial, `bulk_referring_domains` is a cheap bulk endpoint (~$0.02–0.05 est.), but confirm in the DataForSEO dashboard — the MCP doesn't surface per-call cost or remaining trial quota.
 
@@ -82,7 +83,7 @@ The competitor link neighborhood in this niche is overwhelmingly PBN / directory
 The recon **saved spend on chasing a spam graph**; it did not surface a replicable editorial shortcut, because in this vertical there largely isn't one. That itself is worth knowing before pouring effort into competitor-mirroring.
 
 ## Spend (running)
-Steps A + B + C = 6 calls + Step D (1 call) = 7 calls, all **$0 (free trial)**. MCP surfaced no per-call cost field. Post-trial ~$0.02–0.06 each.
+Steps A + B + C = 6 calls + Step D (1 call) + skyscraper citer harvest 2026-06-11 (2 calls, $0.043 per API cost field) = **9 calls, $0.043 nominal — all within the free trial**. Post-trial ~$0.02–0.06 each confirmed by the 2026-06-11 REST responses.
 
 ---
 
