@@ -3,7 +3,7 @@ import Link from 'next/link'
 type CTAButtonProps = {
   href: string
   label?: string
-  variant?: 'primary' | 'secondary' | 'outline'
+  variant?: 'primary' | 'secondary' | 'outline' | 'inline'
   size?: 'sm' | 'md' | 'lg'
   external?: boolean
 }
@@ -27,15 +27,22 @@ export default function CTAButton({
   size = 'md',
   external = false,
 }: CTAButtonProps) {
-  const className = `inline-flex items-center justify-center gap-1.5 rounded-lg transition-all ${sizes[size]} ${variantStyles[variant]}`
+  // 'inline' renders as a plain text link (inherits surrounding text size) so
+  // prose-level affiliate links share the same rel handling as button CTAs.
+  const className =
+    variant === 'inline'
+      ? 'text-[#7BB8D4] hover:underline'
+      : `inline-flex items-center justify-center gap-1.5 rounded-lg transition-all ${sizes[size]} ${variantStyles[variant]}`
 
   if (external) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer nofollow sponsored" className={className}>
         {label}
-        <svg className="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-        </svg>
+        {variant !== 'inline' && (
+          <svg className="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        )}
       </a>
     )
   }

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { casinos, getTopCasinos } from '@/lib/casinos'
+import { casinos, getCasinoBySlug, getTopCasinos } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
 import BonusBanner from '@/components/BonusBanner'
@@ -69,6 +69,7 @@ const breadcrumbSchema = {
 export default function BestCryptoCasinosPage() {
   const top = getTopCasinos(6)
   const cryptoFocused = casinos.filter((c) => c.acceptedCryptos.length >= 4)
+  const bitstarz = getCasinoBySlug('bitstarz')
 
   return (
     <>
@@ -97,7 +98,7 @@ export default function BestCryptoCasinosPage() {
           {[
             { label: 'Casinos Reviewed', value: `${casinos.length}` },
             { label: 'Fastest Withdrawal', value: 'Instant' },
-            { label: 'Max Welcome Bonus', value: '$10,000' },
+            { label: 'Max Welcome Bonus', value: '5 BTC' },
           ].map((s) => (
             <div key={s.label} className="bg-[#111111] border border-[#222222] rounded-2xl p-5 text-center">
               <div className="text-3xl font-extrabold text-[#7BB8D4] mb-1">{s.value}</div>
@@ -116,12 +117,14 @@ export default function BestCryptoCasinosPage() {
           <CasinoComparisonTable casinos={top} />
         </section>
 
-        <BonusBanner
-          casinoName="BitStarz"
-          bonusText="Up to 5 BTC + 180 Free Spins Welcome Package"
-          affiliateUrl="https://bzstarz2.com/bcdvryve8"
-          subtext="T&Cs apply · 18+ · Gamble responsibly"
-        />
+        {bitstarz && (
+          <BonusBanner
+            casinoName={bitstarz.name}
+            bonusText={bitstarz.bonusSummary}
+            affiliateUrl={bitstarz.affiliateUrl}
+            subtext="T&Cs apply · 18+ · Gamble responsibly"
+          />
+        )}
 
         <TopRatedSection
           title="Top Crypto Casino Cards"

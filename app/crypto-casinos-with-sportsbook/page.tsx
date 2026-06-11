@@ -229,14 +229,12 @@ export default function CryptoSportsbookPage() {
                   <Link href={`/reviews/${casino.slug}`} className="text-[#7BB8D4] hover:underline">
                     Full {casino.name} review →
                   </Link>
-                  <a
+                  <CTAButton
                     href={casino.affiliateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer nofollow sponsored"
-                    className="text-[#7BB8D4] hover:underline"
-                  >
-                    Visit {casino.name} ↗
-                  </a>
+                    label={`Visit ${casino.name} ↗`}
+                    variant="inline"
+                    external
+                  />
                 </div>
               </article>
             ))}
