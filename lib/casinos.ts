@@ -298,7 +298,7 @@ export const casinos: Casino[] = [
     withdrawalScore: 9.2,
     bonusFairnessScore: 8.4,
     kycScore: 9.3,
-    affiliateUrl: 'https://go.duelbits.io/visit/?bta=38006&brand=duelbits',
+    affiliateUrl: 'https://record.dbpartners.io/_8Rmi14_Kn9DUOsjNOfgKeWNd7ZgqdRLk/1/',
     reviewSummary:
       'Duelbits is a modern crypto-native casino and sportsbook launched in 2020, built around its own Duelbits Originals games — provably fair slots, crash, plinko and dice with cryptographically verifiable outcomes. The platform operates a no-KYC policy for crypto play and withdrawals, with only basic checks triggered for unusual activity, and processes most crypto payouts in under 5 minutes across 12 supported cryptocurrencies. The bonus structure is cashback-focused rather than headline match: up to $30 weekly cashback plus continuous Duelbits Originals rewards and seasonal leaderboard promotions, which delivers better real expected value than high-wagering match bonuses for active players. Duelbits is particularly popular with streamers and high rollers — the VIP system runs on rakeback rather than tier-locked bonuses, and the platform interface is cleaner and more crypto-native than older brands.',
     pros: [
