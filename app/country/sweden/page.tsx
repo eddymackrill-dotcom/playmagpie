@@ -30,7 +30,7 @@ const SWEDEN_STRIP_CARDS: CTAStripCard[] = [...eligibleCasinos]
   .map(buildSwedenCard)
 
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos in Sweden 2026 — Spelinspektionen, On-Ramps & Tax',
+  title: 'Best Crypto Casinos in Sweden 2026: Spelinspektionen, On-Ramps & Tax',
   description:
     'Crypto casinos for Swedish players in 2026. Spellag one-bonus rule, Spelinspektionen channelisation 72–82% online casino, Safello MiCA-CASP, BTCX, Trijo on-ramping.',
   alternates: { canonical: '/country/sweden' },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     url: '/country/sweden',
     title: 'Best Crypto Casinos in Sweden 2026',
     description:
-      'Crypto casinos for Swedish players — Spellag licensing, Spelinspektionen channelisation, on-ramps via Safello / BTCX / Trijo, and the Inkomstskattelagen tax position.',
+      'Crypto casinos for Swedish players: Spellag licensing, Spelinspektionen channelisation, on-ramps via Safello / BTCX / Trijo, and the Inkomstskattelagen tax position.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Casinos in Sweden 2026' }],
   },
   twitter: {
@@ -62,27 +62,27 @@ function casinoAccepts(slug: string, symbol: string): boolean {
 const faqs = [
   {
     question: 'Is it legal for Swedish residents to play at offshore crypto casinos?',
-    answer: 'Swedish residents are not prohibited from playing at offshore casinos under current law — the Gambling Act (Spellag 2018:1138) regulates operators offering to the Swedish market, not players. Offshore operators marketing to Swedish residents without a Spelinspektionen licence are outside the Spellag framework but remain commercially accessible. The practical friction is on the payment side (bank-flagging of gambling MCC transactions), which is exactly why crypto has become the dominant funding route.',
+    answer: 'Swedish residents are not prohibited from playing at offshore casinos under current law: the Gambling Act (Spellag 2018:1138) regulates operators offering to the Swedish market, not players. Offshore operators marketing to Swedish residents without a Spelinspektionen licence are outside the Spellag framework but remain commercially accessible. The practical friction is on the payment side (bank-flagging of gambling MCC transactions), which is exactly why crypto has become the dominant funding route.',
   },
   {
     question: 'Are offshore crypto casino winnings taxable in Sweden?',
-    answer: 'Under Inkomstskattelagen 8 kap. § 3, gambling winnings are tax-exempt when the operator either holds a Swedish licence or is established within the EEA without needing one. Most Curaçao-licensed offshore crypto casinos sit outside the EEA — meaning winnings from them technically fall outside the carve-out and are taxable as income. The crypto disposal itself is a separate capital-income event under Swedish rules.',
+    answer: 'Under Inkomstskattelagen 8 kap. § 3, gambling winnings are tax-exempt when the operator either holds a Swedish licence or is established within the EEA without needing one. Most Curaçao-licensed offshore crypto casinos sit outside the EEA, meaning winnings from them technically fall outside the carve-out and are taxable as income. The crypto disposal itself is a separate capital-income event under Swedish rules.',
   },
   {
     question: 'How does Spelpaus.se affect offshore play?',
-    answer: 'Spelpaus.se is Sweden\'s national self-exclusion register operated by Spelinspektionen. Every Spelinspektionen-licensed operator must screen players against Spelpaus at every login. Offshore Curaçao-licensed operators are outside that obligation — they don\'t consult Spelpaus by default. Per Spelinspektionen\'s 2024 channelisation report, 23% of players who turned to unlicensed sites cited Spelpaus blocking as a reason.',
+    answer: 'Spelpaus.se is Sweden\'s national self-exclusion register operated by Spelinspektionen. Every Spelinspektionen-licensed operator must screen players against Spelpaus at every login. Offshore Curaçao-licensed operators are outside that obligation. They don\'t consult Spelpaus by default. Per Spelinspektionen\'s 2024 channelisation report, 23% of players who turned to unlicensed sites cited Spelpaus blocking as a reason.',
   },
   {
     question: 'Why are Swedish licensed operators limited to one bonus per player?',
-    answer: 'Spellag 14 kap. § 9 restricts each licensee to offering only one bonus per player across their entire relationship — the bonus must be offered on the first occasion the player plays. The policy was introduced in 2019 as a player-protection measure to prevent ongoing bonus-driven engagement. It applies only to Spelinspektionen-licensed operators; offshore casinos are not bound by it, which is one structural reason their welcome offers (Mirax up to 5 BTC + 150 spins across 4 deposits, BitStarz 5 BTC + 180 spins, BC.Game 220% Deposit Rakeback Welcome across 4 monthly stages) significantly exceed what licensed Swedish operators can offer.',
+    answer: 'Spellag 14 kap. § 9 restricts each licensee to offering only one bonus per player across their entire relationship. The bonus must be offered on the first occasion the player plays. The policy was introduced in 2019 as a player-protection measure to prevent ongoing bonus-driven engagement. It applies only to Spelinspektionen-licensed operators; offshore casinos are not bound by it, which is one structural reason their welcome offers (Mirax up to 5 BTC + 150 spins across 4 deposits, BitStarz 5 BTC + 180 spins, BC.Game 220% Deposit Rakeback Welcome across 4 monthly stages) significantly exceed what licensed Swedish operators can offer.',
   },
   {
     question: 'Which Swedish exchange should I use to buy crypto for casino deposits?',
-    answer: 'Safello is the most directly Swedish-regulated option — Finansinspektionen granted it MiCA Crypto-Asset Service Provider authorisation in October 2025, the first Swedish CASP issuance. BTCX (operated by Goobit AB) and Trijo (Ijort Invest AB) continue under the transitional VASP regime while their MiCA applications are processed. Coinbase and Kraken also serve Swedish retail through their EU entities. For SEK-to-crypto on-ramping with the strongest current regulatory standing, Safello is the cleanest default.',
+    answer: 'Safello is the most directly Swedish-regulated option: Finansinspektionen granted it MiCA Crypto-Asset Service Provider authorisation in October 2025, the first Swedish CASP issuance. BTCX (operated by Goobit AB) and Trijo (Ijort Invest AB) continue under the transitional VASP regime while their MiCA applications are processed. Coinbase and Kraken also serve Swedish retail through their EU entities. For SEK-to-crypto on-ramping with the strongest current regulatory standing, Safello is the cleanest default.',
   },
   {
     question: 'Do any of the casinos PlayMagpie reviews restrict Swedish players?',
-    answer: 'None of the seven reviewed casinos list Sweden in their restricted-countries terms — restrictions seen are typically US, UK, AU, NL and FR. That doesn\'t guarantee active Swedish account acceptance at every cashier (operator policy can be more granular than published lists suggest); verify on the operator\'s own terms before depositing.',
+    answer: 'None of the seven reviewed casinos list Sweden in their restricted-countries terms. Restrictions seen are typically US, UK, AU, NL and FR. That doesn\'t guarantee active Swedish account acceptance at every cashier (operator policy can be more granular than published lists suggest); verify on the operator\'s own terms before depositing.',
   },
 ]
 
@@ -134,7 +134,7 @@ export default function SwedenPage() {
             Best Crypto Casinos in Sweden 2026
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            Swedish online gambling sits in a licensed-but-restrictive regime — Spelinspektionen&apos;s tight rules push
+            Swedish online gambling sits in a licensed-but-restrictive regime. Spelinspektionen&apos;s tight rules push
             a meaningful share of activity offshore. The 2024 channelisation data tells the story: 85% overall, just
             72–82% in the online casino segment. Most of that offshore activity routes through crypto.
           </p>
@@ -142,8 +142,8 @@ export default function SwedenPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
           {[
-            { label: 'Online casino channelisation 2024', value: '72–82%', sub: 'Spelinspektionen — vs 90% target' },
-            { label: 'First Swedish MiCA-CASP', value: 'Safello', sub: 'Finansinspektionen — Oct 2025' },
+            { label: 'Online casino channelisation 2024', value: '72–82%', sub: 'Spelinspektionen, vs 90% target' },
+            { label: 'First Swedish MiCA-CASP', value: 'Safello', sub: 'Finansinspektionen, Oct 2025' },
             { label: 'Casinos accepting SE accounts', value: '7 / 7', sub: 'None restrict Sweden in published terms' },
           ].map((s) => (
             <div key={s.label} className="bg-[#111111] border border-[#222222] rounded-2xl p-5 text-center">
@@ -155,7 +155,7 @@ export default function SwedenPage() {
         </div>
 
         <CasinoCTAStrip
-          framing="Top 3 by trust score among operators accepting Swedish accounts (Roobet excluded — Sweden on its restricted list)."
+          framing="Top 3 by trust score among operators accepting Swedish accounts (Roobet excluded: Sweden on its restricted list)."
           cards={SWEDEN_STRIP_CARDS}
         />
 
@@ -169,12 +169,12 @@ export default function SwedenPage() {
             loss limits have applied at different points since the framework came into force.
           </p>
           <p className="text-[#888888] leading-relaxed">
-            The result is a meaningful share of Swedish online activity routing offshore — Spelinspektionen&apos;s 2024
+            The result is a meaningful share of Swedish online activity routing offshore. Spelinspektionen&apos;s 2024
             channelisation report put the overall rate at 85% against the 90% policy target, with the online casino
             segment specifically estimated between 72% and 82%. For tax: gambling winnings are exempt under
             Inkomstskattelagen 8 kap. § 3 when the operator holds a Swedish licence or is established within the EEA
-            without needing one. Winnings from operators licensed outside the EEA — which covers most Curaçao-licensed
-            offshore crypto casinos — fall outside that carve-out and are technically subject to income tax. The crypto
+            without needing one. Winnings from operators licensed outside the EEA, which covers most Curaçao-licensed
+            offshore crypto casinos, fall outside that carve-out and are technically subject to income tax. The crypto
             disposal itself is a separate capital-income event.
           </p>
         </section>
@@ -182,7 +182,7 @@ export default function SwedenPage() {
         <section className="mb-12 space-y-6">
           <h2 className="text-2xl font-bold text-white">SEK to crypto, then crypto to casino</h2>
           <p className="text-[#888888] leading-relaxed">
-            Major Swedish banks — Swedbank, SEB, Nordea and Handelsbanken — routinely flag and sometimes reject card
+            Major Swedish banks (Swedbank, SEB, Nordea and Handelsbanken) routinely flag and sometimes reject card
             or SEPA payments tagged to gambling MCCs at known offshore operators. SEK-bank-transfer to offshore
             gambling isn&apos;t blocked as systematically as it is in Norway, but unreliable enough that crypto becomes
             the practical funding route for any sustained play.
@@ -190,8 +190,8 @@ export default function SwedenPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                title: 'Safello — first Swedish MiCA-CASP',
-                body: 'Finansinspektionen granted Safello full Crypto-Asset Service Provider authorisation under MiCA in October 2025 — the first Swedish issuance under the new framework. That makes Safello the most directly Swedish-regulated on-ramp in the market. SEK deposits via Swish, Trustly or bank transfer, crypto withdrawal on-chain to your chosen casino address.',
+                title: 'Safello: first Swedish MiCA-CASP',
+                body: 'Finansinspektionen granted Safello full Crypto-Asset Service Provider authorisation under MiCA in October 2025: the first Swedish issuance under the new framework. That makes Safello the most directly Swedish-regulated on-ramp in the market. SEK deposits via Swish, Trustly or bank transfer, crypto withdrawal on-chain to your chosen casino address.',
               },
               {
                 title: 'BTCX (Goobit AB) and Trijo (Ijort Invest AB)',
@@ -199,11 +199,11 @@ export default function SwedenPage() {
               },
               {
                 title: 'Stablecoins matter more for SEK players',
-                body: 'SEK has higher volatility against USD than EUR-pegged currencies, which compounds the FX drift on the deposit. USDT or USDC removes the SEK-to-coin-to-casino conversion variability entirely — your deposit value stays pegged to USD between sessions. For BTC or ETH deposits, expect to absorb both crypto-market and SEK-exchange-rate movement over your play window.',
+                body: 'SEK has higher volatility against USD than EUR-pegged currencies, which compounds the FX drift on the deposit. USDT or USDC removes the SEK-to-coin-to-casino conversion variability entirely. Your deposit value stays pegged to USD between sessions. For BTC or ETH deposits, expect to absorb both crypto-market and SEK-exchange-rate movement over your play window.',
               },
               {
                 title: 'Network choice once you\'re on-chain',
-                body: 'USDT on TRC-20 (Tron) is the most common deposit and withdrawal network at the casinos we review — sub-second confirmation and fees under $0.01. SOL is comparably fast where supported (BC.Game, Cloudbet, Shuffle, Duelbits). BTC works everywhere but carries the 10-minute-block-time and fee-volatility overhead. Match the network at deposit to your planned withdrawal coin.',
+                body: 'USDT on TRC-20 (Tron) is the most common deposit and withdrawal network at the casinos we review: sub-second confirmation and fees under $0.01. SOL is comparably fast where supported (BC.Game, Cloudbet, Shuffle, Duelbits). BTC works everywhere but carries the 10-minute-block-time and fee-volatility overhead. Match the network at deposit to your planned withdrawal coin.',
               },
             ].map((card) => (
               <div key={card.title} className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
@@ -217,8 +217,8 @@ export default function SwedenPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Crypto support at each casino we review</h2>
           <p className="text-[#888888] text-sm mb-6">
-            Verified from each casino&apos;s acceptedCryptos lineup. Pick the coin that matches your Safello / BTCX / Trijo on-ramp output —
-            on-chain transfers from regulated Swedish exchanges to casino deposit addresses are the smoothest funding route.
+            Verified from each casino&apos;s acceptedCryptos lineup. Pick the coin that matches your Safello / BTCX / Trijo on-ramp output.
+            On-chain transfers from regulated Swedish exchanges to casino deposit addresses are the smoothest funding route.
           </p>
           <div className="overflow-x-auto rounded-2xl border border-[#222222]">
             <table className="w-full text-sm">
@@ -260,14 +260,14 @@ export default function SwedenPage() {
           </div>
           <p className="text-[#555555] text-xs mt-3">
             BC.Game also lists 100+ additional cryptocurrencies beyond this table. Other casinos may add coins not shown
-            here — full lists are in each casino&apos;s individual review.
+            here. Full lists are in each casino&apos;s individual review.
           </p>
         </section>
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">All Crypto Casinos Ranked</h2>
           <p className="text-[#888888] text-sm mb-6">
-            Independent rankings — every casino shown below accepts Swedish accounts under its published terms.
+            Independent rankings. Every casino shown below accepts Swedish accounts under its published terms.
             Roobet is excluded here because Sweden sits on its restricted-territories list (roobet.com/terms §3.5);
             see the Roobet review for context. Verify acceptance before depositing in case any operator updates its
             terms.
@@ -298,15 +298,15 @@ export default function SwedenPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Link href="/country/norway" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Norway crypto casinos</div>
-              <div className="text-[#888888] text-sm">Nordic peer — Lottstift monopoly + Payment Act blocks</div>
+              <div className="text-[#888888] text-sm">Nordic peer: Lottstift monopoly + Payment Act blocks</div>
             </Link>
             <Link href="/country/germany" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Germany crypto casinos</div>
-              <div className="text-[#888888] text-sm">EU peer — GGL licensed regime with strict deposit caps</div>
+              <div className="text-[#888888] text-sm">EU peer: GGL licensed regime with strict deposit caps</div>
             </Link>
             <Link href="/country/netherlands" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Netherlands crypto casinos</div>
-              <div className="text-[#888888] text-sm">EU peer — 37.8% kansspelbelasting on all winnings</div>
+              <div className="text-[#888888] text-sm">EU peer: 37.8% kansspelbelasting on all winnings</div>
             </Link>
           </div>
         </section>

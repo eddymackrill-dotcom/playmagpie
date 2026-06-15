@@ -36,7 +36,7 @@ export default function Footer() {
             </Link>
             <p className="text-[#888888] text-sm leading-relaxed max-w-xs">
               Independent ratings for crypto casinos. Scored on withdrawals, bonuses,
-              KYC friction and VIP value — so you find the right platform fast.
+              KYC friction and VIP value, so you find the right platform fast.
             </p>
             <a
               href="https://x.com/MagpieGG"
@@ -95,7 +95,7 @@ export default function Footer() {
           </p>
           <div className="border-t border-[#1a1a1a] pt-4 mt-4">
             <p className="text-[#666666] text-xs leading-relaxed mb-3">
-              PlayMagpie is intended for players in jurisdictions where online gambling with offshore operators is permitted. This website does not target UK residents. UK residents should only gamble at operators licensed by the UK Gambling Commission (UKGC). Gambling can be addictive — please play responsibly.{' '}
+              PlayMagpie is intended for players in jurisdictions where online gambling with offshore operators is permitted. This website does not target UK residents. UK residents should only gamble at operators licensed by the UK Gambling Commission (UKGC). Gambling can be addictive. Please play responsibly.{' '}
               <a
                 href="https://www.begambleaware.org"
                 target="_blank"

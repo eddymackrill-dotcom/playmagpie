@@ -13,7 +13,7 @@ export default function BonusBanner({ casinoName, bonusText, affiliateUrl, subte
       <div className="absolute inset-0 bg-gradient-to-br from-[#7BB8D4]/[0.06] to-transparent pointer-events-none" />
       <div className="relative">
         <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-1.5">
-          Featured Offer — {casinoName}
+          Featured Offer: {casinoName}
         </div>
         <div className="text-2xl font-bold text-[#f5f5f5]">{bonusText}</div>
         {subtext && <div className="text-[#888888] text-sm mt-1.5">{subtext}</div>}

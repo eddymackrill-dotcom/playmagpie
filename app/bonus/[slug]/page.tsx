@@ -19,12 +19,12 @@ const STRIP_BY_BONUS: Record<string, CTAStripCard[]> = {
     { slug: '7bit-casino', facts: [{ label: 'Welcome', value: '325% up to €5,400 + 250 spins (4 deposits)' }, { label: 'Wagering', value: '40-45x range' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
   ],
   'no-deposit-bonus': [
-    { slug: 'bitstarz', facts: [{ label: 'No-deposit', value: 'Available regionally — check live promos' }, { label: 'Max cashout', value: '€100 cap (T&C §1.1)' }, { label: 'Wagering', value: '40x bonus sum' }] },
+    { slug: 'bitstarz', facts: [{ label: 'No-deposit', value: 'Available regionally: check live promos' }, { label: 'Max cashout', value: '€100 cap (T&C §1.1)' }, { label: 'Wagering', value: '40x bonus sum' }] },
     { slug: 'bc-game', facts: [{ label: 'No-deposit', value: 'Affiliate-code promos at signup' }, { label: 'Max cashout', value: 'Per-promo cap' }, { label: 'Wagering', value: 'Per-promo terms' }] },
     { slug: '7bit-casino', facts: [{ label: 'No-deposit', value: 'Email promo codes for verified players' }, { label: 'Max cashout', value: 'Per-promo cap' }, { label: 'Wagering', value: '40-45x range' }] },
   ],
   'reload-bonus': [
-    { slug: 'bitstarz', facts: [{ label: 'Reload', value: 'Monday Reload — weekly cadence' }, { label: 'Wagering', value: '40x bonus' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
+    { slug: 'bitstarz', facts: [{ label: 'Reload', value: 'Monday Reload: weekly cadence' }, { label: 'Wagering', value: '40x bonus' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
     { slug: 'bc-game', facts: [{ label: 'Reload', value: 'Daily reload tied to VIP tier' }, { label: 'Wagering', value: 'Tier-dependent' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
     { slug: '7bit-casino', facts: [{ label: 'Reload', value: '25% Monday Reload + 50 free spins' }, { label: 'Wagering', value: '40-45x range' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
   ],
@@ -34,14 +34,14 @@ const STRIP_BY_BONUS: Record<string, CTAStripCard[]> = {
     { slug: '7bit-casino', facts: [{ label: 'Cashback', value: 'Up to 20% weekly net-loss cashback' }, { label: 'Cadence', value: 'Weekly' }, { label: 'Wagering', value: 'Per-tier terms' }] },
   ],
   'vip-bonus': [
-    { slug: 'bitstarz', facts: [{ label: 'VIP', value: 'Invite-only — dedicated host' }, { label: 'Cashback', value: '15-25% at top tiers' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
+    { slug: 'bitstarz', facts: [{ label: 'VIP', value: 'Invite-only: dedicated host' }, { label: 'Cashback', value: '15-25% at top tiers' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
     { slug: 'bc-game', facts: [{ label: 'VIP', value: 'XP-tier progression-based' }, { label: 'Rakeback', value: 'Real-time accrual on every wager' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
     { slug: '7bit-casino', facts: [{ label: 'VIP', value: 'Tiered cashback + personal manager' }, { label: 'Cashback', value: 'Up to 20% weekly' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
   ],
   'high-roller-bonus': [
-    { slug: 'bitstarz', facts: [{ label: 'High-roller', value: 'Invite-only VIP, dedicated host' }, { label: 'Welcome', value: '5 BTC headline (25% admin-fee catch)' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
+    { slug: 'bitstarz', facts: [{ label: 'High-roller', value: 'Invite-only VIP: dedicated host' }, { label: 'Welcome', value: '5 BTC headline (25% admin-fee catch)' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
     { slug: 'bc-game', facts: [{ label: 'High-roller', value: 'Top XP tiers + per-account negotiation' }, { label: 'Welcome', value: '220% Deposit Rakeback, scales with deposit' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
-    { slug: 'cloudbet', facts: [{ label: 'High-roller', value: 'No withdrawal limits — the load-bearing differentiator' }, { label: 'Welcome', value: '5 BTC match, no admin fee' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no cap' }] },
+    { slug: 'cloudbet', facts: [{ label: 'High-roller', value: 'No withdrawal limits: the load-bearing differentiator' }, { label: 'Welcome', value: '5 BTC match, no admin fee' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no cap' }] },
   ],
 }
 
@@ -56,7 +56,7 @@ const SEO_OVERRIDES: Record<string, { title: string; description: string; h1: st
   'high-roller-bonus': {
     title: 'High Roller Bonus Terms: Wagering, Caps & Negotiation (2026)',
     description:
-      'How high roller bonuses actually work — $500+ qualifying deposits, 25x-35x wagering against 40x-50x retail, negotiable terms above $5,000 and expedited payout queues.',
+      'How high roller bonuses actually work: $500+ qualifying deposits, 25x-35x wagering against 40x-50x retail, negotiable terms above $5,000 and expedited payout queues.',
     h1: 'High Roller Bonuses: The Terms Behind the Headline Numbers',
   },
 }
@@ -68,8 +68,8 @@ const SEO_OVERRIDES: Record<string, { title: string; description: string; h1: st
 const CROSS_LINKS_BY_BONUS: Record<string, ReactNode> = {
   'high-roller-bonus': (
     <p className="text-[#888888] leading-relaxed mt-4">
-      This page covers the bonus structures only. For the operator ranking itself — withdrawal caps,
-      bet ceilings and VIP treatment compared side by side — see our guide to the{' '}
+      This page covers the bonus structures only. For the operator ranking itself (withdrawal caps,
+      bet ceilings and VIP treatment compared side by side) see our guide to the{' '}
       <Link href="/high-roller-casinos" className="text-[#7BB8D4] hover:underline">
         best high roller crypto casinos
       </Link>
@@ -172,7 +172,7 @@ export default async function BonusPage(props: PageProps<'/bonus/[slug]'>) {
             {SEO_OVERRIDES[slug]?.h1 ?? `Best ${bonus.name} Crypto Casinos 2026`}
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            Real terms — wagering multipliers, max cashout caps and game contributions decoded for every offer.
+            Real terms: wagering multipliers, max cashout caps and game contributions decoded for every offer.
           </p>
         </div>
 
@@ -194,7 +194,7 @@ export default async function BonusPage(props: PageProps<'/bonus/[slug]'>) {
             {matching.length} {matching.length === 1 ? 'Casino' : 'Casinos'} Ranked for {bonus.name}
           </h2>
           <p className="text-[#888888] text-sm mb-6">
-            Each platform below carries a {bonus.name.toLowerCase()} structure worth examining — terms verified independently.
+            Each platform below carries a {bonus.name.toLowerCase()} structure worth examining: terms verified independently.
           </p>
           {matching.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

@@ -30,11 +30,11 @@ const TABLE_ROWS: { field: string; cells: Record<'bitstarz' | 'mirax-casino' | '
     field: 'Spin count',
     cells: {
       bitstarz: {
-        value: '180 total across the welcome pack — 20 instant on D1, then 20 per day for 8 consecutive days.',
+        value: '180 total across the welcome pack: 20 instant on D1, then 20 per day for 8 consecutive days.',
         source: 'bitstarz.com/promotions T&C §2.7',
       },
       'mirax-casino': {
-        value: '150 total — 100 on D1 (no code), 50 on D2 (code W2), 0 on D3 (W3 = cash-only), 0 on D4 (W4 = cash-only).',
+        value: '150 total: 100 on D1 (no code), 50 on D2 (code W2), 0 on D3 (W3 = cash-only), 0 on D4 (W4 = cash-only).',
         source: 'miraxcasino.com/promotions',
       },
       '7bit-casino': {
@@ -55,7 +55,7 @@ const TABLE_ROWS: { field: string; cells: Record<'bitstarz' | 'mirax-casino' | '
     field: 'Eligible games',
     cells: {
       bitstarz: {
-        value: 'Country-dependent — check the bonus section after login. No fixed-title commitment in the T&C.',
+        value: 'Country-dependent: check the bonus section after login. No fixed-title commitment in the T&C.',
         source: 'bitstarz.com/promotions T&C §2.8',
       },
       'mirax-casino': {
@@ -74,11 +74,11 @@ const TABLE_ROWS: { field: string; cells: Record<'bitstarz' | 'mirax-casino' | '
         source: 'bitstarz.com/promotions T&C §2.3 — "Any winnings generated from free spins will be awarded with a wagering requirement of 40 (forty)."',
       },
       'mirax-casino': {
-        value: '45x winnings — distinct from the 40x on cash deposit bonuses.',
+        value: '45x winnings, distinct from the 40x on cash deposit bonuses.',
         source: 'miraxcasino.com/promotions — "Mirax casino free spins must be wagered 45 times unless otherwise stated."',
       },
       '7bit-casino': {
-        value: '40-45x range — not pinned to free spins specifically.',
+        value: '40-45x range, not pinned to free spins specifically.',
         source: '7bitcasino.com/bonuses — "Most BTC casino bonus offers at 7Bit should be wagered 40-45 times unless otherwise stated."',
       },
     },
@@ -87,7 +87,7 @@ const TABLE_ROWS: { field: string; cells: Record<'bitstarz' | 'mirax-casino' | '
     field: 'Max cashout from FS winnings',
     cells: {
       bitstarz: {
-        value: 'Not documented separately for welcome FS. T&C §1.1 specifies a €100 cap but explicitly only for no-deposit bonuses (registration spins, Weekly Free Spins Drops, Second Chance Spins). The welcome-pack FS are excluded from §1.1 — no separate cap is documented for them.',
+        value: 'Not documented separately for welcome FS. T&C §1.1 specifies a €100 cap but explicitly only for no-deposit bonuses (registration spins, Weekly Free Spins Drops, Second Chance Spins). The welcome-pack FS are excluded from §1.1; no separate cap is documented for them.',
       },
       'mirax-casino': {
         value: '€100.',
@@ -122,7 +122,7 @@ const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'mirax-casino',
     facts: [
-      { label: 'Spins', value: '150 — 100/50/0/0 by deposit' },
+      { label: 'Spins', value: '150: 100/50/0/0 by deposit' },
       { label: 'Wagering', value: '45x winnings' },
       { label: 'Max cashout', value: '€100 (only published cap)' },
     ],
@@ -138,13 +138,13 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Best Free Spins Crypto Casinos 2026 — Verified T&C Comparison',
+  title: 'Best Free Spins Crypto Casinos 2026: Verified T&C Comparison',
   description:
-    'Free-spin welcome packs at BitStarz, Mirax and 7Bit compared cell-by-cell against each casino\'s live T&C — spin count, eligible games, wagering, and max cashout, with "Not documented" cells flagged honestly rather than guessed.',
+    'Free-spin welcome packs at BitStarz, Mirax and 7Bit compared cell-by-cell against each casino\'s live T&C: spin count, eligible games, wagering, and max cashout, with "Not documented" cells flagged honestly rather than guessed.',
   alternates: { canonical: '/bonus/free-spins' },
   openGraph: {
     url: '/bonus/free-spins',
-    title: 'Best Free Spins Crypto Casinos 2026 — Verified T&C Comparison',
+    title: 'Best Free Spins Crypto Casinos 2026: Verified T&C Comparison',
     description:
       'Verified per-casino free-spins data: spin count, wagering, max cashout. Three operators compared against their live T&C, gaps flagged honestly.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Free Spins Crypto Casinos 2026' }],
@@ -208,14 +208,14 @@ export default function FreeSpinsBonusPage() {
             Best Free Spins Crypto Casinos 2026
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            Real terms — wagering multipliers, max cashout caps and game contributions decoded against
+            Real terms: wagering multipliers, max cashout caps and game contributions decoded against
             each operator&apos;s live T&amp;C. Where a casino does not publish a figure, we flag it
             rather than guess.
           </p>
         </div>
 
         <CasinoCTAStrip
-          framing="Honest pre-summary — same three operators analysed in the verified-T&C table below. Trust-score ranked, not paid placement."
+          framing="Honest pre-summary: same three operators analysed in the verified-T&C table below. Trust-score ranked, not paid placement."
           cards={STRIP_CARDS}
         />
 
@@ -225,11 +225,11 @@ export default function FreeSpinsBonusPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-3">Verified free-spins terms — cell-by-cell</h2>
+          <h2 className="text-2xl font-bold text-white mb-3">Verified free-spins terms: cell-by-cell</h2>
           <p className="text-[#888888] text-sm leading-relaxed max-w-3xl mb-6">
             Verified from each casino&apos;s live T&amp;C on 2026-05-30. Where a field is marked
             &ldquo;Not documented&rdquo;, the casino does not publish that figure on its bonus T&amp;C or
-            promotions page — we flag the gap rather than guess, because every other affiliate site that
+            promotions page. We flag the gap rather than guess, because every other affiliate site that
             fills these cells is guessing. The sparseness is a feature: it&apos;s the actual shape of what
             these casinos commit to in writing.
           </p>
@@ -290,13 +290,13 @@ export default function FreeSpinsBonusPage() {
                 <strong className="text-white">On wagering, the math is fully documented at all three.</strong>{' '}
                 Free-spin winnings need to clear 40x at BitStarz, 45x at Mirax, and somewhere in the 40-45x band
                 at 7Bit before they become withdrawable. Mirax&apos;s 45x is the strictest and the only one
-                explicitly distinct from the cash deposit bonus wagering — worth knowing if you&apos;re
+                explicitly distinct from the cash deposit bonus wagering, worth knowing if you&apos;re
                 optimising for spin-side bonus value rather than match-side.
               </p>
               <p>
                 <strong className="text-white">On spin value and eligible games, all three defer to the
                 in-account bonus screen</strong> rather than committing to fixed figures in their public T&amp;C.
-                This is the field where affiliate-site numbers are most likely to be wrong — &ldquo;200 spins at
+                This is the field where affiliate-site numbers are most likely to be wrong. &ldquo;200 spins at
                 $0.10 on Wolf Gold&rdquo; type claims are usually surfacing what the casino used to offer or what
                 a specific affiliate-coded variant offers, not the default welcome flow today. What you see in
                 your cashier may not match what affiliate sites quoted six months ago.
@@ -357,11 +357,11 @@ export default function FreeSpinsBonusPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link href="/bonus/welcome-bonus" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Welcome Bonuses</div>
-              <div className="text-[#888888] text-sm">The match-side of the welcome pack — free spins are usually the spin-side companion</div>
+              <div className="text-[#888888] text-sm">The match-side of the welcome pack: free spins are usually the spin-side companion</div>
             </Link>
             <Link href="/bonus/cashback" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Cashback</div>
-              <div className="text-[#888888] text-sm">The structurally cleanest bonus class — net-loss return with no wagering</div>
+              <div className="text-[#888888] text-sm">The structurally cleanest bonus class: net-loss return with no wagering</div>
             </Link>
             <Link href="/best-crypto-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">All Crypto Casinos</div>

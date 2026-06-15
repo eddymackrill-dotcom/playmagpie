@@ -3,22 +3,22 @@ import Link from 'next/link'
 import { COUNTRY_LIST } from '@/lib/programmatic'
 
 export const metadata: Metadata = {
-  title: 'Crypto Casinos by Country 2026 — Regulators, On-Ramps & Banking Reality',
+  title: 'Crypto Casinos by Country 2026: Regulators, On-Ramps & Banking Reality',
   description:
     'Country-by-country breakdown of crypto casino access in 2026. Regulators, on-ramp exchanges, banking attitude and tax position across Tier 1 markets and the EU.',
   alternates: { canonical: '/country' },
   openGraph: {
     url: '/country',
-    title: 'Crypto Casinos by Country 2026 — Regulators, On-Ramps & Banking Reality',
+    title: 'Crypto Casinos by Country 2026: Regulators, On-Ramps & Banking Reality',
     description:
       'Country-by-country breakdown of crypto casino access in 2026. Regulators, on-ramp exchanges, banking attitude and tax position.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Crypto Casinos by Country' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Casinos by Country 2026 — Regulators, On-Ramps & Banking Reality',
+    title: 'Crypto Casinos by Country 2026: Regulators, On-Ramps & Banking Reality',
     description:
-      'Country-by-country breakdown of crypto casino access in 2026 — regulators, on-ramps and banking reality.',
+      'Country-by-country breakdown of crypto casino access in 2026: regulators, on-ramps and banking reality.',
     images: ['/og-image.png'],
   },
 }
@@ -31,7 +31,7 @@ const countryTeasers: Record<string, string> = {
   'new-zealand': 'DIA licensing scheme commences 1 May 2026; licensed-only enforcement from 1 December 2026',
   ireland: 'GRAI operational since 5 March 2025; winnings tax-neutral under TCA 1997 § 613(2)',
   germany: 'GGL operational since 1 January 2023; § 23 EStG makes long-held crypto tax-free on disposal',
-  netherlands: 'Kansspelbelasting 37.8% on winnings from 1 Jan 2026 — applies to licensed AND offshore play',
+  netherlands: 'Kansspelbelasting 37.8% on winnings from 1 Jan 2026: applies to licensed AND offshore play',
   norway: 'Norsk Tipping state monopoly; Lottstift bank-blocks offshore payments by MCC 7995 + named list',
   sweden: 'One-bonus rule under Spellag 14 kap. § 9; online casino channelisation just 72–82% in 2024',
   japan: 'Online casino is not legal under current law; crypto gains taxed up to ~55% combined',
@@ -57,11 +57,11 @@ const countryRows: Record<string, { regulator: string; onramp: string }> = {
   },
   germany: {
     regulator: 'GGL (federal authority since 2023)',
-    onramp: 'Bitpanda / Coinbase / Kraken (BaFin) — USDT TRC-20 dominant route',
+    onramp: 'Bitpanda / Coinbase / Kraken (BaFin), USDT TRC-20 dominant route',
   },
   netherlands: {
     regulator: 'Kansspelautoriteit (KSA)',
-    onramp: 'Bitvavo (MiCA-AFM Jun 2025) / Coinbase / Kraken — Dutch banks routinely block offshore',
+    onramp: 'Bitvavo (MiCA-AFM Jun 2025) / Coinbase / Kraken, Dutch banks routinely block offshore',
   },
   norway: {
     regulator: 'Lottstift (Norsk Tipping monopoly)',
@@ -72,7 +72,7 @@ const countryRows: Record<string, { regulator: string; onramp: string }> = {
     onramp: 'Safello (first Swedish MiCA-CASP, Oct 2025) / BTCX / Trijo / Coinbase / Kraken',
   },
   japan: {
-    regulator: 'JCRC (physical resorts only — online not legal)',
+    regulator: 'JCRC (physical resorts only, online not legal)',
     onramp: 'bitFlyer / Coincheck / Bitbank (FSA-registered)',
   },
 }
@@ -82,7 +82,7 @@ const collectionPageSchema = {
   '@type': 'CollectionPage',
   name: 'Crypto Casinos by Country',
   description:
-    'Country-by-country breakdown of crypto casino access — regulators, on-ramp exchanges, banking attitude and tax treatment.',
+    'Country-by-country breakdown of crypto casino access: regulators, on-ramp exchanges, banking attitude and tax treatment.',
   url: 'https://www.playmagpie.com/country',
   mainEntity: {
     '@type': 'ItemList',
@@ -132,9 +132,9 @@ export default function CountryHubPage() {
 
         <section className="mb-12 prose prose-invert max-w-none space-y-4">
           <p className="text-[#888888] leading-relaxed">
-            Tier 1 English markets — Canada, Australia, New Zealand, Ireland — sit in a permissive-but-shifting
+            Tier 1 English markets (Canada, Australia, New Zealand, Ireland) sit in a permissive-but-shifting
             regulatory framing where offshore play remains accessible while domestic banking attitudes vary. The EU
-            markets we cover — Germany, Netherlands, Sweden, Norway — operate stricter licensed regimes where licensee
+            markets we cover (Germany, Netherlands, Sweden, Norway) operate stricter licensed regimes where licensee
             restrictions (deposit caps, single-bonus rules, kansspelbelasting at source) push significant volume offshore
             even with full local licences available. Japan is the outlier: offshore online casino play is not legal under
             current law, and Japan&apos;s tax treatment of crypto gains adds material friction beyond the casino side.
@@ -143,14 +143,14 @@ export default function CountryHubPage() {
             The funding pattern that recurs across markets is consistent: acquire crypto through a locally-regulated
             exchange (Bitvavo in NL, Bitpanda in DE, Safello or BTCX in SE, Firi in NO, Easy Crypto in NZ, CoinSpot in AU,
             Kraken via Payward Ireland in IE, Newton or Bitbuy in CA), then send on-chain to the casino. USDT on TRC-20
-            is the most common deposit choice across all markets — it removes local-currency conversion drift and clears
+            is the most common deposit choice across all markets. It removes local-currency conversion drift and clears
             in under a minute. Stablecoins matter more in markets where the local currency carries higher volatility
             against USD.
           </p>
           <p className="text-[#888888] leading-relaxed">
             Where crypto delivers most operational value is in markets with active payment-side enforcement. Norway is
             the sharpest example: under the Lottery Act and Payment Act framework, Lottstift maintains a published list
-            of offshore gambling operators whose accounts Norwegian banks are required to block — a Visa or SEPA payment
+            of offshore gambling operators whose accounts Norwegian banks are required to block. A Visa or SEPA payment
             typically fails before it reaches the operator. Australian banks routinely block AUD transfers to offshore
             gambling under post-2024 rules. Dutch banks similarly. On-chain crypto is wallet-to-wallet on a public ledger
             with no acquiring bank in the path. The legal framing of offshore play hasn&apos;t changed in most markets;

@@ -14,7 +14,7 @@ const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'bitstarz',
     facts: [
-      { label: 'VIP', value: 'Invite-only, dedicated host' },
+      { label: 'VIP', value: 'Invite-only: dedicated host' },
       { label: 'Withdrawal', value: 'Under 10 minutes' },
       { label: 'Bonus', value: '5 BTC + 180 spins (4 deposits)' },
     ],
@@ -38,7 +38,7 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Best High Roller Crypto Casinos 2026 — VIP Platforms',
+  title: 'Best High Roller Crypto Casinos 2026: VIP Platforms',
   description:
     'The best VIP and high-roller crypto casinos for 2026. Massive welcome bonuses, dedicated account managers, elite cashback and the highest withdrawal limits.',
   alternates: {
@@ -46,15 +46,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: '/high-roller-casinos',
-    title: 'Best High Roller Crypto Casinos 2026 — VIP Platforms',
+    title: 'Best High Roller Crypto Casinos 2026: VIP Platforms',
     description:
       'The best VIP and high-roller crypto casinos for 2026. Dedicated hosts, elite cashback and the highest withdrawal limits.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best High Roller Crypto Casinos 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best High Roller Crypto Casinos 2026 — VIP Platforms',
-    description: 'Top VIP and high-roller crypto casinos ranked — massive bonuses, dedicated hosts and no withdrawal limits.',
+    title: 'Best High Roller Crypto Casinos 2026: VIP Platforms',
+    description: 'Top VIP and high-roller crypto casinos ranked: massive bonuses, dedicated hosts and no withdrawal limits.',
     images: ['/og-image.png'],
   },
 }
@@ -118,7 +118,7 @@ export default function HighRollerPage() {
         </div>
 
         <CasinoCTAStrip
-          framing="Three high-roller picks — BitStarz and BC.Game lead on trust score; Cloudbet's no-withdrawal-limits policy is the load-bearing differentiator at this stake band."
+          framing="Three high-roller picks. BitStarz and BC.Game lead on trust score; Cloudbet's no-withdrawal-limits policy is the load-bearing differentiator at this stake band."
           cards={STRIP_CARDS}
         />
 
@@ -127,7 +127,7 @@ export default function HighRollerPage() {
             casinoName={topVip.name}
             bonusText={topVip.bonusSummary}
             affiliateUrl={topVip.affiliateUrl}
-            subtext="Exclusive high-roller offer — limited availability"
+            subtext="Exclusive high-roller offer: limited availability"
           />
         )}
 
@@ -154,7 +154,7 @@ export default function HighRollerPage() {
               {
                 icon: '🏆',
                 title: 'Dedicated Account Management',
-                body: 'The best platforms assign a personal host from Level 3 or Platinum tier upward — direct phone or Telegram access, faster withdrawals, bespoke offers.',
+                body: 'The best platforms assign a personal host from Level 3 or Platinum tier upward: direct phone or Telegram access, faster withdrawals, bespoke offers.',
               },
               {
                 icon: '📈',
@@ -179,7 +179,7 @@ export default function HighRollerPage() {
         <section className="mt-12">
           <h2 className="text-xl font-bold text-white mb-4">High Roller Casino Reviews</h2>
           <p className="text-[#888888] text-sm mb-5">
-            Read our full reviews for each VIP casino — bonus terms, cashback rates, withdrawal limits and VIP tier details.
+            Read our full reviews for each VIP casino: bonus terms, cashback rates, withdrawal limits and VIP tier details.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {vipCasinos.map((casino) => (
@@ -204,7 +204,7 @@ export default function HighRollerPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Link href="/no-limit-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">No-Limit Withdrawal Casinos</div>
-              <div className="text-[#888888] text-sm">The other half of high-roller play — cash-out posture, not just bet size</div>
+              <div className="text-[#888888] text-sm">The other half of high-roller play: cash-out posture, not just bet size</div>
             </Link>
             <Link href="/fast-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Fast Withdrawal Casinos</div>

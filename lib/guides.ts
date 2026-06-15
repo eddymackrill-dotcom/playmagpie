@@ -11,7 +11,7 @@ export const guides: Guide[] = [
     title: 'How Crypto Casino Withdrawals Work',
     slug: 'how-crypto-casino-withdrawals-work',
     description:
-      'Everything you need to know about getting your winnings out fast — from wallet confirmation times to zero-fee chains.',
+      'Everything you need to know about getting your winnings out fast: from wallet confirmation times to zero-fee chains.',
     readTime: '5 min read',
     category: 'Withdrawals',
   },
@@ -19,7 +19,7 @@ export const guides: Guide[] = [
     title: 'Best Crypto for Gambling',
     slug: 'best-crypto-for-gambling',
     description:
-      'Bitcoin, USDT, SOL, TRX — which cryptocurrency gives you the fastest withdrawals and lowest fees at online casinos?',
+      'Bitcoin, USDT, SOL, TRX: which cryptocurrency gives you the fastest withdrawals and lowest fees at online casinos?',
     readTime: '6 min read',
     category: 'Crypto',
   },

@@ -14,43 +14,43 @@ import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 // the actual subset.
 const STRIP_BY_CRYPTO: Record<string, CTAStripCard[]> = {
   bitcoin: [
-    { slug: 'bitstarz', facts: [{ label: 'Accepts BTC', value: '✓ — under-10-min withdrawals' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
-    { slug: 'bc-game', facts: [{ label: 'Accepts BTC', value: '✓ — 100+ coin lineup' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
-    { slug: '7bit-casino', facts: [{ label: 'Accepts BTC', value: '✓ — 8-coin lineup since 2014' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+    { slug: 'bitstarz', facts: [{ label: 'Accepts BTC', value: '✓ under-10-min withdrawals' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts BTC', value: '✓ 100+ coin lineup' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts BTC', value: '✓ 8-coin lineup since 2014' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: since 2014' }] },
   ],
   ethereum: [
     { slug: 'bitstarz', facts: [{ label: 'Accepts ETH', value: '✓' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
-    { slug: 'bc-game', facts: [{ label: 'Accepts ETH', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
-    { slug: '7bit-casino', facts: [{ label: 'Accepts ETH', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts ETH', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts ETH', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: since 2014' }] },
   ],
   usdt: [
     { slug: 'bitstarz', facts: [{ label: 'Accepts USDT', value: '✓' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
-    { slug: 'bc-game', facts: [{ label: 'Accepts USDT', value: '✓ — multi-network' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
-    { slug: '7bit-casino', facts: [{ label: 'Accepts USDT', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts USDT', value: '✓ multi-network' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts USDT', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: since 2014' }] },
   ],
   usdc: [
-    { slug: 'bc-game', facts: [{ label: 'Accepts USDC', value: '✓ — among 100+ coins' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
-    { slug: 'cloudbet', facts: [{ label: 'Accepts USDC', value: '✓ — in 10-coin lineup' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' }, { label: 'KYC', value: 'Light' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts USDC', value: '✓ among 100+ coins' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: at any size' }] },
+    { slug: 'cloudbet', facts: [{ label: 'Accepts USDC', value: '✓ in 10-coin lineup' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' }, { label: 'KYC', value: 'Light' }] },
     { slug: 'duelbits', facts: [{ label: 'Accepts USDC', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 5 minutes (fastest)' }, { label: 'KYC', value: 'None for crypto play' }] },
   ],
   litecoin: [
     { slug: 'bitstarz', facts: [{ label: 'Accepts LTC', value: '✓' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
-    { slug: 'bc-game', facts: [{ label: 'Accepts LTC', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
-    { slug: '7bit-casino', facts: [{ label: 'Accepts LTC', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts LTC', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts LTC', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: since 2014' }] },
   ],
   dogecoin: [
     { slug: 'bitstarz', facts: [{ label: 'Accepts DOGE', value: '✓' }, { label: 'Withdrawal', value: 'Under 10 minutes' }, { label: 'KYC', value: 'Light' }] },
-    { slug: 'bc-game', facts: [{ label: 'Accepts DOGE', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
-    { slug: '7bit-casino', facts: [{ label: 'Accepts DOGE', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts DOGE', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts DOGE', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: since 2014' }] },
   ],
   solana: [
-    { slug: 'bc-game', facts: [{ label: 'Accepts SOL', value: '✓ — sub-second finality' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
-    { slug: 'cloudbet', facts: [{ label: 'Accepts SOL', value: '✓ — first-class option' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' }, { label: 'KYC', value: 'Light' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts SOL', value: '✓ sub-second finality' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: at any size' }] },
+    { slug: 'cloudbet', facts: [{ label: 'Accepts SOL', value: '✓ first-class option' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' }, { label: 'KYC', value: 'Light' }] },
     { slug: 'duelbits', facts: [{ label: 'Accepts SOL', value: '✓' }, { label: 'Withdrawal', value: 'Instant to 5 minutes (fastest)' }, { label: 'KYC', value: 'None for crypto play' }] },
   ],
   bnb: [
-    { slug: 'bc-game', facts: [{ label: 'Accepts BNB', value: '✓ on BNB Smart Chain' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — at any size' }] },
-    { slug: '7bit-casino', facts: [{ label: 'Accepts BNB', value: '✓ in 8-coin lineup' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None — since 2014' }] },
+    { slug: 'bc-game', facts: [{ label: 'Accepts BNB', value: '✓ on BNB Smart Chain' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: at any size' }] },
+    { slug: '7bit-casino', facts: [{ label: 'Accepts BNB', value: '✓ in 8-coin lineup' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }, { label: 'KYC', value: 'None: since 2014' }] },
     { slug: 'cloudbet', facts: [{ label: 'Accepts BNB', value: '✓ first-class in 10-coin lineup' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' }, { label: 'KYC', value: 'Light' }] },
   ],
 }
@@ -72,10 +72,10 @@ export async function generateMetadata(
   if (!crypto) return {}
   const isBNB = crypto.symbol === 'BNB'
   const title = isBNB
-    ? 'BNB on Crypto Casinos — Chain Mechanics, Fees, Networks | PlayMagpie'
-    : `Best ${crypto.name} Casinos 2026 — PlayMagpie`
+    ? 'BNB on Crypto Casinos: Chain Mechanics, Fees, Networks | PlayMagpie'
+    : `Best ${crypto.name} Casinos 2026: PlayMagpie`
   const description = isBNB
-    ? 'How BNB works at crypto casinos — BNB Smart Chain mechanics, confirmation times, fee character. For the ranked list of BNB-accepting operators, see /bnb-crypto-casinos.'
+    ? 'How BNB works at crypto casinos: BNB Smart Chain mechanics, confirmation times, fee character. For the ranked list of BNB-accepting operators, see /bnb-crypto-casinos.'
     : `Top crypto casinos accepting ${crypto.name}. Compare bonuses, withdrawal times and fees.`
   return {
     title,
@@ -94,12 +94,12 @@ export async function generateMetadata(
 const intros: Record<string, string> = {
   BTC: 'Bitcoin remains the most universally accepted cryptocurrency at online casinos, supported by every serious crypto platform on the market. Depositing in BTC gives you access to the widest possible range of operators, the most generous welcome bonuses, and the deepest game libraries. The trade-offs are familiar: block confirmation times average 10 minutes and can stretch significantly during periods of mempool congestion, and BTC price volatility means the dollar value of your bankroll changes constantly between sessions. For players who already hold Bitcoin as a long-term position, gambling with BTC avoids conversion overhead. For players acquiring crypto specifically to gamble, faster stablecoin alternatives may be more practical, but BTC remains the default choice when maximum casino availability matters.',
   ETH: 'Ethereum is the second most widely accepted cryptocurrency at major crypto casinos and a reliable backup when faster networks are unavailable. ETH confirmations typically complete in 15 to 30 seconds, making it dramatically faster than Bitcoin for both deposits and withdrawals. The main consideration with Ethereum is gas fees, which fluctuate with network demand and can climb to $5 to $30 per transaction during peak congestion. For larger, infrequent transactions this is manageable; for routine smaller withdrawals, the fee structure becomes meaningful. Most top-tier crypto casinos including BitStarz, BC.Game, Cloudbet, Mirax and 7Bit Casino accept ETH alongside their broader stablecoin and altcoin support, and welcome bonuses are typically denominated equivalently across coins.',
-  USDT: 'USDT (Tether) is the most practical gambling cryptocurrency available in 2026, particularly on the TRC-20 (Tron) network. As a stablecoin pegged 1:1 to the US dollar, USDT eliminates the bankroll volatility that comes with BTC or ETH — a $500 USDT deposit is worth $500 when you withdraw, regardless of what crypto markets do between sessions. On TRC-20, confirmations complete in under three seconds with fees consistently below $0.01. Every major crypto casino accepts USDT, often across multiple networks (TRC-20, ERC-20, and increasingly Solana). For players who want fast, cheap, predictable transactions and a fixed-dollar bankroll, USDT on TRC-20 is the recommended default.',
-  USDC: 'USD Coin (USDC) is the second-largest stablecoin and offers the same dollar-pegged stability as USDT with stronger regulatory positioning. Issued by Circle and audited monthly, USDC is favoured by players who want stablecoin stability with greater counterparty transparency. USDC is supported across Ethereum, Solana, Polygon and several other networks; on Solana it confirms in under a second with negligible fees. Casino acceptance has expanded rapidly — BC.Game, Cloudbet and Shuffle all support USDC deposits and withdrawals. For US-friendlier platforms or players with concerns about USDT reserves, USDC is the natural alternative and delivers comparable speed and cost characteristics.',
-  LTC: 'Litecoin (LTC) is one of the longest-established cryptocurrencies and remains widely accepted at crypto casinos. Block times average 2.5 minutes — four times faster than Bitcoin — making it a reliable middle-ground option for players who want non-stablecoin exposure without BTC-level confirmation delays. Network fees are consistently low, typically under $0.05 per transaction. LTC is supported by BitStarz, BC.Game, Cloudbet, Mirax, 7Bit and most other major crypto casinos. Welcome bonuses are usually offered in BTC-equivalent terms, so LTC depositors receive proportionally matched amounts. For players who prefer a proof-of-work coin with a long track record and faster settlement than Bitcoin, Litecoin remains a solid choice.',
-  DOGE: 'Dogecoin (DOGE) is accepted at the majority of major crypto casinos and offers fast, cheap transactions with confirmation times around one minute. DOGE has built a large, active community and has become a legitimate payment option at platforms including BitStarz, BC.Game, Mirax Casino and 7Bit. Network fees are negligible and confirmation speeds are competitive with Litecoin. The main caveat with DOGE is price volatility — it tends to move on sentiment and social media trends, making it less stable than purpose-built stablecoins for bankroll management. For players who hold DOGE and want to use it directly at casinos, the option is well supported; for players choosing a coin specifically for gambling, stablecoins or faster networks are usually the better pick.',
-  SOL: 'Solana (SOL) has become the premier high-performance blockchain for crypto gambling since 2024. Sub-second confirmation finality and fees consistently under $0.001 make it theoretically the fastest on-chain option available. Casino adoption has accelerated rapidly — BC.Game, Cloudbet and Shuffle all support native SOL deposits and withdrawals, and many platforms now offer USDC and USDT on the Solana network as well. The main consideration is that not every crypto casino has added SOL support yet, though the gap is closing each quarter. For players prioritising speed and minimal fees, SOL is now competitive with TRC-20 USDT and often faster.',
-  BNB: 'BNB on BNB Smart Chain settles in roughly three seconds at sub-cent fees — among the cheapest end-to-end deposit and withdrawal paths at any crypto casino. Casino acceptance is narrower than for BTC, ETH or USDT: five of the eight casinos in our rankings accept BNB directly (BC.Game, Cloudbet, 7Bit Casino, Shuffle and Duelbits), while BitStarz, Mirax Casino and Roobet do not. BNB is non-stablecoin — its dollar value moves with market sentiment, so balances held on platform across weeks drift relative to USD, unlike USDT or USDC. The practical use case is depositing what you already hold (typically from Binance exchange usage or BNB Chain DeFi positions) to avoid conversion overhead; there is no scenario where you would specifically buy BNB to gamble with rather than buying USDT or SOL. Make sure deposit and withdrawal addresses are on BNB Smart Chain (BEP-20), not BNB Beacon Chain — sending to the wrong network results in lost funds and casino cashiers do not catch this.',
+  USDT: 'USDT (Tether) is the most practical gambling cryptocurrency available in 2026, particularly on the TRC-20 (Tron) network. As a stablecoin pegged 1:1 to the US dollar, USDT eliminates the bankroll volatility that comes with BTC or ETH. A $500 USDT deposit is worth $500 when you withdraw, regardless of what crypto markets do between sessions. On TRC-20, confirmations complete in under three seconds with fees consistently below $0.01. Every major crypto casino accepts USDT, often across multiple networks (TRC-20, ERC-20, and increasingly Solana). For players who want fast, cheap, predictable transactions and a fixed-dollar bankroll, USDT on TRC-20 is the recommended default.',
+  USDC: 'USD Coin (USDC) is the second-largest stablecoin and offers the same dollar-pegged stability as USDT with stronger regulatory positioning. Issued by Circle and audited monthly, USDC is favoured by players who want stablecoin stability with greater counterparty transparency. USDC is supported across Ethereum, Solana, Polygon and several other networks; on Solana it confirms in under a second with negligible fees. Casino acceptance has expanded rapidly: BC.Game, Cloudbet and Shuffle all support USDC deposits and withdrawals. For US-friendlier platforms or players with concerns about USDT reserves, USDC is the natural alternative and delivers comparable speed and cost characteristics.',
+  LTC: 'Litecoin (LTC) is one of the longest-established cryptocurrencies and remains widely accepted at crypto casinos. Block times average 2.5 minutes (four times faster than Bitcoin), making it a reliable middle-ground option for players who want non-stablecoin exposure without BTC-level confirmation delays. Network fees are consistently low, typically under $0.05 per transaction. LTC is supported by BitStarz, BC.Game, Cloudbet, Mirax, 7Bit and most other major crypto casinos. Welcome bonuses are usually offered in BTC-equivalent terms, so LTC depositors receive proportionally matched amounts. For players who prefer a proof-of-work coin with a long track record and faster settlement than Bitcoin, Litecoin remains a solid choice.',
+  DOGE: 'Dogecoin (DOGE) is accepted at the majority of major crypto casinos and offers fast, cheap transactions with confirmation times around one minute. DOGE has built a large, active community and has become a legitimate payment option at platforms including BitStarz, BC.Game, Mirax Casino and 7Bit. Network fees are negligible and confirmation speeds are competitive with Litecoin. The main caveat with DOGE is price volatility: it tends to move on sentiment and social media trends, making it less stable than purpose-built stablecoins for bankroll management. For players who hold DOGE and want to use it directly at casinos, the option is well supported; for players choosing a coin specifically for gambling, stablecoins or faster networks are usually the better pick.',
+  SOL: 'Solana (SOL) has become the premier high-performance blockchain for crypto gambling since 2024. Sub-second confirmation finality and fees consistently under $0.001 make it theoretically the fastest on-chain option available. Casino adoption has accelerated rapidly: BC.Game, Cloudbet and Shuffle all support native SOL deposits and withdrawals, and many platforms now offer USDC and USDT on the Solana network as well. The main consideration is that not every crypto casino has added SOL support yet, though the gap is closing each quarter. For players prioritising speed and minimal fees, SOL is now competitive with TRC-20 USDT and often faster.',
+  BNB: 'BNB on BNB Smart Chain settles in roughly three seconds at sub-cent fees, among the cheapest end-to-end deposit and withdrawal paths at any crypto casino. Casino acceptance is narrower than for BTC, ETH or USDT: five of the eight casinos in our rankings accept BNB directly (BC.Game, Cloudbet, 7Bit Casino, Shuffle and Duelbits), while BitStarz, Mirax Casino and Roobet do not. BNB is non-stablecoin: its dollar value moves with market sentiment, so balances held on platform across weeks drift relative to USD, unlike USDT or USDC. The practical use case is depositing what you already hold (typically from Binance exchange usage or BNB Chain DeFi positions) to avoid conversion overhead; there is no scenario where you would specifically buy BNB to gamble with rather than buying USDT or SOL. Make sure deposit and withdrawal addresses are on BNB Smart Chain (BEP-20), not BNB Beacon Chain. Sending to the wrong network results in lost funds and casino cashiers do not catch this.',
 }
 
 function casinoAcceptsCrypto(casino: Casino, symbol: string): boolean {
@@ -123,7 +123,7 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
   const dogeRanked = isDOGE ? [...matching].sort((a, b) => b.trustScore - a.trustScore) : []
 
   const headingLabel = isBNB
-    ? `BNB at Crypto Casinos — Chain Mechanics & Networks`
+    ? `BNB at Crypto Casinos: Chain Mechanics & Networks`
     : `Best ${crypto.name} Casinos 2026`
   const subHeadingLabel = isBNB
     ? `BNB Smart Chain mechanics, deposit-side behaviour, and fee character at crypto casinos. The ranked listicle of BNB-accepting operators lives at /bnb-crypto-casinos.`
@@ -180,7 +180,7 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
             <h2 className="text-2xl font-bold text-white mb-2">Best Dogecoin casinos compared</h2>
             <p className="text-[#888888] text-sm mb-6">
               All {matching.length} casinos in our ratings accept DOGE for deposits and
-              withdrawals — verified against{' '}
+              withdrawals, verified against{' '}
               <code className="text-[#7BB8D4] bg-[#111111] px-1.5 py-0.5 rounded text-xs">lib/casinos.ts</code>.
               Ranked by trust score.
             </p>
@@ -220,7 +220,7 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
             <p className="text-[#555555] text-xs mt-3">
               Withdrawal window is each operator&apos;s general crypto-cashier processing time
               from our catalogue; we do not publish a separate per-coin DOGE timing. On-chain
-              Dogecoin confirmation is operator-independent — a property of the network, not
+              Dogecoin confirmation is operator-independent: a property of the network, not
               the casino.
             </p>
           </section>
@@ -235,7 +235,7 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
               The full BNB casino comparison lives on its own page
             </h2>
             <p className="text-[#888888] mb-5 leading-relaxed">
-              This page covers the chain-level mechanics — what BNB Smart Chain actually
+              This page covers the chain-level mechanics: what BNB Smart Chain actually
               does at a casino cashier, fee character, network considerations. For the
               ranked list of which casinos accept BNB, comparison table, per-operator
               cashier notes and editor&apos;s pick, the dedicated commercial page is{' '}

@@ -13,7 +13,7 @@ const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'cloudbet',
     facts: [
-      { label: 'Withdrawal limit', value: 'No limit — explicit policy' },
+      { label: 'Withdrawal limit', value: 'No limit (explicit policy)' },
       { label: 'Withdrawal', value: 'Instant to 30 minutes' },
       { label: 'Licence', value: 'Curaçao + Kahnawake' },
     ],
@@ -37,23 +37,23 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'No-Limit Withdrawal Crypto Casinos 2026 — No Max Cashout',
+  title: 'No-Limit Withdrawal Crypto Casinos 2026: No Max Cashout',
   description:
-    'Crypto casinos with no withdrawal limits ranked for 2026. Cash out big wins without daily caps or weekly ceilings. Cloudbet leads — alternatives compared.',
+    'Crypto casinos with no withdrawal limits ranked for 2026. Cash out big wins without daily caps or weekly ceilings. Cloudbet leads; alternatives compared.',
   alternates: {
     canonical: '/no-limit-withdrawal-casinos',
   },
   openGraph: {
     url: '/no-limit-withdrawal-casinos',
-    title: 'No-Limit Withdrawal Crypto Casinos 2026 — No Max Cashout',
+    title: 'No-Limit Withdrawal Crypto Casinos 2026: No Max Cashout',
     description:
-      'Crypto casinos with no withdrawal caps — cash out big wins without daily or weekly ceilings. Cloudbet leads, alternatives ranked.',
+      'Crypto casinos with no withdrawal caps: cash out big wins without daily or weekly ceilings. Cloudbet leads, alternatives ranked.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'No-Limit Withdrawal Crypto Casinos 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'No-Limit Withdrawal Crypto Casinos 2026 — No Max Cashout',
-    description: 'Crypto casinos with no withdrawal caps — cash out big wins without daily or weekly ceilings.',
+    title: 'No-Limit Withdrawal Crypto Casinos 2026: No Max Cashout',
+    description: 'Crypto casinos with no withdrawal caps: cash out big wins without daily or weekly ceilings.',
     images: ['/og-image.png'],
   },
 }
@@ -70,23 +70,23 @@ const breadcrumbSchema = {
 const faqs = [
   {
     question: 'Which crypto casino actually has no withdrawal limits?',
-    answer: 'Cloudbet is the only casino in our current rankings that explicitly states "no withdrawal limits" in its operating terms — confirmed in our Cloudbet review. Other top-rated platforms operate per-transaction caps that are high enough to clear most wins in a single request and effectively uncapped at VIP tiers, but the formal "no maximum cashout" claim is Cloudbet\'s.',
+    answer: 'Cloudbet is the only casino in our current rankings that explicitly states "no withdrawal limits" in its operating terms, confirmed in our Cloudbet review. Other top-rated platforms operate per-transaction caps that are high enough to clear most wins in a single request and effectively uncapped at VIP tiers, but the formal "no maximum cashout" claim is Cloudbet\'s.',
   },
   {
     question: 'What\'s the difference between a per-transaction cap and a daily withdrawal limit?',
-    answer: 'A per-transaction cap restricts the size of a single withdrawal request — you can usually split a larger win across multiple withdrawals. A daily or weekly limit is the harder constraint: it caps how much you can move off-platform in a given period regardless of how many requests you split it into. That\'s the one that matters when you hit a five- or six-figure win and want it off the casino as fast as possible.',
+    answer: 'A per-transaction cap restricts the size of a single withdrawal request; you can usually split a larger win across multiple withdrawals. A daily or weekly limit is the harder constraint: it caps how much you can move off-platform in a given period regardless of how many requests you split it into. That\'s the one that matters when you hit a five- or six-figure win and want it off the casino as fast as possible.',
   },
   {
     question: 'Will KYC be triggered if I withdraw a big amount?',
-    answer: 'At Light-KYC platforms (BitStarz, Cloudbet, Mirax, Shuffle), yes — large withdrawals frequently trigger identity verification even if it wasn\'t required for play. At No-KYC platforms (BC.Game, 7Bit Casino, Duelbits) the policy is to keep withdrawals document-free, though Duelbits and Shuffle reserve the right to run checks on unusual activity. The on-chain side is unaffected — the slowdown is the manual review, not the blockchain.',
+    answer: 'At Light-KYC platforms (BitStarz, Cloudbet, Mirax, Shuffle), yes: large withdrawals frequently trigger identity verification even if it wasn\'t required for play. At No-KYC platforms (BC.Game, 7Bit Casino, Duelbits) the policy is to keep withdrawals document-free, though Duelbits and Shuffle reserve the right to run checks on unusual activity. The on-chain side is unaffected; the slowdown is the manual review, not the blockchain.',
   },
   {
     question: 'Does network choice matter for big withdrawals?',
-    answer: 'Yes. A 5 BTC withdrawal on the Bitcoin network depends on block confirmation times and fee market — usually 10–30 minutes end-to-end. The same value moved as USDT on TRC-20 or SOL is sub-second on-chain and clears as soon as the casino approves. For large cash-outs the operational bottleneck is the casino\'s manual review queue, not the network — but using a fast-finality chain takes one variable out of the equation.',
+    answer: 'Yes. A 5 BTC withdrawal on the Bitcoin network depends on block confirmation times and fee market: usually 10–30 minutes end-to-end. The same value moved as USDT on TRC-20 or SOL is sub-second on-chain and clears as soon as the casino approves. For large cash-outs the operational bottleneck is the casino\'s manual review queue, not the network, but using a fast-finality chain takes one variable out of the equation.',
   },
   {
     question: 'Why do most casinos not publish a maximum withdrawal limit?',
-    answer: 'Two reasons. First, withdrawal handling is often tiered — a standard account has an effective cap (usually expressed as "manual review required above X" rather than "withdrawals over X refused"), and VIP-tier players get that cap raised or eliminated through individual onboarding. Publishing a number invites disputes and reduces commercial flexibility. Second, regulators generally don\'t require a published cap — they require AML compliance, which is satisfied by the review trigger mechanism. Cloudbet is unusual in stating "no withdrawal limits" outright; the others document what triggers review at higher amounts but don\'t commit to a specific ceiling number.',
+    answer: 'Two reasons. First, withdrawal handling is often tiered: a standard account has an effective cap (usually expressed as "manual review required above X" rather than "withdrawals over X refused"), and VIP-tier players get that cap raised or eliminated through individual onboarding. Publishing a number invites disputes and reduces commercial flexibility. Second, regulators generally don\'t require a published cap. They require AML compliance, which is satisfied by the review trigger mechanism. Cloudbet is unusual in stating "no withdrawal limits" outright; the others document what triggers review at higher amounts but don\'t commit to a specific ceiling number.',
   },
 ]
 
@@ -133,7 +133,7 @@ export default function NoLimitWithdrawalPage() {
             No-Limit Withdrawal Crypto Casinos 2026
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            The cap that matters isn&apos;t how fast a casino pays — it&apos;s how much it&apos;ll let you take out at once.
+            The cap that matters isn&apos;t how fast a casino pays. It&apos;s how much it&apos;ll let you take out at once.
             These platforms either eliminate the withdrawal ceiling outright or scale it high enough at VIP level that
             it stops being a constraint.
           </p>
@@ -142,7 +142,7 @@ export default function NoLimitWithdrawalPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           {[
             { label: 'No-Limit Operator', value: 'Cloudbet', sub: 'Only one on this list with the formal claim' },
-            { label: 'Fastest Verified Payout', value: 'Under 5 min', sub: 'Duelbits, 9.2/10 withdrawal score' },
+            { label: 'Fastest Verified Payout', value: 'Under 5 min', sub: 'Duelbits: 9.2/10 withdrawal score' },
             { label: 'No-KYC + Fast Payouts', value: '3 casinos', sub: 'BC.Game · 7Bit · Duelbits' },
           ].map((s) => (
             <div key={s.label} className="bg-[#111111] border border-[#222222] rounded-2xl p-5 text-center">
@@ -170,7 +170,7 @@ export default function NoLimitWithdrawalPage() {
         <section className="my-12">
           <h2 className="text-2xl font-bold text-white mb-6">Casinos Ranked by Cash-Out Posture</h2>
           <p className="text-[#888888] text-sm mb-6 max-w-3xl">
-            Cloudbet leads on the formal &quot;no withdrawal limits&quot; claim. The rest are sorted by withdrawal score — a proxy for
+            Cloudbet leads on the formal &quot;no withdrawal limits&quot; claim. The rest are sorted by withdrawal score, a proxy for
             how fast and frictionless their payout pipeline is once the ceiling stops being the binding constraint.
           </p>
           <CasinoComparisonTable casinos={ranked} />
@@ -178,7 +178,7 @@ export default function NoLimitWithdrawalPage() {
 
         <TopRatedSection
           title="Top No-Limit Picks"
-          subtitle="Ranked on withdrawal posture — formal no-limit policy, KYC behaviour and payout speed at scale"
+          subtitle="Ranked on withdrawal posture: formal no-limit policy, KYC behaviour and payout speed at scale"
           casinos={ranked.slice(0, 3)}
         />
 
@@ -187,7 +187,7 @@ export default function NoLimitWithdrawalPage() {
           <p className="text-[#888888] text-sm mb-6 max-w-3xl">
             Honest framing: only one of the eight casinos in our reviews makes an explicit &quot;no withdrawal limit&quot;
             statement. For the rest, the cashier T&amp;Cs don&apos;t publish a specific per-transaction or daily cap
-            number — what&apos;s documented is what triggers manual review at higher amounts. Sourced exclusively from
+            number: what&apos;s documented is what triggers manual review at higher amounts. Sourced exclusively from
             each casino&apos;s reviewSummary, pros and cons in our published reviews.
           </p>
           <div className="overflow-x-auto rounded-2xl border border-[#222222]">
@@ -205,7 +205,7 @@ export default function NoLimitWithdrawalPage() {
                     slug: 'cloudbet',
                     name: 'Cloudbet',
                     limit: 'None (explicit)',
-                    trigger: 'Pros explicitly state “No withdrawal limits — critical for high-roller play”. Light KYC may apply at very large amounts.',
+                    trigger: 'Pros explicitly state “No withdrawal limits: critical for high-roller play”. Light KYC may apply at very large amounts.',
                     explicit: true,
                   },
                   {
@@ -269,7 +269,7 @@ export default function NoLimitWithdrawalPage() {
           </div>
           <p className="text-[#555555] text-xs mt-3">
             &quot;Not documented&quot; here means the casino doesn&apos;t publish a specific per-transaction or daily
-            cap in our reviewed materials — it does not mean limits don&apos;t exist operationally. VIP-tier
+            cap in our reviewed materials. It does not mean limits don&apos;t exist operationally. VIP-tier
             arrangements typically raise or eliminate caps for verified high-stakes players; that conversation usually
             happens during VIP onboarding rather than on a public page.
           </p>
@@ -281,11 +281,11 @@ export default function NoLimitWithdrawalPage() {
             {[
               {
                 title: 'Per-Transaction vs Daily Caps',
-                body: 'Almost every casino has a per-request maximum — split a 10 BTC withdrawal across requests and it usually clears. The real binding constraint is the daily or weekly cap, which is what Cloudbet explicitly doesn\'t apply. Read the cashier T&Cs before depositing if your stake plan implies a big win.',
+                body: 'Almost every casino has a per-request maximum: split a 10 BTC withdrawal across requests and it usually clears. The real binding constraint is the daily or weekly cap, which is what Cloudbet explicitly doesn\'t apply. Read the cashier T&Cs before depositing if your stake plan implies a big win.',
               },
               {
                 title: 'VIP Tier Exemptions',
-                body: 'Most platforms (BitStarz, Mirax, 7Bit, BC.Game) raise or remove withdrawal caps at higher VIP tiers rather than running an across-the-board policy. If you\'re depositing five or six figures, the VIP onboarding conversation should cover where your cap lands — it\'s not always written down on the public page.',
+                body: 'Most platforms (BitStarz, Mirax, 7Bit, BC.Game) raise or remove withdrawal caps at higher VIP tiers rather than running an across-the-board policy. If you\'re depositing five or six figures, the VIP onboarding conversation should cover where your cap lands; it\'s not always written down on the public page.',
               },
               {
                 title: 'KYC Trigger Thresholds',
@@ -293,7 +293,7 @@ export default function NoLimitWithdrawalPage() {
               },
               {
                 title: 'Network Settlement Speed',
-                body: 'For a 5 BTC equivalent withdrawal, the casino\'s internal review is usually the bottleneck — not the chain. But on-chain finality still matters: USDT on TRC-20, SOL or MATIC clear in seconds; BTC depends on fee market and block timing. Pick the network that pairs with your cash-out plan, not just your deposit habits.',
+                body: 'For a 5 BTC equivalent withdrawal, the casino\'s internal review is usually the bottleneck, not the chain. But on-chain finality still matters: USDT on TRC-20, SOL or MATIC clear in seconds; BTC depends on fee market and block timing. Pick the network that pairs with your cash-out plan, not just your deposit habits.',
               },
             ].map((card) => (
               <div key={card.title} className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
@@ -316,32 +316,32 @@ export default function NoLimitWithdrawalPage() {
               {
                 slug: 'bc-game',
                 name: 'BC.Game',
-                summary: 'No-KYC throughout — register with email and withdraw without identity checks at standard amounts. 9.3/10 withdrawal score with instant-to-10-minute payouts across 100+ supported cryptocurrencies. The lack of a formal no-limit claim means very large withdrawals may be split or reviewed; for crypto-native players this is rarely a barrier in practice.',
+                summary: 'No-KYC throughout: register with email and withdraw without identity checks at standard amounts. 9.3/10 withdrawal score with instant-to-10-minute payouts across 100+ supported cryptocurrencies. The lack of a formal no-limit claim means very large withdrawals may be split or reviewed; for crypto-native players this is rarely a barrier in practice.',
               },
               {
                 slug: 'duelbits',
                 name: 'Duelbits',
-                summary: 'Fastest verified processing on the list — instant to 5 minutes with a 9.2/10 withdrawal score. No-KYC for standard play with basic checks reserved for unusual activity. The rakeback-based VIP system suits high-volume players who want continuous return rather than tier-locked bonus caps that can interfere with cash-out.',
+                summary: 'Fastest verified processing on the list: instant to 5 minutes with a 9.2/10 withdrawal score. No-KYC for standard play with basic checks reserved for unusual activity. The rakeback-based VIP system suits high-volume players who want continuous return rather than tier-locked bonus caps that can interfere with cash-out.',
               },
               {
                 slug: 'bitstarz',
                 name: 'BitStarz',
-                summary: 'Highest withdrawal score on the list at 9.5/10 — under-10-minute payouts since 2014. Light KYC kicks in for larger fiat or flagged amounts. The 25% admin fee on bonus-related withdrawals is the catch to flag if you cleared a match bonus and now want to cash out the winnings.',
+                summary: 'Highest withdrawal score on the list at 9.5/10: under-10-minute payouts since 2014. Light KYC kicks in for larger fiat or flagged amounts. The 25% admin fee on bonus-related withdrawals is the catch to flag if you cleared a match bonus and now want to cash out the winnings.',
               },
               {
                 slug: '7bit-casino',
                 name: '7Bit Casino',
-                summary: 'No-KYC for crypto withdrawals at any amount since 2014 — one of the longest unbroken policies on the list. 9.1/10 withdrawal score. The 325% match up to €5,400 welcome package + 250 free spins is competitive with rivals, and the cash-out side is consistently fast and frictionless across the eight supported coins.',
+                summary: 'No-KYC for crypto withdrawals at any amount since 2014, one of the longest unbroken policies on the list. 9.1/10 withdrawal score. The 325% match up to €5,400 welcome package + 250 free spins is competitive with rivals, and the cash-out side is consistently fast and frictionless across the eight supported coins.',
               },
               {
                 slug: 'shuffle',
                 name: 'Shuffle',
-                summary: 'Light KYC with checks reserved for larger withdrawals — explicitly noted in the platform\'s own communications. 8.8/10 withdrawal score. The rakeback model and SHFL token rewards work well for active players, but the temporary-hold-on-high-value-withdrawals pattern is the one to monitor before depositing if you expect a single large win.',
+                summary: 'Light KYC with checks reserved for larger withdrawals, explicitly noted in the platform\'s own communications. 8.8/10 withdrawal score. The rakeback model and SHFL token rewards work well for active players, but the temporary-hold-on-high-value-withdrawals pattern is the one to monitor before depositing if you expect a single large win.',
               },
               {
                 slug: 'mirax-casino',
                 name: 'Mirax Casino',
-                summary: 'Instant-to-15-minute crypto payouts with an 8.8/10 withdrawal score. Light KYC may apply at larger amounts. The 4-deposit welcome pack runs up to 5 BTC with 150 free spins (100 on D1, 50 on D2, cash-only on D3/D4) — wagering through the bonus before withdrawing is the consideration, not the withdrawal mechanism itself. Free-spin winnings carry a €100 cap per the live promotions page.',
+                summary: 'Instant-to-15-minute crypto payouts with an 8.8/10 withdrawal score. Light KYC may apply at larger amounts. The 4-deposit welcome pack runs up to 5 BTC with 150 free spins (100 on D1, 50 on D2, cash-only on D3/D4). Wagering through the bonus before withdrawing is the consideration, not the withdrawal mechanism itself. Free-spin winnings carry a €100 cap per the live promotions page.',
               },
             ].map((c) => (
               <Link

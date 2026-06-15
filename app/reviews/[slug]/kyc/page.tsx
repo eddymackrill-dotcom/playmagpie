@@ -14,17 +14,17 @@ const META: Record<(typeof KYC_SLUGS)[number], { title: string; description: str
   bitstarz: {
     title: 'BitStarz KYC Requirements 2026: When Verification Triggers | PlayMagpie',
     description:
-      'BitStarz runs Light KYC — most crypto players never upload a document. What actually triggers verification, which documents get asked for, and how the 25% bonus admin fee interacts with a held withdrawal.',
+      'BitStarz runs Light KYC: most crypto players never upload a document. What actually triggers verification, which documents get asked for, and how the 25% bonus admin fee interacts with a held withdrawal.',
   },
   'bc-game': {
     title: 'BC.Game KYC: Does It Require Verification? (2026) | PlayMagpie',
     description:
-      'BC.Game runs a strict no-KYC policy — email signup, no documents ever required for crypto play or withdrawals. What that means in practice, where the operator-layer compliance line sits, and how it compares to Light-KYC rivals.',
+      'BC.Game runs a strict no-KYC policy: email signup, no documents ever required for crypto play or withdrawals. What that means in practice, where the operator-layer compliance line sits, and how it compares to Light-KYC rivals.',
   },
   cloudbet: {
     title: 'Cloudbet KYC: No Limits, Verification Only at Scale | PlayMagpie',
     description:
-      'Cloudbet is the rare casino where no withdrawal limits and Light KYC coexist — cash out unlimited amounts with verification reserved for the extreme top end. Where the trigger sits and what the dual licence means for it.',
+      'Cloudbet is the rare casino where no withdrawal limits and Light KYC coexist: cash out unlimited amounts with verification reserved for the extreme top end. Where the trigger sits and what the dual licence means for it.',
   },
 }
 
@@ -116,7 +116,7 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
           <div className="flex items-start justify-between gap-6 flex-wrap mb-4">
             <div>
               <p className="text-[#7BB8D4] text-sm font-medium uppercase tracking-wider mb-2">
-                {casino.name} — KYC & Verification
+                {casino.name}: KYC & Verification
               </p>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
                 {slug === 'bitstarz' && 'BitStarz KYC: What Triggers Verification in 2026'}
@@ -149,7 +149,7 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
         {slug === 'cloudbet' && <CloudbetContent />}
 
         <section className="mt-12 pt-10 border-t border-[#222222]">
-          <h2 className="text-xl font-bold text-white mb-2">{casino.name} KYC — FAQ</h2>
+          <h2 className="text-xl font-bold text-white mb-2">{casino.name} KYC FAQ</h2>
           <p className="text-[#888888] text-sm mb-8">
             The verification questions players actually ask before depositing at {casino.name}.
           </p>
@@ -222,7 +222,7 @@ function KycCrossLink({
   if (isCurrent) {
     return (
       <div className="bg-[#0d0d0d] border border-[#7BB8D4]/30 rounded-2xl p-4">
-        <div className="font-semibold text-[#7BB8D4] mb-1 text-sm">{name} — you are here</div>
+        <div className="font-semibold text-[#7BB8D4] mb-1 text-sm">{name}: you are here</div>
         <div className="text-[#888888] text-xs">KYC level: {level}</div>
       </div>
     )
@@ -267,7 +267,7 @@ function BitstarzContent() {
     <>
       <Para>
         The honest answer to &quot;does BitStarz require KYC&quot; is: usually not, but it
-        depends on what you do. BitStarz runs a Light KYC policy — crypto-only players
+        depends on what you do. BitStarz runs a Light KYC policy: crypto-only players
         running ordinary stakes generally deposit, play and withdraw without ever
         uploading a document. Verification is the exception, not the default, and it
         earns an 8.5/10 on our KYC score. This page covers exactly what flips it from
@@ -276,7 +276,7 @@ function BitstarzContent() {
       <Para>
         That distinction is what the Search Console data for &quot;bitstarz kyc&quot; and
         &quot;bitstarz kyc requirements&quot; suggests people are actually trying to settle
-        before they sign up — so this page leads with the two trigger conditions, then
+        before they sign up, so this page leads with the two trigger conditions, then
         covers the documents and the one interaction (the 25% bonus admin fee) that
         most often gets mistaken for a KYC hold.
       </Para>
@@ -284,7 +284,7 @@ function BitstarzContent() {
       <SectionHeading>The two things that trigger BitStarz KYC</SectionHeading>
       <Para>
         In practice, Light KYC at BitStarz is triggered by one of two things. The first
-        is fiat-side activity — BitStarz supports fiat as well as crypto, and the moment
+        is fiat-side activity. BitStarz supports fiat as well as crypto, and the moment
         a withdrawal touches the regulated banking rails, identity verification becomes a
         compliance obligation the casino can&apos;t opt out of. The second is an automated
         compliance flag: account behaviour that the platform&apos;s monitoring reads as
@@ -297,11 +297,11 @@ function BitstarzContent() {
         exists, but the standard cashier path doesn&apos;t run through it.
       </Para>
 
-      <SectionHeading>What documents BitStarz asks for — if it asks</SectionHeading>
+      <SectionHeading>What documents BitStarz asks for, if it asks</SectionHeading>
       <Para>
         When verification is triggered, the request follows the standard pattern for a
         Curaçao-licensed operator: a government photo ID, a proof of address dated within
-        the last few months, and — for fiat or card activity — proof of the payment
+        the last few months, and (for fiat or card activity) proof of the payment
         method used. BitStarz processes these through live chat and its compliance team.
         We don&apos;t publish a turnaround figure we can&apos;t verify, but document review at
         this class of operator is typically same-day to a couple of days once everything
@@ -315,10 +315,10 @@ function BitstarzContent() {
         ]}
       />
 
-      <SectionHeading>The 25% bonus admin fee is not a KYC hold — but it looks like one</SectionHeading>
+      <SectionHeading>The 25% bonus admin fee is not a KYC hold, but it looks like one</SectionHeading>
       <Para>
         The single most common reason a BitStarz withdrawal sits in pending is not KYC
-        at all — it&apos;s the 25% admin fee being calculated on a bonus-derived balance.
+        at all: it&apos;s the 25% admin fee being calculated on a bonus-derived balance.
         If you took the 5 BTC welcome package and are withdrawing off cleared bonus
         money, 25% is deducted at the cashier, and the recalculation can briefly hold the
         payout. Players frequently misread that delay as identity verification. The two
@@ -330,7 +330,7 @@ function BitstarzContent() {
         .
       </Para>
 
-      <SectionHeading>No published dollar threshold — and we won&apos;t invent one</SectionHeading>
+      <SectionHeading>No published dollar threshold, and we won&apos;t invent one</SectionHeading>
       <Para>
         BitStarz does not publish a fixed amount above which KYC automatically triggers.
         We have not been able to source a verified figure, and per our editorial policy
@@ -338,7 +338,7 @@ function BitstarzContent() {
         practical read from player reports is that ordinary crypto withdrawals clear
         without verification and that the trigger is behaviour-and-rail driven rather
         than a single hard ceiling. If a guaranteed-no-documents policy at any amount is
-        your decisive factor, BitStarz&apos;s Light posture isn&apos;t the right fit — and the
+        your decisive factor, BitStarz&apos;s Light posture isn&apos;t the right fit, and the
         next section says where to look instead.
       </Para>
 
@@ -368,22 +368,22 @@ const BITSTARZ_FAQS = [
   {
     question: 'Does BitStarz require KYC to withdraw crypto?',
     answer:
-      'Not for routine crypto withdrawals. BitStarz runs a Light KYC policy — crypto-only players at ordinary stakes generally withdraw without uploading any documents. Verification is triggered by fiat-side activity or by an automated compliance flag on unusual account behaviour, not by every withdrawal. There is no published dollar threshold that forces KYC, and we don’t invent one.',
+      'Not for routine crypto withdrawals. BitStarz runs a Light KYC policy: crypto-only players at ordinary stakes generally withdraw without uploading any documents. Verification is triggered by fiat-side activity or by an automated compliance flag on unusual account behaviour, not by every withdrawal. There is no published dollar threshold that forces KYC, and we don’t invent one.',
   },
   {
     question: 'What documents does BitStarz ask for during verification?',
     answer:
-      'When KYC is triggered, BitStarz requests the standard set for a Curaçao-licensed operator: a government-issued photo ID, a recent proof of address (utility bill or bank statement), and — only if you used a card or fiat rail — proof of the payment method. Pure crypto players who never touch fiat rarely reach the proof-of-payment step.',
+      'When KYC is triggered, BitStarz requests the standard set for a Curaçao-licensed operator: a government-issued photo ID, a recent proof of address (utility bill or bank statement), and, only if you used a card or fiat rail, proof of the payment method. Pure crypto players who never touch fiat rarely reach the proof-of-payment step.',
   },
   {
     question: 'Why is my BitStarz withdrawal pending if I wasn’t asked for ID?',
     answer:
-      'The most common cause is the 25% admin fee being calculated on a bonus-derived balance, not a KYC check. If your withdrawal came off cleared welcome-bonus money, the fee recalculation can briefly hold the payout — players often mistake this for identity verification. Live chat will confirm which one is in play; the two mechanics are unrelated.',
+      'The most common cause is the 25% admin fee being calculated on a bonus-derived balance, not a KYC check. If your withdrawal came off cleared welcome-bonus money, the fee recalculation can briefly hold the payout. Players often mistake this for identity verification. Live chat will confirm which one is in play; the two mechanics are unrelated.',
   },
   {
     question: 'Can I stay anonymous at BitStarz?',
     answer:
-      'For crypto-only play at normal stakes, you can typically deposit, play and withdraw without verifying your identity — but BitStarz reserves the right to trigger Light KYC on fiat activity or flagged behaviour, so it is not a guaranteed-anonymous platform by policy. If zero documents at any amount is a hard requirement, a no-KYC operator like BC.Game, 7Bit or Duelbits is the structurally correct choice.',
+      'For crypto-only play at normal stakes, you can typically deposit, play and withdraw without verifying your identity, but BitStarz reserves the right to trigger Light KYC on fiat activity or flagged behaviour, so it is not a guaranteed-anonymous platform by policy. If zero documents at any amount is a hard requirement, a no-KYC operator like BC.Game, 7Bit or Duelbits is the structurally correct choice.',
   },
   {
     question: 'Does verifying my BitStarz account make withdrawals faster?',
@@ -399,7 +399,7 @@ function BcGameContent() {
       <Para>
         BC.Game has the shortest KYC section of any casino we review, because the policy
         is the absence of one. Sign-up is email-and-password. There is no identity
-        document required to deposit, play or withdraw crypto — not at registration, not
+        document required to deposit, play or withdraw crypto: not at registration, not
         at your first withdrawal, not at your hundredth. That strict no-KYC posture is
         why BC.Game holds a 9.5/10 KYC score, the highest in our entire catalogue.
       </Para>
@@ -416,7 +416,7 @@ function BcGameContent() {
         no proof of address, and no selfie verification at any crypto withdrawal amount.
         You create an account with an email address, fund it with any of the 100-plus
         supported cryptocurrencies, and withdraw to a wallet you control. The $5 minimum
-        deposit means this applies from the smallest bankroll up — there is no
+        deposit means this applies from the smallest bankroll up. There is no
         &quot;verified tier&quot; gating larger play.
       </Para>
       <Para>
@@ -427,13 +427,13 @@ function BcGameContent() {
         recommendation.
       </Para>
 
-      <SectionHeading>The one honest caveat — operator-layer compliance</SectionHeading>
+      <SectionHeading>The one honest caveat: operator-layer compliance</SectionHeading>
       <Para>
         No credible casino can promise it will never act on a transaction. BC.Game
         handles compliance the way no-KYC operators do: through on-chain transaction
         monitoring at the operator layer rather than up-front document collection. In
         ordinary play that is invisible. The realistic scenario where it surfaces is
-        genuinely anomalous activity — the kind that would flag at any regulated financial
+        genuinely anomalous activity: the kind that would flag at any regulated financial
         venue. For the overwhelming majority of players, no document is ever requested,
         which is exactly what the no-KYC rating reflects. We&apos;d rather state that
         nuance plainly than pretend an absolute that no operator can honour.
@@ -441,11 +441,11 @@ function BcGameContent() {
 
       <SectionHeading>100+ coins and why coin choice is secondary to policy</SectionHeading>
       <Para>
-        BC.Game supports more cryptocurrencies than any other casino we review — BTC,
+        BC.Game supports more cryptocurrencies than any other casino we review: BTC,
         ETH, USDT, SOL, BNB, DOGE, LTC, XRP, TRX, USDC and a long tail beyond. For an
         anonymity-focused player the important point is that the privacy comes from the
         casino&apos;s no-KYC policy, not from the coin. You can pick your network purely for
-        speed and fees — TRC-20 USDT or SOL for near-instant low-cost withdrawals —
+        speed and fees (TRC-20 USDT or SOL for near-instant low-cost withdrawals)
         without trading off on verification, because there is no verification to trade
         off against.
       </Para>
@@ -471,7 +471,7 @@ function BcGameContent() {
         , both of which run Light KYC that can trigger on larger or fiat-side activity.
         The trade is straightforward: BitStarz brings a longer award history and a
         3,000-game library; Cloudbet brings no withdrawal limits and a dual regulator.
-        Neither matches BC.Game on the specific axis this page is about — keeping identity
+        Neither matches BC.Game on the specific axis this page is about: keeping identity
         documents out of the loop entirely. If that axis is your priority, BC.Game is the
         pick; the broader set sits on{' '}
         <Link href="/no-kyc-casinos" className="text-[#7BB8D4] hover:underline">
@@ -487,27 +487,27 @@ const BCGAME_FAQS = [
   {
     question: 'Does BC.Game require KYC?',
     answer:
-      'No. BC.Game operates a strict no-KYC policy for crypto play — account signup is email-and-password, and no government ID, proof of address or selfie is required to deposit, play or withdraw at any amount under the standard cashier flow. It holds the highest KYC score (9.5/10) in our catalogue for exactly this reason.',
+      'No. BC.Game operates a strict no-KYC policy for crypto play: account signup is email-and-password, and no government ID, proof of address or selfie is required to deposit, play or withdraw at any amount under the standard cashier flow. It holds the highest KYC score (9.5/10) in our catalogue for exactly this reason.',
   },
   {
     question: 'Will BC.Game ever ask me for ID?',
     answer:
-      'Under the standard flow, no document is requested. BC.Game handles compliance through on-chain transaction monitoring at the operator layer rather than up-front document collection, so the only realistic scenario where verification could arise is genuinely anomalous activity that would flag at any financial venue. For ordinary play — at any normal stake — no ID is ever asked for.',
+      'Under the standard flow, no document is requested. BC.Game handles compliance through on-chain transaction monitoring at the operator layer rather than up-front document collection, so the only realistic scenario where verification could arise is genuinely anomalous activity that would flag at any financial venue. For ordinary play (at any normal stake) no ID is ever asked for.',
   },
   {
     question: 'Can I withdraw large amounts from BC.Game without verifying?',
     answer:
-      'Yes — the no-KYC policy is not tiered by amount. There is no "verified level" you unlock for larger withdrawals; crypto withdrawals process without identity documents regardless of size under the standard flow. This is the structural difference from Light-KYC operators like BitStarz and Cloudbet, where larger amounts can trigger a verification request.',
+      'Yes: the no-KYC policy is not tiered by amount. There is no "verified level" you unlock for larger withdrawals; crypto withdrawals process without identity documents regardless of size under the standard flow. This is the structural difference from Light-KYC operators like BitStarz and Cloudbet, where larger amounts can trigger a verification request.',
   },
   {
     question: 'Is BC.Game’s no-KYC policy safe?',
     answer:
-      'No-KYC means no document collection, not no compliance. BC.Game has operated since 2017 and manages risk through transaction monitoring rather than identity files. The trade-off of any no-KYC, Curaçao-licensed operator is the absence of a Tier-1 regulator (MGA, UKGC) — players who prioritise heavy regulatory oversight over anonymity should weigh that. For privacy-first players, the no-document model is the entire appeal.',
+      'No-KYC means no document collection, not no compliance. BC.Game has operated since 2017 and manages risk through transaction monitoring rather than identity files. The trade-off of any no-KYC, Curaçao-licensed operator is the absence of a Tier-1 regulator (MGA, UKGC). Players who prioritise heavy regulatory oversight over anonymity should weigh that. For privacy-first players, the no-document model is the entire appeal.',
   },
   {
     question: 'Which crypto should I use at BC.Game for the most private withdrawal?',
     answer:
-      'Because BC.Game’s privacy comes from its no-KYC policy rather than the coin, you can choose purely on speed and fees — TRC-20 USDT or SOL both settle in seconds for fractions of a cent. None of BC.Game’s 100+ supported coins requires identity verification to withdraw, so coin choice is a performance decision, not a privacy one.',
+      'Because BC.Game’s privacy comes from its no-KYC policy rather than the coin, you can choose purely on speed and fees: TRC-20 USDT or SOL both settle in seconds for fractions of a cent. None of BC.Game’s 100+ supported coins requires identity verification to withdraw, so coin choice is a performance decision, not a privacy one.',
   },
 ] as const
 
@@ -519,8 +519,8 @@ function CloudbetContent() {
         Cloudbet occupies a spot almost no other crypto casino does: it pairs no
         withdrawal limits with Light KYC. You can cash out unlimited amounts through the
         standard flow, and identity verification is reserved for the extreme top end
-        rather than applied as a routine gate. That combination — uncapped payouts with a
-        high, rarely-touched verification ceiling — is why Cloudbet scores 8.8/10 on KYC
+        rather than applied as a routine gate. That combination (uncapped payouts with a
+        high, rarely-touched verification ceiling) is why Cloudbet scores 8.8/10 on KYC
         and why high rollers treat it as a default.
       </Para>
       <Para>
@@ -532,7 +532,7 @@ function CloudbetContent() {
       <SectionHeading>No withdrawal limit, but a verification ceiling</SectionHeading>
       <Para>
         Cloudbet&apos;s standout policy is the absence of a published per-transaction or
-        per-day withdrawal cap — a six-figure crypto payout pulls through the same path as
+        per-day withdrawal cap. A six-figure crypto payout pulls through the same path as
         a small one. KYC is the counterpart to that openness. Because there is no limit
         throttling large cash-outs, the platform reserves Light KYC for outsized
         withdrawal amounts, consistent with its position as a high-roller venue. The
@@ -544,7 +544,7 @@ function CloudbetContent() {
       <Para>
         The interaction with the no-limit policy is the part worth understanding. At most
         casinos a very large withdrawal hits both a per-transaction cap and a KYC check.
-        At Cloudbet there is no cap — so verification at the top end is the single
+        At Cloudbet there is no cap, so verification at the top end is the single
         mechanism standing between a large balance and the wallet, which is why it&apos;s
         applied deliberately rather than routinely. Full cash-out mechanics are on{' '}
         <Link href="/reviews/cloudbet/withdrawal" className="text-[#7BB8D4] hover:underline">
@@ -558,8 +558,8 @@ function CloudbetContent() {
         Cloudbet operates under two regulators: Curaçao eGaming and the Kahnawake Gaming
         Commission, a First Nations regulator in Quebec active since 1996. The
         dual-licence posture is unusual among crypto casinos and it shapes the compliance
-        side. Kahnawake layers its own standards — segregated player funds,
-        dispute-resolution procedures — on top of the Curaçao framework. For a player,
+        side. Kahnawake layers its own standards (segregated player funds,
+        dispute-resolution procedures) on top of the Curaçao framework. For a player,
         the practical implication is that any verification request comes from an operator
         answerable to two regulators rather than one, and that there are two escalation
         paths if a verified withdrawal is ever disputed.
@@ -571,7 +571,7 @@ function CloudbetContent() {
         compliance set: a government photo ID and a recent proof of address, with
         source-of-funds documentation possible at genuinely large amounts as is normal for
         high-value crypto cash-outs anywhere. Cloudbet does not publish a specific dollar
-        figure for the trigger, and we won&apos;t guess at one — the verified-fact bar on
+        figure for the trigger, and we won&apos;t guess at one. The verified-fact bar on
         this site applies to thresholds as much as anything else.
       </Para>
       <KeyList
@@ -589,12 +589,12 @@ function CloudbetContent() {
         <Link href="/reviews/bc-game/kyc" className="text-[#7BB8D4] hover:underline">
           BC.Game
         </Link>{' '}
-        — which never collects documents at any size — Cloudbet does retain a top-end
+        (which never collects documents at any size) Cloudbet does retain a top-end
         verification ceiling, so a player who wants zero documents as an absolute should
         choose the no-KYC route. Against a routine-KYC operator, Cloudbet is far lighter:
         ordinary play is document-free and only the extreme top end is gated. The reason a
         high roller often still picks Cloudbet over a no-KYC venue is the package around
-        it — no withdrawal limits, a dual regulator, and a payout track record since 2013.
+        it: no withdrawal limits, a dual regulator, and a payout track record since 2013.
         For the limit-free angle specifically, see{' '}
         <Link href="/no-limit-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
           crypto casinos with no withdrawal limits
@@ -618,21 +618,21 @@ const CLOUDBET_FAQS = [
   {
     question: 'Can I withdraw a large amount from Cloudbet without verifying?',
     answer:
-      'Up to a point. Cloudbet has no per-transaction or per-day withdrawal cap, so large cash-outs pull through the standard path — but because there is no limit throttling them, Light KYC can trigger at the extreme top end as the single compliance mechanism. Mid-size withdrawals routinely clear without documents; genuinely large ones may prompt verification and, at the highest amounts, source-of-funds documentation.',
+      'Up to a point. Cloudbet has no per-transaction or per-day withdrawal cap, so large cash-outs pull through the standard path, but because there is no limit throttling them, Light KYC can trigger at the extreme top end as the single compliance mechanism. Mid-size withdrawals routinely clear without documents; genuinely large ones may prompt verification and, at the highest amounts, source-of-funds documentation.',
   },
   {
     question: 'What does the Kahnawake licence add on the KYC side?',
     answer:
-      'Cloudbet holds dual licences — Curaçao eGaming and the Kahnawake Gaming Commission (active since 1996). Kahnawake layers additional standards including segregated player funds and a separate dispute-resolution path. On verification specifically, it means any KYC request comes from an operator answerable to two regulators, and there are two escalation routes if a verified withdrawal is ever disputed.',
+      'Cloudbet holds dual licences: Curaçao eGaming and the Kahnawake Gaming Commission (active since 1996). Kahnawake layers additional standards including segregated player funds and a separate dispute-resolution path. On verification specifically, it means any KYC request comes from an operator answerable to two regulators, and there are two escalation routes if a verified withdrawal is ever disputed.',
   },
   {
     question: 'Where does Cloudbet’s KYC threshold sit?',
     answer:
-      'Cloudbet does not publish a specific dollar figure, and we won’t print one we can’t verify. The practical pattern is that ordinary and mid-size crypto withdrawals clear without documents, and verification appears only at outsized amounts — high enough that typical players never reach it. The trigger is amount-driven rather than a routine gate applied to every cash-out.',
+      'Cloudbet does not publish a specific dollar figure, and we won’t print one we can’t verify. The practical pattern is that ordinary and mid-size crypto withdrawals clear without documents, and verification appears only at outsized amounts: high enough that typical players never reach it. The trigger is amount-driven rather than a routine gate applied to every cash-out.',
   },
   {
     question: 'Is Cloudbet better than a no-KYC casino for big withdrawals?',
     answer:
-      'It depends on what you optimise for. A full no-KYC operator like BC.Game never collects documents at any size, which is the better fit if zero verification is an absolute. Cloudbet retains a top-end ceiling but pairs it with no withdrawal limits, a dual regulator, and a payout record since 2013 — which is why many high rollers prefer it despite the verification ceiling. For pure anonymity, choose no-KYC; for uncapped payouts with strong recourse, Cloudbet.',
+      'It depends on what you optimise for. A full no-KYC operator like BC.Game never collects documents at any size, which is the better fit if zero verification is an absolute. Cloudbet retains a top-end ceiling but pairs it with no withdrawal limits, a dual regulator, and a payout record since 2013, which is why many high rollers prefer it despite the verification ceiling. For pure anonymity, choose no-KYC; for uncapped payouts with strong recourse, Cloudbet.',
   },
 ] as const

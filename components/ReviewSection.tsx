@@ -115,7 +115,7 @@ export default function ReviewSection({ casino }: { casino: Casino }) {
             {casino.kycLevel === 'None'
               ? 'No identity verification required. Sign up with an email and start playing immediately.'
               : casino.kycLevel === 'Light'
-              ? 'Minimal verification — usually just email confirmation. Full KYC only triggered above high withdrawal thresholds.'
+              ? 'Minimal verification, usually just email confirmation. Full KYC only triggered above high withdrawal thresholds.'
               : casino.kycLevel === 'Standard'
               ? 'Standard verification required: government ID and proof of address. Processing typically takes under 24 hours.'
               : 'Full KYC verification required for all players before withdrawals are processed.'}
@@ -144,7 +144,7 @@ export default function ReviewSection({ casino }: { casino: Casino }) {
           <p className="text-[#888888] text-sm">
             {casino.withdrawalCaveat
               ? casino.withdrawalCaveat
-              : `${casino.name} processes crypto withdrawals ${casino.withdrawalTime.toLowerCase()}. Payouts go directly to the wallet address you specify — no middlemen, no holds.`}
+              : `${casino.name} processes crypto withdrawals ${casino.withdrawalTime.toLowerCase()}. Payouts go directly to the wallet address you specify: no middlemen, no holds.`}
           </p>
         </div>
       </section>

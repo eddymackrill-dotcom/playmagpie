@@ -12,22 +12,22 @@ const breadcrumbSchema = {
 }
 
 export const metadata: Metadata = {
-  title: 'Crypto Casino Guides 2026 — Withdrawals, Bonuses & Strategy',
+  title: 'Crypto Casino Guides 2026: Withdrawals, Bonuses & Strategy',
   description:
-    'In-depth guides on crypto casino withdrawals, bonuses, Bitcoin vs USDT, payout methods and strategy. No fluff — everything you need to play smarter in 2026.',
+    'In-depth guides on crypto casino withdrawals, bonuses, Bitcoin vs USDT, payout methods and strategy. No fluff: everything you need to play smarter in 2026.',
   alternates: {
     canonical: '/guides',
   },
   openGraph: {
     url: '/guides',
-    title: 'Crypto Casino Guides 2026 — Withdrawals, Bonuses & Strategy',
+    title: 'Crypto Casino Guides 2026: Withdrawals, Bonuses & Strategy',
     description:
       'In-depth guides on crypto casino withdrawals, bonuses, Bitcoin vs USDT, payout methods and strategy for 2026.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Crypto Casino Guides 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Casino Guides 2026 — Withdrawals, Bonuses & Strategy',
+    title: 'Crypto Casino Guides 2026: Withdrawals, Bonuses & Strategy',
     description: 'Practical guides on crypto casino withdrawals, bonuses, Bitcoin vs USDT and payout speed.',
     images: ['/og-image.png'],
   },
@@ -51,7 +51,7 @@ export default function GuidesPage() {
         <div className="mb-10">
           <h1 className="text-4xl font-extrabold text-white mb-4">Crypto Casino Guides</h1>
           <p className="text-[#888888] text-lg max-w-xl leading-relaxed">
-            No fluff, no filler. Practical guides on how crypto casinos work — withdrawals, bonuses,
+            No fluff, no filler. Practical guides on how crypto casinos work: withdrawals, bonuses,
             the best cryptos for gambling, and how to read the fine print.
           </p>
         </div>

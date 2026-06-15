@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import CTAButton from '@/components/CTAButton'
 
 export const metadata: Metadata = {
-  title: 'About PlayMagpie — Independent Crypto Casino Ratings',
+  title: 'About PlayMagpie: Independent Crypto Casino Ratings',
   description:
     'PlayMagpie is an independent affiliate review site rating crypto casinos on withdrawal speed, bonus fairness, KYC friction and platform trust. No paid placements.',
   alternates: {
@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: '/about',
-    title: 'About PlayMagpie — Independent Crypto Casino Ratings',
+    title: 'About PlayMagpie: Independent Crypto Casino Ratings',
     description:
       'PlayMagpie is an independent affiliate review site rating crypto casinos on withdrawal speed, bonus fairness, KYC friction and platform trust.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'About PlayMagpie' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About PlayMagpie — Independent Crypto Casino Ratings',
+    title: 'About PlayMagpie: Independent Crypto Casino Ratings',
     description:
       'Independent crypto casino ratings scored on withdrawal speed, bonus fairness, KYC friction and platform trust.',
     images: ['/og-image.png'],
@@ -56,7 +56,7 @@ export default function AboutPage() {
               },
               {
                 title: 'KYC Score',
-                desc: 'Lower is better. We rate how much personal information a casino requires and when it asks for it — at signup, at deposit, or only at high withdrawal thresholds.',
+                desc: 'Lower is better. We rate how much personal information a casino requires and when it asks for it: at signup, at deposit, or only at high withdrawal thresholds.',
               },
               {
                 title: 'Trust Score',

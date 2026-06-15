@@ -27,7 +27,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Sportsbook', value: '✓ full book + 100+ coins' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None — at any size' },
+      { label: 'KYC', value: 'None: at any size' },
     ],
   },
   {
@@ -49,7 +49,7 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos With a Sportsbook 2026 — Ranked | PlayMagpie',
+  title: 'Best Crypto Casinos With a Sportsbook 2026: Ranked | PlayMagpie',
   description:
     'Five casinos in our catalogue run a real sportsbook alongside the casino: Cloudbet, Roobet, BC.Game, Shuffle and Duelbits. Ranked by trust, with the honest per-operator breakdown.',
   alternates: {
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: '/crypto-casinos-with-sportsbook',
-    title: 'Best Crypto Casinos With a Sportsbook 2026 — Ranked',
+    title: 'Best Crypto Casinos With a Sportsbook 2026: Ranked',
     description:
       'Five catalogue operators pair a crypto casino with a sportsbook. Cloudbet leads on market depth; Duelbits on payout speed. Full per-operator breakdown.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Casinos With a Sportsbook 2026' }],
@@ -85,15 +85,15 @@ const breadcrumbSchema = {
 // and sportsbook" framing rather than fabricated numbers).
 const PER_CASINO_SPORTSBOOK_NOTES: Record<string, string> = {
   cloudbet:
-    'Cloudbet has the strongest sportsbook on this list — our review rates it among the best-in-class for crypto betting, with crypto wagering across hundreds of markets. Paired with no withdrawal limits at the standard cashier and dual licensing from Curaçao plus the Kahnawake Gaming Commission, it is the default for high-stakes crypto sports betting. The 0.001 BTC equivalent minimum deposit is the highest entry point here — Cloudbet is built around larger bankrolls.',
+    'Cloudbet has the strongest sportsbook on this list: our review rates it among the best-in-class for crypto betting, with crypto wagering across hundreds of markets. Paired with no withdrawal limits at the standard cashier and dual licensing from Curaçao plus the Kahnawake Gaming Commission, it is the default for high-stakes crypto sports betting. The 0.001 BTC equivalent minimum deposit is the highest entry point here. Cloudbet is built around larger bankrolls.',
   'bc-game':
-    'BC.Game pairs a full sportsbook with the widest coin support of any casino we review (100+ cryptocurrencies) and a strict no-KYC policy — email signup, no documents at any withdrawal size. The $5 minimum deposit makes it the most accessible entry point on the list, and withdrawals process instant to 10 minutes.',
+    'BC.Game pairs a full sportsbook with the widest coin support of any casino we review (100+ cryptocurrencies) and a strict no-KYC policy: email signup, no documents at any withdrawal size. The $5 minimum deposit makes it the most accessible entry point on the list, and withdrawals process instant to 10 minutes.',
   duelbits:
-    'Duelbits is a crypto-native casino and sportsbook launched in 2020, with the fastest headline withdrawal window here — instant to 5 minutes — and a no-KYC policy for crypto play. Its rewards model is cashback-first (up to $30 weekly cashback plus Duelbits Originals rewards) rather than a deposit match, which suits high-frequency bettors over bonus-hunters.',
+    'Duelbits is a crypto-native casino and sportsbook launched in 2020, with the fastest headline withdrawal window here (instant to 5 minutes) and a no-KYC policy for crypto play. Its rewards model is cashback-first (up to $30 weekly cashback plus Duelbits Originals rewards) rather than a deposit match, which suits high-frequency bettors over bonus-hunters.',
   shuffle:
-    'Shuffle is a crypto casino and sportsbook launched in 2022, built around its native SHFL token and a rakeback rewards model — sports wagering earns the same SHFL airdrops and rakeback as casino play. It runs on a Curaçao licence with Light KYC that can trigger on larger withdrawals.',
+    'Shuffle is a crypto casino and sportsbook launched in 2022, built around its native SHFL token and a rakeback rewards model: sports wagering earns the same SHFL airdrops and rakeback as casino play. It runs on a Curaçao licence with Light KYC that can trigger on larger withdrawals.',
   roobet:
-    'Roobet runs a full crypto sportsbook covering ~40 sports including esports, and carries regional partnership deals with Chelsea FC (Latin America plus Canada outside Ontario) and 100 Thieves. The honest caveat that keeps its trust score lowest here: a documented pattern of multi-day withdrawal holds on large wins — AskGamblers complaints at $20k, $84k, $97k, $111k and $115k, with the $84,000 case publicly listed as Unsolved. Usable for modest-stakes sports play; not where you want a five-figure win waiting on a cashier review.',
+    'Roobet runs a full crypto sportsbook covering ~40 sports including esports, and carries regional partnership deals with Chelsea FC (Latin America plus Canada outside Ontario) and 100 Thieves. The honest caveat that keeps its trust score lowest here: a documented pattern of multi-day withdrawal holds on large wins: AskGamblers complaints at $20k, $84k, $97k, $111k and $115k, with the $84,000 case publicly listed as Unsolved. Usable for modest-stakes sports play; not where you want a five-figure win waiting on a cashier review.',
 }
 
 function hasSportsbook(c: Casino): boolean {
@@ -127,7 +127,7 @@ export default function CryptoSportsbookPage() {
           </h1>
           <p className="text-[#888888] text-lg max-w-3xl leading-relaxed">
             Five of the eight casinos in our ratings run a genuine sportsbook alongside the
-            casino — so you can bet sports and play slots from one crypto balance. They are
+            casino, so you can bet sports and play slots from one crypto balance. They are
             not interchangeable: Cloudbet leads on market depth, Duelbits on payout speed,
             BC.Game on no-KYC accessibility. This page ranks all five and says plainly which
             one fits which bettor.
@@ -155,7 +155,7 @@ export default function CryptoSportsbookPage() {
               a separate casino, you deposit once in crypto and move between sports markets,
               slots, live dealer and provably-fair originals without a second KYC pass or a
               second withdrawal queue. For crypto-native bettors that consolidation is the
-              whole appeal — one wallet, one set of withdrawal mechanics, one trust decision.
+              whole appeal: one wallet, one set of withdrawal mechanics, one trust decision.
             </p>
             <p>
               The trade-off is that a sportsbook is only as good as its market depth and its
@@ -163,7 +163,7 @@ export default function CryptoSportsbookPage() {
               wide casino library does not imply a deep sportsbook, and the fastest casino
               cashier does not guarantee a sportsbook will pay a large sports win without a
               hold. The per-operator breakdown below separates the genuinely strong books
-              from the ones where the sportsbook is a secondary add-on — and flags the one
+              from the ones where the sportsbook is a secondary add-on, and flags the one
               operator whose withdrawal record warrants caution at stake.
             </p>
             <p>
@@ -182,7 +182,7 @@ export default function CryptoSportsbookPage() {
         </section>
 
         <section className="my-12">
-          <h2 className="text-2xl font-bold text-white mb-2">The 5 Sportsbook Casinos — Ranked</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">The 5 Sportsbook Casinos: Ranked</h2>
           <p className="text-[#888888] text-sm mb-6">
             Ranked by trust score. Each operator below runs a sportsbook alongside the casino,
             verified against the data in{' '}
@@ -244,7 +244,7 @@ export default function CryptoSportsbookPage() {
         {top && (
           <section className="mt-12 bg-[#111111] border border-[#7BB8D4]/20 rounded-2xl p-6 sm:p-8">
             <div className="text-[#7BB8D4] text-sm font-medium uppercase tracking-wider mb-2">
-              Editor&apos;s pick — sportsbook
+              Editor&apos;s pick: sportsbook
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">{top.name}</h3>
             <p className="text-[#888888] mb-4">{top.bonusSummary}</p>
@@ -253,7 +253,7 @@ export default function CryptoSportsbookPage() {
         )}
 
         <section className="mt-12">
-          <h2 className="text-xl font-bold text-white mb-2">Crypto Sportsbook — FAQ</h2>
+          <h2 className="text-xl font-bold text-white mb-2">Crypto Sportsbook FAQ</h2>
           <div className="space-y-4 mt-6">
             {SPORTSBOOK_FAQS.map((f) => (
               <div key={f.question} className="bg-[#111111] border border-[#222222] rounded-xl p-5">
@@ -319,12 +319,12 @@ const SPORTSBOOK_FAQS = [
   {
     question: 'Which crypto sportsbook is best?',
     answer:
-      "Cloudbet, on the evidence in our catalogue — our review rates its sportsbook among the best-in-class for crypto betting, with wagering across hundreds of markets, no withdrawal limits at the standard cashier, and dual Curaçao + Kahnawake licensing. It carries the highest entry point (0.001 BTC equivalent minimum), so it is calibrated for larger bankrolls rather than small-stakes testing.",
+      "Cloudbet, on the evidence in our catalogue: our review rates its sportsbook among the best-in-class for crypto betting, with wagering across hundreds of markets, no withdrawal limits at the standard cashier, and dual Curaçao + Kahnawake licensing. It carries the highest entry point (0.001 BTC equivalent minimum), so it is calibrated for larger bankrolls rather than small-stakes testing.",
   },
   {
     question: 'Can I bet sports with crypto without KYC?',
     answer:
-      'Yes — BC.Game and Duelbits both run a no-KYC policy for crypto play and withdrawals, covering their sportsbooks as well as the casino. Cloudbet and Shuffle run Light KYC that can trigger on larger withdrawals. Roobet runs Standard KYC. If no-document sports betting is the priority, BC.Game (widest coin support) and Duelbits (fastest payouts) are the two no-KYC options.',
+      'Yes. BC.Game and Duelbits both run a no-KYC policy for crypto play and withdrawals, covering their sportsbooks as well as the casino. Cloudbet and Shuffle run Light KYC that can trigger on larger withdrawals. Roobet runs Standard KYC. If no-document sports betting is the priority, BC.Game (widest coin support) and Duelbits (fastest payouts) are the two no-KYC options.',
   },
   {
     question: 'Is Roobet’s sportsbook safe to use?',
@@ -334,6 +334,6 @@ const SPORTSBOOK_FAQS = [
   {
     question: 'Which crypto sportsbook pays out fastest?',
     answer:
-      'Duelbits has the fastest headline withdrawal window of the five — instant to 5 minutes — followed by BC.Game (instant to 10 minutes). Cloudbet processes instant to 30 minutes but is the only one with no withdrawal limit, which matters more than raw speed for large sports wins. On-chain confirmation time then depends on the coin you withdraw in, not the sportsbook.',
+      'Duelbits has the fastest headline withdrawal window of the five (instant to 5 minutes), followed by BC.Game (instant to 10 minutes). Cloudbet processes instant to 30 minutes but is the only one with no withdrawal limit, which matters more than raw speed for large sports wins. On-chain confirmation time then depends on the coin you withdraw in, not the sportsbook.',
   },
 ] as const

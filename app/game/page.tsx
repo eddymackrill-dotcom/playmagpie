@@ -3,20 +3,20 @@ import Link from 'next/link'
 import { GAME_TYPES } from '@/lib/programmatic'
 
 export const metadata: Metadata = {
-  title: 'Crypto Casinos by Game Type — PlayMagpie',
+  title: 'Crypto Casinos by Game Type: PlayMagpie',
   description:
     'Find the best crypto casinos for your favourite game. Compare casinos for slots, blackjack, live dealer and more.',
   alternates: { canonical: '/game' },
   openGraph: {
     url: '/game',
-    title: 'Crypto Casinos by Game Type — PlayMagpie',
+    title: 'Crypto Casinos by Game Type: PlayMagpie',
     description:
       'Find the best crypto casinos for your favourite game. Compare casinos for slots, blackjack, live dealer and more.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Crypto Casinos by Game Type' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Casinos by Game Type — PlayMagpie',
+    title: 'Crypto Casinos by Game Type: PlayMagpie',
     description:
       'Find the best crypto casinos for your favourite game. Compare casinos for slots, blackjack, live dealer and more.',
     images: ['/og-image.png'],
@@ -49,7 +49,7 @@ export default function GameHubPage() {
         <div className="mb-10">
           <h1 className="text-4xl font-extrabold text-white mb-4">Crypto Casinos by Game Type</h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            Different games favour different casinos — game libraries, providers, bonus contributions and bet
+            Different games favour different casinos: game libraries, providers, bonus contributions and bet
             limits all shift depending on what you actually play.
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function GameHubPage() {
             welcome bonus by 10x between game types, and provider breadth varies more than most marketing pages
             admit. Browse by your preferred game category below to see which crypto casinos offer the strongest
             library, best bonus terms and highest-RTP variants for that format. Every casino we rank is
-            independently scored — no paid placements.
+            independently scored, no paid placements.
           </p>
         </section>
 

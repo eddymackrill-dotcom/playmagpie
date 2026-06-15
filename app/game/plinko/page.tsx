@@ -12,7 +12,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Plinko Original', value: 'Full 8-16 row range + 3 volatility modes' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None — for outlier cashouts' },
+      { label: 'KYC', value: 'None: for outlier cashouts' },
     ],
   },
   {
@@ -28,13 +28,13 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Plinko Original', value: 'SHFL accrual per drop offsets variance' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'Light — triggered at scale' },
+      { label: 'KYC', value: 'Light: triggered at scale' },
     ],
   },
 ]
 
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos for Plinko 2026 — Originals, Row Count & Volatility',
+  title: 'Best Crypto Casinos for Plinko 2026: Originals, Row Count & Volatility',
   description:
     'Crypto casinos with the best Plinko selection in 2026. BC.Game, Shuffle, Duelbits and Roobet compared on native provably-fair Originals, row-count maths and multiplier ranges.',
   alternates: { canonical: '/game/plinko' },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     url: '/game/plinko',
     title: 'Best Crypto Casinos for Plinko 2026',
     description:
-      'Crypto casinos with the best Plinko selection — provably-fair Originals, 8-16 row customisation and full seed verification.',
+      'Crypto casinos with the best Plinko selection: provably-fair Originals, 8-16 row customisation and full seed verification.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Plinko Casinos 2026' }],
   },
   twitter: {
@@ -63,46 +63,46 @@ const PLINKO_CASINO_SLUGS = ['bc-game', 'duelbits', 'shuffle', 'roobet']
 const PER_CASINO_PLINKO_NOTES: Record<string, { angle: string }> = {
   'bc-game': {
     angle:
-      'BC.Game Plinko ships the full 8-to-16-row range plus all three volatility modes — wider configurability than the typical Plinko product. That breadth matters because Plinko\'s character changes substantially between configurations: 8-row low-vol is a tight-cluster grind; 16-row high-vol is an outlier-multiplier hunt. Being able to switch between modes inside the same balance, with no-KYC on either side of the cashout, is BC.Game\'s distinctive Plinko angle.',
+      'BC.Game Plinko ships the full 8-to-16-row range plus all three volatility modes: wider configurability than the typical Plinko product. That breadth matters because Plinko\'s character changes substantially between configurations: 8-row low-vol is a tight-cluster grind; 16-row high-vol is an outlier-multiplier hunt. Being able to switch between modes inside the same balance, with no-KYC on either side of the cashout, is BC.Game\'s distinctive Plinko angle.',
   },
   shuffle: {
     angle:
-      'Shuffle Plinko\'s SHFL accrual matters in a structurally different way than at Shuffle\'s other Originals. Plinko at high volatility is inherently negative-variance — long losing streaks between outlier hits — and the rakeback floor offsets the variance drag. For a player committing to high-multiplier hunting, the SHFL economy turns the dead time between outlier landings into something with steady positive EV instead of pure waiting.',
+      'Shuffle Plinko\'s SHFL accrual matters in a structurally different way than at Shuffle\'s other Originals. Plinko at high volatility is inherently negative-variance (long losing streaks between outlier hits) and the rakeback floor offsets the variance drag. For a player committing to high-multiplier hunting, the SHFL economy turns the dead time between outlier landings into something with steady positive EV instead of pure waiting.',
   },
   duelbits: {
     angle:
-      'Duelbits Plinko sits inside the cashback-first welcome model — and that fits Plinko\'s variance profile distinctively well. Even on a high-volatility session that doesn\'t land a major multiplier, the cash position contributes to the weekly cashback total, which softens the bankroll drawdown specifically on high-variance formats. Sub-5-minute crypto withdrawal headline applies if you do land the outlier and decide to cash out.',
+      'Duelbits Plinko sits inside the cashback-first welcome model, and that fits Plinko\'s variance profile distinctively well. Even on a high-volatility session that doesn\'t land a major multiplier, the cash position contributes to the weekly cashback total, which softens the bankroll drawdown specifically on high-variance formats. Sub-5-minute crypto withdrawal headline applies if you do land the outlier and decide to cash out.',
   },
   roobet: {
     angle:
-      'Plinko is the highest-variance format in the Roobet Originals lineup — outlier drops from 16-row high-volatility can produce single-stake wins in the ~1,000x range. That makes Plinko one of the formats where the documented withdrawal-hold caveat is most likely to bite: a single max-volatility outlier multiplier is exactly the size of win that has historically triggered Roobet\'s documented holds at $20k+. Fine for testing variance settings at modest stakes; structurally the worst-fit Roobet format if your goal is to chase a single outlier and cash out fast.',
+      'Plinko is the highest-variance format in the Roobet Originals lineup: outlier drops from 16-row high-volatility can produce single-stake wins in the ~1,000x range. That makes Plinko one of the formats where the documented withdrawal-hold caveat is most likely to bite: a single max-volatility outlier multiplier is exactly the size of win that has historically triggered Roobet\'s documented holds at $20k+. Fine for testing variance settings at modest stakes; structurally the worst-fit Roobet format if your goal is to chase a single outlier and cash out fast.',
   },
 }
 
 const faqs = [
   {
     question: 'How is Plinko\'s provably-fair verification different from Dice and Crash?',
-    answer: 'Plinko\'s verification is heavier per round than its sibling Originals because each drop produces a sequence, not a single output. Dice resolves to one number (compared to your win-chance threshold) per roll. Crash resolves to one multiplier per round. Plinko produces an N-step sequence of left-or-right peg-deflection decisions — one per row, 8 to 16 total — that determines the ball\'s path and the bucket it lands in. Verifying a single Plinko drop is therefore N hash extractions versus one comparison for dice or one multiplier for crash. The underlying server-seed commitment model is identical across all three formats; the work involved in auditing a Plinko session is structurally larger than auditing a dice or crash session of equivalent length.',
+    answer: 'Plinko\'s verification is heavier per round than its sibling Originals because each drop produces a sequence, not a single output. Dice resolves to one number (compared to your win-chance threshold) per roll. Crash resolves to one multiplier per round. Plinko produces an N-step sequence of left-or-right peg-deflection decisions (one per row, 8 to 16 total) that determines the ball\'s path and the bucket it lands in. Verifying a single Plinko drop is therefore N hash extractions versus one comparison for dice or one multiplier for crash. The underlying server-seed commitment model is identical across all three formats; the work involved in auditing a Plinko session is structurally larger than auditing a dice or crash session of equivalent length.',
   },
   {
     question: 'What is the RTP on Plinko?',
-    answer: 'Provably-fair Plinko at BC.Game, Shuffle, Duelbits and Roobet typically runs at 97% to 99% RTP depending on row count and volatility setting. Stake&apos;s original Plinko design — which BC.Game, Shuffle, Duelbits and Roobet all derive their implementations from — published 99% RTP across most configurations, with marginally lower figures on the highest-volatility settings where the maximum multiplier compensates. Third-party Plinko games (BGaming, Spribe) cluster in the same band but specific RTP per title varies; check the individual game info panel before play.',
+    answer: 'Provably-fair Plinko at BC.Game, Shuffle, Duelbits and Roobet typically runs at 97% to 99% RTP depending on row count and volatility setting. Stake&apos;s original Plinko design (which BC.Game, Shuffle, Duelbits and Roobet all derive their implementations from) published 99% RTP across most configurations, with marginally lower figures on the highest-volatility settings where the maximum multiplier compensates. Third-party Plinko games (BGaming, Spribe) cluster in the same band but specific RTP per title varies; check the individual game info panel before play.',
   },
   {
     question: 'Does row count affect the house edge?',
-    answer: 'Row count primarily affects multiplier distribution rather than house edge. More rows (16) means a wider multiplier range — the outermost buckets pay much larger multipliers but are hit far less often, the centre buckets pay below 1x and are hit much more often. Fewer rows (8) flattens the distribution into a narrower range. The expected value per drop stays close to the published RTP regardless of row count; what row count actually changes is variance. Hunting the 1000x outer bucket on a 16-row high-volatility setting is qualitatively different play from grinding the centre buckets on an 8-row low-volatility setting, but both extract the same percentage of your stake over a long enough sample.',
+    answer: 'Row count primarily affects multiplier distribution rather than house edge. More rows (16) means a wider multiplier range: the outermost buckets pay much larger multipliers but are hit far less often, the centre buckets pay below 1x and are hit much more often. Fewer rows (8) flattens the distribution into a narrower range. The expected value per drop stays close to the published RTP regardless of row count; what row count actually changes is variance. Hunting the 1000x outer bucket on a 16-row high-volatility setting is qualitatively different play from grinding the centre buckets on an 8-row low-volatility setting, but both extract the same percentage of your stake over a long enough sample.',
   },
   {
     question: 'What is the highest multiplier on Plinko?',
-    answer: 'On a standard 16-row high-volatility Plinko configuration, the outermost buckets pay up to ~1,000x your stake — these are the headline multipliers the format is marketed on. Frequency is low: hitting a 1,000x outer bucket on 16-row high-vol happens on the order of once per several thousand drops in random play. The lower-volatility settings cap at much smaller multipliers (high-vol 16-row tops at ~1,000x; low-vol 8-row tops at around 5x-10x) but hit the larger payouts far more often. Roobet, BC.Game, Shuffle and Duelbits all publish full multiplier tables per row count and volatility setting in their game info panels.',
+    answer: 'On a standard 16-row high-volatility Plinko configuration, the outermost buckets pay up to ~1,000x your stake. These are the headline multipliers the format is marketed on. Frequency is low: hitting a 1,000x outer bucket on 16-row high-vol happens on the order of once per several thousand drops in random play. The lower-volatility settings cap at much smaller multipliers (high-vol 16-row tops at ~1,000x; low-vol 8-row tops at around 5x-10x) but hit the larger payouts far more often. Roobet, BC.Game, Shuffle and Duelbits all publish full multiplier tables per row count and volatility setting in their game info panels.',
   },
   {
     question: 'Can I play Plinko without KYC?',
-    answer: 'Yes at BC.Game and Duelbits — both keep crypto play and crypto withdrawals document-free at any size. This matters more for Plinko than for many other formats, because Plinko\'s distribution is bimodal: most drops finish with small losses or small gains, but the occasional outlier produces a single-drop win in the high-multiplier range — exactly the cashout-size that triggers KYC reviews at Light-KYC operators. Shuffle\'s Light KYC may surface a check at the larger withdrawal end. Roobet\'s Standard KYC triggers ID verification by withdrawal size or activity flags. For Plinko specifically, where you may want to cash out an unexpected outlier multiplier without document delay, BC.Game or Duelbits are the default no-friction picks.',
+    answer: 'Yes at BC.Game and Duelbits: both keep crypto play and crypto withdrawals document-free at any size. This matters more for Plinko than for many other formats, because Plinko\'s distribution is bimodal: most drops finish with small losses or small gains, but the occasional outlier produces a single-drop win in the high-multiplier range: exactly the cashout-size that triggers KYC reviews at Light-KYC operators. Shuffle\'s Light KYC may surface a check at the larger withdrawal end. Roobet\'s Standard KYC triggers ID verification by withdrawal size or activity flags. For Plinko specifically, where you may want to cash out an unexpected outlier multiplier without document delay, BC.Game or Duelbits are the default no-friction picks.',
   },
   {
     question: 'Which crypto casino is best for Plinko specifically?',
-    answer: 'Pick by what matters most for your Plinko style. For configuration breadth — the full 8-to-16 row range plus all three volatility modes inside the same balance — BC.Game runs the deepest setup. For outlier-multiplier hunting at high volatility, Shuffle\'s SHFL rakeback offsets the variance drag during dead-time stretches between hits, turning the negative-variance waiting into something with steady positive EV. For fast cash-out after landing a multiplier, Duelbits\' sub-5-minute headline is the shortest in the category and pairs with a cashback-first welcome structure that softens losses on miss-streaks. Roobet\'s Plinko is part of the founding Originals lineup but the documented withdrawal-hold pattern on outlier-size wins is exactly the failure mode high-volatility Plinko produces — fine for variance-setting iteration, structurally bad fit for a max-volatility outlier cash-out.',
+    answer: 'Pick by what matters most for your Plinko style. For configuration breadth (the full 8-to-16 row range plus all three volatility modes inside the same balance) BC.Game runs the deepest setup. For outlier-multiplier hunting at high volatility, Shuffle\'s SHFL rakeback offsets the variance drag during dead-time stretches between hits, turning the negative-variance waiting into something with steady positive EV. For fast cash-out after landing a multiplier, Duelbits\' sub-5-minute headline is the shortest in the category and pairs with a cashback-first welcome structure that softens losses on miss-streaks. Roobet\'s Plinko is part of the founding Originals lineup but the documented withdrawal-hold pattern on outlier-size wins is exactly the failure mode high-volatility Plinko produces: fine for variance-setting iteration, structurally bad fit for a max-volatility outlier cash-out.',
   },
 ]
 
@@ -157,7 +157,7 @@ export default function PlinkoCasinosPage() {
             Best Crypto Casinos for Plinko 2026
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            Plinko is the format Stake pioneered as a provably-fair adaptation of the classic peg-and-ball drop —
+            Plinko is the format Stake pioneered as a provably-fair adaptation of the classic peg-and-ball drop:
             adjustable row count, three volatility modes, max multipliers up to ~1,000x on the highest settings.
             Four operators in our rankings run native Plinko Originals with full seed verification on every drop.
           </p>
@@ -185,7 +185,7 @@ export default function PlinkoCasinosPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Top Casinos for Plinko</h2>
           <p className="text-[#888888] text-sm mb-6">
-            Filtered to platforms running a native provably-fair Plinko Original. Ranked by trust score — see the
+            Filtered to platforms running a native provably-fair Plinko Original. Ranked by trust score. See the
             per-casino notes below for the operational angle on each.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -198,7 +198,7 @@ export default function PlinkoCasinosPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Per-operator Plinko notes</h2>
           <p className="text-[#888888] text-sm mb-6">
-            What each operator brings to Plinko specifically — and what to know before you deposit.
+            What each operator brings to Plinko specifically, and what to know before you deposit.
           </p>
           <div className="space-y-4">
             {PLINKO_CASINO_SLUGS.map((slug) => {
@@ -242,7 +242,7 @@ export default function PlinkoCasinosPage() {
             You pick three settings before each drop: row count (typically 8 to 16), volatility (low, medium, high)
             and stake. The ball drops from the top of the board and bounces through randomised pegs into one of the
             payout buckets at the bottom. Centre buckets pay below 1x (you lose some of your stake). Outer buckets
-            pay multipliers that scale with the volatility setting and row count — the outermost buckets at 16
+            pay multipliers that scale with the volatility setting and row count: the outermost buckets at 16
             rows on high volatility pay up to ~1,000x.
           </p>
           <p className="text-[#888888] leading-relaxed">
@@ -255,24 +255,24 @@ export default function PlinkoCasinosPage() {
         </section>
 
         <section className="mb-12 space-y-4">
-          <h2 className="text-2xl font-bold text-white">Row count and volatility — the trade-off in plain numbers</h2>
+          <h2 className="text-2xl font-bold text-white">Row count and volatility: the trade-off in plain numbers</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 title: '8 rows, low volatility',
-                body: 'Tight multiplier distribution clustered around 1x. Centre buckets pay around 0.5x; outermost buckets pay around 5x-6x. Hit rate on the outer buckets is meaningful — you will land them regularly in any session of more than a few dozen drops. Suited to bankroll-conservative play where you want to extract long sessions from a fixed deposit.',
+                body: 'Tight multiplier distribution clustered around 1x. Centre buckets pay around 0.5x; outermost buckets pay around 5x-6x. Hit rate on the outer buckets is meaningful: you will land them regularly in any session of more than a few dozen drops. Suited to bankroll-conservative play where you want to extract long sessions from a fixed deposit.',
               },
               {
                 title: '16 rows, high volatility',
-                body: 'Wide distribution. Centre buckets pay around 0.2x; outermost buckets pay up to ~1,000x. Outermost hit rate is low — order of once per several thousand drops in random play. Suited to chasing single large outlier wins from a small bankroll; expect long losing streaks between landings, on the order of 90%+ of drops paying below 1x.',
+                body: 'Wide distribution. Centre buckets pay around 0.2x; outermost buckets pay up to ~1,000x. Outermost hit rate is low: order of once per several thousand drops in random play. Suited to chasing single large outlier wins from a small bankroll; expect long losing streaks between landings, on the order of 90%+ of drops paying below 1x.',
               },
               {
                 title: 'Why the maths is symmetric',
-                body: 'The peg layout produces a Gaussian (bell-curve) distribution of ball landing positions. The middle of the curve gets the most landings; the tails get progressively fewer. Volatility settings change the multipliers assigned to each bucket but not the landing-frequency curve. The casino sets multipliers per bucket such that (frequency × multiplier) summed across buckets equals (RTP × stake) — and that ratio holds regardless of which volatility profile you pick.',
+                body: 'The peg layout produces a Gaussian (bell-curve) distribution of ball landing positions. The middle of the curve gets the most landings; the tails get progressively fewer. Volatility settings change the multipliers assigned to each bucket but not the landing-frequency curve. The casino sets multipliers per bucket such that (frequency × multiplier) summed across buckets equals (RTP × stake), and that ratio holds regardless of which volatility profile you pick.',
               },
               {
                 title: 'What it means in practice',
-                body: 'Pick volatility based on session length and bankroll, not on expected return. A $10 bankroll on 16-row high-vol Plinko will frequently be wiped out in 50-100 drops before landing a major multiplier. A $10 bankroll on 8-row low-vol Plinko will typically last several hundred drops with frequent small wins and small losses. Both have the same expected loss as a percentage of stake — different lived experience.',
+                body: 'Pick volatility based on session length and bankroll, not on expected return. A $10 bankroll on 16-row high-vol Plinko will frequently be wiped out in 50-100 drops before landing a major multiplier. A $10 bankroll on 8-row low-vol Plinko will typically last several hundred drops with frequent small wins and small losses. Both have the same expected loss as a percentage of stake: different lived experience.',
               },
             ].map((card) => (
               <div key={card.title} className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
@@ -284,18 +284,18 @@ export default function PlinkoCasinosPage() {
         </section>
 
         <section className="mb-12 space-y-4">
-          <h2 className="text-2xl font-bold text-white">How provably-fair Plinko verifies — the multi-deflection hash chain</h2>
+          <h2 className="text-2xl font-bold text-white">How provably-fair Plinko verifies: the multi-deflection hash chain</h2>
           <p className="text-[#888888] leading-relaxed">
             Plinko verification is structurally heavier than dice or crash. Each drop produces a sequence
-            of left-or-right peg-deflection decisions — one per row, so 8 to 16 deflections per drop
-            depending on configuration — that determines the path the ball takes through the board and the
+            of left-or-right peg-deflection decisions (one per row, so 8 to 16 deflections per drop
+            depending on configuration) that determines the path the ball takes through the board and the
             bucket it lands in. The provably-fair model has to deterministically produce that whole
             sequence from the seed combination, not just a single number or one multiplier output.
           </p>
           <p className="text-[#888888] leading-relaxed">
             The mechanics: the operator publishes a hashed server seed before play. You contribute a
             client seed. Each drop combines server seed + client seed + an incrementing nonce, then runs
-            the resulting hash through a sequence of bit extractions — each bit determines one
+            the resulting hash through a sequence of bit extractions: each bit determines one
             peg-deflection direction. The full hash chain has to be auditable for each row to confirm the
             ball&apos;s path matches what the deterministic seed expansion would have produced. Verifying
             a single Plinko drop is therefore N hash extractions for an N-row board, versus one
@@ -331,7 +331,7 @@ export default function PlinkoCasinosPage() {
             </Link>
             <Link href="/game/dice" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Dice Casinos</div>
-              <div className="text-[#888888] text-sm">99% RTP — the highest-edge provably-fair format</div>
+              <div className="text-[#888888] text-sm">99% RTP: the highest-edge provably-fair format</div>
             </Link>
             <Link href="/no-kyc-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">No-KYC Casinos</div>

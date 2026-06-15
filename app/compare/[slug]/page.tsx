@@ -30,7 +30,7 @@ export async function generateMetadata(props: PageProps<'/compare/[slug]'>): Pro
   const c1 = getCasinoBySlug(slug.slice(0, vsIdx))
   const c2 = getCasinoBySlug(slug.slice(vsIdx + 4))
   if (!c1 || !c2) return {}
-  const title = `${c1.name} vs ${c2.name} (2026) — Which Is Better? | PlayMagpie`
+  const title = `${c1.name} vs ${c2.name} (2026): Which Is Better? | PlayMagpie`
   const description = `${c1.name} vs ${c2.name}: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.`
   return {
     title,
@@ -87,7 +87,7 @@ export default async function ComparePage(props: PageProps<'/compare/[slug]'>) {
   const comparisonSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: `${c1.name} vs ${c2.name} — Head-to-Head Comparison 2026`,
+    name: `${c1.name} vs ${c2.name}: Head-to-Head Comparison 2026`,
     description: `Independent comparison of ${c1.name} and ${c2.name} covering withdrawal speed, bonus fairness, KYC policy and trust score.`,
     url: `https://www.playmagpie.com/compare/${slug}`,
     publisher: { '@type': 'Organization', name: 'PlayMagpie', url: 'https://www.playmagpie.com' },

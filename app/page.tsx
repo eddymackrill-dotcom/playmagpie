@@ -8,22 +8,22 @@ import CTAButton from '@/components/CTAButton'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos 2026 — Fast Withdrawals Ranked',
+  title: 'Best Crypto Casinos 2026: Fast Withdrawals Ranked',
   description:
-    'PlayMagpie ranks the best crypto casinos for 2026 — fast withdrawals, fair bonuses, no-KYC options and VIP rewards. Independent scores, no paid placements.',
+    'PlayMagpie ranks the best crypto casinos for 2026: fast withdrawals, fair bonuses, no-KYC options and VIP rewards. Independent scores, no paid placements.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
     url: '/',
-    title: 'Best Crypto Casinos 2026 — Fast Withdrawals Ranked',
+    title: 'Best Crypto Casinos 2026: Fast Withdrawals Ranked',
     description:
-      'PlayMagpie ranks the best crypto casinos for 2026 — fast withdrawals, fair bonuses, no-KYC options and VIP rewards.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Casinos 2026 — PlayMagpie' }],
+      'PlayMagpie ranks the best crypto casinos for 2026: fast withdrawals, fair bonuses, no-KYC options and VIP rewards.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Casinos 2026: PlayMagpie' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Crypto Casinos 2026 — Fast Withdrawals Ranked',
+    title: 'Best Crypto Casinos 2026: Fast Withdrawals Ranked',
     description: 'Independent rankings of the best crypto casinos for fast withdrawals, bonuses and no-KYC play.',
     images: ['/og-image.png'],
   },
@@ -68,7 +68,7 @@ const features = [
   {
     icon: '👑',
     title: 'VIP Rewards',
-    desc: 'From cashback to personal hosts — we break down which VIP programmes actually deliver for high-volume players.',
+    desc: 'From cashback to personal hosts, we break down which VIP programmes actually deliver for high-volume players.',
     href: '/high-roller-casinos',
   },
   {
@@ -86,7 +86,7 @@ const features = [
   {
     icon: '📱',
     title: 'Mobile Ready',
-    desc: 'Every casino on our list is tested on mobile. No app required — browser-based play that works.',
+    desc: 'Every casino on our list is tested on mobile. No app required: browser-based play that works.',
     href: '/best-crypto-casinos',
   },
 ]
@@ -114,7 +114,7 @@ export default function HomePage() {
           <div className="mb-7 flex items-end justify-between">
             <div>
               <h2 className="text-2xl font-bold text-[#f5f5f5]">Top Crypto Casinos 2026</h2>
-              <p className="text-[#888888] text-sm mt-1.5">Ranked by trust score — updated regularly</p>
+              <p className="text-[#888888] text-sm mt-1.5">Ranked by trust score, updated regularly</p>
             </div>
             <CTAButton href="/best-crypto-casinos" label="See All" variant="outline" size="sm" />
           </div>
@@ -127,14 +127,14 @@ export default function HomePage() {
             casinoName={topCasino.name}
             bonusText={topCasino.bonusSummary}
             affiliateUrl={topCasino.affiliateUrl}
-            subtext="Limited time — check site for full T&Cs"
+            subtext="Limited time. Check site for full T&Cs"
           />
         )}
 
         {/* Featured Cards */}
         <TopRatedSection
           title="Featured Crypto Casinos"
-          subtitle="Our top picks for 2026 — fast payouts, strong bonuses, minimal friction"
+          subtitle="Our top picks for 2026: fast payouts, strong bonuses, minimal friction"
           casinos={featured}
           viewAllHref="/best-crypto-casinos"
           viewAllLabel="All Crypto Casinos"
@@ -190,7 +190,7 @@ export default function HomePage() {
           <div className="mb-7">
             <h2 className="text-2xl font-bold text-[#f5f5f5]">By region &amp; focus</h2>
             <p className="text-[#888888] text-sm mt-1.5">
-              Country-specific framing, niche intent pages and our decision guides — for when the top rankings aren&apos;t the question you&apos;re asking.
+              Country-specific framing, niche intent pages and our decision guides, for when the top rankings aren&apos;t the question you&apos;re asking.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -203,7 +203,7 @@ export default function HomePage() {
                 Crypto casinos in Sweden
               </h3>
               <p className="text-[#888888] text-sm leading-relaxed">
-                Spellag&apos;s one-bonus rule + 72–82% online casino channelisation — why Swedish players go offshore, and how Safello&apos;s MiCA CASP fits in.
+                Spellag&apos;s one-bonus rule + 72–82% online casino channelisation: why Swedish players go offshore, and how Safello&apos;s MiCA CASP fits in.
               </p>
             </Link>
             <Link
@@ -227,7 +227,7 @@ export default function HomePage() {
                 No-limit withdrawal casinos
               </h3>
               <p className="text-[#888888] text-sm leading-relaxed">
-                Cloudbet is the only operator on our list with an explicit no-cap policy — the rest documented, sourced from each casino&apos;s published terms.
+                Cloudbet is the only operator on our list with an explicit no-cap policy; the rest documented, sourced from each casino&apos;s published terms.
               </p>
             </Link>
             <Link
@@ -239,7 +239,7 @@ export default function HomePage() {
                 Best crypto for gambling
               </h3>
               <p className="text-[#888888] text-sm leading-relaxed">
-                Decision matrix — speed vs anonymity vs low fees vs stability. Pick the right chain for the priority you&apos;re actually optimising.
+                Decision matrix: speed vs anonymity vs low fees vs stability. Pick the right chain for the priority you&apos;re actually optimising.
               </p>
             </Link>
             <Link
@@ -251,7 +251,7 @@ export default function HomePage() {
                 Bonus &amp; withdrawal transparency report
               </h3>
               <p className="text-[#888888] text-sm leading-relaxed">
-                We checked 8 casinos&apos; bonus terms against their live T&amp;Cs — the gap between the headline offer and the real cashout cost, every figure sourced.
+                We checked 8 casinos&apos; bonus terms against their live T&amp;Cs: the gap between the headline offer and the real cashout cost, every figure sourced.
               </p>
             </Link>
           </div>
@@ -260,7 +260,7 @@ export default function HomePage() {
         {/* Top No-KYC Section */}
         <TopRatedSection
           title="Top No-KYC Casinos"
-          subtitle="Play instantly — no identity verification, no friction"
+          subtitle="Play instantly: no identity verification, no friction"
           casinos={casinos.filter((c) => c.kycLevel === 'None').slice(0, 3)}
           viewAllHref="/no-kyc-casinos"
           viewAllLabel="All No-KYC Casinos"

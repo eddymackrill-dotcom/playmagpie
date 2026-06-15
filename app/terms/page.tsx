@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Terms of Use | PlayMagpie',
-  description: 'PlayMagpie terms of use — how you may use this website, our affiliate disclosures, age restrictions and limitation of liability.',
+  description: 'PlayMagpie terms of use: how you may use this website, our affiliate disclosures, age restrictions and limitation of liability.',
   robots: { index: false, follow: false },
   alternates: {
     canonical: '/terms',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: '/terms',
     title: 'Terms of Use | PlayMagpie',
-    description: 'PlayMagpie terms of use — affiliate disclosures, age restrictions, limitation of liability.',
+    description: 'PlayMagpie terms of use: affiliate disclosures, age restrictions, limitation of liability.',
   },
 }
 

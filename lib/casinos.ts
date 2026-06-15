@@ -112,7 +112,7 @@ export const casinos: Casino[] = [
     minDeposit: '$5',
     kycLevel: 'None',
     vipProgram: true,
-    bonusSummary: '220% Deposit Rakeback Welcome — 4 monthly stages from 180%+40% RakeBack to 360%+140% RakeBack, locked balance unlocks as you wager (min $5)',
+    bonusSummary: '220% Deposit Rakeback Welcome: 4 monthly stages from 180%+40% RakeBack to 360%+140% RakeBack, locked balance unlocks as you wager (min $5)',
     restrictedCountries: ['US', 'FR', 'NL'],
     trustScore: 8.9,
     withdrawalScore: 9.3,
@@ -120,7 +120,7 @@ export const casinos: Casino[] = [
     kycScore: 9.5,
     affiliateUrl: 'https://bc.game/i-9767kimyer-n/',
     reviewSummary:
-      'BC.Game is one of the most crypto-native casinos in the industry, operating since 2017 with a core focus on blockchain gaming. It supports over 100 cryptocurrencies for deposits and withdrawals — by far the widest selection on the market — and operates a strict no-KYC policy. The platform hosts 10,000+ games including provably fair originals, a full sportsbook, and one of the strongest VIP loyalty systems available. Withdrawals are processed almost instantly for most coins, and the $5 minimum deposit makes it accessible at any bankroll level.',
+      'BC.Game is one of the most crypto-native casinos in the industry, operating since 2017 with a core focus on blockchain gaming. It supports over 100 cryptocurrencies for deposits and withdrawals (by far the widest selection on the market) and operates a strict no-KYC policy. The platform hosts 10,000+ games including provably fair originals, a full sportsbook, and one of the strongest VIP loyalty systems available. Withdrawals are processed almost instantly for most coins, and the $5 minimum deposit makes it accessible at any bankroll level.',
     pros: [
       '100+ cryptocurrencies accepted — widest selection of any major crypto casino',
       'Strict no-KYC policy — sign up with email only, no documents ever required',
@@ -156,7 +156,7 @@ export const casinos: Casino[] = [
     kycScore: 8.8,
     affiliateUrl: 'https://cldbt.cloud/go/en/landing/bitcoin-casino?af_token=d30618699794f13b6b09b67534671ded&aftm_campaign=playmagpie&aftm_source=organic&aftm_medium=SEO',
     reviewSummary:
-      'Cloudbet is one of the longest-standing crypto casinos in the industry, established in 2013. That track record counts: Cloudbet has processed withdrawals reliably through multiple crypto cycles without issues. It operates under dual licensing from Curaçao eGaming and the Kahnawake Gaming Commission. The platform is particularly strong for high rollers — there are no withdrawal limits, the 5 BTC welcome bonus is one of the most generous available, and the VIP programme delivers meaningful cashback and dedicated support. The sportsbook is among the best-in-class for crypto betting.',
+      'Cloudbet is one of the longest-standing crypto casinos in the industry, established in 2013. That track record counts: Cloudbet has processed withdrawals reliably through multiple crypto cycles without issues. It operates under dual licensing from Curaçao eGaming and the Kahnawake Gaming Commission. The platform is particularly strong for high rollers: there are no withdrawal limits, the 5 BTC welcome bonus is one of the most generous available, and the VIP programme delivers meaningful cashback and dedicated support. The sportsbook is among the best-in-class for crypto betting.',
     pros: [
       'Established in 2013 — one of the longest-running and most trusted crypto casinos',
       'No withdrawal limits — critical for high-roller play',
@@ -192,7 +192,7 @@ export const casinos: Casino[] = [
     kycScore: 8.6,
     affiliateUrl: 'https://mirax.partners/pua8ehgj5',
     reviewSummary:
-      'Mirax Casino launched in 2022 and is part of the 7Bit Partners network, which also operates 7Bit Casino — a brand with over a decade of industry experience. Despite being a newer brand, Mirax benefits from the infrastructure and relationships of an established operator. The welcome package spans the first four deposits with a 5 BTC headline ceiling: 1.5 BTC + 100 free spins on the first deposit, 1.25 BTC + 50 free spins on the second (code W2), then cash-only matches of 1.25 BTC on the third (code W3) and 1 BTC on the fourth (code W4). The free-spins component totals 150 across the pack with a €100 max cashout on free-spin winnings per the live promotions page. The game library covers 7,000+ titles and crypto withdrawals are typically processed within 15 minutes, with light KYC only triggered above higher withdrawal thresholds.',
+      'Mirax Casino launched in 2022 and is part of the 7Bit Partners network, which also operates 7Bit Casino, a brand with over a decade of industry experience. Despite being a newer brand, Mirax benefits from the infrastructure and relationships of an established operator. The welcome package spans the first four deposits with a 5 BTC headline ceiling: 1.5 BTC + 100 free spins on the first deposit, 1.25 BTC + 50 free spins on the second (code W2), then cash-only matches of 1.25 BTC on the third (code W3) and 1 BTC on the fourth (code W4). The free-spins component totals 150 across the pack with a €100 max cashout on free-spin winnings per the live promotions page. The game library covers 7,000+ titles and crypto withdrawals are typically processed within 15 minutes, with light KYC only triggered above higher withdrawal thresholds.',
     pros: [
       'Substantial welcome package: up to 5 BTC + 150 free spins across the 4-deposit pack (100 on D1, 50 on D2, cash-only on D3/D4)',
       'Part of the established 7Bit Partners network — proven operator infrastructure',
@@ -263,7 +263,7 @@ export const casinos: Casino[] = [
     kycScore: 8.0,
     affiliateUrl: 'https://shuffle.com?r=XvbI9QwSTw',
     reviewSummary:
-      'Shuffle is a fast-growing crypto casino and sportsbook that launched in 2022, built around its own native SHFL token and a community-driven rakeback rewards model. The platform hosts 10,000+ games from major providers alongside Shuffle Originals — provably fair in-house games with independently verifiable outcomes. Crypto withdrawals are processed instantly to 10 minutes for most transactions across 12 supported cryptocurrencies. The SHFL token enables ongoing airdrop rewards and stacked rakeback, giving active players continuous value beyond the initial welcome bonus. The main caveats: a 35x wagering requirement on the welcome offer is above the industry average, the bonus must be activated via live chat rather than automatically, and KYC checks can be triggered at withdrawal for larger amounts.',
+      'Shuffle is a fast-growing crypto casino and sportsbook that launched in 2022, built around its own native SHFL token and a community-driven rakeback rewards model. The platform hosts 10,000+ games from major providers alongside Shuffle Originals, provably fair in-house games with independently verifiable outcomes. Crypto withdrawals are processed instantly to 10 minutes for most transactions across 12 supported cryptocurrencies. The SHFL token enables ongoing airdrop rewards and stacked rakeback, giving active players continuous value beyond the initial welcome bonus. The main caveats: a 35x wagering requirement on the welcome offer is above the industry average, the bonus must be activated via live chat rather than automatically, and KYC checks can be triggered at withdrawal for larger amounts.',
     pros: [
       '10,000+ games including Shuffle Originals — provably fair in-house titles',
       'Instant to 10-minute crypto withdrawals across most supported networks',
@@ -300,7 +300,7 @@ export const casinos: Casino[] = [
     kycScore: 9.3,
     affiliateUrl: 'https://record.dbpartners.io/_8Rmi14_Kn9DUOsjNOfgKeWNd7ZgqdRLk/1/',
     reviewSummary:
-      'Duelbits is a modern crypto-native casino and sportsbook launched in 2020, built around its own Duelbits Originals games — provably fair slots, crash, plinko and dice with cryptographically verifiable outcomes. The platform operates a no-KYC policy for crypto play and withdrawals, with only basic checks triggered for unusual activity, and processes most crypto payouts in under 5 minutes across 12 supported cryptocurrencies. The bonus structure is cashback-focused rather than headline match: up to $30 weekly cashback plus continuous Duelbits Originals rewards and seasonal leaderboard promotions, which delivers better real expected value than high-wagering match bonuses for active players. Duelbits is particularly popular with streamers and high rollers — the VIP system runs on rakeback rather than tier-locked bonuses, and the platform interface is cleaner and more crypto-native than older brands.',
+      'Duelbits is a modern crypto-native casino and sportsbook launched in 2020, built around its own Duelbits Originals games: provably fair slots, crash, plinko and dice with cryptographically verifiable outcomes. The platform operates a no-KYC policy for crypto play and withdrawals, with only basic checks triggered for unusual activity, and processes most crypto payouts in under 5 minutes across 12 supported cryptocurrencies. The bonus structure is cashback-focused rather than headline match: up to $30 weekly cashback plus continuous Duelbits Originals rewards and seasonal leaderboard promotions, which delivers better real expected value than high-wagering match bonuses for active players. Duelbits is particularly popular with streamers and high rollers. The VIP system runs on rakeback rather than tier-locked bonuses, and the platform interface is cleaner and more crypto-native than older brands.',
     pros: [
       'No KYC required for crypto play and withdrawals — basic checks only',
       'Instant crypto withdrawals — typically processed in under 5 minutes',
@@ -329,7 +329,7 @@ export const casinos: Casino[] = [
     minDeposit: '$10',
     kycLevel: 'Standard',
     vipProgram: true,
-    bonusSummary: 'No traditional welcome bonus — 7-day 20% net-loss cashback capped near $1,400 plus a $5 sportsbook free bet (code MAXBONUS)',
+    bonusSummary: 'No traditional welcome bonus: 7-day 20% net-loss cashback capped near $1,400 plus a $5 sportsbook free bet (code MAXBONUS)',
     // Full territory list lifted verbatim from roobet.com/terms §3.5 (user-verified
     // May 2026). Stored as full country names rather than ISO codes — country-page
     // exclusion is driven via casinoAcceptsCountry() which matches full names only,
@@ -348,7 +348,7 @@ export const casinos: Casino[] = [
     kycScore: 6.5,
     affiliateUrl: 'https://go.roobet.com/visit/?bta=45872&brand=roobet',
     reviewSummary:
-      'Roobet has been operating since 2019 under Raw Entertainment B.V. (Curaçao registration 157205), with a secondary Anjouan licence picked up in 2025 as the Curaçao licensing regime moved from the legacy sub-licensee model to the post-LOK direct framework. The product is built around Roobet Originals — Crash is the flagship, with Mines, Towers, Dice, Plinko and the Snoop-branded HotBox variant alongside roughly 6,000 third-party slots and a full sportsbook that picked up regional partnership deals with Chelsea FC (Latin America plus Canada outside Ontario) and 100 Thieves in 2025. The honest picture has two sides. The catalogue is real, the originals are provably fair, and headline crypto withdrawals process in around 15 minutes across the 8 supported coins. The documented track record at the high-stakes end is harder to ignore — AskGamblers carries Roobet complaints at $20k, $84k, $97k, $111k and $115k where verified accounts saw cashouts held in "routine verification" for days, and the $84,000 case is publicly listed as Unsolved. Roobet T&C explicitly authorise winnings confiscation on "low-risk play," with a January 2025 card-counting case running ~$2,700-3,000 voided on those grounds. There is also no traditional welcome bonus — only net-loss cashback that only triggers if you lose. The restricted-territories list is unusually wide for a Curaçao operator, covering the UK, US, Germany, Netherlands, Sweden and Australia among others, which is itself useful signal about the platform\'s offshore positioning. Roobet is a usable platform for crash-led play at modest stakes; it is not where you want to be holding a five- or six-figure win waiting on a cashier review.',
+      'Roobet has been operating since 2019 under Raw Entertainment B.V. (Curaçao registration 157205), with a secondary Anjouan licence picked up in 2025 as the Curaçao licensing regime moved from the legacy sub-licensee model to the post-LOK direct framework. The product is built around Roobet Originals. Crash is the flagship, with Mines, Towers, Dice, Plinko and the Snoop-branded HotBox variant alongside roughly 6,000 third-party slots and a full sportsbook that picked up regional partnership deals with Chelsea FC (Latin America plus Canada outside Ontario) and 100 Thieves in 2025. The honest picture has two sides. The catalogue is real, the originals are provably fair, and headline crypto withdrawals process in around 15 minutes across the 8 supported coins. The documented track record at the high-stakes end is harder to ignore: AskGamblers carries Roobet complaints at $20k, $84k, $97k, $111k and $115k where verified accounts saw cashouts held in "routine verification" for days, and the $84,000 case is publicly listed as Unsolved. Roobet T&C explicitly authorise winnings confiscation on "low-risk play," with a January 2025 card-counting case running ~$2,700-3,000 voided on those grounds. There is also no traditional welcome bonus: only net-loss cashback that only triggers if you lose. The restricted-territories list is unusually wide for a Curaçao operator, covering the UK, US, Germany, Netherlands, Sweden and Australia among others, which is itself useful signal about the platform\'s offshore positioning. Roobet is a usable platform for crash-led play at modest stakes; it is not where you want to be holding a five- or six-figure win waiting on a cashier review.',
     pros: [
       'Roobet Originals — Crash is the flagship, plus Mines, Towers, Dice, Plinko and the Snoop-branded HotBox variant, all provably fair',
       '~6,000 third-party slots from providers including Pragmatic Play, Hacksaw, Play\'n GO, Push, Relax, Nolimit City and NetEnt',

@@ -20,7 +20,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     slug: 'bc-game',
     facts: [
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None — no documents at any size' },
+      { label: 'KYC', value: 'None: no documents at any size' },
       { label: 'Min deposit', value: '$5' },
     ],
   },
@@ -28,14 +28,14 @@ const STRIP_CARDS: CTAStripCard[] = [
     slug: '7bit-casino',
     facts: [
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None — since 2014' },
+      { label: 'KYC', value: 'None: since 2014' },
       { label: 'Min deposit', value: '$10' },
     ],
   },
 ]
 
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos 2026 — Top Bitcoin & USDT Sites Ranked',
+  title: 'Best Crypto Casinos 2026: Top Bitcoin & USDT Sites Ranked',
   description:
     'The best Bitcoin and crypto casinos ranked for 2026. Compare withdrawal speeds, bonus value and KYC requirements. Play with BTC, ETH, USDT, SOL and more.',
   alternates: {
@@ -43,16 +43,16 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: '/best-crypto-casinos',
-    title: 'Best Crypto Casinos 2026 — Top Bitcoin & USDT Sites Ranked',
+    title: 'Best Crypto Casinos 2026: Top Bitcoin & USDT Sites Ranked',
     description:
       'The best Bitcoin and crypto casinos ranked for 2026. Compare withdrawal speeds, bonus value and KYC requirements.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Casinos 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Crypto Casinos 2026 — Top Bitcoin & USDT Sites Ranked',
+    title: 'Best Crypto Casinos 2026: Top Bitcoin & USDT Sites Ranked',
     description:
-      'The best Bitcoin and crypto casinos ranked for 2026 — fast withdrawals, fair bonuses, minimal KYC.',
+      'The best Bitcoin and crypto casinos ranked for 2026: fast withdrawals, fair bonuses, minimal KYC.',
     images: ['/og-image.png'],
   },
 }
@@ -90,7 +90,7 @@ export default function BestCryptoCasinosPage() {
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             We&apos;ve ranked the top Bitcoin and crypto casinos by withdrawal speed, bonus value, KYC friction and
-            platform trust. Every score is independent — no paid rankings.
+            platform trust. Every score is independent, no paid rankings.
           </p>
         </div>
 
@@ -108,7 +108,7 @@ export default function BestCryptoCasinosPage() {
         </div>
 
         <CasinoCTAStrip
-          framing="Top 3 by independent trust score — same ranking the page uses below. No paid placement."
+          framing="Top 3 by independent trust score: same ranking the page uses below. No paid placement."
           cards={STRIP_CARDS}
         />
 
@@ -144,7 +144,7 @@ export default function BestCryptoCasinosPage() {
             </p>
             <p>
               Our ranking methodology weighs four key factors: withdrawal speed (how quickly crypto actually hits
-              your wallet), bonus fairness (wagering requirements, game contributions and caps — see our{' '}
+              your wallet), bonus fairness (wagering requirements, game contributions and caps: see our{' '}
               <Link href="/bonus/free-spins" className="text-[#7BB8D4] hover:underline">verified free-spins terms breakdown</Link>{' '}
               for the cell-by-cell comparison against live T&amp;Cs, and our{' '}
               <Link href="/research/crypto-casino-bonus-transparency" className="text-[#7BB8D4] hover:underline">Bonus &amp; Withdrawal Transparency Report</Link>{' '}
@@ -163,7 +163,7 @@ export default function BestCryptoCasinosPage() {
         <section className="mt-12">
           <h2 className="text-2xl font-bold text-white mb-6">Full Bitcoin Casino Reviews</h2>
           <p className="text-[#888888] text-sm mb-5">
-            Read our in-depth review for each crypto casino — withdrawal times, bonus terms, KYC requirements and full scores.
+            Read our in-depth review for each crypto casino: withdrawal times, bonus terms, KYC requirements and full scores.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {casinos.map((casino) => (
@@ -201,15 +201,15 @@ export default function BestCryptoCasinosPage() {
             </Link>
             <Link href="/no-limit-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">No-Limit Withdrawal Casinos</div>
-              <div className="text-[#888888] text-sm">Cap-free cash-out for big wins — Cloudbet is the explicit operator</div>
+              <div className="text-[#888888] text-sm">Cap-free cash-out for big wins: Cloudbet is the explicit operator</div>
             </Link>
             <Link href="/guides/best-crypto-for-gambling" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Best Crypto for Gambling</div>
-              <div className="text-[#888888] text-sm">Pick the chain — decision matrix by priority (speed / anonymity / fees)</div>
+              <div className="text-[#888888] text-sm">Pick the chain: decision matrix by priority (speed / anonymity / fees)</div>
             </Link>
             <Link href="/country/sweden" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Crypto Casinos in Sweden</div>
-              <div className="text-[#888888] text-sm">EU regulatory regime — Spellag one-bonus rule, channelisation data, on-ramps</div>
+              <div className="text-[#888888] text-sm">EU regulatory regime: Spellag one-bonus rule, channelisation data, on-ramps</div>
             </Link>
           </div>
         </section>

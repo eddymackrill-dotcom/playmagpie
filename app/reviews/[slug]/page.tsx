@@ -11,14 +11,14 @@ export async function generateStaticParams() {
 }
 
 const casinoMetaDescriptions: Record<string, string> = {
-  bitstarz: 'BitStarz review 2026. Award-winning Bitcoin casino — 5 BTC + 180 free spins, 3,000+ games, under 10-min crypto withdrawals. Rated 9.2/10 by PlayMagpie.',
-  'bc-game': 'BC.Game review 2026. No-KYC crypto casino — 100+ cryptocurrencies, instant withdrawals, 10,000+ games. Zero identity verification required. Rated 8.9/10.',
-  cloudbet: 'Cloudbet review 2026. Trusted since 2013 — 5 BTC welcome bonus, no withdrawal limits, excellent sportsbook for crypto bettors. Rated 8.7/10 by PlayMagpie.',
+  bitstarz: 'BitStarz review 2026. Award-winning Bitcoin casino: 5 BTC + 180 free spins, 3,000+ games, under 10-min crypto withdrawals. Rated 9.2/10 by PlayMagpie.',
+  'bc-game': 'BC.Game review 2026. No-KYC crypto casino: 100+ cryptocurrencies, instant withdrawals, 10,000+ games. Zero identity verification required. Rated 8.9/10.',
+  cloudbet: 'Cloudbet review 2026. Trusted since 2013: 5 BTC welcome bonus, no withdrawal limits, excellent sportsbook for crypto bettors. Rated 8.7/10 by PlayMagpie.',
   'mirax-casino': 'Mirax Casino review 2026. Up to 5 BTC + 150 free spins across the 4-deposit welcome pack, 7,000+ games, fast crypto withdrawals in under 15 minutes. Rated 8.6/10.',
-  '7bit-casino': '7Bit Casino review 2026. No-KYC Bitcoin casino since 2014 — instant withdrawals, 7,000+ games, weekly reload bonuses and VIP cashback. Rated 8.8/10.',
+  '7bit-casino': '7Bit Casino review 2026. No-KYC Bitcoin casino since 2014: instant withdrawals, 7,000+ games, weekly reload bonuses and VIP cashback. Rated 8.8/10.',
   shuffle: 'Shuffle Casino review 2026. Native SHFL token, rakeback VIP rewards, 10,000+ games and instant crypto withdrawals. 12 cryptocurrencies accepted. Rated 8.2/10.',
-  duelbits: 'Duelbits review 2026. No-KYC crypto casino since 2020 — Duelbits Originals, instant under-5-minute withdrawals, weekly cashback and rakeback VIP. 12 cryptos accepted. Rated 8.5/10.',
-  roobet: 'Roobet review 2026 — Crash-led Originals, ~6,000 slots and a sportsbook. Honest take on documented withdrawal holds on $20k+ wins, the "low-risk play" T&C clause, and the offshore-only Curaçao + Anjouan licensing. Rated 6.8/10.',
+  duelbits: 'Duelbits review 2026. No-KYC crypto casino since 2020: Duelbits Originals, instant under-5-minute withdrawals, weekly cashback and rakeback VIP. 12 cryptos accepted. Rated 8.5/10.',
+  roobet: 'Roobet review 2026. Crash-led Originals, ~6,000 slots and a sportsbook. Honest take on documented withdrawal holds on $20k+ wins, the "low-risk play" T&C clause, and the offshore-only Curaçao + Anjouan licensing. Rated 6.8/10.',
 }
 
 // Sub-page index — per-casino contextual links to the deep-dive pages that
@@ -37,7 +37,7 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
   'mirax-casino': [
     {
       href: '/reviews/mirax-casino/withdrawal',
-      label: 'Mirax cashier in detail — the 4-deposit welcome pack and your first withdrawal',
+      label: 'Mirax cashier in detail: the 4-deposit welcome pack and your first withdrawal',
       teaser: 'How wagering on the 5 BTC welcome match interacts with your first eligible withdrawal, the seven supported coins, and why XRP clears fastest.',
     },
   ],
@@ -56,7 +56,7 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
     },
     {
       href: '/reviews/cloudbet/payment-methods',
-      label: 'Cloudbet deposits — 10 cryptos, 0.001 BTC floor, zero fiat options',
+      label: 'Cloudbet deposits: 10 cryptos, 0.001 BTC floor, zero fiat options',
       teaser: 'Per-coin deposit behaviour, what the higher minimum signals about player profile, and why the Kahnawake segregated-funds requirement matters at deposit time.',
     },
   ],
@@ -116,7 +116,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
   bitstarz: [
     {
       question: 'Is BitStarz legit?',
-      answer: 'BitStarz is a legitimate, award-winning crypto casino licensed by Curaçao eGaming (Antillephone N.V.). Is BitStarz legit? Yes — it has operated since 2014, won multiple "Best Bitcoin Casino" awards, and has a proven track record of paying out winnings without dispute. PlayMagpie independently rates it 9.2/10 for trust, the highest score in our current rankings, based on licensing quality, payout history and player feedback.',
+      answer: 'BitStarz is a legitimate, award-winning crypto casino licensed by Curaçao eGaming (Antillephone N.V.). Is BitStarz legit? Yes. It has operated since 2014, won multiple "Best Bitcoin Casino" awards, and has a proven track record of paying out winnings without dispute. PlayMagpie independently rates it 9.2/10 for trust, the highest score in our current rankings, based on licensing quality, payout history and player feedback.',
     },
     // Withdrawal-intent FAQs deliberately removed (2026-06-11): the dedicated
     // /reviews/bitstarz/withdrawal sub-page owns that query cluster per the
@@ -124,7 +124,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     // competition with its own sub-page on "bitstarz withdrawal" queries.
     {
       question: 'Does BitStarz offer a no deposit bonus?',
-      answer: 'BitStarz does not currently offer a no deposit bonus for new players in 2026. The welcome offer is a deposit-based package worth up to 5 BTC plus 180 free spins spread across your first four deposits (20 spins credited instantly on first deposit, then 20 per day for eight consecutive days per T&C §2.7). Some regions may occasionally see limited promotional no deposit free spins — check the BitStarz promotions page for current offers available in your country, as these change regularly.',
+      answer: 'BitStarz does not currently offer a no deposit bonus for new players in 2026. The welcome offer is a deposit-based package worth up to 5 BTC plus 180 free spins spread across your first four deposits (20 spins credited instantly on first deposit, then 20 per day for eight consecutive days per T&C §2.7). Some regions may occasionally see limited promotional no deposit free spins. Check the BitStarz promotions page for current offers available in your country, as these change regularly.',
     },
     {
       question: 'What is the BitStarz minimum deposit?',
@@ -132,7 +132,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What are BitStarz KYC verification requirements?',
-      answer: 'BitStarz has Light KYC requirements. Standard play requires only email registration — no documents at signup. BitStarz KYC verification is triggered for larger fiat withdrawals or when account activity flags a compliance review. Crypto-only players operating below higher withdrawal thresholds typically never need to submit identity documents. The light KYC model is designed to balance regulatory compliance with player privacy.',
+      answer: 'BitStarz has Light KYC requirements. Standard play requires only email registration, no documents at signup. BitStarz KYC verification is triggered for larger fiat withdrawals or when account activity flags a compliance review. Crypto-only players operating below higher withdrawal thresholds typically never need to submit identity documents. The light KYC model is designed to balance regulatory compliance with player privacy.',
     },
     {
       question: 'How does the BitStarz VIP program work?',
@@ -146,19 +146,19 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
   'bc-game': [
     {
       question: 'Is BC.Game legit?',
-      answer: 'BC.Game is a legitimate crypto casino licensed under Curaçao eGaming, operating since 2017. Is BC.Game legit? Yes — independent testing confirms fast withdrawals, a verified no-KYC policy maintained consistently since launch, and provably fair outcomes on original games. PlayMagpie rates BC.Game 8.9/10 for trust based on licensing quality, payout history and its no-KYC track record across over seven years of operation.',
+      answer: 'BC.Game is a legitimate crypto casino licensed under Curaçao eGaming, operating since 2017. Is BC.Game legit? Yes. Independent testing confirms fast withdrawals, a verified no-KYC policy maintained consistently since launch, and provably fair outcomes on original games. PlayMagpie rates BC.Game 8.9/10 for trust based on licensing quality, payout history and its no-KYC track record across over seven years of operation.',
     },
     {
       question: 'What are BC.Game withdrawal times in 2026?',
-      answer: 'BC.Game withdrawal time in 2026 is instant to 10 minutes for most supported cryptocurrencies. The platform processes withdrawals automatically through its blockchain infrastructure with no manual review required for standard amounts. This near-instant processing across 100+ cryptocurrencies earns BC.Game a 9.3/10 withdrawal score on PlayMagpie — second only to BitStarz in our current rankings for payout speed.',
+      answer: 'BC.Game withdrawal time in 2026 is instant to 10 minutes for most supported cryptocurrencies. The platform processes withdrawals automatically through its blockchain infrastructure with no manual review required for standard amounts. This near-instant processing across 100+ cryptocurrencies earns BC.Game a 9.3/10 withdrawal score on PlayMagpie: second only to BitStarz in our current rankings for payout speed.',
     },
     {
       question: 'Does BC.Game require KYC verification?',
-      answer: 'BC.Game is a strict no-KYC casino. You can register, deposit, play and withdraw using only an email address — no identity documents, selfies or proof of address are ever required. The BC.Game no KYC policy applies to all withdrawal sizes and all 100+ supported cryptocurrencies. This makes it the top choice among privacy-focused players who want to gamble without submitting personal information to any third party.',
+      answer: 'BC.Game is a strict no-KYC casino. You can register, deposit, play and withdraw using only an email address: no identity documents, selfies or proof of address are ever required. The BC.Game no KYC policy applies to all withdrawal sizes and all 100+ supported cryptocurrencies. This makes it the top choice among privacy-focused players who want to gamble without submitting personal information to any third party.',
     },
     {
       question: 'What are the best BC.Game bonus codes for 2026?',
-      answer: 'BC.Game has moved away from the traditional deposit-match welcome model. The current welcome offer at bc.game/deposit-offer is a 220% Deposit Rakeback Welcome Bonus across four monthly stages — 180%+40% RakeBack (min $5 deposit), 240%+60% (min $10), 300%+100% (min $20), 360%+140% (min $30). No free-spins component. Locked balance unlocks as you wager rather than the wager-then-withdraw match model. Affiliate-code variants may exist for specific promotions; check the live deposit-offer page for any active codes at signup. Bonus terms including wagering requirements vary — always read full T&Cs before claiming.',
+      answer: 'BC.Game has moved away from the traditional deposit-match welcome model. The current welcome offer at bc.game/deposit-offer is a 220% Deposit Rakeback Welcome Bonus across four monthly stages: 180%+40% RakeBack (min $5 deposit), 240%+60% (min $10), 300%+100% (min $20), 360%+140% (min $30). No free-spins component. Locked balance unlocks as you wager rather than the wager-then-withdraw match model. Affiliate-code variants may exist for specific promotions; check the live deposit-offer page for any active codes at signup. Bonus terms including wagering requirements vary. Always read full T&Cs before claiming.',
     },
     {
       question: 'Is BC.Game a good Bitcoin casino?',
@@ -166,7 +166,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What is the BC.Game minimum deposit?',
-      answer: 'The BC.Game minimum deposit is just $5 or the crypto equivalent — one of the lowest thresholds in the industry. This makes BC.Game accessible for players testing the platform at low stakes before committing larger sums. The minimum is calculated at current exchange rates, so small amounts of most supported cryptocurrencies qualify. No deposit fees are charged by BC.Game itself; standard blockchain network fees apply.',
+      answer: 'The BC.Game minimum deposit is just $5 or the crypto equivalent, one of the lowest thresholds in the industry. This makes BC.Game accessible for players testing the platform at low stakes before committing larger sums. The minimum is calculated at current exchange rates, so small amounts of most supported cryptocurrencies qualify. No deposit fees are charged by BC.Game itself; standard blockchain network fees apply.',
     },
     {
       question: 'How do BC.Game VIP rewards work?',
@@ -174,13 +174,13 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What crypto options does BC.Game support?',
-      answer: 'BC.Game crypto options are the widest of any major casino — over 100 cryptocurrencies accepted for deposits and withdrawals. Supported coins include Bitcoin, Ethereum, USDT, SOL, BNB, DOGE, LTC, XRP, TRX, USDC, ADA, MATIC, BCH and many more. BC.Game crypto options span multiple blockchains including ERC-20, TRC-20, BEP-20 and native chains, giving players maximum flexibility in managing funds without forced conversions.',
+      answer: 'BC.Game crypto options are the widest of any major casino: over 100 cryptocurrencies accepted for deposits and withdrawals. Supported coins include Bitcoin, Ethereum, USDT, SOL, BNB, DOGE, LTC, XRP, TRX, USDC, ADA, MATIC, BCH and many more. BC.Game crypto options span multiple blockchains including ERC-20, TRC-20, BEP-20 and native chains, giving players maximum flexibility in managing funds without forced conversions.',
     },
   ],
   cloudbet: [
     {
       question: 'Is Cloudbet legit?',
-      answer: 'Cloudbet is a legitimate, long-established crypto casino and sportsbook founded in 2013. Is Cloudbet legit? Yes — it holds dual licensing from Curaçao eGaming and the Kahnawake Gaming Commission, has processed withdrawals reliably through multiple crypto market cycles, and has zero reported unresolved withdrawal disputes in over a decade. PlayMagpie rates Cloudbet 8.7/10 for trust, reflecting its strong regulatory standing and operational history.',
+      answer: 'Cloudbet is a legitimate, long-established crypto casino and sportsbook founded in 2013. Is Cloudbet legit? Yes. It holds dual licensing from Curaçao eGaming and the Kahnawake Gaming Commission, has processed withdrawals reliably through multiple crypto market cycles, and has zero reported unresolved withdrawal disputes in over a decade. PlayMagpie rates Cloudbet 8.7/10 for trust, reflecting its strong regulatory standing and operational history.',
     },
     {
       question: 'What are Cloudbet withdrawal times in 2026?',
@@ -188,11 +188,11 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What is the Cloudbet Bitcoin bonus?',
-      answer: 'The Cloudbet bitcoin bonus is a 100% deposit match up to 5 BTC on your first deposit — one of the largest single-deposit BTC bonuses available in 2026. The Cloudbet bitcoin bonus is released incrementally as you wager through the platform, rather than as a lump sum. This structure rewards active players and aligns the bonus release with real gambling activity. Ongoing reload bonuses are also available for returning players.',
+      answer: 'The Cloudbet bitcoin bonus is a 100% deposit match up to 5 BTC on your first deposit, one of the largest single-deposit BTC bonuses available in 2026. The Cloudbet bitcoin bonus is released incrementally as you wager through the platform, rather than as a lump sum. This structure rewards active players and aligns the bonus release with real gambling activity. Ongoing reload bonuses are also available for returning players.',
     },
     {
       question: 'What is the Cloudbet minimum deposit?',
-      answer: 'The Cloudbet minimum deposit is 0.001 BTC or the equivalent in other supported cryptocurrencies — lower than the dollar-denominated minimums at many competitors. Exact minimum deposit thresholds vary by cryptocurrency; check the Cloudbet cashier for per-coin figures. Deposits are credited after one blockchain confirmation. No deposit fees are charged by Cloudbet; standard network fees apply.',
+      answer: 'The Cloudbet minimum deposit is 0.001 BTC or the equivalent in other supported cryptocurrencies, lower than the dollar-denominated minimums at many competitors. Exact minimum deposit thresholds vary by cryptocurrency; check the Cloudbet cashier for per-coin figures. Deposits are credited after one blockchain confirmation. No deposit fees are charged by Cloudbet; standard network fees apply.',
     },
     {
       question: 'What are Cloudbet KYC requirements?',
@@ -214,7 +214,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
   'mirax-casino': [
     {
       question: 'Is Mirax Casino legit?',
-      answer: 'Mirax Casino is a legitimate crypto casino licensed under Curaçao eGaming, operating since 2022 as part of the established 7Bit Partners network. Is Mirax Casino legit? Yes — the 7Bit Partners network has over a decade of industry experience operating reputable brands with consistent payout records. PlayMagpie rates Mirax Casino 8.6/10 for trust, accounting for its newer status alongside the proven operator infrastructure behind it.',
+      answer: 'Mirax Casino is a legitimate crypto casino licensed under Curaçao eGaming, operating since 2022 as part of the established 7Bit Partners network. Is Mirax Casino legit? Yes. The 7Bit Partners network has over a decade of industry experience operating reputable brands with consistent payout records. PlayMagpie rates Mirax Casino 8.6/10 for trust, accounting for its newer status alongside the proven operator infrastructure behind it.',
     },
     {
       question: 'What are Mirax Casino withdrawal times?',
@@ -238,7 +238,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'How does the Mirax Casino VIP programme work?',
-      answer: 'The Mirax Casino VIP programme rewards loyal players with tiered benefits including cashback on losses, higher withdrawal limits, personal account management and exclusive bonuses unavailable to standard players. Mirax Casino VIP status is earned through sustained wagering activity — higher tiers unlock progressively better perks. As part of the 7Bit Partners network, Mirax VIP players benefit from infrastructure and support systems proven across multiple established brands.',
+      answer: 'The Mirax Casino VIP programme rewards loyal players with tiered benefits including cashback on losses, higher withdrawal limits, personal account management and exclusive bonuses unavailable to standard players. Mirax Casino VIP status is earned through sustained wagering activity: higher tiers unlock progressively better perks. As part of the 7Bit Partners network, Mirax VIP players benefit from infrastructure and support systems proven across multiple established brands.',
     },
     {
       question: 'What are Mirax Casino KYC requirements?',
@@ -256,11 +256,11 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Does Shuffle Casino require KYC verification?',
-      answer: 'Shuffle Casino has Light KYC requirements. Most players can register, deposit and play without submitting identity documents. Shuffle Casino KYC checks are triggered at withdrawal for larger amounts — typically when transactions exceed set thresholds. The tiered approach means basic play is frictionless, but high-value withdrawals may require government ID and proof of address before funds are released. Standard crypto-only players at normal stakes rarely encounter verification requests.',
+      answer: 'Shuffle Casino has Light KYC requirements. Most players can register, deposit and play without submitting identity documents. Shuffle Casino KYC checks are triggered at withdrawal for larger amounts, typically when transactions exceed set thresholds. The tiered approach means basic play is frictionless, but high-value withdrawals may require government ID and proof of address before funds are released. Standard crypto-only players at normal stakes rarely encounter verification requests.',
     },
     {
       question: 'What is the Shuffle Casino bonus for 2026?',
-      answer: 'The Shuffle Casino bonus for 2026 is a 100% deposit match up to $1,000 on your first deposit, plus ongoing SHFL token rewards and rakeback. Importantly, the Shuffle Casino bonus must be activated via live chat before depositing — it is not applied automatically. Wagering requirements are 35x, above the industry average. SHFL token rewards and daily rakeback provide additional ongoing value that partially offsets the higher wagering threshold on the initial welcome offer.',
+      answer: 'The Shuffle Casino bonus for 2026 is a 100% deposit match up to $1,000 on your first deposit, plus ongoing SHFL token rewards and rakeback. Importantly, the Shuffle Casino bonus must be activated via live chat before depositing. It is not applied automatically. Wagering requirements are 35x, above the industry average. SHFL token rewards and daily rakeback provide additional ongoing value that partially offsets the higher wagering threshold on the initial welcome offer.',
     },
     {
       question: 'What crypto does Shuffle Casino accept?',
@@ -272,17 +272,17 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'How does the Shuffle Casino VIP programme work?',
-      answer: 'The Shuffle Casino VIP programme is built around rakeback — a percentage of the house edge returned to players based on wagering volume. Higher tiers unlock increased rakeback rates, priority withdrawals, elevated betting limits and exclusive bonuses. SHFL token rewards stack on top of standard rakeback earnings. The Shuffle Casino VIP system has transparent progression criteria, making it accessible for players who want to maximise their long-term return through sustained play.',
+      answer: 'The Shuffle Casino VIP programme is built around rakeback: a percentage of the house edge returned to players based on wagering volume. Higher tiers unlock increased rakeback rates, priority withdrawals, elevated betting limits and exclusive bonuses. SHFL token rewards stack on top of standard rakeback earnings. The Shuffle Casino VIP system has transparent progression criteria, making it accessible for players who want to maximise their long-term return through sustained play.',
     },
     {
       question: 'Is Shuffle Casino worth joining in 2026?',
-      answer: 'This Shuffle Casino review 2026 highlights a strong game library (10,000+ titles including provably fair Originals), instant crypto withdrawals for most players, a unique SHFL token rewards ecosystem, and a solid rakeback-based VIP programme. The main caveats: the 35x welcome bonus wagering requirement is above average, the bonus requires live chat activation, and larger withdrawals may trigger KYC review. Overall Shuffle earns 8.2/10 from PlayMagpie — a compelling choice for players drawn to the SHFL token ecosystem and rakeback model.',
+      answer: 'This Shuffle Casino review 2026 highlights a strong game library (10,000+ titles including provably fair Originals), instant crypto withdrawals for most players, a unique SHFL token rewards ecosystem, and a solid rakeback-based VIP programme. The main caveats: the 35x welcome bonus wagering requirement is above average, the bonus requires live chat activation, and larger withdrawals may trigger KYC review. Overall Shuffle earns 8.2/10 from PlayMagpie: a compelling choice for players drawn to the SHFL token ecosystem and rakeback model.',
     },
   ],
   '7bit-casino': [
     {
       question: 'Is 7Bit Casino legit?',
-      answer: '7Bit Casino is a legitimate and well-established Bitcoin casino that has operated since 2014. Is 7Bit Casino legit? Yes — with over a decade of reliable operation, a strict no-KYC policy maintained throughout, and consistent payout performance across thousands of player transactions, it is one of the most trusted Bitcoin casinos available. PlayMagpie rates 7Bit Casino 8.8/10 for trust, reflecting its long track record and player-first policies.',
+      answer: '7Bit Casino is a legitimate and well-established Bitcoin casino that has operated since 2014. Is 7Bit Casino legit? Yes. With over a decade of reliable operation, a strict no-KYC policy maintained throughout, and consistent payout performance across thousands of player transactions, it is one of the most trusted Bitcoin casinos available. PlayMagpie rates 7Bit Casino 8.8/10 for trust, reflecting its long track record and player-first policies.',
     },
     {
       question: 'What are 7Bit Casino withdrawal times?',
@@ -290,23 +290,23 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Does 7Bit Casino require KYC?',
-      answer: '7Bit Casino no KYC policy applies to all crypto withdrawals regardless of amount. Players registering with email only can deposit, play and withdraw cryptocurrency without ever submitting identity documents, selfies or proof of address. The 7Bit Casino no KYC policy has been consistently maintained since 2014 — making it one of the most reliable privacy-preserving casinos for long-term players who value anonymity above all.',
+      answer: '7Bit Casino no KYC policy applies to all crypto withdrawals regardless of amount. Players registering with email only can deposit, play and withdraw cryptocurrency without ever submitting identity documents, selfies or proof of address. The 7Bit Casino no KYC policy has been consistently maintained since 2014, making it one of the most reliable privacy-preserving casinos for long-term players who value anonymity above all.',
     },
     {
       question: 'What is the 7Bit Casino Bitcoin bonus for 2026?',
-      answer: 'The 7Bit Casino welcome offer in 2026 is a 325% match up to €5,400 plus 250 free spins across the 4-deposit welcome pack — sourced directly from 7bitcasino.com/bonuses. Per the published T&C the welcome bonus is wagered 40-45x (most BTC bonuses at 7Bit sit in that range) with a $100 max cashout from free-spin winnings on Elvis Frog in Vegas. Subsequent deposits unlock further reload bonuses as part of the welcome package. Weekly reload bonuses (25% match + 50 free spins on Monday) and Wednesday Free Spins (code WEDNESDAY) run continuously, providing ongoing value beyond the initial offer.',
+      answer: 'The 7Bit Casino welcome offer in 2026 is a 325% match up to €5,400 plus 250 free spins across the 4-deposit welcome pack, sourced directly from 7bitcasino.com/bonuses. Per the published T&C the welcome bonus is wagered 40-45x (most BTC bonuses at 7Bit sit in that range) with a $100 max cashout from free-spin winnings on Elvis Frog in Vegas. Subsequent deposits unlock further reload bonuses as part of the welcome package. Weekly reload bonuses (25% match + 50 free spins on Monday) and Wednesday Free Spins (code WEDNESDAY) run continuously, providing ongoing value beyond the initial offer.',
     },
     {
       question: 'What is the 7Bit Casino minimum deposit?',
-      answer: 'The 7Bit Casino minimum deposit is $10 or the crypto equivalent — lower than BitStarz ($20) and Mirax ($20), making it accessible for players who want to test the platform at lower stakes. This minimum applies across all eight supported cryptocurrencies: BTC, ETH, USDT, LTC, DOGE, BCH, XRP and BNB. Crypto deposits are credited after one blockchain confirmation with no casino-side deposit fees.',
+      answer: 'The 7Bit Casino minimum deposit is $10 or the crypto equivalent, lower than BitStarz ($20) and Mirax ($20), making it accessible for players who want to test the platform at lower stakes. This minimum applies across all eight supported cryptocurrencies: BTC, ETH, USDT, LTC, DOGE, BCH, XRP and BNB. Crypto deposits are credited after one blockchain confirmation with no casino-side deposit fees.',
     },
     {
       question: 'What crypto options does 7Bit Casino support?',
-      answer: '7Bit Casino crypto options cover eight cryptocurrencies: BTC, ETH, USDT, LTC, DOGE, BCH, XRP and BNB. This covers the major coins most crypto casino players use for gambling. All 7Bit Casino crypto withdrawals are processed instantly to 10 minutes with no fees charged by the casino — only standard blockchain network fees apply. The curated eight-coin selection prioritises reliability and processing speed over breadth.',
+      answer: '7Bit Casino crypto options cover eight cryptocurrencies: BTC, ETH, USDT, LTC, DOGE, BCH, XRP and BNB. This covers the major coins most crypto casino players use for gambling. All 7Bit Casino crypto withdrawals are processed instantly to 10 minutes with no fees charged by the casino: only standard blockchain network fees apply. The curated eight-coin selection prioritises reliability and processing speed over breadth.',
     },
     {
       question: 'How does the 7Bit Casino VIP program work?',
-      answer: 'The 7Bit Casino VIP program is a structured multi-tier system rewarding players with escalating benefits as wagering volume increases. Higher tiers unlock increased cashback percentages, higher withdrawal limits, a dedicated account manager and exclusive VIP-only bonuses. Unlike invite-only VIP programmes, the 7Bit Casino VIP program is progression-based — all players can advance through tiers by meeting wagering thresholds, with no referral or special access required.',
+      answer: 'The 7Bit Casino VIP program is a structured multi-tier system rewarding players with escalating benefits as wagering volume increases. Higher tiers unlock increased cashback percentages, higher withdrawal limits, a dedicated account manager and exclusive VIP-only bonuses. Unlike invite-only VIP programmes, the 7Bit Casino VIP program is progression-based: all players can advance through tiers by meeting wagering thresholds, with no referral or special access required.',
     },
     {
       question: 'Is 7Bit Casino worth using in 2026?',
@@ -316,15 +316,15 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
   duelbits: [
     {
       question: 'Is Duelbits legit?',
-      answer: 'Duelbits is a legitimate crypto casino and sportsbook licensed under Curacao (Antillephone N.V.), operating since 2020. Is Duelbits legit? Yes — independent testing confirms fast crypto withdrawals, provably fair outcomes on Duelbits Originals games, and a track record of paying out winnings without dispute. PlayMagpie rates Duelbits 8.5/10 for trust, reflecting its no-KYC policy for crypto play, fast payout reliability and active streamer-friendly community since launch.',
+      answer: 'Duelbits is a legitimate crypto casino and sportsbook licensed under Curacao (Antillephone N.V.), operating since 2020. Is Duelbits legit? Yes. Independent testing confirms fast crypto withdrawals, provably fair outcomes on Duelbits Originals games, and a track record of paying out winnings without dispute. PlayMagpie rates Duelbits 8.5/10 for trust, reflecting its no-KYC policy for crypto play, fast payout reliability and active streamer-friendly community since launch.',
     },
     {
       question: 'What are Duelbits withdrawal times?',
-      answer: 'Duelbits withdrawal time for cryptocurrency is instant to 5 minutes for most transactions — one of the fastest in the industry. Crypto withdrawals are processed automatically on-chain without manual review for standard amounts. This earns Duelbits a 9.2/10 withdrawal score on PlayMagpie. The fastest payouts are seen on TRX, SOL and MATIC networks where confirmation times are sub-second; BTC withdrawals depend on standard Bitcoin block times.',
+      answer: 'Duelbits withdrawal time for cryptocurrency is instant to 5 minutes for most transactions: one of the fastest in the industry. Crypto withdrawals are processed automatically on-chain without manual review for standard amounts. This earns Duelbits a 9.2/10 withdrawal score on PlayMagpie. The fastest payouts are seen on TRX, SOL and MATIC networks where confirmation times are sub-second; BTC withdrawals depend on standard Bitcoin block times.',
     },
     {
       question: 'Does Duelbits require KYC verification?',
-      answer: 'Duelbits has a no-KYC policy for crypto play and withdrawals — basic checks only. You can register with email, deposit, play and withdraw cryptocurrency without submitting identity documents in standard cases. Additional verification may be requested if account activity flags an unusual pattern or for very large withdrawal amounts. For typical crypto-only players operating at standard stakes, Duelbits provides one of the most privacy-preserving experiences in the market.',
+      answer: 'Duelbits has a no-KYC policy for crypto play and withdrawals: basic checks only. You can register with email, deposit, play and withdraw cryptocurrency without submitting identity documents in standard cases. Additional verification may be requested if account activity flags an unusual pattern or for very large withdrawal amounts. For typical crypto-only players operating at standard stakes, Duelbits provides one of the most privacy-preserving experiences in the market.',
     },
     {
       question: 'What is the Duelbits welcome bonus for 2026?',
@@ -332,41 +332,41 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What crypto does Duelbits accept?',
-      answer: 'Duelbits crypto options include 12 cryptocurrencies: BTC, ETH, LTC, USDT, USDC, DOGE, SOL, BNB, BCH, XRP, TRX and MATIC. This covers all major coins across multiple blockchains including ERC-20, TRC-20, BEP-20 and native chains. Duelbits crypto withdrawals are processed instantly to 5 minutes with no casino-side fees. The 12-coin lineup balances breadth with reliability — every supported chain is volume-tested for fast processing.',
+      answer: 'Duelbits crypto options include 12 cryptocurrencies: BTC, ETH, LTC, USDT, USDC, DOGE, SOL, BNB, BCH, XRP, TRX and MATIC. This covers all major coins across multiple blockchains including ERC-20, TRC-20, BEP-20 and native chains. Duelbits crypto withdrawals are processed instantly to 5 minutes with no casino-side fees. The 12-coin lineup balances breadth with reliability: every supported chain is volume-tested for fast processing.',
     },
     {
       question: 'What are Duelbits Originals?',
-      answer: 'Duelbits Originals are provably fair house-designed games unique to the platform — slots, crash, plinko and dice variants with cryptographically verifiable outcomes. Every Originals round uses seeds players can audit independently, ensuring the results are not manipulated by the casino. The Originals library is core to the Duelbits brand and is heavily featured by streamers. RTP on top Originals titles is typically 97-99%, among the highest in the industry.',
+      answer: 'Duelbits Originals are provably fair house-designed games unique to the platform: slots, crash, plinko and dice variants with cryptographically verifiable outcomes. Every Originals round uses seeds players can audit independently, ensuring the results are not manipulated by the casino. The Originals library is core to the Duelbits brand and is heavily featured by streamers. RTP on top Originals titles is typically 97-99%, among the highest in the industry.',
     },
     {
       question: 'Is Duelbits good for high rollers?',
-      answer: 'Duelbits is well-suited to high rollers — the platform combines no-KYC convenience with fast crypto withdrawals and a rakeback-based VIP system that returns a percentage of house edge to active players. There are no aggressive bonus caps locking in winnings, and the cashback structure means meaningful returns scale linearly with volume. The clean modern interface and 12-crypto support make it particularly attractive for crypto-native high rollers who prioritise speed and privacy.',
+      answer: 'Duelbits is well-suited to high rollers: the platform combines no-KYC convenience with fast crypto withdrawals and a rakeback-based VIP system that returns a percentage of house edge to active players. There are no aggressive bonus caps locking in winnings, and the cashback structure means meaningful returns scale linearly with volume. The clean modern interface and 12-crypto support make it particularly attractive for crypto-native high rollers who prioritise speed and privacy.',
     },
     {
       question: 'How does the Duelbits VIP programme work?',
-      answer: 'The Duelbits VIP programme is built around rakeback rather than tier-locked bonuses — active players earn back a percentage of the house edge as withdrawable balance. Higher activity levels unlock increased rakeback rates and access to exclusive promotions, seasonal rewards and Originals leaderboards. Unlike traditional VIP tiers that gate benefits behind wagering thresholds, Duelbits scales rewards transparently with play, making it accessible for both mid-volume players and high rollers.',
+      answer: 'The Duelbits VIP programme is built around rakeback rather than tier-locked bonuses: active players earn back a percentage of the house edge as withdrawable balance. Higher activity levels unlock increased rakeback rates and access to exclusive promotions, seasonal rewards and Originals leaderboards. Unlike traditional VIP tiers that gate benefits behind wagering thresholds, Duelbits scales rewards transparently with play, making it accessible for both mid-volume players and high rollers.',
     },
   ],
   roobet: [
     {
       question: 'Is Roobet legit?',
-      answer: 'Roobet is a real operating casino licensed in Curaçao under Raw Entertainment B.V. (registration 157205), with a secondary Anjouan licence (ALSI-202507005 per Casino.Guru). It has been live since 2019 and signed visible partnerships with Chelsea FC and 100 Thieves in 2025. "Legit" is a different question to "safe at scale" — the operator is real and the games are real, but Roobet also has a documented pattern of withdrawal holds on large wins (AskGamblers cases at $20k, $84k, $97k, $111k and $115k; the $84,000 case is publicly listed as Unsolved) and T&C that explicitly permit confiscation on "low-risk play." PlayMagpie rates Roobet 6.8/10 for trust — usable at modest stakes, structurally risky for large wins.',
+      answer: 'Roobet is a real operating casino licensed in Curaçao under Raw Entertainment B.V. (registration 157205), with a secondary Anjouan licence (ALSI-202507005 per Casino.Guru). It has been live since 2019 and signed visible partnerships with Chelsea FC and 100 Thieves in 2025. "Legit" is a different question to "safe at scale." The operator is real and the games are real, but Roobet also has a documented pattern of withdrawal holds on large wins (AskGamblers cases at $20k, $84k, $97k, $111k and $115k; the $84,000 case is publicly listed as Unsolved) and T&C that explicitly permit confiscation on "low-risk play." PlayMagpie rates Roobet 6.8/10 for trust: usable at modest stakes, structurally risky for large wins.',
     },
     {
       question: 'Does Roobet pay out big wins?',
-      answer: 'On the public record, Roobet does pay out most large wins — but often after multi-day "routine verification" holds that AskGamblers complaints have documented at $20,000, $84,000, $97,000, $111,000 and $115,000 amounts. Most of those cases were ultimately resolved via AskGamblers mediation. The exception is a $84,000 case publicly listed as Unsolved as of 2026, where a verified account with ~$6 million lifetime wagered was locked at the cashout request and asked for additional documentation including a handwritten "Roobet" selfie. The honest position: expect a KYC re-trigger on any sizeable cashout regardless of account tenure, and do not expect documented disputes to resolve fast.',
+      answer: 'On the public record, Roobet does pay out most large wins, but often after multi-day "routine verification" holds that AskGamblers complaints have documented at $20,000, $84,000, $97,000, $111,000 and $115,000 amounts. Most of those cases were ultimately resolved via AskGamblers mediation. The exception is a $84,000 case publicly listed as Unsolved as of 2026, where a verified account with ~$6 million lifetime wagered was locked at the cashout request and asked for additional documentation including a handwritten "Roobet" selfie. The honest position: expect a KYC re-trigger on any sizeable cashout regardless of account tenure, and do not expect documented disputes to resolve fast.',
     },
     {
       question: 'What is the Roobet welcome bonus?',
-      answer: 'Roobet does not run a traditional deposit-match welcome bonus. The current new-player offer is a 20% cashback on net losses across your first seven days, capped at approximately $1,400, plus a $5 sportsbook free bet under promo code MAXBONUS. Cashback only triggers if you lose — there is no headline "free $X on signup" element. Compared to operators like BitStarz (up to 5 BTC + 180 free spins) or Mirax (up to 5 BTC + 150 free spins across four deposits), Roobet\'s welcome value is structurally lower for players expecting upside.',
+      answer: 'Roobet does not run a traditional deposit-match welcome bonus. The current new-player offer is a 20% cashback on net losses across your first seven days, capped at approximately $1,400, plus a $5 sportsbook free bet under promo code MAXBONUS. Cashback only triggers if you lose. There is no headline "free $X on signup" element. Compared to operators like BitStarz (up to 5 BTC + 180 free spins) or Mirax (up to 5 BTC + 150 free spins across four deposits), Roobet\'s welcome value is structurally lower for players expecting upside.',
     },
     {
       question: 'What countries does Roobet restrict?',
-      answer: 'Roobet\'s restricted-territories list under terms §3.5 is unusually wide for a Curaçao operator: Aruba, Australia, Belgium, Bonaire, Cuba, Curaçao, Cyprus, Denmark, Germany, Gibraltar, Haiti, Israel, Iran, Iraq, Malta, Myanmar, Netherlands, Nicaragua, North Korea, Ontario (province of Canada), Portugal, Saba, Saint Maarten, Saint Martin, South Sudan, Spain, Statia, Syria, Sweden, United States, United Kingdom, Yemen and Zimbabwe. That excludes the UK, US, most of Western and Northern Europe, Australia and Ontario specifically — verify your jurisdiction is not on the live list before depositing, as restricted-territory accounts are subject to closure and fund forfeiture under terms clause 6.4.',
+      answer: 'Roobet\'s restricted-territories list under terms §3.5 is unusually wide for a Curaçao operator: Aruba, Australia, Belgium, Bonaire, Cuba, Curaçao, Cyprus, Denmark, Germany, Gibraltar, Haiti, Israel, Iran, Iraq, Malta, Myanmar, Netherlands, Nicaragua, North Korea, Ontario (province of Canada), Portugal, Saba, Saint Maarten, Saint Martin, South Sudan, Spain, Statia, Syria, Sweden, United States, United Kingdom, Yemen and Zimbabwe. That excludes the UK, US, most of Western and Northern Europe, Australia and Ontario specifically. Verify your jurisdiction is not on the live list before depositing, as restricted-territory accounts are subject to closure and fund forfeiture under terms clause 6.4.',
     },
     {
       question: 'Is Roobet no-KYC?',
-      answer: 'No. Roobet runs Standard KYC — Level 1 (basic personal data) is required at deposit, and Levels 2-4 (government ID, proof of address, source-of-funds) are triggered by withdrawal size, account activity flags, or compliance review. Roobet does not publish a fixed-dollar KYC threshold; observed triggers across complaint records run from around $10,000 to well above $50,000 depending on account history. If full anonymity is the priority, BC.Game, 7Bit Casino or Duelbits are no-KYC alternatives in our rankings.',
+      answer: 'No. Roobet runs Standard KYC: Level 1 (basic personal data) is required at deposit, and Levels 2-4 (government ID, proof of address, source-of-funds) are triggered by withdrawal size, account activity flags, or compliance review. Roobet does not publish a fixed-dollar KYC threshold; observed triggers across complaint records run from around $10,000 to well above $50,000 depending on account history. If full anonymity is the priority, BC.Game, 7Bit Casino or Duelbits are no-KYC alternatives in our rankings.',
     },
     {
       question: 'What are Roobet withdrawal limits?',
@@ -374,11 +374,11 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Why was Roobet banned from Twitch?',
-      answer: 'Twitch announced in September 2022 that it would ban streams of "slots, roulette, or dice games" from gambling sites not licensed in the US or jurisdictions Twitch deemed to provide sufficient consumer protection. Curaçao\'s sub-licensee regime did not qualify, and Roobet was named alongside Stake.com, Rollbit and Duelbits when the ban took effect on 18 October 2022. The casino-affiliated streamer scene migrated largely to Kick in response — Roobet\'s current creator deals (Snoop Dogg, Nadeshot, TimTheTatman) run on Kick or independent channels rather than Twitch.',
+      answer: 'Twitch announced in September 2022 that it would ban streams of "slots, roulette, or dice games" from gambling sites not licensed in the US or jurisdictions Twitch deemed to provide sufficient consumer protection. Curaçao\'s sub-licensee regime did not qualify, and Roobet was named alongside Stake.com, Rollbit and Duelbits when the ban took effect on 18 October 2022. The casino-affiliated streamer scene migrated largely to Kick in response. Roobet\'s current creator deals (Snoop Dogg, Nadeshot, TimTheTatman) run on Kick or independent channels rather than Twitch.',
     },
     {
       question: 'How does Roobet compare to BC.Game or BitStarz?',
-      answer: 'Roobet vs BC.Game: BC.Game wins on no-KYC policy, 100+ crypto support, and a clean dispute record — trust 8.9 vs Roobet\'s 6.8. Roobet vs BitStarz: BitStarz wins on track record (since 2014, multiple "Best Bitcoin Casino" awards), withdrawal speed scores, and a substantially larger welcome bonus — trust 9.2 vs Roobet\'s 6.8. Roobet\'s distinct strengths are Crash-led Originals (BC.Game and BitStarz both have crash content, but Roobet\'s native Crash is the genre-anchor for the brand) and the sportsbook (BitStarz does not run a sportsbook; Cloudbet is the stronger sportsbook comparator). For most players asking the question, the trust delta is the dominant factor.',
+      answer: 'Roobet vs BC.Game: BC.Game wins on no-KYC policy, 100+ crypto support, and a clean dispute record: trust 8.9 vs Roobet\'s 6.8. Roobet vs BitStarz: BitStarz wins on track record (since 2014, multiple "Best Bitcoin Casino" awards), withdrawal speed scores, and a substantially larger welcome bonus: trust 9.2 vs Roobet\'s 6.8. Roobet\'s distinct strengths are Crash-led Originals (BC.Game and BitStarz both have crash content, but Roobet\'s native Crash is the genre-anchor for the brand) and the sportsbook (BitStarz does not run a sportsbook; Cloudbet is the stronger sportsbook comparator). For most players asking the question, the trust delta is the dominant factor.',
     },
   ],
 }
@@ -387,7 +387,7 @@ export async function generateMetadata(props: PageProps<'/reviews/[slug]'>): Pro
   const { slug } = await props.params
   const casino = getCasinoBySlug(slug)
   if (!casino) return {}
-  const title = `${casino.name} Review 2026 — Scores, Bonuses & Withdrawal Times`
+  const title = `${casino.name} Review 2026: Scores, Bonuses & Withdrawal Times`
   const description = casinoMetaDescriptions[slug] ?? casino.reviewSummary.slice(0, 155)
   return {
     title,
@@ -423,7 +423,7 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
     casino.kycLevel === 'None'
       ? 'No identity verification required. Sign up with an email and start playing immediately.'
       : casino.kycLevel === 'Light'
-      ? 'Minimal verification — usually just email confirmation. Full KYC only triggered above high withdrawal thresholds.'
+      ? 'Minimal verification: usually just email confirmation. Full KYC only triggered above high withdrawal thresholds.'
       : casino.kycLevel === 'Standard'
       ? 'Standard verification required: government ID and proof of address.'
       : 'Full KYC verification required for all players before withdrawals are processed.'
@@ -664,7 +664,7 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
         {/* FAQ Section */}
         {faqs.length > 0 && (
           <section className="mt-12 pt-10 border-t border-[#222222]">
-            <h2 className="text-xl font-bold text-white mb-2">{casino.name} — Frequently Asked Questions</h2>
+            <h2 className="text-xl font-bold text-white mb-2">{casino.name} Frequently Asked Questions</h2>
             <p className="text-[#888888] text-sm mb-8">
               Common questions from players researching {casino.name} in 2026.
             </p>

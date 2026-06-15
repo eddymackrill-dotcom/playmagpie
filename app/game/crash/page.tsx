@@ -14,7 +14,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Native Crash', value: 'Provably-fair Original + Aviator + JetX' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None — at any size' },
+      { label: 'KYC', value: 'None: at any size' },
     ],
   },
   {
@@ -30,13 +30,13 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Native Crash', value: 'Shuffle Originals + SHFL rakeback per round' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'Light — triggered at scale' },
+      { label: 'KYC', value: 'Light: triggered at scale' },
     ],
   },
 ]
 
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos for Crash Games 2026 — Aviator, JetX, Originals',
+  title: 'Best Crypto Casinos for Crash Games 2026: Aviator, JetX, Originals',
   description:
     'Crypto casinos with the best crash game selection in 2026. BC.Game, Shuffle, Duelbits and Roobet compared on native Originals, Aviator coverage, RTP and KYC posture.',
   alternates: { canonical: '/game/crash' },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     url: '/game/crash',
     title: 'Best Crypto Casinos for Crash Games 2026',
     description:
-      'Crypto casinos with the best crash game selection — Originals, Aviator and provably-fair seed verification.',
+      'Crypto casinos with the best crash game selection: Originals, Aviator and provably-fair seed verification.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Crash Casinos 2026' }],
   },
   twitter: {
@@ -71,42 +71,42 @@ const CRASH_CASINO_SLUGS = ['bc-game', 'duelbits', 'shuffle', 'roobet']
 const PER_CASINO_CRASH_NOTES: Record<string, { angle: string; caveat?: string }> = {
   'bc-game': {
     angle:
-      'BC.Game runs the widest crash catalogue of the four — native Originals (Crash, Plinko, Dice and more) alongside Aviator, JetX and Spaceman from third parties. No-KYC at any withdrawal size and 100+ supported cryptocurrencies make it the cleanest crash-to-cashout path on this list.',
+      'BC.Game runs the widest crash catalogue of the four: native Originals (Crash, Plinko, Dice and more) alongside Aviator, JetX and Spaceman from third parties. No-KYC at any withdrawal size and 100+ supported cryptocurrencies make it the cleanest crash-to-cashout path on this list.',
   },
   shuffle: {
     angle:
-      'Shuffle pairs its native Crash Original with the SHFL token rewards economy — every crash round earns rakeback and counts toward SHFL airdrops regardless of multiplier outcome. The Light KYC model means most players never see a document check; larger withdrawals may trigger review.',
+      'Shuffle pairs its native Crash Original with the SHFL token rewards economy: every crash round earns rakeback and counts toward SHFL airdrops regardless of multiplier outcome. The Light KYC model means most players never see a document check; larger withdrawals may trigger review.',
   },
   duelbits: {
     angle:
-      'Duelbits is the most explicit on its in-house Crash product — provably-fair, sub-5-minute withdrawal headline, no-KYC for crypto play. Cashback-first welcome model rather than a deposit match, which suits volume crash play better than match-bonus operators where wagering caps cut early winnings.',
+      'Duelbits is the most explicit on its in-house Crash product: provably-fair, sub-5-minute withdrawal headline, no-KYC for crypto play. Cashback-first welcome model rather than a deposit match, which suits volume crash play better than match-bonus operators where wagering caps cut early winnings.',
   },
   roobet: {
     angle:
-      'Crash is the genre anchor for the Roobet brand — the native Crash Original is the flagship, with Snoop\'s HotBox running as a Snoop-themed variant alongside Mines, Towers, Dice, Plinko and the other Roobet Originals. ~6,000 third-party titles round out the catalogue. Trust score 6.8 reflects documented withdrawal-hold cases at $20k+ that the other three operators on this page do not have on record.',
+      'Crash is the genre anchor for the Roobet brand: the native Crash Original is the flagship, with Snoop\'s HotBox running as a Snoop-themed variant alongside Mines, Towers, Dice, Plinko and the other Roobet Originals. ~6,000 third-party titles round out the catalogue. Trust score 6.8 reflects documented withdrawal-hold cases at $20k+ that the other three operators on this page do not have on record.',
   },
 }
 
 const faqs = [
   {
     question: 'What is a crash game at a crypto casino?',
-    answer: 'A crash game is a continuous-multiplier round where the payout multiplier rises from 1.00x in real time and crashes at a random point. You manually cash out before the crash to lock in your current multiplier, or set an auto-cashout at a preset value. If the round crashes before you cash out, you lose the stake. The format started in crypto and remains overwhelmingly crypto-native — Aviator from Spribe is the genre-defining title.',
+    answer: 'A crash game is a continuous-multiplier round where the payout multiplier rises from 1.00x in real time and crashes at a random point. You manually cash out before the crash to lock in your current multiplier, or set an auto-cashout at a preset value. If the round crashes before you cash out, you lose the stake. The format started in crypto and remains overwhelmingly crypto-native. Aviator from Spribe is the genre-defining title.',
   },
   {
     question: 'Are crash games rigged?',
-    answer: 'The major crash titles run on provably-fair mechanics — the crash point is determined by a cryptographic seed the operator commits to before play, which you can verify after the session by re-running the hash. This is different from third-party RNG slots, where you trust a lab certification but can\'t verify any individual round. BC.Game Originals, Shuffle Originals and Duelbits Originals all use the same verification model.',
+    answer: 'The major crash titles run on provably-fair mechanics: the crash point is determined by a cryptographic seed the operator commits to before play, which you can verify after the session by re-running the hash. This is different from third-party RNG slots, where you trust a lab certification but can\'t verify any individual round. BC.Game Originals, Shuffle Originals and Duelbits Originals all use the same verification model.',
   },
   {
     question: 'Which crypto casinos have the best crash selection?',
-    answer: 'Four platforms in our rankings run native provably-fair crash Originals: BC.Game, Shuffle, Duelbits and Roobet. BC.Game runs the widest third-party title list (Aviator, JetX, Spaceman) plus its own Originals at 10,000+ games total. Duelbits is the most explicit on its in-house crash product with sub-5-minute crypto withdrawals. Shuffle pairs Originals with the SHFL token rewards economy. Roobet is included because Crash is the genre anchor for its brand — its native Crash Original plus the Snoop\'s HotBox Crash variant are the flagship products — but its trust score (6.8) sits well below the other three because of documented withdrawal-hold cases at $20k+ amounts; see the Roobet review for the full picture.',
+    answer: 'Four platforms in our rankings run native provably-fair crash Originals: BC.Game, Shuffle, Duelbits and Roobet. BC.Game runs the widest third-party title list (Aviator, JetX, Spaceman) plus its own Originals at 10,000+ games total. Duelbits is the most explicit on its in-house crash product with sub-5-minute crypto withdrawals. Shuffle pairs Originals with the SHFL token rewards economy. Roobet is included because Crash is the genre anchor for its brand: its native Crash Original plus the Snoop\'s HotBox Crash variant are the flagship products. But its trust score (6.8) sits well below the other three because of documented withdrawal-hold cases at $20k+ amounts; see the Roobet review for the full picture.',
   },
   {
     question: 'What is the RTP on Aviator and other crash games?',
-    answer: 'Top crash titles run at 97–99% RTP, among the highest in the industry. Aviator is officially listed at 97% RTP by Spribe. In-house Originals at BC.Game, Shuffle and Duelbits typically sit in the same band. The high RTP is one reason crash has become the dominant crypto-native format — it returns more to players over the long run than most slots.',
+    answer: 'Top crash titles run at 97–99% RTP, among the highest in the industry. Aviator is officially listed at 97% RTP by Spribe. In-house Originals at BC.Game, Shuffle and Duelbits typically sit in the same band. The high RTP is one reason crash has become the dominant crypto-native format: it returns more to players over the long run than most slots.',
   },
   {
     question: 'Can I play crash games without KYC?',
-    answer: 'Yes — BC.Game and Duelbits both operate no-KYC policies for crypto play, including crash. You can sign up with email, deposit, play and withdraw without submitting identity documents. Shuffle has Light KYC, with checks only triggered at larger withdrawal thresholds. Roobet runs Standard KYC: basic personal data at deposit, with full ID checks triggered by withdrawal size or activity flags rather than a fixed dollar threshold. For full anonymity, BC.Game or Duelbits are the default choices.',
+    answer: 'Yes, BC.Game and Duelbits both operate no-KYC policies for crypto play, including crash. You can sign up with email, deposit, play and withdraw without submitting identity documents. Shuffle has Light KYC, with checks only triggered at larger withdrawal thresholds. Roobet runs Standard KYC: basic personal data at deposit, with full ID checks triggered by withdrawal size or activity flags rather than a fixed dollar threshold. For full anonymity, BC.Game or Duelbits are the default choices.',
   },
 ]
 
@@ -163,7 +163,7 @@ export default function CrashCasinosPage() {
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Crash is one of the few casino formats that became popular through crypto and stayed there. The mechanic is
             simple, the math is verifiable on-chain, and four operators in our rankings run native provably-fair Crash
-            Originals — BC.Game, Shuffle and Duelbits lead on trust, with Roobet as the fourth on the strength of its
+            Originals: BC.Game, Shuffle and Duelbits lead on trust, with Roobet as the fourth on the strength of its
             Crash flagship and Snoop&apos;s HotBox variant.
           </p>
         </div>
@@ -172,7 +172,7 @@ export default function CrashCasinosPage() {
           {[
             { label: 'Native Crash Originals', value: '4 platforms', sub: 'BC.Game · Shuffle · Duelbits · Roobet' },
             { label: 'Typical Originals RTP', value: '97–99%', sub: 'Higher than most third-party slots' },
-            { label: 'Fastest Crash Payouts', value: 'Under 5 min', sub: 'Duelbits — 9.2/10 withdrawal score' },
+            { label: 'Fastest Crash Payouts', value: 'Under 5 min', sub: 'Duelbits: 9.2/10 withdrawal score' },
           ].map((s) => (
             <div key={s.label} className="bg-[#111111] border border-[#222222] rounded-2xl p-5 text-center">
               <div className="text-3xl font-extrabold text-[#7BB8D4] mb-1">{s.value}</div>
@@ -190,7 +190,7 @@ export default function CrashCasinosPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Top Casinos for Crash Games</h2>
           <p className="text-[#888888] text-sm mb-6">
-            Filtered to platforms with native provably-fair crash Originals. Ranked by trust score — see the per-casino notes below for the operational angle on each.
+            Filtered to platforms with native provably-fair crash Originals. Ranked by trust score. See the per-casino notes below for the operational angle on each.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {ranked.map((casino, i) => (
@@ -202,7 +202,7 @@ export default function CrashCasinosPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Per-operator crash notes</h2>
           <p className="text-[#888888] text-sm mb-6">
-            What each operator brings to crash play specifically — and what to know before you deposit.
+            What each operator brings to crash play specifically, and what to know before you deposit.
           </p>
           <div className="space-y-4">
             {CRASH_CASINO_SLUGS.map((slug) => {
@@ -245,12 +245,12 @@ export default function CrashCasinosPage() {
           <p className="text-[#888888] leading-relaxed">
             The premise is a multiplier that rises from 1.00x in real time and crashes at a random point. You either
             cash out manually before the crash to lock in your current multiplier, or set an auto-cashout at a preset
-            value (1.5x, 2x, 10x — whatever your strategy calls for). If the round crashes before you cash out, the
+            value (1.5x, 2x, 10x, whatever your strategy calls for). If the round crashes before you cash out, the
             stake is lost.
           </p>
           <p className="text-[#888888] leading-relaxed">
             What makes crash distinct from other casino games is the visibility. You see the multiplier rising live, you
-            watch other players cash out — or not — and your decision is continuous rather than per-spin. The strategic
+            watch other players cash out (or not) and your decision is continuous rather than per-spin. The strategic
             split is between low-multiplier safety (1.5–2x for frequent small wins, higher hit rate) and high-multiplier
             ambition (wait for 10x+ before cashing out, lower hit rate, bigger payouts when you land). Auto-cashout is
             essential for any consistent strategy; manual cashout is for players who want to read the room round by round.
@@ -263,11 +263,11 @@ export default function CrashCasinosPage() {
             {[
               {
                 title: 'Aviator (Spribe)',
-                body: 'The genre original. Aviator is the most widely distributed crash title and the de facto benchmark — if a casino markets itself on crash, Aviator support is the table-stakes check. Officially listed at 97% RTP. Available at all three platforms below alongside most major crypto operators.',
+                body: 'The genre original. Aviator is the most widely distributed crash title and the de facto benchmark. If a casino markets itself on crash, Aviator support is the table-stakes check. Officially listed at 97% RTP. Available at all three platforms below alongside most major crypto operators.',
               },
               {
                 title: 'JetX (SmartSoft)',
-                body: 'Similar mechanic with a different visual presentation and deeper bet-history tooling — the round log shows past crash multipliers further back than most competitors, which suits players who track patterns. Distribution narrower than Aviator but available at BC.Game.',
+                body: 'Similar mechanic with a different visual presentation and deeper bet-history tooling: the round log shows past crash multipliers further back than most competitors, which suits players who track patterns. Distribution narrower than Aviator but available at BC.Game.',
               },
               {
                 title: 'Spaceman (Pragmatic Play)',
@@ -275,7 +275,7 @@ export default function CrashCasinosPage() {
               },
               {
                 title: 'In-house Originals',
-                body: 'BC.Game, Shuffle, Duelbits and Roobet each run native crash games with provably-fair seeds — auditable by the player after every round. RTP typically sits in the same 97–99% band as Aviator, with the advantage of full seed verification on every spin. Roobet additionally runs the Snoop\'s HotBox Crash variant — a Snoop Dogg–themed reskin of the same provably-fair Crash mechanic.',
+                body: 'BC.Game, Shuffle, Duelbits and Roobet each run native crash games with provably-fair seeds: auditable by the player after every round. RTP typically sits in the same 97–99% band as Aviator, with the advantage of full seed verification on every spin. Roobet additionally runs the Snoop\'s HotBox Crash variant, a Snoop Dogg–themed reskin of the same provably-fair Crash mechanic.',
               },
             ].map((card) => (
               <div key={card.title} className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
@@ -291,7 +291,7 @@ export default function CrashCasinosPage() {
           <p className="text-[#888888] leading-relaxed">
             Crash games at BC.Game, Shuffle, Duelbits and Roobet use a server-seed commitment model you can audit
             yourself. The operator publishes a hashed server seed before play. You contribute a client seed. Each round combines both
-            with a nonce to produce the crash multiplier. Once a session ends, the unhashed server seed is published —
+            with a nonce to produce the crash multiplier. Once a session ends, the unhashed server seed is published,
             and you can independently re-run the hash to confirm it matches what was committed before any round was played.
           </p>
           <p className="text-[#888888] leading-relaxed">
@@ -302,7 +302,7 @@ export default function CrashCasinosPage() {
             <Link href="/best-crypto-pokies-nz" className="text-[#7BB8D4] hover:text-[#8fc4d8] transition-colors">
               best crypto pokies for NZ
             </Link>{' '}
-            page — same model, applied to slot Originals.
+            page: same model, applied to slot Originals.
           </p>
         </section>
 

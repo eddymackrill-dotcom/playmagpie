@@ -20,7 +20,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-lg sm:text-xl text-[#888888] mb-10 max-w-2xl mx-auto leading-relaxed">
-          Independent ratings for crypto casinos — scored on withdrawal speed, bonus
+          Independent ratings for crypto casinos, scored on withdrawal speed, bonus
           fairness, KYC friction and VIP value. Find your edge.
         </p>
 

@@ -10,7 +10,7 @@ const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'bc-game',
     facts: [
-      { label: 'KYC', value: 'None — no documents at any size' },
+      { label: 'KYC', value: 'None: no documents at any size' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
       { label: 'Cryptos', value: '100+ supported' },
     ],
@@ -18,7 +18,7 @@ const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: '7bit-casino',
     facts: [
-      { label: 'KYC', value: 'None — unbroken since 2014' },
+      { label: 'KYC', value: 'None: unbroken since 2014' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
       { label: 'Cryptos', value: '8 supported' },
     ],
@@ -34,7 +34,7 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Best No-KYC Casinos 2026 — Play Without ID Verification',
+  title: 'Best No-KYC Casinos 2026: Play Without ID Verification',
   description:
     'Play without identity checks. The best no-KYC crypto casinos for 2026 let you sign up, deposit and withdraw without submitting documents. Ranked and rated.',
   alternates: {
@@ -42,15 +42,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: '/no-kyc-casinos',
-    title: 'Best No-KYC Casinos 2026 — Play Without ID Verification',
+    title: 'Best No-KYC Casinos 2026: Play Without ID Verification',
     description:
-      'The best no-KYC crypto casinos for 2026 — sign up, deposit and withdraw without submitting identity documents.',
+      'The best no-KYC crypto casinos for 2026: sign up, deposit and withdraw without submitting identity documents.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best No-KYC Casinos 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best No-KYC Casinos 2026 — Play Without ID Verification',
-    description: 'Top no-KYC crypto casinos for 2026 — play instantly without submitting ID documents.',
+    title: 'Best No-KYC Casinos 2026: Play Without ID Verification',
+    description: 'Top no-KYC crypto casinos for 2026: play instantly without submitting ID documents.',
     images: ['/og-image.png'],
   },
 }
@@ -91,7 +91,7 @@ export default function NoKYCPage() {
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Sign up in minutes. No passport, no selfie, no utility bill. These platforms let you play with full
-            crypto anonymity — deposit, play and withdraw without submitting a single document.
+            crypto anonymity: deposit, play and withdraw without submitting a single document.
           </p>
         </div>
 
@@ -116,14 +116,14 @@ export default function NoKYCPage() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">True No-KYC Casinos</h2>
-          <p className="text-[#888888] text-sm mb-6">Zero verification required — sign up and play immediately</p>
+          <p className="text-[#888888] text-sm mb-6">Zero verification required: sign up and play immediately</p>
           <CasinoComparisonTable casinos={noKyc} />
         </section>
 
         {lightKyc.length > 0 && (
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-2">Light KYC Casinos</h2>
-            <p className="text-[#888888] text-sm mb-6">Email confirmation only — full KYC triggered only at high limits</p>
+            <p className="text-[#888888] text-sm mb-6">Email confirmation only; full KYC triggered only at high limits</p>
             <CasinoComparisonTable casinos={lightKyc} />
           </section>
         )}
@@ -142,7 +142,7 @@ export default function NoKYCPage() {
               or government ID.
             </p>
             <p>
-              <strong className="text-white">Light KYC</strong> casinos require minimal upfront verification — usually
+              <strong className="text-white">Light KYC</strong> casinos require minimal upfront verification, usually
               just email confirmation. Identity verification is only triggered if you reach specific withdrawal
               thresholds (often 2–5 BTC lifetime).
             </p>
@@ -157,7 +157,7 @@ export default function NoKYCPage() {
         <section className="mt-12">
           <h2 className="text-xl font-bold text-white mb-4">No-KYC Casino Reviews</h2>
           <p className="text-[#888888] text-sm mb-5">
-            Full reviews for each no-KYC casino — verification requirements tested, withdrawal times verified.
+            Full reviews for each no-KYC casino: verification requirements tested, withdrawal times verified.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {allLowKyc.map((casino) => (
@@ -184,15 +184,15 @@ export default function NoKYCPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link href="/no-limit-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">No-Limit Withdrawal Casinos</div>
-              <div className="text-[#888888] text-sm">No-KYC + uncapped cash-out — the privacy + scale combination</div>
+              <div className="text-[#888888] text-sm">No-KYC + uncapped cash-out: the privacy + scale combination</div>
             </Link>
             <Link href="/best-crypto-pokies-nz" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Best Crypto Pokies NZ</div>
-              <div className="text-[#888888] text-sm">Provably-fair Originals — verify each spin yourself, no third party needed</div>
+              <div className="text-[#888888] text-sm">Provably-fair Originals: verify each spin yourself, no third party needed</div>
             </Link>
             <Link href="/guides/best-crypto-for-gambling" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Best Crypto for Gambling</div>
-              <div className="text-[#888888] text-sm">Anonymity is the casino-side decision — the coin choice still matters for speed and fees</div>
+              <div className="text-[#888888] text-sm">Anonymity is the casino-side decision; the coin choice still matters for speed and fees</div>
             </Link>
             <Link href="/fast-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Fast Withdrawal Casinos</div>

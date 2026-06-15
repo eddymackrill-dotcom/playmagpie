@@ -36,11 +36,11 @@ const ROW_ORDER = ['bitstarz', 'bc-game', '7bit-casino', 'cloudbet', 'mirax-casi
 
 const CATCH: Record<string, { text: string; source: string }> = {
   bitstarz: {
-    text: 'A 25% admin fee is deducted from bonus-derived withdrawals, and match-bonus wagering runs up to 40x — neither appears in the headline.',
+    text: 'A 25% admin fee is deducted from bonus-derived withdrawals, and match-bonus wagering runs up to 40x. Neither appears in the headline.',
     source: 'lib/casinos.ts cons (verified vs live T&C)',
   },
   'bc-game': {
-    text: 'The "220%" is rakeback that unlocks as you wager, not cash credited up front — a materially different value profile from a deposit match.',
+    text: 'The "220%" is rakeback that unlocks as you wager, not cash credited up front: a materially different value profile from a deposit match.',
     source: 'lib/casinos.ts bonusSummary (verified 2026-05-30 vs bc.game/deposit-offer)',
   },
   '7bit-casino': {
@@ -48,7 +48,7 @@ const CATCH: Record<string, { text: string; source: string }> = {
     source: 'lib/casinos.ts cons; cap figure marked "not documented"',
   },
   cloudbet: {
-    text: 'Entry is gated at a 0.001 BTC-equivalent minimum deposit — the highest on this list — so the 5 BTC headline is calibrated for larger bankrolls.',
+    text: 'Entry is gated at a 0.001 BTC-equivalent minimum deposit (the highest on this list), so the 5 BTC headline is calibrated for larger bankrolls.',
     source: 'lib/casinos.ts minDeposit',
   },
   'mirax-casino': {
@@ -56,7 +56,7 @@ const CATCH: Record<string, { text: string; source: string }> = {
     source: 'lib/casinos.ts reviewSummary + verified-comment block (vs live promotions page)',
   },
   duelbits: {
-    text: 'Cashback-first, not a match — the smallest headline here, but with no large bonus balance to wager through it is arguably the cleanest of the eight to cash out.',
+    text: 'Cashback-first, not a match: the smallest headline here, but with no large bonus balance to wager through it is arguably the cleanest of the eight to cash out.',
     source: 'lib/casinos.ts bonusSummary / reviewSummary',
   },
   shuffle: {
@@ -64,7 +64,7 @@ const CATCH: Record<string, { text: string; source: string }> = {
     source: 'lib/casinos.ts cons',
   },
   roobet: {
-    text: 'See the withdrawal-reliability section — the catch here is documented withdrawal-hold complaints and published-terms fees, stated with its disclaimer inline.',
+    text: 'See the withdrawal-reliability section: the catch here is documented withdrawal-hold complaints and published-terms fees, stated with its disclaimer inline.',
     source: 'lib/casinos.ts documented research URLs (AskGamblers, terms §10.8)',
   },
 }
@@ -123,12 +123,12 @@ export default function TransparencyReportPage() {
           <p className="text-[#888888] text-base leading-relaxed max-w-2xl">
             We read the live terms &amp; conditions of all eight crypto casinos we cover and checked every
             bonus and withdrawal claim against them. This is the gap between the headline offer and the
-            real cashout terms — every figure sourced, and anything we could not verify marked
+            real cashout terms: every figure sourced, and anything we could not verify marked
             &quot;not documented.&quot;
           </p>
           <p className="text-[#555555] text-xs mt-4">
             Bonus terms verified against operators&apos; live T&amp;Cs on 2026-05-30. Offers and claims
-            stated as of June 2026 and may change — check the operator&apos;s current terms before depositing.
+            stated as of June 2026 and may change. Check the operator&apos;s current terms before depositing.
           </p>
         </div>
 
@@ -146,7 +146,7 @@ export default function TransparencyReportPage() {
             regardless of the 150-spin headline; Roobet applies a <strong className="text-[#bbbbbb]">2% fiat-withdrawal
             fee</strong> past a monthly threshold under its published terms. (7Bit&apos;s free-spin offer also carries a
             cashout cap per its T&amp;C, but the figure isn&apos;t documented in our data, so we don&apos;t count it.
-            Wagering requirements — disclosed in every case — vary up to 45x across the eight, which materially changes a
+            Wagering requirements, disclosed in every case, vary up to 45x across the eight, which materially changes a
             bonus&apos;s real value but is a disclosed term, not a hidden catch.)
           </p>
         </section>
@@ -177,7 +177,7 @@ export default function TransparencyReportPage() {
                     Per Roobet&apos;s published terms (§10.8): a 2% fee applies to fiat withdrawals after the 10th in a
                     rolling 30-day window, alongside a stated $200,000/day cap and no weekend cashier processing. Separately,
                     AskGamblers hosts documented player complaints of multi-day withdrawal holds on large wins ($20k–$115k),
-                    one of which — an $84,000 case — is publicly listed as <strong className="text-white">Unsolved as of June 2026</strong>.{' '}
+                    one of which, an $84,000 case, is publicly listed as <strong className="text-white">Unsolved as of June 2026</strong>.{' '}
                     <span className="text-[#888888]">
                       These are documented complaints and published terms, not findings of wrongdoing; we link each to its
                       primary source so readers can assess them directly (see Sources below).
@@ -201,7 +201,7 @@ export default function TransparencyReportPage() {
             <p>
               The single most surprising cost we found is BitStarz&apos;s <strong className="text-white">25% admin
               fee on bonus-derived withdrawals</strong>. It is disclosed in the bonus T&amp;Cs, but it is absent from
-              the 5 BTC + 180-spin headline — so a player who clears the welcome package and withdraws the resulting
+              the 5 BTC + 180-spin headline, so a player who clears the welcome package and withdraws the resulting
               winnings receives 75% of them at the cashier. A $5,000-equivalent bonus win arrives as $3,750.
             </p>
             <p>
@@ -210,7 +210,7 @@ export default function TransparencyReportPage() {
               cap per its published T&amp;C as well, though the specific figure is{' '}
               <strong className="text-white">not documented</strong> in our verified dataset, so we don&apos;t state one.
               The practical effect of a cap is that the headline spin count is close to irrelevant to the realistic
-              payout — the cap is the number that matters. We line these up on{' '}
+              payout. The cap is the number that matters. We line these up on{' '}
               <Link href="/bonus/free-spins" className="text-[#7BB8D4] hover:underline">the free-spins comparison</Link>.
             </p>
           </div>
@@ -222,17 +222,17 @@ export default function TransparencyReportPage() {
           <div className="prose prose-invert max-w-none text-[#bbbbbb] leading-relaxed space-y-4">
             <p>
               Headline withdrawal speeds across the eight range from instant-to-5-minutes (Duelbits) to
-              instant-to-30-minutes (Cloudbet) for routine crypto cash-outs — all fast by the broader standard. Speed,
+              instant-to-30-minutes (Cloudbet) for routine crypto cash-outs, all fast by the broader standard. Speed,
               though, is not the same as reliability on a large win, and one operator on our list has a documented record
               worth stating plainly and even-handedly.
             </p>
             <div className="bg-[#0d0d0d] border border-[#222222] rounded-2xl p-5">
-              <div className="text-[#d98a8a] text-xs uppercase tracking-wide font-semibold mb-2">Roobet — documented record</div>
+              <div className="text-[#d98a8a] text-xs uppercase tracking-wide font-semibold mb-2">Roobet: documented record</div>
               <p className="text-[#bbbbbb] text-sm leading-relaxed">
                 Per Roobet&apos;s published terms (§10.8), a 2% fee applies to fiat withdrawals after the 10th in a rolling
                 30-day window, alongside a stated $200,000/day cap and no weekend cashier processing. Separately, AskGamblers
-                hosts documented player complaints of multi-day withdrawal holds on large wins ($20k–$115k), one of which —
-                an $84,000 case — is publicly listed as <strong className="text-white">Unsolved as of June 2026</strong>.{' '}
+                hosts documented player complaints of multi-day withdrawal holds on large wins ($20k–$115k), one of which,
+                an $84,000 case, is publicly listed as <strong className="text-white">Unsolved as of June 2026</strong>.{' '}
                 <span className="text-[#888888]">
                   These are documented complaints and published terms, not findings of wrongdoing; we link each to its
                   primary source so readers can assess them directly (see Sources below).
@@ -240,7 +240,7 @@ export default function TransparencyReportPage() {
               </p>
             </div>
             <p>
-              We apply the same test to every operator — the table above flags a verified catch for each of the eight, not
+              We apply the same test to every operator: the table above flags a verified catch for each of the eight, not
               only Roobet. The point of this section is consumer information, not a verdict on any single operator&apos;s conduct.
               Our full take on each is in the individual reviews.
             </p>
@@ -272,12 +272,12 @@ export default function TransparencyReportPage() {
               against the operator&apos;s own live terms &amp; conditions / promotions page on 2026-05-30. The
               &quot;catch&quot; for each operator is sourced from that same verified record. Where we could not verify a
               commonly-cited figure to a primary source, we mark it <strong className="text-white">&quot;not
-              documented&quot;</strong> rather than print it — 7Bit&apos;s free-spin cap figure is the example here.
+              documented&quot;</strong> rather than print it. 7Bit&apos;s free-spin cap figure is the example here.
             </p>
             <p>
               <strong className="text-white">Honest scope note:</strong> this is eight operators, not fifty. The
-              credibility of the report is its verification depth — every figure checked against the operator&apos;s own
-              live T&amp;C — rather than its breadth. A shallow scrape of fifty casinos&apos; marketing copy would be less
+              credibility of the report is its verification depth (every figure checked against the operator&apos;s own
+              live T&amp;C) rather than its breadth. A shallow scrape of fifty casinos&apos; marketing copy would be less
               reliable than this, not more. We expect to expand the verified dataset over time.
             </p>
             <p>

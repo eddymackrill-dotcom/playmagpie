@@ -3,20 +3,20 @@ import Link from 'next/link'
 import { CRYPTO_LIST } from '@/lib/programmatic'
 
 export const metadata: Metadata = {
-  title: 'Crypto Casinos by Currency — PlayMagpie',
+  title: 'Crypto Casinos by Currency: PlayMagpie',
   description:
     'Browse the best crypto casinos by cryptocurrency. Bitcoin, Ethereum, USDT, Solana and more.',
   alternates: { canonical: '/crypto' },
   openGraph: {
     url: '/crypto',
-    title: 'Crypto Casinos by Currency — PlayMagpie',
+    title: 'Crypto Casinos by Currency: PlayMagpie',
     description:
       'Browse the best crypto casinos by cryptocurrency. Bitcoin, Ethereum, USDT, Solana and more.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Crypto Casinos by Currency' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Casinos by Currency — PlayMagpie',
+    title: 'Crypto Casinos by Currency: PlayMagpie',
     description:
       'Browse the best crypto casinos by cryptocurrency. Bitcoin, Ethereum, USDT, Solana and more.',
     images: ['/og-image.png'],
@@ -60,7 +60,7 @@ export default function CryptoHubPage() {
         <div className="mb-10">
           <h1 className="text-4xl font-extrabold text-white mb-4">Crypto Casinos by Currency</h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            The cryptocurrency you deposit shapes everything that follows — withdrawal speed, network fees,
+            The cryptocurrency you deposit shapes everything that follows: withdrawal speed, network fees,
             bankroll stability and how many casinos you can choose from.
           </p>
         </div>
@@ -71,11 +71,11 @@ export default function CryptoHubPage() {
             most players realise. Bitcoin gives you the widest possible choice of platforms but ties your bankroll
             to BTC price movements between sessions. Stablecoins like USDT and USDC eliminate that volatility,
             letting you gamble in fixed dollar terms. Networks like Solana and Tron (for TRC-20 USDT) offer
-            near-instant confirmations and fees under a cent — dramatically faster than Bitcoin or Ethereum for
+            near-instant confirmations and fees under a cent, dramatically faster than Bitcoin or Ethereum for
             both deposits and withdrawals. Litecoin and Dogecoin sit in the middle: faster than BTC, more
             volatile than stablecoins, and accepted at most major platforms. Browse by your preferred currency
             below to see which casinos accept it, how the welcome bonuses compare, and what to expect from
-            withdrawal times. Every casino listed is independently scored — no paid placements.
+            withdrawal times. Every casino listed is independently scored: no paid placements.
           </p>
         </section>
 

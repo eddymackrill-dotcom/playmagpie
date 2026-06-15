@@ -3,22 +3,22 @@ import Link from 'next/link'
 import { BONUS_TYPES } from '@/lib/programmatic'
 
 export const metadata: Metadata = {
-  title: 'Crypto Casino Bonuses 2026 — Types Explained',
+  title: 'Crypto Casino Bonuses 2026: Types Explained',
   description:
-    'Compare crypto casino bonus types. Welcome bonuses, cashback, free spins, VIP rewards and more — find the bonuses that work.',
+    'Compare crypto casino bonus types. Welcome bonuses, cashback, free spins, VIP rewards and more: find the bonuses that work.',
   alternates: { canonical: '/bonus' },
   openGraph: {
     url: '/bonus',
-    title: 'Crypto Casino Bonuses 2026 — Types Explained',
+    title: 'Crypto Casino Bonuses 2026: Types Explained',
     description:
-      'Compare crypto casino bonus types. Welcome bonuses, cashback, free spins, VIP rewards and more — find the bonuses that work.',
+      'Compare crypto casino bonus types. Welcome bonuses, cashback, free spins, VIP rewards and more: find the bonuses that work.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Crypto Casino Bonus Types' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Casino Bonuses 2026 — Types Explained',
+    title: 'Crypto Casino Bonuses 2026: Types Explained',
     description:
-      'Compare crypto casino bonus types. Welcome bonuses, cashback, free spins, VIP rewards and more — find the bonuses that work.',
+      'Compare crypto casino bonus types. Welcome bonuses, cashback, free spins, VIP rewards and more: find the bonuses that work.',
     images: ['/og-image.png'],
   },
 }
@@ -33,11 +33,11 @@ const breadcrumbSchema = {
 }
 
 const bonusSubtitles: Record<string, string> = {
-  'welcome-bonus': 'Up to 500% match, 35x-50x wagering — the headline acquisition offer.',
+  'welcome-bonus': 'Up to 500% match, 35x-50x wagering: the headline acquisition offer.',
   'no-deposit-bonus': '$10-$50 free credit or 20-50 spins with the strictest terms in the industry.',
   'reload-bonus': '25%-75% match on repeat deposits with friendlier playthrough than welcome offers.',
   cashback: '5%-25% of net losses returned, usually with zero wagering attached.',
-  'free-spins': '100-250 spins at $0.10-$0.20 each — cap math matters more than count.',
+  'free-spins': '100-250 spins at $0.10-$0.20 each: cap math matters more than count.',
   'vip-bonus': 'Tier-based rakeback, cash drops and exclusive bonuses for sustained-volume play.',
   'high-roller-bonus': '$500+ qualifying deposits with negotiable terms and expedited withdrawals.',
 }
@@ -71,7 +71,7 @@ export default function BonusHubPage() {
             majority of player profiles the cashback returns more actual cash. A 250-free-spin headline looks
             generous until you discover the $50 max cashout cap. A reload bonus with 25x wagering is more useful
             than a welcome bonus with 50x. Below is every bonus type you will encounter at modern crypto
-            casinos, with the real-terms summary up front and a full breakdown on each page — including which
+            casinos, with the real-terms summary up front and a full breakdown on each page, including which
             operators run the best version of that bonus, what wagering math actually applies, and the five
             questions that matter most before claiming.
           </p>

@@ -109,7 +109,7 @@ export default async function PaymentMethodsPage(props: PaymentMethodsPageProps)
           <div className="flex items-start justify-between gap-6 flex-wrap mb-4">
             <div>
               <p className="text-[#7BB8D4] text-sm font-medium uppercase tracking-wider mb-2">
-                {casino.name} — Payment Methods
+                {casino.name}: Payment Methods
               </p>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
                 {slug === 'cloudbet' && 'Cloudbet Deposit Options: 10 Cryptos, 0.001 BTC Floor, Dual Regulator'}
@@ -134,7 +134,7 @@ export default async function PaymentMethodsPage(props: PaymentMethodsPageProps)
         {slug === 'cloudbet' && <CloudbetContent />}
 
         <section className="mt-12 pt-10 border-t border-[#222222]">
-          <h2 className="text-xl font-bold text-white mb-2">{casino.name} Payment Methods — FAQ</h2>
+          <h2 className="text-xl font-bold text-white mb-2">{casino.name} Payment Methods FAQ</h2>
           <p className="text-[#888888] text-sm mb-8">
             Questions players actually ask about funding {casino.name}.
           </p>
@@ -183,7 +183,7 @@ function CloudbetContent() {
       <Para>
         Cloudbet&apos;s payment side is built around 10 cryptocurrencies and exactly
         zero fiat options. There is no card processor, no SEPA route, no bank
-        wire, no e-wallet — every funding path runs on-chain through one of the
+        wire, no e-wallet. Every funding path runs on-chain through one of the
         supported coins. For a player already holding crypto, this removes an
         entire layer of friction (no card declines, no MCC blocking, no SEPA
         gambling-descriptor flags). For a player who needs to acquire crypto
@@ -191,7 +191,7 @@ function CloudbetContent() {
         regulated exchange covers your jurisdiction.
       </Para>
 
-      <SectionHeading>The 10 supported cryptos — what each one means at deposit time</SectionHeading>
+      <SectionHeading>The 10 supported cryptos: what each one means at deposit time</SectionHeading>
       <Para>
         Cloudbet accepts BTC, ETH, USDT, USDC, SOL, BNB, DOGE, LTC, BCH and PAX
         for deposits. The list is wider than BitStarz (six), Mirax (seven) and
@@ -245,7 +245,7 @@ function CloudbetContent() {
               <td className="py-3 px-3 font-medium text-white">BNB</td>
               <td className="py-3 px-3">~3 seconds</td>
               <td className="py-3 px-3">Fractions of a cent</td>
-              <td className="py-3 px-3">BNB Smart Chain — cheap and fast</td>
+              <td className="py-3 px-3">BNB Smart Chain: cheap and fast</td>
             </tr>
             <tr className="border-b border-[#222222]">
               <td className="py-3 px-3 font-medium text-white">DOGE</td>
@@ -276,7 +276,7 @@ function CloudbetContent() {
       </div>
       <Para>
         Two coins on the list are worth singling out. SOL gives you the fastest
-        end-to-end deposit path on the platform — broadcast to credited in
+        end-to-end deposit path on the platform: broadcast to credited in
         single-digit seconds, fees too small to notice. BNB on BNB Smart Chain is
         essentially the same profile. If you hold either and are choosing
         between which to deposit, those two beat the rest of the lineup on pure
@@ -285,7 +285,7 @@ function CloudbetContent() {
       <Para>
         PAX (Paxos Standard) is the unusual entry. It&apos;s a USD-backed
         stablecoin issued by Paxos Trust, a New York-chartered trust company
-        supervised by the NYDFS. Most crypto casinos don&apos;t offer PAX — the
+        supervised by the NYDFS. Most crypto casinos don&apos;t offer PAX. The
         operational complexity of supporting a regulated US-supervised stablecoin
         sits outside the typical Curaçao operator&apos;s comfort zone. That
         Cloudbet does is one of several signals that the platform&apos;s player
@@ -293,12 +293,12 @@ function CloudbetContent() {
         retail-degen end.
       </Para>
 
-      <SectionHeading>The 0.001 BTC minimum — what it signals</SectionHeading>
+      <SectionHeading>The 0.001 BTC minimum: what it signals</SectionHeading>
       <Para>
         Cloudbet&apos;s minimum deposit is 0.001 BTC equivalent. That&apos;s a
         meaningfully higher entry point than the rest of our reviewed casinos:
         BC.Game opens at $5, 7Bit at $10, BitStarz/Mirax/Shuffle/Duelbits at $20
-        or thereabouts. The floor isn&apos;t accidental — it&apos;s the casino
+        or thereabouts. The floor isn&apos;t accidental. It&apos;s the casino
         signalling that the cashier infrastructure and player support are built
         around larger deposits, with proportionately less volume at the entry
         tier.
@@ -307,7 +307,7 @@ function CloudbetContent() {
         The deposit floor also interacts directly with the 5 BTC welcome bonus
         ceiling. A platform that scales its match offer up to five Bitcoin needs
         a floor above the &quot;deposit $5 to test the cashier&quot; model. The two
-        numbers are coherent — Cloudbet&apos;s entire payment side is calibrated
+        numbers are coherent. Cloudbet&apos;s entire payment side is calibrated
         for serious bankrolls in and serious bankrolls out, which is also why
         the withdrawal page leads on the no-limit policy. See{' '}
         <Link href="/reviews/cloudbet/withdrawal" className="text-[#7BB8D4] hover:underline">
@@ -316,10 +316,10 @@ function CloudbetContent() {
         for the cashout side of the equation.
       </Para>
 
-      <SectionHeading>Light KYC at deposit — what it means in practice</SectionHeading>
+      <SectionHeading>Light KYC at deposit: what it means in practice</SectionHeading>
       <Para>
         Cloudbet runs Light KYC on its account flow. At deposit time specifically,
-        no document verification is requested under standard play — registration
+        no document verification is requested under standard play. Registration
         is email-and-password, deposit address is generated immediately, and
         funds credit to balance on the relevant on-chain confirmation. The Light
         KYC posture only becomes relevant later, at outsized withdrawals, and is
@@ -343,25 +343,25 @@ function CloudbetContent() {
       <Para>
         Cloudbet holds two licences: Curaçao eGaming and the Kahnawake Gaming
         Commission. The Kahnawake licence imposes additional operational
-        requirements that bear directly on deposit funds — most relevantly,
+        requirements that bear directly on deposit funds: most relevantly,
         segregated player-fund handling. Player balances are required to be held
         separately from operating capital, which means a Cloudbet insolvency
         event would not leave depositor funds commingled with creditor claims
         the way a single-Curaçao operator could.
       </Para>
       <Para>
-        This is a low-probability backstop — Cloudbet has been operational
-        without solvency stress since 2013 — but the protection only exists
+        This is a low-probability backstop (Cloudbet has been operational
+        without solvency stress since 2013), but the protection only exists
         because of the second licence. For a player parking a significant
         balance between play sessions, the segregation requirement is the
         material practical difference between Cloudbet and most competitors.
       </Para>
 
-      <SectionHeading>On-ramping — where each coin originates for Cloudbet players</SectionHeading>
+      <SectionHeading>On-ramping: where each coin originates for Cloudbet players</SectionHeading>
       <Para>
         Because Cloudbet has no fiat path, the deposit funnel pushes the
         fiat-to-crypto conversion onto whichever regulated exchange covers your
-        jurisdiction. The on-ramp landscape differs by country — see the
+        jurisdiction. The on-ramp landscape differs by country. See the
         relevant country page for jurisdiction-specific exchange recommendations:
         {' '}
         <Link href="/country/ireland" className="text-[#7BB8D4] hover:underline">Ireland</Link>,{' '}
@@ -378,7 +378,7 @@ function CloudbetContent() {
       </Para>
       <Para>
         For stablecoin-first players, USDT on TRC-20 is the lowest-friction
-        Cloudbet deposit path in most jurisdictions — cheap on-chain fees, fast
+        Cloudbet deposit path in most jurisdictions: cheap on-chain fees, fast
         confirmation, no SEK/EUR/NOK conversion drift between exchange
         withdrawal and casino credit. For coin-first players holding BTC or ETH
         from before depositing, the lineup supports either directly without
@@ -392,22 +392,22 @@ const CLOUDBET_FAQS = [
   {
     question: 'What is the minimum deposit at Cloudbet?',
     answer:
-      "Cloudbet's minimum deposit is 0.001 BTC equivalent across all 10 supported cryptocurrencies. That's a meaningfully higher floor than BC.Game ($5), 7Bit ($10) or BitStarz/Mirax ($20). The higher minimum reflects Cloudbet's positioning toward larger bankrolls — the cashier and support infrastructure are calibrated for serious-bankroll players, not the deposit-$5-to-test profile.",
+      "Cloudbet's minimum deposit is 0.001 BTC equivalent across all 10 supported cryptocurrencies. That's a meaningfully higher floor than BC.Game ($5), 7Bit ($10) or BitStarz/Mirax ($20). The higher minimum reflects Cloudbet's positioning toward larger bankrolls: the cashier and support infrastructure are calibrated for serious-bankroll players, not the deposit-$5-to-test profile.",
   },
   {
-    question: 'Does Cloudbet accept fiat deposits — cards, SEPA, bank wire?',
+    question: 'Does Cloudbet accept fiat deposits: cards, SEPA, bank wire?',
     answer:
       "No. Cloudbet's deposit options are 100% cryptocurrency. There is no card processor, no SEPA path, no bank-wire route. Every deposit runs on-chain through one of the 10 supported coins. For players already holding crypto this eliminates card-decline and MCC-blocking friction. For players who need to acquire crypto first, the fiat-to-crypto conversion happens on a regulated exchange in your jurisdiction before the Cloudbet deposit.",
   },
   {
     question: 'Which Cloudbet coin gives the fastest deposit credit?',
     answer:
-      "SOL is the fastest end-to-end deposit path on Cloudbet — broadcast to credited typically in single-digit seconds, with fees in fractions of a cent. BNB on BNB Smart Chain is essentially identical in profile. USDT or USDC on a fast network (the active network is shown at the cashier when you generate a deposit address) are the next-fastest stablecoin options. BTC is the slowest because of Bitcoin mainnet confirmation times.",
+      "SOL is the fastest end-to-end deposit path on Cloudbet: broadcast to credited typically in single-digit seconds, with fees in fractions of a cent. BNB on BNB Smart Chain is essentially identical in profile. USDT or USDC on a fast network (the active network is shown at the cashier when you generate a deposit address) are the next-fastest stablecoin options. BTC is the slowest because of Bitcoin mainnet confirmation times.",
   },
   {
     question: 'Why does Cloudbet support PAX when most casinos don\'t?',
     answer:
-      "PAX (Paxos Standard) is a USD-backed stablecoin issued by Paxos Trust, a New York-chartered trust company supervised by the NYDFS. Most crypto casinos avoid PAX because supporting a US-supervised stablecoin adds operational complexity that doesn't fit the typical Curaçao operator's comfort zone. That Cloudbet does is one of several signals — alongside the dual Kahnawake licence and the 0.001 BTC deposit minimum — that the player mix skews toward the institutional-comfort end of crypto-native rather than the retail-degen end.",
+      "PAX (Paxos Standard) is a USD-backed stablecoin issued by Paxos Trust, a New York-chartered trust company supervised by the NYDFS. Most crypto casinos avoid PAX because supporting a US-supervised stablecoin adds operational complexity that doesn't fit the typical Curaçao operator's comfort zone. That Cloudbet does is one of several signals (alongside the dual Kahnawake licence and the 0.001 BTC deposit minimum) that the player mix skews toward the institutional-comfort end of crypto-native rather than the retail-degen end.",
   },
   {
     question: 'Will Cloudbet ask for ID at deposit?',

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | PlayMagpie',
-  description: 'PlayMagpie privacy policy — how we collect, use and protect your data.',
+  description: 'PlayMagpie privacy policy: how we collect, use and protect your data.',
   robots: { index: false, follow: false },
   alternates: {
     canonical: '/privacy',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: '/privacy',
     title: 'Privacy Policy | PlayMagpie',
-    description: 'PlayMagpie privacy policy — how we collect, use and protect your data.',
+    description: 'PlayMagpie privacy policy: how we collect, use and protect your data.',
   },
 }
 

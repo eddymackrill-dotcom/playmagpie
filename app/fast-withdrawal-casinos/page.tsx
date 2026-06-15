@@ -35,22 +35,22 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Fastest Withdrawal Casinos 2026 — Instant Crypto Payouts',
+  title: 'Fastest Withdrawal Casinos 2026: Instant Crypto Payouts',
   description:
-    'The fastest crypto casino withdrawals ranked for 2026. Every platform verified for payout speed — sub-15-minute payouts confirmed. Get your winnings instantly.',
+    'The fastest crypto casino withdrawals ranked for 2026. Every platform verified for payout speed: sub-15-minute payouts confirmed. Get your winnings instantly.',
   alternates: {
     canonical: '/fast-withdrawal-casinos',
   },
   openGraph: {
     url: '/fast-withdrawal-casinos',
-    title: 'Fastest Withdrawal Casinos 2026 — Instant Crypto Payouts',
+    title: 'Fastest Withdrawal Casinos 2026: Instant Crypto Payouts',
     description:
-      'The fastest crypto casino withdrawals ranked for 2026. Sub-15-minute payouts verified — get your winnings instantly.',
+      'The fastest crypto casino withdrawals ranked for 2026. Sub-15-minute payouts verified. Get your winnings instantly.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Fastest Withdrawal Casinos 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fastest Withdrawal Casinos 2026 — Instant Crypto Payouts',
+    title: 'Fastest Withdrawal Casinos 2026: Instant Crypto Payouts',
     description: 'Sub-15-minute crypto payouts verified. The fastest paying crypto casinos ranked for 2026.',
     images: ['/og-image.png'],
   },
@@ -92,7 +92,7 @@ export default function FastWithdrawalPage() {
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Ranked purely on payout speed. Every casino below has been verified for crypto withdrawal times.
-            No delays, no excuses — just fast cash.
+            No delays, no excuses, just fast cash.
           </p>
         </div>
 
@@ -111,12 +111,12 @@ export default function FastWithdrawalPage() {
         </div>
 
         <CasinoCTAStrip
-          framing="Top 3 by withdrawal score — same ranking the table below uses. Not paid placement."
+          framing="Top 3 by withdrawal score: same ranking the table below uses. Not paid placement."
           cards={STRIP_CARDS}
         />
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Fastest Crypto Casinos — Ranked by Withdrawal Speed</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">Fastest Crypto Casinos: Ranked by Withdrawal Speed</h2>
           <CasinoComparisonTable casinos={fastCasinos} />
         </section>
 
@@ -138,7 +138,7 @@ export default function FastWithdrawalPage() {
                 body: (
                   <>
                     The most common cause of slow withdrawals is mid-process KYC verification. No-KYC casinos eliminate
-                    this entirely — your crypto clears without a document check. At Standard-KYC operators the holds can
+                    this entirely: your crypto clears without a document check. At Standard-KYC operators the holds can
                     stretch days: <Link href="/reviews/roobet" className="text-[#7BB8D4] hover:underline">Roobet has
                     documented AskGamblers cases</Link> at $20k, $84k, $97k, $111k and $115k where verified accounts
                     sat in &quot;routine verification&quot; for multiple days.
@@ -151,7 +151,7 @@ export default function FastWithdrawalPage() {
               },
               {
                 title: 'Withdrawal Limits',
-                body: 'Some casinos impose daily or weekly limits. We list the maximum single-withdrawal limit for each casino — critical if you hit a big win.',
+                body: 'Some casinos impose daily or weekly limits. We list the maximum single-withdrawal limit for each casino: critical if you hit a big win.',
               },
             ] as { title: string; body: ReactNode }[]).map((card) => (
               <div key={card.title} className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
@@ -165,10 +165,10 @@ export default function FastWithdrawalPage() {
         <section className="mt-12">
           <h2 className="text-xl font-bold text-white mb-4">Fast Withdrawal Casino Reviews</h2>
           <p className="text-[#888888] text-sm mb-5">
-            Read full reviews for each fast-payout casino — withdrawal times tested, bonus terms analysed, KYC requirements listed.
+            Read full reviews for each fast-payout casino: withdrawal times tested, bonus terms analysed, KYC requirements listed.
             For cashier-level detail we&apos;ve gone deepest on{' '}
             <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">BitStarz withdrawal times</Link>
-            {' '}— including the 25% bonus admin fee most reviews skip — and{' '}
+            {' '}(including the 25% bonus admin fee most reviews skip) and{' '}
             <Link href="/reviews/duelbits/withdrawal" className="text-[#7BB8D4] hover:underline">Duelbits&apos; under-5-minute payouts</Link>,
             the fastest in our catalogue.
           </p>
@@ -195,7 +195,7 @@ export default function FastWithdrawalPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Link href="/no-limit-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">No-Limit Withdrawal Casinos</div>
-              <div className="text-[#888888] text-sm">Speed is one variable — the cap matters too if you win big</div>
+              <div className="text-[#888888] text-sm">Speed is one variable; the cap matters too if you win big</div>
             </Link>
             <Link href="/no-kyc-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">No-KYC Casinos</div>
