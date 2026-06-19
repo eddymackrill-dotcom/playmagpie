@@ -353,6 +353,7 @@ const guideRelatedPages: Record<string, { label: string; href: string; teaser: s
   'best-crypto-for-gambling': [
     { label: 'Bitcoin vs USDT: head-to-head', href: '/guides/bitcoin-vs-usdt-casinos', teaser: 'The two-coin focused comparison' },
     { label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos', teaser: 'Where coin choice converts to speed' },
+    { label: 'Best BNB Crypto Casinos', href: '/bnb-crypto-casinos', teaser: 'The five operators that accept BNB on Smart Chain' },
     { label: 'Best Crypto Casinos', href: '/best-crypto-casinos', teaser: 'Full rankings across all categories' },
   ],
   'how-casino-bonuses-really-work': [

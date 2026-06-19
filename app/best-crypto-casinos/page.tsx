@@ -154,8 +154,9 @@ export default function BestCryptoCasinosPage() {
             </p>
             <p>
               For crypto players specifically, we also look at how many coins are supported, whether the casino
-              uses low-fee chains like TRX or SOL, and whether deposits and withdrawals are processed natively or
-              converted to fiat in the background.
+              uses low-fee chains like TRX, SOL or{' '}
+              <Link href="/bnb-crypto-casinos" className="text-[#7BB8D4] hover:underline">BNB Smart Chain</Link>, and
+              whether deposits and withdrawals are processed natively or converted to fiat in the background.
             </p>
           </div>
         </section>

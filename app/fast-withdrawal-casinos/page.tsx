@@ -147,7 +147,15 @@ export default function FastWithdrawalPage() {
               },
               {
                 title: 'Network Choice',
-                body: 'Using TRX, SOL or MATIC for withdrawals means near-instant confirmation and fees under $0.01. BTC can take minutes to confirm depending on fee market.',
+                body: (
+                  <>
+                    Using TRX, SOL or MATIC for withdrawals means near-instant confirmation and fees under $0.01.
+                    BNB on{' '}
+                    <Link href="/bnb-crypto-casinos" className="text-[#7BB8D4] hover:underline">BNB Smart Chain</Link>{' '}
+                    sits in the same class: roughly three-second settlement at sub-cent fees, at the five casinos
+                    that accept it. BTC can take minutes to confirm depending on the fee market.
+                  </>
+                ),
               },
               {
                 title: 'Withdrawal Limits',
