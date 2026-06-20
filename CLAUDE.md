@@ -1,3 +1,11 @@
+## SESSION START — DO THIS FIRST, EVERY TIME
+Before responding to my first request, read STATE.md and RUNBOOK.md in full. Then give me a 3-line summary: (1) current state, (2) what's in flight, (3) the next decided action. Do this automatically — I should not have to ask.
+
+## KEEP STATE.md CURRENT
+When I indicate we're wrapping up, or after any deploy, update STATE.md — move completed items out of in-flight, add new in-flight items, update current-state numbers, append dated decisions to the append-only log — then commit it.
+
+---
+
 # PlayMagpie — Working Guidelines for Claude Code
 
 This file is for Claude Code to read at the start of every session. It captures what we've learned about building this site so each new session doesn't reinvent the wheel or repeat past mistakes.

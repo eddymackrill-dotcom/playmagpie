@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"try{process.stdout.write('STATE.md (auto-injected at session start):\\n\\n'+require('fs').readFileSync((process.env.CLAUDE_PROJECT_DIR||'.')+'/STATE.md','utf8'))}catch(e){}\""
+          }
+        ]
+      }
+    ]
+  }
+}

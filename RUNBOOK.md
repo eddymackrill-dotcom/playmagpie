@@ -99,6 +99,7 @@ Run after every content push. ~10 minutes.
 - If any new page is in a low-crawl section (/bonus/*, /crypto/*, /game/* leaves), confirm ≥1 inbound contextual prose link from a same-batch-modified frequently-crawled page (per CLAUDE.md internal-linking rule)
 - Follow-up audit list updated with any items deferred from this batch
 - Strategic decisions log appended with any new precedents or rule changes
+- Wind-down: update STATE.md — move completed work out of "In flight", add any new in-flight items, refresh the current-state numbers, append dated entries to the decisions log (append-only) — then commit STATE.md. (Standing instruction lives in CLAUDE.md "KEEP STATE.md CURRENT".)
 
 ## Diagnostic prompts
 
