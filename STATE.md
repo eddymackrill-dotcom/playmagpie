@@ -1,17 +1,18 @@
-## Current state (updated 2026-06-19)
+## Current state (updated 2026-06-20)
 - Indexed pages: 92 (per GSC Page indexing report)
 - Not indexed: 20 (1 crawled-not-indexed failed, 12 intentional /compare 404s aging out, 5 www-canonical redirects, 2 discovered)
 - Strongest ranking cluster: BNB queries lifting (bnb casino pos 38, climbing); high-roller cluster on page 1 in Canada
 - 5 live /compare pages (deliberately de-templated from 42 on 2026-05-21)
 - 5 guides live, all ranking pos 41-62
-- 2 new /country/[slug]/legal sub-pages live (Canada, Australia) — shipped this session, not yet indexed
+- 2 new /country/[slug]/legal sub-pages live (Canada, Australia) — indexing requested 2026-06-19, awaiting Google processing
 
 ## In flight (started, not finished)
-- Legal-by-country guide cluster: diagnostic COMPLETE → Canada + Australia legal sub-pages built & deployed (commit ca7d500), live and verified (HTTP 200, FAQPage schema, primary-source citations). PENDING: manual GSC indexing request for the 2 new URLs + 2 modified hubs. NZ/IE/NO deferred (tested-market pollution — need keyword-research corroboration first); Japan dropped (clean demand but adverse law breaks commercial fit).
-- BNB internal-link reinforcement to /bnb-crypto-casinos: COMPLETE — 3 inbound contextual links added (fast-withdrawal-casinos, best-crypto-casinos, best-crypto-for-gambling guide), deployed (commit c1558c5), verified live. PENDING: manual GSC reindex of the 3 host pages.
-- 3 reverse-order /compare 301 redirects: COMPLETE — added to next.config.ts (bitstarz-vs-7bit-casino, bitstarz-vs-cloudbet, bitstarz-vs-mirax-casino → live reverse-order canonicals), deployed (commit b46d5a3), verified 308→200. PENDING: manual GSC reindex of the 3 source URLs.
+- (none code-complete and unfinished — see "Awaiting Google processing" below)
 
-> All three are code-complete and deployed; what remains is user-side manual GSC "Request Indexing" (the gsc MCP has no indexing endpoint).
+## Awaiting Google processing (deployed + indexing requested; no further action until Google responds)
+- Legal-by-country guide cluster: Canada + Australia legal sub-pages built & deployed (commit ca7d500), live and verified (HTTP 200, FAQPage schema, primary-source citations). Indexing requested 2026-06-19 for the 2 new URLs + 2 modified hubs, awaiting Google processing. NZ/IE/NO deferred (tested-market pollution — need keyword-research corroboration first); Japan dropped (clean demand but adverse law breaks commercial fit).
+- BNB internal-link reinforcement to /bnb-crypto-casinos: 3 inbound contextual links added (fast-withdrawal-casinos, best-crypto-casinos, best-crypto-for-gambling guide), deployed (commit c1558c5), verified live. Indexing requested 2026-06-19 for the 3 host pages, awaiting Google processing.
+- 3 reverse-order /compare 301 redirects: added to next.config.ts (bitstarz-vs-7bit-casino, bitstarz-vs-cloudbet, bitstarz-vs-mirax-casino → live reverse-order canonicals), deployed (commit b46d5a3), verified 308→200. Indexing requested 2026-06-19 for the 3 source URLs, awaiting Google processing.
 
 ## Next decided actions
 - Monday: bi-weekly brand+intent extension review (per RUNBOOK)
@@ -30,3 +31,4 @@
 - 2026-06-19: Identified legal-by-country as strongest validated guide demand (CA/JP clean signal, AU/DE/NZ/IE pollution-discounted). Pursuing via proper diagnostic.
 - 2026-06-19: Added 3 reverse-order /compare 301 redirects to live canonicals (recovering ~29 imp of stranded ranking); other 37 dropped pairs left to age out as intended.
 - 2026-06-19: Built /country/[slug]/legal sub-pages for Canada + Australia (new allowlisted route). Every legal/tax claim verified to primary source. Japan dropped despite clean demand (illegal/prosecutable → breaks commercial model + editorial integrity).
+- 2026-06-20: Manual GSC indexing requests submitted for all three 2026-06-19 deploys — legal sub-pages (2 new URLs + 2 modified hubs), 3 BNB host pages, 3 redirect source URLs. Moved from "In flight/PENDING" to "Awaiting Google processing". No further action until Google responds.
