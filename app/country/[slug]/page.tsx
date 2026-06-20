@@ -146,10 +146,17 @@ const countryRelatedPages: Record<string, { label: string; href: string; teaser:
   ],
 }
 
+// Countries with a dedicated /country/[slug]/legal sub-page. Keep in sync with
+// the LEGAL_ALLOWLIST in app/country/[slug]/legal/page.tsx. The hub stays
+// commercial; the down-link below hands the "is it legal / tax" intent to the
+// deeper sub-page rather than competing with it.
+const LEGAL_SUBPAGE_SLUGS = new Set(['canada', 'australia'])
+
 export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
   const { slug } = await props.params
   const country = COUNTRY_LIST.find((c) => c.slug === slug)
   if (!country) notFound()
+  const hasLegalSubpage = LEGAL_SUBPAGE_SLUGS.has(slug)
 
   const contentParagraphs = countryContext[slug] ?? []
   const relatedPages = countryRelatedPages[slug] ?? []
@@ -210,6 +217,16 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
           {contentParagraphs.map((paragraph, i) => (
             <p key={i} className="text-[#888888] leading-relaxed mb-4 last:mb-0">{paragraph}</p>
           ))}
+          {hasLegalSubpage && (
+            <p className="text-[#888888] leading-relaxed mt-4">
+              For the full breakdown of {country.name}&apos;s crypto gambling laws — the operator-versus-player
+              distinction, what the statutes actually say, enforcement in practice, and how winnings and crypto
+              are taxed — see our guide to{' '}
+              <Link href={`/country/${slug}/legal`} className="text-[#7BB8D4] hover:underline font-medium">
+                whether crypto gambling is legal in {country.name}
+              </Link>.
+            </p>
+          )}
         </section>
 
         <section className="mb-12">

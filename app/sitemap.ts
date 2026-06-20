@@ -79,6 +79,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
+  // Legal sub-page allowlist — must mirror LEGAL_ALLOWLIST in app/country/[slug]/legal/page.tsx
+  const legalSubpageSlugs = ['canada', 'australia']
+  const countryLegalPages: MetadataRoute.Sitemap = legalSubpageSlugs.map((slug) => ({
+    url: `${BASE_URL}/country/${slug}/legal`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
   const gamePages: MetadataRoute.Sitemap = GAME_TYPES.map((game) => ({
     url: `${BASE_URL}/game/${game.slug}`,
     lastModified: new Date(),
@@ -108,5 +117,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }))
 
-  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...casinoKycPages, ...guidePages, ...cryptoPages, ...countryPages, ...gamePages, ...bonusPages, ...comparisonPages]
+  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...casinoKycPages, ...guidePages, ...cryptoPages, ...countryPages, ...countryLegalPages, ...gamePages, ...bonusPages, ...comparisonPages]
 }
