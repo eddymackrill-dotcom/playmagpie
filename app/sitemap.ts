@@ -41,7 +41,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  const paymentMethodsSlugs = ['cloudbet']
+  // Payment-methods sub-page allowlist — must mirror PAYMENT_METHODS_SLUGS in
+  // app/reviews/[slug]/payment-methods/page.tsx
+  const paymentMethodsSlugs = ['cloudbet', 'bitstarz']
   const casinoPaymentMethodsPages: MetadataRoute.Sitemap = paymentMethodsSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/payment-methods`,
     lastModified: new Date(),

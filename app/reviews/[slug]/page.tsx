@@ -33,6 +33,11 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
       label: 'BitStarz withdrawal times and the 25% bonus admin fee, in detail',
       teaser: 'When the bonus admin fee bites, KYC triggers at the cashier, and what each of the six supported coins means for clearing time.',
     },
+    {
+      href: '/reviews/bitstarz/payment-methods',
+      label: 'BitStarz deposits: six classic coins, $20 floor, and the fiat-vs-crypto KYC fork',
+      teaser: 'Per-coin deposit speeds, why there is no Solana, BNB or USDC in the lineup, and how choosing crypto over fiat keeps your verification light.',
+    },
   ],
   'mirax-casino': [
     {
