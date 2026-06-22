@@ -36,7 +36,7 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Best BNB Crypto Casinos 2026: Fast, Cheap, Smart Chain | PlayMagpie',
+  title: 'Best BNB Crypto Casinos 2026: Fast, Cheap, Smart Chain',
   description:
     'Only five casinos in our catalogue accept BNB. Settlement in ~3 seconds at sub-cent fees on BNB Smart Chain. Ranked: BC.Game, Cloudbet, 7Bit, Shuffle, Duelbits.',
   alternates: {

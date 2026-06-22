@@ -2,16 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getCasinoBySlug } from '@/lib/casinos'
 
-// The Crypto Casino Bonus & Withdrawal Transparency Report — original-research
+// The Crypto Casino Bonus & Withdrawal Transparency Report: an original-research
 // linkable asset. Every figure here is either pulled live from lib/casinos.ts
 // (headline offer, KYC level, min deposit) or is a curated "catch" sourced from
-// that file's verified cons/reviewSummary/comment block, or — for Roobet — from
+// that file's verified cons/reviewSummary/comment block, or, for Roobet, from
 // the documented research URLs in lib/casinos.ts. Anything we could not verify is
 // marked "not documented". Bonus terms were verified against operators' live
 // T&Cs on 2026-05-30; claims are stated as of June 2026 and may change.
 
 export const metadata: Metadata = {
-  title: 'The Crypto Casino Bonus & Withdrawal Transparency Report (2026) | PlayMagpie',
+  title: 'The Crypto Casino Bonus & Withdrawal Transparency Report (2026)',
   description:
     'We checked the bonus and withdrawal terms of 8 crypto casinos against their live T&Cs. Four carry a documented withdrawal cost or cap the headline offer never mentions. Every figure sourced; gaps marked "not documented".',
   alternates: { canonical: '/research/crypto-casino-bonus-transparency' },
@@ -151,7 +151,7 @@ export default function TransparencyReportPage() {
           </p>
         </section>
 
-        {/* The table — the linkable artifact */}
+        {/* The table: the linkable artifact */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Headline offer vs the verified catch</h2>
           <p className="text-[#888888] text-sm mb-6">
@@ -293,19 +293,19 @@ export default function TransparencyReportPage() {
           <h2 className="text-xl font-bold text-white mb-3">Sources</h2>
           <ul className="space-y-2 text-sm text-[#888888]">
             <li>
-              Roobet $84,000 account-lock case (listed Unsolved as of June 2026) —{' '}
+              Roobet $84,000 account-lock case (listed Unsolved as of June 2026).{' '}
               <a href="https://www.askgamblers.com/casino-complaints/roobet-casino-account-wrongfully-locked-after-requesting-usd84-000-withdrawal-1" target="_blank" rel="noopener noreferrer nofollow" className="text-[#7BB8D4] hover:underline break-all">
                 AskGamblers complaint
               </a>
             </li>
             <li>
-              Roobet withdrawal-hold complaint pattern ($20k–$115k) —{' '}
+              Roobet withdrawal-hold complaint pattern ($20k–$115k).{' '}
               <a href="https://www.askgamblers.com/online-casinos/reviews/roobet-casino-casino/complaints" target="_blank" rel="noopener noreferrer nofollow" className="text-[#7BB8D4] hover:underline break-all">
                 AskGamblers complaints index
               </a>
             </li>
-            <li>Roobet 2% fiat-withdrawal fee / $200k-per-day cap / restricted territories — roobet.com/terms §10.8 and §3.5 (verified against live ToS, May 2026).</li>
-            <li>All operator bonus, KYC, withdrawal-time and minimum-deposit figures — PlayMagpie catalogue (<code className="text-[#7BB8D4] bg-[#0d0d0d] px-1.5 py-0.5 rounded text-xs">lib/casinos.ts</code>), verified against live T&amp;Cs on 2026-05-30.</li>
+            <li>Roobet 2% fiat-withdrawal fee / $200k-per-day cap / restricted territories: roobet.com/terms §10.8 and §3.5 (verified against live ToS, May 2026).</li>
+            <li>All operator bonus, KYC, withdrawal-time and minimum-deposit figures: PlayMagpie catalogue (<code className="text-[#7BB8D4] bg-[#0d0d0d] px-1.5 py-0.5 rounded text-xs">lib/casinos.ts</code>), verified against live T&amp;Cs on 2026-05-30.</li>
           </ul>
         </section>
 

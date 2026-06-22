@@ -190,8 +190,8 @@ export default function CountryHubPage() {
                         </Link>
                         <span className="ml-2 text-xs text-[#555555]">{country.currency}</span>
                       </td>
-                      <td className="px-4 py-3.5 text-[#888888] text-xs leading-relaxed">{row?.regulator ?? '—'}</td>
-                      <td className="px-4 py-3.5 text-[#888888] text-xs leading-relaxed hidden md:table-cell">{row?.onramp ?? '—'}</td>
+                      <td className="px-4 py-3.5 text-[#888888] text-xs leading-relaxed">{row?.regulator ?? 'Not listed'}</td>
+                      <td className="px-4 py-3.5 text-[#888888] text-xs leading-relaxed hidden md:table-cell">{row?.onramp ?? 'Not listed'}</td>
                     </tr>
                   )
                 })}

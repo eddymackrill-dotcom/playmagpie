@@ -12,27 +12,27 @@ export function generateStaticParams() {
 
 const META: Record<(typeof WITHDRAWAL_SLUGS)[number], { title: string; description: string }> = {
   bitstarz: {
-    title: 'BitStarz Withdrawal Times & Limits 2026 | PlayMagpie',
+    title: 'BitStarz Withdrawal Times & Limits 2026',
     description:
       'BitStarz processes crypto withdrawals in under 10 minutes, but a 25% admin fee applies on bonus-related payouts. Full breakdown of speeds, KYC and limits.',
   },
   'mirax-casino': {
-    title: 'Mirax Casino Withdrawal Times & Limits 2026 | PlayMagpie',
+    title: 'Mirax Casino Withdrawal Times & Limits 2026',
     description:
       'Mirax Casino crypto withdrawals clear in 15 minutes or less. What the 4-deposit welcome pack (up to 5 BTC + 150 spins) means for your first payout, plus KYC and tier limits.',
   },
   '7bit-casino': {
-    title: '7Bit Casino Withdrawal Times & Limits 2026 | PlayMagpie',
+    title: '7Bit Casino Withdrawal Times & Limits 2026',
     description:
       '7Bit Casino pays out crypto in under 10 minutes with no KYC required at any withdrawal size. Honest breakdown of speeds across 8 supported coins.',
   },
   cloudbet: {
-    title: 'Cloudbet Withdrawal: No Limits, 10 Coins, Dual Licence | PlayMagpie',
+    title: 'Cloudbet Withdrawal: No Limits, 10 Coins, Dual Licence',
     description:
       'Cloudbet imposes no withdrawal limits: rare among crypto casinos and the reason high rollers default to it. Speeds, the 10-coin lineup and dual Curaçao + Kahnawake licensing breakdown.',
   },
   duelbits: {
-    title: 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins | PlayMagpie',
+    title: 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins',
     description:
       'Duelbits has the fastest headline withdrawal window in our catalogue (instant to 5 minutes) with no KYC on crypto withdrawals across 12 coins. How the speed, the no-KYC posture and the cashback-clean cashier fit together.',
   },
@@ -276,10 +276,10 @@ function BitstarzContent() {
       </Para>
       <KeyList
         items={[
-          'Bitcoin (BTC) clearing is gated by current mempool conditions — minutes when the network is quiet, longer under congestion.',
+          'Bitcoin (BTC) clearing is gated by current mempool conditions: minutes when the network is quiet, longer under congestion.',
           'Ethereum (ETH) typically confirms within a couple of blocks; gas prices affect priority but not casino-side processing.',
           'Litecoin (LTC) and Dogecoin (DOGE) confirm faster than BTC and are popular with players who want speed without leaving the major-coin set.',
-          'USDT is supported but BitStarz uses the major chains — check the cashier for the active network on your withdrawal request.',
+          'USDT is supported but BitStarz uses the major chains, so check the cashier for the active network on your withdrawal request.',
           'Bitcoin Cash (BCH) is the niche option and clears quickly with low fees.',
         ]}
       />
@@ -443,9 +443,9 @@ function MiraxContent() {
       </Para>
       <KeyList
         items={[
-          'XRP is the fastest on-chain option in the Mirax lineup — final settlement is sub-second once broadcast.',
+          'XRP is the fastest on-chain option in the Mirax lineup: final settlement is sub-second once broadcast.',
           'LTC and DOGE clear in low single-digit minutes and avoid Bitcoin congestion.',
-          'BTC depends on mempool conditions — same constraint as everywhere else.',
+          'BTC depends on mempool conditions, the same constraint as everywhere else.',
           'USDT is supported but check the cashier for which network is active on your request.',
           'ETH and BCH round out the list with standard mainnet behaviour.',
         ]}
@@ -593,10 +593,10 @@ function SevenBitContent() {
       </Para>
       <KeyList
         items={[
-          'BTC clearing is gated by Bitcoin mempool conditions — minutes when quiet, longer when busy.',
+          'BTC clearing is gated by Bitcoin mempool conditions: minutes when quiet, longer when busy.',
           'XRP and BNB settle on-chain in seconds with fees measured in fractions of a cent.',
           'LTC and DOGE clear faster than BTC and are popular with players who want speed but want to stay in major-coin territory.',
-          'USDT is supported — check the cashier for which network (TRC-20, ERC-20, BEP-20) is active on your request.',
+          'USDT is supported: check the cashier for which network (TRC-20, ERC-20, BEP-20) is active on your request.',
           'ETH and BCH round out the lineup with normal mainnet behaviour.',
         ]}
       />
@@ -778,11 +778,11 @@ function CloudbetContent() {
       </Para>
       <KeyList
         items={[
-          'SOL and BNB settle on-chain in seconds with fees in fractions of a cent — the fastest end-to-end paths on the platform.',
+          'SOL and BNB settle on-chain in seconds with fees in fractions of a cent: the fastest end-to-end paths on the platform.',
           'USDT and USDC are the stablecoin options; the active network for each is shown at the cashier when you request the withdrawal.',
-          'PAX (Paxos Standard) is unusual to see on a crypto casino — it&apos;s a regulated USD-backed stablecoin issued by Paxos Trust, NYDFS-supervised.',
+          'PAX (Paxos Standard) is unusual to see on a crypto casino. It&apos;s a regulated USD-backed stablecoin issued by Paxos Trust, NYDFS-supervised.',
           'LTC and DOGE clear in single-digit minutes and avoid Bitcoin congestion.',
-          'BTC, ETH and BCH behave as on every other platform — gated by mainnet conditions, not by Cloudbet.',
+          'BTC, ETH and BCH behave as on every other platform, gated by mainnet conditions, not by Cloudbet.',
         ]}
       />
       <Para>
@@ -975,11 +975,11 @@ function DuelbitsContent() {
       </Para>
       <KeyList
         items={[
-          'SOL, TRX and MATIC settle on-chain in seconds with negligible fees — the fastest end-to-end paths.',
+          'SOL, TRX and MATIC settle on-chain in seconds with negligible fees: the fastest end-to-end paths.',
           'BNB on BNB Smart Chain is similarly quick and cheap.',
           'USDT and USDC are the stablecoin options; the active network shown at the cashier determines clearing time.',
           'LTC and DOGE clear in single-digit minutes and avoid Bitcoin congestion.',
-          'BTC, ETH and BCH behave as on every platform — gated by mainnet conditions, not by Duelbits.',
+          'BTC, ETH and BCH behave as on every platform, gated by mainnet conditions, not by Duelbits.',
         ]}
       />
 

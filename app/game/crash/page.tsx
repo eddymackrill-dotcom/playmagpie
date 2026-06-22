@@ -4,9 +4,9 @@ import { casinos, getCasinoBySlug } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
-// Top 3 by trust from the curated 4 — BC.Game, Duelbits, Shuffle.
+// Top 3 by trust from the curated 4: BC.Game, Duelbits, Shuffle.
 // Roobet (4th curated, 6.8 trust) deliberately excluded from the strip
-// even though it appears in the per-operator notes below — the strip
+// even though it appears in the per-operator notes below. The strip
 // is editorial recommendation, not catalogue completeness.
 const STRIP_CARDS: CTAStripCard[] = [
   {
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
 }
 
-// BC.Game / Shuffle / Duelbits lead — three operators with native provably-fair
+// BC.Game / Shuffle / Duelbits lead: three operators with native provably-fair
 // crash Originals plus the strongest trust profiles in the crash category.
 // Roobet is included because Crash is the genre anchor for the Roobet brand
 // (alongside Snoop's HotBox, a Snoop-themed Crash variant), and excluding a
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
 const CRASH_CASINO_SLUGS = ['bc-game', 'duelbits', 'shuffle', 'roobet']
 
 // Per-casino crash-page notes. Each operator gets its own context paragraph
-// that frames its crash credentials honestly — for Roobet specifically the
+// that frames its crash credentials honestly. For Roobet specifically the
 // note carries the withdrawalCaveat so the strength-with-caveat is visible
 // on the listing page itself, not just inside the full review.
 const PER_CASINO_CRASH_NOTES: Record<string, { angle: string; caveat?: string }> = {

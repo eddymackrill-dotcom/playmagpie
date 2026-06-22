@@ -6,7 +6,7 @@ import { compareContent } from '@/lib/compare-content'
 import CTAButton from '@/components/CTAButton'
 import CasinoLogo from '@/components/CasinoLogo'
 
-// Comparison allowlist — only these pairs are pre-rendered and indexed.
+// Comparison allowlist: only these pairs are pre-rendered and indexed.
 // Non-allowlisted pairs 404 via dynamicParams = false (Helpful Content fix:
 // template-cannibalisation across 42 generated pairs caused indexation failure).
 const COMPARE_ALLOWLIST = [
@@ -30,7 +30,7 @@ export async function generateMetadata(props: PageProps<'/compare/[slug]'>): Pro
   const c1 = getCasinoBySlug(slug.slice(0, vsIdx))
   const c2 = getCasinoBySlug(slug.slice(vsIdx + 4))
   if (!c1 || !c2) return {}
-  const title = `${c1.name} vs ${c2.name} (2026): Which Is Better? | PlayMagpie`
+  const title = `${c1.name} vs ${c2.name} (2026): Which Is Better?`
   const description = `${c1.name} vs ${c2.name}: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.`
   return {
     title,
@@ -215,7 +215,7 @@ export default async function ComparePage(props: PageProps<'/compare/[slug]'>) {
           </div>
         </section>
 
-        {/* Hand-written scenarios — when to pick each */}
+        {/* Hand-written scenarios: when to pick each */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-[#f5f5f5] mb-5">Which one is right for you?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

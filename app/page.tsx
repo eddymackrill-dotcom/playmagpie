@@ -185,7 +185,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* By region & focus — surfaces deeper intent pages */}
+        {/* By region & focus: surfaces deeper intent pages */}
         <section className="py-10">
           <div className="mb-7">
             <h2 className="text-2xl font-bold text-[#f5f5f5]">By region &amp; focus</h2>

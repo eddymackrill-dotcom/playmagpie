@@ -4,7 +4,7 @@ import { BONUS_CONTENT, getCasinosForBonus } from '@/lib/bonus-content'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
-// Verified per-casino free-spin data block — populated 2026-05-30 against each
+// Verified per-casino free-spin data block, populated 2026-05-30 against each
 // operator's live T&C / promotions page. Cells marked "Not documented" are
 // fields the casino does not publish on its bonus T&C or promotions page,
 // flagged honestly rather than guessed. Sources cited per cell.
@@ -39,7 +39,7 @@ const TABLE_ROWS: { field: string; cells: Record<'bitstarz' | 'mirax-casino' | '
       },
       '7bit-casino': {
         value: '250 total across the 4-deposit welcome pack. Per-deposit breakdown not published.',
-        source: '7bitcasino.com/bonuses — "325% match up to 5400 EUR and 250 Free Spins"',
+        source: '7bitcasino.com/bonuses: "325% match up to 5400 EUR and 250 Free Spins"',
       },
     },
   },
@@ -71,15 +71,15 @@ const TABLE_ROWS: { field: string; cells: Record<'bitstarz' | 'mirax-casino' | '
     cells: {
       bitstarz: {
         value: '40x winnings.',
-        source: 'bitstarz.com/promotions T&C §2.3 — "Any winnings generated from free spins will be awarded with a wagering requirement of 40 (forty)."',
+        source: 'bitstarz.com/promotions T&C §2.3: "Any winnings generated from free spins will be awarded with a wagering requirement of 40 (forty)."',
       },
       'mirax-casino': {
         value: '45x winnings, distinct from the 40x on cash deposit bonuses.',
-        source: 'miraxcasino.com/promotions — "Mirax casino free spins must be wagered 45 times unless otherwise stated."',
+        source: 'miraxcasino.com/promotions: "Mirax casino free spins must be wagered 45 times unless otherwise stated."',
       },
       '7bit-casino': {
         value: '40-45x range, not pinned to free spins specifically.',
-        source: '7bitcasino.com/bonuses — "Most BTC casino bonus offers at 7Bit should be wagered 40-45 times unless otherwise stated."',
+        source: '7bitcasino.com/bonuses: "Most BTC casino bonus offers at 7Bit should be wagered 40-45 times unless otherwise stated."',
       },
     },
   },
@@ -91,7 +91,7 @@ const TABLE_ROWS: { field: string; cells: Record<'bitstarz' | 'mirax-casino' | '
       },
       'mirax-casino': {
         value: '€100.',
-        source: 'miraxcasino.com/promotions — "The maximum cashout from Free Spins is 100 EUR unless otherwise stated."',
+        source: 'miraxcasino.com/promotions: "The maximum cashout from Free Spins is 100 EUR unless otherwise stated."',
       },
       '7bit-casino': {
         value: 'Not documented in the bonuses-page extract.',
@@ -106,7 +106,7 @@ const CASINO_HEADERS: { slug: 'bitstarz' | 'mirax-casino' | '7bit-casino'; name:
   { slug: '7bit-casino', name: '7Bit Casino' },
 ]
 
-// Above-the-fold strip cards — facts are drawn from the verified T&C data
+// Above-the-fold strip cards. Facts are drawn from the verified T&C data
 // in TABLE_ROWS above so the headline + strip + table all reference the
 // same primary-source figures. Wagering and max-cashout cells are the
 // strip's load-bearing comparable signals; spin count is the lead anchor.

@@ -10,7 +10,7 @@ import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 // by trust score, with the "Accepts {SYMBOL}" anchor surfacing the
 // page's premise verbatim. BTC/ETH/USDT/LTC/DOGE are universal (all 8
 // reviewed casinos accept) so the top-3-by-trust resolves to BitStarz,
-// BC.Game, 7Bit. SOL/USDC/BNB have narrower acceptance — strips reflect
+// BC.Game, 7Bit. SOL/USDC/BNB have narrower acceptance, so strips reflect
 // the actual subset.
 const STRIP_BY_CRYPTO: Record<string, CTAStripCard[]> = {
   bitcoin: [
@@ -72,7 +72,7 @@ export async function generateMetadata(
   if (!crypto) return {}
   const isBNB = crypto.symbol === 'BNB'
   const title = isBNB
-    ? 'BNB on Crypto Casinos: Chain Mechanics, Fees, Networks | PlayMagpie'
+    ? 'BNB on Crypto Casinos: Chain Mechanics, Fees, Networks'
     : `Best ${crypto.name} Casinos 2026: PlayMagpie`
   const description = isBNB
     ? 'How BNB works at crypto casinos: BNB Smart Chain mechanics, confirmation times, fee character. For the ranked list of BNB-accepting operators, see /bnb-crypto-casinos.'
@@ -117,7 +117,7 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
   const isDOGE = crypto.symbol === 'DOGE'
   // DOGE strengthening: lead with a commercial comparison table of every
   // DOGE-accepting operator (all facts from lib/casinos.ts), informational
-  // network depth moved below. Not split into a separate URL — see the BNB
+  // network depth moved below. Not split into a separate URL; see the BNB
   // split precedent (the informational page still outranks its commercial
   // split, and /crypto/dogecoin already outranks that whole experiment).
   const dogeRanked = isDOGE ? [...matching].sort((a, b) => b.trustScore - a.trustScore) : []

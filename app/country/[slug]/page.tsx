@@ -6,7 +6,7 @@ import { casinos, casinoAcceptsCountry, type Casino } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
-// Build a strip card from a Casino — handles BC.Game's "100+ more"
+// Build a strip card from a Casino. Handles BC.Game's "100+ more"
 // crypto-list entry as a friendly "100+" instead of 16.
 function buildCountryCard(casino: Casino): CTAStripCard {
   const cryptoCount = casino.acceptedCryptos.includes('100+ more')
@@ -61,7 +61,7 @@ export async function generateMetadata(
 // - Netherlands kansspelbelasting 37.8% from 1 Jan 2026: business.gov.nl
 // - Norway Lottstift rebrand from Lotteritilsynet (2023): lottstift.no
 // - Sweden Spellag (2018:1138) 14 kap. § 9 (one-bonus rule), verbatim from riksdagen.se
-// - Sweden Inkomstskattelagen (1999:1229) 8 kap. § 3 (gambling winnings — Swedish-licensed + EEA carve-out), verbatim from riksdagen.se
+// - Sweden Inkomstskattelagen (1999:1229) 8 kap. § 3 (gambling winnings, Swedish-licensed + EEA carve-out), verbatim from riksdagen.se
 // - Sweden 2024 channelisation: 85% overall, 72–82% online casino, 90% policy target (Spelinspektionen kanaliseringsgrad 2024 report)
 // - Sweden Safello MiCA CASP authorisation Oct 2025 (first Swedish issuance): news.cision.com/safello/r/safello-ab-granted-mica-authorization
 // - Sweden BTCX (Goobit AB) & Trijo (Ijort Invest AB, now under GreenMerc) under MiCA transitional VASP regime: fi.se
@@ -160,10 +160,10 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
 
   const contentParagraphs = countryContext[slug] ?? []
   const relatedPages = countryRelatedPages[slug] ?? []
-  // Casinos whose published terms exclude this country are filtered out — see
+  // Casinos whose published terms exclude this country are filtered out. See
   // casinoAcceptsCountry in lib/casinos.ts for matching mechanics.
   const eligibleCasinos = casinos.filter((c) => casinoAcceptsCountry(c, slug))
-  // Top 3 by trust score from eligible — drives the above-the-fold CTA strip.
+  // Top 3 by trust score from eligible, drives the above-the-fold CTA strip.
   // Renders nothing if fewer than 1 casino is eligible (component handles
   // empty-resolved case). Restricted-territory filter respected by construction.
   const stripCards: CTAStripCard[] = [...eligibleCasinos]
@@ -219,9 +219,9 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
           ))}
           {hasLegalSubpage && (
             <p className="text-[#888888] leading-relaxed mt-4">
-              For the full breakdown of {country.name}&apos;s crypto gambling laws — the operator-versus-player
+              For the full breakdown of {country.name}&apos;s crypto gambling laws, covering the operator-versus-player
               distinction, what the statutes actually say, enforcement in practice, and how winnings and crypto
-              are taxed — see our guide to{' '}
+              are taxed, see our guide to{' '}
               <Link href={`/country/${slug}/legal`} className="text-[#7BB8D4] hover:underline font-medium">
                 whether crypto gambling is legal in {country.name}
               </Link>.

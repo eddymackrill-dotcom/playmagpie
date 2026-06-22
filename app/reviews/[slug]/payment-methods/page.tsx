@@ -12,12 +12,12 @@ export function generateStaticParams() {
 
 const META: Record<(typeof PAYMENT_METHODS_SLUGS)[number], { title: string; description: string }> = {
   cloudbet: {
-    title: 'Cloudbet Payment Methods 2026: 10 Cryptos, 0.001 BTC Minimum | PlayMagpie',
+    title: 'Cloudbet Payment Methods 2026: 10 Cryptos, 0.001 BTC Minimum',
     description:
       'Cloudbet accepts 10 cryptocurrencies with a 0.001 BTC equivalent minimum deposit. Network-by-network breakdown, what the higher entry point signals, and where the dual Curaçao + Kahnawake licence matters at deposit time.',
   },
   bitstarz: {
-    title: 'BitStarz Payment Methods 2026: 6 Cryptos, $20 Minimum Deposit | PlayMagpie',
+    title: 'BitStarz Payment Methods 2026: 6 Cryptos, $20 Minimum Deposit',
     description:
       'BitStarz takes six cryptocurrencies (BTC, ETH, LTC, DOGE, BCH, USDT) at a $20 minimum, plus a fiat path that triggers KYC. Per-coin deposit speeds, why there is no Solana or BNB, and how the 25% bonus admin fee bears on your first deposit.',
   },
@@ -129,7 +129,7 @@ export default async function PaymentMethodsPage(props: PaymentMethodsPageProps)
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
             <Stat label="Min Deposit" value={casino.minDeposit} />
             <Stat label="Cryptos" value={`${casino.acceptedCryptos.length}`} />
-            {/* BitStarz is a hybrid crypto+fiat casino — its lib/casinos.ts cons document
+            {/* BitStarz is a hybrid crypto+fiat casino; its lib/casinos.ts cons document
                 "fiat transactions" that trigger KYC. Cloudbet is crypto-only. */}
             <Stat label="Fiat" value={slug === 'bitstarz' ? 'Yes · KYC' : 'None'} />
             <Stat label="KYC at Deposit" value={casino.kycLevel === 'Light' ? 'None' : casino.kycLevel} />
@@ -408,15 +408,15 @@ function BitStarzContent() {
       <Para>
         BitStarz has been running since 2014, and its deposit side still shows it.
         Where the newer crypto-native casinos built their cashiers around Solana,
-        BNB Smart Chain and a wall of stablecoins, BitStarz funds on six coins —
-        the original Bitcoin-casino set — and keeps a fiat path that most
+        BNB Smart Chain and a wall of stablecoins, BitStarz funds on six coins,
+        the original Bitcoin-casino set, and keeps a fiat path that most
         pure-crypto operators dropped years ago. The entry point is low ($20),
         and the practical decision a depositor faces here is less &quot;which of
-        forty chains&quot; and more &quot;crypto or fiat&quot; — because at BitStarz that
+        forty chains&quot; and more &quot;crypto or fiat&quot;. At BitStarz that
         choice is also a privacy choice.
       </Para>
 
-      <SectionHeading>The six supported coins — and what&apos;s notably missing</SectionHeading>
+      <SectionHeading>The six supported coins, and what&apos;s notably missing</SectionHeading>
       <Para>
         BitStarz accepts BTC, ETH, LTC, DOGE, BCH and USDT for deposits. That is
         the classic lineup: Bitcoin, the two early forks (LTC, BCH), the original
@@ -424,7 +424,7 @@ function BitStarzContent() {
         narrower than Cloudbet (10), 7Bit (eight) and Mirax (seven), and far
         narrower than BC.Game (100+). What matters more than the count is the
         absence: there is no Solana, no BNB, and no USDC. If your balance lives on
-        Solana or BNB Smart Chain, BitStarz can&apos;t take it directly — you
+        Solana or BNB Smart Chain, BitStarz can&apos;t take it directly: you
         convert upstream before you deposit. For a USDC holder specifically, USDT
         is the only stablecoin route in.
       </Para>
@@ -482,7 +482,7 @@ function BitStarzContent() {
       <SectionHeading>The $20 minimum and the crypto-vs-fiat fork</SectionHeading>
       <Para>
         BitStarz&apos;s minimum deposit is $20, or roughly 0.0003 BTC at current
-        rates. That is a low, accessible floor — the same as Mirax, above 7Bit
+        rates. That is a low, accessible floor, the same as Mirax, above 7Bit
         ($10) and BC.Game ($5), but a different universe from Cloudbet&apos;s
         0.001 BTC. It signals the opposite intent to Cloudbet&apos;s: BitStarz
         wants you in at small stakes to test the cashier, not to pre-qualify a
@@ -495,7 +495,7 @@ function BitStarzContent() {
         transactions trigger KYC. A crypto deposit under BitStarz&apos;s
         verification thresholds stays document-free; choosing the fiat route
         pulls identity verification forward into the deposit funnel. So at
-        BitStarz the deposit method is also a privacy decision — the crypto path
+        BitStarz the deposit method is also a privacy decision: the crypto path
         is the light-KYC path, the fiat path is not.
       </Para>
 
@@ -506,14 +506,14 @@ function BitStarzContent() {
         BC.Game. The practical speed champions are Litecoin and Dogecoin, both
         clearing in roughly one to three minutes for fractions of a cent.
         Ethereum is comparable when gas is calm. USDT&apos;s speed depends
-        entirely on the network you send on — TRC-20 is the cheapest and quickest
+        entirely on the network you send on. TRC-20 is the cheapest and quickest
         common route, but always confirm the active network shown at the cashier
         before sending, because sending on the wrong chain is the one
         unrecoverable deposit mistake. Bitcoin is the slowest of the six, gated by
         mainnet block times rather than anything BitStarz controls.
       </Para>
 
-      <SectionHeading>Depositing to claim the 5 BTC welcome — and the 25% admin-fee catch</SectionHeading>
+      <SectionHeading>Depositing to claim the 5 BTC welcome, and the 25% admin-fee catch</SectionHeading>
       <Para>
         Most first deposits at BitStarz exist to trigger the welcome package: up
         to 5 BTC plus 180 free spins spread across the first four deposits, with
@@ -539,7 +539,7 @@ function BitStarzContent() {
         credit after the relevant on-chain confirmation. No documents are
         requested for standard crypto deposits below BitStarz&apos;s verification
         thresholds. Identity verification is reserved for larger fiat withdrawals
-        and compliance-flagged accounts — see{' '}
+        and compliance-flagged accounts. See{' '}
         <Link href="/reviews/bitstarz/kyc" className="text-[#7BB8D4] hover:underline">
           the BitStarz KYC page
         </Link>{' '}
@@ -557,7 +557,7 @@ function BitStarzContent() {
       <SectionHeading>On-ramping the six coins by jurisdiction</SectionHeading>
       <Para>
         Whether you take the crypto path or convert fiat to crypto first, the
-        on-ramp is a regulated exchange in your jurisdiction — and because
+        on-ramp is a regulated exchange in your jurisdiction, and because
         BitStarz won&apos;t accept Solana or BNB, SOL/BNB holders have an extra
         conversion step before depositing. The exchange landscape differs by
         country; see the relevant country page for jurisdiction-specific on-ramp
@@ -610,26 +610,26 @@ const BITSTARZ_FAQS = [
   {
     question: 'What is the minimum deposit at BitStarz?',
     answer:
-      "BitStarz's minimum deposit is $20, or roughly 0.0003 BTC at current rates, and it applies across all six supported cryptocurrencies. That's a low, accessible floor — level with Mirax, above 7Bit ($10) and BC.Game ($5), and far below Cloudbet's 0.001 BTC. Crypto deposits credit after one blockchain confirmation. BitStarz charges no deposit fee on either the crypto or fiat side; on crypto, only the standard network fee applies.",
+      "BitStarz's minimum deposit is $20, or roughly 0.0003 BTC at current rates, and it applies across all six supported cryptocurrencies. That's a low, accessible floor: level with Mirax, above 7Bit ($10) and BC.Game ($5), and far below Cloudbet's 0.001 BTC. Crypto deposits credit after one blockchain confirmation. BitStarz charges no deposit fee on either the crypto or fiat side; on crypto, only the standard network fee applies.",
   },
   {
     question: 'Does BitStarz accept fiat, or is it crypto-only?',
     answer:
-      "BitStarz is a hybrid casino: it keeps a fiat path alongside its six supported cryptos, where most pure-crypto operators we review (Cloudbet, BC.Game, 7Bit) are crypto-only. The trade-off is privacy. Fiat transactions at BitStarz trigger KYC, whereas a standard crypto deposit below BitStarz's verification thresholds stays document-free. So the deposit method is also a privacy decision — pick the crypto path if keeping verification light is the priority.",
+      "BitStarz is a hybrid casino: it keeps a fiat path alongside its six supported cryptos, where most pure-crypto operators we review (Cloudbet, BC.Game, 7Bit) are crypto-only. The trade-off is privacy. Fiat transactions at BitStarz trigger KYC, whereas a standard crypto deposit below BitStarz's verification thresholds stays document-free. So the deposit method is also a privacy decision: pick the crypto path if keeping verification light is the priority.",
   },
   {
     question: 'Which BitStarz coin deposits fastest?',
     answer:
-      "Litecoin and Dogecoin are the practical speed champions at BitStarz, both clearing in roughly one to three minutes for fractions of a cent. Ethereum is comparable when gas is calm. Because BitStarz's lineup has no Solana or BNB Smart Chain, there's no single-digit-second deposit option here the way there is at Cloudbet or BC.Game. USDT's speed depends on the network you send on — TRC-20 is cheapest and quickest. Bitcoin is the slowest of the six, gated by mainnet block times.",
+      "Litecoin and Dogecoin are the practical speed champions at BitStarz, both clearing in roughly one to three minutes for fractions of a cent. Ethereum is comparable when gas is calm. Because BitStarz's lineup has no Solana or BNB Smart Chain, there's no single-digit-second deposit option here the way there is at Cloudbet or BC.Game. USDT's speed depends on the network you send on, and TRC-20 is cheapest and quickest. Bitcoin is the slowest of the six, gated by mainnet block times.",
   },
   {
     question: 'Can I deposit Solana or BNB at BitStarz?',
     answer:
-      "No. BitStarz accepts six coins for deposits — BTC, ETH, LTC, DOGE, BCH and USDT — and Solana and BNB are not among them. There is also no USDC; USDT is the only stablecoin route in. If your balance lives on Solana or BNB Smart Chain, you'll need to convert to one of the six supported coins on a regulated exchange before depositing. Players who want native Solana or BNB deposits should look at Cloudbet or BC.Game instead, both of which support those chains directly.",
+      "No. BitStarz accepts six coins for deposits (BTC, ETH, LTC, DOGE, BCH and USDT), and Solana and BNB are not among them. There is also no USDC; USDT is the only stablecoin route in. If your balance lives on Solana or BNB Smart Chain, you'll need to convert to one of the six supported coins on a regulated exchange before depositing. Players who want native Solana or BNB deposits should look at Cloudbet or BC.Game instead, both of which support those chains directly.",
   },
   {
     question: 'Does depositing to claim the BitStarz welcome bonus cost anything extra?',
     answer:
-      "It can. The welcome package — up to 5 BTC plus 180 free spins across your first four deposits — is claimed by depositing, but BitStarz deducts a 25% admin fee from bonus-related withdrawals, and match-bonus wagering can run to 40x. If you deposit purely to play your own funds, neither applies. If you deposit to claim the match, both are part of the bonus's real cost. The BitStarz withdrawal page covers exactly when the admin fee bites — worth reading before you opt a deposit into the bonus.",
+      "It can. The welcome package (up to 5 BTC plus 180 free spins across your first four deposits) is claimed by depositing, but BitStarz deducts a 25% admin fee from bonus-related withdrawals, and match-bonus wagering can run to 40x. If you deposit purely to play your own funds, neither applies. If you deposit to claim the match, both are part of the bonus's real cost. The BitStarz withdrawal page covers exactly when the admin fee bites, worth reading before you opt a deposit into the bonus.",
   },
 ] as const

@@ -4,7 +4,7 @@ import { casinos, getCasinoBySlug } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
-// Top 3 by trust from the dice-curated 4 — BC.Game, Duelbits, Shuffle.
+// Top 3 by trust from the dice-curated 4: BC.Game, Duelbits, Shuffle.
 // Roobet excluded from the strip (covered in per-operator notes below).
 const STRIP_CARDS: CTAStripCard[] = [
   {

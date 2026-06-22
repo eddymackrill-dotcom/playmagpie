@@ -6,7 +6,7 @@ import BonusBanner from '@/components/BonusBanner'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import Link from 'next/link'
 
-// Top 3 of vipProgram && trustScore >= 8.0 by trust — same filter the
+// Top 3 of vipProgram && trustScore >= 8.0 by trust, the same filter the
 // page uses to exclude operators with documented withdrawal-hold patterns
 // on large wins. Cloudbet leads the page editorially on no-withdrawal-
 // limits but BitStarz / BC.Game / 7Bit lead on raw trust score.
@@ -70,7 +70,7 @@ const breadcrumbSchema = {
 
 export default function HighRollerPage() {
   // High-roller filter: VIP programme AND trustScore >= 8.0. The trust floor
-  // keeps the page consistent with its premise — "platforms built for serious
+  // keeps the page consistent with its premise: "platforms built for serious
   // players" cannot include operators with documented withdrawal-hold patterns
   // on large wins. Excludes Roobet (6.8) at present; reapplies cleanly to any
   // future low-trust VIP entry.

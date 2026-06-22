@@ -8,7 +8,7 @@ import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
 // Per-bonus-type strip configuration. Cards tailored to each bonus's
-// player intent — welcome/reload/no-deposit cards lead with the
+// player intent. Welcome/reload/no-deposit cards lead with the
 // headline offer; cashback/vip cards lead with the recurring-value
 // mechanism; high-roller cards lead with VIP posture + withdrawal
 // limits.
@@ -48,7 +48,7 @@ const STRIP_BY_BONUS: Record<string, CTAStripCard[]> = {
 // Per-slug SEO overrides. The default "Best {name} Crypto Casinos 2026"
 // pattern put /bonus/high-roller-bonus in direct competition with
 // /high-roller-casinos (the proven ranker) on "high roller bitcoin/crypto
-// casinos" queries — GSC showed the bonus page absorbing the head query at a
+// casinos" queries. GSC showed the bonus page absorbing the head query at a
 // worse position than the page that should own it. The override retargets
 // this page to bonus-terms intent; the operator ranking belongs to
 // /high-roller-casinos.

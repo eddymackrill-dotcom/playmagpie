@@ -4,7 +4,7 @@ import { casinos, getCasinoBySlug } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
-// Top 3 by trust from the plinko-curated 4 — BC.Game, Duelbits, Shuffle.
+// Top 3 by trust from the plinko-curated 4: BC.Game, Duelbits, Shuffle.
 // Roobet excluded from the strip (covered in per-operator notes below).
 const STRIP_CARDS: CTAStripCard[] = [
   {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 }
 
 // Curated to the four operators with a native provably-fair Plinko Original.
-// Same rationale as /game/crash and /game/dice — BC.Game, Shuffle and Duelbits
+// Same rationale as /game/crash and /game/dice: BC.Game, Shuffle and Duelbits
 // lead on trust; Roobet is included because Plinko is part of the Roobet
 // Originals lineup. The per-casino notes block surfaces Roobet's
 // withdrawalCaveat where it matters for the reader.

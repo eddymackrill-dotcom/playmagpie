@@ -5,7 +5,7 @@ import TopRatedSection from '@/components/TopRatedSection'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import Link from 'next/link'
 
-// Top 3 of kycLevel='None' by trust — the page filters for true no-KYC.
+// Top 3 of kycLevel='None' by trust. The page filters for true no-KYC.
 const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'bc-game',

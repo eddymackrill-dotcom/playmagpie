@@ -13,7 +13,7 @@ export async function generateMetadata(props: PageProps<'/guides/[slug]'>): Prom
   const { slug } = await props.params
   const guide = guides.find((g) => g.slug === slug)
   if (!guide) return {}
-  const title = `${guide.title} | PlayMagpie Guides`
+  const title = `${guide.title}`
   return {
     title,
     description: guide.description,
@@ -44,7 +44,7 @@ type ContentBlock =
       items: { priority: string; recommendation: string; rationale: string }[]
     }
   // Per-casino KYC breakdown. kycLevel/kycScore are pulled live from lib/casinos.ts
-  // at render time (single source of truth) — the block only carries the editorial
+  // at render time (single source of truth). The block only carries the editorial
   // "note" and an optional deep-link href to the casino's /kyc or main review page.
   | {
       type: 'kycposture'
@@ -342,7 +342,7 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
   ],
 }
 
-// Per-guide intent-page links. Pairs with the worked examples — pointing readers
+// Per-guide intent-page links. Pairs with the worked examples, pointing readers
 // from informational content back to commercial intent pages where appropriate.
 const guideRelatedPages: Record<string, { label: string; href: string; teaser: string }[]> = {
   'how-crypto-casino-withdrawals-work': [

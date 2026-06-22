@@ -6,7 +6,7 @@ import TopRatedSection from '@/components/TopRatedSection'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import Link from 'next/link'
 
-// Top 3 by withdrawalScore — the page's actual ranking metric.
+// Top 3 by withdrawalScore, the page's actual ranking metric.
 const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'bitstarz',

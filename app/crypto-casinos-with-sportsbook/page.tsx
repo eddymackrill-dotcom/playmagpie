@@ -7,7 +7,7 @@ import CTAButton from '@/components/CTAButton'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
 // The 5 catalogue operators that run a genuine sportsbook, verified against
-// lib/casinos.ts prose (there is no typed `sportsbook` field — the fact lives
+// lib/casinos.ts prose (there is no typed `sportsbook` field, so the fact lives
 // in each operator's reviewSummary/pros, cited per-operator below):
 //   - cloudbet:  reviewSummary "the sportsbook is among the best-in-class for crypto betting";
 //                pros "Excellent sportsbook with crypto betting across hundreds of markets"
@@ -49,7 +49,7 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos With a Sportsbook 2026: Ranked | PlayMagpie',
+  title: 'Best Crypto Casinos With a Sportsbook 2026: Ranked',
   description:
     'Five casinos in our catalogue run a real sportsbook alongside the casino: Cloudbet, Roobet, BC.Game, Shuffle and Duelbits. Ranked by trust, with the honest per-operator breakdown.',
   alternates: {
@@ -80,7 +80,7 @@ const breadcrumbSchema = {
 }
 
 // Per-operator sportsbook notes. Every claim traces to the cited lib/casinos.ts
-// field — no sport counts or market figures are invented where the catalogue
+// field. No sport counts or market figures are invented where the catalogue
 // doesn't document them (BC.Game/Shuffle/Duelbits get "full sportsbook" / "casino
 // and sportsbook" framing rather than fabricated numbers).
 const PER_CASINO_SPORTSBOOK_NOTES: Record<string, string> = {

@@ -6,7 +6,7 @@ import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
 const eligibleCasinos = casinos.filter((c) => casinoAcceptsCountry(c, 'sweden'))
 
-// Build a strip card from a Casino — same helper pattern as the dynamic
+// Build a strip card from a Casino, same helper pattern as the dynamic
 // /country/[slug] route. Sweden is a static segment because of the rich
 // Spellag + tax-context content but its strip logic mirrors the dynamic
 // route exactly.
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 }
 
 // Sourced from verified facts in lib/casinos.ts acceptedCryptos lists.
-// — = not listed. ✓ = listed in acceptedCryptos.
+// "-" = not listed. ✓ = listed in acceptedCryptos.
 const CRYPTO_MATRIX_COLUMNS = ['BTC', 'ETH', 'USDT', 'USDC', 'SOL', 'LTC', 'XRP'] as const
 
 function casinoAccepts(slug: string, symbol: string): boolean {
@@ -249,7 +249,7 @@ export default function SwedenPage() {
                         {casinoAccepts(casino.slug, col) ? (
                           <span className="text-[#7BB8D4]">✓</span>
                         ) : (
-                          <span className="text-[#444444]">—</span>
+                          <span className="text-[#444444]">-</span>
                         )}
                       </td>
                     ))}

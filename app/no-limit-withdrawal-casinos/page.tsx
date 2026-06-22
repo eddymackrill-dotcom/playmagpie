@@ -6,7 +6,7 @@ import BonusBanner from '@/components/BonusBanner'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import Link from 'next/link'
 
-// Cloudbet leads — only operator with the formal no-limit claim.
+// Cloudbet leads, the only operator with the formal no-limit claim.
 // Alternatives sorted by withdrawal score as the proxy when the cap isn't
 // the binding constraint.
 const STRIP_CARDS: CTAStripCard[] = [

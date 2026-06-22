@@ -12,17 +12,17 @@ export function generateStaticParams() {
 
 const META: Record<(typeof KYC_SLUGS)[number], { title: string; description: string }> = {
   bitstarz: {
-    title: 'BitStarz KYC Requirements 2026: When Verification Triggers | PlayMagpie',
+    title: 'BitStarz KYC Requirements 2026: When Verification Triggers',
     description:
       'BitStarz runs Light KYC: most crypto players never upload a document. What actually triggers verification, which documents get asked for, and how the 25% bonus admin fee interacts with a held withdrawal.',
   },
   'bc-game': {
-    title: 'BC.Game KYC: Does It Require Verification? (2026) | PlayMagpie',
+    title: 'BC.Game KYC: Does It Require Verification? (2026)',
     description:
       'BC.Game runs a strict no-KYC policy: email signup, no documents ever required for crypto play or withdrawals. What that means in practice, where the operator-layer compliance line sits, and how it compares to Light-KYC rivals.',
   },
   cloudbet: {
-    title: 'Cloudbet KYC: No Limits, Verification Only at Scale | PlayMagpie',
+    title: 'Cloudbet KYC: No Limits, Verification Only at Scale',
     description:
       'Cloudbet is the rare casino where no withdrawal limits and Light KYC coexist: cash out unlimited amounts with verification reserved for the extreme top end. Where the trigger sits and what the dual licence means for it.',
   },
@@ -261,7 +261,7 @@ function KeyList({ items }: { items: string[] }) {
   )
 }
 
-/* ───────────── BitStarz: Light KYC — lead with the two triggers ───────────── */
+/* ───────────── BitStarz: Light KYC, lead with the two triggers ───────────── */
 function BitstarzContent() {
   return (
     <>
@@ -309,9 +309,9 @@ function BitstarzContent() {
       </Para>
       <KeyList
         items={[
-          'Government-issued photo ID (passport, national ID or driving licence) — the baseline document.',
-          'Proof of address (utility bill or bank statement) dated within the recent window — requested for fiat-side or larger activity.',
-          'Proof of payment method — only relevant if you used a card or fiat rail rather than pure crypto.',
+          'Government-issued photo ID (passport, national ID or driving licence): the baseline document.',
+          'Proof of address (utility bill or bank statement) dated within the recent window, requested for fiat-side or larger activity.',
+          'Proof of payment method, only relevant if you used a card or fiat rail rather than pure crypto.',
         ]}
       />
 
@@ -392,7 +392,7 @@ const BITSTARZ_FAQS = [
   },
 ] as const
 
-/* ───────────── BC.Game: None — lead with "there is no KYC" ───────────── */
+/* ───────────── BC.Game: None, lead with "there is no KYC" ───────────── */
 function BcGameContent() {
   return (
     <>
@@ -451,10 +451,10 @@ function BcGameContent() {
       </Para>
       <KeyList
         items={[
-          'Email-only signup — no phone number or identity document required to open an account.',
+          'Email-only signup: no phone number or identity document required to open an account.',
           'No KYC at deposit or withdrawal for crypto, at any amount, under the standard flow.',
-          '100+ supported cryptocurrencies — pick on speed and fees, since privacy is policy-level not coin-level.',
-          '$5 minimum deposit — the no-KYC posture applies from the smallest bankroll, with no verified-tier gating.',
+          '100+ supported cryptocurrencies, so pick on speed and fees, since privacy is policy-level not coin-level.',
+          '$5 minimum deposit, so the no-KYC posture applies from the smallest bankroll, with no verified-tier gating.',
         ]}
       />
 
@@ -511,7 +511,7 @@ const BCGAME_FAQS = [
   },
 ] as const
 
-/* ───────────── Cloudbet: Light at scale — lead with no-limits + KYC ceiling ───────────── */
+/* ───────────── Cloudbet: Light at scale, lead with no-limits + KYC ceiling ───────────── */
 function CloudbetContent() {
   return (
     <>
@@ -577,9 +577,9 @@ function CloudbetContent() {
       <KeyList
         items={[
           'Routine and mid-size crypto withdrawals: no document request under the standard flow.',
-          'Outsized withdrawals: Light KYC can trigger — government ID and recent proof of address.',
+          'Outsized withdrawals: Light KYC can trigger, asking for government ID and recent proof of address.',
           'Genuinely large cash-outs: source-of-funds documentation possible, standard for high-value crypto anywhere.',
-          'No published dollar threshold — the trigger is high and amount-driven, not a routine gate.',
+          'No published dollar threshold. The trigger is high and amount-driven, not a routine gate.',
         ]}
       />
 

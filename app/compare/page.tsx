@@ -5,20 +5,20 @@ import { compareContent } from '@/lib/compare-content'
 import CasinoLogo from '@/components/CasinoLogo'
 
 export const metadata: Metadata = {
-  title: 'Compare Crypto Casinos Side by Side | PlayMagpie',
+  title: 'Compare Crypto Casinos Side by Side',
   description:
     'Head-to-head crypto casino comparisons. Compare withdrawal speed, bonus fairness, KYC policy and trust scores between the top-rated platforms.',
   alternates: { canonical: '/compare' },
   openGraph: {
     url: '/compare',
-    title: 'Compare Crypto Casinos Side by Side | PlayMagpie',
+    title: 'Compare Crypto Casinos Side by Side',
     description: 'Side-by-side crypto casino comparisons covering withdrawals, bonuses, KYC and trust scores.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Compare Crypto Casinos' }],
   },
 }
 
 export default function ComparePage() {
-  // Pairs are sourced from compareContent — the single allowlist source of truth.
+  // Pairs are sourced from compareContent, the single allowlist source of truth.
   // Direction matters (e.g. `bc-game-vs-shuffle` vs `shuffle-vs-bc-game`); only
   // the canonical direction listed in compareContent has a page rendered.
   const pairs = Object.keys(compareContent)

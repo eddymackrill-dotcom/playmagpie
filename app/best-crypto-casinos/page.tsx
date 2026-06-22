@@ -6,7 +6,7 @@ import BonusBanner from '@/components/BonusBanner'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import Link from 'next/link'
 
-// Top 3 by trustScore — same anchor metric the page is ranked on.
+// Top 3 by trustScore, the same anchor metric the page is ranked on.
 const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'bitstarz',

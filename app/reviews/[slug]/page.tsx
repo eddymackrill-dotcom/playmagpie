@@ -21,7 +21,7 @@ const casinoMetaDescriptions: Record<string, string> = {
   roobet: 'Roobet review 2026. Crash-led Originals, ~6,000 slots and a sportsbook. Honest take on documented withdrawal holds on $20k+ wins, the "low-risk play" T&C clause, and the offshore-only Curaçao + Anjouan licensing. Rated 6.8/10.',
 }
 
-// Sub-page index — per-casino contextual links to the deep-dive pages that
+// Sub-page index: per-casino contextual links to the deep-dive pages that
 // exist below this review. Sub-pages without an inbound link from the parent
 // review get deprioritised by search, so each entry below has natural anchor
 // text written to match the sub-page's actual angle, not generic phrasing.
@@ -125,7 +125,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     // Withdrawal-intent FAQs deliberately removed (2026-06-11): the dedicated
     // /reviews/bitstarz/withdrawal sub-page owns that query cluster per the
-    // validated displacement pattern — duplicating Q&A here put the parent in
+    // validated displacement pattern. Duplicating Q&A here put the parent in
     // competition with its own sub-page on "bitstarz withdrawal" queries.
     {
       question: 'Does BitStarz offer a no deposit bonus?',
@@ -603,7 +603,7 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
 
         <ReviewSection casino={casino} />
 
-        {/* Deep-dive sub-pages — only rendered when the parent review has dedicated sub-pages */}
+        {/* Deep-dive sub-pages: only rendered when the parent review has dedicated sub-pages */}
         {subPages.length > 0 && (
           <section className="mt-12 pt-10 border-t border-[#222222]">
             <h2 className="text-xl font-bold text-white mb-2">Go deeper on {casino.name}</h2>
