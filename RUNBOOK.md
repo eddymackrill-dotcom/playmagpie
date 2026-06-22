@@ -164,6 +164,7 @@ Produce a short report of anything unusual. If nothing's unusual, say so plainly
 - "Discovered – not indexed" and "URL is unknown to Google" are different states with different fix patterns
 - GSC's referring_urls field reflects what Google noticed during last crawl, not the real link graph. Use coverage_state + codebase grep for crawl-equity diagnostics, not referring_urls.
 - Existing pages on actively-built trees still crawl on slow cadences (~3 weeks) if unchanged since their last crawl. Last-crawled date (single-URL inspection) is the diagnostic for whether a page will propagate new links in a reasonable window, not URL tree position. (2026-06-07: the 3 withdrawal pages given the free-spins link were last crawled 2026-05-18 and had not re-crawled 2 days after modification, so the link hadn't propagated yet.)
+- gsc MCP intermittently connects but fails to register its tools at session start (handshake healthy, but tools absent from registry). Fix: fully exit Claude Code and relaunch, sometimes twice. Credentials/config are correct (service-account via GOOGLE_APPLICATION_CREDENTIALS to gsc-key.json); this is a startup race, not an auth problem. Don't re-diagnose as a credentials issue.
 
 ### DataForSEO cost-control reminder
 - $0.05–0.10 per call
