@@ -23,9 +23,12 @@ function buildCountryCard(casino: Casino): CTAStripCard {
 }
 
 export async function generateStaticParams() {
-  // 'sweden' is served by app/country/sweden/page.tsx (static segment takes
-  // precedence over dynamic [slug]); excluded here to avoid build conflict.
-  return COUNTRY_LIST.filter((c) => c.slug !== 'sweden').map((c) => ({ slug: c.slug }))
+  // 'sweden' and 'finland' are served by their own static segments
+  // (app/country/sweden/page.tsx, app/country/finland/page.tsx); static segments
+  // take precedence over the dynamic [slug], so both are excluded here to avoid
+  // a build conflict. Both carry richer regulatory + FAQ content than the template.
+  const staticSegments = new Set(['sweden', 'finland'])
+  return COUNTRY_LIST.filter((c) => !staticSegments.has(c.slug)).map((c) => ({ slug: c.slug }))
 }
 
 export async function generateMetadata(
@@ -122,7 +125,7 @@ const countryRelatedPages: Record<string, { label: string; href: string; teaser:
   ],
   norway: [
     { label: 'Crypto Casinos in Sweden', href: '/country/sweden', teaser: 'Nordic peer: different regime (licensed-restrictive vs monopoly), same crypto-funding logic'},
-    { label: 'Best Bitcoin Casino in Finland', href: '/best-bitcoin-casino-finland', teaser: 'Nordic peer mid-reform: BTC operators that accept Finnish players, ranked' },
+    { label: 'Crypto Casinos in Finland', href: '/country/finland', teaser: 'Nordic peer: the last monopoly heading for a 2027 licensing market' },
     { label: 'No-KYC Casinos', href: '/no-kyc-casinos', teaser: 'Pairs with the Lottstift payment-block sidestep' },
   ],
   germany: [

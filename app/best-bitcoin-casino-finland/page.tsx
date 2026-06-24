@@ -5,8 +5,10 @@ import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
 import CTAButton from '@/components/CTAButton'
 
-// Bitcoin-axis page for Finland. There is no /country/finland hub, so there is no
-// cannibalisation to manage: this is the first Finland page on the site.
+// Bitcoin-axis page for Finland. A /country/finland hub now exists (static segment); this
+// page is differentiated from it the same way the Germany pair is: the hub is the multi-coin
+// country overview, this page is the BTC-axis ranking (per-casino BTC cashier mechanics + the
+// on-chain speed trade-off). It links up to the hub for the full regulatory picture.
 // Verified facts (research subagent, 2026-06-24, primary sources):
 // - Veikkaus monopoly under Lotteries Act 1047/2001, supervised by National Police
 //   Board / Ministry of the Interior (intermin.fi). Law targets organising/marketing,
@@ -240,9 +242,9 @@ export default function BestBitcoinCasinoFinlandPage() {
 
         <section className="mt-12">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Link href="/country/norway" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
-              <div className="font-semibold text-[#f5f5f5] mb-1">Crypto Casinos in Norway</div>
-              <div className="text-[#888888] text-sm">Nordic peer: same monopoly-plus-offshore pattern</div>
+            <Link href="/country/finland" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">Crypto Casinos in Finland</div>
+              <div className="text-[#888888] text-sm">The full multi-coin hub: Veikkaus, the 2027 reform, tax</div>
             </Link>
             <Link href="/crypto/bitcoin" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Bitcoin Coin Reference</div>
