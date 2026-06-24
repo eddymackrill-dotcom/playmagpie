@@ -15,6 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/no-limit-withdrawal-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/best-crypto-pokies-nz`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
     { url: `${BASE_URL}/bnb-crypto-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
+    { url: `${BASE_URL}/best-bitcoin-casino-germany`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/best-bitcoin-casino-finland`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/best-bitcoin-casino-ireland`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/best-bitcoin-casino-canada`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/crypto-casinos-with-sportsbook`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/research/crypto-casino-bonus-transparency`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/crypto`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
@@ -41,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  // Payment-methods sub-page allowlist — must mirror PAYMENT_METHODS_SLUGS in
+  // Payment-methods sub-page allowlist, must mirror PAYMENT_METHODS_SLUGS in
   // app/reviews/[slug]/payment-methods/page.tsx
   const paymentMethodsSlugs = ['cloudbet', 'bitstarz']
   const casinoPaymentMethodsPages: MetadataRoute.Sitemap = paymentMethodsSlugs.map((slug) => ({
@@ -51,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  // KYC sub-page allowlist — must mirror KYC_SLUGS in app/reviews/[slug]/kyc/page.tsx
+  // KYC sub-page allowlist, must mirror KYC_SLUGS in app/reviews/[slug]/kyc/page.tsx
   const kycPageSlugs = ['bitstarz', 'bc-game', 'cloudbet']
   const casinoKycPages: MetadataRoute.Sitemap = kycPageSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/kyc`,
@@ -81,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  // Legal sub-page allowlist — must mirror LEGAL_ALLOWLIST in app/country/[slug]/legal/page.tsx
+  // Legal sub-page allowlist, must mirror LEGAL_ALLOWLIST in app/country/[slug]/legal/page.tsx
   const legalSubpageSlugs = ['canada', 'australia']
   const countryLegalPages: MetadataRoute.Sitemap = legalSubpageSlugs.map((slug) => ({
     url: `${BASE_URL}/country/${slug}/legal`,
@@ -104,7 +108,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  // Comparison allowlist — must mirror COMPARE_ALLOWLIST in app/compare/[slug]/page.tsx
+  // Comparison allowlist, must mirror COMPARE_ALLOWLIST in app/compare/[slug]/page.tsx
   const comparisonAllowlist = [
     'bitstarz-vs-bc-game',
     'cloudbet-vs-bitstarz',

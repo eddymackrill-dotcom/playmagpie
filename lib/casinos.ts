@@ -386,6 +386,7 @@ export const casinos: Casino[] = [
 const COUNTRY_RESTRICTION_TOKENS: Record<string, string[]> = {
   australia: ['Australia'],
   canada: ['Canada'],
+  finland: ['Finland'],
   germany: ['Germany'],
   ireland: ['Ireland'],
   japan: ['Japan'],

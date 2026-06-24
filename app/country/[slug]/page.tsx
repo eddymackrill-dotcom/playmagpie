@@ -122,8 +122,8 @@ const countryRelatedPages: Record<string, { label: string; href: string; teaser:
   ],
   norway: [
     { label: 'Crypto Casinos in Sweden', href: '/country/sweden', teaser: 'Nordic peer: different regime (licensed-restrictive vs monopoly), same crypto-funding logic'},
+    { label: 'Best Bitcoin Casino in Finland', href: '/best-bitcoin-casino-finland', teaser: 'Nordic peer mid-reform: BTC operators that accept Finnish players, ranked' },
     { label: 'No-KYC Casinos', href: '/no-kyc-casinos', teaser: 'Pairs with the Lottstift payment-block sidestep' },
-    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'When you sidestep NOK rails for a win that matters' },
   ],
   germany: [
     { label: 'Crypto Casinos in Sweden', href: '/country/sweden', teaser: 'Adjacent EU regime: same offshore-driver dynamic at different scale'},
@@ -152,11 +152,18 @@ const countryRelatedPages: Record<string, { label: string; href: string; teaser:
 // deeper sub-page rather than competing with it.
 const LEGAL_SUBPAGE_SLUGS = new Set(['canada', 'australia'])
 
+// Country slugs that have a dedicated /best-bitcoin-casino-[slug] commercial page.
+// The hub stays multi-coin; this contextual down-link hands BTC-specific intent to the
+// Bitcoin-axis page rather than competing with it, and gives that page an inbound link
+// from a same-batch-modified host (crawl-discovery rule).
+const BTC_PAGE_SLUGS = new Set(['canada', 'germany', 'ireland'])
+
 export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
   const { slug } = await props.params
   const country = COUNTRY_LIST.find((c) => c.slug === slug)
   if (!country) notFound()
   const hasLegalSubpage = LEGAL_SUBPAGE_SLUGS.has(slug)
+  const hasBtcPage = BTC_PAGE_SLUGS.has(slug)
 
   const contentParagraphs = countryContext[slug] ?? []
   const relatedPages = countryRelatedPages[slug] ?? []
@@ -225,6 +232,16 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
               <Link href={`/country/${slug}/legal`} className="text-[#7BB8D4] hover:underline font-medium">
                 whether crypto gambling is legal in {country.name}
               </Link>.
+            </p>
+          )}
+          {hasBtcPage && (
+            <p className="text-[#888888] leading-relaxed mt-4">
+              Depositing specifically in Bitcoin? Our guide to the{' '}
+              <Link href={`/best-bitcoin-casino-${slug}`} className="text-[#7BB8D4] hover:underline font-medium">
+                best Bitcoin casino in {country.name}
+              </Link>{' '}
+              ranks the operators that accept {country.name} players for BTC and covers the cashier
+              mechanics, on-ramps and any Bitcoin-specific tax angle.
             </p>
           )}
         </section>
