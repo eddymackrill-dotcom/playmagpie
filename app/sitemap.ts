@@ -19,6 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/best-bitcoin-casino-finland`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/best-bitcoin-casino-ireland`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/best-bitcoin-casino-canada`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/best-bitcoin-casino-norway`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/best-bitcoin-casino-sweden`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/best-bitcoin-casino-new-zealand`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/crypto-casinos-with-sportsbook`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/research/crypto-casino-bonus-transparency`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/crypto`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
@@ -47,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Payment-methods sub-page allowlist, must mirror PAYMENT_METHODS_SLUGS in
   // app/reviews/[slug]/payment-methods/page.tsx
-  const paymentMethodsSlugs = ['cloudbet', 'bitstarz']
+  const paymentMethodsSlugs = ['cloudbet', 'bitstarz', 'bc-game']
   const casinoPaymentMethodsPages: MetadataRoute.Sitemap = paymentMethodsSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/payment-methods`,
     lastModified: new Date(),

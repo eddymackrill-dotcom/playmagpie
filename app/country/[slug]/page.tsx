@@ -159,7 +159,7 @@ const LEGAL_SUBPAGE_SLUGS = new Set(['canada', 'australia'])
 // The hub stays multi-coin; this contextual down-link hands BTC-specific intent to the
 // Bitcoin-axis page rather than competing with it, and gives that page an inbound link
 // from a same-batch-modified host (crawl-discovery rule).
-const BTC_PAGE_SLUGS = new Set(['canada', 'germany', 'ireland'])
+const BTC_PAGE_SLUGS = new Set(['canada', 'germany', 'ireland', 'norway', 'new-zealand'])
 
 export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
   const { slug } = await props.params
