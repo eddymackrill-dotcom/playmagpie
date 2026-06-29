@@ -177,6 +177,14 @@ export default function SwedenPage() {
             offshore crypto casinos, fall outside that carve-out and are technically subject to income tax. The crypto
             disposal itself is a separate capital-income event.
           </p>
+          <p className="text-[#888888] leading-relaxed">
+            Depositing specifically in Bitcoin? Our guide to the{' '}
+            <Link href="/best-bitcoin-casino-sweden" className="text-[#7BB8D4] hover:underline font-medium">
+              best Bitcoin casino in Sweden
+            </Link>{' '}
+            ranks the operators that accept Swedish players for BTC and digs into why the one-bonus rule makes
+            offshore Bitcoin welcome packs so much larger than anything a licensed operator can offer.
+          </p>
         </section>
 
         <section className="mb-12 space-y-6">
