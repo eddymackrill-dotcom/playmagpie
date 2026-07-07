@@ -35,10 +35,35 @@ export default function AboutPage() {
       <div className="space-y-8 text-[#f5f5f5] leading-relaxed">
         <section>
           <h2 className="text-xl font-bold text-white mb-3">What We Do</h2>
-          <p>
+          <p className="mb-4">
             PlayMagpie rates and ranks crypto casinos based on four metrics that directly affect your
             experience: withdrawal speed, bonus fairness, KYC friction and platform trust. We do not accept
-            paid placements. Our scores are independent.
+            paid placements. Our scores are independent, and the rankings order is trust-score order:
+            operators cannot buy a position.
+          </p>
+          <p>
+            PlayMagpie is an independent publisher. We are not owned by, invested in, or affiliated with
+            any casino operator, game provider or payment company. The site covers crypto casinos for
+            players in Canada, Australia, New Zealand, Ireland and the Nordic countries; it is not
+            intended for UK players.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-bold text-white mb-3">Editorial Standards</h2>
+          <p className="mb-4">
+            Three rules govern every page. First, verify or omit: legal and tax claims cite primary
+            sources (the statute, the regulator, the tax authority) or they do not appear; where we
+            lack a verified figure, we say so rather than inventing one. Second, the criticism stays
+            in: documented complaint cases, confiscation clauses and hidden fees are published with
+            specifics, including for operators who pay us commission. Third, no fake freshness: the
+            "Facts last verified" date on reviews and country guides only changes when we have
+            actually re-verified the page against its sources.
+          </p>
+          <p>
+            The full process, including what we deliberately do not claim to do and the pages we have
+            refused to build, is documented on our{' '}
+            <a href="/methodology" className="text-[#7BB8D4] hover:underline font-medium">methodology page</a>.
           </p>
         </section>
 
@@ -48,7 +73,7 @@ export default function AboutPage() {
             {[
               {
                 title: 'Withdrawal Score',
-                desc: 'We test real crypto withdrawal times across multiple networks and size tiers. We measure time from request to wallet arrival.',
+                desc: 'Stated processing windows, automated vs batch-manual processing, documented limits and holds, and the coin lineup for fast settlement. Sourced from cashier T&Cs and public complaint records, not invented lab tests.',
               },
               {
                 title: 'Bonus Fairness Score',
@@ -60,7 +85,7 @@ export default function AboutPage() {
               },
               {
                 title: 'Trust Score',
-                desc: 'Based on licence quality, platform history, player complaint rates and our own testing experience. The combined score across all four categories.',
+                desc: 'Licence quality, platform history, documented complaint patterns and whether the T&Cs match the marketing. Moves most on negative evidence, which is why our lowest-scored operator is one that pays commission.',
               },
             ].map((item) => (
               <div key={item.title} className="bg-[#111111] border border-[#222222] rounded-xl p-5">

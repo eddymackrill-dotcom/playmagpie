@@ -11,6 +11,7 @@ const casinoLinks = [
 const infoLinks = [
   { href: '/guides', label: 'Guides' },
   { href: '/about', label: 'About' },
+  { href: '/methodology', label: 'How We Review' },
   { href: '/contact', label: 'Contact' },
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/terms', label: 'Terms of Use' },
