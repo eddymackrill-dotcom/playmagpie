@@ -2,11 +2,23 @@
 
 **Captured**: 2026-05-26
 **Re-evaluated**: 2026-06-11 (early — pulled forward from the scheduled 2026-07-15; see the re-evaluation section at the bottom)
+**Reworked**: 2026-07-07 (cause relabelled to external rank-tracker bots; geography multipliers retired in favour of signature-based filtering — see the 2026-07-07 section at the bottom, which is the CURRENT operating model)
 **Author**: Claude Code session, working from Eddy's pollution flag
+
+> **READ THIS FIRST (2026-07-07).** The sections below this banner are retained as history.
+> Two premises they rest on are now known to be wrong: (1) the pollution was NOT primarily
+> the owner's VPN testing — **all owner VPN rank-checking stopped entirely on 2026-06-10**
+> (owner statement, hard date), yet the polluting traffic continued unchanged; it is
+> **external third-party rank-tracker bot traffic** (competitor or niche tracker; the owner
+> runs only GSC + GA4, confirmed 2026-07-02), permanent and not switch-off-able. (2) The
+> tested/untested geography dichotomy is broken in both directions — the same bot keyword-set
+> hit CANADA on 2026-06-21, so untested markets are not clean by geography. **Do not apply
+> the per-market multiplier tables below to new reads. Use the signature-based filtering
+> model in the 2026-07-07 section.**
 
 ## Why this file exists
 
-Eddy has been manually search-testing PlayMagpie from VPN exit nodes in Ireland, New Zealand, Australia, Germany and Norway. An unknown share of GSC impressions from those geographies are his own searches, not real users. This document quantifies that pollution so future content-selection decisions can discount affected query volumes proportionally.
+Eddy has been manually search-testing PlayMagpie from VPN exit nodes in Ireland, New Zealand, Australia, Germany and Norway. An unknown share of GSC impressions from those geographies are his own searches, not real users. This document quantifies that pollution so future content-selection decisions can discount affected query volumes proportionally. *(2026-07-07 correction: the dominant polluter turned out to be external bot traffic, not the owner's testing — see the banner above and the 2026-07-07 section.)*
 
 ## Data window
 
@@ -249,3 +261,83 @@ mcp__gsc__get_advanced_search_analytics \
   start_date=2026-05-14 end_date=2026-06-11 dimensions=date \
   [filter country=nzl etc.]
 ```
+
+---
+
+# 2026-07-07 rework — external-bot relabel, signature-based filtering (CURRENT)
+
+Scope locked by owner rulings on 2026-07-02; written 2026-07-07. This section supersedes the
+per-market multiplier tables above as the operating model. The discount LOGIC (bot
+impressions are not demand; deep-position zero-click impressions are non-evidence) remains
+valid per the owner ruling; what changes is the TRIGGER: signature, not geography.
+
+## Corrected causal record
+
+- **2026-06-10: all owner VPN rank-checking stopped entirely** (owner statement with hard
+  date; occasional checks late May to early June, none since). Record this cutoff
+  permanently: any test-like pattern observed AFTER 2026-06-10 must never be attributed to
+  the owner.
+- The owner runs only GSC and GA4. No rank-tracking tool, no agency subscription (owner
+  confirmation, 2026-07-02). The persistent tracker traffic is therefore EXTERNAL, a
+  competitor or third-party niche tracker. It cannot be switched off and should be treated
+  as a permanent fixture of this niche's SERPs.
+- Method-A partial validity: the 2026-06-11 withdrawal experiment retains evidential value
+  for the PRE-cutoff period (AU geo-queries genuinely fell -94% when owner activity reduced,
+  so a real owner component existed before 06-10). Its "IE testing continued through P2"
+  claim is retracted: the IE volume was always mostly bot (see fingerprint 1).
+- The owner-freeze-then-measure premise behind the quarterly re-evaluation is DEAD: the
+  freeze happened 2026-06-10 and changed nothing about the bot traffic. **The 2026-07-15
+  re-evaluation is cancelled/folded into this rework**, not skipped-pending-freeze. Future
+  re-evaluation happens only if the signature inventory below visibly changes.
+- The tested/untested geography dichotomy is retired. Canada is NOT a clean baseline: the
+  2026-06-21 keyword-set campaign fired from CA as well as AU (see fingerprint 2), coincident
+  with the "clean Canada signal" celebrated in the 06-27 weekly.
+
+## Identified bot fingerprints (the working inventory)
+
+Filter these out per-query-per-geo before scoring any GSC read. Shared traits: scheduled
+daily cadence, desktop-heavy (85-98%), zero clicks, deep positions (30+), phrasing stable
+over weeks.
+
+1. **IE daily-cadence tracker**: query "crypto casino ireland" from IRL. Fired every single
+   day 2026-05-27 to 06-26 with no break at the 06-10 owner cutoff; 930 imp in the 15 days
+   before the cutoff, 844 in the 15 days after; 98% desktop, 0 clicks, pos ~44. Treat 100%
+   of this query's IRL volume as bot.
+2. **2026-06-21 AU/CA keyword-set campaign**: queries {"no kyc casino", "casino no kyc",
+   "no kyc casinos", "mirax casino review"} fired from BOTH aus and can starting abruptly
+   2026-06-21 (eleven days after the owner cutoff; zero AU no-kyc impressions 06-11 to
+   06-20, then 59/95/105/95/37 daily). 85% desktop, 0 clicks, pos 31-32. Discount these
+   queries from AU and CA entirely from 06-21 onward.
+3. **NZ scripted variants**: rank-tracker keyword-list phrasings from nzl, recognisable by
+   template structure and dated strings: "top-rated bitcoin casinos in nz april 2026",
+   "leading bitcoin casinos in nz", "best nz crypto casinos for beginners", "top crypto
+   casinos in nz with fast payouts", "popular crypto casinos in new zealand" and near
+   variants. Persisted after the owner cutoff. Treat all such phrasings as bot regardless
+   of volume.
+
+Inventory maintenance: when a new pattern matches the shared traits (daily regularity,
+desktop share, deep position, zero clicks, keyword-list phrasing), append it here with
+first-seen date and evidence, then filter it. Do not re-derive geography multipliers.
+
+## How to score a GSC read under this model
+
+1. Pull query+country(+device where useful) rows for the window.
+2. Remove rows matching the fingerprint inventory above (and GBR per CLAUDE.md).
+3. Apply baseline rule #3 from the 06-11 section, which survives: impressions at position
+   30+ with 0 clicks are paging/rank-checker events by default, in ANY market, and are
+   non-evidence for demand.
+4. What remains is the demand estimate. Note that query-dimensioned rows exclude anonymized
+   queries, so signature filtering on visible rows is a floor on bot volume, not a ceiling;
+   sanity-check against page-level totals.
+5. External corroboration (autocomplete/Trends/PAA via keyword-research) remains mandatory
+   for any build decision that leans on a query family the inventory touches.
+
+## Context caveat (2026-07-07)
+
+The site has been serving-suppressed since the June 2026 spam update (2026-06-24 to 06-26
+rollout; see reports/2026-07-07-weekly.md). GSC is near-zero from 06-26 onward, INCLUDING
+the bot traffic (the trackers scrape served results; a suppressed site generates no bot
+impressions either). Two implications: (a) no post-06-26 window is readable for demand at
+all; (b) when serving resumes, expect the bot fingerprints to REAPPEAR — their return is
+expected noise, not a new attack, and also serves as an independent confirmation that
+serving has resumed.

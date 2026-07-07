@@ -2,7 +2,7 @@
 
 Operational playbook for running this site sustainably. Companion to CLAUDE.md (which defines strategy and rules); this file defines workflows and cadences.
 
-Last updated: 2026-06-04
+Last updated: 2026-07-07
 
 ## How to use this file
 
@@ -74,18 +74,18 @@ Run a structural audit of the site. Goal: find class-of-problem issues before th
 
 Produce as a structured report categorised by severity (urgent / important / cosmetic). Do NOT fix yet. Propose fixes, wait for my approval per category.
 
-### Quarterly: pollution baseline re-evaluation (next: 2026-07-15)
+### Quarterly: pollution baseline re-evaluation (RETIRED 2026-07-07)
 
-Re-evaluate lib/pollution-baseline.md. Since the baseline was last set on 2026-05-26, there's now [N] weeks of additional mixed organic-plus-test traffic.
-
-For each tested market (IE, NZ, AU, DE, NO):
-1. Pull GSC data for the most recent 28-day window
-2. Pull GSC data for a comparable 28-day window from before any pollution was likely
-3. Calculate: single-query concentration ratio, average CTR per market, query diversity
-4. Update discount factors in lib/pollution-baseline.md
-5. Document the methodology in the file so future re-evaluations can replicate
-
-Commit the updated baseline as a single commit with reasoning in the message.
+The 2026-07-15 re-evaluation was cancelled and folded into the 2026-07-07 rework of
+lib/pollution-baseline.md. Its premise (freeze owner testing, then measure a clean window)
+was falsified: the owner stopped all VPN testing on 2026-06-10 and the polluting traffic
+continued unchanged, because it is external rank-tracker bot traffic (permanent, not
+owner-controlled). The operating model is now **signature-based filtering**: see the
+2026-07-07 section of lib/pollution-baseline.md for the bot-fingerprint inventory and the
+scoring procedure. Maintenance is event-driven, not calendar-driven: when a new bot pattern
+appears (daily cadence, desktop-heavy, zero-click, deep positions, keyword-list phrasing),
+append it to the inventory with first-seen date and evidence. Do not re-derive geography
+multipliers.
 
 ## Post-batch checklist
 
@@ -165,7 +165,7 @@ Produce a short report of anything unusual. If nothing's unusual, say so plainly
 - "Discovered – not indexed" and "URL is unknown to Google" are different states with different fix patterns
 - GSC's referring_urls field reflects what Google noticed during last crawl, not the real link graph. Use coverage_state + codebase grep for crawl-equity diagnostics, not referring_urls.
 - Existing pages on actively-built trees still crawl on slow cadences (~3 weeks) if unchanged since their last crawl. Last-crawled date (single-URL inspection) is the diagnostic for whether a page will propagate new links in a reasonable window, not URL tree position. (2026-06-07: the 3 withdrawal pages given the free-spins link were last crawled 2026-05-18 and had not re-crawled 2 days after modification, so the link hadn't propagated yet.)
-- gsc MCP intermittently connects but fails to register its tools at session start (handshake healthy, but tools absent from registry). Fix: fully exit Claude Code and relaunch, sometimes twice. Credentials/config are correct (service-account via GOOGLE_APPLICATION_CREDENTIALS to gsc-key.json); this is a startup race, not an auth problem. Don't re-diagnose as a credentials issue.
+- gsc MCP intermittently connects but fails to register its tools at session start (handshake healthy, but tools absent from registry). Fix: fully exit Claude Code and relaunch, sometimes twice. This is a startup race, not an auth problem; don't re-diagnose as a credentials issue. Auth note (corrected 2026-07-07; the earlier claim of "service-account via GOOGLE_APPLICATION_CREDENTIALS to gsc-key.json" was wrong: that service account has access to zero GSC properties): the MCP actually authenticates via a cached user OAuth token at %LOCALAPPDATA%\mcp-gsc\mcp-gsc\token.json (scope webmasters). Workaround when the MCP won't register: a read-only scratchpad script using that same token against the Search Analytics / URL Inspection APIs (precedent: 2026-07-02 and 2026-07-07 sessions).
 
 ### DataForSEO cost-control reminder
 - $0.05–0.10 per call

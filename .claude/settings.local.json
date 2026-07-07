@@ -17,7 +17,8 @@
       "Bash(curl -sL -A \"Mozilla/5.0\" \"https://7bitcasino.com/favicon.ico\" -o \"C:/projects/aff_website/public/logos/7bit-casino.png\")",
       "Bash(curl -sL \"https://www.google.com/s2/favicons?sz=64&domain=bc.game\" -o \"C:/projects/aff_website/public/logos/bc-game.png\")",
       "Bash(curl -sL \"https://www.google.com/s2/favicons?sz=64&domain=miraxcasino.com\" -o \"C:/projects/aff_website/public/logos/mirax-casino.png\")",
-      "Bash(curl -sL \"https://www.google.com/s2/favicons?sz=64&domain=7bitcasino.com\" -o \"C:/projects/aff_website/public/logos/7bit-casino.png\")"
+      "Bash(curl -sL \"https://www.google.com/s2/favicons?sz=64&domain=7bitcasino.com\" -o \"C:/projects/aff_website/public/logos/7bit-casino.png\")",
+      "mcp__gsc__list_sites"
     ]
   }
 }
