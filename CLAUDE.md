@@ -4,6 +4,14 @@ Before responding to my first request, read STATE.md and RUNBOOK.md in full. The
 ## KEEP STATE.md CURRENT
 When I indicate we're wrapping up, or after any deploy, update STATE.md (move completed items out of in-flight, add new in-flight items, update current-state numbers, append dated decisions to the append-only log), then commit it.
 
+## VELOCITY FREEZE (in force since 2026-07-07, June 2026 spam-update recovery)
+
+**No new .com pages.** No new URLs may be added to the site until serving recovery is confirmed. Recovery is confirmed when GSC shows **7 or more consecutive days of non-zero site-wide impressions** (dataState=all; the raw site-wide count, no filters). Claude Code refuses new-page requests during the freeze and cites this rule, including pages that would otherwise pass every demand gate.
+
+**Permitted content work during the freeze:** (1) consolidation (merging pages into stronger parents with 301s, which reduces URL count); (2) strengthening existing pages (factual fixes, depth improvements, honesty passes); (3) the trust layer: /methodology (the one sanctioned new URL, shipped 2026-07-07), /about upgrades, and the last-reviewed-date convention. Nothing else ships.
+
+**When recovery confirms:** the freeze lifts, but publishing restarts at reduced cadence (max 3 pages/week for the first 4 weeks) and every batch is preceded by the queued go/no-go reads. The freeze-lift event and date go in the STATE.md recovery log and decisions log.
+
 ---
 
 # PlayMagpie: Working Guidelines for Claude Code

@@ -15,6 +15,29 @@ Prompts in this file are tested templates. Adjust placeholders in [brackets] bef
 
 ## Recurring prompts
 
+### Weekly WHILE SUPPRESSED: recovery check (replaces the full weekly, ~5 min)
+
+In force while the June 2026 spam-update suppression stands (see STATE.md). Do NOT run the
+full weekly situation report below while site-wide impressions are zero; there is nothing to
+report on. Run this instead:
+
+1. By-day site-wide impressions for the last 14 days (dataState=all). Record: which days are
+   non-zero, and the current consecutive-non-zero-day streak.
+2. Index spot-check via single-URL inspection on the 5 sentinels: /reviews/bitstarz/withdrawal
+   (deindexed 06-26 window), /reviews/mirax-casino (absorbed its withdrawal sub-page 07-07),
+   /fast-withdrawal-casinos (absorbed the withdrawals guide), /high-roller-casinos (flagship),
+   /reviews/bitstarz/kyc (formerly carried FAQ rich results). Record any FAQ rich-result
+   return: it is the earliest trust-restoration signal.
+3. Optional, 1 DataForSEO call max: live SERP check on "high roller crypto casinos" (Canada).
+   Present in top 100 = serving is returning.
+4. Production quick-check: latest deploy green, sitemap fetches, 2 random pages HTTP 200.
+5. Append one line to the STATE.md "Recovery log" section (format documented there).
+6. **Trigger: streak >= 7 consecutive non-zero days = recovery confirmed.** Lift the velocity
+   freeze per the CLAUDE.md rule, resume the full weekly below, run the queued bitcoin-page
+   go/no-go (signature-filtered) and the bi-weekly brand+intent cycle. Expect the bot
+   fingerprints (lib/pollution-baseline.md) to reappear as serving resumes; that is
+   confirmation, not a new attack.
+
 ### Weekly: situation report (every Monday morning, ~5 min)
 
 Run a brief situation report for the past 7 days:
