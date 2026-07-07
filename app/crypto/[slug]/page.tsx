@@ -63,7 +63,7 @@ export async function generateMetadata(
   const isBNB = crypto.symbol === 'BNB'
   const title = isBNB
     ? 'BNB on Crypto Casinos: Chain Mechanics, Fees, Networks'
-    : `Best ${crypto.name} Casinos 2026: PlayMagpie`
+    : `Best ${crypto.name} Casinos 2026`
   const description = isBNB
     ? 'How BNB works at crypto casinos: BNB Smart Chain mechanics, confirmation times, fee character. For the ranked list of BNB-accepting operators, see /bnb-crypto-casinos.'
     : `Top crypto casinos accepting ${crypto.name}. Compare bonuses, withdrawal times and fees.`

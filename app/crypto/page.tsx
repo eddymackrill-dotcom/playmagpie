@@ -3,20 +3,20 @@ import Link from 'next/link'
 import { CRYPTO_LIST } from '@/lib/programmatic'
 
 export const metadata: Metadata = {
-  title: 'Crypto Casinos by Currency: PlayMagpie',
+  title: 'Crypto Casinos by Currency',
   description:
     'Browse the best crypto casinos by cryptocurrency. Bitcoin, Ethereum, USDT, Solana and more.',
   alternates: { canonical: '/crypto' },
   openGraph: {
     url: '/crypto',
-    title: 'Crypto Casinos by Currency: PlayMagpie',
+    title: 'Crypto Casinos by Currency',
     description:
       'Browse the best crypto casinos by cryptocurrency. Bitcoin, Ethereum, USDT, Solana and more.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Crypto Casinos by Currency' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crypto Casinos by Currency: PlayMagpie',
+    title: 'Crypto Casinos by Currency',
     description:
       'Browse the best crypto casinos by cryptocurrency. Bitcoin, Ethereum, USDT, Solana and more.',
     images: ['/og-image.png'],
