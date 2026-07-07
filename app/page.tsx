@@ -219,7 +219,7 @@ export default function HomePage() {
               </p>
             </Link>
             <Link
-              href="/no-limit-withdrawal-casinos"
+              href="/high-roller-casinos#withdrawal-limits"
               className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 hover:shadow-[0_0_30px_rgba(123,184,212,0.07)] rounded-2xl p-5 transition-all group"
             >
               <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-2">Withdrawal Caps</div>

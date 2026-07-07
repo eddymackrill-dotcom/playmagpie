@@ -252,7 +252,7 @@ export default function BnbCryptoCasinosPage() {
                 policy. The standard cashier accommodates outsized BNB payouts without
                 pushing them through an exceptions path.
               </p>
-              <Link href="/no-limit-withdrawal-casinos" className="text-[#7BB8D4] text-sm hover:underline">
+              <Link href="/high-roller-casinos#withdrawal-limits" className="text-[#7BB8D4] text-sm hover:underline">
                 See the no-limit-withdrawal casinos →
               </Link>
             </div>
@@ -379,6 +379,6 @@ const BNB_FAQS = [
   {
     question: 'Can I withdraw BNB back to my Binance account?',
     answer:
-      "Yes. Every casino on this list pays withdrawals to whichever BNB address you specify at the cashier, which can be a Binance deposit address, a self-custody wallet (Trust Wallet, MetaMask on BSC, hardware wallet), or any other BSC-compatible address. Make sure the address you provide is on BNB Smart Chain (BEP-20) rather than BNB Beacon Chain. Sending to the wrong chain results in lost funds, and the cashier doesn't catch this for you.",
+      "Yes. Every casino on this list pays withdrawals to whichever BNB address you specify at the cashier, which can be a Binance deposit address, a self-custody wallet (Trust Wallet, MetaMask on BSC, hardware wallet), or any other BSC-compatible address. BNB moves on BNB Smart Chain (BEP-20) only; the legacy Beacon Chain was retired in November 2024, so any current Binance deposit address or BSC wallet address is BEP-20 by default. Double-check the address itself rather than the network.",
   },
 ] as const

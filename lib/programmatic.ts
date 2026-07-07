@@ -1,9 +1,14 @@
+// USDC and LTC removed 2026-07-07 (spam-update consolidation). USDC was a
+// near-duplicate of the USDT page (same one-paragraph-over-grid structure,
+// same "stablecoin for gambling" intent); its content is folded into the
+// USDT page, which now covers both stablecoins, and /crypto/usdc 301s there.
+// Litecoin's page was a generic coin-facts paragraph over the identical
+// all-casino grid (26 imp in 45 days); its content is folded into the
+// /crypto hub and /crypto/litecoin 301s there.
 export const CRYPTO_LIST = [
   { symbol: 'BTC', name: 'Bitcoin', slug: 'bitcoin' },
   { symbol: 'ETH', name: 'Ethereum', slug: 'ethereum' },
   { symbol: 'USDT', name: 'Tether', slug: 'usdt' },
-  { symbol: 'USDC', name: 'USD Coin', slug: 'usdc' },
-  { symbol: 'LTC', name: 'Litecoin', slug: 'litecoin' },
   { symbol: 'DOGE', name: 'Dogecoin', slug: 'dogecoin' },
   { symbol: 'SOL', name: 'Solana', slug: 'solana' },
   { symbol: 'BNB', name: 'BNB', slug: 'bnb' },
@@ -30,11 +35,14 @@ export const COUNTRY_LIST = [
 // /game/poker should not exist. The dynamic [slug] route 404s via its
 // notFound() guard when the slug is absent from this array. See the
 // strategic decisions log in CLAUDE.md for context.
+// Slots/Blackjack/Roulette/Live Dealer removed 2026-07-07 (spam-update
+// consolidation): each was one unique paragraph over an identical unfiltered
+// all-casino grid, failing CLAUDE.md's own body-swap templating test. Their
+// content lives on /game as anchored sections; the old URLs 301 there via
+// next.config.ts. The three remaining formats are crypto-native with
+// dedicated static pages and earned demand (dice 187 imp / plinko 68 imp in
+// the pre-suppression clean window).
 export const GAME_TYPES = [
-  { name: 'Slots', slug: 'slots' },
-  { name: 'Blackjack', slug: 'blackjack' },
-  { name: 'Roulette', slug: 'roulette' },
-  { name: 'Live Dealer', slug: 'live-dealer' },
   { name: 'Crash', slug: 'crash' },
   { name: 'Dice', slug: 'dice' },
   { name: 'Plinko', slug: 'plinko' },

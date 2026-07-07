@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { casinos, casinoAcceptsCountry, type Casino } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+import FactChecked from '@/components/FactChecked'
+import { countryLastReviewed } from '@/lib/last-reviewed'
 
 // Finland is a static segment (like Sweden) rather than the dynamic /country/[slug]
 // template, because it carries richer regulatory + FAQ content. Approved earlier in the
@@ -159,6 +161,7 @@ export default function FinlandPage() {
             its grip on online casino play until 1 July 2027, when a licensed market finally opens. Until
             then, the real choice for Finnish players sits offshore, and that is overwhelmingly funded in crypto.
           </p>
+          {countryLastReviewed['finland'] && <FactChecked date={countryLastReviewed['finland']} />}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
@@ -286,16 +289,28 @@ export default function FinlandPage() {
           </p>
         </section>
 
-        <section className="mb-12 bg-[#111111] border border-[#7BB8D4]/20 rounded-2xl p-6">
-          <h2 className="text-xl font-bold text-white mb-2">Depositing specifically in Bitcoin?</h2>
-          <p className="text-[#888888] text-sm leading-relaxed mb-3">
-            If Bitcoin is the coin you hold, our dedicated guide ranks the operators that accept Finnish
-            players for BTC and covers the per-casino cashier mechanics, the on-chain speed trade-off, and
-            how the EEA winnings-tax carve-out applies to Bitcoin play.
+        <section className="mb-12 space-y-4 prose prose-invert max-w-none">
+          <h2 id="bitcoin" className="text-2xl font-bold text-white scroll-mt-24">Depositing Bitcoin from Finland</h2>
+          <p className="text-[#888888] leading-relaxed">
+            The tax detail that decides more than any bonus: the Finnish Tax Administration taxes gambling
+            winnings by where the operator is licensed. Winnings from gambling held within the EU or EEA are
+            tax-exempt for the Finnish recipient; winnings from outside the EU and EEA are fully taxable as
+            income, reported in the year you won. Every operator we review is licensed in Curaçao (Cloudbet
+            adds Kahnawake), none inside the EEA, so winnings from any casino on this page are taxable income
+            for a Finnish resident. We would rather say that up front than sell a &quot;tax-free crypto&quot;
+            line that is simply wrong for an offshore Curaçao casino. Keep your own records: the no-KYC
+            casinos here report nothing to anyone, which is convenient for privacy and inconvenient at tax
+            time, because the burden is entirely yours.
           </p>
-          <Link href="/best-bitcoin-casino-finland" className="text-[#7BB8D4] text-sm hover:underline font-medium">
-            Best Bitcoin casino in Finland, ranked →
-          </Link>
+          <p className="text-[#888888] text-sm leading-relaxed">
+            Separately, disposing of the Bitcoin itself (selling or spending it) is a capital-income event
+            taxed at 30% up to €30,000 and 34% above, calculated FIFO. On the cashier side BTC settles in
+            roughly ten-minute blocks with demand-driven fees, so a stablecoin is the faster route if you are
+            starting from euros; the reason to use Bitcoin anyway is that it is the coin you hold. Coinmotion
+            and Northcrypto are the Finnish-native on-ramps, both FIN-FSA authorised under MiCA since the
+            national VASP transition completed 30 June 2025. None of this is advice; confirm your position
+            with Vero.
+          </p>
         </section>
 
         <section className="mb-12">
@@ -336,9 +351,9 @@ export default function FinlandPage() {
               <div className="font-semibold text-[#f5f5f5] mb-1">Sweden crypto casinos</div>
               <div className="text-[#888888] text-sm">Nordic peer: licensed-restrictive Spellag regime</div>
             </Link>
-            <Link href="/best-bitcoin-casino-finland" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
-              <div className="font-semibold text-[#f5f5f5] mb-1">Best Bitcoin casino Finland</div>
-              <div className="text-[#888888] text-sm">BTC-specific ranking and cashier mechanics</div>
+            <Link href="/no-kyc-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">No-KYC casinos</div>
+              <div className="text-[#888888] text-sm">Privacy-first play; remember the Vero reporting burden stays yours</div>
             </Link>
           </div>
         </section>

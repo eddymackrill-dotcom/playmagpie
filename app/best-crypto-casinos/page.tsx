@@ -200,7 +200,7 @@ export default function BestCryptoCasinosPage() {
               <div className="font-semibold text-[#f5f5f5] mb-1">High Roller Casinos</div>
               <div className="text-[#888888] text-sm">VIP programmes and big limits</div>
             </Link>
-            <Link href="/no-limit-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+            <Link href="/high-roller-casinos#withdrawal-limits" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">No-Limit Withdrawal Casinos</div>
               <div className="text-[#888888] text-sm">Cap-free cash-out for big wins: Cloudbet is the explicit operator</div>
             </Link>

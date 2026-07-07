@@ -75,7 +75,7 @@ const CROSS_LINKS_BY_BONUS: Record<string, ReactNode> = {
       </Link>
       . And if your volume goes through tables rather than slots, the Evolution VIP rooms taking
       $10,000-$100,000 a hand are compared on the{' '}
-      <Link href="/game/live-dealer" className="text-[#7BB8D4] hover:underline">
+      <Link href="/game#live-dealer" className="text-[#7BB8D4] hover:underline">
         live dealer casinos
       </Link>{' '}
       page.

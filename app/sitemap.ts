@@ -12,16 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/fast-withdrawal-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/high-roller-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/no-kyc-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-    { url: `${BASE_URL}/no-limit-withdrawal-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/best-crypto-pokies-nz`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
     { url: `${BASE_URL}/bnb-crypto-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
-    { url: `${BASE_URL}/best-bitcoin-casino-germany`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/best-bitcoin-casino-finland`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/best-bitcoin-casino-ireland`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/best-bitcoin-casino-canada`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/best-bitcoin-casino-norway`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/best-bitcoin-casino-sweden`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/best-bitcoin-casino-new-zealand`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/crypto-casinos-with-sportsbook`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/research/crypto-casino-bonus-transparency`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/crypto`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
@@ -31,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/guides`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/compare`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE_URL}/methodology`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   ]
 
   const casinoReviewPages: MetadataRoute.Sitemap = casinos.map((casino) => ({
@@ -40,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  const withdrawalPageSlugs = ['bitstarz', 'mirax-casino', '7bit-casino', 'cloudbet', 'duelbits']
+  const withdrawalPageSlugs = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits']
   const casinoWithdrawalPages: MetadataRoute.Sitemap = withdrawalPageSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/withdrawal`,
     lastModified: new Date(),

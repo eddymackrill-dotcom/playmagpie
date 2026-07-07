@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { casinos, getCasinoBySlug } from '@/lib/casinos'
+import { casinoLastReviewed } from '@/lib/last-reviewed'
 import ReviewSection from '@/components/ReviewSection'
 import ScoreBadge from '@/components/ScoreBadge'
 import CTAButton from '@/components/CTAButton'
@@ -39,13 +40,11 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
       teaser: 'Per-coin deposit speeds, why there is no Solana, BNB or USDC in the lineup, and how choosing crypto over fiat keeps your verification light.',
     },
   ],
-  'mirax-casino': [
-    {
-      href: '/reviews/mirax-casino/withdrawal',
-      label: 'Mirax cashier in detail: the 4-deposit welcome pack and your first withdrawal',
-      teaser: 'How wagering on the 5 BTC welcome match interacts with your first eligible withdrawal, the seven supported coins, and why XRP clears fastest.',
-    },
-  ],
+  // Mirax withdrawal sub-page absorbed into this parent review 2026-07-07
+  // (spam-update consolidation): the sub-page went impression-dark in June,
+  // was dropped from the index by the June 2026 spam update, and its unique
+  // facts now live in the withdrawal-times FAQ below. /reviews/mirax-casino/
+  // withdrawal 301s here via next.config.ts.
   '7bit-casino': [
     {
       href: '/reviews/7bit-casino/withdrawal',
@@ -77,41 +76,41 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
 const casinoRelatedGuides: Record<string, { title: string; slug: string }[]> = {
   bitstarz: [
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
-    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
+    { title: 'Do Crypto Casinos Require KYC?', slug: 'do-crypto-casinos-require-kyc' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
   ],
   'bc-game': [
-    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
+    { title: 'Do Crypto Casinos Require KYC?', slug: 'do-crypto-casinos-require-kyc' },
     { title: 'Best Crypto for Gambling', slug: 'best-crypto-for-gambling' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
   ],
   cloudbet: [
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
-    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
+    { title: 'Do Crypto Casinos Require KYC?', slug: 'do-crypto-casinos-require-kyc' },
   ],
   'mirax-casino': [
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
     { title: 'Best Crypto for Gambling', slug: 'best-crypto-for-gambling' },
-    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
+    { title: 'Do Crypto Casinos Require KYC?', slug: 'do-crypto-casinos-require-kyc' },
   ],
   '7bit-casino': [
-    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
+    { title: 'Do Crypto Casinos Require KYC?', slug: 'do-crypto-casinos-require-kyc' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
     { title: 'Best Crypto for Gambling', slug: 'best-crypto-for-gambling' },
   ],
   shuffle: [
-    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
+    { title: 'Do Crypto Casinos Require KYC?', slug: 'do-crypto-casinos-require-kyc' },
     { title: 'Best Crypto for Gambling', slug: 'best-crypto-for-gambling' },
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
   ],
   duelbits: [
-    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
+    { title: 'Do Crypto Casinos Require KYC?', slug: 'do-crypto-casinos-require-kyc' },
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
     { title: 'Bitcoin vs USDT Casinos: Which is Better?', slug: 'bitcoin-vs-usdt-casinos' },
   ],
   roobet: [
-    { title: 'How Crypto Casino Withdrawals Work', slug: 'how-crypto-casino-withdrawals-work' },
+    { title: 'Do Crypto Casinos Require KYC?', slug: 'do-crypto-casinos-require-kyc' },
     { title: 'How Casino Bonuses Really Work', slug: 'how-casino-bonuses-really-work' },
     { title: 'Best Crypto for Gambling', slug: 'best-crypto-for-gambling' },
   ],
@@ -223,7 +222,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What are Mirax Casino withdrawal times?',
-      answer: 'Mirax Casino withdrawal time for cryptocurrency transactions is instant to 15 minutes. Most crypto withdrawals are processed automatically and arrive in your wallet within minutes of approval. Fiat withdrawal times can be longer depending on the payment method. Mirax Casino\'s fast crypto payout speeds earn it an 8.8/10 withdrawal score on PlayMagpie. The instant-to-15-minute window applies to all major supported cryptocurrencies.',
+      answer: 'Mirax Casino withdrawal time for cryptocurrency transactions is instant to 15 minutes: that window is the casino-side processing, with on-chain clearing added on top depending on the network. XRP is the fastest coin in the Mirax lineup (settlement in seconds at fractions of a cent), LTC and DOGE clear in low single-digit minutes, and BTC depends on mempool conditions. Mirax\'s fast crypto payouts earn it an 8.8/10 withdrawal score on PlayMagpie. One structural advantage over BitStarz: Mirax imposes no admin fee on bonus-related withdrawals, so at the same 5 BTC welcome ceiling a cleared bonus delivers roughly 25% more BTC-equivalent value to your wallet than BitStarz\'s 25%-fee cashier flow. Until you clear wagering on any accepted bonus portion, only real-money-deposited balance and its winnings are freely withdrawable, which is standard across match-bonus casinos.',
     },
     {
       question: 'What is the Mirax Casino bonus for 2026?',
@@ -445,7 +444,7 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
     // policy (verified in its lib/casinos.ts pros). Surfacing /no-limit-withdrawal-casinos
     // from its review specifically rather than from every VIP casino, to keep the link
     // contextually accurate rather than templated.
-    ...(casino.slug === 'cloudbet' ? [{ label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos' }] : []),
+    ...(casino.slug === 'cloudbet' ? [{ label: 'High Roller Casinos: Withdrawal Limits', href: '/high-roller-casinos#withdrawal-limits' }] : []),
     // Carrier link for /crypto-casinos-with-sportsbook (2026-06-08). Both Cloudbet
     // and Roobet run a sportsbook (verified in their lib/casinos.ts prose), so the
     // link is contextually accurate; these two reviews are also the freshest-crawled
@@ -566,7 +565,12 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
               <div>
                 <h1 className="text-3xl font-extrabold text-white">{casino.name} Review</h1>
                 <p className="text-[#888888] text-sm mt-1">{casino.licence}</p>
-                <p className="text-[#555555] text-xs mt-0.5">Last updated: May 12, 2026</p>
+                {/* Registry-driven, honesty rule in lib/last-reviewed.ts. Replaced the
+                    previous hardcoded site-wide "Last updated: May 12, 2026" line. */}
+                <p className="text-[#555555] text-xs mt-0.5">
+                  Facts last verified: {casinoLastReviewed[casino.slug] ?? 'May 2026'} ·{' '}
+                  <Link href="/methodology" className="text-[#7BB8D4]/80 hover:text-[#7BB8D4] hover:underline">how we verify</Link>
+                </p>
               </div>
             </div>
             <div className="text-right">

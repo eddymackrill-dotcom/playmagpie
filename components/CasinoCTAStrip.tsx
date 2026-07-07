@@ -3,7 +3,7 @@ import { getCasinoBySlug } from '@/lib/casinos'
 import CTAButton from './CTAButton'
 import CasinoLogo from './CasinoLogo'
 
-// Reusable above-the-fold strip — one component used across all categories
+// Reusable above-the-fold strip: one component used across all categories
 // (intent, game, crypto, country, bonus pages). The consuming page passes
 // the list of casino slugs to surface and the 2-3 facts per card; the
 // component handles layout, logo + name + trust anchor, and the
@@ -35,7 +35,7 @@ export default function CasinoCTAStrip({ framing, cards }: CasinoCTAStripProps) 
 
   if (resolved.length === 0) return null
 
-  // Grid scales with card count — 1 card centred-narrow, 2 side-by-side,
+  // Grid scales with card count: 1 card centred-narrow, 2 side-by-side,
   // 3+ standard 3-up.
   const gridCols =
     resolved.length === 1

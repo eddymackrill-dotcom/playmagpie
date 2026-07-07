@@ -368,7 +368,7 @@ export default function CryptoPokiesNZPage() {
               <h3 className="text-white font-semibold mb-2">Withdrawal speed at scale</h3>
               <p className="text-[#888888] text-sm leading-relaxed">
                 If you hit a pokies win worth cashing out, withdrawal posture matters more than library size. See {' '}
-                <Link href="/no-limit-withdrawal-casinos" className="text-[#7BB8D4] hover:text-[#8fc4d8] transition-colors">
+                <Link href="/high-roller-casinos#withdrawal-limits" className="text-[#7BB8D4] hover:text-[#8fc4d8] transition-colors">
                   no-limit withdrawal casinos
                 </Link>{' '}
                 for the cash-out side, and{' '}

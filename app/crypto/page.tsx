@@ -35,9 +35,7 @@ const breadcrumbSchema = {
 const cryptoDescriptions: Record<string, string> = {
   BTC: 'The original cryptocurrency and most widely accepted. Universal casino support, with 10-minute average confirmations.',
   ETH: 'Fast 15–30 second confirmations and broad casino acceptance. Gas fees vary with network demand.',
-  USDT: 'Dollar-pegged stablecoin. On TRC-20 it is the fastest, cheapest and most predictable gambling currency available.',
-  USDC: 'Regulated dollar-pegged stablecoin. Same speed and cost benefits as USDT with stronger reserve transparency.',
-  LTC: 'Faster than Bitcoin with 2.5-minute blocks and consistently low fees. Long track record, widely accepted.',
+  USDT: 'Dollar-pegged stablecoins, covering USDT and USDC. On TRC-20 or Solana: the fastest, cheapest, most predictable gambling currencies available.',
   DOGE: 'Fast one-minute confirmations and negligible fees. Accepted at most major crypto casinos.',
   SOL: 'Sub-second finality and sub-cent fees. The fastest on-chain option available where supported.',
   BNB: 'BNB Smart Chain offers fast, low-fee transactions. Strong fit for players already in the Binance ecosystem.',
@@ -76,6 +74,17 @@ export default function CryptoHubPage() {
             volatile than stablecoins, and accepted at most major platforms. Browse by your preferred currency
             below to see which casinos accept it, how the welcome bonuses compare, and what to expect from
             withdrawal times. Every casino listed is independently scored: no paid placements.
+          </p>
+          <h2 id="litecoin" className="text-2xl font-bold text-white mt-8 mb-4 scroll-mt-24">A note on Litecoin</h2>
+          <p className="text-[#888888] leading-relaxed">
+            Litecoin no longer gets a dedicated page here, but it remains a perfectly serviceable casino
+            currency. Block times average 2.5 minutes (four times faster than Bitcoin), network fees run
+            consistently under $0.05 per transaction, and LTC is supported by BitStarz, BC.Game, Cloudbet,
+            Mirax, 7Bit and most other major crypto casinos. Welcome bonuses are usually quoted in
+            BTC-equivalent terms, so LTC depositors receive proportionally matched amounts. The honest
+            reason it lost its page: there is no LTC-specific story at any casino we review. If you hold
+            Litecoin, deposit it; if you are choosing a coin specifically to gamble with, a stablecoin on
+            a fast network does the same job with none of the price drift.
           </p>
         </section>
 

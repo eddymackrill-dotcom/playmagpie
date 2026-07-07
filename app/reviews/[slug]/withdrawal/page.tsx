@@ -4,7 +4,11 @@ import Link from 'next/link'
 import { getCasinoBySlug } from '@/lib/casinos'
 import CTAButton from '@/components/CTAButton'
 
-const WITHDRAWAL_SLUGS = ['bitstarz', 'mirax-casino', '7bit-casino', 'cloudbet', 'duelbits'] as const
+// 'mirax-casino' removed 2026-07-07 (spam-update consolidation): the page
+// went impression-dark in June, was dropped from the index by the June 2026
+// spam update (re-crawled 06-29, then rejected), and its unique facts were
+// folded into the parent review's FAQ block. Old URL 301s to the parent.
+const WITHDRAWAL_SLUGS = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits'] as const
 
 export function generateStaticParams() {
   return WITHDRAWAL_SLUGS.map((slug) => ({ slug }))
@@ -15,11 +19,6 @@ const META: Record<(typeof WITHDRAWAL_SLUGS)[number], { title: string; descripti
     title: 'BitStarz Withdrawal Times & Limits 2026',
     description:
       'BitStarz processes crypto withdrawals in under 10 minutes, but a 25% admin fee applies on bonus-related payouts. Full breakdown of speeds, KYC and limits.',
-  },
-  'mirax-casino': {
-    title: 'Mirax Casino Withdrawal Times & Limits 2026',
-    description:
-      'Mirax Casino crypto withdrawals clear in 15 minutes or less. What the 4-deposit welcome pack (up to 5 BTC + 150 spins) means for your first payout, plus KYC and tier limits.',
   },
   '7bit-casino': {
     title: '7Bit Casino Withdrawal Times & Limits 2026',
@@ -91,8 +90,6 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
   const faqs =
     slug === 'bitstarz'
       ? BITSTARZ_FAQS
-      : slug === 'mirax-casino'
-      ? MIRAX_FAQS
       : slug === '7bit-casino'
       ? SEVENBIT_FAQS
       : slug === 'cloudbet'
@@ -138,7 +135,6 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
               </p>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
                 {slug === 'bitstarz' && 'BitStarz Withdrawal Times & Limits in 2026'}
-                {slug === 'mirax-casino' && 'Mirax Casino Withdrawals: How Fast, What KYC, Which Coins'}
                 {slug === '7bit-casino' && '7Bit Casino Withdrawal: No KYC, 8 Coins, Under 10 Minutes'}
                 {slug === 'cloudbet' && 'Cloudbet Withdrawal: No Limits, 10 Coins, Dual Regulator Cover'}
                 {slug === 'duelbits' && 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins'}
@@ -165,7 +161,6 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
         </div>
 
         {slug === 'bitstarz' && <BitstarzContent />}
-        {slug === 'mirax-casino' && <MiraxContent />}
         {slug === '7bit-casino' && <SevenBitContent />}
         {slug === 'cloudbet' && <CloudbetContent />}
         {slug === 'duelbits' && <DuelbitsContent />}
@@ -324,7 +319,7 @@ function BitstarzContent() {
         Of the three top-commission casinos we&apos;re running withdrawal pages on,
         BitStarz has the fastest headline window (under 10 minutes, tied with 7Bit
         at instant-to-10) but the most friction on bonus play because of the 25% admin
-        fee. <Link href="/reviews/mirax-casino/withdrawal" className="text-[#7BB8D4] hover:underline">Mirax</Link>{' '}
+        fee. <Link href="/reviews/mirax-casino" className="text-[#7BB8D4] hover:underline">Mirax</Link>{' '}
         is roughly 50% slower on the headline window (up to 15 minutes) but doesn&apos;t
         impose a bonus-withdrawal fee.{' '}
         <Link href="/reviews/7bit-casino/withdrawal" className="text-[#7BB8D4] hover:underline">7Bit</Link>{' '}
@@ -373,175 +368,6 @@ const BITSTARZ_FAQS = [
   },
 ] as const
 
-/* ───────────── Mirax: lead with the welcome pack + wagering implication ───────────── */
-function MiraxContent() {
-  return (
-    <>
-      <Para>
-        Mirax Casino&apos;s pitch is a 4-deposit welcome pack with a 5 BTC headline
-        ceiling and 150 free spins distributed across the first two deposits. That
-        ties Mirax with BitStarz on raw BTC-denominated ceiling and avoids the 25%
-        admin fee BitStarz charges on bonus-related withdrawals: the single largest
-        hidden cost in the BitStarz cashier flow. The actual processing speed is fast
-        (instant to 15 minutes once you get there) but the path to your first
-        eligible withdrawal still runs through the wagering requirement on whichever
-        portion of the welcome match you accepted.
-      </Para>
-      <Para>
-        That is the single thing the Search Console data for &quot;mirax casino review&quot;
-        suggests players don&apos;t fully understand at signup. So this page leads with
-        the bonus-withdrawal interaction, then covers the rest of the cashier mechanics
-        underneath.
-      </Para>
-
-      <SectionHeading>The welcome pack and your first withdrawal</SectionHeading>
-      <Para>
-        Mirax&apos;s welcome match is structured across the first four deposits as
-        distinct stages. D1 is a 100% match up to 1.5 BTC + 100 free spins (no code
-        required). D2 is a 75% match up to 1.25 BTC + 50 free spins under promo code
-        W2. D3 is a cash-only match up to 1.25 BTC under code W3: no free spins on
-        this stage. D4 is a cash-only match up to 1 BTC under code W4. Total package:
-        up to 5 BTC + 150 free spins, distributed 100-50-0-0 by deposit. Per the live
-        promotions page, free-spin winnings carry a 45x wagering requirement (distinct
-        from the 40x on cash deposit bonuses) and a &euro;100 max cashout cap. That cap,
-        not the headline spin count, is what determines real free-spins value, which
-        is why it leads{' '}
-        <Link href="/bonus/free-spins" className="text-[#7BB8D4] hover:underline">
-          the &euro;100 free-spins cashout cap
-        </Link>{' '}
-        comparison against the other operators that run a spins pack.
-      </Para>
-      <Para>
-        Practical implication: until you clear wagering on the bonus portion, only
-        real-money-deposited balance (and winnings from real-money play) is freely
-        withdrawable. This is identical to BitStarz, Cloudbet and most match-bonus
-        casinos. Mirax is not unusual here, but the absence of any equivalent of
-        BitStarz&apos;s 25% admin fee on bonus-related withdrawals means that
-        post-clearance, the full balance is yours rather than 75% of it. At the same
-        5 BTC headline ceiling, Mirax delivers approximately 25% more BTC-equivalent
-        value to the wallet than BitStarz does.
-      </Para>
-
-      <SectionHeading>KYC at the Mirax cashier</SectionHeading>
-      <Para>
-        Mirax runs a Light KYC policy. In practice that means most crypto-only players
-        complete withdrawals without document submission. Compliance review gets
-        triggered at higher withdrawal amounts or when account activity flags an
-        unusual pattern. We don&apos;t have a verified dollar threshold to publish
-        and won&apos;t guess. The light-touch approach is consistent across the 7Bit
-        Partners network that operates the brand.
-      </Para>
-
-      <SectionHeading>Crypto coverage: seven coins, all on standard networks</SectionHeading>
-      <Para>
-        Mirax accepts BTC, ETH, USDT, LTC, DOGE, BCH and XRP. The headline
-        instant-to-15-minute window is the casino-side processing time. On-chain
-        clearing then depends on the network. XRP is the standout in the list for
-        speed (settlement in seconds, fees in fractions of a cent), and LTC clears
-        faster than BTC if you want a major-coin alternative with lower confirmation
-        latency.
-      </Para>
-      <KeyList
-        items={[
-          'XRP is the fastest on-chain option in the Mirax lineup: final settlement is sub-second once broadcast.',
-          'LTC and DOGE clear in low single-digit minutes and avoid Bitcoin congestion.',
-          'BTC depends on mempool conditions, the same constraint as everywhere else.',
-          'USDT is supported but check the cashier for which network is active on your request.',
-          'ETH and BCH round out the list with standard mainnet behaviour.',
-        ]}
-      />
-      <Para>
-        For deeper context on individual chains see{' '}
-        <Link href="/crypto/litecoin" className="text-[#7BB8D4] hover:underline">Litecoin casinos</Link>
-        {' '}or{' '}
-        <Link href="/crypto/bitcoin" className="text-[#7BB8D4] hover:underline">Bitcoin casino options</Link>
-        .
-      </Para>
-
-      <SectionHeading>The 7Bit Partners operator backing</SectionHeading>
-      <Para>
-        Mirax launched in 2022, short by industry standards. The reason the brand
-        earns an 8.6/10 trust score despite its age is that it&apos;s operated by
-        7Bit Partners, the same group running 7Bit Casino since 2014. Same payment
-        infrastructure, same KYC posture, same support team. Newer storefront, proven
-        plumbing.
-      </Para>
-      <Para>
-        Why this matters for withdrawal specifically: the operator&apos;s payout
-        track record is what predicts whether a casino will pay you in a year&apos;s
-        time, not the brand age. Mirax inherits a positive one. Players who want
-        the more established storefront with identical cashier behaviour can
-        cross-shop with{' '}
-        <Link href="/reviews/7bit-casino/withdrawal" className="text-[#7BB8D4] hover:underline">
-          the 7Bit Casino withdrawal page
-        </Link>
-        .
-      </Para>
-
-      <SectionHeading>VIP tier withdrawals at Mirax</SectionHeading>
-      <Para>
-        Mirax operates a tiered VIP programme with cashback on losses, higher
-        withdrawal limits and personal account management at the top tiers. The
-        exact per-tier dollar caps are not public, and we won&apos;t publish numbers
-        we can&apos;t verify. For ongoing high-volume play the VIP team negotiates
-        direct ceilings; request a VIP review via support if your normal weekly
-        volume sits at high-roller levels.
-      </Para>
-
-      <SectionHeading>Mirax vs BitStarz vs 7Bit on withdrawal</SectionHeading>
-      <Para>
-        Headline windows: BitStarz under 10 min, 7Bit instant to 10 min, Mirax
-        instant to 15 min. Mirax is the slowest of the three on paper, but the gap
-        is small enough that on-chain confirmation will usually dominate the total
-        time anyway. Where Mirax stands out is bonus-side cashier economics: the 5
-        BTC ceiling ties with{' '}
-        <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">BitStarz&apos; 5 BTC package</Link>
-        {' '}on headline, but Mirax does not impose the 25% bonus admin fee BitStarz
-        does. After fee, Mirax delivers ~25% more BTC-equivalent value at the same
-        headline ceiling.
-      </Para>
-      <Para>
-        Net read: Mirax is the choice when bonus-side withdrawal cleanliness is the
-        priority and you accept a slightly slower headline payout window. BitStarz
-        retains the spin-count lead (180 vs 150) and slightly faster cashier window.
-        7Bit&apos;s 325%/&euro;5,400 package is competitive on the spin side (250)
-        but trails substantially on raw BTC ceiling. For a broader view see{' '}
-        <Link href="/fast-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
-          the fastest crypto casinos for withdrawal
-        </Link>
-        .
-      </Para>
-    </>
-  )
-}
-
-const MIRAX_FAQS = [
-  {
-    question: 'How long until I can withdraw bonus winnings from Mirax?',
-    answer:
-      'Bonus-derived balances at Mirax are subject to wagering requirements before they can be withdrawn. The exact multiplier on the current welcome match is published in the Mirax cashier T&Cs. Check there before claiming. Real-money-deposited balance (and winnings from real-money play with no bonus active) is freely withdrawable subject to the standard cashier processing window of up to 15 minutes.',
-  },
-  {
-    question: 'Why does Mirax show a 15-minute window when BC.Game does instant?',
-    answer:
-      "The headline window is the casino-side processing time before funds are broadcast to the network. BC.Game has fully automated payouts on most coins, so its window is effectively zero. Mirax processes within a 15-minute envelope. For most players the on-chain confirmation time (which is the same at both casinos) dominates the total wall-clock wait anyway, so the practical difference is smaller than the headline numbers suggest.",
-  },
-  {
-    question: 'Is Mirax safe given it only launched in 2022?',
-    answer:
-      "Mirax is operated by 7Bit Partners, the same group running 7Bit Casino since 2014, so the payment infrastructure, KYC posture and support team behind Mirax all have over a decade of operational track record. The Mirax storefront itself is new; the operator behind it is not. Our 8.6/10 trust score reflects this split.",
-  },
-  {
-    question: 'Which Mirax coin clears fastest on-chain?',
-    answer:
-      'Of the seven coins Mirax supports, XRP settles fastest on-chain: final confirmation in seconds with near-zero fees. LTC and DOGE clear in low single-digit minutes. BTC is gated by mempool conditions like everywhere else. For stablecoin withdrawals, the active network shown at the cashier determines clearing time. Mirax does not support TRC-20 or SPL-network USDT.',
-  },
-  {
-    question: "What's the relationship between Mirax and 7Bit Casino?",
-    answer:
-      "Mirax Casino and 7Bit Casino are both operated by 7Bit Partners. They share back-end infrastructure including the cashier, KYC posture and support team. They are positioned differently: 7Bit leans into the no-KYC, decade-old Bitcoin casino angle, Mirax leads with a much larger welcome bonus and a broader game library. Cashier mechanics are very similar between the two.",
-  },
-] as const
 
 /* ───────────── 7Bit: lead with no-KYC at any amount ───────────── */
 function SevenBitContent() {
@@ -655,7 +481,7 @@ function SevenBitContent() {
         On headline speed,{' '}
         <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">7Bit and BitStarz are tied</Link>{' '}
         at instant-to-10-minutes, with{' '}
-        <Link href="/reviews/mirax-casino/withdrawal" className="text-[#7BB8D4] hover:underline">Mirax behind at instant-to-15</Link>
+        <Link href="/reviews/mirax-casino" className="text-[#7BB8D4] hover:underline">Mirax behind at instant-to-15</Link>
         . On KYC, 7Bit is the only one of the three with a full no-KYC posture:
         both BitStarz and Mirax run Light KYC that may trigger at larger
         withdrawals. On coin coverage 7Bit leads with eight versus BitStarz&apos;s
@@ -745,7 +571,7 @@ function CloudbetContent() {
         per-transaction cap. At Cloudbet that exceptions path doesn&apos;t exist for
         crypto withdrawals because the standard path already accommodates the
         volume. For the broader category see{' '}
-        <Link href="/no-limit-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
+        <Link href="/high-roller-casinos#withdrawal-limits" className="text-[#7BB8D4] hover:underline">
           crypto casinos with no withdrawal limits
         </Link>
         .

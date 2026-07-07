@@ -6,15 +6,14 @@ export type Guide = {
   category: string
 }
 
+// 'how-crypto-casino-withdrawals-work' removed 2026-07-07 (spam-update
+// consolidation): the page was one of the three the June 2026 spam update
+// dropped from the index, and its explainer content strengthens the
+// commercial page that owns the withdrawal-speed intent. Content folded
+// into /fast-withdrawal-casinos#how-withdrawals-work; old URL 301s there
+// via next.config.ts. Its content blocks in app/guides/[slug]/page.tsx are
+// unreachable and retained for reference (poker-content precedent).
 export const guides: Guide[] = [
-  {
-    title: 'How Crypto Casino Withdrawals Work',
-    slug: 'how-crypto-casino-withdrawals-work',
-    description:
-      'Everything you need to know about getting your winnings out fast: from wallet confirmation times to zero-fee chains.',
-    readTime: '5 min read',
-    category: 'Withdrawals',
-  },
   {
     title: 'Best Crypto for Gambling',
     slug: 'best-crypto-for-gambling',

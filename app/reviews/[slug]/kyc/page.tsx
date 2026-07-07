@@ -596,7 +596,7 @@ function CloudbetContent() {
         high roller often still picks Cloudbet over a no-KYC venue is the package around
         it: no withdrawal limits, a dual regulator, and a payout track record since 2013.
         For the limit-free angle specifically, see{' '}
-        <Link href="/no-limit-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
+        <Link href="/high-roller-casinos#withdrawal-limits" className="text-[#7BB8D4] hover:underline">
           crypto casinos with no withdrawal limits
         </Link>
         ; for the broader high-stakes view,{' '}

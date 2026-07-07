@@ -347,7 +347,7 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
 const guideRelatedPages: Record<string, { label: string; href: string; teaser: string }[]> = {
   'how-crypto-casino-withdrawals-work': [
     { label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos', teaser: 'Ranked purely on payout speed' },
-    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'Cap-free cash-out for big wins' },
+    { label: 'High Roller Casinos: Withdrawal Limits', href: '/high-roller-casinos#withdrawal-limits', teaser: 'Cap-free cash-out for big wins' },
     { label: 'No-KYC Casinos', href: '/no-kyc-casinos', teaser: 'Withdrawals without ID verification' },
   ],
   'best-crypto-for-gambling': [
@@ -358,13 +358,13 @@ const guideRelatedPages: Record<string, { label: string; href: string; teaser: s
   ],
   'how-casino-bonuses-really-work': [
     { label: 'High Roller Casinos', href: '/high-roller-casinos', teaser: 'Where VIP cashback beats welcome-bonus math' },
-    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'Cap-free cash-out when bonus play wins big' },
+    { label: 'High Roller Casinos: Withdrawal Limits', href: '/high-roller-casinos#withdrawal-limits', teaser: 'Cap-free cash-out when bonus play wins big' },
     { label: 'Mirax Casino Review', href: '/reviews/mirax-casino', teaser: 'The 4-deposit / 5 BTC / 150 FS welcome structure in detail' },
   ],
   'bitcoin-vs-usdt-casinos': [
     { label: 'Best Crypto for Gambling', href: '/guides/best-crypto-for-gambling', teaser: 'The broader guide across all major coins' },
     { label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos', teaser: 'Where coin choice converts to speed' },
-    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'For when USDT-fast meets a big win' },
+    { label: 'High Roller Casinos: Withdrawal Limits', href: '/high-roller-casinos#withdrawal-limits', teaser: 'For when USDT-fast meets a big win' },
   ],
   'do-crypto-casinos-require-kyc': [
     { label: 'BC.Game KYC', href: '/reviews/bc-game/kyc', teaser: 'The no-KYC pole: email-only, no documents ever' },

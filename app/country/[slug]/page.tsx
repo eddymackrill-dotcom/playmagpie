@@ -5,6 +5,8 @@ import { COUNTRY_LIST } from '@/lib/programmatic'
 import { casinos, casinoAcceptsCountry, type Casino } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+import FactChecked from '@/components/FactChecked'
+import { countryLastReviewed } from '@/lib/last-reviewed'
 
 // Build a strip card from a Casino. Handles BC.Game's "100+ more"
 // crypto-list entry as a friendly "100+" instead of 16.
@@ -121,7 +123,7 @@ const countryRelatedPages: Record<string, { label: string; href: string; teaser:
   australia: [
     { label: 'Best Crypto Pokies for NZ', href: '/best-crypto-pokies-nz', teaser: 'Shared "pokies" terminology: same provider lineup applies in AU'},
     { label: 'No-KYC Casinos', href: '/no-kyc-casinos', teaser: 'Sidestep ACMA DNS-blocks and AUD card restrictions' },
-    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'Cap-free cash-out matters more when on-ramp friction is high' },
+    { label: 'High Roller Casinos: Withdrawal Limits', href: '/high-roller-casinos#withdrawal-limits', teaser: 'Cap-free cash-out matters more when on-ramp friction is high' },
   ],
   norway: [
     { label: 'Crypto Casinos in Sweden', href: '/country/sweden', teaser: 'Nordic peer: different regime (licensed-restrictive vs monopoly), same crypto-funding logic'},
@@ -134,7 +136,7 @@ const countryRelatedPages: Record<string, { label: string; href: string; teaser:
   ],
   netherlands: [
     { label: 'Crypto Casinos in Sweden', href: '/country/sweden', teaser: 'EU peer: Sweden\'s one-bonus rule mirrors NL\'s tight licensee restrictions'},
-    { label: 'No-Limit Withdrawal Casinos', href: '/no-limit-withdrawal-casinos', teaser: 'Cap-free cash-out where the 37.8% kansspelbelasting hits hard' },
+    { label: 'High Roller Casinos: Withdrawal Limits', href: '/high-roller-casinos#withdrawal-limits', teaser: 'Cap-free cash-out where the 37.8% kansspelbelasting hits hard' },
   ],
   canada: [
     { label: 'Best Crypto for Gambling', href: '/guides/best-crypto-for-gambling', teaser: 'Decision matrix for picking the right chain at your casino' },
@@ -155,11 +157,34 @@ const countryRelatedPages: Record<string, { label: string; href: string; teaser:
 // deeper sub-page rather than competing with it.
 const LEGAL_SUBPAGE_SLUGS = new Set(['canada', 'australia'])
 
-// Country slugs that have a dedicated /best-bitcoin-casino-[slug] commercial page.
-// The hub stays multi-coin; this contextual down-link hands BTC-specific intent to the
-// Bitcoin-axis page rather than competing with it, and gives that page an inbound link
-// from a same-batch-modified host (crawl-discovery rule).
-const BTC_PAGE_SLUGS = new Set(['canada', 'germany', 'ireland', 'norway', 'new-zealand'])
+// 2026-07-07 consolidation: the /best-bitcoin-casino-{germany,ireland,norway,
+// new-zealand} pages (plus sweden/finland static equivalents) were merged into
+// their country hubs as the #bitcoin sections below, and the old URLs 301 here.
+// Canada's page is the sole survivor: it earned distinct, dispersed demand in
+// its only clean measurement window (99 imp in 2 days, fingerprint-free) where
+// the other six never got a readable window before the June 2026 spam-update
+// suppression. Facts in these sections were primary-source verified at the
+// original build (see the provenance block above countryContext).
+const BTC_PAGE_SLUGS = new Set(['canada'])
+
+const bitcoinContext: Record<string, string[]> = {
+  germany: [
+    'Germany is the one market we cover where Bitcoin specifically, rather than crypto generally, has a tax case. Under § 23 EStG, cryptocurrency an individual has held for more than one year is fully tax-free on disposal, with a €1,000 Freigrenze covering short-term gains. Gambling winnings themselves are generally outside individual income tax for casual players, so the taxable event to manage is the crypto leg, not the casino leg. Selling recently-bought coin to fund a deposit can be taxable above the threshold; depositing Bitcoin you have held over a year is not. For a German player sitting on long-held BTC, Bitcoin is the deposit coin that does not trigger a tax event, the exact opposite of buying USDT today to deposit tomorrow.',
+    'The funding friction runs the other way: SCHUFA-linked bank transfers to gambling sites are routinely flagged, and USDT on TRC-20 is the common workaround, but that solves a speed-and-flagging problem, not a tax one. Bitpanda, Coinbase and Kraken are all BaFin-licensed for German retail, so on-ramping BTC is straightforward. The honest caveat is the chain itself: BTC settles in roughly ten-minute blocks with fees that float with mempool demand, so you accept a slower rail to keep the § 23 EStG holding-period exemption on the coin you are actually moving.',
+  ],
+  ireland: [
+    'For an Irish player, Bitcoin has no special edge, and it is worth saying plainly since most lists will not. Gambling winnings are not a chargeable gain for individuals under Section 613(2) of the Taxes Consolidation Act 1997, so the tax angle is removed entirely: there is no Irish equivalent of Germany’s holding-period lever, because the winnings were never chargeable in the first place. That simplifies coin choice to pure cashier merits, and on those merits BTC is the heritage option rather than the optimal one: ten-minute blocks and demand-driven fees against a stablecoin’s near-instant, near-free settlement.',
+    'The real reason Irish players go on-chain at all is that EUR transfers to offshore casinos are slow and frequently flagged on gambling descriptors. Kraken (through Payward Ireland Ltd, with Central Bank of Ireland authorisation) is the most directly Irish-regulated on-ramp; Coinbase and Bitstamp also serve EUR pairs. Deposit Bitcoin because it is what you hold, not because it is faster or cheaper; the tax-neutral position means you lose nothing by doing so.',
+  ],
+  norway: [
+    'Bitcoin’s role in Norway is mechanical: the Lottstift blocklist works at the payment layer, flagging the gambling merchant-category code (MCC 7995) at the acquirer and matching named operators’ receiving accounts, which is why card and SEPA payments to offshore casinos fail before reaching the operator. An on-chain BTC transfer is wallet-to-wallet with no Norwegian acquiring bank in the path, so the blocklist has nothing to act on. That is a structural mismatch rather than a loophole, and it is the operational reason crypto became the default offshore route for Norwegian players.',
+    'The catch the funding mechanics can obscure: Norwegian gambling winnings are tax-exempt only from EEA-licensed operators, and almost every offshore crypto casino we review is Curaçao-licensed, outside the EEA, so those winnings are technically taxable regardless of the deposit coin. Depositing Bitcoin does nothing to change the operator’s licensing domicile. And disposing of appreciated BTC to fund the deposit can itself be a taxable capital event, so a Norwegian player moving a long-held position offshore faces two tax considerations, not zero. Anyone telling you crypto makes offshore winnings tax-free in Norway is conflating the payment bypass with the tax treatment.',
+  ],
+  'new-zealand': [
+    'For a Kiwi Bitcoin player the regulatory timetable is the planning input: the DIA licensing scheme commences 1 May 2026, licensed-only enforcement follows 1 December 2026, and until that second date offshore casinos remain accessible. Unlike the Nordic markets, casual gambling winnings are not taxable for individuals under IRD rules, so the winnings side of offshore play simply does not arise. The tax question relocates entirely to the coin: IRD treats cryptoassets as property, so disposing of Bitcoin, including spending or converting it to fund a deposit, can be a taxable event depending on your acquisition intent and circumstances.',
+    'On cashier mechanics, BTC’s ten-minute blocks and floating fees make a stablecoin the faster route if you are starting from NZD; deposit Bitcoin when it is the asset you already hold. Easy Crypto is the NZ-native broker most retail players use, with Independent Reserve also active; Binance operates an NZ entity under FSP registration but without NZ-regulator supervision in the usual sense, worth knowing if recourse matters. With the transition underway, confirm a casino accepts NZ accounts at signup rather than assuming it holds through the year.',
+  ],
+}
 
 export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
   const { slug } = await props.params
@@ -213,6 +238,7 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Top crypto casinos for {country.name} players. Compare bonuses, payment methods and withdrawal speeds for {country.currency} users.
           </p>
+          {countryLastReviewed[slug] && <FactChecked date={countryLastReviewed[slug]} />}
         </div>
 
         <CasinoCTAStrip
@@ -248,6 +274,17 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
             </p>
           )}
         </section>
+
+        {bitcoinContext[slug] && (
+          <section className="mb-12 prose prose-invert max-w-none">
+            <h2 id="bitcoin" className="text-2xl font-bold text-white mb-4 scroll-mt-24">
+              Depositing Bitcoin from {country.name}
+            </h2>
+            {bitcoinContext[slug].map((paragraph, i) => (
+              <p key={i} className="text-[#888888] leading-relaxed mb-4 last:mb-0">{paragraph}</p>
+            ))}
+          </section>
+        )}
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">All Crypto Casinos Ranked</h2>

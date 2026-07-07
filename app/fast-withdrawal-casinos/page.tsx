@@ -199,11 +199,51 @@ export default function FastWithdrawalPage() {
           </div>
         </section>
 
+        <section className="mt-12 prose prose-invert max-w-none">
+          <h2 id="how-withdrawals-work" className="text-xl font-bold text-white mb-4 scroll-mt-24">
+            How a Crypto Withdrawal Actually Works
+          </h2>
+          <p className="text-[#888888] text-sm leading-relaxed mb-4">
+            When you request a crypto withdrawal, the casino initiates a transaction from their hot
+            wallet directly to the address you provide. There is no intermediary holding or approving
+            the funds once the transaction is broadcast: it enters the mempool, a miner or validator
+            includes it in a block, and from that point the funds are fully under your control. Three
+            factors control how long that takes. First, the casino&apos;s internal processing:
+            automated platforms broadcast in seconds, while manual batch processing can add hours
+            before the transaction even hits the blockchain. Second, the network you chose: Tron
+            (TRC-20) and Solana confirm in under 5 seconds at fees below $0.01, Ethereum in 15-30
+            seconds with variable gas, while Bitcoin averages 10 minutes per block and most casinos
+            wait 1-3 confirmations. Third, congestion: the BTC mempool can push confirmation to an
+            hour or more in busy markets, which almost never happens on TRX or SOL.
+          </p>
+          <p className="text-[#888888] text-sm leading-relaxed mb-4">
+            Ranked by real end-to-end wall-clock time: crypto on fast networks (TRX, SOL, MATIC) lands
+            in under 5 minutes; BTC and ETH run 10 minutes to 2 hours depending on conditions;
+            e-wallets like Skrill and Neteller take 1-24 hours and carry gambling-related account-block
+            risk; cards take 1-5 business days; bank transfers 2-7. There is no practical reason to use
+            a fiat rail when a crypto option exists. The biggest non-blockchain delay is KYC triggered
+            mid-withdrawal, which can hold funds 24-72 hours; complete any verification before you
+            play, or use a{' '}
+            <Link href="/no-kyc-casinos" className="text-[#7BB8D4] hover:underline">no-KYC casino</Link>{' '}
+            where no document check applies.
+          </p>
+          <p className="text-[#888888] text-sm leading-relaxed">
+            To track a payout in flight, paste the transaction ID (TXID) from the casino cashier into
+            the network&apos;s explorer: Tronscan for TRC-20, Solscan for Solana, Etherscan for
+            Ethereum, Mempool.space for Bitcoin. A transaction that is broadcast but unconfirmed for an
+            unusually long time points to congestion or a low fee setting, not a casino problem. For
+            coin-by-coin selection advice, see{' '}
+            <Link href="/guides/best-crypto-for-gambling" className="text-[#7BB8D4] hover:underline">
+              which crypto to gamble with
+            </Link>.
+          </p>
+        </section>
+
         <section className="mt-10">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Link href="/no-limit-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
-              <div className="font-semibold text-[#f5f5f5] mb-1">No-Limit Withdrawal Casinos</div>
-              <div className="text-[#888888] text-sm">Speed is one variable; the cap matters too if you win big</div>
+            <Link href="/high-roller-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">High Roller Crypto Casinos</div>
+              <div className="text-[#888888] text-sm">Speed is one variable; the withdrawal cap matters too if you win big</div>
             </Link>
             <Link href="/no-kyc-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">No-KYC Casinos</div>

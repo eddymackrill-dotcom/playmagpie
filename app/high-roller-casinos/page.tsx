@@ -176,6 +176,48 @@ export default function HighRollerPage() {
           </div>
         </section>
 
+        <section className="mt-12" id="withdrawal-limits">
+          <h2 className="text-2xl font-bold text-white mb-2 scroll-mt-24">Withdrawal Limits: The Other Half of High-Roller Play</h2>
+          <p className="text-[#888888] text-sm mb-6 max-w-3xl">
+            A big bet ceiling means nothing if the cashier caps what you can take out. Honest framing:
+            only one of the casinos in our reviews makes an explicit &quot;no withdrawal limit&quot;
+            statement (Cloudbet, whose published policy is the load-bearing reason it features on this
+            page). For the rest, the cashier T&amp;Cs don&apos;t publish a specific per-transaction or
+            daily cap; what&apos;s documented is what triggers manual review at higher amounts: light
+            KYC for larger withdrawals at BitStarz and Mirax, &quot;additional processing time&quot; on
+            large cashouts at 7Bit, temporary holds pending review at Shuffle, and no-KYC-with-
+            exceptions posture at BC.Game and Duelbits. &quot;Not documented&quot; does not mean limits
+            don&apos;t exist operationally: VIP-tier arrangements typically raise or eliminate caps for
+            verified high-stakes players, and that conversation happens during VIP onboarding rather
+            than on a public page.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                title: 'Per-Transaction vs Daily Caps',
+                body: 'Almost every casino has a per-request maximum: split a 10 BTC withdrawal across requests and it usually clears. The real binding constraint is the daily or weekly cap, which is what Cloudbet explicitly doesn\'t apply. Read the cashier T&Cs before depositing if your stake plan implies a big win.',
+              },
+              {
+                title: 'VIP Tier Exemptions',
+                body: 'Most platforms (BitStarz, Mirax, 7Bit, BC.Game) raise or remove withdrawal caps at higher VIP tiers rather than running an across-the-board policy. If you\'re depositing five or six figures, the VIP onboarding conversation should cover where your cap lands; it\'s not always written down on the public page.',
+              },
+              {
+                title: 'KYC Trigger Thresholds',
+                body: 'A no-limit policy doesn\'t stop a casino running a KYC check at withdrawal time if your behaviour triggers a flag. At Light-KYC platforms that means government ID and proof of address before funds release; at No-KYC platforms (BC.Game, 7Bit, Duelbits) the check is usually waived but reserved for exceptional cases.',
+              },
+              {
+                title: 'Network Settlement Speed',
+                body: 'For a 5 BTC equivalent withdrawal, the casino\'s internal review is usually the bottleneck, not the chain. But on-chain finality still matters: USDT on TRC-20, SOL or MATIC clear in seconds; BTC depends on fee market and block timing. Pick the network that pairs with your cash-out plan, not just your deposit habits.',
+              },
+            ].map((card) => (
+              <div key={card.title} className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
+                <h3 className="text-white font-semibold mb-2">{card.title}</h3>
+                <p className="text-[#888888] text-sm leading-relaxed">{card.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className="mt-12">
           <h2 className="text-xl font-bold text-white mb-4">High Roller Casino Reviews</h2>
           <p className="text-[#888888] text-sm mb-5">
@@ -202,9 +244,9 @@ export default function HighRollerPage() {
 
         <section className="mt-10">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Link href="/no-limit-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
-              <div className="font-semibold text-[#f5f5f5] mb-1">No-Limit Withdrawal Casinos</div>
-              <div className="text-[#888888] text-sm">The other half of high-roller play: cash-out posture, not just bet size</div>
+            <Link href="/no-kyc-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
+              <div className="font-semibold text-[#f5f5f5] mb-1">No-KYC Casinos</div>
+              <div className="text-[#888888] text-sm">Where large cashouts clear without a document check</div>
             </Link>
             <Link href="/fast-withdrawal-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">Fast Withdrawal Casinos</div>

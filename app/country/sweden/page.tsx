@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { casinos, casinoAcceptsCountry, type Casino } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+import FactChecked from '@/components/FactChecked'
+import { countryLastReviewed } from '@/lib/last-reviewed'
 
 const eligibleCasinos = casinos.filter((c) => casinoAcceptsCountry(c, 'sweden'))
 
@@ -138,6 +140,7 @@ export default function SwedenPage() {
             a meaningful share of activity offshore. The 2024 channelisation data tells the story: 85% overall, just
             72–82% in the online casino segment. Most of that offshore activity routes through crypto.
           </p>
+          {countryLastReviewed['sweden'] && <FactChecked date={countryLastReviewed['sweden']} />}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
@@ -177,13 +180,27 @@ export default function SwedenPage() {
             offshore crypto casinos, fall outside that carve-out and are technically subject to income tax. The crypto
             disposal itself is a separate capital-income event.
           </p>
+        </section>
+
+        <section className="mb-12 space-y-4 prose prose-invert max-w-none">
+          <h2 id="bitcoin" className="text-2xl font-bold text-white scroll-mt-24">Depositing Bitcoin from Sweden</h2>
           <p className="text-[#888888] leading-relaxed">
-            Depositing specifically in Bitcoin? Our guide to the{' '}
-            <Link href="/best-bitcoin-casino-sweden" className="text-[#7BB8D4] hover:underline font-medium">
-              best Bitcoin casino in Sweden
-            </Link>{' '}
-            ranks the operators that accept Swedish players for BTC and digs into why the one-bonus rule makes
-            offshore Bitcoin welcome packs so much larger than anything a licensed operator can offer.
+            The one-bonus rule is what makes offshore Bitcoin welcome packs look so much larger than
+            anything a licensed operator can show you, and the gap is structural, not marketing. BitStarz
+            runs up to 5 BTC plus 180 free spins across the first four deposits; Mirax spreads up to 5 BTC
+            plus 150 spins across four; BC.Game layers a 220% Deposit Rakeback Welcome over four monthly
+            stages; 7Bit adds continuous weekly reloads on top of its 325% pack. None of those structures,
+            multi-deposit packs or recurring reloads, is something a Spelinspektionen-licensed site can
+            legally put in front of you under 14 kap. § 9.
+          </p>
+          <p className="text-[#888888] leading-relaxed">
+            The tax asymmetry travels with the bigger bonus: winnings from outside-EEA operators are
+            technically taxable income (the carve-out above), and the crypto disposal is a separate
+            capital-income event, which matters more for SEK players because the krona carries more
+            volatility against USD than the euro does. A stablecoin like USDT or USDC removes the
+            conversion drift that BTC or ETH would expose you to; deposit Bitcoin when it is the asset
+            you already hold. The bigger offshore bonus is real; so is the tax asymmetry that comes
+            with it.
           </p>
         </section>
 
