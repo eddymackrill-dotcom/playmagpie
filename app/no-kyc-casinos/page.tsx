@@ -116,7 +116,13 @@ export default function NoKYCPage() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">True No-KYC Casinos</h2>
-          <p className="text-[#888888] text-sm mb-6">Zero verification required: sign up and play immediately</p>
+          <p className="text-[#888888] text-sm mb-2">Zero verification required: sign up and play immediately</p>
+          <p className="text-[#bbbbbb] text-base leading-relaxed mb-6 max-w-3xl">
+            Three of the eight crypto casinos we review are true no-KYC operators: BC.Game, 7Bit Casino and
+            Duelbits all allow signup with an email address and crypto withdrawals without routine identity
+            checks. 7Bit&apos;s no-document policy has held at any withdrawal size since 2014, and Duelbits
+            has the fastest cashier window of the three at instant to 5 minutes.
+          </p>
           <CasinoComparisonTable casinos={noKyc} />
         </section>
 
