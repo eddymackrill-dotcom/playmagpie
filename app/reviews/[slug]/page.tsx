@@ -599,6 +599,18 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
             ))}
           </div>
 
+          {/* Answer statement (2026-07-13 assistant-channel extractability pass).
+              Deliberately prose, NOT FAQ schema: the withdrawal FAQs were removed
+              2026-06-11 because /reviews/bitstarz/withdrawal owns that query
+              cluster. Do not convert this into an FAQ entry. */}
+          {casino.slug === 'bitstarz' && (
+            <p className="text-[#bbbbbb] text-base leading-relaxed mb-6">
+              BitStarz processes crypto withdrawals in under 10 minutes on average across its six supported
+              coins, but deducts a 25% admin fee from any withdrawal derived from bonus play. Deposit without
+              taking the welcome package and the fee never applies.
+            </p>
+          )}
+
           <div className="flex gap-3">
             <CTAButton href={casino.affiliateUrl} label="Play at Casino" variant="primary" size="lg" external />
             <CTAButton href="/best-crypto-casinos" label="Compare Casinos" variant="secondary" size="lg" />
