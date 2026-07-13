@@ -2,7 +2,7 @@
 
 Operational playbook for running this site sustainably. Companion to CLAUDE.md (which defines strategy and rules); this file defines workflows and cadences.
 
-Last updated: 2026-07-07
+Last updated: 2026-07-13
 
 ## How to use this file
 
@@ -30,9 +30,15 @@ report on. Run this instead:
    return: it is the earliest trust-restoration signal.
 3. Optional, 1 DataForSEO call max: live SERP check on "high roller crypto casinos" (Canada).
    Present in top 100 = serving is returning.
-4. Production quick-check: latest deploy green, sitemap fetches, 2 random pages HTTP 200.
-5. Append one line to the STATE.md "Recovery log" section (format documented there).
-6. **Trigger: streak >= 7 consecutive non-zero days = recovery confirmed.** Lift the velocity
+4. Bing glance (added 2026-07-13, Bing Webmaster Tools live via GSC import): Search Performance
+   for the playmagpie.com property. Record impressions and whether any are non-branded. Bing is
+   not subject to the Google spam classification, so non-branded Bing impressions on the same
+   content = evidence the suppression is Google-specific at serving. Baseline at setup: zero
+   pages indexed by Bing; also note when the first Bing-indexed pages appear. Owner-side glance
+   (no API access); record the reading in the recovery-log `bing:` field.
+5. Production quick-check: latest deploy green, sitemap fetches, 2 random pages HTTP 200.
+6. Append one line to the STATE.md "Recovery log" section (format documented there).
+7. **Trigger: streak >= 7 consecutive non-zero days = recovery confirmed.** Lift the velocity
    freeze per the CLAUDE.md rule, resume the full weekly below, run the queued bitcoin-page
    go/no-go (signature-filtered) and the bi-weekly brand+intent cycle. Expect the bot
    fingerprints (lib/pollution-baseline.md) to reappear as serving resumes; that is
