@@ -116,7 +116,13 @@ export default function FastWithdrawalPage() {
         />
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Fastest Crypto Casinos: Ranked by Withdrawal Speed</h2>
+          <h2 className="text-2xl font-bold text-white mb-3">Fastest Crypto Casinos: Ranked by Withdrawal Speed</h2>
+          <p className="text-[#bbbbbb] text-base leading-relaxed mb-6 max-w-3xl">
+            The fastest headline withdrawal window in our catalogue is Duelbits at instant to 5 minutes, ahead
+            of BitStarz and BC.Game at around 10 minutes. BitStarz holds the highest withdrawal score (9.5/10),
+            with one caveat worth knowing before you deposit: it deducts a 25% admin fee from withdrawals
+            derived from bonus play.
+          </p>
           <CasinoComparisonTable casinos={fastCasinos} />
         </section>
 
