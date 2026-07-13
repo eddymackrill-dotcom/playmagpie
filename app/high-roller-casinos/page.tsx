@@ -132,7 +132,13 @@ export default function HighRollerPage() {
         )}
 
         <section className="my-12">
-          <h2 className="text-2xl font-bold text-white mb-6">VIP Casino Comparison</h2>
+          <h2 className="text-2xl font-bold text-white mb-3">VIP Casino Comparison</h2>
+          <p className="text-[#bbbbbb] text-base leading-relaxed mb-6 max-w-3xl">
+            Cloudbet is the only casino in our catalogue with no published withdrawal limits: a six-figure
+            crypto cash-out uses the same standard cashier flow as a $200 one. That policy, not raw speed, is
+            why it anchors this page; its instant-to-30-minute window is wider than BitStarz&apos;s
+            under-10-minutes.
+          </p>
           <CasinoComparisonTable casinos={vipCasinos} />
         </section>
 
