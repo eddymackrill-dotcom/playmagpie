@@ -2,7 +2,7 @@
 
 Operational playbook for running this site sustainably. Companion to CLAUDE.md (which defines strategy and rules); this file defines workflows and cadences.
 
-Last updated: 2026-07-13
+Last updated: 2026-07-16
 
 ## How to use this file
 
@@ -36,9 +36,19 @@ report on. Run this instead:
    content = evidence the suppression is Google-specific at serving. Baseline at setup: zero
    pages indexed by Bing; also note when the first Bing-indexed pages appear. Owner-side glance
    (no API access); record the reading in the recovery-log `bing:` field.
-5. Production quick-check: latest deploy green, sitemap fetches, 2 random pages HTTP 200.
-6. Append one line to the STATE.md "Recovery log" section (format documented there).
-7. **Trigger: streak >= 7 consecutive non-zero days = recovery confirmed.** Lift the velocity
+5. **UPDATE WATCH** (added 2026-07-16): check the Google Search Status Dashboard
+   (status.search.google.com) for any announced ranking updates (spam updates especially,
+   core updates also relevant). Any announced update is a potential re-evaluation event:
+   during its rollout window, escalate from weekly to DAILY serving checks (GSC impressions
+   on non-branded queries) until the rollout is confirmed complete, then log the outcome
+   (recovered / partial / no change) in the recovery log as a dated entry. Context: there
+   is NO known date for Google re-evaluating the suppression; algorithmic spam-action
+   recovery follows the classifier re-running, most plausibly at the next spam update,
+   which arrives on no published schedule (historically ~2 to ~8 months apart). This step
+   is the tripwire.
+6. Production quick-check: latest deploy green, sitemap fetches, 2 random pages HTTP 200.
+7. Append one line to the STATE.md "Recovery log" section (format documented there).
+8. **Trigger: streak >= 7 consecutive non-zero days = recovery confirmed.** Lift the velocity
    freeze per the CLAUDE.md rule, resume the full weekly below, run the queued bitcoin-page
    go/no-go (signature-filtered) and the bi-weekly brand+intent cycle. Expect the bot
    fingerprints (lib/pollution-baseline.md) to reappear as serving resumes; that is
