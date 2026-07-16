@@ -12,9 +12,13 @@
 // - Casino entries: full catalogue verification May 2026 (lib/casinos.ts
 //   build-out); Roobet entry researched and written late June 2026;
 //   BitStarz + BC.Game spot-checked 2026-07-07 monthly audit (2 facts each,
-//   confirmed). Cloudbet deliberately stays at May 2026: the 07-07 audit
-//   FLAGGED possible drift on its payment rails (fiat via Swapped/Jeton/
-//   Vega), so it must not carry a fresher date until that check completes.
+//   confirmed). Cloudbet re-verified 2026-07-16 against its own help centre
+//   (primary): bonus restructure, 29-coin list, ~$1 min deposit, tiered
+//   no-limit policy, Jeton/Vega/Swapped fiat rails; the 07-07 drift flag is
+//   resolved. Roobet re-verified 2026-07-16 (help.roobet.com primary):
+//   11-coin list, fee-threshold wording. The other six casinos were checked
+//   2026-07-16 against dated secondaries only (operators block fetchers);
+//   per the honesty rule their dates do NOT bump on secondary evidence.
 // - Country facts: countryContext primary-source verification May 2026
 //   (see provenance block in app/country/[slug]/page.tsx); Sweden research
 //   June 2026 (Spellag/MiCA/channelisation sourcing); Finland research
@@ -23,12 +27,12 @@
 export const casinoLastReviewed: Record<string, string> = {
   bitstarz: 'July 2026',
   'bc-game': 'July 2026',
-  cloudbet: 'May 2026',
+  cloudbet: 'July 2026',
   'mirax-casino': 'May 2026',
   '7bit-casino': 'May 2026',
   shuffle: 'May 2026',
   duelbits: 'June 2026',
-  roobet: 'June 2026',
+  roobet: 'July 2026',
 }
 
 export const countryLastReviewed: Record<string, string> = {

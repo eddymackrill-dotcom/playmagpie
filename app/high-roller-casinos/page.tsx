@@ -30,9 +30,9 @@ const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'cloudbet',
     facts: [
-      { label: 'VIP', value: 'No withdrawal limits at scale' },
-      { label: 'Withdrawal', value: 'Instant to 30 minutes' },
-      { label: 'Bonus', value: '5 BTC welcome match' },
+      { label: 'VIP', value: 'No withdrawal limits once verified' },
+      { label: 'Withdrawal', value: 'Instant for most; up to 24 hours' },
+      { label: 'Bonus', value: '$2,500 package: cash rewards, no wagering' },
     ],
   },
 ]
@@ -105,8 +105,8 @@ export default function HighRollerPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           {[
-            { label: 'Max Welcome Bonus', value: '5 BTC', sub: 'Cloudbet' },
-            { label: 'No Withdrawal Limits', value: '✓', sub: 'Cloudbet VIP' },
+            { label: 'Max Welcome Bonus', value: '5 BTC', sub: 'BitStarz' },
+            { label: 'No Withdrawal Limits', value: '✓', sub: 'Cloudbet (verified accounts)' },
             { label: 'VIP Casinos Listed', value: `${vipCasinos.length}`, sub: 'With active programmes' },
           ].map((s) => (
             <div key={s.label} className="bg-[#111111] border border-[#222222] rounded-2xl p-5 text-center">
@@ -118,7 +118,7 @@ export default function HighRollerPage() {
         </div>
 
         <CasinoCTAStrip
-          framing="Three high-roller picks. BitStarz and BC.Game lead on trust score; Cloudbet's no-withdrawal-limits policy is the load-bearing differentiator at this stake band."
+          framing="Three high-roller picks. BitStarz and BC.Game lead on trust score; Cloudbet's verified-account no-limit withdrawal policy is the load-bearing differentiator at this stake band."
           cards={STRIP_CARDS}
         />
 
@@ -134,9 +134,11 @@ export default function HighRollerPage() {
         <section className="my-12">
           <h2 className="text-2xl font-bold text-white mb-3">VIP Casino Comparison</h2>
           <p className="text-[#bbbbbb] text-base leading-relaxed mb-6 max-w-3xl">
-            Cloudbet is the only casino in our catalogue with no published withdrawal limits: a six-figure
-            crypto cash-out uses the same standard cashier flow as a $200 one. That policy, not raw speed, is
-            why it anchors this page; its instant-to-30-minute window is wider than BitStarz&apos;s
+            Cloudbet is the only casino in our catalogue with no published withdrawal limits for fully
+            verified accounts: a six-figure crypto cash-out uses the same standard cashier flow as a $200
+            one. Until Level 2 verification, Cloudbet caps withdrawals at $2,200 a day, so verify before you
+            need the ceiling. That policy, not raw speed, is why it anchors this page; most Cloudbet payouts
+            process instantly but the stated window (up to 24 hours) is wider than BitStarz&apos;s
             under-10-minutes.
           </p>
           <CasinoComparisonTable casinos={vipCasinos} />
@@ -187,8 +189,9 @@ export default function HighRollerPage() {
           <p className="text-[#888888] text-sm mb-6 max-w-3xl">
             A big bet ceiling means nothing if the cashier caps what you can take out. Honest framing:
             only one of the casinos in our reviews makes an explicit &quot;no withdrawal limit&quot;
-            statement (Cloudbet, whose published policy is the load-bearing reason it features on this
-            page). For the rest, the cashier T&amp;Cs don&apos;t publish a specific per-transaction or
+            statement (Cloudbet, whose published policy applies to fully verified accounts, with a
+            $2,200/day cap until verification completes; that policy is the load-bearing reason it
+            features on this page). For the rest, the cashier T&amp;Cs don&apos;t publish a specific per-transaction or
             daily cap; what&apos;s documented is what triggers manual review at higher amounts: light
             KYC for larger withdrawals at BitStarz and Mirax, &quot;additional processing time&quot; on
             large cashouts at 7Bit, temporary holds pending review at Shuffle, and no-KYC-with-
@@ -201,7 +204,7 @@ export default function HighRollerPage() {
             {[
               {
                 title: 'Per-Transaction vs Daily Caps',
-                body: 'Almost every casino has a per-request maximum: split a 10 BTC withdrawal across requests and it usually clears. The real binding constraint is the daily or weekly cap, which is what Cloudbet explicitly doesn\'t apply. Read the cashier T&Cs before depositing if your stake plan implies a big win.',
+                body: 'Almost every casino has a per-request maximum: split a 10 BTC withdrawal across requests and it usually clears. The real binding constraint is the daily or weekly cap, which is what Cloudbet explicitly doesn\'t apply to fully verified accounts. Read the cashier T&Cs before depositing if your stake plan implies a big win.',
               },
               {
                 title: 'VIP Tier Exemptions',

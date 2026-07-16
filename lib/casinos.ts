@@ -34,6 +34,25 @@
 //   the 4-deposit welcome pack. Source: https://7bitcasino.com/bonuses
 //   (verified 2026-05-30).
 
+// Catalogue freshness spot-check 2026-07-16 (staleness audit, primary sources):
+// - Cloudbet: welcome bonus replaced by the "$2,500 Welcome Package" (30 days of
+//   cash rewards: 10% casino rakeback + daily cash drops + a weekly sports drop,
+//   no wagering), per https://www.cloudbet.com/en/promotions and
+//   https://www.cloudbet.com/en/support/articles/249240. Coins now 29 cryptos
+//   (enumerated from the article 2026-07-16; PAX is now PAX Dollar/USDP, PAXG
+//   also listed) plus 4 fiat currencies (CAD/EUR/JPY/USD): /support/articles/103244.
+//   Min deposit ~$1: /support/articles/103215. Withdrawals: most instant, up to
+//   24 hours in some cases: /support/articles/103214. No-limit withdrawals are
+//   now CONDITIONAL on full (Level 2) verification; Level 1 accounts capped at
+//   $2,200/day: /support/articles/103199. Fiat DEPOSITS via Jeton and Vega
+//   (/support/articles/103145) plus in-platform crypto purchase via Swapped
+//   (/support/articles/324281). Deposits only; no fiat off-ramp article found,
+//   so do not describe fiat withdrawals.
+// - Roobet: crypto deposit methods now 11 (SOL, SUI, BNB added):
+//   https://help.roobet.com/en/articles/4665363. The 2% fiat fee applies FROM
+//   the 10th fiat cashout inclusive per the terms' own wording ("including the
+//   tenth withdrawal"); corrected from the earlier "after the 10th" reading.
+
 export type Casino = {
   name: string
   slug: string
@@ -143,12 +162,12 @@ export const casinos: Casino[] = [
     slug: 'cloudbet',
     logo: '/logos/cloudbet.png',
     licence: 'Curaçao eGaming + Kahnawake Gaming Commission',
-    acceptedCryptos: ['BTC', 'ETH', 'USDT', 'USDC', 'SOL', 'BNB', 'DOGE', 'LTC', 'BCH', 'PAX'],
-    withdrawalTime: 'Instant to 30 minutes',
-    minDeposit: '0.001 BTC equivalent',
+    acceptedCryptos: ['BTC', 'ETH', 'USDT', 'USDC', 'USDP', 'PAXG', 'DAI', 'SOL', 'BNB', 'DOGE', 'LTC', 'BCH', 'XRP', 'TRX', 'ADA', 'POL', 'DOT', 'LINK', 'ALGO', 'AVAX', 'XLM', 'SHIB', 'ZEC', 'DASH', 'TON', 'HBAR', 'stETH', 'USDe', 'sUSDe'],
+    withdrawalTime: 'Instant for most; up to 24 hours',
+    minDeposit: '~$1 equivalent',
     kycLevel: 'Light',
     vipProgram: true,
-    bonusSummary: '100% deposit bonus up to 5 BTC + ongoing reload bonuses',
+    bonusSummary: '$2,500 Welcome Package: 30 days of cash rewards via 10% casino rakeback, daily cash drops and a weekly sports cash drop, no wagering requirements',
     restrictedCountries: ['US', 'UK', 'FR', 'NL', 'AU'],
     trustScore: 8.7,
     withdrawalScore: 9.0,
@@ -156,19 +175,20 @@ export const casinos: Casino[] = [
     kycScore: 8.8,
     affiliateUrl: 'https://cldbt.cloud/go/en/landing/bitcoin-casino?af_token=d30618699794f13b6b09b67534671ded&aftm_campaign=playmagpie&aftm_source=organic&aftm_medium=SEO',
     reviewSummary:
-      'Cloudbet is one of the longest-standing crypto casinos in the industry, established in 2013. That track record counts: Cloudbet has processed withdrawals reliably through multiple crypto cycles without issues. It operates under dual licensing from Curaçao eGaming and the Kahnawake Gaming Commission. The platform is particularly strong for high rollers: there are no withdrawal limits, the 5 BTC welcome bonus is one of the most generous available, and the VIP programme delivers meaningful cashback and dedicated support. The sportsbook is among the best-in-class for crypto betting.',
+      'Cloudbet is one of the longest-standing crypto casinos in the industry, established in 2013. That track record counts: Cloudbet has processed withdrawals reliably through multiple crypto cycles without issues. It operates under dual licensing from Curaçao eGaming and the Kahnawake Gaming Commission. The platform is particularly strong for high rollers: fully verified accounts have no withdrawal limits at all (until Level 2 verification, accounts are capped at $2,200 a day), and the VIP programme delivers meaningful cashback and dedicated support. The welcome offer is now a $2,500 package paid as cash rewards over the first 30 days (10% casino rakeback plus daily cash drops), with no wagering requirements. The coin lineup has grown to 29 cryptocurrencies, and fiat deposits are supported via Jeton and Vega alongside an in-platform Swapped on-ramp. The sportsbook is among the best-in-class for crypto betting.',
     pros: [
       'Established in 2013, one of the longest-running and most trusted crypto casinos',
-      'No withdrawal limits, which is critical for high-roller play',
+      'No withdrawal limits for fully verified accounts, which is critical for high-roller play',
       'Excellent sportsbook with crypto betting across hundreds of markets',
       'Dual licensing: Curaçao eGaming + Kahnawake Gaming Commission',
       'High-roller friendly, with large single-bet limits and dedicated VIP support',
-      'Supports 10 major cryptocurrencies including BTC, ETH, USDT, SOL and BNB',
+      'Supports 29 cryptocurrencies including BTC, ETH, USDT, SOL and BNB, plus fiat deposits via Jeton and Vega',
     ],
     cons: [
       'Game library lighter than newer competitors, with fewer slots providers',
       '25% starting commission rate on standard affiliate terms',
       'Light KYC may be triggered for very large withdrawal amounts',
+      'Unverified (Level 1) accounts are capped at $2,200/day on withdrawals until full verification',
       'Restricted in USA, UK, France, Netherlands and Australia',
     ],
     featured: true,
@@ -324,7 +344,7 @@ export const casinos: Casino[] = [
     slug: 'roobet',
     logo: '/logos/roobet.png',
     licence: 'Curaçao (Raw Entertainment B.V., reg. 157205) + Anjouan ALSI-202507005',
-    acceptedCryptos: ['BTC', 'ETH', 'LTC', 'USDT', 'USDC', 'XRP', 'TRX', 'DOGE'],
+    acceptedCryptos: ['BTC', 'ETH', 'LTC', 'USDT', 'USDC', 'XRP', 'TRX', 'DOGE', 'SOL', 'SUI', 'BNB'],
     withdrawalTime: '~15 minutes for most crypto; BTC up to 24 hours; no weekend processing',
     minDeposit: '$10',
     kycLevel: 'Standard',
@@ -348,12 +368,12 @@ export const casinos: Casino[] = [
     kycScore: 6.5,
     affiliateUrl: 'https://go.roobet.com/visit/?bta=45872&brand=roobet',
     reviewSummary:
-      'Roobet has been operating since 2019 under Raw Entertainment B.V. (Curaçao registration 157205), with a secondary Anjouan licence picked up in 2025 as the Curaçao licensing regime moved from the legacy sub-licensee model to the post-LOK direct framework. The product is built around Roobet Originals. Crash is the flagship, with Mines, Towers, Dice, Plinko and the Snoop-branded HotBox variant alongside roughly 6,000 third-party slots and a full sportsbook that picked up regional partnership deals with Chelsea FC (Latin America plus Canada outside Ontario) and 100 Thieves in 2025. The honest picture has two sides. The catalogue is real, the originals are provably fair, and headline crypto withdrawals process in around 15 minutes across the 8 supported coins. The documented track record at the high-stakes end is harder to ignore: AskGamblers carries Roobet complaints at $20k, $84k, $97k, $111k and $115k where verified accounts saw cashouts held in "routine verification" for days, and the $84,000 case is publicly listed as Unsolved. Roobet T&C explicitly authorise winnings confiscation on "low-risk play," with a January 2025 card-counting case running ~$2,700-3,000 voided on those grounds. There is also no traditional welcome bonus: only net-loss cashback that only triggers if you lose. The restricted-territories list is unusually wide for a Curaçao operator, covering the UK, US, Germany, Netherlands, Sweden and Australia among others, which is itself useful signal about the platform\'s offshore positioning. Roobet is a usable platform for crash-led play at modest stakes; it is not where you want to be holding a five- or six-figure win waiting on a cashier review.',
+      'Roobet has been operating since 2019 under Raw Entertainment B.V. (Curaçao registration 157205), with a secondary Anjouan licence picked up in 2025 as the Curaçao licensing regime moved from the legacy sub-licensee model to the post-LOK direct framework. The product is built around Roobet Originals. Crash is the flagship, with Mines, Towers, Dice, Plinko and the Snoop-branded HotBox variant alongside roughly 6,000 third-party slots and a full sportsbook that picked up regional partnership deals with Chelsea FC (Latin America plus Canada outside Ontario) and 100 Thieves in 2025. The honest picture has two sides. The catalogue is real, the originals are provably fair, and headline crypto withdrawals process in around 15 minutes across the 11 supported coins. The documented track record at the high-stakes end is harder to ignore: AskGamblers carries Roobet complaints at $20k, $84k, $97k, $111k and $115k where verified accounts saw cashouts held in "routine verification" for days, and the $84,000 case is publicly listed as Unsolved. Roobet T&C explicitly authorise winnings confiscation on "low-risk play," with a January 2025 card-counting case running ~$2,700-3,000 voided on those grounds. There is also no traditional welcome bonus: only net-loss cashback that only triggers if you lose. The restricted-territories list is unusually wide for a Curaçao operator, covering the UK, US, Germany, Netherlands, Sweden and Australia among others, which is itself useful signal about the platform\'s offshore positioning. Roobet is a usable platform for crash-led play at modest stakes; it is not where you want to be holding a five- or six-figure win waiting on a cashier review.',
     pros: [
       'Roobet Originals: Crash is the flagship, plus Mines, Towers, Dice, Plinko and the Snoop-branded HotBox variant, all provably fair',
       '~6,000 third-party slots from providers including Pragmatic Play, Hacksaw, Play\'n GO, Push, Relax, Nolimit City and NetEnt',
       'Full crypto sportsbook covering ~40 sports including esports, plus regional partnerships with Chelsea FC (LatAm + Canada outside Ontario) and 100 Thieves',
-      'Headline crypto withdrawal time of ~15 minutes across 8 supported coins (BTC, ETH, LTC, USDT, USDC, XRP, TRX, DOGE)',
+      'Headline crypto withdrawal time of ~15 minutes across 11 supported coins (BTC, ETH, LTC, USDT, USDC, XRP, TRX, DOGE, SOL, SUI, BNB)',
       '$10 minimum deposit and minimum withdrawal, an accessible entry point for smaller bankrolls',
       'Roowards 2.0 is a 30-tier rakeback programme with rakeback drops every 30 minutes, plus an invite-only top VIP Club above it',
     ],
@@ -366,7 +386,7 @@ export const casinos: Casino[] = [
       'Notably wide restricted-territory list: UK, US, Germany, Netherlands, Sweden, Australia, Belgium, Denmark, Portugal, Spain, Cyprus, Malta and more excluded',
       'Twitch banned Roobet streams in October 2022 alongside Stake, Rollbit and Duelbits, so content presence is now Kick-led; ASCI in India referred Roobet to the Ministry of Information & Broadcasting in February 2025 over alleged UPI payment-partner claims',
       '$200,000/day withdrawal cap and no weekend cashout processing, both material constraints for the high-roller use case despite the Roowards VIP structure',
-      '2% fiat withdrawal fee triggered on every fiat cashout after the 10th in a rolling 30-day window (per terms §10.8)',
+      '2% fiat withdrawal fee triggered on the 10th and every subsequent fiat cashout in a rolling 30-day window (per terms §10.8)',
     ],
     featured: false,
     badges: ['Crash Originals', 'Sportsbook', 'Crypto'],

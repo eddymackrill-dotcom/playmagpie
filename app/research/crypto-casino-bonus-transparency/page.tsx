@@ -48,8 +48,8 @@ const CATCH: Record<string, { text: string; source: string }> = {
     source: 'lib/casinos.ts cons; cap figure marked "not documented"',
   },
   cloudbet: {
-    text: 'Entry is gated at a 0.001 BTC-equivalent minimum deposit (the highest on this list), so the 5 BTC headline is calibrated for larger bankrolls.',
-    source: 'lib/casinos.ts minDeposit',
+    text: 'The headline no-limit withdrawal policy applies to fully verified (Level 2) accounts only; until verification completes, withdrawals are capped at $2,200 a day.',
+    source: 'Cloudbet help centre, verified 2026-07-16',
   },
   'mirax-casino': {
     text: 'Free-spin winnings are capped at a €100 max cashout regardless of the headline spin count.',
@@ -127,8 +127,9 @@ export default function TransparencyReportPage() {
             &quot;not documented.&quot;
           </p>
           <p className="text-[#555555] text-xs mt-4">
-            Bonus terms verified against operators&apos; live T&amp;Cs on 2026-05-30. Offers and claims
-            stated as of June 2026 and may change. Check the operator&apos;s current terms before depositing.
+            Bonus terms verified against operators&apos; live T&amp;Cs on 2026-05-30; Cloudbet&apos;s
+            terms re-verified against its help centre on 2026-07-16. Offers and claims may change.
+            Check the operator&apos;s current terms before depositing.
           </p>
         </div>
 
@@ -155,8 +156,9 @@ export default function TransparencyReportPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">Headline offer vs the verified catch</h2>
           <p className="text-[#888888] text-sm mb-6">
-            Headline figures are pulled live from our catalogue (each verified against the operator&apos;s live
-            T&amp;C on 2026-05-30). The &quot;catch&quot; column is the term the headline omits.
+            Headline figures are pulled live from our catalogue (verified against the operator&apos;s live
+            T&amp;C: 2026-07-16 for Cloudbet, 2026-05-30 for the rest). The &quot;catch&quot; column is the
+            term the headline omits.
           </p>
           <div className="space-y-3">
             {rows.map(({ casino, catch: c }) => (
@@ -174,7 +176,7 @@ export default function TransparencyReportPage() {
                 {casino.slug === 'roobet' ? (
                   <div className="text-[#bbbbbb] text-sm leading-relaxed bg-[#0d0d0d] border border-[#222222] rounded-xl p-4 mt-2">
                     <span className="text-[#d98a8a] text-xs uppercase tracking-wide font-semibold">The catch </span>
-                    Per Roobet&apos;s published terms (§10.8): a 2% fee applies to fiat withdrawals after the 10th in a
+                    Per Roobet&apos;s published terms (§10.8): a 2% fee applies from the 10th fiat withdrawal onwards in a
                     rolling 30-day window, alongside a stated $200,000/day cap and no weekend cashier processing. Separately,
                     AskGamblers hosts documented player complaints of multi-day withdrawal holds on large wins ($20k–$115k),
                     one of which, an $84,000 case, is publicly listed as <strong className="text-white">Unsolved as of June 2026</strong>.{' '}
@@ -229,7 +231,7 @@ export default function TransparencyReportPage() {
             <div className="bg-[#0d0d0d] border border-[#222222] rounded-2xl p-5">
               <div className="text-[#d98a8a] text-xs uppercase tracking-wide font-semibold mb-2">Roobet: documented record</div>
               <p className="text-[#bbbbbb] text-sm leading-relaxed">
-                Per Roobet&apos;s published terms (§10.8), a 2% fee applies to fiat withdrawals after the 10th in a rolling
+                Per Roobet&apos;s published terms (§10.8), a 2% fee applies from the 10th fiat withdrawal onwards in a rolling
                 30-day window, alongside a stated $200,000/day cap and no weekend cashier processing. Separately, AskGamblers
                 hosts documented player complaints of multi-day withdrawal holds on large wins ($20k–$115k), one of which,
                 an $84,000 case, is publicly listed as <strong className="text-white">Unsolved as of June 2026</strong>.{' '}

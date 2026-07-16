@@ -68,7 +68,10 @@ export default function GameHubPage() {
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Game contribution to wagering requirements alone can swing the value of a welcome bonus by
             10x between formats, and house edge ranges from 0.5% to over 5% depending on what you sit
-            down at. This page covers how each format actually behaves with crypto.
+            down at. This page covers how each format actually behaves with crypto. Slots typically
+            contribute 100% to bonus wagering while blackjack, roulette and live dealer contribute
+            only 0 to 10%, so a 30x wagering requirement effectively becomes 300x or more if you
+            play tables.
           </p>
         </div>
 

@@ -30,12 +30,13 @@ Rules: see `CLAUDE.md` > DataForSEO cost controls.
 | 2026-06-29 | bc game minimum deposit | kw_data/google_ads/search_volume | 10 | - | navigational | $0 | geo=ca; comp=LOW; very stable 10/mo across all 12 months reported (strongest of the three); batch |
 | 2026-07-13 | site:www.playmagpie.com | serp/organic_live_advanced (BING) | 0 results | - | probe | $0.05 | Bing existence probe for the AI-assistant channel session: Bing returned "No Search Results" (API code 40102) = zero pages indexed on the www host. Not a keyword-volume row; logged for spend tracking |
 | 2026-07-13 | site:playmagpie.com | serp/organic_live_advanced (BING) | 0 results | - | probe | $0.05 | Same probe, whole domain incl. apex: also zero. Bing has NO pages from playmagpie.com on any host; Bing Webmaster Tools setup + sitemap submission is the fix path |
+| 2026-07-16 | site:playmagpie.com | serp/organic_live_advanced (BING) | 0 results | - | probe | $0.05 | Follow-up probe 3 days after Bing WMT setup: still "No Search Results" (code 40102). Bing's public index remains empty for the domain; WMT Site Explorer discovery (owner-side) is not yet translating to indexed/served pages. Expected at day 3; re-probe at the next weekly recovery check |
 
 ## Spend running total
 
 - 2026-05: $0.05 (1 call)
 - 2026-06: $0.30 (4 calls — 8-keyword KYC batch on 06-02 + 5-keyword sportsbook batch on 06-08 + 3-keyword bitstarz deposit/payment batch on 06-22 + 3-keyword bc-game deposit/payment batch on 06-29; MCP returned no explicit cost field, $0.075/call standard estimate)
-- 2026-07: $0.10 (2 calls — Bing site: existence probes on 07-13, $0.05/call estimate for SERP live advanced)
+- 2026-07: $0.15 (3 calls — Bing site: existence probes on 07-13, follow-up probe on 07-16; $0.05/call estimate for SERP live advanced)
 
 ## Conventions
 

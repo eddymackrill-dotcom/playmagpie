@@ -12,9 +12,9 @@ export function generateStaticParams() {
 
 const META: Record<(typeof PAYMENT_METHODS_SLUGS)[number], { title: string; description: string }> = {
   cloudbet: {
-    title: 'Cloudbet Payment Methods 2026: 10 Cryptos, 0.001 BTC Minimum',
+    title: 'Cloudbet Payment Methods 2026: 29 Cryptos, ~$1 Minimum, Fiat Rails',
     description:
-      'Cloudbet accepts 10 cryptocurrencies with a 0.001 BTC equivalent minimum deposit. Network-by-network breakdown, what the higher entry point signals, and where the dual Curaçao + Kahnawake licence matters at deposit time.',
+      'Cloudbet accepts 29 cryptocurrencies at a ~$1 equivalent minimum deposit, plus fiat deposits via Jeton and Vega. Network-by-network breakdown of the major coins and where the dual Curaçao + Kahnawake licence matters at deposit time.',
   },
   bitstarz: {
     title: 'BitStarz Payment Methods 2026: 6 Cryptos, $20 Minimum Deposit',
@@ -122,7 +122,7 @@ export default async function PaymentMethodsPage(props: PaymentMethodsPageProps)
                 {casino.name}: Payment Methods
               </p>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-                {slug === 'cloudbet' && 'Cloudbet Deposit Options: 10 Cryptos, 0.001 BTC Floor, Dual Regulator'}
+                {slug === 'cloudbet' && 'Cloudbet Deposit Options: 29 Cryptos, ~$1 Floor, Fiat via Jeton and Vega'}
                 {slug === 'bitstarz' && 'BitStarz Deposit Options: Six Classic Coins, $20 Floor, and the Fiat-vs-Crypto KYC Fork'}
                 {slug === 'bc-game' && 'BC.Game Deposit Options: 100+ Coins, a $5 Floor, and No KYC at Any Size'}
               </h1>
@@ -138,8 +138,9 @@ export default async function PaymentMethodsPage(props: PaymentMethodsPageProps)
                 rather than the literal array length (16). No-op for cloudbet/bitstarz. */}
             <Stat label="Cryptos" value={casino.acceptedCryptos.includes('100+ more') ? '100+' : `${casino.acceptedCryptos.length}`} />
             {/* BitStarz is a hybrid crypto+fiat casino; its lib/casinos.ts cons document
-                "fiat transactions" that trigger KYC. Cloudbet is crypto-only. */}
-            <Stat label="Fiat" value={slug === 'bitstarz' ? 'Yes · KYC' : 'None'} />
+                "fiat transactions" that trigger KYC. Cloudbet added fiat deposit rails
+                (Jeton/Vega) in 2026, verified against its help centre 2026-07-16. */}
+            <Stat label="Fiat" value={slug === 'bitstarz' ? 'Yes · KYC' : slug === 'cloudbet' ? 'Deposits · Jeton/Vega' : 'None'} />
             <Stat label="KYC at Deposit" value={casino.kycLevel === 'Light' ? 'None' : casino.kycLevel} />
           </div>
 
@@ -201,24 +202,27 @@ function CloudbetContent() {
   return (
     <>
       <Para>
-        Cloudbet&apos;s payment side is built around 10 cryptocurrencies and exactly
-        zero fiat options. There is no card processor, no SEPA route, no bank
-        wire, no e-wallet. Every funding path runs on-chain through one of the
-        supported coins. For a player already holding crypto, this removes an
-        entire layer of friction (no card declines, no MCC blocking, no SEPA
-        gambling-descriptor flags). For a player who needs to acquire crypto
-        first, it pushes the on-ramp decision back upstream onto whichever
-        regulated exchange covers your jurisdiction.
+        Cloudbet&apos;s payment side is built around 29 cryptocurrencies, and, in a
+        real change from its crypto-only years, fiat rails now exist: deposits in
+        EUR, JPY, CAD and USD route through the third-party digital wallets Jeton
+        and Vega, and an in-platform Swapped integration lets you buy crypto
+        directly without an external wallet. For a player already holding crypto,
+        the on-chain paths still remove an entire layer of friction (no card
+        declines, no MCC blocking, no gambling-descriptor flags). For a player
+        who needs to acquire crypto first, the on-ramp decision no longer has to
+        happen upstream at an exchange; Swapped handles it at the cashier. Fiat
+        support is deposit-side; we have not found a published fiat withdrawal
+        route, so plan to cash out in crypto.
       </Para>
 
-      <SectionHeading>The 10 supported cryptos: what each one means at deposit time</SectionHeading>
+      <SectionHeading>The 29-coin lineup: the majors at deposit time</SectionHeading>
       <Para>
-        Cloudbet accepts BTC, ETH, USDT, USDC, SOL, BNB, DOGE, LTC, BCH and PAX
-        for deposits. The list is wider than BitStarz (six), Mirax (seven) and
-        7Bit (eight) but narrower than BC.Game (100+) or Shuffle (12). The
-        practical implication of the 10-coin lineup is that the cashier is
-        designed around a curated set of high-volume, high-reliability chains
-        rather than offering breadth for its own sake.
+        Cloudbet accepts 29 cryptocurrencies for deposits: the majors broken down
+        in the table below, plus an altcoin bench (ADA, DOT, LINK, AVAX, TON,
+        TRX, XLM, ALGO and others) and a deep stablecoin set (USDT, USDC, DAI,
+        USDP, PAXG, USDe). The list is wider than every casino we review except
+        BC.Game (100+), a substantial expansion from the curated 10 coins
+        Cloudbet ran for years. The table covers the ten highest-volume choices:
       </Para>
       <div className="overflow-x-auto -mx-4 sm:-mx-0 mb-6">
         <table className="w-full text-sm border-collapse">
@@ -235,7 +239,7 @@ function CloudbetContent() {
               <td className="py-3 px-3 font-medium text-white">BTC</td>
               <td className="py-3 px-3">~10 min – ~60 min</td>
               <td className="py-3 px-3">Mempool-dependent</td>
-              <td className="py-3 px-3">0.001 BTC minimum sets the deposit floor</td>
+              <td className="py-3 px-3">Slowest confirmations in the lineup; ~$1 equivalent minimum applies</td>
             </tr>
             <tr className="border-b border-[#222222]">
               <td className="py-3 px-3 font-medium text-white">ETH</td>
@@ -286,10 +290,10 @@ function CloudbetContent() {
               <td className="py-3 px-3">Niche but functional</td>
             </tr>
             <tr>
-              <td className="py-3 px-3 font-medium text-white">PAX</td>
+              <td className="py-3 px-3 font-medium text-white">USDP</td>
               <td className="py-3 px-3">~3 min (ERC-20)</td>
               <td className="py-3 px-3">Gas-dependent</td>
-              <td className="py-3 px-3">NYDFS-supervised stablecoin from Paxos Trust</td>
+              <td className="py-3 px-3">NYDFS-supervised stablecoin from Paxos Trust (formerly PAX)</td>
             </tr>
           </tbody>
         </table>
@@ -303,9 +307,10 @@ function CloudbetContent() {
         cashier mechanics by a wide margin.
       </Para>
       <Para>
-        PAX (Paxos Standard) is the unusual entry. It&apos;s a USD-backed
+        USDP (Pax Dollar, formerly PAX) is the unusual entry. It&apos;s a USD-backed
         stablecoin issued by Paxos Trust, a New York-chartered trust company
-        supervised by the NYDFS. Most crypto casinos don&apos;t offer PAX. The
+        supervised by the NYDFS, and Cloudbet lists PAX Gold (PAXG) alongside it.
+        Most crypto casinos don&apos;t offer either. The
         operational complexity of supporting a regulated US-supervised stablecoin
         sits outside the typical Curaçao operator&apos;s comfort zone. That
         Cloudbet does is one of several signals that the platform&apos;s player
@@ -313,23 +318,23 @@ function CloudbetContent() {
         retail-degen end.
       </Para>
 
-      <SectionHeading>The 0.001 BTC minimum: what it signals</SectionHeading>
+      <SectionHeading>The deposit floor: ~$1, the lowest in our catalogue</SectionHeading>
       <Para>
-        Cloudbet&apos;s minimum deposit is 0.001 BTC equivalent. That&apos;s a
-        meaningfully higher entry point than the rest of our reviewed casinos:
-        BC.Game opens at $5, 7Bit at $10, BitStarz/Mirax/Shuffle/Duelbits at $20
-        or thereabouts. The floor isn&apos;t accidental. It&apos;s the casino
-        signalling that the cashier infrastructure and player support are built
-        around larger deposits, with proportionately less volume at the entry
-        tier.
+        Cloudbet&apos;s minimum deposit is now roughly $1 equivalent, with
+        per-coin thresholds shown at the deposit screen. That is a genuine
+        reversal: for years the floor sat at 0.001 BTC equivalent, the highest
+        entry point among our reviewed casinos, and this page previously read
+        that floor as a signal that Cloudbet wasn&apos;t built for small-stakes
+        testing. The floor argument is retired. Entry now undercuts BC.Game
+        ($5), 7Bit ($10) and BitStarz/Mirax/Shuffle/Duelbits ($10-$20).
       </Para>
       <Para>
-        The deposit floor also interacts directly with the 5 BTC welcome bonus
-        ceiling. A platform that scales its match offer up to five Bitcoin needs
-        a floor above the &quot;deposit $5 to test the cashier&quot; model. The two
-        numbers are coherent. Cloudbet&apos;s entire payment side is calibrated
-        for serious bankrolls in and serious bankrolls out, which is also why
-        the withdrawal page leads on the no-limit policy. See{' '}
+        The welcome offer changed in the same direction: the old 100%-up-to-5-BTC
+        match is gone, replaced by the $2,500 Welcome Package paid as cash
+        rewards (10% casino rakeback plus daily cash drops, no wagering) over
+        the first 30 days. What still calibrates Cloudbet toward serious
+        bankrolls is the cash-out side: no withdrawal limits once an account is
+        fully verified, which is why the withdrawal page leads on that policy. See{' '}
         <Link href="/reviews/cloudbet/withdrawal" className="text-[#7BB8D4] hover:underline">
           the Cloudbet withdrawal page
         </Link>{' '}
@@ -492,11 +497,11 @@ function BitStarzContent() {
       <Para>
         BitStarz&apos;s minimum deposit is $20, or roughly 0.0003 BTC at current
         rates. That is a low, accessible floor, the same as Mirax, above 7Bit
-        ($10) and BC.Game ($5), but a different universe from Cloudbet&apos;s
-        0.001 BTC. It signals the opposite intent to Cloudbet&apos;s: BitStarz
-        wants you in at small stakes to test the cashier, not to pre-qualify a
-        bankroll. No deposit fee is charged by BitStarz on either side; only the
-        blockchain network fee applies on crypto.
+        ($10), BC.Game ($5) and Cloudbet (~$1 equivalent since its 2026 floor
+        cut). The intent is clear either way: BitStarz wants you in at small
+        stakes to test the cashier, not to pre-qualify a bankroll. No deposit
+        fee is charged by BitStarz on either side; only the blockchain network
+        fee applies on crypto.
       </Para>
       <Para>
         Unlike the pure-crypto operators we review, BitStarz keeps a fiat path
@@ -589,24 +594,27 @@ function BitStarzContent() {
 
 /* ───────────── BC.Game: the opposite end of the spectrum from Cloudbet. Lead with the
    100+ coin breadth, then the $5 floor, then the policy-level no-KYC posture. Deliberately
-   inverts the Cloudbet spine (curated 10 → high floor → institutional licensing) so the two
-   pages read as mirror images rather than a name-swap. ───────────── */
+   inverts the Cloudbet spine (institutional licensing + verification-gated no-limit cashier;
+   the old "curated 10 / high floor" halves of the contrast retired 2026-07-16 when Cloudbet
+   expanded to 29 coins and cut its floor to ~$1) so the two pages read as mirror images
+   rather than a name-swap. ───────────── */
 function BCGameContent() {
   return (
     <>
       <Para>
-        If Cloudbet&apos;s cashier is built around a curated set of 10 coins and a high deposit
-        floor, BC.Game&apos;s is the opposite design in every respect. It funds on 100+
-        cryptocurrencies, opens at a $5 minimum, and asks for no identity documents at any deposit
-        or withdrawal size. The whole payment side is calibrated for breadth and accessibility
-        rather than curation, which is exactly why it suits a different player: someone who wants to
-        deposit whatever coin they happen to hold, at whatever size, without attaching a name to it.
+        If Cloudbet&apos;s cashier is built around institutional-grade licensing and a
+        verification-gated no-limit withdrawal policy, BC.Game&apos;s is the opposite design:
+        breadth and anonymity first. It funds on 100+ cryptocurrencies, opens at a $5 minimum,
+        and asks for no identity documents at any deposit or withdrawal size under the standard
+        flow. The whole payment side is calibrated for accessibility, which is exactly why it
+        suits a different player: someone who wants to deposit whatever coin they happen to
+        hold, at whatever size, without attaching a name to it.
       </Para>
 
       <SectionHeading>100+ coins: the widest cashier in our catalogue</SectionHeading>
       <Para>
         BC.Game accepts over 100 cryptocurrencies for deposits and withdrawals, by a wide margin the
-        broadest lineup of any casino we review (Cloudbet runs 10, Shuffle and Duelbits 12, BitStarz
+        broadest lineup of any casino we review (Cloudbet runs 29, Shuffle and Duelbits 12, BitStarz
         six). Most players will only ever use the majors, so the table below covers the named
         high-volume chains and what each means at deposit time. The long tail beyond them matters in
         one specific case: if you hold an altcoin that most casinos simply will not take, BC.Game
@@ -701,14 +709,14 @@ function BCGameContent() {
         credit.
       </Para>
 
-      <SectionHeading>The $5 minimum: the lowest floor we cover</SectionHeading>
+      <SectionHeading>The $5 minimum: coffee-money entry</SectionHeading>
       <Para>
-        BC.Game&apos;s $5 minimum deposit is the lowest of any casino in our catalogue: below 7Bit
-        ($10), well below BitStarz and Mirax ($20), and a different universe from Cloudbet&apos;s
-        0.001 BTC equivalent. The floor is a statement of intent. Where Cloudbet&apos;s high minimum
-        pre-qualifies a bankroll, BC.Game wants you in at the price of a coffee to try the cashier and
-        the originals before committing anything real. It is the most accessible entry point on the
-        site.
+        BC.Game&apos;s $5 minimum deposit sits at the accessible end of our catalogue: below 7Bit
+        ($10) and well below BitStarz and Mirax ($20). Only Cloudbet&apos;s ~$1 equivalent floor
+        (cut in 2026 from its old 0.001 BTC gate) is lower. The floor is a statement of intent:
+        BC.Game wants you in at the price of a coffee to try the cashier and the originals before
+        committing anything real, and it pairs that entry point with the no-document posture no
+        other low-floor cashier here offers.
       </Para>
       <Para>
         The low floor also reads coherently against the welcome offer. BC.Game&apos;s 220% Deposit
@@ -768,12 +776,12 @@ const CLOUDBET_FAQS = [
   {
     question: 'What is the minimum deposit at Cloudbet?',
     answer:
-      "Cloudbet's minimum deposit is 0.001 BTC equivalent across all 10 supported cryptocurrencies. That's a meaningfully higher floor than BC.Game ($5), 7Bit ($10) or BitStarz/Mirax ($20). The higher minimum reflects Cloudbet's positioning toward larger bankrolls: the cashier and support infrastructure are calibrated for serious-bankroll players, not the deposit-$5-to-test profile.",
+      "Cloudbet's minimum deposit is now roughly $1 equivalent, with per-coin thresholds shown at the deposit screen. That is the lowest floor among the casinos we review, under BC.Game ($5), 7Bit ($10) and BitStarz/Mirax ($20), and a reversal of the long-standing 0.001 BTC gate. Cloudbet's serious-bankroll positioning now rests on the withdrawal side (no limits for fully verified accounts), not on a deposit floor.",
   },
   {
     question: 'Does Cloudbet accept fiat deposits: cards, SEPA, bank wire?',
     answer:
-      "No. Cloudbet's deposit options are 100% cryptocurrency. There is no card processor, no SEPA path, no bank-wire route. Every deposit runs on-chain through one of the 10 supported coins. For players already holding crypto this eliminates card-decline and MCC-blocking friction. For players who need to acquire crypto first, the fiat-to-crypto conversion happens on a regulated exchange in your jurisdiction before the Cloudbet deposit.",
+      "Yes, as of 2026. Cloudbet accepts fiat deposits in EUR, JPY, CAD and USD through the third-party digital wallets Jeton and Vega, and an in-platform Swapped integration lets you buy crypto directly at the cashier. There is still no direct card or SEPA route, and we have found no published fiat withdrawal path, so plan to cash out in crypto. For players already holding crypto, the 29 on-chain deposit routes remain the lowest-friction option.",
   },
   {
     question: 'Which Cloudbet coin gives the fastest deposit credit?',
@@ -781,9 +789,9 @@ const CLOUDBET_FAQS = [
       "SOL is the fastest end-to-end deposit path on Cloudbet: broadcast to credited typically in single-digit seconds, with fees in fractions of a cent. BNB on BNB Smart Chain is essentially identical in profile. USDT or USDC on a fast network (the active network is shown at the cashier when you generate a deposit address) are the next-fastest stablecoin options. BTC is the slowest because of Bitcoin mainnet confirmation times.",
   },
   {
-    question: 'Why does Cloudbet support PAX when most casinos don\'t?',
+    question: 'Why does Cloudbet support USDP when most casinos don\'t?',
     answer:
-      "PAX (Paxos Standard) is a USD-backed stablecoin issued by Paxos Trust, a New York-chartered trust company supervised by the NYDFS. Most crypto casinos avoid PAX because supporting a US-supervised stablecoin adds operational complexity that doesn't fit the typical Curaçao operator's comfort zone. That Cloudbet does is one of several signals (alongside the dual Kahnawake licence and the 0.001 BTC deposit minimum) that the player mix skews toward the institutional-comfort end of crypto-native rather than the retail-degen end.",
+      "USDP (Pax Dollar, formerly PAX) is a USD-backed stablecoin issued by Paxos Trust, a New York-chartered trust company supervised by the NYDFS; Cloudbet lists PAX Gold (PAXG) alongside it. Most crypto casinos avoid Paxos assets because supporting a US-supervised stablecoin adds operational complexity that doesn't fit the typical Curaçao operator's comfort zone. That Cloudbet does is one of several signals (alongside the dual Kahnawake licence) that the player mix skews toward the institutional-comfort end of crypto-native rather than the retail-degen end.",
   },
   {
     question: 'Will Cloudbet ask for ID at deposit?',
@@ -796,12 +804,12 @@ const BITSTARZ_FAQS = [
   {
     question: 'What is the minimum deposit at BitStarz?',
     answer:
-      "BitStarz's minimum deposit is $20, or roughly 0.0003 BTC at current rates, and it applies across all six supported cryptocurrencies. That's a low, accessible floor: level with Mirax, above 7Bit ($10) and BC.Game ($5), and far below Cloudbet's 0.001 BTC. Crypto deposits credit after one blockchain confirmation. BitStarz charges no deposit fee on either the crypto or fiat side; on crypto, only the standard network fee applies.",
+      "BitStarz's minimum deposit is $20, or roughly 0.0003 BTC at current rates, and it applies across all six supported cryptocurrencies. That's a low, accessible floor: level with Mirax, above 7Bit ($10), BC.Game ($5) and Cloudbet (~$1 equivalent). Crypto deposits credit after one blockchain confirmation. BitStarz charges no deposit fee on either the crypto or fiat side; on crypto, only the standard network fee applies.",
   },
   {
     question: 'Does BitStarz accept fiat, or is it crypto-only?',
     answer:
-      "BitStarz is a hybrid casino: it keeps a fiat path alongside its six supported cryptos, where most pure-crypto operators we review (Cloudbet, BC.Game, 7Bit) are crypto-only. The trade-off is privacy. Fiat transactions at BitStarz trigger KYC, whereas a standard crypto deposit below BitStarz's verification thresholds stays document-free. So the deposit method is also a privacy decision: pick the crypto path if keeping verification light is the priority.",
+      "BitStarz is a hybrid casino: it keeps a fiat path alongside its six supported cryptos, where several operators we review (BC.Game, 7Bit) are crypto-only. The trade-off is privacy. Fiat transactions at BitStarz trigger KYC, whereas a standard crypto deposit below BitStarz's verification thresholds stays document-free. So the deposit method is also a privacy decision: pick the crypto path if keeping verification light is the priority.",
   },
   {
     question: 'Which BitStarz coin deposits fastest?',
@@ -824,12 +832,12 @@ const BCGAME_FAQS = [
   {
     question: 'What is the minimum deposit at BC.Game?',
     answer:
-      "BC.Game's minimum deposit is $5, the lowest of any casino we review: below 7Bit ($10), well below BitStarz and Mirax ($20), and far below Cloudbet's 0.001 BTC equivalent. The same $5 minimum applies across all supported coins and lets you start the 220% rakeback welcome with a single small deposit rather than sizing a large first deposit to qualify.",
+      "BC.Game's minimum deposit is $5: below 7Bit ($10) and well below BitStarz and Mirax ($20), with only Cloudbet's ~$1 equivalent floor lower among the casinos we review. The same $5 minimum applies across all supported coins and lets you start the 220% rakeback welcome with a single small deposit rather than sizing a large first deposit to qualify.",
   },
   {
     question: 'How many cryptocurrencies does BC.Game accept?',
     answer:
-      "Over 100, by a wide margin the widest lineup of any casino we review (Cloudbet runs 10, Shuffle and Duelbits 12, BitStarz six). The named majors include BTC, ETH, USDT, USDC, SOL, BNB, DOGE, LTC, XRP, TRX, ADA, MATIC and BCH, with a long altcoin tail beyond them. The practical benefit is that if you hold a coin most casinos won't take, BC.Game very likely does, removing an upstream conversion step.",
+      "Over 100, by a wide margin the widest lineup of any casino we review (Cloudbet runs 29, Shuffle and Duelbits 12, BitStarz six). The named majors include BTC, ETH, USDT, USDC, SOL, BNB, DOGE, LTC, XRP, TRX, ADA, MATIC and BCH, with a long altcoin tail beyond them. The practical benefit is that if you hold a coin most casinos won't take, BC.Game very likely does, removing an upstream conversion step.",
   },
   {
     question: 'Does BC.Game require KYC to deposit or withdraw?',

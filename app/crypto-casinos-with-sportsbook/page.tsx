@@ -34,7 +34,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     slug: 'cloudbet',
     facts: [
       { label: 'Sportsbook', value: 'Best-in-class, hundreds of markets' },
-      { label: 'Withdrawal', value: 'Instant to 30 minutes, no limit' },
+      { label: 'Withdrawal', value: 'Instant for most; no cap once verified' },
       { label: 'KYC', value: 'Light' },
     ],
   },
@@ -85,7 +85,7 @@ const breadcrumbSchema = {
 // and sportsbook" framing rather than fabricated numbers).
 const PER_CASINO_SPORTSBOOK_NOTES: Record<string, string> = {
   cloudbet:
-    'Cloudbet has the strongest sportsbook on this list: our review rates it among the best-in-class for crypto betting, with crypto wagering across hundreds of markets. Paired with no withdrawal limits at the standard cashier and dual licensing from Curaçao plus the Kahnawake Gaming Commission, it is the default for high-stakes crypto sports betting. The 0.001 BTC equivalent minimum deposit is the highest entry point here. Cloudbet is built around larger bankrolls.',
+    'Cloudbet has the strongest sportsbook on this list: our review rates it among the best-in-class for crypto betting, with crypto wagering across hundreds of markets. Paired with a no-limit withdrawal policy for fully verified accounts ($2,200/day until Level 2 verification) and dual licensing from Curaçao plus the Kahnawake Gaming Commission, it is the default for high-stakes crypto sports betting. Entry is easy at a ~$1 equivalent minimum deposit; the serious-bankroll calibration now lives on the cash-out side.',
   'bc-game':
     'BC.Game pairs a full sportsbook with the widest coin support of any casino we review (100+ cryptocurrencies) and a strict no-KYC policy: email signup, no documents at any withdrawal size. The $5 minimum deposit makes it the most accessible entry point on the list, and withdrawals process instant to 10 minutes.',
   duelbits:
@@ -319,7 +319,7 @@ const SPORTSBOOK_FAQS = [
   {
     question: 'Which crypto sportsbook is best?',
     answer:
-      "Cloudbet, on the evidence in our catalogue: our review rates its sportsbook among the best-in-class for crypto betting, with wagering across hundreds of markets, no withdrawal limits at the standard cashier, and dual Curaçao + Kahnawake licensing. It carries the highest entry point (0.001 BTC equivalent minimum), so it is calibrated for larger bankrolls rather than small-stakes testing.",
+      "Cloudbet, on the evidence in our catalogue: our review rates its sportsbook among the best-in-class for crypto betting, with wagering across hundreds of markets, no withdrawal limits for fully verified accounts, and dual Curaçao + Kahnawake licensing. Entry is accessible (~$1 equivalent minimum deposit); the high-stakes calibration shows on the cash-out side, where verified accounts face no daily cap.",
   },
   {
     question: 'Can I bet sports with crypto without KYC?',
@@ -334,6 +334,6 @@ const SPORTSBOOK_FAQS = [
   {
     question: 'Which crypto sportsbook pays out fastest?',
     answer:
-      'Duelbits has the fastest headline withdrawal window of the five (instant to 5 minutes), followed by BC.Game (instant to 10 minutes). Cloudbet processes instant to 30 minutes but is the only one with no withdrawal limit, which matters more than raw speed for large sports wins. On-chain confirmation time then depends on the coin you withdraw in, not the sportsbook.',
+      'Duelbits has the fastest headline withdrawal window of the five (instant to 5 minutes), followed by BC.Game (instant to 10 minutes). Cloudbet processes most withdrawals instantly (up to 24 hours for manually reviewed requests) and is the only one with no withdrawal limit for fully verified accounts, which matters more than raw speed for large sports wins. On-chain confirmation time then depends on the coin you withdraw in, not the sportsbook.',
   },
 ] as const

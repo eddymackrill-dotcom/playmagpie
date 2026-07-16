@@ -28,7 +28,7 @@ const META: Record<(typeof WITHDRAWAL_SLUGS)[number], { title: string; descripti
   cloudbet: {
     title: 'Cloudbet Withdrawal: No Limits, 10 Coins, Dual Licence',
     description:
-      'Cloudbet imposes no withdrawal limits: rare among crypto casinos and the reason high rollers default to it. Speeds, the 10-coin lineup and dual Curaçao + Kahnawake licensing breakdown.',
+      'Cloudbet removes withdrawal limits entirely once your account is fully verified: rare among crypto casinos and the reason high rollers default to it. Speeds, the 29-coin lineup and dual Curaçao + Kahnawake licensing breakdown.',
   },
   duelbits: {
     title: 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins',
@@ -136,7 +136,7 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
                 {slug === 'bitstarz' && 'BitStarz Withdrawal Times & Limits in 2026'}
                 {slug === '7bit-casino' && '7Bit Casino Withdrawal: No KYC, 8 Coins, Under 10 Minutes'}
-                {slug === 'cloudbet' && 'Cloudbet Withdrawal: No Limits, 10 Coins, Dual Regulator Cover'}
+                {slug === 'cloudbet' && 'Cloudbet Withdrawal: No Limits Once Verified, 29 Coins, Dual Regulator Cover'}
                 {slug === 'duelbits' && 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins'}
               </h1>
               <p className="text-[#555555] text-xs mt-2">Last updated: May 17, 2026</p>
@@ -157,8 +157,9 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
           {/* Answer statement (2026-07-13 assistant-channel extractability pass). */}
           {slug === 'cloudbet' && (
             <p className="text-[#bbbbbb] text-base leading-relaxed mb-6">
-              Cloudbet imposes no per-transaction or per-day cap on crypto withdrawals. The cashier processing
-              window is instant to 30 minutes across 10 supported coins, and the platform has operated
+              Cloudbet imposes no per-transaction or per-day cap on crypto withdrawals for fully verified
+              accounts; until Level 2 verification is complete, withdrawals are capped at $2,200 a day. Most
+              withdrawals process instantly across 29 supported coins, and the platform has operated
               continuously since 2013 under dual Curaçao and Kahnawake licences.
             </p>
           )}
@@ -547,31 +548,36 @@ function CloudbetContent() {
     <>
       <Para>
         The thing that puts Cloudbet on a different footing from the other crypto
-        casinos covered on this site: it has no withdrawal limits. Not &quot;higher
-        limits at higher VIP tiers,&quot; not &quot;limits subject to verification&quot;: no
-        published per-transaction or per-day cap on what you can pull off the
-        platform. That single policy decision is the reason crypto high rollers
-        consistently surface Cloudbet at the top of any serious cash-out
-        conversation, and it&apos;s why the 9.0/10 withdrawal score sits where it
-        does despite a slightly slower headline window than BitStarz or 7Bit.
+        casinos covered on this site: once your account is fully verified, it has
+        no withdrawal limits. Not &quot;higher limits at higher VIP tiers&quot;: no
+        published per-transaction or per-day cap on what a verified account can
+        pull off the platform. The one qualifier, per Cloudbet&apos;s own published
+        cashier policy, is verification level: accounts that have not completed
+        Level 2 verification are capped at $2,200 a day until they do. That
+        policy structure is the reason crypto high rollers consistently surface
+        Cloudbet at the top of any serious cash-out conversation, and it&apos;s why
+        the 9.0/10 withdrawal score sits where it does despite a wider headline
+        window than BitStarz or 7Bit.
       </Para>
       <Para>
-        Speed-wise, the cashier processing window is instant to 30 minutes: wider
-        than the under-10-minute envelope at BitStarz and 7Bit, narrower than no
-        practical cap. The reason for the longer tail is real and worth knowing:
-        Cloudbet handles outsized withdrawals routinely, and that operational
-        reality occasionally pushes a payout into the upper end of the range
-        while the cashier confirms the request manually.
+        Speed-wise, most withdrawals process instantly, with a stated upper bound
+        of 24 hours for the minority of requests the cashier reviews manually.
+        The reason for the longer tail is real and worth knowing: Cloudbet
+        handles outsized withdrawals routinely, and that operational reality
+        occasionally pushes a payout into the review path before it clears.
       </Para>
 
       <SectionHeading>No withdrawal limits: what that actually means at the cashier</SectionHeading>
       <Para>
         &quot;No limit&quot; is a phrase casinos use sloppily. At Cloudbet it has a precise
-        meaning: there is no published per-transaction maximum and no per-day
-        ceiling on crypto withdrawals across the standard cashier. A six-figure
-        BTC payout pulls through the same flow as a $200 request: same approval
-        path, same processing window, same support team. The cap on what comes
-        out the other end is your balance, not the platform&apos;s policy.
+        meaning: for a fully verified (Level 2) account there is no published
+        per-transaction maximum and no per-day ceiling on crypto withdrawals
+        across the standard cashier. A six-figure BTC payout pulls through the
+        same flow as a $200 request: same approval path, same processing window,
+        same support team. The cap on what comes out the other end is your
+        balance, not the platform&apos;s policy. Before full verification the
+        published cap is $2,200 a day, so completing Level 2 up front is the
+        practical prerequisite for everything this page describes.
       </Para>
       <Para>
         This is the operational difference that matters for serious bankrolls. At
@@ -604,45 +610,49 @@ function CloudbetContent() {
         backstop exists if it ever needs to be used.
       </Para>
 
-      <SectionHeading>The 10-coin lineup: what each one means at the cashier</SectionHeading>
+      <SectionHeading>The 29-coin lineup: what it means at the cashier</SectionHeading>
       <Para>
-        Cloudbet supports BTC, ETH, USDT, USDC, SOL, BNB, DOGE, LTC, BCH and
-        PAX for deposits and withdrawals. The 10-coin spread is broader than
-        BitStarz (six), Mirax (seven) and 7Bit (eight). The standout choices
-        for withdrawal speed and cost:
+        Cloudbet now supports 29 cryptocurrencies for deposits and withdrawals,
+        spanning the majors (BTC, ETH, USDT, USDC, SOL, BNB, DOGE, LTC, BCH,
+        XRP), a deep altcoin bench (ADA, DOT, LINK, AVAX, TON, TRX and more)
+        and an unusually broad stablecoin set (USDT, USDC, DAI, USDP, USDe).
+        Fiat balances in CAD, EUR, JPY and USD are also supported, with fiat
+        deposits routed via the third-party wallets Jeton and Vega. The standout
+        choices for withdrawal speed and cost:
       </Para>
       <KeyList
         items={[
           'SOL and BNB settle on-chain in seconds with fees in fractions of a cent: the fastest end-to-end paths on the platform.',
           'USDT and USDC are the stablecoin options; the active network for each is shown at the cashier when you request the withdrawal.',
-          'PAX (Paxos Standard) is unusual to see on a crypto casino. It&apos;s a regulated USD-backed stablecoin issued by Paxos Trust, NYDFS-supervised.',
+          'USDP (Pax Dollar, formerly PAX) is unusual to see on a crypto casino. It&apos;s a regulated USD-backed stablecoin issued by Paxos Trust, NYDFS-supervised; PAX Gold (PAXG) is listed alongside it.',
           'LTC and DOGE clear in single-digit minutes and avoid Bitcoin congestion.',
           'BTC, ETH and BCH behave as on every other platform, gated by mainnet conditions, not by Cloudbet.',
         ]}
       />
       <Para>
-        The PAX option specifically deserves a note. Among major crypto casinos,
+        The USDP option specifically deserves a note. Among major crypto casinos,
         offering a NYDFS-supervised stablecoin alongside the standard USDT/USDC
         pair signals a player base that includes US-comfort institutional
         stablecoin users. That&apos;s a different mix than the typical
         Curaçao-only crypto casino.
       </Para>
 
-      <SectionHeading>The 0.001 BTC minimum and what it implies</SectionHeading>
+      <SectionHeading>The deposit floor: now ~$1, no longer a gate</SectionHeading>
       <Para>
-        Cloudbet&apos;s minimum deposit is 0.001 BTC equivalent. At current BTC
-        pricing that&apos;s a meaningfully higher entry point than BitStarz&apos; flat
-        $20, BC.Game&apos;s $5 or Mirax&apos;s $20. The 0.001 BTC floor isn&apos;t
-        accidental: it&apos;s the casino signalling that the cashier infrastructure
-        is built around larger deposits and larger withdrawals, with proportionately
-        smaller volume at the entry tier. Casual $5-to-test players are not
-        Cloudbet&apos;s target market.
+        Cloudbet&apos;s minimum deposit is now roughly $1 equivalent, with per-coin
+        thresholds shown at the deposit screen. That is a real change: for years
+        the floor sat at 0.001 BTC equivalent, the highest entry point among the
+        casinos we review, and this page previously read that floor as a signal
+        that Cloudbet wasn&apos;t built for small-stakes testing. The floor
+        argument is retired; entry is now cheaper than BC.Game&apos;s $5. What
+        still positions Cloudbet at the serious-bankroll end is the withdrawal
+        policy, not the deposit gate.
       </Para>
       <Para>
-        For the player profile Cloudbet is built around (crypto-native, willing
-        to deposit at the 0.001 BTC equivalent or above, valuing payout
-        reliability over headline match-bonus size), this is feature, not bug.
-        For full payment-method detail see{' '}
+        For the player profile Cloudbet is built around (crypto-native, valuing
+        payout capacity and regulatory recourse over headline match-bonus size),
+        the practical advice is unchanged: verify fully before you need a big
+        cash-out. For full payment-method detail see{' '}
         <Link href="/reviews/cloudbet/payment-methods" className="text-[#7BB8D4] hover:underline">
           the Cloudbet payment methods page
         </Link>
@@ -704,9 +714,10 @@ function CloudbetContent() {
         <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">BitStarz</Link>{' '}
         comes with the 25% bonus admin fee gotcha,{' '}
         <Link href="/reviews/7bit-casino/withdrawal" className="text-[#7BB8D4] hover:underline">7Bit</Link>{' '}
-        doesn&apos;t. Cloudbet&apos;s instant-to-30-minute window is the widest of the
-        three but the only one with no withdrawal limit constraining the upper
-        bound on payout size.
+        doesn&apos;t. Cloudbet&apos;s window is the widest of the three (most process
+        instantly, with a stated 24-hour bound for manually reviewed requests)
+        but it is the only one with no withdrawal limit constraining the upper
+        bound on payout size for verified accounts.
       </Para>
       <Para>
         Net read: Cloudbet is the choice when withdrawal-size capacity and
@@ -731,12 +742,12 @@ const CLOUDBET_FAQS = [
   {
     question: 'Does Cloudbet really have no withdrawal limit?',
     answer:
-      "Yes, the standard cashier flow at Cloudbet has no published per-transaction or per-day maximum on crypto withdrawals. Large amounts pull through the same approval path as small ones, with the same processing window. The constraint on what comes out is your balance, not a platform-imposed cap. This is the operational differentiator versus most other crypto casinos, where outsized withdrawals push through an exceptions / VIP-approval path.",
+      "Yes, for fully verified accounts: Cloudbet's cashier has no published per-transaction or per-day maximum on crypto withdrawals once Level 2 verification is complete. Until then, withdrawals are capped at $2,200 a day per Cloudbet's published policy. For verified accounts, large amounts pull through the same approval path as small ones, and the constraint on what comes out is your balance, not a platform-imposed cap. This is the operational differentiator versus most other crypto casinos, where outsized withdrawals push through an exceptions / VIP-approval path.",
   },
   {
     question: 'How long does a Cloudbet Bitcoin withdrawal actually take?',
     answer:
-      "Cloudbet's cashier-side processing window is instant to 30 minutes. After approval, on-chain Bitcoin confirmation depends on current mempool conditions: minutes during quiet periods, longer when the network is congested. The 30-minute upper bound is wider than BitStarz's under-10-minute window because Cloudbet handles outsized withdrawals as part of the standard flow, which occasionally pushes individual requests toward the upper end of the range.",
+      "Most Cloudbet withdrawals are processed instantly on the cashier side, with a stated upper bound of 24 hours for requests that go through manual review. After approval, on-chain Bitcoin confirmation depends on current mempool conditions: minutes during quiet periods, longer when the network is congested. The wide upper bound exists because Cloudbet handles outsized withdrawals as part of the standard flow, which occasionally routes individual requests into review.",
   },
   {
     question: 'What does the Kahnawake licence give me that Curaçao alone doesn\'t?',
@@ -749,9 +760,9 @@ const CLOUDBET_FAQS = [
       "SOL and BNB are the two standouts on the Cloudbet lineup for end-to-end speed: both settle on-chain in seconds once broadcast, with fees in fractions of a cent. USDT or USDC on a fast network (the active network is shown at the cashier when you request the withdrawal) are the next-fastest. LTC and DOGE clear in single-digit minutes. BTC is the slowest in the lineup because of network confirmation times.",
   },
   {
-    question: 'Why is Cloudbet\'s 0.001 BTC minimum so much higher than other casinos?',
+    question: 'What is Cloudbet\'s minimum deposit now?',
     answer:
-      "The 0.001 BTC minimum signals that Cloudbet's cashier and player support infrastructure are built around larger bankrolls. Casual $5-to-test players are not the target market. Players depositing at the 0.001 BTC equivalent or above, valuing reliable payout processing over headline match-bonus size, are the profile Cloudbet is designed around. For casinos with lower entry minimums see BC.Game ($5) or 7Bit Casino ($10).",
+      "Roughly $1 equivalent, with exact per-coin thresholds shown at the deposit screen. This is a change from the long-standing 0.001 BTC equivalent floor, which was the highest entry point among the casinos we review; Cloudbet's entry cost is now lower than BC.Game's $5 or 7Bit's $10. What continues to position Cloudbet toward larger bankrolls is the withdrawal side: no limits for fully verified accounts, with a $2,200/day cap until verification completes.",
   },
 ] as const
 

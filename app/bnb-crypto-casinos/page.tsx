@@ -6,8 +6,10 @@ import TopRatedSection from '@/components/TopRatedSection'
 import CTAButton from '@/components/CTAButton'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
-// Top 3 of BNB-accepting operators by trust score. BitStarz, Mirax and
-// Roobet don't accept BNB and are filtered out.
+// Top 3 of BNB-accepting operators by trust score. BitStarz and Mirax don't
+// accept BNB and are filtered out. Roobet added BNB in 2026 (help-centre
+// verified 2026-07-16) so it flows into the ranked list (last, trust 6.8),
+// but stays off the strip per the standing Roobet-exclusion precedent.
 const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'bc-game',
@@ -28,8 +30,8 @@ const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'cloudbet',
     facts: [
-      { label: 'Accepts BNB', value: '✓ first-class option in 10-coin lineup' },
-      { label: 'Withdrawal', value: 'Instant to 30 minutes' },
+      { label: 'Accepts BNB', value: '✓ first-class option in 29-coin lineup' },
+      { label: 'Withdrawal', value: 'Instant for most; up to 24 hours' },
       { label: 'KYC', value: 'Light' },
     ],
   },
@@ -38,7 +40,7 @@ const STRIP_CARDS: CTAStripCard[] = [
 export const metadata: Metadata = {
   title: 'Best BNB Crypto Casinos 2026: Fast, Cheap, Smart Chain',
   description:
-    'Only five casinos in our catalogue accept BNB. Settlement in ~3 seconds at sub-cent fees on BNB Smart Chain. Ranked: BC.Game, Cloudbet, 7Bit, Shuffle, Duelbits.',
+    'Six of the eight casinos in our catalogue accept BNB. Settlement in ~3 seconds at sub-cent fees on BNB Smart Chain. Ranked: BC.Game, Cloudbet, 7Bit, Shuffle, Duelbits, Roobet.',
   alternates: {
     canonical: '/bnb-crypto-casinos',
   },
@@ -46,13 +48,13 @@ export const metadata: Metadata = {
     url: '/bnb-crypto-casinos',
     title: 'Best BNB Crypto Casinos 2026: Fast, Cheap, Smart Chain',
     description:
-      'Only five casinos in our catalogue accept BNB. Settlement in ~3 seconds at sub-cent fees on BNB Smart Chain. Full per-casino BNB breakdown.',
+      'Six of the eight casinos in our catalogue accept BNB. Settlement in ~3 seconds at sub-cent fees on BNB Smart Chain. Full per-casino BNB breakdown.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best BNB Crypto Casinos 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Best BNB Crypto Casinos 2026: Fast, Cheap, Smart Chain',
-    description: 'Only five casinos accept BNB directly. Ranked breakdown of all five and what each one means for BNB depositors.',
+    description: 'Six of our eight reviewed casinos accept BNB directly. Ranked breakdown and what each one means for BNB depositors.',
     images: ['/og-image.png'],
   },
 }
@@ -74,13 +76,15 @@ const PER_CASINO_BNB_NOTES: Record<string, string> = {
   'bc-game':
     'BC.Game accepts BNB alongside 100+ other cryptocurrencies, by far the widest coin support of any casino in our rankings. BNB Smart Chain settlement is near-instant and BC.Game has zero KYC at any withdrawal size, which makes it the cleanest BNB-deposit-to-BNB-withdrawal path on the list.',
   cloudbet:
-    'Cloudbet treats BNB as a first-class option in its 10-coin lineup. The differentiators are no withdrawal limits at the standard cashier and dual licensing from Curaçao plus the Kahnawake Gaming Commission. The 0.001 BTC equivalent minimum deposit is the highest entry point on this list. Cloudbet is calibrated for larger BNB bankrolls rather than the deposit-$10-to-test profile.',
+    'Cloudbet treats BNB as a first-class option in its 29-coin lineup. The differentiators are a no-limit withdrawal policy for fully verified accounts ($2,200/day until Level 2 verification) and dual licensing from Curaçao plus the Kahnawake Gaming Commission. Entry is now a ~$1 equivalent minimum deposit, the lowest on this list; the serious-bankroll calibration lives on the cash-out side.',
   '7bit-casino':
-    '7Bit Casino added BNB to its eight-coin lineup as a direct replacement for slower legacy chains on its deposit side. No KYC at any withdrawal size has held since 2014, which is the longest unbroken no-KYC track record across these five operators.',
+    '7Bit Casino added BNB to its eight-coin lineup as a direct replacement for slower legacy chains on its deposit side. No KYC at any withdrawal size has held since 2014, which is the longest unbroken no-KYC track record across the operators here.',
   shuffle:
     'Shuffle accepts BNB across its 12-coin lineup alongside the native SHFL token. The rakeback-based VIP programme returns a percentage of house edge regardless of which coin you deposited, so BNB-side play earns the same SHFL rewards as USDT or BTC play.',
   duelbits:
-    'Duelbits supports BNB across its 12-coin lineup and runs a cashback-first welcome model: up to $30 weekly cashback plus Duelbits Originals rewards, no traditional deposit match. Withdrawals process in under 5 minutes, the fastest headline window of the five.',
+    'Duelbits supports BNB across its 12-coin lineup and runs a cashback-first welcome model: up to $30 weekly cashback plus Duelbits Originals rewards, no traditional deposit match. Withdrawals process in under 5 minutes, the fastest headline window here.',
+  roobet:
+    'Roobet added BNB to its deposit lineup in 2026 (now 11 coins per its help centre). It ranks last here for the same reasons it carries our lowest trust score: documented multi-day withdrawal holds on large wins in the AskGamblers record and Standard KYC with re-verification on sizeable cashouts. Workable for small-stakes BNB play; not where we would route a serious BNB bankroll.',
 }
 
 export default function BnbCryptoCasinosPage() {
@@ -111,20 +115,21 @@ export default function BnbCryptoCasinosPage() {
           <p className="text-[#888888] text-lg max-w-3xl leading-relaxed">
             BNB on BNB Smart Chain settles in roughly three seconds with fees measured in
             fractions of a cent, among the cheapest end-to-end deposit and withdrawal
-            paths at any crypto casino. The catch: only five operators in our rankings
-            actually accept BNB directly. This page covers all five.
+            paths at any crypto casino. The catch: six operators in our rankings
+            accept BNB directly, and BitStarz and Mirax do not. This page covers
+            all six, ranked by trust.
           </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-          <Stat label="Casinos accepting BNB" value={`${bnbCasinos.length}`} sub="of 7 reviewed" />
+          <Stat label="Casinos accepting BNB" value={`${bnbCasinos.length}`} sub="of 8 reviewed" />
           <Stat label="BSC settlement" value="~3 sec" sub="On-chain finality" />
           <Stat label="Typical fee" value="<$0.01" sub="Per transaction" />
           <Stat label="Cheapest entry" value="$5" sub="BC.Game minimum" />
         </div>
 
         <CasinoCTAStrip
-          framing="Top 3 BNB-accepting operators by trust score. BitStarz, Mirax and Roobet don't accept BNB."
+          framing="Top 3 BNB-accepting operators by trust score. BitStarz and Mirax don't accept BNB; Roobet does but sits below our trust bar for a headline recommendation."
           cards={STRIP_CARDS}
         />
 
@@ -142,8 +147,8 @@ export default function BnbCryptoCasinosPage() {
             </p>
             <p>
               For that player BNB deposits are essentially friction-free. For
-              everyone else, the narrower casino acceptance list (five of seven
-              reviewed casinos here, versus seven of seven for BTC and USDT) makes
+              everyone else, the narrower casino acceptance list (six of eight
+              reviewed casinos here, versus eight of eight for BTC and USDT) makes
               BNB a worse default. There is no scenario where you would
               specifically buy BNB to gamble with it. You would buy USDT or SOL.
               The use case is depositing what you already hold.
@@ -248,9 +253,9 @@ export default function BnbCryptoCasinosPage() {
             <div className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
               <h3 className="text-white font-semibold mb-2">For high-volume BNB withdrawals</h3>
               <p className="text-[#888888] text-sm leading-relaxed mb-3">
-                Cloudbet is the only one of the five with an explicit no-withdrawal-limit
-                policy. The standard cashier accommodates outsized BNB payouts without
-                pushing them through an exceptions path.
+                Cloudbet is the only one here with an explicit no-withdrawal-limit
+                policy, applying to fully verified accounts. The standard cashier
+                accommodates outsized BNB payouts without an exceptions path.
               </p>
               <Link href="/high-roller-casinos#withdrawal-limits" className="text-[#7BB8D4] text-sm hover:underline">
                 See the no-limit-withdrawal casinos →
@@ -259,12 +264,13 @@ export default function BnbCryptoCasinosPage() {
             <div className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
               <h3 className="text-white font-semibold mb-2">For the largest welcome bonus</h3>
               <p className="text-[#888888] text-sm leading-relaxed mb-3">
-                Cloudbet&apos;s 100% match up to 5 BTC equivalent is the largest cash-match welcome on this list,
-                with Shuffle&apos;s 100% up to $1,000 next. Players seeking a traditional BNB-denominated
-                cash-match welcome should look at Cloudbet or Shuffle. BC.Game&apos;s structure is now a
-                Deposit Rakeback Welcome (220% across 4 monthly stages, locked balance unlocking as you
-                wager) which may fit specific high-volume profiles but is not a like-for-like substitute
-                for what was previously claimed.
+                Shuffle&apos;s 100% up to $1,000 is now the largest traditional cash-match welcome on this
+                list: Cloudbet retired its former 5 BTC match in favour of a $2,500 package paid as cash
+                rewards (10% rakeback plus daily cash drops, no wagering) over the first 30 days.
+                BC.Game&apos;s structure is a Deposit Rakeback Welcome (220% across 4 monthly stages,
+                locked balance unlocking as you wager). Players seeking a traditional cash-match welcome
+                should look at Shuffle; players who prefer cash rewards without wagering should look at
+                Cloudbet.
               </p>
               <Link href="/best-crypto-casinos" className="text-[#7BB8D4] text-sm hover:underline">
                 Compare all crypto casinos →
@@ -359,7 +365,7 @@ const BNB_FAQS = [
   {
     question: 'Why do only some crypto casinos accept BNB?',
     answer:
-      "BNB is supported by five of the eight casinos in our rankings: BC.Game, Cloudbet, 7Bit Casino, Shuffle and Duelbits. BitStarz, Mirax Casino and Roobet don't currently accept BNB. The split largely reflects when each operator added newer chain support: BitStarz, Mirax and Roobet have leaner six-to-eight-coin lineups focused on the more established chains, while the BNB-supporting five run broader 8-to-12-coin lineups including BNB Smart Chain.",
+      "BNB is supported by six of the eight casinos in our rankings: BC.Game, Cloudbet, 7Bit Casino, Shuffle, Duelbits and, since 2026, Roobet. BitStarz and Mirax Casino don't currently accept BNB. The split largely reflects when each operator added newer chain support: BitStarz and Mirax run leaner six-to-seven-coin lineups focused on the more established chains, while the BNB-supporting six run broader lineups (8 to 100+ coins) including BNB Smart Chain.",
   },
   {
     question: 'Is BNB faster than USDT for casino deposits?',
@@ -369,12 +375,12 @@ const BNB_FAQS = [
   {
     question: 'Are there any BNB-only welcome bonuses?',
     answer:
-      "None of the five BNB-accepting casinos run a BNB-specific welcome bonus. All offer their standard welcome packages denominated in BTC-equivalent or USD-equivalent terms, applied proportionally to BNB deposits. Cloudbet's 100% up to 5 BTC equivalent is the largest single-coin-denominated cash-match welcome on the list. Players seeking a traditional BNB-denominated cash-match should look at Cloudbet or Shuffle. BC.Game's structure is now a Deposit Rakeback Welcome (220% across 4 monthly stages, locked balance unlocking as you wager) which may fit specific high-volume profiles but is not a like-for-like substitute for what was previously claimed.",
+      "None of the BNB-accepting casinos run a BNB-specific welcome bonus. All offer their standard welcome packages denominated in BTC-equivalent or USD-equivalent terms, applied proportionally to BNB deposits. Shuffle's 100% up to $1,000 is the largest traditional cash-match welcome on the list now that Cloudbet has replaced its former 5 BTC match with a $2,500 package paid as cash rewards (rakeback and cash drops, no wagering). BC.Game's structure is a Deposit Rakeback Welcome (220% across 4 monthly stages, locked balance unlocking as you wager) which may fit specific high-volume profiles but is not a like-for-like cash-match substitute.",
   },
   {
     question: "What's the cheapest BNB casino to deposit at?",
     answer:
-      "BC.Game has the lowest entry point at $5 equivalent, followed by 7Bit at $10. Shuffle and Duelbits sit around $10-$20. Cloudbet has the highest minimum at 0.001 BTC equivalent: that floor signals Cloudbet is built around larger BNB bankrolls rather than the deposit-small-to-test profile the other four accommodate.",
+      "Cloudbet now has the lowest entry point at roughly $1 equivalent, after cutting its long-standing 0.001 BTC floor in 2026. BC.Game follows at $5, then 7Bit at $10, with Shuffle and Duelbits around $10-$20. Every casino on this list now accommodates the deposit-small-to-test profile; what differentiates Cloudbet is the cash-out side, where fully verified accounts face no withdrawal limits.",
   },
   {
     question: 'Can I withdraw BNB back to my Binance account?',

@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 const casinoMetaDescriptions: Record<string, string> = {
   bitstarz: 'BitStarz review 2026. Award-winning Bitcoin casino: 5 BTC + 180 free spins, 3,000+ games, under 10-min crypto withdrawals. Rated 9.2/10 by PlayMagpie.',
   'bc-game': 'BC.Game review 2026. No-KYC crypto casino: 100+ cryptocurrencies, instant withdrawals, 10,000+ games. Zero identity verification required. Rated 8.9/10.',
-  cloudbet: 'Cloudbet review 2026. Trusted since 2013: 5 BTC welcome bonus, no withdrawal limits, excellent sportsbook for crypto bettors. Rated 8.7/10 by PlayMagpie.',
+  cloudbet: 'Cloudbet review 2026. Trusted since 2013: $2,500 welcome package with no wagering, no withdrawal limits for verified accounts, excellent sportsbook for crypto bettors. Rated 8.7/10 by PlayMagpie.',
   'mirax-casino': 'Mirax Casino review 2026. Up to 5 BTC + 150 free spins across the 4-deposit welcome pack, 7,000+ games, fast crypto withdrawals in under 15 minutes. Rated 8.6/10.',
   '7bit-casino': '7Bit Casino review 2026. No-KYC Bitcoin casino since 2014: instant withdrawals, 7,000+ games, weekly reload bonuses and VIP cashback. Rated 8.8/10.',
   shuffle: 'Shuffle Casino review 2026. Native SHFL token, rakeback VIP rewards, 10,000+ games and instant crypto withdrawals. 12 cryptocurrencies accepted. Rated 8.2/10.',
@@ -55,13 +55,13 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
   cloudbet: [
     {
       href: '/reviews/cloudbet/withdrawal',
-      label: 'Cloudbet withdrawal: the no-limit policy, dual-regulator backstop, 10-coin lineup',
+      label: 'Cloudbet withdrawal: the verified-account no-limit policy, dual-regulator backstop, 29-coin lineup',
       teaser: 'Why the standard cashier handles outsized payouts without an exceptions path, what the Kahnawake licence adds, and how SOL or BNB clear fastest end-to-end.',
     },
     {
       href: '/reviews/cloudbet/payment-methods',
-      label: 'Cloudbet deposits: 10 cryptos, 0.001 BTC floor, zero fiat options',
-      teaser: 'Per-coin deposit behaviour, what the higher minimum signals about player profile, and why the Kahnawake segregated-funds requirement matters at deposit time.',
+      label: 'Cloudbet deposits: 29 cryptos, ~$1 minimum, fiat rails via Jeton and Vega',
+      teaser: 'Per-coin deposit behaviour, the new low deposit floor and fiat options, and why the Kahnawake segregated-funds requirement matters at deposit time.',
     },
   ],
   duelbits: [
@@ -188,15 +188,15 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What are Cloudbet withdrawal times in 2026?',
-      answer: 'Cloudbet withdrawal time in 2026 is instant to 30 minutes for cryptocurrency transactions. Most withdrawals are processed automatically without manual review. Bitcoin withdrawals typically clear in one blockchain confirmation. Cloudbet imposes no withdrawal limits, which is a critical advantage for high-roller players who need large sums processed quickly without hitting daily or weekly caps that restrict other casinos.',
+      answer: 'Most Cloudbet crypto withdrawals in 2026 are processed instantly, with a stated upper bound of 24 hours for requests that go through manual review. Bitcoin withdrawals typically clear in one blockchain confirmation. Cloudbet imposes no withdrawal limits on fully verified accounts (until Level 2 verification, withdrawals are capped at $2,200 a day), which is a critical advantage for high-roller players who need large sums processed without the daily or weekly caps that restrict other casinos.',
     },
     {
-      question: 'What is the Cloudbet Bitcoin bonus?',
-      answer: 'The Cloudbet bitcoin bonus is a 100% deposit match up to 5 BTC on your first deposit, one of the largest single-deposit BTC bonuses available in 2026. The Cloudbet bitcoin bonus is released incrementally as you wager through the platform, rather than as a lump sum. This structure rewards active players and aligns the bonus release with real gambling activity. Ongoing reload bonuses are also available for returning players.',
+      question: 'What is the Cloudbet welcome bonus?',
+      answer: 'Cloudbet replaced its former 100% deposit match (up to 5 BTC) with the $2,500 Welcome Package: real cash rewards earned over your first 30 days through 10% casino rakeback, daily cash drops and one weekly sports cash drop. There are no wagering requirements on the package; rewards are paid as withdrawable cash rather than locked bonus balance. That structure favours active players and avoids the wagering-multiplier math that erodes traditional match bonuses.',
     },
     {
       question: 'What is the Cloudbet minimum deposit?',
-      answer: 'The Cloudbet minimum deposit is 0.001 BTC or the equivalent in other supported cryptocurrencies, lower than the dollar-denominated minimums at many competitors. Exact minimum deposit thresholds vary by cryptocurrency; check the Cloudbet cashier for per-coin figures. Deposits are credited after one blockchain confirmation. No deposit fees are charged by Cloudbet; standard network fees apply.',
+      answer: 'The Cloudbet minimum deposit is roughly $1 equivalent, one of the lowest floors among the casinos we review; the long-standing 0.001 BTC minimum no longer applies. Exact thresholds vary by cryptocurrency and are shown at the deposit screen. Deposits are credited after one blockchain confirmation. No deposit fees are charged by Cloudbet; standard network fees apply.',
     },
     {
       question: 'What are Cloudbet KYC requirements?',
@@ -204,11 +204,11 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Is Cloudbet good for high rollers?',
-      answer: 'Cloudbet is widely regarded as one of the best casinos for high rollers. Key Cloudbet high roller features include no withdrawal limits, large single-bet maximums across casino and sportsbook, a dedicated VIP programme with personal account managers, and a 5 BTC welcome bonus. High rollers also benefit from priority support, enhanced cashback through the VIP tier system, and the ability to withdraw any amount without restriction.',
+      answer: 'Cloudbet is widely regarded as one of the best casinos for high rollers. Key Cloudbet high roller features include no withdrawal limits for fully verified accounts, large single-bet maximums across casino and sportsbook, a dedicated VIP programme with personal account managers, and a $2,500 welcome package paid as cash rewards with no wagering requirements. High rollers also benefit from priority support, enhanced cashback through the VIP tier system, and, once Level 2 verification is complete, the ability to withdraw any amount without restriction.',
     },
     {
       question: 'What crypto options does Cloudbet support?',
-      answer: 'Cloudbet crypto options include 10 major cryptocurrencies: BTC, ETH, USDT, USDC, SOL, BNB, DOGE, LTC, BCH and PAX. The selection covers the most widely held coins while remaining curated for reliability and processing speed. All Cloudbet crypto options can be used for deposits, withdrawals and in-game wagering without conversion fees. This focused list suits players who hold mainstream crypto rather than niche altcoins.',
+      answer: 'Cloudbet accepts 29 cryptocurrencies, spanning the majors (BTC, ETH, USDT, USDC, SOL, BNB, DOGE, LTC, BCH, XRP), a broad altcoin bench (ADA, DOT, LINK, AVAX, TON, TRX and more) and an unusually deep stablecoin set (USDT, USDC, DAI, USDP, USDe). Fiat balances in CAD, EUR, JPY and USD are also supported, with fiat deposits via the third-party wallets Jeton and Vega. All crypto options can be used for deposits, withdrawals and in-game wagering without conversion fees.',
     },
     {
       question: 'How good is the Cloudbet sportsbook?',
@@ -374,7 +374,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What are Roobet withdrawal limits?',
-      answer: 'Roobet\'s headline daily withdrawal cap is $200,000 USD-equivalent. The minimum withdrawal is $10 in crypto or $15 in fiat. Crypto withdrawals are stated at ~15 minutes for most coins, with Bitcoin specifically listed at up to 24 hours; fiat withdrawals run 1-5 days. There is no weekend cashier processing. Per Roobet\'s terms §10.8, a 2% fee applies to each fiat withdrawal after the 10th in any rolling 30-day window, including the 10th itself.',
+      answer: 'Roobet\'s headline daily withdrawal cap is $200,000 USD-equivalent. The minimum withdrawal is $10 in crypto or $15 in fiat. Crypto withdrawals are stated at ~15 minutes for most coins, with Bitcoin specifically listed at up to 24 hours; fiat withdrawals run 1-5 days. There is no weekend cashier processing. Per Roobet\'s terms §10.8, a 2% fee applies to the 10th and each subsequent fiat withdrawal in any rolling 30-day window.',
     },
     {
       question: 'Why was Roobet banned from Twitch?',

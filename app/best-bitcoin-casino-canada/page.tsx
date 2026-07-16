@@ -54,7 +54,7 @@ const PER_CASINO_BTC_NOTES: Record<string, string> = {
   '7bit-casino':
     '7Bit has the longest no-KYC record (since 2014) and clears BTC instant to 10 minutes. Available across Canada. A settled, anonymous option.',
   cloudbet:
-    'Cloudbet is the Canadian high-roller pick: no withdrawal limits and a minimum quoted in Bitcoin (0.001 BTC equivalent). Dual Curaçao plus Kahnawake licensing, the latter a Canada-based gaming commission, which some Canadian players find reassuring. Available nationwide.',
+    'Cloudbet is the Canadian high-roller pick: no withdrawal limits once your account is fully verified ($2,200/day before that), with a ~$1 equivalent minimum deposit. Dual Curaçao plus Kahnawake licensing, the latter a Canada-based gaming commission, which some Canadian players find reassuring. Available nationwide.',
   'mirax-casino':
     'Mirax clears BTC instant to 15 minutes with light KYC above higher thresholds, welcome pack denominated in BTC. Available across Canada.',
   duelbits:

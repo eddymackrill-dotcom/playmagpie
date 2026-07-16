@@ -237,7 +237,7 @@ export default function CryptoPokiesNZPage() {
               {
                 slug: 'cloudbet',
                 name: 'Cloudbet',
-                summary: 'Lighter on pokies than the newer competitors but pairs the library with no withdrawal limits and a dual licence (Curaçao + Kahnawake). The 5 BTC welcome bonus is one of the largest available. Stronger sportsbook than pokies-first competitors: worth knowing if you split play.',
+                summary: 'Lighter on pokies than the newer competitors but pairs the library with no withdrawal limits for verified accounts and a dual licence (Curaçao + Kahnawake). The welcome offer is a $2,500 package paid as cash rewards with no wagering. Stronger sportsbook than pokies-first competitors: worth knowing if you split play.',
               },
             ].map((c) => (
               <Link

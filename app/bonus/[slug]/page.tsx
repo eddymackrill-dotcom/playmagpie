@@ -41,7 +41,7 @@ const STRIP_BY_BONUS: Record<string, CTAStripCard[]> = {
   'high-roller-bonus': [
     { slug: 'bitstarz', facts: [{ label: 'High-roller', value: 'Invite-only VIP: dedicated host' }, { label: 'Welcome', value: '5 BTC headline (25% admin-fee catch)' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
     { slug: 'bc-game', facts: [{ label: 'High-roller', value: 'Top XP tiers + per-account negotiation' }, { label: 'Welcome', value: '220% Deposit Rakeback, scales with deposit' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
-    { slug: 'cloudbet', facts: [{ label: 'High-roller', value: 'No withdrawal limits: the load-bearing differentiator' }, { label: 'Welcome', value: '5 BTC match, no admin fee' }, { label: 'Withdrawal', value: 'Instant to 30 minutes, no cap' }] },
+    { slug: 'cloudbet', facts: [{ label: 'High-roller', value: 'No withdrawal limits once verified: the load-bearing differentiator' }, { label: 'Welcome', value: '$2,500 package: cash rewards, no wagering' }, { label: 'Withdrawal', value: 'Instant for most; no cap when verified' }] },
   ],
 }
 
