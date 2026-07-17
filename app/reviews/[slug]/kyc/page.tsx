@@ -14,7 +14,7 @@ const META: Record<(typeof KYC_SLUGS)[number], { title: string; description: str
   bitstarz: {
     title: 'BitStarz KYC Requirements 2026: When Verification Triggers',
     description:
-      'BitStarz runs Light KYC: most crypto players never upload a document. What actually triggers verification, which documents get asked for, and how the 25% bonus admin fee interacts with a held withdrawal.',
+      'BitStarz runs Light KYC: most crypto players never upload a document. What actually triggers verification, which documents get asked for, and why a pending withdrawal usually isn\'t a KYC hold.',
   },
   'bc-game': {
     title: 'BC.Game KYC: Does It Require Verification? (2026)',
@@ -277,8 +277,8 @@ function BitstarzContent() {
         That distinction is what the Search Console data for &quot;bitstarz kyc&quot; and
         &quot;bitstarz kyc requirements&quot; suggests people are actually trying to settle
         before they sign up, so this page leads with the two trigger conditions, then
-        covers the documents and the one interaction (the 25% bonus admin fee) that
-        most often gets mistaken for a KYC hold.
+        covers the documents and the bonus-wagering mechanic that most often gets
+        mistaken for a KYC hold.
       </Para>
 
       <SectionHeading>The two things that trigger BitStarz KYC</SectionHeading>
@@ -315,15 +315,17 @@ function BitstarzContent() {
         ]}
       />
 
-      <SectionHeading>The 25% bonus admin fee is not a KYC hold, but it looks like one</SectionHeading>
+      <SectionHeading>Bonus wagering is not a KYC hold, but it looks like one</SectionHeading>
       <Para>
-        The single most common reason a BitStarz withdrawal sits in pending is not KYC
-        at all: it&apos;s the 25% admin fee being calculated on a bonus-derived balance.
-        If you took the 5 BTC welcome package and are withdrawing off cleared bonus
-        money, 25% is deducted at the cashier, and the recalculation can briefly hold the
-        payout. Players frequently misread that delay as identity verification. The two
-        are unrelated: one is a compliance check, the other is a fee mechanic. We cover
-        the fee in full on{' '}
+        A common reason a BitStarz withdrawal sits in pending is not KYC at all:
+        it&apos;s unfinished bonus wagering locking a bonus-derived balance. If you took
+        the 5 BTC welcome package, the bonus portion and its winnings only become
+        withdrawable once the wagering requirement (up to 40x on match bonuses) is
+        cleared, and a withdrawal attempted before that point stalls or forfeits the
+        locked portion. Players frequently misread that delay as identity verification.
+        The two are unrelated: one is a compliance check, the other is a bonus-terms
+        mechanic. Note on fees: per the live terms, BitStarz charges no fees on any
+        deposits or withdrawals. Cash-out mechanics in full on{' '}
         <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">
           the BitStarz withdrawal page
         </Link>
@@ -378,7 +380,7 @@ const BITSTARZ_FAQS = [
   {
     question: 'Why is my BitStarz withdrawal pending if I wasn’t asked for ID?',
     answer:
-      'The most common cause is the 25% admin fee being calculated on a bonus-derived balance, not a KYC check. If your withdrawal came off cleared welcome-bonus money, the fee recalculation can briefly hold the payout. Players often mistake this for identity verification. Live chat will confirm which one is in play; the two mechanics are unrelated.',
+      'The most common cause is unfinished bonus wagering locking a bonus-derived balance, not a KYC check: bonus money and its winnings only become withdrawable once the wagering requirement clears. Players often mistake this for identity verification. Per the live terms BitStarz charges no fees on deposits or withdrawals, so a held payout is never a fee calculation. Live chat will confirm which mechanic is in play.',
   },
   {
     question: 'Can I stay anonymous at BitStarz?',

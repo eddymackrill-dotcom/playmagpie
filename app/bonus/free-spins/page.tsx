@@ -90,8 +90,7 @@ const TABLE_ROWS: { field: string; cells: Record<'bitstarz' | 'mirax-casino' | '
         value: 'Not documented separately for welcome FS. T&C §1.1 specifies a €100 cap but explicitly only for no-deposit bonuses (registration spins, Weekly Free Spins Drops, Second Chance Spins). The welcome-pack FS are excluded from §1.1; no separate cap is documented for them.',
       },
       'mirax-casino': {
-        value: '€100.',
-        source: 'miraxcasino.com/promotions: "The maximum cashout from Free Spins is 100 EUR unless otherwise stated."',
+        value: 'Not documented in the live terms. An earlier version of this table cited a €100 cap from the promotions page; owner re-verification against the live terms on 2026-07-16 found no such clause, and the figure was removed.',
       },
       '7bit-casino': {
         value: 'Not documented in the bonuses-page extract.',
@@ -124,7 +123,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Spins', value: '150: 100/50/0/0 by deposit' },
       { label: 'Wagering', value: '45x winnings' },
-      { label: 'Max cashout', value: '€100 (only published cap)' },
+      { label: 'Max cashout', value: 'Not documented in live terms' },
     ],
   },
   {
@@ -276,9 +275,10 @@ export default function FreeSpinsBonusPage() {
             </table>
           </div>
           <p className="text-[#555555] text-xs mt-3">
-            7 of 15 cells primary-source verified to live T&amp;C. 8 cells marked &ldquo;Not documented&rdquo; with
-            explicit reason. The Mirax €100 free-spin cashout cap is the only published max-cashout figure on
-            free-spin winnings across the three operators.
+            Cells are primary-source verified to live T&amp;C where a figure is shown; the rest are marked
+            &ldquo;Not documented&rdquo; with explicit reason. No operator publishes a max-cashout cap on
+            welcome-pack free-spin winnings: the only published cap anywhere in the set is BitStarz&apos;s
+            €100 no-deposit-spins cap (T&amp;C §1.1), which explicitly excludes the welcome pack.
           </p>
         </section>
 
@@ -302,11 +302,13 @@ export default function FreeSpinsBonusPage() {
                 your cashier may not match what affiliate sites quoted six months ago.
               </p>
               <p>
-                <strong className="text-white">On max cashout, Mirax is the only operator that publishes an
-                explicit cap on free-spin winnings (€100).</strong> BitStarz&apos;s €100/$100 cap is documented
-                but only for no-deposit promotional spins, explicitly excluding the welcome-pack FS. 7Bit does
-                not publish one in the bonuses-page T&amp;C extract. If a five-figure free-spin outlier win is
-                the scenario you&apos;re optimising for, this changes the analysis materially.
+                <strong className="text-white">On max cashout, no operator publishes an explicit cap on
+                welcome-pack free-spin winnings.</strong> BitStarz&apos;s €100/$100 cap is documented but only
+                for no-deposit promotional spins, explicitly excluding the welcome-pack FS. Mirax&apos;s live
+                terms carry no cap (an earlier version of this page cited €100 there; removed on July 2026
+                re-verification). 7Bit does not publish one in the bonuses-page T&amp;C extract. Absence of a
+                published cap is not a guarantee that an outlier win pays in full; it means the ceiling, if
+                any, is not in the public terms.
               </p>
             </div>
           </div>

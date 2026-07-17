@@ -19,6 +19,12 @@
 //   11-coin list, fee-threshold wording. The other six casinos were checked
 //   2026-07-16 against dated secondaries only (operators block fetchers);
 //   per the honesty rule their dates do NOT bump on secondary evidence.
+//   EXCEPTION same day: BitStarz + Mirax owner-verified 2026-07-16 against
+//   LIVE operator terms (direct browser reads, non-UK exit): the BitStarz
+//   25% bonus-withdrawal fee and the Mirax €100 free-spin cap both FAILED
+//   verification and were removed site-wide (verify-or-omit); BitStarz's
+//   live terms document no deposit/withdrawal fees at all. Both dates bump
+//   to July 2026 on that documented verification event.
 // - Country facts: countryContext primary-source verification May 2026
 //   (see provenance block in app/country/[slug]/page.tsx); Sweden research
 //   June 2026 (Spellag/MiCA/channelisation sourcing); Finland research
@@ -28,7 +34,7 @@ export const casinoLastReviewed: Record<string, string> = {
   bitstarz: 'July 2026',
   'bc-game': 'July 2026',
   cloudbet: 'July 2026',
-  'mirax-casino': 'May 2026',
+  'mirax-casino': 'July 2026',
   '7bit-casino': 'May 2026',
   shuffle: 'May 2026',
   duelbits: 'June 2026',

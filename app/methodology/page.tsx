@@ -116,7 +116,7 @@ export default function MethodologyPage() {
                 },
                 {
                   title: 'Bonus Fairness Score',
-                  desc: 'The real expected value of the headline offer once wagering multipliers, bonus-vs-bonus-plus-deposit calculation, game contribution tables, max cashout caps and admin fees are applied. A 500% match can score below a 100% match; BitStarz’s 25% admin fee on bonus-related withdrawals is exactly the kind of term this score exists to surface.',
+                  desc: 'The real expected value of the headline offer once wagering multipliers, bonus-vs-bonus-plus-deposit calculation, game contribution tables and max cashout caps are applied. A 500% match can score below a 100% match; the gap between BC.Game’s 220% rakeback headline and cash actually credited up front is exactly the kind of structure this score exists to surface.',
                 },
                 {
                   title: 'KYC Score',

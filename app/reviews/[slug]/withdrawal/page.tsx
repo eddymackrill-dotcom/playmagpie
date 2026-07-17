@@ -18,7 +18,7 @@ const META: Record<(typeof WITHDRAWAL_SLUGS)[number], { title: string; descripti
   bitstarz: {
     title: 'BitStarz Withdrawal Times & Limits 2026',
     description:
-      'BitStarz processes crypto withdrawals in under 10 minutes, but a 25% admin fee applies on bonus-related payouts. Full breakdown of speeds, KYC and limits.',
+      'BitStarz processes crypto withdrawals in under 10 minutes, with no casino-side fees on deposits or withdrawals per its live terms. Full breakdown of speeds, KYC and limits.',
   },
   '7bit-casino': {
     title: '7Bit Casino Withdrawal Times & Limits 2026',
@@ -231,45 +231,38 @@ function KeyList({ items }: { items: string[] }) {
   )
 }
 
-/* ───────────── BitStarz: lead with the bonus admin-fee gotcha, then speed ───────────── */
+/* ───────────── BitStarz: lead with speed; fee claim removed 2026-07-16 (verify-or-omit,
+   owner re-read of live terms found no 25% admin fee and no cashier fees at all) ───────────── */
 function BitstarzContent() {
   return (
     <>
       <Para>
-        Before the speed pitch, the thing every prospective BitStarz player should know up
-        front: a 25% admin fee is deducted from withdrawals tied to bonus play. That fee
-        is the single most common reason BitStarz users feel surprised at the cashier.
-        It is disclosed in the bonus T&Cs and listed openly in our review&apos;s cons.
-        If you never opt into a deposit match, it never applies, and the rest of the
-        withdrawal experience is genuinely fast.
+        BitStarz processes crypto withdrawals in under 10 minutes on average from
+        approval to wallet arrival. That headline window is what earned it the
+        joint-highest withdrawal score (9.5/10) in our rankings, and it has held
+        consistently for years, which is why &quot;bitstarz withdrawal times&quot; is a query
+        Google sends real traffic for.
       </Para>
       <Para>
-        With bonus play out of the picture, BitStarz processes crypto withdrawals in
-        under 10 minutes on average from approval to wallet arrival. That headline window
-        is what earned it the joint-highest withdrawal score (9.5/10) in our rankings,
-        and it has held consistently for years, which is why &quot;bitstarz withdrawal times&quot;
-        is a query Google sends real traffic for.
+        On cost, the live terms are unambiguous: BitStarz charges no fees on deposits
+        or withdrawals, on either the crypto or fiat side. Only the blockchain network
+        fee applies to crypto, and that is deducted by the network, not the casino.
       </Para>
 
-      <SectionHeading>The 25% bonus admin fee: when it bites</SectionHeading>
+      <SectionHeading>Fees at the BitStarz cashier: none, and a correction</SectionHeading>
       <Para>
-        BitStarz applies a 25% admin fee on withdrawals where the originating balance
-        came from a bonus or bonus-derived winnings. Plain crypto-only play with no bonus
-        attached is unaffected. The implication is straightforward: if you take the
-        5 BTC welcome package, your first withdrawal off cleared bonus money will be
-        debited 25% before it leaves the cashier. That includes winnings cleared from
-        the package&apos;s 180 free spins, so the free-spins terms matter here too: see{' '}
+        An earlier version of this page reported a 25% admin fee on withdrawals tied
+        to bonus play, and treated it as the page&apos;s headline warning. On
+        re-verification against the live BitStarz bonus terms in July 2026, no such
+        fee exists anywhere in the current T&Cs, and the terms state that no fees
+        apply to any deposits or withdrawals. We corrected this across the site the
+        same day; our methodology page describes the corrections rule we applied. The
+        terms that DO still shape bonus value are the wagering multipliers (up to 40x
+        on match bonuses) and the free-spins conditions: see{' '}
         <Link href="/bonus/free-spins" className="text-[#7BB8D4] hover:underline">
           how the free-spins terms compare across casinos
         </Link>
         .
-      </Para>
-      <Para>
-        Practical workaround for players who care about clean payouts: decline the
-        welcome bonus, deposit straight to real-money balance, and you get the full
-        under-10-minute payout speed with no deductions. This trade-off (better speed
-        and lower friction in exchange for a smaller balance) is one most no-KYC
-        regulars already make at venues with similar terms.
       </Para>
 
       <SectionHeading>Crypto coverage and what each network means for clearing time</SectionHeading>
@@ -306,9 +299,9 @@ function BitstarzContent() {
       </Para>
       <Para>
         If your withdrawal sits in pending for longer than the headline window, the
-        usual cause is either a compliance check or, far more often, the 25% bonus
-        admin fee being calculated on a bonus-derived balance. Support over live chat is
-        the fastest way to confirm which one is in play.
+        usual cause is a compliance check or unfinished bonus wagering locking the
+        balance. Support over live chat is the fastest way to confirm which one is in
+        play.
       </Para>
 
       <SectionHeading>VIP and high-volume withdrawals</SectionHeading>
@@ -328,19 +321,18 @@ function BitstarzContent() {
       <Para>
         Of the three top-commission casinos we&apos;re running withdrawal pages on,
         BitStarz has the fastest headline window (under 10 minutes, tied with 7Bit
-        at instant-to-10) but the most friction on bonus play because of the 25% admin
-        fee. <Link href="/reviews/mirax-casino" className="text-[#7BB8D4] hover:underline">Mirax</Link>{' '}
-        is roughly 50% slower on the headline window (up to 15 minutes) but doesn&apos;t
-        impose a bonus-withdrawal fee.{' '}
+        at instant-to-10) and a fee-free cashier per its live terms.{' '}
+        <Link href="/reviews/mirax-casino" className="text-[#7BB8D4] hover:underline">Mirax</Link>{' '}
+        is roughly 50% slower on the headline window (up to 15 minutes), also with no
+        documented cashier fees.{' '}
         <Link href="/reviews/7bit-casino/withdrawal" className="text-[#7BB8D4] hover:underline">7Bit</Link>{' '}
         matches BitStarz on speed and beats both on privacy. It&apos;s the only one of
         the three with a full no-KYC posture on crypto withdrawals at any size.
       </Para>
       <Para>
-        Net read: pick BitStarz if you&apos;re depositing without a welcome bonus and
-        you value the longest payout track record. If the 5 BTC package is the draw,
-        budget for the 25% fee or pick one of the other two. For a broader view of
-        the fastest payout sites see{' '}
+        Net read: pick BitStarz if you value the longest payout track record and the
+        fastest headline window; pick 7Bit if no-KYC at any size is the priority. For
+        a broader view of the fastest payout sites see{' '}
         <Link href="/fast-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
           the fastest crypto casinos for withdrawal
         </Link>
@@ -352,9 +344,9 @@ function BitstarzContent() {
 
 const BITSTARZ_FAQS = [
   {
-    question: 'Why was 25% deducted from my BitStarz withdrawal?',
+    question: 'Does BitStarz charge fees on withdrawals?',
     answer:
-      "BitStarz applies a 25% admin fee on withdrawals derived from bonus play. If you took the welcome bonus or any deposit match and the balance you're withdrawing originated from that bonus or its winnings, the fee is deducted at the cashier. Plain real-money play with no bonus attached has no admin fee. The terms are disclosed in the bonus T&Cs.",
+      "No. Per the live BitStarz terms, no fees apply to any deposits or withdrawals, on either the crypto or fiat side; only the blockchain network fee applies to crypto, and that goes to the network, not the casino. (An earlier version of this page reported a 25% admin fee on bonus-derived withdrawals; re-verification against the live terms in July 2026 found no such fee, and we corrected the site the same day.) If a payout arrives smaller than expected, the usual cause is unfinished bonus wagering forfeiting locked balance, not a fee.",
   },
   {
     question: 'How long does a BitStarz Bitcoin withdrawal actually take?',
@@ -448,9 +440,8 @@ function SevenBitContent() {
         7Bit&apos;s welcome offer is a 325% match up to &euro;5,400 plus 250 free
         spins on Elvis Frog in Vegas, distributed across the 4-deposit welcome pack.
         That headline now sits in competitive territory with rivals: Mirax tops out
-        at 5 BTC across 4 deposits with 150 spins, BitStarz at 5 BTC + 180 spins (with
-        the 25% admin-fee catch on bonus withdrawals). 7Bit&apos;s spin count is the
-        highest of the three. The previous version of this page argued that a
+        at 5 BTC across 4 deposits with 150 spins, BitStarz at 5 BTC + 180 spins.
+        7Bit&apos;s spin count is the highest of the three. The previous version of this page argued that a
         smaller welcome bonus actually helped withdrawals. That framing was tied to
         7Bit&apos;s older 1.5 BTC ceiling and no longer applies.
       </Para>
@@ -500,8 +491,8 @@ function SevenBitContent() {
       <Para>
         The differentiator is the no-KYC posture, not the bonus ceiling. 7Bit&apos;s
         325% match up to &euro;5,400 + 250 spin package is competitive with Mirax
-        (5 BTC + 150 spins) and BitStarz (5 BTC + 180 spins with the 25% admin fee
-        catch). On withdrawal specifically, the case for 7Bit is that document
+        (5 BTC + 150 spins) and BitStarz (5 BTC + 180 spins). On withdrawal
+        specifically, the case for 7Bit is that document
         verification will never come into play, regardless of how aggressively you
         use the welcome match, the cashier-side flow is identical from the first
         to the hundredth withdrawal. For category-level comparison see{' '}
@@ -710,11 +701,11 @@ function CloudbetContent() {
 
       <SectionHeading>Cloudbet vs BitStarz vs 7Bit on withdrawal</SectionHeading>
       <Para>
-        Speed: BitStarz and 7Bit both lead with instant-to-10-minutes;{' '}
+        Speed:{' '}
         <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">BitStarz</Link>{' '}
-        comes with the 25% bonus admin fee gotcha,{' '}
+        and{' '}
         <Link href="/reviews/7bit-casino/withdrawal" className="text-[#7BB8D4] hover:underline">7Bit</Link>{' '}
-        doesn&apos;t. Cloudbet&apos;s window is the widest of the three (most process
+        both lead with instant-to-10-minutes. Cloudbet&apos;s window is the widest of the three (most process
         instantly, with a stated 24-hour bound for manually reviewed requests)
         but it is the only one with no withdrawal limit constraining the upper
         bound on payout size for verified accounts.
@@ -834,10 +825,9 @@ function DuelbitsContent() {
         Duelbits&apos; welcome structure is cashback-first (up to $30 weekly cashback
         plus Duelbits Originals rewards and seasonal promotions) rather than a large
         deposit-match bonus. For withdrawals specifically, that matters: a deposit match
-        carries wagering requirements that lock the bonus balance until cleared, and some
-        casinos (BitStarz, for one) deduct a 25% admin fee from bonus-derived withdrawals.
-        A cashback model has no large match balance to wager through before the funds you
-        win are withdrawable, so neither of those frictions applies in the same way. The
+        carries wagering requirements that lock the bonus balance until cleared. A
+        cashback model has no large match balance to wager through before the funds you
+        win are withdrawable, so that friction doesn&apos;t apply in the same way. The
         trade-off, which we list openly in our review, is that the headline welcome value
         is smaller than a big match offer. For a withdrawal-focused player who plays and
         cashes out rather than bonus-hunting, that is the right side of the trade.
@@ -883,7 +873,7 @@ const DUELBITS_FAQS = [
   {
     question: 'Does Duelbits charge a bonus admin fee on withdrawals?',
     answer:
-      "Duelbits' welcome structure is cashback-first (up to $30 weekly cashback plus Duelbits Originals rewards) rather than a large deposit match. Because there is no large match balance to wager through, the bonus-withdrawal frictions common at deposit-match casinos (wagering locks, and in BitStarz's case a 25% admin fee on bonus-derived withdrawals) don't apply in the same way. We don't have a documented casino-side per-coin withdrawal fee figure for Duelbits to quote; standard blockchain network fees always apply regardless of casino.",
+      "Duelbits' welcome structure is cashback-first (up to $30 weekly cashback plus Duelbits Originals rewards) rather than a large deposit match. Because there is no large match balance to wager through, the wagering-lock friction common at deposit-match casinos doesn't apply in the same way. We don't have a documented casino-side per-coin withdrawal fee figure for Duelbits to quote; standard blockchain network fees always apply regardless of casino.",
   },
   {
     question: 'Is Duelbits safe to use given it only launched in 2020?',

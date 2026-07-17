@@ -27,9 +27,11 @@
 //   25 June 2025, verified 2026-05-30).
 // - Mirax Casino welcome pack: up to 5 BTC + 150 free spins across 4 deposits.
 //   D1: 1.5 BTC + 100 FS (no code); D2: 1.25 BTC + 50 FS (code W2); D3: 1.25
-//   BTC cash-only (code W3); D4: 1 BTC cash-only (code W4). Max cashout from
-//   free spins = €100. Source: https://miraxcasino.com/promotions (verified
-//   2026-05-30).
+//   BTC cash-only (code W3); D4: 1 BTC cash-only (code W4). Source:
+//   https://miraxcasino.com/promotions (verified 2026-05-30). [CORRECTED
+//   2026-07-16: the "€100 max cashout from free spins" recorded here failed
+//   owner re-verification against the live terms and was removed site-wide;
+//   see the 2026-07-16 verify-or-omit block below.]
 // - 7Bit Casino welcome pack: 325% match up to €5,400 + 250 free spins across
 //   the 4-deposit welcome pack. Source: https://7bitcasino.com/bonuses
 //   (verified 2026-05-30).
@@ -52,6 +54,18 @@
 //   https://help.roobet.com/en/articles/4665363. The 2% fiat fee applies FROM
 //   the 10th fiat cashout inclusive per the terms' own wording ("including the
 //   tenth withdrawal"); corrected from the earlier "after the 10th" reading.
+//
+// VERIFY-OR-OMIT enforcement 2026-07-16 (owner primary verification, live
+// operator terms read directly in browser via non-UK exit, same date):
+// - BitStarz: NO 25% admin fee exists anywhere in the live bonus T&Cs, and
+//   the live terms document NO fees on any deposits or withdrawals at all.
+//   The long-standing "25% admin fee on bonus-related withdrawals" claim
+//   FAILED verification and was removed site-wide (reviews, sub-pages,
+//   compare pages, guides, listicles, transparency report, methodology).
+//   Do not re-add without a fresh primary-source citation (clause number).
+// - Mirax: NO €100 free-spin max-cashout cap found in the live terms. The
+//   claim failed verification and was removed site-wide; free-spin max
+//   cashout for Mirax is now "not documented".
 
 export type Casino = {
   name: string
@@ -103,7 +117,7 @@ export const casinos: Casino[] = [
     kycScore: 8.5,
     affiliateUrl: 'https://bzstarz2.com/bcdvryve8',
     reviewSummary:
-      'BitStarz is one of the most decorated crypto casinos on the market, having won multiple "Best Bitcoin Casino" awards since launching in 2014. With over 3,000 games from 100+ providers, consistently fast crypto withdrawals, and a proven track record, it remains the benchmark other crypto casinos are measured against. The 5 BTC welcome package is genuinely competitive, though the 25% admin fee on certain bonus withdrawals is a notable catch to be aware of.',
+      'BitStarz is one of the most decorated crypto casinos on the market, having won multiple "Best Bitcoin Casino" awards since launching in 2014. With over 3,000 games from 100+ providers, consistently fast crypto withdrawals, and a proven track record, it remains the benchmark other crypto casinos are measured against. The 5 BTC welcome package is genuinely competitive, and the live terms document no fees on deposits or withdrawals at the cashier (owner-verified July 2026).',
     pros: [
       'Industry-leading reputation, with multiple "Best Bitcoin Casino" awards since 2014',
       'Vast game library: 3,000+ titles including slots, live dealer and provably fair games',
@@ -113,7 +127,6 @@ export const casinos: Casino[] = [
       '24/7 multilingual live chat support',
     ],
     cons: [
-      '25% admin fee deducted from bonus-related withdrawals, a significant hidden cost',
       'Light KYC required for larger withdrawals and fiat transactions',
       'US, UK and Australian players restricted',
       'Wagering requirements on match bonuses can reach 40x',
@@ -212,7 +225,7 @@ export const casinos: Casino[] = [
     kycScore: 8.6,
     affiliateUrl: 'https://mirax.partners/pua8ehgj5',
     reviewSummary:
-      'Mirax Casino launched in 2022 and is part of the 7Bit Partners network, which also operates 7Bit Casino, a brand with over a decade of industry experience. Despite being a newer brand, Mirax benefits from the infrastructure and relationships of an established operator. The welcome package spans the first four deposits with a 5 BTC headline ceiling: 1.5 BTC + 100 free spins on the first deposit, 1.25 BTC + 50 free spins on the second (code W2), then cash-only matches of 1.25 BTC on the third (code W3) and 1 BTC on the fourth (code W4). The free-spins component totals 150 across the pack with a €100 max cashout on free-spin winnings per the live promotions page. The game library covers 7,000+ titles and crypto withdrawals are typically processed within 15 minutes, with light KYC only triggered above higher withdrawal thresholds.',
+      'Mirax Casino launched in 2022 and is part of the 7Bit Partners network, which also operates 7Bit Casino, a brand with over a decade of industry experience. Despite being a newer brand, Mirax benefits from the infrastructure and relationships of an established operator. The welcome package spans the first four deposits with a 5 BTC headline ceiling: 1.5 BTC + 100 free spins on the first deposit, 1.25 BTC + 50 free spins on the second (code W2), then cash-only matches of 1.25 BTC on the third (code W3) and 1 BTC on the fourth (code W4). The free-spins component totals 150 across the pack; no free-spin max-cashout cap is documented in the live terms (owner-verified July 2026). The game library covers 7,000+ titles and crypto withdrawals are typically processed within 15 minutes, with light KYC only triggered above higher withdrawal thresholds.',
     pros: [
       'Substantial welcome package: up to 5 BTC + 150 free spins across the 4-deposit pack (100 on D1, 50 on D2, cash-only on D3/D4)',
       'Part of the established 7Bit Partners network, with proven operator infrastructure',

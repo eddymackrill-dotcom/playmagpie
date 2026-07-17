@@ -19,7 +19,7 @@ const META: Record<(typeof PAYMENT_METHODS_SLUGS)[number], { title: string; desc
   bitstarz: {
     title: 'BitStarz Payment Methods 2026: 6 Cryptos, $20 Minimum Deposit',
     description:
-      'BitStarz takes six cryptocurrencies (BTC, ETH, LTC, DOGE, BCH, USDT) at a $20 minimum, plus a fiat path that triggers KYC. Per-coin deposit speeds, why there is no Solana or BNB, and how the 25% bonus admin fee bears on your first deposit.',
+      'BitStarz takes six cryptocurrencies (BTC, ETH, LTC, DOGE, BCH, USDT) at a $20 minimum, plus a fiat path that triggers KYC. Per-coin deposit speeds, why there is no Solana or BNB, and what opting your first deposit into the welcome bonus really costs.',
   },
   'bc-game': {
     title: 'BC.Game Payment Methods 2026: 100+ Cryptos, $5 Minimum, No KYC',
@@ -414,8 +414,9 @@ function CloudbetContent() {
 }
 
 /* ───────────── BitStarz: lead with the hybrid model + accessibility, then the
-   "what's missing" coin angle, then the bonus/admin-fee interaction. Deliberately
-   a different spine from Cloudbet (which leads coins → high floor → licensing). ───────────── */
+   "what's missing" coin angle, then the bonus-wagering cost (the 25% admin-fee
+   claim was removed 2026-07-16: verify-or-omit, no such fee in live terms).
+   Deliberately a different spine from Cloudbet. ───────────── */
 function BitStarzContent() {
   return (
     <>
@@ -527,23 +528,22 @@ function BitStarzContent() {
         mainnet block times rather than anything BitStarz controls.
       </Para>
 
-      <SectionHeading>Depositing to claim the 5 BTC welcome, and the 25% admin-fee catch</SectionHeading>
+      <SectionHeading>Depositing to claim the 5 BTC welcome: the real cost is the wagering</SectionHeading>
       <Para>
         Most first deposits at BitStarz exist to trigger the welcome package: up
         to 5 BTC plus 180 free spins spread across the first four deposits, with
         20 spins credited instantly on deposit one and 20 per day across the
         following eight days. The BTC ceiling ties Mirax and is one of the larger
-        match offers we cover. But the deposit decision carries a downstream cost
-        unique to BitStarz in our catalogue: a 25% admin fee is deducted from
-        bonus-related withdrawals. Match-bonus wagering can also run to 40x. If
-        you deposit purely to play your own funds, neither applies; if you deposit
-        to claim the match, both are part of the real cost of the bonus. The
-        mechanics of when that fee bites are covered on{' '}
+        match offers we cover. On fees the live terms are clean: BitStarz charges
+        nothing on deposits or withdrawals. The real cost of the package is the
+        playthrough: match-bonus wagering can run to 40x, and until it clears the
+        bonus balance and its winnings are locked. If you deposit purely to play
+        your own funds, none of that applies. The cash-out mechanics are covered on{' '}
         <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">
           the BitStarz withdrawal page
         </Link>
-        , and it&apos;s worth reading before you decide whether to opt the deposit
-        into the bonus at all.
+        , worth reading before you decide whether to opt the deposit into the
+        bonus at all.
       </Para>
 
       <SectionHeading>KYC at deposit time</SectionHeading>
@@ -824,7 +824,7 @@ const BITSTARZ_FAQS = [
   {
     question: 'Does depositing to claim the BitStarz welcome bonus cost anything extra?',
     answer:
-      "It can. The welcome package (up to 5 BTC plus 180 free spins across your first four deposits) is claimed by depositing, but BitStarz deducts a 25% admin fee from bonus-related withdrawals, and match-bonus wagering can run to 40x. If you deposit purely to play your own funds, neither applies. If you deposit to claim the match, both are part of the bonus's real cost. The BitStarz withdrawal page covers exactly when the admin fee bites, worth reading before you opt a deposit into the bonus.",
+      "Not in fees: per the live BitStarz terms, no fees apply to deposits or withdrawals. What the welcome package (up to 5 BTC plus 180 free spins across your first four deposits) does cost is the playthrough: match-bonus wagering can run to 40x, and the bonus balance and its winnings stay locked until it clears. If you deposit purely to play your own funds, that doesn't apply. The BitStarz withdrawal page covers the cash-out mechanics, worth reading before you opt a deposit into the bonus.",
   },
 ] as const
 

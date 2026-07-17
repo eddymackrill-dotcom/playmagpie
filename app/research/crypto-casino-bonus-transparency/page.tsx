@@ -7,13 +7,17 @@ import { getCasinoBySlug } from '@/lib/casinos'
 // (headline offer, KYC level, min deposit) or is a curated "catch" sourced from
 // that file's verified cons/reviewSummary/comment block, or, for Roobet, from
 // the documented research URLs in lib/casinos.ts. Anything we could not verify is
-// marked "not documented". Bonus terms were verified against operators' live
-// T&Cs on 2026-05-30; claims are stated as of June 2026 and may change.
+// marked "not documented". Bonus terms first verified against operators' live
+// T&Cs on 2026-05-30; BitStarz, Mirax and Cloudbet re-verified 2026-07-16
+// (owner, live terms). Second edition 2026-07-17: the first edition's 25%
+// BitStarz fee and €100 Mirax cap failed re-verification and are corrected
+// with a visible correction record on the page (standing editorial policy:
+// corrections are published, never silently rewritten).
 
 export const metadata: Metadata = {
   title: 'The Crypto Casino Bonus & Withdrawal Transparency Report (2026)',
   description:
-    'We checked the bonus and withdrawal terms of 8 crypto casinos against their live T&Cs. Four carry a documented withdrawal cost or cap the headline offer never mentions. Every figure sourced; gaps marked "not documented".',
+    'We checked the bonus and withdrawal terms of 8 crypto casinos against their live T&Cs, and publish corrections when re-verification changes the picture. Two hard published withdrawal costs survive: Roobet\'s 2% fiat fee and Cloudbet\'s pre-verification daily cap. Every figure sourced; gaps marked "not documented".',
   alternates: { canonical: '/research/crypto-casino-bonus-transparency' },
   openGraph: {
     url: '/research/crypto-casino-bonus-transparency',
@@ -36,36 +40,36 @@ const ROW_ORDER = ['bitstarz', 'bc-game', '7bit-casino', 'cloudbet', 'mirax-casi
 
 const CATCH: Record<string, { text: string; source: string }> = {
   bitstarz: {
-    text: 'A 25% admin fee is deducted from bonus-derived withdrawals, and match-bonus wagering runs up to 40x. Neither appears in the headline.',
-    source: 'lib/casinos.ts cons (verified vs live T&C)',
+    text: 'No cashier fees at all per the live terms (re-verified July 2026); the real cost of the 5 BTC headline is match-bonus wagering up to 40x. An earlier edition of this report cited a 25% bonus-withdrawal admin fee that is not in the current terms; see the correction record above.',
+    source: 'Live T&C, owner-verified 2026-07-16',
   },
   'bc-game': {
     text: 'The "220%" is rakeback that unlocks as you wager, not cash credited up front: a materially different value profile from a deposit match.',
-    source: 'lib/casinos.ts bonusSummary (verified 2026-05-30 vs bc.game/deposit-offer)',
+    source: 'bc.game/deposit-offer, verified 2026-05-30',
   },
   '7bit-casino': {
     text: 'Free-spin winnings carry a max-cashout cap per the published T&C; the specific figure is not documented in our verified dataset. Curaçao-only licence, no Tier-1 regulator.',
-    source: 'lib/casinos.ts cons; cap figure marked "not documented"',
+    source: 'Published T&C, 2026-05-30; cap figure not documented',
   },
   cloudbet: {
     text: 'The headline no-limit withdrawal policy applies to fully verified (Level 2) accounts only; until verification completes, withdrawals are capped at $2,200 a day.',
     source: 'Cloudbet help centre, verified 2026-07-16',
   },
   'mirax-casino': {
-    text: 'Free-spin winnings are capped at a €100 max cashout regardless of the headline spin count.',
-    source: 'lib/casinos.ts reviewSummary + verified-comment block (vs live promotions page)',
+    text: 'No free-spin max-cashout cap is published in the live terms (an earlier edition cited €100; removed on July 2026 re-verification). The term that matters is the 45x free-spin wagering, stricter than its own 40x cash-bonus wagering.',
+    source: 'Live terms, owner-verified 2026-07-16',
   },
   duelbits: {
     text: 'Cashback-first, not a match: the smallest headline here, but with no large bonus balance to wager through it is arguably the cleanest of the eight to cash out.',
-    source: 'lib/casinos.ts bonusSummary / reviewSummary',
+    source: 'Catalogue verification, May 2026',
   },
   shuffle: {
     text: '35x wagering (above the industry average), and the bonus must be activated via live chat rather than automatically.',
-    source: 'lib/casinos.ts cons',
+    source: 'Published bonus terms, May 2026',
   },
   roobet: {
     text: 'See the withdrawal-reliability section: the catch here is documented withdrawal-hold complaints and published-terms fees, stated with its disclaimer inline.',
-    source: 'lib/casinos.ts documented research URLs (AskGamblers, terms §10.8)',
+    source: 'Roobet terms §10.8 + AskGamblers complaint records',
   },
 }
 
@@ -93,7 +97,7 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'PlayMagpie', url: 'https://www.playmagpie.com' },
   publisher: { '@type': 'Organization', name: 'PlayMagpie', url: 'https://www.playmagpie.com' },
   datePublished: '2026-06-09',
-  dateModified: '2026-06-09',
+  dateModified: '2026-07-17',
   url: 'https://www.playmagpie.com/research/crypto-casino-bonus-transparency',
   mainEntityOfPage: 'https://www.playmagpie.com/research/crypto-casino-bonus-transparency',
 }
@@ -127,9 +131,9 @@ export default function TransparencyReportPage() {
             &quot;not documented.&quot;
           </p>
           <p className="text-[#555555] text-xs mt-4">
-            Bonus terms verified against operators&apos; live T&amp;Cs on 2026-05-30; Cloudbet&apos;s
-            terms re-verified against its help centre on 2026-07-16. Offers and claims may change.
-            Check the operator&apos;s current terms before depositing.
+            Bonus terms first verified against operators&apos; live T&amp;Cs on 2026-05-30; Cloudbet,
+            BitStarz and Mirax re-verified against live terms on 2026-07-16. Offers and claims may
+            change. Check the operator&apos;s current terms before depositing.
           </p>
         </div>
 
@@ -137,18 +141,31 @@ export default function TransparencyReportPage() {
         <section className="mb-12 bg-[#111111] border border-[#7BB8D4]/20 rounded-2xl p-6 sm:p-8">
           <div className="text-[#7BB8D4] text-sm font-medium uppercase tracking-wider mb-2">The finding</div>
           <p className="text-xl sm:text-2xl font-bold text-white leading-snug mb-3">
-            Three of the eight crypto casinos we audited carry a documented withdrawal cost or cap the
-            headline offer never mentions: a 25% admin fee on bonus-derived withdrawals (BitStarz), a €100
-            free-spin max-cashout cap (Mirax), and a 2% fiat-withdrawal fee past a monthly threshold (Roobet).
+            Every one of the eight crypto casinos we audited carries a catch its headline never mentions,
+            but only two are hard, published withdrawal costs: Roobet&apos;s 2% fiat-withdrawal fee (from the
+            10th fiat cashout in any rolling 30 days) and Cloudbet&apos;s $2,200-a-day cap until full
+            verification.
           </p>
           <p className="text-[#888888] text-sm leading-relaxed">
-            Three are unambiguous: BitStarz deducts a <strong className="text-[#bbbbbb]">25% admin fee</strong> from
-            bonus winnings at the cashier; Mirax caps free-spin winnings at <strong className="text-[#bbbbbb]">€100</strong>{' '}
-            regardless of the 150-spin headline; Roobet applies a <strong className="text-[#bbbbbb]">2% fiat-withdrawal
-            fee</strong> past a monthly threshold under its published terms. (7Bit&apos;s free-spin offer also carries a
-            cashout cap per its T&amp;C, but the figure isn&apos;t documented in our data, so we don&apos;t count it.
-            Wagering requirements, disclosed in every case, vary up to 45x across the eight, which materially changes a
-            bonus&apos;s real value but is a disclosed term, not a hidden catch.)
+            The more common catch is structural: rakeback headlines that aren&apos;t cash up front
+            (BC.Game), wagering multipliers to 45x, a live-chat-activated bonus at 35x (Shuffle), and
+            free-spin caps that are published for some bonus types and absent from the public terms for
+            others. Wagering requirements, disclosed in every case, materially change a bonus&apos;s real
+            value but are a disclosed term, not a hidden cost.
+          </p>
+        </section>
+
+        {/* Correction record: second edition */}
+        <section className="mb-12 bg-[#0d0d0d] border border-[#d98a8a]/30 rounded-2xl p-6 sm:p-8">
+          <div className="text-[#d98a8a] text-sm font-medium uppercase tracking-wider mb-2">Correction record</div>
+          <p className="text-[#bbbbbb] text-sm leading-relaxed">
+            This is the second edition of this report, and the corrections are part of it. The first
+            edition led with a 25% BitStarz admin fee on bonus-derived withdrawals and a €100 Mirax
+            free-spin cap. On re-verification against the live operator terms in July 2026, neither exists
+            in the current T&amp;Cs: BitStarz&apos;s terms document no fees on any deposits or withdrawals,
+            and Mirax publishes no free-spin cashout cap. Both claims were removed site-wide the same day.
+            We&apos;re leaving this note here because a transparency report that quietly rewrote its own
+            headline wouldn&apos;t be one.
           </p>
         </section>
 
@@ -186,33 +203,41 @@ export default function TransparencyReportPage() {
                     </span>
                   </div>
                 ) : (
-                  <p className="text-[#bbbbbb] text-sm leading-relaxed mt-1">
-                    <span className="text-[#d98a8a] text-xs uppercase tracking-wide font-semibold">The catch </span>
-                    {c.text}
-                  </p>
+                  <>
+                    <p className="text-[#bbbbbb] text-sm leading-relaxed mt-1">
+                      <span className="text-[#d98a8a] text-xs uppercase tracking-wide font-semibold">The catch </span>
+                      {c.text}
+                    </p>
+                    <p className="text-[#555555] text-xs mt-2">Verification: {c.source}</p>
+                  </>
                 )}
               </div>
             ))}
           </div>
         </section>
 
-        {/* Admin fees & caps */}
+        {/* Cashout costs & caps */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">Bonus admin fees &amp; cashout caps</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Cashout costs and caps: what survived re-verification</h2>
           <div className="prose prose-invert max-w-none text-[#bbbbbb] leading-relaxed space-y-4">
             <p>
-              The single most surprising cost we found is BitStarz&apos;s <strong className="text-white">25% admin
-              fee on bonus-derived withdrawals</strong>. It is disclosed in the bonus T&amp;Cs, but it is absent from
-              the 5 BTC + 180-spin headline, so a player who clears the welcome package and withdraws the resulting
-              winnings receives 75% of them at the cashier. A $5,000-equivalent bonus win arrives as $3,750.
+              The July 2026 re-verification pass changed this section&apos;s headline claims. The first edition
+              led with a <strong className="text-white">25% BitStarz admin fee on bonus-derived
+              withdrawals</strong>; the live terms carry no such fee, and in fact document{' '}
+              <strong className="text-white">no fees on any deposits or withdrawals</strong>. What remains true
+              at BitStarz, and at every match-bonus operator here, is that the wagering multiplier is the real
+              cost: clearing 40x on a $1,000-equivalent bonus means $40,000 in bets, an expected loss of around
+              $1,600 on a typical 96% RTP slot library, before any winnings become withdrawable.
             </p>
             <p>
-              The second pattern is the free-spin <strong className="text-white">max-cashout cap</strong>: Mirax caps
-              free-spin winnings at €100 regardless of the 150-spin headline. 7Bit&apos;s 250-spin offer carries a
-              cap per its published T&amp;C as well, though the specific figure is{' '}
-              <strong className="text-white">not documented</strong> in our verified dataset, so we don&apos;t state one.
-              The practical effect of a cap is that the headline spin count is close to irrelevant to the realistic
-              payout. The cap is the number that matters. We line these up on{' '}
+              On free-spin <strong className="text-white">max-cashout caps</strong>, the picture after
+              re-verification: no operator in the set publishes a cap on welcome-pack free-spin winnings. The
+              only published cap anywhere is BitStarz&apos;s €100 limit on no-deposit promotional spins (T&amp;C
+              §1.1), which explicitly excludes the welcome pack. Mirax&apos;s live terms carry no cap (the €100
+              figure in our first edition is corrected above), and 7Bit&apos;s offer references a cap whose
+              figure is <strong className="text-white">not documented</strong> in the public terms, so we
+              don&apos;t state one. Absence of a published cap is not a guarantee an outlier win pays in full;
+              it means the ceiling, if any, is not in the public terms. We line these up on{' '}
               <Link href="/bonus/free-spins" className="text-[#7BB8D4] hover:underline">the free-spins comparison</Link>.
             </p>
           </div>

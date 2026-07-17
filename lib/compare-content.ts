@@ -27,7 +27,7 @@ export const compareContent: Record<string, ComparePair> = {
       "Two of the most-searched names in crypto casinos, two completely different theories of what a crypto casino should be. BitStarz has been the industry's reputation benchmark since 2014, accumulating awards and a 9.2/10 PlayMagpie trust score on the back of consistent reliability rather than feature breadth. BC.Game took the opposite path, launching in 2017 and going wider on crypto support than anyone else (100+ accepted cryptocurrencies versus BitStarz's six), with a no-KYC policy maintained from day one. The right pick depends entirely on whether you value institutional reputation or crypto-native flexibility.",
     positioning: [
       "On the headline numbers, BitStarz holds the trust score edge (9.2 vs 8.9) and the withdrawal score edge (9.5 vs 9.3, both fast, BitStarz marginally more so). BC.Game wins decisively on KYC (None vs Light, 9.5 vs 8.5 in our scoring), crypto support (100+ vs 6), and minimum deposit ($5 vs $20). Those are not subtle differences.",
-      "The welcome bonus is where the two operators have diverged structurally. BitStarz runs a traditional 4-deposit match: 5 BTC + 180 free spins across the welcome pack, with a 25% admin fee on bonus-related withdrawals that materially erodes effective value at the cashier. BC.Game has moved to a 220% Deposit Rakeback Welcome Bonus across four monthly stages: locked balance unlocking as the player wagers rather than the wager-then-withdraw match model. No free-spins component in the current BC.Game offer. The two are no longer directly comparable on raw headline: one is a 4-deposit BTC match, the other is a 4-stage monthly rakeback structure.",
+      "The welcome bonus is where the two operators have diverged structurally. BitStarz runs a traditional 4-deposit match: 5 BTC + 180 free spins across the welcome pack, with no casino-side fees on deposits or withdrawals per its live terms. BC.Game has moved to a 220% Deposit Rakeback Welcome Bonus across four monthly stages: locked balance unlocking as the player wagers rather than the wager-then-withdraw match model. No free-spins component in the current BC.Game offer. The two are no longer directly comparable on raw headline: one is a 4-deposit BTC match, the other is a 4-stage monthly rakeback structure.",
     ],
     scenarios: [
       {
@@ -36,7 +36,7 @@ export const compareContent: Record<string, ComparePair> = {
         conditions: [
           'You want the established reputation and award history',
           'You deposit in BTC or one of the other 5 supported coins',
-          'You can model the 25% bonus-withdrawal admin fee into the math',
+          'You want a fee-free cashier (no deposit or withdrawal fees per the live terms)',
           'You value the slightly faster 9.5/10 withdrawal score',
         ],
       },
@@ -52,11 +52,11 @@ export const compareContent: Record<string, ComparePair> = {
       },
     ],
     verdict:
-      "There's no single winner. The choice is structural to your priorities. BitStarz is the better pick if you're a high-roller who values brand legacy, you deposit in BTC or one of the major coins, and you can model the 25% admin fee into your bonus math. BC.Game is the better pick if no-KYC matters to you, if you hold altcoins outside BitStarz's six-coin cashier, or if you want to play at a $5 minimum deposit. Both are legitimately top-tier operators: the question is which one matches what you're actually trying to do.",
+      "There's no single winner. The choice is structural to your priorities. BitStarz is the better pick if you're a high-roller who values brand legacy, you deposit in BTC or one of the major coins, and you want the traditional match-plus-spins welcome structure. BC.Game is the better pick if no-KYC matters to you, if you hold altcoins outside BitStarz's six-coin cashier, or if you want to play at a $5 minimum deposit. Both are legitimately top-tier operators: the question is which one matches what you're actually trying to do.",
     faqs: [
       {
         question: 'How do BitStarz and BC.Game welcome bonuses compare structurally?',
-        answer: 'They no longer compare directly. BitStarz runs a traditional 4-deposit match: 5 BTC + 180 free spins across the welcome pack, with a 25% admin fee on bonus-related withdrawals. BC.Game has moved to a 220% Deposit Rakeback Welcome across four monthly stages: locked balance unlocks as you wager, no traditional cash match, no free spins. The BitStarz package suits players who want a headline BTC ceiling and can model the admin fee. The BC.Game structure suits players who prefer rakeback economics over wagering-gated match value. Different models, different player profiles: pick on which economics fit your play, not on headline percentage.',
+        answer: 'They no longer compare directly. BitStarz runs a traditional 4-deposit match: 5 BTC + 180 free spins across the welcome pack, with no casino-side fees on deposits or withdrawals per its live terms. BC.Game has moved to a 220% Deposit Rakeback Welcome across four monthly stages: locked balance unlocks as you wager, no traditional cash match, no free spins. The BitStarz package suits players who want a headline BTC ceiling and will clear the wagering. The BC.Game structure suits players who prefer rakeback economics over wagering-gated match value. Different models, different player profiles: pick on which economics fit your play, not on headline percentage.',
       },
       {
         question: 'Does BC.Game accept the same cryptos as BitStarz?',
@@ -79,10 +79,10 @@ export const compareContent: Record<string, ComparePair> = {
 
   'cloudbet-vs-bitstarz': {
     intro:
-      "Same vintage, similar trust scores, identical welcome-bonus ceilings, but a clean structural split underneath. Cloudbet launched in 2013 with a casino+sportsbook proposition and a no-withdrawal-limits policy; BitStarz launched in 2014 as a pure-casino product that's collected 'Best Bitcoin Casino' awards since. The right pick comes down to whether you want a sportsbook in the same account, and how much you weight headline awards versus structural no-cap cash-out.",
+      "Same vintage, similar trust scores, but structurally different propositions. Cloudbet launched in 2013 with a casino+sportsbook product and a no-withdrawal-limits policy for fully verified accounts; BitStarz launched in 2014 as a pure-casino brand that's collected 'Best Bitcoin Casino' awards since. Their welcome offers no longer even share a model: BitStarz runs a traditional 5 BTC + 180 spins match, Cloudbet a $2,500 cash-rewards package with no wagering. The right pick comes down to whether you want a sportsbook in the same account, and how much you weight headline awards versus uncapped cash-out for the verified.",
     positioning: [
-      "BitStarz holds the trust edge (9.2 vs 8.7) and the withdrawal speed edge (9.5 vs 9.0). Cloudbet holds the dual licensing (Curaçao + Kahnawake versus BitStarz's Curaçao-only) and, critically for high-rollers, the explicit no-withdrawal-limit policy that BitStarz doesn't formally claim. Both Light KYC. Both have VIP programmes with personal hosts at the top tiers.",
-      "Welcome bonuses tie on the BTC headline (5 BTC vs 5 BTC) but split on structure. BitStarz adds 180 free spins; Cloudbet doesn't. BitStarz documents a 25% admin fee on bonus-related withdrawals; Cloudbet doesn't. The math on which welcome is genuinely better depends entirely on whether you complete the wagering and what you withdraw.",
+      "BitStarz holds the trust edge (9.2 vs 8.7) and the withdrawal speed edge (9.5 vs 9.0). Cloudbet holds the dual licensing (Curaçao + Kahnawake versus BitStarz's Curaçao-only) and, critically for high-rollers, an explicit no-withdrawal-limit policy for fully verified accounts ($2,200/day until Level 2 verification) that BitStarz doesn't formally claim. Both Light KYC. Both have VIP programmes with personal hosts at the top tiers.",
+      "The welcome offers no longer share a model. BitStarz runs a traditional 4-deposit match (5 BTC + 180 free spins, wagering up to 40x, no casino-side cashier fees per its live terms). Cloudbet retired its old 5 BTC match in favour of a $2,500 Welcome Package paid as cash rewards over the first 30 days: 10% casino rakeback plus daily cash drops, no wagering requirements. One is headline ceiling with playthrough; the other is smaller but withdrawable as earned.",
     ],
     scenarios: [
       {
@@ -90,9 +90,9 @@ export const compareContent: Record<string, ComparePair> = {
         label: 'Pick Cloudbet if',
         conditions: [
           'You want a credible crypto sportsbook in the same account',
-          'You\'re planning to win big and need no-withdrawal-limit certainty',
+          'You\'re planning to win big and will complete full verification for the uncapped-withdrawal policy',
           'You value the dual Curaçao + Kahnawake licensing',
-          'You deposit in 0.001 BTC equivalent (lower minimum threshold)',
+          'You prefer cash rewards with no wagering over a wagering-gated match',
         ],
       },
       {
@@ -101,13 +101,13 @@ export const compareContent: Record<string, ComparePair> = {
         conditions: [
           'You want the established award track record',
           'You value the slightly faster 9.5/10 withdrawal score',
-          'You want the 180 free spins alongside the matching BTC bonus',
+          'You want a traditional match bonus (5 BTC + 180 free spins; Cloudbet no longer runs one)',
           'You don\'t need a sportsbook',
         ],
       },
     ],
     verdict:
-      "The split is sportsbook plus cash-out certainty (Cloudbet) versus pure-casino plus brand legacy (BitStarz). BitStarz is the cleaner casino-only choice: faster typical withdrawal score, more decorated awards history, and the 200 free spins on top of the matching BTC welcome. Cloudbet is the better pick if you also bet on sports, if you're planning the kind of win that hits withdrawal caps elsewhere, or if you want the dual licensing as additional structural assurance. Both are top-five operators by our scoring; the choice is which proposition matches your play.",
+      "The split is sportsbook plus cash-out capacity (Cloudbet) versus pure-casino plus brand legacy (BitStarz). BitStarz is the cleaner casino-only choice: faster typical withdrawal score, more decorated awards history, and the traditional 5 BTC + 180 spins match for players who want a headline welcome. Cloudbet is the better pick if you also bet on sports, if you're planning the kind of win that hits withdrawal caps elsewhere (verify fully first: the no-limit policy applies to Level 2 accounts), or if you prefer its $2,500 no-wagering cash-rewards package over a playthrough-gated match. Both are top-five operators by our scoring; the choice is which proposition matches your play.",
     faqs: [
       {
         question: 'Does Cloudbet have a sportsbook?',
@@ -115,11 +115,11 @@ export const compareContent: Record<string, ComparePair> = {
       },
       {
         question: 'Are there withdrawal limits at Cloudbet versus BitStarz?',
-        answer: 'Cloudbet explicitly operates with no withdrawal limits, a notable structural feature for high-rollers. BitStarz does not formally claim no-limits in the same way; standard withdrawal-cap behaviour applies, with limits typically raising at higher VIP tiers. If you\'re planning a five- or six-figure cash-out, Cloudbet\'s no-limit policy is the safer fit.',
+        answer: 'Cloudbet operates with no withdrawal limits for fully verified accounts: per its published cashier policy, accounts that have not completed Level 2 verification are capped at $2,200 a day, and verified accounts have no daily cap at all. BitStarz does not formally claim no-limits in the same way; standard withdrawal-cap behaviour applies, with limits typically raising at higher VIP tiers. If you\'re planning a five- or six-figure cash-out, Cloudbet\'s verified-account no-limit policy is the safer fit; complete verification before you need it.',
       },
       {
         question: 'Which has the better welcome bonus, Cloudbet or BitStarz?',
-        answer: 'Both headline 5 BTC welcome bonuses. BitStarz adds 180 free spins; Cloudbet doesn\'t. BitStarz also applies a 25% admin fee on bonus-related withdrawals, which Cloudbet doesn\'t. If you\'ll clear the bonus and withdraw winnings, Cloudbet\'s clean structure delivers more effective value. If you value the free spins as their own bucket, BitStarz wins on raw inclusion.',
+        answer: 'They are different models now. BitStarz runs a traditional match: 5 BTC + 180 free spins across four deposits, with wagering up to 40x and no casino-side cashier fees per its live terms. Cloudbet replaced its former 5 BTC match with the $2,500 Welcome Package: cash rewards earned over the first 30 days via 10% casino rakeback and daily cash drops, with no wagering requirements. BitStarz wins on headline ceiling; Cloudbet wins on withdrawability, since its rewards arrive as cash rather than locked bonus balance. Pick on whether you will genuinely clear a 40x playthrough.',
       },
       {
         question: 'Is Cloudbet older than BitStarz?',
@@ -137,7 +137,7 @@ export const compareContent: Record<string, ComparePair> = {
       "Two casinos born within months of each other in 2014, both Bitcoin-first, both still operating as benchmark crypto platforms a decade-plus later. What divides them is privacy posture: 7Bit Casino has maintained a no-KYC policy throughout, one of the longest unbroken in the industry. BitStarz operates Light KYC, light-touch enough that most players never see a document request but with the trigger reserved. The pick depends on whether anonymity at any withdrawal size is the decisive factor.",
     positioning: [
       "BitStarz wins on trust score (9.2 vs 8.8), withdrawal speed (9.5 vs 9.1, both fast), and BTC-denominated welcome ceiling (5 BTC vs 7Bit's 325% match up to €5,400, roughly 50x larger in raw BTC-equivalent terms at current prices). 7Bit wins on KYC (None vs Light, 9.2 vs 8.5 in our scoring), minimum deposit ($10 vs $20), coin count (8 vs 6, adds XRP and BNB), and free-spin count in the welcome pack (250 vs 180).",
-      "The bonus headline tells a different story than the previous version of this page suggested. BitStarz's 5 BTC carries a 25% admin fee on bonus-related withdrawals; 7Bit's €5,400 package doesn't. Post-fee, BitStarz still wins by a large margin on absolute BTC ceiling, but 7Bit comes out ahead on spin count and on bonus-side withdrawal cleanliness, and 7Bit's full no-KYC posture remains the structurally distinct value at the cashier, independent of bonus economics.",
+      "On bonus economics, neither operator documents casino-side cashier fees in its live terms, so the comparison is clean: BitStarz wins by a large margin on absolute BTC ceiling, 7Bit on spin count (250 vs 180). 7Bit's full no-KYC posture remains the structurally distinct value at the cashier, independent of bonus economics.",
     ],
     scenarios: [
       {
@@ -147,7 +147,7 @@ export const compareContent: Record<string, ComparePair> = {
           'No-KYC at any withdrawal size is decisive for you',
           'You want to deposit in XRP or BNB (BitStarz doesn\'t accept either)',
           'You want a $10 minimum entry',
-          'You\'d rather skip the 25% bonus-withdrawal admin fee',
+          'You want the higher spin count in the welcome pack (250 vs 180)',
         ],
       },
       {
@@ -162,7 +162,7 @@ export const compareContent: Record<string, ComparePair> = {
       },
     ],
     verdict:
-      "7Bit Casino is the cleaner choice if no-KYC is your decisive factor, and that's the case for many crypto-native players. BitStarz is the bigger headline brand and offers the larger welcome bonus if you'll actually clear it post-25%-fee. Both have 12-year+ track records and process withdrawals fast. The 0.4 trust-score gap is real but small: neither casino has structural concerns. Pick on privacy posture first, then on bonus math.",
+      "7Bit Casino is the cleaner choice if no-KYC is your decisive factor, and that's the case for many crypto-native players. BitStarz is the bigger headline brand and offers the larger BTC-denominated welcome bonus if you'll actually clear the wagering. Both have 12-year+ track records and process withdrawals fast. The 0.4 trust-score gap is real but small: neither casino has structural concerns. Pick on privacy posture first, then on bonus math.",
     faqs: [
       {
         question: 'Is 7Bit Casino older than BitStarz?',
@@ -174,7 +174,7 @@ export const compareContent: Record<string, ComparePair> = {
       },
       {
         question: 'Which has the bigger welcome bonus, 7Bit or BitStarz?',
-        answer: 'BitStarz: 5 BTC + 180 free spins across the first four deposits. 7Bit: 325% match up to €5,400 + 250 free spins across the 4-deposit welcome pack. On raw BTC-denominated ceiling, BitStarz wins by a large margin (5 BTC at current prices is many multiples of €5,400). On spin count, 7Bit wins (250 vs 180). On bonus-side withdrawal cleanliness, 7Bit wins (no equivalent of BitStarz\'s 25% admin fee on bonus-related withdrawals). The structurally better choice depends on whether you\'re optimising for BTC headline, spin volume, or withdrawal mechanics.',
+        answer: 'BitStarz: 5 BTC + 180 free spins across the first four deposits. 7Bit: 325% match up to €5,400 + 250 free spins across the 4-deposit welcome pack. On raw BTC-denominated ceiling, BitStarz wins by a large margin (5 BTC at current prices is many multiples of €5,400). On spin count, 7Bit wins (250 vs 180). Neither documents casino-side cashier fees in its live terms. The structurally better choice depends on whether you\'re optimising for BTC headline or spin volume.',
       },
       {
         question: 'Which has faster crypto withdrawals, 7Bit or BitStarz?',
@@ -247,15 +247,15 @@ export const compareContent: Record<string, ComparePair> = {
       "The bonus is the headline that drives most players to this comparison: Mirax's 4-deposit welcome pack up to 5 BTC plus 150 free spins (100 on D1, 50 on D2, cash-only on D3/D4), versus BitStarz's 5 BTC plus 180 free spins. The two now tie on BTC-denominated ceiling: the structural difference is the operator history underneath. BitStarz has run as a standalone brand since 2014. Mirax launched in 2022 as part of the 7Bit Partners network, which has been operating other established brands since 2014. New brand, proven backbone versus decade-old standalone.",
     positioning: [
       "BitStarz wins on trust (9.2 vs 8.6), withdrawal speed (9.5 vs 8.8), bonus fairness scoring (8.8 vs 8.4, the 0.4 gap reflects the structural transparency of an established brand more than a specific Mirax problem), and free-spin count in the welcome pack (180 vs 150). Mirax wins on coin count by one (XRP added vs BitStarz's six) and on game library breadth (7,000+ titles vs 3,000+ at BitStarz, though BitStarz pairs that with 100+ providers, the broadest curation in our reviews). The two now tie on BTC-denominated welcome ceiling at 5 BTC across four deposits.",
-      "The 25% admin fee on bonus-related withdrawals at BitStarz is now the single biggest delta in the comparison. Mirax doesn't document the same structure. At the same 5 BTC headline ceiling, a fully-cleared Mirax bonus delivers ~25% more BTC-equivalent value to the wallet than the equivalent BitStarz one, which makes Mirax the better pick when you're optimising for headline-cleared value rather than absolute spin count.",
+      "There is no cashier-fee delta between the two: neither operator documents deposit or withdrawal fees in its live terms (both re-verified against the live T&Cs in July 2026). At the same 5 BTC headline ceiling, the bonus choice comes down to structure: BitStarz packs more spins (180 vs 150) and spreads them over eight days; Mirax front-loads its pack (1.5 BTC + 100 spins on the first deposit) and runs cash-only matches on deposits three and four.",
     ],
     scenarios: [
       {
         casinoSlug: 'mirax-casino',
         label: 'Pick Mirax Casino if',
         conditions: [
-          'The bonus is your primary decision factor (5 BTC headline + 150 spins, no admin fee at the cashier)',
-          'You\'ll clear the wagering and prefer to skip the 25% bonus-withdrawal admin fee BitStarz applies',
+          'The bonus is your primary decision factor (5 BTC headline + 150 spins across four deposits)',
+          'You prefer a front-loaded pack (1.5 BTC + 100 spins on the first deposit)',
           'You want the larger raw game library (7,000+ titles)',
           'You want XRP support (Mirax has it, BitStarz doesn\'t)',
         ],
@@ -267,16 +267,16 @@ export const compareContent: Record<string, ComparePair> = {
           'You want the established brand reputation and award track record',
           'You value the faster 9.5/10 withdrawal score',
           'You want the broadest provider curation (100+ providers)',
-          'You can model the 25% bonus admin fee into your math',
+          'You want the larger spin pack (180 vs 150)',
         ],
       },
     ],
     verdict:
-      "The withdrawal-fee delta is the visible difference; the operator history is the structural one. The two now tie on BTC-denominated welcome ceiling at 5 BTC across four deposits, but BitStarz applies a 25% admin fee on bonus-related withdrawals that Mirax does not. BitStarz brings 12 years of standalone reputation, a faster headline withdrawal window, and a more decorated brand. If the after-fee bonus value is your primary deciding factor and you'll clear the wagering, Mirax is the better pick: Mirax's cleaner cashier delivers ~25% more BTC-equivalent value at the same headline ceiling. If brand longevity, slightly faster withdrawals, and the larger 180-spin pack matter more, BitStarz wins on those exact dimensions. Both are legitimate Curaçao-licensed operators with proven payout infrastructure.",
+      "The operator history is the structural difference. The two tie on BTC-denominated welcome ceiling at 5 BTC across four deposits, and neither documents cashier fees in its live terms, so the bonus decision is about shape: Mirax front-loads (1.5 BTC + 100 spins on D1), BitStarz packs more total spins (180 vs 150). BitStarz brings 12 years of standalone reputation, a faster headline withdrawal window, and a more decorated brand; Mirax brings the bigger raw library (7,000+ titles) on the proven 7Bit Partners backbone. If brand longevity and slightly faster withdrawals matter more, BitStarz wins on those exact dimensions. Both are legitimate Curaçao-licensed operators with proven payout infrastructure.",
     faqs: [
       {
         question: 'Which has the bigger welcome bonus, Mirax or BitStarz?',
-        answer: 'Mirax: up to 5 BTC + 150 free spins across the 4-deposit welcome pack. BitStarz: 5 BTC + 180 free spins across four deposits. The two tie on BTC headline ceiling. BitStarz adds 30 more free spins (180 vs 150); Mirax skips the 25% admin fee BitStarz applies to bonus-related withdrawals, which means at the same headline ceiling, Mirax delivers ~25% more BTC-equivalent value to the wallet after clearing the bonus. For players optimising for after-fee bonus value, Mirax wins; for players valuing the larger spin pack, BitStarz.',
+        answer: 'Mirax: up to 5 BTC + 150 free spins across the 4-deposit welcome pack. BitStarz: 5 BTC + 180 free spins across four deposits. The two tie on BTC headline ceiling, and neither documents casino-side cashier fees in its live terms. BitStarz adds 30 more free spins (180 vs 150); Mirax front-loads its pack more heavily (1.5 BTC + 100 spins on the first deposit, cash-only matches on D3/D4). For players valuing the larger total spin pack, BitStarz; for players who want the biggest first-deposit hit, Mirax.',
       },
       {
         question: 'Is Mirax Casino part of the 7Bit network?',
@@ -284,7 +284,7 @@ export const compareContent: Record<string, ComparePair> = {
       },
       {
         question: 'Does BitStarz really charge 25% on bonus withdrawals?',
-        answer: 'Yes. BitStarz documents a 25% admin fee on bonus-related withdrawals in its terms. This is flagged in our BitStarz review as the catch most players don\'t see coming. If you clear a welcome or reload bonus and want to withdraw the resulting winnings, 25% comes off at the cashier. Mirax doesn\'t apply the same structure on bonus winnings.',
+        answer: 'No. We previously reported a 25% admin fee on bonus-related withdrawals at BitStarz, and re-verification against the live BitStarz terms in July 2026 found no such fee anywhere in the current T&Cs. In fact the live terms document no fees on any deposits or withdrawals at all. We corrected this across the site the same day. Mirax likewise documents no cashier fees on bonus winnings; always check the operator\'s current terms before depositing, since bonus terms change.',
       },
       {
         question: 'Which has more cryptocurrencies, Mirax or BitStarz?',

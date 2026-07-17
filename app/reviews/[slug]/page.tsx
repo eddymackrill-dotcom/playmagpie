@@ -31,8 +31,8 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
   bitstarz: [
     {
       href: '/reviews/bitstarz/withdrawal',
-      label: 'BitStarz withdrawal times and the 25% bonus admin fee, in detail',
-      teaser: 'When the bonus admin fee bites, KYC triggers at the cashier, and what each of the six supported coins means for clearing time.',
+      label: 'BitStarz withdrawal times in detail: under 10 minutes, no cashier fees',
+      teaser: 'The fee-free cashier per the live terms, KYC triggers, and what each of the six supported coins means for clearing time.',
     },
     {
       href: '/reviews/bitstarz/payment-methods',
@@ -144,7 +144,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'How does BitStarz compare to other crypto casinos?',
-      answer: 'BitStarz vs competitors: BitStarz leads on trust and reputation with the highest score in our rankings (9.2/10) and the most industry awards since 2014. Compared to BC.Game, BitStarz scores higher for trust but BC.Game supports 100+ cryptocurrencies versus BitStarz\'s six. Compared to 7Bit Casino, BitStarz offers a larger BTC-denominated welcome ceiling (5 BTC vs 7Bit\'s 325% match up to €5,400) but both share fast withdrawals and light KYC policies; 7Bit\'s offer is more competitive than its old structure made it look.',
+      answer: 'BitStarz vs competitors: BitStarz leads on trust and reputation with the highest score in our rankings (9.2/10) and the most industry awards since 2014. Compared to BC.Game, BitStarz scores higher for trust but BC.Game supports 100+ cryptocurrencies versus BitStarz\'s six. Compared to 7Bit Casino, BitStarz offers a larger BTC-denominated welcome ceiling (5 BTC vs 7Bit\'s 325% match up to €5,400) and both share fast withdrawals, but 7Bit runs a full no-KYC policy where BitStarz runs Light KYC; 7Bit\'s offer is more competitive than its old structure made it look.',
     },
   ],
   'bc-game': [
@@ -222,11 +222,11 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What are Mirax Casino withdrawal times?',
-      answer: 'Mirax Casino withdrawal time for cryptocurrency transactions is instant to 15 minutes: that window is the casino-side processing, with on-chain clearing added on top depending on the network. XRP is the fastest coin in the Mirax lineup (settlement in seconds at fractions of a cent), LTC and DOGE clear in low single-digit minutes, and BTC depends on mempool conditions. Mirax\'s fast crypto payouts earn it an 8.8/10 withdrawal score on PlayMagpie. One structural advantage over BitStarz: Mirax imposes no admin fee on bonus-related withdrawals, so at the same 5 BTC welcome ceiling a cleared bonus delivers roughly 25% more BTC-equivalent value to your wallet than BitStarz\'s 25%-fee cashier flow. Until you clear wagering on any accepted bonus portion, only real-money-deposited balance and its winnings are freely withdrawable, which is standard across match-bonus casinos.',
+      answer: 'Mirax Casino withdrawal time for cryptocurrency transactions is instant to 15 minutes: that window is the casino-side processing, with on-chain clearing added on top depending on the network. XRP is the fastest coin in the Mirax lineup (settlement in seconds at fractions of a cent), LTC and DOGE clear in low single-digit minutes, and BTC depends on mempool conditions. Mirax\'s fast crypto payouts earn it an 8.8/10 withdrawal score on PlayMagpie. Mirax imposes no cashier fees on withdrawals, bonus-related or otherwise, per its live terms. Until you clear wagering on any accepted bonus portion, only real-money-deposited balance and its winnings are freely withdrawable, which is standard across match-bonus casinos.',
     },
     {
       question: 'What is the Mirax Casino bonus for 2026?',
-      answer: 'The Mirax Casino welcome offer in 2026 spans the first four deposits with a 5 BTC headline ceiling: 100% up to 1.5 BTC + 100 free spins on D1 (no code), 75% up to 1.25 BTC + 50 free spins on D2 (code W2), then cash-only matches of 1.25 BTC on D3 (code W3) and 1 BTC on D4 (code W4). Total: up to 5 BTC + 150 free spins across the welcome pack. That ties with BitStarz on BTC ceiling. Free-spin winnings carry a 45x wagering requirement (distinct from the 40x on cash deposit bonuses) and a €100 max cashout per the live promotions page. Mirax does not impose the 25% admin fee on bonus-related withdrawals that BitStarz documents. Ongoing promotions include weekly free spins, Monday Lootboxes and a 20% highroller cashback.',
+      answer: 'The Mirax Casino welcome offer in 2026 spans the first four deposits with a 5 BTC headline ceiling: 100% up to 1.5 BTC + 100 free spins on D1 (no code), 75% up to 1.25 BTC + 50 free spins on D2 (code W2), then cash-only matches of 1.25 BTC on D3 (code W3) and 1 BTC on D4 (code W4). Total: up to 5 BTC + 150 free spins across the welcome pack. That ties with BitStarz on BTC ceiling. Free-spin winnings carry a 45x wagering requirement (distinct from the 40x on cash deposit bonuses); no free-spin max-cashout cap is documented in the live terms. Ongoing promotions include weekly free spins, Monday Lootboxes and a 20% highroller cashback.',
     },
     {
       question: 'What is the Mirax Casino minimum deposit?',
@@ -238,7 +238,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Is Mirax Casino worth joining in 2026?',
-      answer: 'This Mirax Casino review 2026 highlights three key strengths: a competitive welcome pack (up to 5 BTC + 150 free spins across the 4-deposit welcome pack, with no admin fee on bonus-related withdrawals), a 7,000+ game library from top providers including Evolution and Pragmatic Play, and fast crypto payouts within 15 minutes. Backed by the experienced 7Bit Partners network, Mirax earns an 8.6/10 trust score. The main consideration is its shorter track record compared to older crypto casinos like BitStarz or 7Bit.',
+      answer: 'This Mirax Casino review 2026 highlights three key strengths: a competitive welcome pack (up to 5 BTC + 150 free spins across the 4-deposit welcome pack, with no cashier fees per the live terms), a 7,000+ game library from top providers including Evolution and Pragmatic Play, and fast crypto payouts within 15 minutes. Backed by the experienced 7Bit Partners network, Mirax earns an 8.6/10 trust score. The main consideration is its shorter track record compared to older crypto casinos like BitStarz or 7Bit.',
     },
     {
       question: 'How does the Mirax Casino VIP programme work?',
@@ -606,8 +606,8 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
           {casino.slug === 'bitstarz' && (
             <p className="text-[#bbbbbb] text-base leading-relaxed mb-6">
               BitStarz processes crypto withdrawals in under 10 minutes on average across its six supported
-              coins, but deducts a 25% admin fee from any withdrawal derived from bonus play. Deposit without
-              taking the welcome package and the fee never applies.
+              coins, and per its live terms charges no fees on any deposits or withdrawals; only the
+              blockchain network fee applies, deducted by the network rather than the casino.
             </p>
           )}
 

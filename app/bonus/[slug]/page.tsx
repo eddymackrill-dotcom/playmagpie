@@ -14,7 +14,7 @@ import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 // limits.
 const STRIP_BY_BONUS: Record<string, CTAStripCard[]> = {
   'welcome-bonus': [
-    { slug: 'bitstarz', facts: [{ label: 'Welcome', value: '5 BTC + 180 spins (4 deposits)' }, { label: 'Wagering', value: '40x bonus, 25% admin fee on bonus withdrawals' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
+    { slug: 'bitstarz', facts: [{ label: 'Welcome', value: '5 BTC + 180 spins (4 deposits)' }, { label: 'Wagering', value: '40x bonus; no cashier fees per live terms' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
     { slug: 'bc-game', facts: [{ label: 'Welcome', value: '220% Deposit Rakeback, 4 monthly stages' }, { label: 'Wagering', value: 'Locked balance unlocks as you wager' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
     { slug: '7bit-casino', facts: [{ label: 'Welcome', value: '325% up to €5,400 + 250 spins (4 deposits)' }, { label: 'Wagering', value: '40-45x range' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
   ],
@@ -39,7 +39,7 @@ const STRIP_BY_BONUS: Record<string, CTAStripCard[]> = {
     { slug: '7bit-casino', facts: [{ label: 'VIP', value: 'Tiered cashback + personal manager' }, { label: 'Cashback', value: 'Up to 20% weekly' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
   ],
   'high-roller-bonus': [
-    { slug: 'bitstarz', facts: [{ label: 'High-roller', value: 'Invite-only VIP: dedicated host' }, { label: 'Welcome', value: '5 BTC headline (25% admin-fee catch)' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
+    { slug: 'bitstarz', facts: [{ label: 'High-roller', value: 'Invite-only VIP: dedicated host' }, { label: 'Welcome', value: '5 BTC headline + 180 spins' }, { label: 'Withdrawal', value: 'Under 10 minutes' }] },
     { slug: 'bc-game', facts: [{ label: 'High-roller', value: 'Top XP tiers + per-account negotiation' }, { label: 'Welcome', value: '220% Deposit Rakeback, scales with deposit' }, { label: 'Withdrawal', value: 'Instant to 10 minutes' }] },
     { slug: 'cloudbet', facts: [{ label: 'High-roller', value: 'No withdrawal limits once verified: the load-bearing differentiator' }, { label: 'Welcome', value: '$2,500 package: cash rewards, no wagering' }, { label: 'Withdrawal', value: 'Instant for most; no cap when verified' }] },
   ],

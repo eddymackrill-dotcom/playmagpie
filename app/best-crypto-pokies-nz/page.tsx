@@ -217,7 +217,7 @@ export default function CryptoPokiesNZPage() {
               {
                 slug: 'mirax-casino',
                 name: 'Mirax Casino',
-                summary: '7,000+ titles from Evolution, Pragmatic Play and NetEnt: the cleanest provider lineup at this library size. The 4-deposit welcome pack runs up to 5 BTC with 150 free spins (100 on D1, 50 on D2, cash-only on D3/D4); expect wagering to be cleared on slots before any cash-out, which is standard for bonus-clearance pokies sessions. Free-spin winnings carry a €100 max-cashout per the live T&C.',
+                summary: '7,000+ titles from Evolution, Pragmatic Play and NetEnt: the cleanest provider lineup at this library size. The 4-deposit welcome pack runs up to 5 BTC with 150 free spins (100 on D1, 50 on D2, cash-only on D3/D4); expect wagering to be cleared on slots before any cash-out (45x on free-spin winnings), which is standard for bonus-clearance pokies sessions.',
               },
               {
                 slug: '7bit-casino',
@@ -227,7 +227,7 @@ export default function CryptoPokiesNZPage() {
               {
                 slug: 'bitstarz',
                 name: 'BitStarz',
-                summary: '3,000+ titles from 100+ providers: the broadest provider selection on the site even at lower headline title count. Multi-time "Best Bitcoin Casino" winner since 2014. Watch the 25% admin fee on bonus-related withdrawals if you\'re clearing the 5 BTC welcome.',
+                summary: '3,000+ titles from 100+ providers: the broadest provider selection on the site even at lower headline title count. Multi-time "Best Bitcoin Casino" winner since 2014. No cashier fees on deposits or withdrawals per the live terms; the cost of the 5 BTC welcome is the wagering, which runs up to 40x.',
               },
               {
                 slug: 'duelbits',

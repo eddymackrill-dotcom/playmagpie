@@ -48,7 +48,7 @@ const breadcrumbSchema = {
 // Facts from lib/casinos.ts.
 const PER_CASINO_BTC_NOTES: Record<string, string> = {
   bitstarz:
-    'BitStarz is the safe Canadian default: a decade of Best Bitcoin Casino awards and sub-10-minute BTC processing. Available across every province. Note the 25% admin fee on bonus-related withdrawals before you tie a BTC balance to the welcome package.',
+    'BitStarz is the safe Canadian default: a decade of Best Bitcoin Casino awards and sub-10-minute BTC processing. Available across every province. No cashier fees on deposits or withdrawals per the live terms; the welcome package\'s real cost is its wagering requirement, up to 40x.',
   'bc-game':
     'BC.Game runs no KYC at any withdrawal size, the lowest entry at $5, and accepts Canadian players nationwide including Ontario. The cleanest BTC-in, BTC-out path for a Canadian who would rather not attach documents.',
   '7bit-casino':
