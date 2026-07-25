@@ -2,7 +2,7 @@
 
 Operational playbook for running this site sustainably. Companion to CLAUDE.md (which defines strategy and rules); this file defines workflows and cadences.
 
-Last updated: 2026-07-16
+Last updated: 2026-07-25
 
 ## How to use this file
 
@@ -33,9 +33,16 @@ report on. Run this instead:
 4. Bing glance (added 2026-07-13, Bing Webmaster Tools live via GSC import): Search Performance
    for the playmagpie.com property. Record impressions and whether any are non-branded. Bing is
    not subject to the Google spam classification, so non-branded Bing impressions on the same
-   content = evidence the suppression is Google-specific at serving. Baseline at setup: zero
-   pages indexed by Bing; also note when the first Bing-indexed pages appear. Owner-side glance
+   content = evidence the suppression is Google-specific at serving. Owner-side glance
    (no API access); record the reading in the recovery-log `bing:` field.
+   Serving CONFIRMED sustained 2026-07-25 (100 imp / 2 clicks over 15-22 Jul, daily flow);
+   the public site: probe returns zero for this domain and is the DISCOUNTED signal (probe
+   unreliability, same class as Google's apex inspections) — the WMT glance is the arbiter.
+   **Also glance the AI Performance tab (BETA; added to this check 2026-07-25):** record the
+   citation count from Microsoft Copilots/Partners and the top grounding queries/pages if
+   shown. Caveats: data collection began ~2026-07-13 regardless of the date-range selector;
+   citations are grounding events, not visits; treat short windows as a level, not a trend.
+   First reading: 50 citations for the first ~week (07-25 pull).
 5. **UPDATE WATCH** (added 2026-07-16): check the Google Search Status Dashboard
    (status.search.google.com) for any announced ranking updates (spam updates especially,
    core updates also relevant). Any announced update is a potential re-evaluation event:
