@@ -37,7 +37,7 @@ report on. Run this instead:
    (no API access); record the reading in the recovery-log `bing:` field.
    Serving CONFIRMED sustained 2026-07-25 (100 imp / 2 clicks over 15-22 Jul, daily flow);
    the public site: probe returns zero for this domain and is the DISCOUNTED signal (probe
-   unreliability, same class as Google's apex inspections) — the WMT glance is the arbiter.
+   unreliability, same class as Google's apex inspections); the WMT glance is the arbiter.
    **Also glance the AI Performance tab (BETA; added to this check 2026-07-25):** record the
    citation count from Microsoft Copilots/Partners and the top grounding queries/pages if
    shown. Caveats: data collection began ~2026-07-13 regardless of the date-range selector;
