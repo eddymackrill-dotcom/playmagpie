@@ -139,6 +139,7 @@ Run after every content push. ~10 minutes.
 
 - Vercel deploy went green (no failed build)
 - Sitemap includes all new URLs (curl https://www.playmagpie.com/sitemap.xml | grep [new-slug])
+- IndexNow (wired 2026-07-25): the npm postbuild hook auto-submits the full sitemap URL set to api.indexnow.org on every production deploy, non-blocking. If this batch ADDED new URLs, also run `node scripts/submit-indexnow.mjs --force` once the deploy is live, because the build-time submission reads the live sitemap, which lags one deploy for brand-new URLs. Success looks like `[indexnow] submitted N URLs ... HTTP 200` (202 = accepted, key validation pending)
 - At least one spot-check rendered correctly on production (pick the most editorially complex page in the batch)
 - Mobile spot-check on at least one page (single-column stack, CTAs tappable, no overflow)
 - Manual indexing requests in GSC for any substantive new pages (use www host explicitly; apex returns "URL unknown")
