@@ -226,9 +226,17 @@ node scripts/submit-bing.mjs https://www.playmagpie.com <pageUrl> [pageUrl...]
 
 ### Where the secret lives
 
-The key is a GitHub Actions repository secret named `BING_WEBMASTER_KEY`, set at
-**repo Settings > Secrets and variables > Actions > New repository secret**. It is never
-committed. For local runs it goes in `.env.local`, which is gitignored via `.env*`.
+The key is a GitHub Actions repository secret named `BING_WEBMASTER_KEY`, at
+**repo Settings > Secrets and variables > Actions**. It is never committed. For local runs
+it goes in `.env.local`, which is gitignored via `.env*`.
+
+**Status: SET on both the .com and the UK repo (owner, 2026-07-28). SET is not the same as
+TESTED, and it has not been tested.** The workflow skips the submit step entirely on a
+zero-URL run, so any push that adds no pages leaves the secret unexercised. The first push
+that publishes a new URL is the first real test of it, which in practice means the August
+guide. Until then, treat the credential path as unverified: if that first run fails at the
+guard with "BING_WEBMASTER_KEY secret is not set", the secret name or scope is wrong, not
+the workflow logic.
 
 It is protected twice over: GitHub masks secret values in Action logs, and
 `scripts/submit-bing.mjs` passes all of its own output through a redactor that strips both

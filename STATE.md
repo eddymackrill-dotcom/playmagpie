@@ -170,6 +170,11 @@ Format: `- YYYY-MM-DD: non-zero days last 14: N; streak: N/7; sentinels indexed:
   repo and app/sitemap.ts stamps every entry with lastModified: new Date(), so
   all 74 URLs share one build-timestamp lastmod and a lastmod diff would return
   the entire sitemap on every push.
+  SECRET. BING_WEBMASTER_KEY is set as a GitHub Actions repository secret on
+  both the .com and the UK repo (owner, 2026-07-28). Set is not tested: the
+  workflow skips its submit step on a zero-URL run, so the credential path stays
+  unexercised until a push actually publishes a new URL, which in practice means
+  the August guide. Do not log the channel as working before then.
   LESSON. The deleted postbuild hook had been running submit-indexnow.mjs on
   every deploy and exiting zero regardless of outcome, so rejected submissions
   produced no signal for three days. A script wired into the build that cannot

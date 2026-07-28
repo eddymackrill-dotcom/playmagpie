@@ -4,6 +4,27 @@ Before responding to my first request, read STATE.md and RUNBOOK.md in full. The
 ## KEEP STATE.md CURRENT
 When I indicate we're wrapping up, or after any deploy, update STATE.md (move completed items out of in-flight, add new in-flight items, update current-state numbers, append dated decisions to the append-only log), then commit it.
 
+## Push and deploy: automatic, always
+
+Push after every commit. Never ask. Never leave a commit sitting local.
+
+The pre-commit "show me" stop is the only gate. Once the owner has approved a diff, everything downstream is yours to complete: commit, push, and confirm. The owner does not run git commands, does not open GitHub, and does not open Vercel to make things happen. If a step is needed to get approved work live, do it.
+
+Push is deploy. Vercel builds on push to master. The show-me stop is therefore the deploy gate and the last point at which anything can be stopped. Treat it that way.
+
+After pushing, verify from the command line rather than reporting intent:
+- Confirm the push succeeded and that the local and remote SHAs match.
+- Report the SHA and what it does.
+- If the commit triggers a GitHub Action or affects live pages, say so explicitly.
+
+You have no API or browser access to GitHub or Vercel, so a small number of things cannot be checked from here. When one of those matters, say precisely what needs a glance, give the direct URL, and say what a bad result would look like. Never ask the owner to go and look at something out of vagueness or habit. This is the one category where a manual glance is legitimate, and it exists because the 25 July IndexNow failure went unnoticed for three days for want of one.
+
+Exceptions, where you commit and stop:
+- The owner said not to push.
+- The change is not yet reviewed end to end. An approved-in-part diff is not approved.
+
+Scope note (reconciles the 2026-06-11 subagent rule in the Workflow section): this rule governs the orchestrating session. Subagents still never push, ever. That restriction stands unchanged and for its original reason.
+
 ## VELOCITY FREEZE (in force since 2026-07-07, June 2026 spam-update recovery)
 
 **No new .com pages.** No new URLs may be added to the site until serving recovery is confirmed. Recovery is confirmed when GSC shows **7 or more consecutive days of non-zero site-wide impressions** (dataState=all; the raw site-wide count, no filters). Claude Code refuses new-page requests during the freeze and cites this rule, including pages that would otherwise pass every demand gate.
@@ -386,9 +407,9 @@ When building new pages, add 3-5 contextual internal links to existing pages. Us
 4. Self-audit per the section above
 5. Run `git status` to confirm what's changing
 6. Commit with a descriptive message ("Add withdrawal pages for BitStarz, Mirax, 7Bit")
-7. `git push origin master` (Vercel auto-deploys)
+7. `git push origin master` (Vercel auto-deploys). Not optional and not a question: see "Push and deploy: automatic, always" at the top of this file.
 
-Subagents inherit the hold-for-push rule: only the orchestrating session pushes, and only on explicit user approval (rule added 2026-06-11 after a subagent's unauthorised, harmless but out-of-process, push of commit 5f71a93).
+Subagents never push, ever (rule added 2026-06-11 after a subagent's unauthorised, harmless but out-of-process, push of commit 5f71a93). Only the orchestrating session pushes. **Amended 2026-07-28:** the original wording of this rule added "and only on explicit user approval", which is now superseded for the orchestrating session. The approval that matters is the pre-commit show-me stop, not a separate push approval; once a diff is approved, pushing it is required rather than requested. The subagent restriction is untouched.
 
 ## Social presence
 
