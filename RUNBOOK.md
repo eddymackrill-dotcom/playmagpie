@@ -253,6 +253,13 @@ The key is a GitHub Actions repository secret named `BING_WEBMASTER_KEY`, at
 **repo Settings > Secrets and variables > Actions**. It is never committed. For local runs
 it goes in `.env.local`, which is gitignored via `.env*`.
 
+**The `siteUrl` must match the registered WMT property host exactly**, or Microsoft returns
+ErrorCode 14 NotAuthorized. **This repo's property is APEX, `https://playmagpie.com`**
+(owner-verified 2026-07-28 by quota call), which is why the workflow's `SITE_URL` is the apex
+form even though the site is www-canonical. The UK property is registered on a different host
+from this one. Do not infer either from the other, and do not "correct" this value to www.
+Both hosts are recorded in the STATE.md 2026-07-28 decisions entry.
+
 **Status: SET on both the .com and the UK repo (owner, 2026-07-28). SET is not the same as
 TESTED, and it has not been tested.** The workflow skips the submit step entirely on a
 zero-URL run, so any push that adds no pages leaves the secret unexercised. The first push

@@ -170,6 +170,19 @@ Format: `- YYYY-MM-DD: non-zero days last 14: N; streak: N/7; sentinels indexed:
   repo and app/sitemap.ts stamps every entry with lastModified: new Date(), so
   all 74 URLs share one build-timestamp lastmod and a lastmod diff would return
   the entire sitemap on every push.
+  PROPERTY HOSTS, PER SITE, DO NOT INFER ONE FROM THE OTHER. The .com WMT
+  property is registered as APEX, https://playmagpie.com. The UK WMT property is
+  registered as WWW, https://www.playmagpie.co.uk. Both owner-verified 2026-07-28
+  by GetUrlSubmissionQuota returning 100 daily / 400 monthly against those exact
+  hosts. This is why the .com workflow's SITE_URL is apex and the UK workflow's
+  is www: both are correct for their own property, and neither is a bug. The
+  siteUrl passed to SubmitUrl must match the registered property or Microsoft
+  returns ErrorCode 14 NotAuthorized. Recorded because it will otherwise be
+  re-derived wrongly: a Claude Code session reasoned on 2026-07-28 that because
+  both properties were created through the same GSC import path they would share
+  a registered host, and flagged the UK's www values as a latent bug. That was
+  wrong. Same import path does not mean same registered host, and the two sites
+  genuinely differ (the .co.uk is www-canonical with a 308 from its apex).
   SECRET. BING_WEBMASTER_KEY is set as a GitHub Actions repository secret on
   both the .com and the UK repo (owner, 2026-07-28). Set is not tested: the
   workflow skips its submit step on a zero-URL run, so the credential path stays
