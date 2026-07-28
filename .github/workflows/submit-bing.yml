@@ -119,9 +119,14 @@ jobs:
 
       - name: Enforce the hard cap
         if: steps.diff.outputs.count != '0'
+        env:
+          # Through the environment, not interpolated into the shell body. This
+          # value is our own `wc -l` output so it can only be digits, but the
+          # rule here is that NO ${{ }} expression is expanded inside a run:
+          # block, so there is no case-by-case judgement to get wrong later.
+          COUNT: ${{ steps.diff.outputs.count }}
         run: |
           set -euo pipefail
-          COUNT='${{ steps.diff.outputs.count }}'
           if [ "$COUNT" -gt "$MAX_URLS" ]; then
             echo "::error::Cap exceeded: $COUNT URLs computed, limit is $MAX_URLS. NOTHING was submitted."
             echo "Full list follows. Check whether app/sitemap.ts changed shape, or whether this push"
