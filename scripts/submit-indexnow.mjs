@@ -17,7 +17,14 @@
 // (The --force flag bypasses the production-environment gate. The RUNBOOK
 // post-batch checklist covers this for batches that add URLs.)
 
-const KEY = '35f02d6ae156eb490d3edc4b36c99e6350eb27e46138781a818f74b6ac554236'
+// Key rotated 2026-07-28. The original key (35f02d6a...54236, generated
+// 2026-07-25) was rejected by the endpoint with HTTP 403
+// UserForbiddedToAccessSite despite its key file serving correctly, and the
+// Bing WMT IndexNow section turned out to be marketing promo with no key
+// management, so the dashboard could not be used to verify it. Fresh key
+// generated locally via crypto.randomBytes(32); old key file removed from
+// public/ in the same commit.
+const KEY = '3150eeb48028596745d33fb04cc92e95287d02095c54560cd0acb27b62a34206'
 const HOST = 'www.playmagpie.com'
 const SITEMAP_URL = `https://${HOST}/sitemap.xml`
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`
