@@ -139,8 +139,7 @@ Run after every content push. ~10 minutes.
 
 - Vercel deploy went green (no failed build)
 - Sitemap includes all new URLs (curl https://www.playmagpie.com/sitemap.xml | grep [new-slug])
-- IndexNow (wired 2026-07-25; **CURRENTLY BROKEN, see STATE.md In-flight**): the npm postbuild hook auto-submits the full sitemap URL set to api.indexnow.org on every production deploy, non-blocking. If this batch ADDED new URLs, also run `node scripts/submit-indexnow.mjs --force` once the deploy is live, because the build-time submission reads the live sitemap, which lags one deploy for brand-new URLs.
-  **What counts as success (standard set by owner 2026-07-28): submitted URLs actually appearing in Bing WMT's IndexNow reporting. Nothing less.** A `200` is "submitted" and a `202` is "received, key validation PENDING": both are acknowledgements, NOT verification, and neither may be logged as the channel working. This standard exists because the 07-25 session recorded a 202 as verified success, and validation subsequently failed. Since 2026-07-28 the endpoint returns `403 UserForbiddedToAccessSite` on every submission, surviving a full key rotation; until that is resolved, treat the IndexNow step as expected-to-fail, note the response, and rely on the sitemap plus ordinary crawl. Do not re-diagnose from scratch: the ruled-out list and the leading hypothesis (the WMT property's GSC-import provenance) are in STATE.md.
+- Bing URL submission for any new URL in this batch: see the dedicated section below. IndexNow was removed on 2026-07-28 (closed unsolved) and replaced by the Bing Webmaster API.
 - At least one spot-check rendered correctly on production (pick the most editorially complex page in the batch)
 - Mobile spot-check on at least one page (single-column stack, CTAs tappable, no overflow)
 - Manual indexing requests in GSC for any substantive new pages (use www host explicitly; apex returns "URL unknown")
@@ -150,6 +149,107 @@ Run after every content push. ~10 minutes.
 - Follow-up audit list updated with any items deferred from this batch
 - Strategic decisions log appended with any new precedents or rule changes
 - Wind-down: update STATE.md. Move completed work out of "In flight", add any new in-flight items, refresh the current-state numbers, append dated entries to the decisions log (append-only), then commit STATE.md. (Standing instruction lives in CLAUDE.md "KEEP STATE.md CURRENT".)
+
+## Bing URL submission (replaced IndexNow 2026-07-28)
+
+IndexNow was removed from the repo on 2026-07-28 and closed as unsolved, not fixed:
+every submission returned `403 UserForbiddedToAccessSite`, a full key rotation changed
+nothing, and the root cause was never established. The capability was obtained by another
+route instead. Do not reinstate IndexNow or re-open that diagnosis; the thread has no
+remaining value.
+
+Submission now goes through the Bing Webmaster API, authorised by an account-level API key
+from WMT Settings > API access. The same key covers both properties.
+
+### How it runs (automatic)
+
+`.github/workflows/submit-bing.yml` fires on every push to `master`. There is nothing to
+run by hand on a normal publish. The job:
+
+1. Builds the sitemap at HEAD and at the previous commit, and diffs the `<loc>` URL sets.
+2. Submits only URLs present at HEAD and absent at the previous commit, so newly published
+   pages and nothing else.
+3. Prints quota before and after plus the decrement.
+4. Exits non-zero on any submission error.
+
+**Why it diffs URL sets and not lastmod:** there is no `public/sitemap.xml` in this repo and
+never has been. The sitemap is generated at build time by `app/sitemap.ts`, where every
+entry carries `lastModified: new Date()`, so all URLs share one build-timestamp lastmod and
+every build changes all of them. A lastmod-based diff would return the whole sitemap on
+every push. If per-page lastmod is ever made meaningful, revisit this.
+
+**It cannot touch the deploy.** The workflow runs in GitHub Actions, entirely separate from
+Vercel. There is no prebuild or postbuild hook in `package.json`, and none may be added: the
+hook this replaced ran on every deploy and exited zero regardless of outcome, which is how
+three days of rejected IndexNow submissions produced no signal at all.
+
+### The hard cap
+
+The job submits **at most 10 URLs**. Above that it submits **nothing**, prints the full list,
+and fails. That is not a throttle, it is a tripwire: the .com is under a serving-layer
+suppression after a scaled-content flag, so the failure mode worth engineering against is the
+whole sitemap arriving at Bing in one burst. A cap breach means the diff saw something
+unexpected, and a human should look before anything is sent.
+
+If the list is genuinely correct and does exceed 10, submit deliberately in batches via
+`workflow_dispatch`, not by raising the cap.
+
+### Content corrections: use workflow_dispatch, this is not just an override
+
+**The automatic diff covers publishes only. It will never resubmit a page whose content
+changed, because the URL set did not change.** Corrections to existing pages are routine on
+this site (verify-or-omit removals, catalogue drift fixes, answer-statement passes), and they
+are exactly the case where fast propagation matters most: a page carrying a claim we have
+since corrected should stop being served in its old form as soon as possible. So
+`workflow_dispatch` is the **standard mechanism for corrections**, not a fallback.
+
+**Add this to the post-batch checklist habit: if a batch corrected an existing page rather
+than publishing a new one, dispatch it manually. Nothing else will.**
+
+How to run it, for corrections or for anything else needing a hand-picked list:
+
+- GitHub repo > **Actions** tab > **Submit new URLs to Bing** > **Run workflow**.
+- Put space-separated URLs in the **urls** input. That bypasses the diff and submits exactly
+  those. Leave it blank to run the normal sitemap diff.
+- The 10-URL cap still applies. A correction sweep touching more than 10 pages goes in
+  batches, deliberately, rather than by raising the cap.
+
+Other uses of the same path: resubmitting a single URL, and submitting after a capped run.
+
+The script is also callable directly for local testing, which is the same code path the
+workflow uses:
+
+```
+export BING_WEBMASTER_KEY=<key>
+node scripts/submit-bing.mjs https://www.playmagpie.com <pageUrl> [pageUrl...]
+```
+
+### Where the secret lives
+
+The key is a GitHub Actions repository secret named `BING_WEBMASTER_KEY`, set at
+**repo Settings > Secrets and variables > Actions > New repository secret**. It is never
+committed. For local runs it goes in `.env.local`, which is gitignored via `.env*`.
+
+It is protected twice over: GitHub masks secret values in Action logs, and
+`scripts/submit-bing.mjs` passes all of its own output through a redactor that strips both
+the raw and the percent-encoded form of the key, since the Bing API takes the key as a query
+parameter and a network error message can carry the full request URL.
+
+### Rules
+
+- **Submit on publish only.** The workflow enforces this by construction: it submits the
+  set difference, so only genuinely new URLs go. **No backfill, no bulk sitemap pushes, no
+  resubmitting existing URLs.** This is the opposite of the old IndexNow posture, which
+  pushed the entire 73-URL sitemap on every deploy; that posture is retired along with it.
+- **Quota is per site: 100 daily, 400 monthly**, allocated separately per property on the
+  shared account key (verified 2026-07-28 on both playmagpie.com and playmagpie.co.uk).
+  The script prints the quota before and after so the decrement is observable.
+- **What counts as verified (standard set by owner 2026-07-28, carried over unchanged from
+  the IndexNow rules): only URLs visibly appearing in WMT reporting count as verified.**
+  An HTTP 200 is submitted-pending-confirmation and nothing more. This standard exists
+  because the 07-25 session logged an IndexNow HTTP 202 as verified success when the spec
+  meaning was "accepted, key validation pending", and validation subsequently failed. Do
+  not record a submission as landed until the reporting shows it.
 
 ## Diagnostic prompts
 

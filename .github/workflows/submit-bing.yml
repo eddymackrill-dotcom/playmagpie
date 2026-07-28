@@ -1,0 +1,157 @@
+name: Submit new URLs to Bing
+
+# Replaces the IndexNow postbuild hook, removed 2026-07-28. See the STATE.md
+# decisions log entry "IndexNow closed unsolved. Bing URL Submission API adopted."
+#
+# This workflow is deliberately SEPARATE from the Vercel deploy. It runs in
+# GitHub Actions, it cannot block or fail a deploy, and there is no prebuild or
+# postbuild hook anywhere in package.json. It also cannot fail silently: every
+# error path exits non-zero, which is the opposite of the hook it replaces.
+#
+# NOTE ON THE DIFF STRATEGY (differs from the original spec, deliberately):
+# there is no public/sitemap.xml in this repo and there never has been. The
+# sitemap is generated at build time by app/sitemap.ts, and every entry carries
+# `lastModified: new Date()`, so all 74 URLs share one build-timestamp lastmod
+# and every build changes all of them. A "new or changed lastmod" diff would
+# therefore return the entire sitemap on every push, trip the cap every time,
+# and fail every job. So this workflow builds the sitemap at HEAD and at the
+# previous commit and diffs the <loc> URL SETS, ignoring lastmod entirely.
+# That yields exactly the newly published URLs, which is what "submit on
+# publish" means. If per-page lastmod is ever made meaningful in app/sitemap.ts,
+# this can be revisited.
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Space-separated URLs to submit by hand. Leave blank to diff the sitemap as usual.'
+        required: false
+        default: ''
+
+# One at a time. Two concurrent runs could double-submit and burn quota.
+concurrency:
+  group: submit-bing
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    env:
+      SITE_URL: https://www.playmagpie.com
+      # Hard cap. If the computed URL set exceeds this, the job submits NOTHING
+      # and fails loudly. Rationale: the .com is under a serving-layer
+      # suppression after a scaled-content flag, so a burst of submissions is
+      # the exact pattern being avoided. A cap breach means the diff logic saw
+      # something unexpected, and the right response is a human looking at it,
+      # not 74 URLs arriving at Bing at once.
+      MAX_URLS: '10'
+
+    steps:
+      - name: Check out HEAD and its parent
+        uses: actions/checkout@v4
+        with:
+          # Need the previous commit to build the comparison sitemap.
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build sitemap at HEAD
+        run: |
+          set -euo pipefail
+          npm run build
+          grep -o '<loc>[^<]*</loc>' .next/server/app/sitemap.xml.body \
+            | sed 's|<loc>||; s|</loc>||' | sort -u > /tmp/sitemap-head-locs.txt
+          echo "HEAD sitemap URLs: $(wc -l < /tmp/sitemap-head-locs.txt)"
+
+      - name: Build sitemap at previous commit
+        run: |
+          set -euo pipefail
+          if ! git rev-parse HEAD~1 >/dev/null 2>&1; then
+            echo "No parent commit available. Treating every URL as pre-existing so nothing is submitted."
+            cp /tmp/sitemap-head-locs.txt /tmp/sitemap-prev-locs.txt
+            exit 0
+          fi
+          git worktree add /tmp/prev HEAD~1
+          cd /tmp/prev
+          npm ci
+          npm run build
+          grep -o '<loc>[^<]*</loc>' .next/server/app/sitemap.xml.body \
+            | sed 's|<loc>||; s|</loc>||' | sort -u > /tmp/sitemap-prev-locs.txt
+          echo "previous sitemap URLs: $(wc -l < /tmp/sitemap-prev-locs.txt)"
+
+      - name: Compute URLs to submit
+        id: diff
+        env:
+          # Passed through the environment rather than interpolated into the
+          # script body. Direct ${{ }} interpolation of a dispatch input into a
+          # shell line is a script-injection vector.
+          MANUAL_URLS: ${{ github.event.inputs.urls }}
+        run: |
+          set -euo pipefail
+          if [ -n "${MANUAL_URLS:-}" ]; then
+            echo "Manual run: using the URLs supplied via workflow_dispatch."
+            # Unquoted on purpose: the input is space-separated. It is only ever
+            # word-split, never evaluated.
+            printf '%s\n' ${MANUAL_URLS} | sort -u > /tmp/to-submit.txt
+          else
+            # New URLs only: present at HEAD, absent at the previous commit.
+            comm -23 /tmp/sitemap-head-locs.txt /tmp/sitemap-prev-locs.txt > /tmp/to-submit.txt
+          fi
+          COUNT=$(wc -l < /tmp/to-submit.txt | tr -d ' ')
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "Computed $COUNT URL(s) to submit."
+          if [ "$COUNT" -gt 0 ]; then cat /tmp/to-submit.txt; fi
+
+      - name: Nothing to submit
+        if: steps.diff.outputs.count == '0'
+        run: echo "No new URLs in this push. Exiting cleanly, which is the normal case for most pushes."
+
+      - name: Enforce the hard cap
+        if: steps.diff.outputs.count != '0'
+        run: |
+          set -euo pipefail
+          COUNT='${{ steps.diff.outputs.count }}'
+          if [ "$COUNT" -gt "$MAX_URLS" ]; then
+            echo "::error::Cap exceeded: $COUNT URLs computed, limit is $MAX_URLS. NOTHING was submitted."
+            echo "Full list follows. Check whether app/sitemap.ts changed shape, or whether this push"
+            echo "genuinely added more than $MAX_URLS pages. If the diff is correct, resubmit"
+            echo "deliberately via workflow_dispatch with an explicit URL list."
+            cat /tmp/to-submit.txt
+            exit 1
+          fi
+          echo "Cap check passed: $COUNT of a permitted $MAX_URLS."
+
+      - name: Submit to Bing
+        if: steps.diff.outputs.count != '0'
+        env:
+          # Injected from repository secrets. Never echoed: GitHub masks secret
+          # values in logs, and scripts/submit-bing.mjs additionally passes all
+          # of its own output through a redactor covering the raw and
+          # percent-encoded forms of the key.
+          BING_WEBMASTER_KEY: ${{ secrets.BING_WEBMASTER_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${BING_WEBMASTER_KEY:-}" ]; then
+            echo "::error::BING_WEBMASTER_KEY secret is not set on this repository. Nothing submitted."
+            exit 1
+          fi
+          # submit-bing.mjs prints quota before and after plus the decrement,
+          # and exits non-zero if any single submission fails.
+          xargs -a /tmp/to-submit.txt node scripts/submit-bing.mjs "$SITE_URL"
+
+      - name: Confirmation standard
+        if: steps.diff.outputs.count != '0'
+        run: |
+          echo "Submitted, pending confirmation. An HTTP 200 is not proof."
+          echo "Only URLs visibly appearing in Bing WMT URL Submission reporting count as verified."
