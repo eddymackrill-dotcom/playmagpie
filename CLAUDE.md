@@ -25,6 +25,18 @@ Exceptions, where you commit and stop:
 
 Scope note (reconciles the 2026-06-11 subagent rule in the Workflow section): this rule governs the orchestrating session. Subagents still never push, ever. That restriction stands unchanged and for its original reason.
 
+## Corrections: state the propagation step every time
+
+Whenever a commit changes the content of an existing page rather than publishing a new one, say in the same message which propagation step was taken or is needed. Never leave it implied.
+
+On this repo the automatic diff compares URL sets only, so a content correction to an existing page will never fire the submission workflow. The only route is workflow_dispatch, which the owner must trigger. Say so explicitly, name the URLs, and give the Actions URL.
+
+The UK repo differs: it diffs route and lastmod pairs from app/sitemap.ts, so a correction there fires automatically if the route's date literal is bumped in the same commit. Do not assume this repo behaves the same way. It does not.
+
+This exists because both failure modes are silent. A corrected page that never reaches Bing looks identical to one that did, which is the same shape as the IndexNow failure that went unnoticed for three days.
+
+Not to be confused with "Corrections are published, never silently rewritten" further down this file. That rule governs what the READER sees, meaning a visible dated correction note on any page where a failed claim was load-bearing. This rule governs what the SEARCH ENGINE sees. A correction usually needs both, and neither substitutes for the other.
+
 ## VELOCITY FREEZE (in force since 2026-07-07, June 2026 spam-update recovery)
 
 **No new .com pages.** No new URLs may be added to the site until serving recovery is confirmed. Recovery is confirmed when GSC shows **7 or more consecutive days of non-zero site-wide impressions** (dataState=all; the raw site-wide count, no filters). Claude Code refuses new-page requests during the freeze and cites this rule, including pages that would otherwise pass every demand gate.
