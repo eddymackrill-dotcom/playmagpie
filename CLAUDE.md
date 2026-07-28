@@ -10,6 +10,10 @@ When I indicate we're wrapping up, or after any deploy, update STATE.md (move co
 
 **Permitted content work during the freeze:** (1) consolidation (merging pages into stronger parents with 301s, which reduces URL count); (2) strengthening existing pages (factual fixes, depth improvements, honesty passes); (3) the trust layer: /methodology (the one sanctioned new URL, shipped 2026-07-07), /about upgrades, and the last-reviewed-date convention. Nothing else ships.
 
+**AMENDMENT 2026-07-27 (owner decision, logged verbatim in the STATE.md decisions log): the monthly editorial-guide exception.** ONE editorial guide per calendar month may be published on the .com during the freeze. It is restricted to the guides/informational cluster, and specifically to the process-questions intent family that the three measured surfaces serve: Bing page-one on "how do crypto casino withdrawals work", Copilot citations, and assistant referral landing pages. Owner rationale on record: a single authored explainer per month is not the scaled-programmatic pattern under classifier review, it serves the channels measurably working, and the risk to the reassessment is judged minimal by the owner.
+
+Scope of the exception, strictly: one guide, editorial, cluster-bound, per calendar month. It is a **ceiling, not a target**, and unused months do not roll over. Count each guide against the calendar month it actually ships in. Everything else in the freeze STANDS unchanged: no commercial pages, no listicles, no programmatic trees, no new country/crypto/bonus pages, and KEEP pages stay untouched beyond corrections. Claude Code still refuses every other new-page request and cites this rule.
+
 **When recovery confirms:** the freeze lifts, but publishing restarts at reduced cadence (max 3 pages/week for the first 4 weeks) and every batch is preceded by the queued go/no-go reads. The freeze-lift event and date go in the STATE.md recovery log and decisions log.
 
 ---
