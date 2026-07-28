@@ -31,7 +31,7 @@ Whenever a commit changes the content of an existing page rather than publishing
 
 On this repo the automatic diff compares URL sets only, so a content correction to an existing page will never fire the submission workflow. The only route is workflow_dispatch, which the owner must trigger. Say so explicitly, name the URLs, and give the Actions URL.
 
-The UK repo differs: it diffs route and lastmod pairs from app/sitemap.ts, so a correction there fires automatically if the route's date literal is bumped in the same commit. Do not assume this repo behaves the same way. It does not.
+The UK repo works differently and its propagation step is NOT the same as this one. Do not assume it is, and do not carry this repo's habit over. Read that repo's own RUNBOOK for its mechanism; it is the authoritative account and this file deliberately does not restate it, because a copy of a sibling repo's behaviour goes stale silently, which is the exact failure mode this rule exists to prevent.
 
 This exists because both failure modes are silent. A corrected page that never reaches Bing looks identical to one that did, which is the same shape as the IndexNow failure that went unnoticed for three days.
 

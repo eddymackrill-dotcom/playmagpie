@@ -226,16 +226,23 @@ node scripts/submit-bing.mjs https://www.playmagpie.com <pageUrl> [pageUrl...]
 
 ### Why this repo and the UK repo work differently
 
-The mechanism divergence between the two repos is a consequence of the lastmod artefacts, not
-a design preference. Here, `app/sitemap.ts` stamps `new Date()` on all 74 entries, so lastmod
-carries no information and only the URL set can be diffed. The UK repo uses committed
-per-route date literals, so it can diff dates and therefore catches content changes to
-existing pages, which this repo structurally cannot.
+**What this repo does, and why**, which is the part verifiable from here: `app/sitemap.ts`
+stamps `new Date()` on all 74 entries, so every URL carries the same build-timestamp lastmod
+and the field holds no information. The workflow therefore has only one usable signal, the
+URL set, and can detect published pages but **structurally cannot detect a content change to
+an existing page**. That is why `workflow_dispatch` is the only correction route here. The
+divergence from the UK repo is a consequence of this artefact, not a design preference.
+
+**The UK repo's mechanism is documented in that repo's own RUNBOOK, which is the
+authoritative account. It is deliberately not restated here.** A description of a sibling
+repo maintained by hand in this file would go stale the moment that repo changed, silently,
+which is precisely the failure mode these rules exist to prevent. Read it there. What matters
+on this side is only that it differs, so no habit transfers between the two.
 
 **The 03 August lastmod decision is therefore also a convergence decision.** If per-page dates
-are adopted here, this repo can move to the UK mechanism, the divergence collapses, and
-workflow_dispatch stops being the only route for corrections. Weigh that as part of the
-decision rather than treating it as a separate question.
+are adopted here, this repo gains a meaningful lastmod, corrections to existing pages become
+detectable automatically, and `workflow_dispatch` stops being the only route for them. Weigh
+that as part of the decision rather than treating it as a separate question.
 
 **The cap difference, 10 here versus 6 on the UK, is deliberate and permanent.** It reflects
 74 pages versus 10, and different velocity caps. Do not converge it.
