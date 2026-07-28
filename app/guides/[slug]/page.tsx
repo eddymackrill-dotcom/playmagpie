@@ -50,6 +50,15 @@ type ContentBlock =
       type: 'kycposture'
       items: { slug: string; href: string; note: string }[]
     }
+  // Paragraph with inline contextual links. Added 2026-07-28: the plain 'p'
+  // block renders text only, so guides could previously carry internal links
+  // only as cards in the "Where to read next" grid. CLAUDE.md's internal-linking
+  // convention wants contextual prose links with natural anchor text, so this
+  // block renders an ordered run of plain strings and links.
+  | {
+      type: 'plink'
+      parts: (string | { text: string; href: string })[]
+    }
 
 const guideContent: Record<string, ContentBlock[]> = {
   'how-crypto-casino-withdrawals-work': [
@@ -224,6 +233,114 @@ const guideContent: Record<string, ContentBlock[]> = {
 
     { type: 'h2', text: 'The honest trade-off' },
     { type: 'p', text: 'No-KYC is not free of downsides. A casino that never collects identity documents is, almost by definition, one that operates outside the Tier-1 regulatory framework: Curaçao rather than the UKGC or MGA. That means lighter external oversight and, if a dispute ever escalates, a weaker formal recourse path than a Tier-1 licence would give you. The decision is a genuine trade between anonymity and oversight: privacy-first players are well served by the no-KYC operators, while players who weight regulatory protection more heavily should accept Light KYC as the cost of it. Neither answer is universally correct, which is exactly why this is an operator-level choice rather than an industry default.' },
+    {
+      type: 'plink',
+      parts: [
+        'One practical footnote: verification is also the most common reason a withdrawal already in progress stops moving. If that is what brought you here, the mechanics of a stalled payout, including what a mid-withdrawal document request actually does to your balance, are covered in ',
+        { text: 'why a crypto casino withdrawal goes pending', href: '/guides/why-is-my-crypto-casino-withdrawal-pending' },
+        '.',
+      ],
+    },
+  ],
+
+  'why-is-my-crypto-casino-withdrawal-pending': [
+    { type: 'h2', text: 'The short answer' },
+    { type: 'p', text: 'A pending crypto casino withdrawal is in one of three states: the casino has accepted the request but has not broadcast it yet, the transaction is on the blockchain but not yet confirmed, or it is confirmed on-chain and has arrived somewhere you have not checked. Those three look identical inside the casino cashier, which is why "pending" feels so uninformative, but they have completely different causes and completely different fixes. Only the first is the casino’s to resolve. The second resolves itself. The third is almost always at your end, and it is the one where acting quickly matters most.' },
+    { type: 'p', text: 'Working out which state you are in takes about a minute and does not require contacting anyone. Everything below is organised around that single diagnostic, because the most common reason a stuck withdrawal stays stuck is that the player spends three days chasing the wrong party.' },
+
+    { type: 'h2', text: 'Find the transaction ID first: it splits the problem in two' },
+    { type: 'p', text: 'Whether a transaction ID exists yet is the one fact that tells you whether the delay belongs to the casino or to the blockchain. A transaction ID, usually labelled TXID or transaction hash, is the long string of letters and numbers that identifies a transaction on-chain. It is created at the moment the casino broadcasts your payout, not at the moment you request it. So its presence or absence is a clean dividing line.' },
+    { type: 'p', text: 'Look in the casino cashier under withdrawal or transaction history and open the pending entry. If a TXID is shown, copy it and paste it into the explorer for the network you withdrew on: Tronscan for TRC-20, Solscan for Solana, Etherscan for Ethereum and ERC-20 tokens, BscScan for BNB Smart Chain, and mempool.space for Bitcoin. If no TXID is shown, there is nothing to look up, because nothing has been broadcast. That absence is not a bug in the interface. It is the answer.' },
+    { type: 'p', text: 'One caveat worth knowing before you draw conclusions: some platforms display a TXID field that stays blank until the payout clears internal review, and a few populate it only after the first confirmation. If the field exists but is empty, treat that as state one below.' },
+
+    { type: 'h2', text: 'State 1: no transaction ID, so the casino still holds the funds' },
+    { type: 'p', text: 'If no TXID exists, your money has not left the casino, and no amount of blockchain analysis will explain the delay. This is the state where contacting support is worth doing, and it is also the state that covers most genuinely long waits. Five things commonly cause it.' },
+
+    { type: 'h3', text: 'Batched or manually reviewed payouts' },
+    { type: 'p', text: 'Not every operator broadcasts payouts the instant you click withdraw. Some run automated systems that push the transaction within seconds; others batch withdrawals into processing runs, or route anything above a threshold to a human for sign-off. A platform doing manual review at 2am on a Sunday behaves very differently from the same platform at midday on a Tuesday. This is ordinary process rather than a problem, and it is the single most likely explanation for a payout that is a few hours late rather than a few days.' },
+
+    { type: 'h3', text: 'Verification requested mid-withdrawal' },
+    { type: 'p', text: 'A document request raised after you hit withdraw will hold the payout until the check clears, and this is the delay cause most likely to run into days rather than hours. It is worth being precise about what varies here. Verification posture is set operator by operator, and the operators that describe routine crypto play as document-free are the least likely to stop a payout this way.' },
+    {
+      type: 'plink',
+      parts: [
+        'We are deliberately not restating BC.Game’s or 7Bit’s no-KYC policy as an absolute in this guide: both are queued for direct re-verification against their live terms, so for now we treat their published wording as the operator’s claim rather than our finding. What is verified from primary sources is Cloudbet’s tiered model, where accounts are capped at $2,200 a day until Level 2 verification is complete and uncapped after it (Cloudbet help centre, verified July 2026), and Roobet’s Standard posture, the strictest in our catalogue. For who asks for what and when, see ',
+        { text: 'our guide to KYC at crypto casinos', href: '/guides/do-crypto-casinos-require-kyc' },
+        ', and for the operators that publish a no-document policy, ',
+        { text: 'the no-KYC casino hub', href: '/no-kyc-casinos' },
+        '.',
+      ],
+    },
+
+    { type: 'h3', text: 'An unfinished bonus is locking the balance' },
+    { type: 'p', text: 'If you accepted a welcome offer and have not met its wagering requirement, part or all of your balance may not be withdrawable yet, and some platforms surface that as a pending withdrawal rather than a clear refusal. Check whether the cashier separates real balance from bonus balance. If it does, and the withdrawable figure is lower than you expected, the delay is a bonus term rather than a payment problem. Requesting a withdrawal with an active bonus can also forfeit the bonus and anything won from it, so read the offer’s terms before you cancel anything.' },
+
+    { type: 'h3', text: 'You have hit a limit rather than a delay' },
+    { type: 'p', text: 'Daily and per-transaction withdrawal caps produce queued payouts that look pending but are actually scheduled. Cloudbet’s $2,200 daily cap before full verification is the clearest documented example in our catalogue: a larger cash-out does not fail, it meets the ceiling. Minimums cause the mirror-image problem, where a request below the operator’s floor sits unprocessed rather than being rejected outright. Minimum withdrawal amounts are usually set in the cashier rather than the headline terms, so check there before assuming a small cash-out has failed.' },
+
+    { type: 'h3', text: 'A changed address, a new device or a first cash-out' },
+    { type: 'p', text: 'Security reviews cluster around change. A withdrawal address you have never used before, a login from a new device or country, or your first withdrawal on the account are all things that risk systems are built to pause on. This class of hold is usually short and usually resolves without you doing anything, but it is worth knowing that the trigger was the change rather than the amount.' },
+
+    { type: 'h2', text: 'State 2: broadcast but not yet confirmed' },
+    { type: 'p', text: 'If the explorer recognises your TXID but shows it as unconfirmed or pending, the transaction has left the casino and is queued on the network, which means the casino can no longer speed it up and neither can you in most cases. The money is not lost. It is sitting in the mempool, the waiting area of unconfirmed transactions, until a miner or validator includes it in a block.' },
+    { type: 'p', text: 'How long that takes depends almost entirely on which network you chose. Bitcoin averages around ten minutes per block, and most casinos wait for one to three confirmations before treating a payout as settled, so a thirty to sixty minute wait is normal rather than alarming. When the Bitcoin mempool is busy, a transaction sent with a low fee can wait considerably longer, because fee level determines queue position. Ethereum confirms in seconds but has the same fee dynamic during congestion. Tron and Solana confirm in a few seconds at fees well under a cent, and effectively never produce this state, which is the practical reason they dominate our payout-speed rankings.' },
+    {
+      type: 'plink',
+      parts: [
+        'There is nothing to fix here, only to wait for. If this state is a recurring annoyance rather than a one-off, the fix is upstream: pick a faster rail next time. ',
+        { text: 'Which crypto to gamble with', href: '/guides/best-crypto-for-gambling' },
+        ' covers the trade-offs coin by coin.',
+      ],
+    },
+
+    { type: 'h2', text: 'State 3: confirmed on-chain but not in your wallet' },
+    { type: 'p', text: 'If the explorer shows confirmations, the transfer completed and the problem is at the receiving end, which is the state that most rewards acting quickly. The casino has done everything it agreed to do, and support will be able to tell you little beyond what the explorer already shows. Four causes account for nearly all of these.' },
+    { type: 'p', text: 'The most common is a token your wallet holds but does not display: many wallets show only assets you have manually added, so a USDT balance can arrive and remain invisible until you add the token contract. The second is a deposit to an exchange rather than a self-custodial wallet, where crediting is the exchange’s process and often needs more confirmations than the chain itself required. The third is an omitted memo or destination tag, which some exchanges require to route a deposit to the right account; funds sent without one are usually recoverable but only through that exchange’s support. The fourth is the serious one: a withdrawal sent on a network the receiving address does not support.' },
+    { type: 'p', text: 'That last case deserves a blunt warning. Sending TRC-20 USDT to an address that only exists on Ethereum, or the equivalent mismatch on any other pair of chains, generally means the tokens sit at an address nobody can access on that network. Recovery is possible in narrow circumstances, usually only where the receiving wallet supports both chains and you control the keys, but the realistic outcome is permanent loss. This is why the network selector at the casino cashier matters more than any other field on the withdrawal form.' },
+
+    { type: 'h2', text: 'What the casinos we review actually publish about timing' },
+    { type: 'p', text: 'Published payout windows across the eight casinos we review run from instant to 24 hours, which means "pending" only becomes unusual once you are past the operator’s own stated window. Those figures are the operators’ published or documented processing times as recorded in our catalogue, not stopwatch measurements taken by us, and we describe them that way deliberately.' },
+    { type: 'p', text: 'For crypto payouts, Duelbits publishes instant to five minutes, BitStarz under ten minutes, and BC.Game, 7Bit and Shuffle instant to ten minutes. Mirax runs instant to fifteen. Cloudbet states that most withdrawals are instant with some taking up to 24 hours, which is the widest published window among the group and is verified against its own help centre. Roobet is the outlier in a way that matters for this guide: around fifteen minutes for most crypto, up to 24 hours for Bitcoin, and no weekend processing, so a Saturday cash-out there can legitimately sit until Monday.' },
+    {
+      type: 'plink',
+      parts: [
+        'Read those numbers as thresholds for concern rather than promises. A payout inside the stated window is behaving normally even when it feels slow. The full speed ranking, and the mechanics of a withdrawal that is working correctly, are on ',
+        { text: 'our fast withdrawal casinos page', href: '/fast-withdrawal-casinos#how-withdrawals-work' },
+        '.',
+      ],
+    },
+
+    { type: 'h2', text: 'How long to wait before you chase it' },
+    { type: 'p', text: 'Give the operator its stated window plus one full processing cycle before contacting support, and check the explorer before you do. In practice that means a few hours on a platform publishing sub-ten-minute payouts, and a full day where the published window is 24 hours or the operator does not process at weekends. Contacting support twenty minutes into a payout that the casino says takes up to a day achieves nothing except a longer queue for everyone.' },
+    { type: 'p', text: 'The exception is state three. If the explorer shows the transaction confirmed and you suspect a wrong-network send or a missing memo, do not wait at all. Those cases get harder to resolve with time, and where an exchange is involved its support queue is the slow step.' },
+
+    { type: 'h2', text: 'What to send support so it is resolved on the first reply' },
+    { type: 'p', text: 'One message containing five specifics resolves more cases than five messages containing none. Include the exact amount and currency, the network you selected, the destination address you entered, the date and time of the request with your timezone, and the TXID if one exists. If you are in state one, say explicitly that no TXID has been generated, because that tells the agent immediately that this is an internal matter rather than a chain query.' },
+    { type: 'p', text: 'Ask one direct question rather than describing your frustration: is this payout awaiting internal approval, awaiting verification, or blocked by a limit or bonus condition? Those are the three answers that determine what happens next, and an agent can answer all three from your account record in a single reply. Keep the ticket in one thread; opening a second one usually resets your position in the queue.' },
+
+    { type: 'h2', text: 'When a delay stops looking like process and starts looking like a problem' },
+    { type: 'p', text: 'A delay becomes a genuine warning sign when the stated reason changes each time you ask, or when a large win specifically is what triggered the hold. Ordinary processing delays have consistent explanations and finite timelines. The pattern worth taking seriously is a payout that was routine at small amounts and became complicated at a large one, particularly when new verification requirements appear only after the win.' },
+    {
+      type: 'plink',
+      parts: [
+        'We score this behaviour into our ratings rather than treating it as an aside. Roobet carries the lowest withdrawal score in our catalogue at 6.5 out of 10, on the basis of a public complaint record including holds on cash-outs between roughly $20,000 and $115,000 that were resolved through AskGamblers mediation, plus one unresolved $84,000 case. Shuffle has attracted reports of temporary holds on high-value withdrawals pending review, which we record as reports rather than as verified operator policy. Both are documented in the respective reviews, and the sourcing standard behind them is set out in ',
+        { text: 'our methodology', href: '/methodology' },
+        '.',
+      ],
+    },
+
+    { type: 'h2', text: 'The one decision that prevents most of this' },
+    { type: 'p', text: 'Almost every avoidable pending withdrawal traces back to a choice made before the money was ever at stake: the rail you deposited on, the verification state of your account, and whether you accepted a bonus. Withdrawing on the network you deposited on, completing any verification the operator is going to ask for before you have winnings waiting, and knowing whether a bonus is attached to your balance eliminates the majority of the delays described above.' },
+    {
+      type: 'plink',
+      parts: [
+        'The rest is network choice, and that one is settled: Tron and Solana confirm in seconds for fractions of a cent, which is why state two barely exists for players using them. If payout speed is the thing you optimise for, start with ',
+        { text: 'the casinos ranked on withdrawal speed', href: '/fast-withdrawal-casinos' },
+        ' and the ',
+        { text: 'coin-by-coin comparison', href: '/guides/best-crypto-for-gambling' },
+        '.',
+      ],
+    },
   ],
 }
 
@@ -340,6 +457,35 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
       answer: 'No-KYC means no document collection, not no compliance: these operators manage risk through on-chain transaction monitoring instead of identity files. The real trade-off is regulatory: a casino that never collects documents almost always operates under a Curaçao licence rather than a Tier-1 regulator (UKGC, MGA), which means lighter oversight and a weaker formal recourse path if a dispute escalates. For privacy-first players the no-document model is the appeal; players who weight regulatory protection more heavily should accept Light KYC as the cost of it.',
     },
   ],
+  // Each FAQ below maps to a section actually answered in the body above
+  // (CLAUDE.md: no FAQ schema for questions the page does not answer).
+  'why-is-my-crypto-casino-withdrawal-pending': [
+    {
+      question: 'How long should a crypto casino withdrawal stay pending before I worry?',
+      answer:
+        'Use the operator’s own published window plus one processing cycle as the threshold. Among the casinos we review, published crypto payout times run from instant to five minutes at Duelbits, under ten minutes at BitStarz, instant to ten at BC.Game, 7Bit and Shuffle, instant to fifteen at Mirax, and instant to 24 hours at Cloudbet. Roobet publishes around fifteen minutes for most crypto but up to 24 hours for Bitcoin and does not process at weekends, so a Saturday request there can legitimately sit until Monday. Anything inside those windows is behaving normally; past them, contact support.',
+    },
+    {
+      question: 'Why does my withdrawal show as pending with no transaction ID?',
+      answer:
+        'Because it has not been broadcast to the blockchain yet, which means the funds are still with the casino. A transaction ID is created at the moment the payout is sent on-chain, not when you request it, so an absent TXID tells you the delay is internal: batched or manually reviewed processing, a verification check raised after you clicked withdraw, an unfinished bonus locking the balance, a daily or minimum limit, or a security review triggered by a new withdrawal address or device. This is the one state where contacting support is genuinely useful.',
+    },
+    {
+      question: 'My transaction is confirmed on the blockchain but not in my wallet. Where is it?',
+      answer:
+        'If the explorer shows confirmations, the transfer completed and the issue is at the receiving end. The four usual causes are a token your wallet holds but does not display until you add its contract, an exchange deposit that needs more confirmations before crediting, an omitted memo or destination tag that some exchanges require to route funds to your account, or a send on a network the receiving address does not support. The last case is serious: cross-chain mismatches are usually unrecoverable, so act immediately rather than waiting.',
+    },
+    {
+      question: 'Can an unfinished bonus stop my withdrawal from processing?',
+      answer:
+        'Yes. If you accepted an offer and have not met its wagering requirement, some or all of your balance may not be withdrawable yet, and some platforms present that as a pending withdrawal rather than a clear refusal. Check whether the cashier separates real balance from bonus balance. Requesting a withdrawal while a bonus is active can also forfeit the bonus and any winnings derived from it, so read the offer terms before cancelling anything.',
+    },
+    {
+      question: 'Does identity verification hold up a withdrawal that is already in progress?',
+      answer:
+        'It can, and a document request raised after you hit withdraw is the delay cause most likely to run into days rather than hours. How exposed you are depends on the operator’s posture. Cloudbet’s model is documented from its own help centre: accounts are capped at $2,200 a day until Level 2 verification is complete, and uncapped afterwards. Roobet applies the strictest verification posture in our catalogue. Several operators publish no-KYC policies for routine crypto play; we are re-verifying two of those against their live terms and treat the published wording as the operator’s claim until that is done.',
+    },
+  ],
 }
 
 // Per-guide intent-page links. Pairs with the worked examples, pointing readers
@@ -372,6 +518,12 @@ const guideRelatedPages: Record<string, { label: string; href: string; teaser: s
     { label: 'Cloudbet KYC', href: '/reviews/cloudbet/kyc', teaser: 'No limits, verification only at scale' },
     { label: 'Bonus & Withdrawal Transparency Report', href: '/research/crypto-casino-bonus-transparency', teaser: 'Headline offers vs the real cashout terms, all 8 sourced' },
   ],
+  'why-is-my-crypto-casino-withdrawal-pending': [
+    { label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos', teaser: 'The success path, and the speed ranking behind these windows' },
+    { label: 'Do Crypto Casinos Require KYC?', href: '/guides/do-crypto-casinos-require-kyc', teaser: 'Which operators ask for documents, and when' },
+    { label: 'Best Crypto for Gambling', href: '/guides/best-crypto-for-gambling', teaser: 'Pick a rail that never reaches the mempool queue' },
+    { label: 'How We Review', href: '/methodology', teaser: 'The sourcing standard behind the complaint-record findings' },
+  ],
 }
 
 const relatedCasinos: Record<string, { name: string; slug: string; reason: string }[]> = {
@@ -399,6 +551,11 @@ const relatedCasinos: Record<string, { name: string; slug: string; reason: strin
     { name: 'BC.Game', slug: 'bc-game', reason: 'Strict no-KYC: highest KYC score (9.5/10)' },
     { name: '7Bit Casino', slug: '7bit-casino', reason: 'No KYC on crypto withdrawals since 2014' },
     { name: 'BitStarz', slug: 'bitstarz', reason: 'Light KYC: rarely triggered on crypto-only play' },
+  ],
+  'why-is-my-crypto-casino-withdrawal-pending': [
+    { name: 'Duelbits', slug: 'duelbits', reason: 'Publishes instant to 5-minute crypto payouts' },
+    { name: 'Cloudbet', slug: 'cloudbet', reason: 'Tiered limits: $2,200/day before Level 2 verification' },
+    { name: 'Roobet', slug: 'roobet', reason: 'The documented-holds case: no weekend processing' },
   ],
 }
 
@@ -439,8 +596,8 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
       name: 'PlayMagpie',
       url: 'https://www.playmagpie.com',
     },
-    datePublished: '2026-01-01',
-    dateModified: '2026-05-21',
+    datePublished: guide.published,
+    dateModified: guide.modified,
     url: guideUrl,
     mainEntityOfPage: guideUrl,
   }
@@ -489,7 +646,7 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
         <div className="flex items-center gap-3 text-sm text-[#888888] mb-10">
           <span>{guide.readTime}</span>
           <span>·</span>
-          <span>Updated May 2026</span>
+          <span>Updated {guide.updated}</span>
         </div>
 
         <div className="space-y-5 mb-12">
@@ -540,6 +697,18 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
                   )
                 })}
               </div>
+            ) : block.type === 'plink' ? (
+              <p key={i} className="text-[#888888] leading-relaxed">
+                {block.parts.map((part, idx) =>
+                  typeof part === 'string' ? (
+                    <span key={idx}>{part}</span>
+                  ) : (
+                    <Link key={idx} href={part.href} className="text-[#7BB8D4] hover:underline">
+                      {part.text}
+                    </Link>
+                  )
+                )}
+              </p>
             ) : (
               <p key={i} className="text-[#888888] leading-relaxed">
                 {block.text}
