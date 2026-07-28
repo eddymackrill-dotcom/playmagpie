@@ -52,11 +52,15 @@ jobs:
       # evidence: the owner's manual SubmitUrl using apex returned HTTP 200 and
       # decremented the quota.
       #
-      # NOTE, unresolved and flagged to the owner: the URLs submitted come from
-      # the sitemap, which uses the www form (BASE_URL in app/sitemap.ts). So
-      # this sends siteUrl=apex with url=www. The evidenced-successful call used
-      # apex for BOTH. Whether Bing accepts the mixed form is untested. Do not
-      # assume it does.
+      # MIXED HOST FORM: RESOLVED 2026-07-28, no action needed. The URLs
+      # submitted come from the sitemap, which uses the www form (BASE_URL in
+      # app/sitemap.ts), so this sends siteUrl=apex with url=www. A
+      # workflow_dispatch test submitted the guide URL in BOTH host forms
+      # against the apex siteUrl and the job exited zero, so neither returned an
+      # error. The sitemap keeps emitting www and this value stays apex. The
+      # apex-normalisation change drafted as a contingency is not needed.
+      # Caveat on that grade: the quota decrement was not read, so acceptance is
+      # inferred from the exit code rather than observed state change.
       SITE_URL: https://playmagpie.com
       # Hard cap. If the computed URL set exceeds this, the job submits NOTHING
       # and fails loudly. Rationale: the .com is under a serving-layer

@@ -260,13 +260,12 @@ form even though the site is www-canonical. The UK property is registered on a d
 from this one. Do not infer either from the other, and do not "correct" this value to www.
 Both hosts are recorded in the STATE.md 2026-07-28 decisions entry.
 
-**Status: SET on both the .com and the UK repo (owner, 2026-07-28). SET is not the same as
-TESTED, and it has not been tested.** The workflow skips the submit step entirely on a
-zero-URL run, so any push that adds no pages leaves the secret unexercised. The first push
-that publishes a new URL is the first real test of it, which in practice means the August
-guide. Until then, treat the credential path as unverified: if that first run fails at the
-guard with "BING_WEBMASTER_KEY secret is not set", the secret name or scope is wrong, not
-the workflow logic.
+**Status: SET and TESTED on the .com (2026-07-28).** A `workflow_dispatch` run submitted two
+URLs and exited zero, so the credential path is exercised end to end in CI, not merely
+configured. The secret is also set on the UK repo; whether it has been exercised there is
+that repo's business to record. Note the limit of this grade: the test confirms no
+submission returned an error, and the quota decrement was not read from the log, so
+acceptance is inferred from the exit code rather than from observed state change.
 
 It is protected twice over: GitHub masks secret values in Action logs, and
 `scripts/submit-bing.mjs` passes all of its own output through a redactor that strips both
