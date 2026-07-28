@@ -243,6 +243,19 @@ export default function FastWithdrawalPage() {
               which crypto to gamble with
             </Link>.
           </p>
+          <p className="text-[#888888] text-sm leading-relaxed mt-4">
+            That is the process working as intended. When it does not, the diagnosis starts with one
+            question: does a transaction ID exist yet? If it does not, the payout has not been
+            broadcast and the delay is internal to the casino; if it does, the funds have left and
+            the explorer can tell you where they are. We walk through all three states, and what
+            actually resolves each, in{' '}
+            <Link
+              href="/guides/why-is-my-crypto-casino-withdrawal-pending"
+              className="text-[#7BB8D4] hover:underline"
+            >
+              why a crypto casino withdrawal goes pending
+            </Link>.
+          </p>
         </section>
 
         <section className="mt-10">
