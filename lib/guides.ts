@@ -91,4 +91,23 @@ export const guides: Guide[] = [
     modified: '2026-07-28',
     updated: 'July 2026',
   },
+  // Added 2026-08-01, page 1 of the owner-approved August slate (STATE.md).
+  // SCOPE, committed before build and binding on the rest of the slate: this
+  // guide owns THE MONEY, meaning caps, verification thresholds, holds and what
+  // happens to a large cashout at the moment it triggers a check. It does NOT
+  // own the document workflow (what is requested, turnaround, rejection
+  // reasons), which is reserved for the verification-process guide, and it does
+  // NOT own policy and who, which stays with do-crypto-casinos-require-kyc.
+  // No threshold figure is stated for any operator the owner has not verified.
+  {
+    title: 'Large Crypto Casino Withdrawals: What Actually Happens',
+    slug: 'large-crypto-casino-withdrawals',
+    description:
+      'Above a certain size a crypto casino stops simply paying you. The documented caps and verification thresholds at the casinos we review, what a big cashout actually triggers, and how to tell a cap from a hold.',
+    readTime: '8 min read',
+    category: 'Withdrawals',
+    published: '2026-08-01',
+    modified: '2026-08-01',
+    updated: 'August 2026',
+  },
 ]

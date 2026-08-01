@@ -74,11 +74,11 @@ function casinoAcceptsBNB(c: Casino): boolean {
 
 const PER_CASINO_BNB_NOTES: Record<string, string> = {
   'bc-game':
-    'BC.Game accepts BNB alongside 100+ other cryptocurrencies, by far the widest coin support of any casino in our rankings. BNB Smart Chain settlement is near-instant and BC.Game has zero KYC at any withdrawal size, which makes it the cleanest BNB-deposit-to-BNB-withdrawal path on the list.',
+    'BC.Game accepts BNB alongside 100+ other cryptocurrencies, by far the widest coin support of any casino in our rankings. BNB Smart Chain settlement is near-instant and BC.Game keeps routine crypto play document-free up to a KYC check that is standard at EUR 2,000 equivalent, which makes it the cleanest BNB-deposit-to-BNB-withdrawal path on the list for cash-outs below that threshold.',
   cloudbet:
     'Cloudbet treats BNB as a first-class option in its 29-coin lineup. The differentiators are a no-limit withdrawal policy for fully verified accounts ($2,200/day until Level 2 verification) and dual licensing from Curaçao plus the Kahnawake Gaming Commission. Entry is now a ~$1 equivalent minimum deposit, the lowest on this list; the serious-bankroll calibration lives on the cash-out side.',
   '7bit-casino':
-    '7Bit Casino added BNB to its eight-coin lineup as a direct replacement for slower legacy chains on its deposit side. A KYC check standard at EUR 2,000 equivalent, applied at the operator’s discretion, has held since 2014, which is the longest unbroken no-KYC track record across the operators here.',
+    '7Bit Casino added BNB to its eight-coin lineup as a direct replacement for slower legacy chains on its deposit side. 7Bit has operated since 2014, the longest run of any operator here, and keeps routine crypto play document-free up to a KYC check that is standard at EUR 2,000 equivalent and applied at its discretion.',
   shuffle:
     'Shuffle accepts BNB across its 12-coin lineup alongside the native SHFL token. The rakeback-based VIP programme returns a percentage of house edge regardless of which coin you deposited, so BNB-side play earns the same SHFL rewards as USDT or BTC play.',
   duelbits:

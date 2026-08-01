@@ -335,7 +335,7 @@ export default function PlinkoCasinosPage() {
             </Link>
             <Link href="/no-kyc-casinos" className="bg-[#111111] border border-[#222222] hover:border-[#7BB8D4]/30 rounded-2xl p-5 transition-all">
               <div className="font-semibold text-[#f5f5f5] mb-1">No-KYC Casinos</div>
-              <div className="text-[#888888] text-sm">Cash out a Plinko outlier multiplier without ID submission</div>
+              <div className="text-[#888888] text-sm">Where the cashout stays document-free below the operator&apos;s threshold</div>
             </Link>
           </div>
         </section>

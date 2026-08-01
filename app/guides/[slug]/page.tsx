@@ -199,14 +199,14 @@ const guideContent: Record<string, ContentBlock[]> = {
 
   'do-crypto-casinos-require-kyc': [
     { type: 'h2', text: 'The short answer' },
-    { type: 'p', text: 'Some do, some don’t, and unlike at a licensed fiat casino, it is a genuine choice rather than a universal mandate. At a crypto casino, KYC (Know Your Customer identity verification) is set by the operator’s own policy, not imposed on every player by a Tier-1 regulator. Across the eight casinos we review, three never ask for documents on crypto play, four run a "Light" policy that only triggers on larger or fiat-side activity, and one applies Standard KYC with documented holds on large wins. So whether you will be asked for ID depends entirely on which operator you pick, and, at the Light-KYC ones, on how you play.' },
+    { type: 'p', text: 'Some do, some don’t, and unlike at a licensed fiat casino, it is a genuine choice rather than a universal mandate. At a crypto casino, KYC (Know Your Customer identity verification) is set by the operator’s own policy, not imposed on every player by a Tier-1 regulator. Across the eight casinos we review, three keep routine crypto play document-free (two of them up to a KYC check that is standard at EUR 2,000 equivalent), four run a "Light" policy that only triggers on larger or fiat-side activity, and one applies Standard KYC with documented holds on large wins. So whether you will be asked for ID depends entirely on which operator you pick, and, at the Light-KYC ones, on how you play.' },
 
     { type: 'h2', text: 'What KYC actually is at a crypto casino' },
     { type: 'p', text: 'KYC is the process of confirming you are who you say you are: typically a government photo ID plus a recent proof of address. Licensed fiat casinos must run it on every player because their regulators and banking partners require it. Crypto casinos sit in a different position: settlement happens on-chain rather than through the banking system, and most operate under a Curaçao licence rather than a Tier-1 regulator like the UKGC or MGA. That gives them room to choose how much verification to apply, and they land in noticeably different places.' },
     { type: 'p', text: 'The practical consequence is that "do I need to verify my identity" has no single answer for crypto casinos the way it does for a regulated fiat site. It is an operator-level decision, and it is one of the more meaningful differences between platforms: more meaningful, for a privacy-focused player, than the welcome bonus or the game count.' },
 
     { type: 'h2', text: 'The three KYC postures, by operator' },
-    { type: 'p', text: 'We score each casino’s KYC posture on a 0–10 transparency-and-friction scale, recorded alongside the rest of its profile in our data. The scores sort into three bands: None (no documents collected on crypto play), Light (document-free for routine play, with verification reserved for larger or fiat-side activity), and Standard (verification applied more readily, including on large wins). Here is where each casino we review actually sits. The three with dedicated KYC pages link through to the full breakdown.' },
+    { type: 'p', text: 'We score each casino’s KYC posture on a 0–10 transparency-and-friction scale, recorded alongside the rest of its profile in our data. The scores sort into three bands: None (no documents collected on routine crypto play, in two cases up to a published EUR 2,000 equivalent check), Light (document-free for routine play, with verification reserved for larger or fiat-side activity), and Standard (verification applied more readily, including on large wins). Here is where each casino we review actually sits. The three with dedicated KYC pages link through to the full breakdown.' },
     {
       type: 'kycposture',
       items: [
@@ -342,6 +342,95 @@ const guideContent: Record<string, ContentBlock[]> = {
       ],
     },
   ],
+
+  // Added 2026-08-01. Scope is the MONEY side of a large cash-out: caps,
+  // documented verification thresholds, and holds. The document workflow is
+  // deliberately not covered here (reserved for the verification-process
+  // guide), and policy/who stays with do-crypto-casinos-require-kyc. Every
+  // figure below traces to lib/casinos.ts or to an owner primary-source read
+  // recorded in STATE.md. The Roobet fiat withdrawal fee is deliberately
+  // OMITTED: its clause boundary is under owner re-verification and an
+  // unresolved number does not go on a page about what large cash-outs cost.
+  'large-crypto-casino-withdrawals': [
+    { type: 'h2', text: 'The short answer' },
+    { type: 'p', text: 'A large withdrawal runs into one of three things, and they are not the same problem. A cap meters it, so the money arrives in instalments instead of all at once. A verification threshold gates it, so the money waits on documents. A discretionary review holds it, so the money waits on a decision. Which one you meet is set by the operator and by the amount, and at most of the casinos we review it is knowable before you deposit rather than discovered afterwards.' },
+    { type: 'p', text: 'The size that matters is lower than most players expect. The lowest documented verification trigger in our catalogue is EUR 2,000 equivalent, and the lowest daily ceiling is $2,200. Those are ordinary wins on a modest bankroll, not jackpots, which is why this is worth understanding before it is your money sitting still.' },
+    {
+      type: 'plink',
+      parts: [
+        'This guide covers what happens to the money: the caps, the thresholds and the holds. If your payout is simply not moving and you want to work out where it is stuck, that is a different diagnostic and it lives in ',
+        { text: 'our guide to why a crypto casino withdrawal goes pending', href: '/guides/why-is-my-crypto-casino-withdrawal-pending' },
+        '. For which operators ask for documents at all, and on what policy, see ',
+        { text: 'do crypto casinos require KYC', href: '/guides/do-crypto-casinos-require-kyc' },
+        '.',
+      ],
+    },
+
+    { type: 'h2', text: 'A cap meters your money, it does not refuse it' },
+    { type: 'p', text: 'Hitting a daily ceiling is not a failed withdrawal, and reading it as one is the most common unnecessary panic in this whole area. The balance stays yours and pays out across consecutive requests until it is gone. The practical cost is time and the mild indignity of doing the same thing four days running, not risk to the money.' },
+    { type: 'p', text: 'Cloudbet publishes the clearest documented example in our catalogue, and it is a tier rather than a flat rule: accounts are capped at $2,200 a day until Level 2 verification is complete, and carry no withdrawal limit at all once it is. That is the single most useful number on this page, because it tells you the cap is something you can remove in advance rather than something you negotiate afterwards. It is verified against Cloudbet’s own help centre.' },
+    { type: 'p', text: 'Roobet publishes a $200,000 a day ceiling, which is high enough to be irrelevant to most players, but pairs it with something that is not: no weekend cashout processing. Its constraint is as much calendar as amount, and a Saturday request can legitimately sit until Monday without anything being wrong.' },
+    { type: 'p', text: 'The reason the distinction matters is that a cap is arithmetic and a hold is a judgement. You can calculate exactly when a capped balance finishes paying out. You cannot calculate when a review ends.' },
+
+    { type: 'h2', text: 'The verification threshold: what is actually documented' },
+    { type: 'p', text: 'Two operators in our catalogue run a KYC check as standard at EUR 2,000 equivalent: BC.Game and 7Bit Casino. Application is at the operator’s discretion in both cases and can be triggered earlier, so treat the figure as the point where a check becomes normal rather than the point where it becomes possible. Below it, both keep routine crypto play document-free, and BC.Game’s signup is email-only.' },
+    {
+      type: 'plink',
+      parts: [
+        'That is a correction to what this site used to say, and it is published rather than quietly rewritten. We previously described both operators as requiring no documents at any amount. The owner read both sets of live terms on 1 August 2026 and that description was wrong, so it was retracted site-wide rather than softened. The dated correction record sits with our earlier ones on ',
+        { text: 'the bonus and withdrawal transparency report', href: '/research/crypto-casino-bonus-transparency' },
+        '.',
+      ],
+    },
+    { type: 'p', text: 'For every other operator in the catalogue we do not state a trigger figure, and the omission is deliberate. We have not verified one, and a number invented for the sake of a complete table would be worse than an honest gap, particularly on a page a reader might act on with real money. Duelbits is the specific case worth naming: it publishes a no-KYC posture we have not independently checked either way, so this guide gives it no threshold rather than inferring one.' },
+
+    { type: 'h2', text: 'What a large cash-out does not automatically change' },
+    { type: 'p', text: 'Size does not by itself introduce a fee. That is worth stating because the opposite is widely assumed, and in this catalogue the documented position runs the other way: the live BitStarz terms record no fees on deposits or withdrawals at all, at any amount. That is one operator rather than a general rule, and it is exactly as far as the evidence goes. Where a fee does exist at another operator it is usually tied to the payment rail or to how often you cash out, not to the size of a single payout.' },
+
+    { type: 'h2', text: 'The hold: when the review is discretionary' },
+    { type: 'p', text: 'The third case is the one with no published number attached, because discretion is the whole mechanism. Shuffle documents that KYC can be triggered at withdrawal for larger amounts, and there are reports of temporary holds on high-value withdrawals pending review. We record that as reports rather than as verified operator policy, and the distinction is deliberate.' },
+    {
+      type: 'plink',
+      parts: [
+        'Roobet is where the public record is heaviest and where we are most direct about it. AskGamblers carries complaints against Roobet at roughly $20,000, $84,000, $97,000, $111,000 and $115,000, in which verified accounts saw cash-outs held in routine verification for days; the $84,000 case is publicly listed as unsolved. Those are public mediation records rather than our own testing, and they are the reason Roobet carries the lowest withdrawal score in our catalogue at 6.5 out of 10. The detail is in ',
+        { text: 'our Roobet review', href: '/reviews/roobet' },
+        '.',
+      ],
+    },
+    { type: 'p', text: 'None of that makes a hold the likely outcome of any particular large withdrawal. It makes it the outcome worth pricing in when you choose where to play with an amount you would mind waiting on.' },
+
+    { type: 'h2', text: 'The pattern that should actually worry you' },
+    { type: 'p', text: 'A delay stops looking like process and starts looking like a problem when the requirements appear only after the win. Verification that was never mentioned while you were depositing and losing, arriving the week you cash out something substantial, is a different signal from a check applied consistently at a published threshold. So is a stated reason that changes each time you ask.' },
+    { type: 'p', text: 'Ordinary process has two properties: it is consistent across players and amounts, and it has an end date somebody will commit to. When either is missing, the useful question is not how long to keep waiting but whether the operator has ever published the rule it is now applying to you.' },
+
+    { type: 'h2', text: 'Do not split a withdrawal to duck a threshold' },
+    { type: 'p', text: 'It is the obvious workaround and it is a bad one. Operator terms generally prohibit structuring withdrawals to stay under a verification limit, so the tactic converts a routine documentation request into a suspicion about your account, which is a far worse position than simply uploading a passport. It also rarely works, because thresholds are commonly assessed cumulatively rather than per transaction.' },
+    { type: 'p', text: 'The legitimate version of the same idea is to deal with verification when nothing is riding on it.' },
+
+    { type: 'h2', text: 'What to do before the big win rather than after' },
+    { type: 'p', text: 'Three things remove most of the friction described above, and all three have to happen while your balance is still ordinary. Complete verification early, at the point where a document request is an administrative task rather than an obstacle between you and a payout. Find the operator’s daily ceiling before you deposit, because that number decides whether a large win arrives in one piece or over a week. Keep your bonus state clean, since an unfinished wagering requirement can make a perfectly healthy balance partly unwithdrawable at exactly the wrong moment.' },
+    {
+      type: 'plink',
+      parts: [
+        'If cashing out large amounts is the normal case for you rather than the exception, the operator choice matters more than any of this. The catalogue ranked on documented limits and cap-free cash-out is on ',
+        { text: 'our high roller casinos page', href: '/high-roller-casinos#withdrawal-limits' },
+        ', and the speed ranking, for when the amount is fine but the wait is not, is on ',
+        { text: 'fast withdrawal casinos', href: '/fast-withdrawal-casinos' },
+        '.',
+      ],
+    },
+
+    { type: 'h2', text: 'Where the figures on this page come from' },
+    { type: 'p', text: 'Cloudbet’s $2,200 daily cap and its removal at Level 2 come from Cloudbet’s own help centre, read in July 2026. The EUR 2,000 checks at BC.Game and 7Bit come from a direct reading of both operators’ live terms on 1 August 2026. The BitStarz no-fee position comes from its live terms. The Roobet complaint amounts are public AskGamblers records. The published payout windows are the operators’ own stated processing times as recorded in our catalogue.' },
+    {
+      type: 'plink',
+      parts: [
+        'What none of these are is stopwatch measurements taken by us. We do not run test accounts or time our own withdrawals, and we do not describe operator claims as findings. Where a figure could not be verified to a primary source it is absent from this page rather than estimated. The full standard is set out in ',
+        { text: 'our methodology', href: '/methodology' },
+        '.',
+      ],
+    },
+  ],
 }
 
 // FAQ data per guide. Only include questions actually answered in the guide content
@@ -354,7 +443,7 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Why is my casino withdrawal pending?',
-      answer: 'The two most common causes are mid-process KYC verification (the casino is asking for ID or proof of address before releasing funds) and manual review for unusual activity. Network congestion on Bitcoin can also delay confirmation, though that\'s usually visible on the blockchain explorer rather than as a "pending" status in the casino UI. Light-KYC platforms like BitStarz, Cloudbet, Mirax and Shuffle reserve the right to trigger ID checks on larger withdrawals; no-KYC platforms (BC.Game, 7Bit, Duelbits) avoid this entirely for routine play.',
+      answer: 'The two most common causes are mid-process KYC verification (the casino is asking for ID or proof of address before releasing funds) and manual review for unusual activity. Network congestion on Bitcoin can also delay confirmation, though that\'s usually visible on the blockchain explorer rather than as a "pending" status in the casino UI. Light-KYC platforms like BitStarz, Cloudbet, Mirax and Shuffle reserve the right to trigger ID checks on larger withdrawals. BC.Game and 7Bit keep routine crypto play document-free up to a KYC check that is standard at EUR 2,000 equivalent, applied at the operator\'s discretion and capable of being triggered earlier; Duelbits publishes a no-KYC policy for crypto play.',
     },
     {
       question: 'Do I need KYC to withdraw crypto from an online casino?',
@@ -438,11 +527,11 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
   'do-crypto-casinos-require-kyc': [
     {
       question: 'Do all crypto casinos require KYC?',
-      answer: 'No. Unlike licensed fiat casinos, crypto casinos set their own KYC policy rather than verifying every player by regulatory mandate. Of the eight casinos we review, three (BC.Game, 7Bit Casino and Duelbits) never ask for documents on crypto play, four run Light KYC that only triggers on larger or fiat-side activity, and one (Roobet) applies Standard KYC. Whether you need to verify depends entirely on which operator you choose.',
+      answer: 'No. Unlike licensed fiat casinos, crypto casinos set their own KYC policy rather than verifying every player by regulatory mandate. Of the eight casinos we review, three (BC.Game, 7Bit Casino and Duelbits) keep routine crypto play document-free, with BC.Game and 7Bit running a KYC check as standard at EUR 2,000 equivalent, applied at their discretion and capable of being triggered earlier. Four run Light KYC that only triggers on larger or fiat-side activity, and one (Roobet) applies Standard KYC. Whether you need to verify depends on which operator you choose and on the size of your cash-out.',
     },
     {
       question: 'Which crypto casinos don’t require KYC?',
-      answer: 'Among the casinos we review, BC.Game, 7Bit Casino and Duelbits keep routine crypto play document-free. At BC.Game and 7Bit a KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Below those thresholds no government ID or proof of address is required to deposit, play or withdraw under the standard flow. BC.Game holds the highest KYC score in our catalogue (9.5/10) on the strength of an email-only signup with no documents at any withdrawal size. Compliance at these operators is handled through transaction monitoring rather than up-front document collection.',
+      answer: 'Among the casinos we review, BC.Game, 7Bit Casino and Duelbits keep routine crypto play document-free. At BC.Game and 7Bit a KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Below those thresholds no government ID or proof of address is required to deposit, play or withdraw under the standard flow. BC.Game holds the highest KYC score in our catalogue (9.5/10) on the strength of an email-only signup and a document-free range that runs up to that threshold. Compliance at these operators is handled through transaction monitoring rather than up-front document collection.',
     },
     {
       question: 'What triggers a KYC check at a crypto casino?',
@@ -486,6 +575,34 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
         'It can, and a document request raised after you hit withdraw is the delay cause most likely to run into days rather than hours. How exposed you are depends on the operator’s posture. Cloudbet’s model is documented from its own help centre: accounts are capped at $2,200 a day until Level 2 verification is complete, and uncapped afterwards. Roobet applies the strictest verification posture in our catalogue. Several operators publish no-KYC policies for routine crypto play; we are re-verifying two of those against their live terms and treat the published wording as the operator’s claim until that is done.',
     },
   ],
+  // Each FAQ maps to a section actually answered in the body above.
+  'large-crypto-casino-withdrawals': [
+    {
+      question: 'At what amount does a crypto casino start asking questions?',
+      answer:
+        'Lower than most players expect. The lowest documented verification trigger across the casinos we review is EUR 2,000 equivalent, which is the point where BC.Game and 7Bit Casino run a KYC check as standard, applied at the operator’s discretion and capable of being triggered earlier. The lowest daily withdrawal ceiling is Cloudbet’s $2,200, which applies until Level 2 verification is complete. We do not publish a trigger figure for the other operators in our catalogue because we have not verified one, and an invented number would be worse than the gap.',
+    },
+    {
+      question: 'Is a daily withdrawal limit the same as a blocked withdrawal?',
+      answer:
+        'No, and confusing the two causes a lot of unnecessary alarm. A cap meters the payout: the balance remains yours and pays out across consecutive daily requests until it is gone. The cost is time, not risk. A hold is different because it is a judgement with no published end date. Cloudbet’s $2,200 a day before Level 2 verification is a cap, and it is one you can remove in advance by completing verification rather than negotiating it afterwards.',
+    },
+    {
+      question: 'Can I avoid verification by splitting a large withdrawal into smaller ones?',
+      answer:
+        'It is the obvious workaround and it is a bad one. Operator terms generally prohibit structuring withdrawals to stay under a verification threshold, so it converts a routine document request into a suspicion about your account, which is a much worse position to be in. It also tends not to work, because thresholds are commonly assessed cumulatively rather than per transaction. Completing verification while your balance is ordinary achieves the same goal legitimately.',
+    },
+    {
+      question: 'Do crypto casinos charge a fee on large withdrawals?',
+      answer:
+        'Size does not by itself introduce a fee, despite the common assumption that it does. The live BitStarz terms record no fees on deposits or withdrawals at all, at any amount. That is one operator rather than a general rule. Where fees do exist elsewhere they are usually attached to the payment rail or to how frequently you cash out, rather than to the size of a single payout.',
+    },
+    {
+      question: 'When does a slow large withdrawal stop being normal?',
+      answer:
+        'When the requirements appear only after the win. Verification that was never mentioned while you were depositing, arriving the week you cash out something substantial, is a different signal from a check applied consistently at a published threshold, and so is a stated reason that changes each time you ask. Ordinary process is consistent across players and amounts and has an end date somebody will commit to. Roobet is the case where the public record is heaviest: AskGamblers carries complaints at roughly $20,000 to $115,000 involving multi-day holds, with one $84,000 case listed as unsolved.',
+    },
+  ],
 }
 
 // Per-guide intent-page links. Pairs with the worked examples, pointing readers
@@ -523,6 +640,13 @@ const guideRelatedPages: Record<string, { label: string; href: string; teaser: s
     { label: 'Do Crypto Casinos Require KYC?', href: '/guides/do-crypto-casinos-require-kyc', teaser: 'Which operators ask for documents, and when' },
     { label: 'Best Crypto for Gambling', href: '/guides/best-crypto-for-gambling', teaser: 'Pick a rail that never reaches the mempool queue' },
     { label: 'How We Review', href: '/methodology', teaser: 'The sourcing standard behind the complaint-record findings' },
+    { label: 'Large Crypto Casino Withdrawals', href: '/guides/large-crypto-casino-withdrawals', teaser: 'When the delay is about the size of the win, not the state of the payout' },
+  ],
+  'large-crypto-casino-withdrawals': [
+    { label: 'High Roller Casinos: Withdrawal Limits', href: '/high-roller-casinos#withdrawal-limits', teaser: 'The catalogue ranked on documented limits and cap-free cash-out' },
+    { label: 'Why Is My Crypto Casino Withdrawal Pending?', href: '/guides/why-is-my-crypto-casino-withdrawal-pending', teaser: 'The other diagnostic: where a stuck payout actually is' },
+    { label: 'Cloudbet KYC', href: '/reviews/cloudbet/kyc', teaser: 'The $2,200 daily cap and what Level 2 verification removes' },
+    { label: 'Bonus & Withdrawal Transparency Report', href: '/research/crypto-casino-bonus-transparency', teaser: 'Sourced cashout terms, and our published correction record' },
   ],
 }
 
@@ -556,6 +680,14 @@ const relatedCasinos: Record<string, { name: string; slug: string; reason: strin
     { name: 'Duelbits', slug: 'duelbits', reason: 'Publishes instant to 5-minute crypto payouts' },
     { name: 'Cloudbet', slug: 'cloudbet', reason: 'Tiered limits: $2,200/day before Level 2 verification' },
     { name: 'Roobet', slug: 'roobet', reason: 'The documented-holds case: no weekend processing' },
+  ],
+  // Roobet is deliberately NOT in this strip. The page's holds section is about
+  // its complaint record, and pairing that argument with an affiliate card for
+  // the same operator on the same page is not a trade this site makes.
+  'large-crypto-casino-withdrawals': [
+    { name: 'Cloudbet', slug: 'cloudbet', reason: 'No withdrawal limit at all once Level 2 verification completes' },
+    { name: 'BC.Game', slug: 'bc-game', reason: 'Document-free routine play, with a check standard at EUR 2,000' },
+    { name: 'BitStarz', slug: 'bitstarz', reason: 'Live terms record no deposit or withdrawal fees at any size' },
   ],
 }
 

@@ -175,7 +175,7 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
             <KycCrossLink slug="cloudbet" name="Cloudbet" level="Light (at scale)" current={slug} />
           </div>
           <p className="text-[#888888] text-sm mt-6">
-            For the category view of casinos that never ask for documents, see{' '}
+            For the category view of casinos that keep routine crypto play document-free, see{' '}
             <Link href="/no-kyc-casinos" className="text-[#7BB8D4] hover:underline">
               our no-KYC crypto casinos hub
             </Link>
@@ -352,7 +352,7 @@ function BitstarzContent() {
         <Link href="/reviews/bc-game/kyc" className="text-[#7BB8D4] hover:underline">
           BC.Game
         </Link>
-        , which requires no verification at all under an email-only signup. If you value
+        , which asks for nothing beyond an email-only signup until its EUR 2,000 equivalent check. If you value
         BitStarz&apos;s decade-long track record and 3,000-game library and you&apos;re
         playing crypto-only at normal stakes, the Light posture rarely surfaces in
         practice. If document-free play up to a known threshold is the priority, a threshold-based operator
@@ -385,7 +385,7 @@ const BITSTARZ_FAQS = [
   {
     question: 'Can I stay anonymous at BitStarz?',
     answer:
-      'For crypto-only play at normal stakes, you can typically deposit, play and withdraw without verifying your identity, but BitStarz reserves the right to trigger Light KYC on fiat activity or flagged behaviour, so it is not a guaranteed-anonymous platform by policy. If zero documents at any amount is a hard requirement, a no-KYC operator like BC.Game, 7Bit or Duelbits is the structurally correct choice.',
+      'For crypto-only play at normal stakes, you can typically deposit, play and withdraw without verifying your identity, but BitStarz reserves the right to trigger Light KYC on fiat activity or flagged behaviour, so it is not a guaranteed-anonymous platform by policy. If a document-free range with a published boundary is what you want, BC.Game and 7Bit keep routine crypto play document-free up to a KYC check that is standard at EUR 2,000 equivalent, applied at their discretion and capable of being triggered earlier.',
   },
   {
     question: 'Does verifying my BitStarz account make withdrawals faster?',
@@ -400,7 +400,7 @@ function BcGameContent() {
     <>
       <Para>
         BC.Game has the shortest KYC section of any casino we review, because the policy
-        is the absence of one. Sign-up is email-and-password. No identity
+        is a threshold rather than a routine. Sign-up is email-and-password. No identity
         document is required to deposit, play or withdraw crypto below BC.Game&apos;s
         verification threshold: a KYC check is standard at EUR 2,000 equivalent, applied
         at the operator&apos;s discretion and sometimes triggered earlier (owner-verified
@@ -448,10 +448,10 @@ function BcGameContent() {
         BC.Game supports more cryptocurrencies than any other casino we review: BTC,
         ETH, USDT, SOL, BNB, DOGE, LTC, XRP, TRX, USDC and a long tail beyond. For an
         anonymity-focused player the important point is that the privacy comes from the
-        casino&apos;s no-KYC policy, not from the coin. You can pick your network purely for
+        casino&apos;s threshold-based policy, not from the coin. You can pick your network purely for
         speed and fees (TRC-20 USDT or SOL for near-instant low-cost withdrawals)
-        without trading off on verification, because there is no verification to trade
-        off against.
+        without that choice affecting whether you are asked to verify, because the trigger
+        is the amount rather than the rail.
       </Para>
       <KeyList
         items={[
@@ -496,7 +496,7 @@ const BCGAME_FAQS = [
   {
     question: 'Will BC.Game ever ask me for ID?',
     answer:
-      'Under the standard flow, no document is requested. BC.Game handles compliance through on-chain transaction monitoring at the operator layer rather than up-front document collection, so the only realistic scenario where verification could arise is genuinely anomalous activity that would flag at any financial venue. For ordinary play (at any normal stake) no ID is ever asked for.',
+      'Yes, at EUR 2,000 equivalent, where a KYC check is standard and applied at BC.Game’s discretion; it can also be triggered earlier. Below that, no document is requested under the standard flow, because BC.Game handles compliance through on-chain transaction monitoring at the operator layer rather than up-front document collection. So the honest answer is that it depends on the size of your cash-out rather than on how long you have played.',
   },
   {
     question: 'Can I withdraw large amounts from BC.Game without verifying?',

@@ -87,7 +87,7 @@ const PER_CASINO_SPORTSBOOK_NOTES: Record<string, string> = {
   cloudbet:
     'Cloudbet has the strongest sportsbook on this list: our review rates it among the best-in-class for crypto betting, with crypto wagering across hundreds of markets. Paired with a no-limit withdrawal policy for fully verified accounts ($2,200/day until Level 2 verification) and dual licensing from Curaçao plus the Kahnawake Gaming Commission, it is the default for high-stakes crypto sports betting. Entry is easy at a ~$1 equivalent minimum deposit; the serious-bankroll calibration now lives on the cash-out side.',
   'bc-game':
-    'BC.Game pairs a full sportsbook with the widest coin support of any casino we review (100+ cryptocurrencies) and a KYC check standard at EUR 2,000 equivalent: email signup, no documents at any withdrawal size. The $5 minimum deposit makes it the most accessible entry point on the list, and withdrawals process instant to 10 minutes.',
+    'BC.Game pairs a full sportsbook with the widest coin support of any casino we review (100+ cryptocurrencies) and a KYC check standard at EUR 2,000 equivalent: email signup, and no documents on routine crypto play below that threshold. The $5 minimum deposit makes it the most accessible entry point on the list, and withdrawals process instant to 10 minutes.',
   duelbits:
     'Duelbits is a crypto-native casino and sportsbook launched in 2020, with the fastest headline withdrawal window here (instant to 5 minutes) and a no-KYC policy for crypto play. Its rewards model is cashback-first (up to $30 weekly cashback plus Duelbits Originals rewards) rather than a deposit match, which suits high-frequency bettors over bonus-hunters.',
   shuffle:

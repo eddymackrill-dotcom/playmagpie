@@ -143,8 +143,9 @@ export default function FastWithdrawalPage() {
                 title: 'KYC Delays',
                 body: (
                   <>
-                    The most common cause of slow withdrawals is mid-process KYC verification. No-KYC casinos eliminate
-                    this entirely: your crypto clears without a document check. At Standard-KYC operators the holds can
+                    The most common cause of slow withdrawals is mid-process KYC verification. Operators that keep
+                    routine crypto play document-free avoid it below their own threshold, which is EUR 2,000 equivalent
+                    at BC.Game and 7Bit and applied at their discretion. At Standard-KYC operators the holds can
                     stretch days: <Link href="/reviews/roobet" className="text-[#7BB8D4] hover:underline">Roobet has
                     documented AskGamblers cases</Link> at $20k, $84k, $97k, $111k and $115k where verified accounts
                     sat in &quot;routine verification&quot; for multiple days.
@@ -165,7 +166,17 @@ export default function FastWithdrawalPage() {
               },
               {
                 title: 'Withdrawal Limits',
-                body: 'Some casinos impose daily or weekly limits. We list the maximum single-withdrawal limit for each casino: critical if you hit a big win.',
+                body: (
+                  <>
+                    Some casinos impose daily or weekly limits. We list the maximum single-withdrawal limit for each
+                    casino: critical if you hit a big win. A limit meters a payout rather than refusing it, which is a
+                    different problem from a hold, and{' '}
+                    <Link href="/guides/large-crypto-casino-withdrawals" className="text-[#7BB8D4] hover:underline">
+                      what actually happens to a large crypto withdrawal
+                    </Link>{' '}
+                    covers the documented caps and verification thresholds behind both.
+                  </>
+                ),
               },
             ] as { title: string; body: ReactNode }[]).map((card) => (
               <div key={card.title} className="bg-[#111111] border border-[#222222] rounded-2xl p-6">

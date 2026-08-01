@@ -150,7 +150,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
   'bc-game': [
     {
       question: 'Is BC.Game legit?',
-      answer: 'BC.Game is a legitimate crypto casino licensed under Curaçao eGaming, operating since 2017. Is BC.Game legit? Yes. Independent testing confirms fast withdrawals, a verified no-KYC policy maintained consistently since launch, and provably fair outcomes on original games. PlayMagpie rates BC.Game 8.9/10 for trust based on licensing quality, payout history and its no-KYC track record across over seven years of operation.',
+      answer: 'BC.Game is a legitimate crypto casino licensed under Curaçao eGaming, operating since 2017. Is BC.Game legit? Yes. Its published processing times are among the fastest we record, routine crypto play is document-free up to a KYC check that is standard at EUR 2,000 equivalent, and original games are provably fair with independently verifiable outcomes. PlayMagpie rates BC.Game 8.9/10 for trust based on licensing quality, payout history and over seven years of operation.',
     },
     {
       question: 'What are BC.Game withdrawal times in 2026?',
@@ -158,7 +158,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Does BC.Game require KYC verification?',
-      answer: 'BC.Game keeps routine crypto play document-free. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Below it you can register, deposit, play and withdraw using only an email address: no identity documents, selfies or proof of address are ever required. The BC.Game no KYC policy applies to all withdrawal sizes and all 100+ supported cryptocurrencies. This makes it the top choice among privacy-focused players who want to gamble without submitting personal information to any third party.',
+      answer: 'BC.Game keeps routine crypto play document-free. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Below it you can register, deposit, play and withdraw using only an email address, with no identity documents, selfies or proof of address requested under the standard flow. That document-free range applies across all 100+ supported cryptocurrencies, and the boundary is the amount rather than the coin. This makes it the top choice among privacy-focused players who want to gamble without submitting personal information to any third party.',
     },
     {
       question: 'What are the best BC.Game bonus codes for 2026?',
@@ -294,7 +294,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Does 7Bit Casino require KYC?',
-      answer: '7Bit keeps crypto withdrawals document-free below its verification threshold. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Players registering with email only can deposit, play and withdraw cryptocurrency without ever submitting identity documents, selfies or proof of address. The 7Bit Casino no KYC policy has been consistently maintained since 2014, making it one of the most reliable privacy-preserving casinos for long-term players who value anonymity above all.',
+      answer: '7Bit keeps crypto withdrawals document-free below its verification threshold. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Below that threshold, players registering with email only can deposit, play and withdraw cryptocurrency without submitting identity documents, selfies or proof of address. 7Bit has operated since 2014, and the document-free range below its check is what makes it a durable pick for players who weight privacy heavily, with the boundary stated rather than implied.',
     },
     {
       question: 'What is the 7Bit Casino Bitcoin bonus for 2026?',
@@ -425,7 +425,7 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
 
   const kycDescription =
     casino.kycLevel === 'None'
-      ? 'No identity verification required. Sign up with an email and start playing immediately.'
+      ? 'Document-free on routine crypto play. Sign up with an email and start playing immediately; see the review for the operator’s own verification threshold.'
       : casino.kycLevel === 'Light'
       ? 'Minimal verification: usually just email confirmation. Full KYC only triggered above high withdrawal thresholds.'
       : casino.kycLevel === 'Standard'
