@@ -2,7 +2,9 @@
 
 Operational playbook for running this site sustainably. Companion to CLAUDE.md (which defines strategy and rules); this file defines workflows and cadences.
 
-Last updated: 2026-07-28
+Last updated: 2026-08-01
+
+**AUTONOMY RULE, 2026-08-01, .com only. Read CLAUDE.md's autonomy and accuracy sections before using any prompt in this file.** Nothing in this playbook stops the session any more. Every "wait for my approval", "do not fix yet" and "surface findings first" has been removed from the prompts below; each removal is marked inline where it was. The only stops are the three emergency conditions: illegal, likely to get the site blocked or delisted immediately, or direct reader harm. Separately, accuracy corrections are no longer priority work here, so the audit and diagnostic prompts that used to hunt for drift now note and move on. Neither change touches verify-or-omit, which still governs everything written. **The UK repo is UKGC-facing and none of this applies there.**
 
 ## How to use this file
 
@@ -89,7 +91,7 @@ Review whether the brand+intent sub-page pattern should be extended this batch:
    - Pollution baseline: discount any tested-market signal
    - Refusal rules: don't pad. Only propose where the casino has a genuinely differentiated story for that intent
 
-Propose 3-5 candidates with HIGH/MED/LOW confidence per candidate. Wait for my approval before any build.
+Pick the candidates worth building, record HIGH/MED/LOW confidence for each, build them within the velocity caps, and report the reasoning afterwards. ("Wait for my approval before any build" was removed 2026-08-01 by the autonomy rule in CLAUDE.md.)
 
 ### Monthly: structural audit (first Monday of each month)
 
@@ -118,7 +120,7 @@ Run a structural audit of the site. Goal: find class-of-problem issues before th
    - Sample 3 random pages across different clusters
    - Read for: banned phrases that slipped through, stale specific numbers in prose, broken internal links, schema validation issues
 
-Produce as a structured report categorised by severity (urgent / important / cosmetic). Do NOT fix yet. Propose fixes, wait for my approval per category.
+Produce as a structured report categorised by severity (urgent / important / cosmetic), fix what is worth fixing as you go, and report what you changed. ("Do NOT fix yet, propose fixes, wait for my approval per category" was removed 2026-08-01 by the autonomy rule.) Note the interaction with the accuracy rule in CLAUDE.md: **step 3, catalogue freshness, and step 4, editorial drift, are no longer correction-hunting exercises on this site.** Record what you notice in a line each and move on; only catastrophic claims (illegal, delisting-risk, direct reader harm) get fixed.
 
 ### Quarterly: pollution baseline re-evaluation (RETIRED 2026-07-07)
 
@@ -145,7 +147,7 @@ Run after every content push. ~10 minutes.
 - Manual indexing requests in GSC for any substantive new pages (use www host explicitly; apex returns "URL unknown")
 - If any new page is in a low-crawl section (/bonus/*, /crypto/*, /game/* leaves), confirm ≥1 inbound contextual prose link from a same-batch-modified frequently-crawled page (per CLAUDE.md internal-linking rule)
 - Grep for em dashes in content touched this batch: must be zero. Em dashes (the "—" character) are a primary AI-content tell and are banned in all user-facing content (per CLAUDE.md "Never use em dashes"). Run `grep -rc "—" app lib --include='*.tsx' --include='*.ts'` and confirm every file reports 0. If anything is non-zero, rewrite it (comma, full stop, colon, or parentheses, never a spaced hyphen) before deploy. The internal `lib/*.md` working notes are out of scope; only `.tsx`/`.ts` content files must be clean.
-- Confirm every page approved this session was actually built: cross-check approved-vs-shipped before wrap. (Added 2026-06-27 after the /country/finland hub was approved earlier in a session but initially missed in the batch and only caught later. List what was approved, tick each against what shipped.)
+- Confirm every page planned this session was actually built: cross-check planned-vs-shipped before wrap. (Was "approved-vs-shipped"; there is no approval step as of 2026-08-01, but the cross-check is still worth running for the reason below.) (Added 2026-06-27 after the /country/finland hub was approved earlier in a session but initially missed in the batch and only caught later. List what was approved, tick each against what shipped.)
 - **Never stage with `git add -A` or `git add .`** Stage explicit paths, or run `git status`
   and read the untracked list before staging. This repo continually accumulates untracked
   working files (scratch reports, review artefacts, skill config), so a blanket add sweeps
@@ -310,7 +312,7 @@ Investigate why [URL] hasn't been crawled despite being live and in the sitemap.
 5. Check for technical suppression: canonical, robots meta, X-Robots-Tag, sitemap entry
 6. Diagnose: most likely cause + proposed fix
 
-Don't fix yet. Surface findings first.
+Diagnose it, apply the fix you would defend, and report both. (Removed 2026-08-01: "Don't fix yet. Surface findings first.")
 
 ### A page is ranking unexpectedly poorly (position 50+ on a query it should win)
 
@@ -322,7 +324,7 @@ Investigate why [URL] is at position [N] for query "[query]" when [reason it sho
 4. Apply CLAUDE.md refusal rule: is this a page that genuinely warrants higher ranking, or is the catalogue too thin to compete on this query?
 5. Propose either content strengthening, internal-link reinforcement, or honest acceptance that this query is out of reach
 
-Surface findings before any fix.
+Act on the diagnosis and report it. (Removed 2026-08-01: "Surface findings before any fix.")
 
 ### Catalogue data may be stale on a specific operator
 
@@ -334,7 +336,9 @@ Verify lib/casinos.ts entry for [casino] against current primary sources. Specif
 - Restricted countries
 - Licensing
 
-For any field that can't be verified to primary source (casino's T&C / promotions page), flag and propose either updating or marking "Not documented." Don't update lib/casinos.ts directly. Surface the verification report first so I can sanity-check before approving the diff.
+For any field that can't be verified to primary source (casino's T&C / promotions page), mark it "Not documented" rather than carrying an unsourced figure, update `lib/casinos.ts` directly, and report the diff afterwards. ("Don't update lib/casinos.ts directly. Surface the verification report first" was removed 2026-08-01 by the autonomy rule.)
+
+**Read this alongside the accuracy rule in CLAUDE.md before running this diagnostic at all.** Catalogue drift-hunting is no longer priority work on the .com, so this prompt is now fired on a specific operator for a specific reason, not as a routine sweep. What it must never do is put an unsourced number INTO the catalogue: verify-or-omit governs writing and is untouched by the autonomy rule.
 
 ### Site behaviour seems off but I'm not sure what
 

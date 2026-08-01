@@ -4,13 +4,25 @@ Before responding to my first request, read STATE.md and RUNBOOK.md in full. The
 ## KEEP STATE.md CURRENT
 When I indicate we're wrapping up, or after any deploy, update STATE.md (move completed items out of in-flight, add new in-flight items, update current-state numbers, append dated decisions to the append-only log), then commit it.
 
+## AUTONOMY: nothing stops the session except an emergency (owner decision 2026-08-01, .com only)
+
+**Applies from 2026-08-01, permanently, until the owner says otherwise. This is a .com rule. The UK repo is UKGC-facing and its rules are unchanged: do NOT port this there.**
+
+**An emergency is one of exactly three things:** something illegal; something likely to get the site blocked or delisted immediately; or something that would cause direct harm to a reader. **Nothing else qualifies.** Not an inaccuracy. Not an internal contradiction. Not a scope problem. Not a judgement call you would rather have confirmed. Not a decision that could reasonably go two ways.
+
+**Everything else: decide, act, and report it in the final message.** Never pause mid-session to ask. Where a decision could go either way, pick the one you would defend and flag it in the report as a judgement call. The owner would rather review ten decisions at the end than be asked ten times during.
+
+**Stop conditions removed by this rule** (listed so nobody reinstates one by habit): the pre-commit "show me" gate; the compliance-correction interrupt; the scope-split stop; "wait for my approval before any build" in the bi-weekly review; "do NOT fix yet, wait for my approval per category" in the monthly audit; "surface findings first" in both diagnostic prompts; "don't update lib/casinos.ts directly, surface the verification report first"; and "waits for user confirmation before building" in the selection rule. All are gone. None met the emergency bar.
+
+**What this is NOT:** it is not permission to invent, and it does not touch verify-or-omit. See "What the autonomy rule does not relax" below.
+
 ## Push and deploy: automatic, always
 
 Push after every commit. Never ask. Never leave a commit sitting local.
 
-The pre-commit "show me" stop is the only gate. Once the owner has approved a diff, everything downstream is yours to complete: commit, push, and confirm. The owner does not run git commands, does not open GitHub, and does not open Vercel to make things happen. If a step is needed to get approved work live, do it.
+There is no pre-commit gate. Commit, push, and confirm, then report what you did. The owner does not run git commands, does not open GitHub, and does not open Vercel to make things happen. If a step is needed to get work live, do it.
 
-Push is deploy. Vercel builds on push to master. The show-me stop is therefore the deploy gate and the last point at which anything can be stopped. Treat it that way.
+Push is deploy. Vercel builds on push to master.
 
 After pushing, verify from the command line rather than reporting intent:
 - Confirm the push succeeded and that the local and remote SHAs match.
@@ -19,11 +31,31 @@ After pushing, verify from the command line rather than reporting intent:
 
 You have no API or browser access to GitHub or Vercel, so a small number of things cannot be checked from here. When one of those matters, say precisely what needs a glance, give the direct URL, and say what a bad result would look like. Never ask the owner to go and look at something out of vagueness or habit. This is the one category where a manual glance is legitimate, and it exists because the 25 July IndexNow failure went unnoticed for three days for want of one.
 
-Exceptions, where you commit and stop:
-- The owner said not to push.
-- The change is not yet reviewed end to end. An approved-in-part diff is not approved.
+One exception only, where you commit and stop: the owner said not to push. The former second exception, "the change is not yet reviewed end to end", was removed on 2026-08-01 by the autonomy rule. Work is no longer held pending review; finish it, ship it, and report it.
 
 Scope note (reconciles the 2026-06-11 subagent rule in the Workflow section): this rule governs the orchestrating session. Subagents still never push, ever. That restriction stands unchanged and for its original reason.
+
+## ACCURACY CORRECTIONS ARE NOT PRIORITY WORK ON THIS SITE (owner decision 2026-08-01, .com only)
+
+**Do not run correction sweeps. Do not stop to fix inaccuracies you encounter. Do not propose correction work. Do not raise it as a concern.**
+
+The only accuracy issues to act on are catastrophic ones, meaning the same three-part emergency bar: illegal claims, claims likely to get the site blocked or delisted, or claims causing direct reader harm. **Fix those immediately and silently, and report afterwards.**
+
+Everything else is left alone. That explicitly includes false operator facts, internal contradictions, stale figures and unsourced superlatives. If you notice something, note it in the final report in ONE line and move on. Do not fix it, do not sweep for more, do not re-raise it.
+
+**Scope: playmagpie.com only. The UK repo is UKGC-facing and its rules are unchanged. Do not port this there.**
+
+## What the autonomy rule does NOT relax (this is not part of the relaxation)
+
+**Verify-or-omit still governs what you WRITE, in full and without exception.** Never write a figure, threshold, fee or limit that is not in a citable source or in something the owner has said naming that operator. Never extend a verified figure from one operator to another. Where you need a fact you do not have, omit the claim.
+
+The rule above is about **what you stop for and what you go looking for.** It is not permission to invent. Do not confuse the two. Publishing a number you cannot source is not covered by "accuracy corrections are not priority work": that rule governs existing claims, not new ones you author.
+
+## Counter-argument on record, as logged advice and NOT a blocker (2026-08-01)
+
+The owner has weighed this and decided. **Do not re-raise it.** Recorded so a cold read sees both sides.
+
+The assistant's position was: the working channels are Bing serving and assistant grounding, and assistants cite this site because it carries specific sourced facts operators do not publish, so accuracy is the mechanism of that channel rather than a constraint on it. The findings on the day the rule was made included a page stating a casino never sees a reader's name or address, a title tag asserting "No KYC" above a search snippet stating a EUR 2,000 threshold, and a claim that the site performs independent testing that /methodology explicitly denies.
 
 ## Corrections: state the propagation step every time
 
@@ -230,10 +262,10 @@ Untested markets (Canada, Netherlands, Sweden, Japan, plus the rest of the world
 DataForSEO MCP calls cost ~$0.05-0.10 each. Claude Code follows these rules without exception:
 
 - **GSC first, DataForSEO second.** Always check GSC data before calling DataForSEO. Only call DataForSEO when the question genuinely cannot be answered from existing GSC signal (e.g. validating volume for queries not yet ranking).
-- **Per-session call cap: 10.** If a content-selection or research session would need more than 10 DataForSEO calls, stop and ask the user before continuing. Surface the estimated cost.
+- **Per-session call cap: 10, and it is now a HARD CAP rather than a checkpoint.** Previously this said "stop and ask the user before continuing". Under the 2026-08-01 autonomy rule there is no asking, so the cap simply is not exceeded: at 10 calls, stop spending and work with what you have. Kept as a spend limit rather than deleted because it governs the owner's money, not work quality, and self-authorising unbounded spend is not what the autonomy rule grants.
 - **Batch where possible.** Use DataForSEO's batch endpoints (e.g. multi-keyword volume requests) rather than firing one call per keyword. A 20-keyword batch is one call, not twenty.
 - **Cache to `lib/keyword-research.md`.** Before any DataForSEO call, check whether the query is already cached. After any DataForSEO call, append the result to `lib/keyword-research.md` with the date. Never pay for the same query twice.
-- **Cost preview for >5 calls.** Any session that would use more than 5 DataForSEO calls must surface estimated cost to the user before proceeding ("This research would use ~8 calls, estimated $0.40-0.80. Proceed?").
+- **Cost reporting for >5 calls.** Any session using more than 5 DataForSEO calls reports the actual spend in its final message. The former "surface estimated cost before proceeding, Proceed?" prompt was removed 2026-08-01 by the autonomy rule: report after, do not ask before, and stay inside the hard cap.
 - **No exploratory research.** Refuse prompts like "tell me everything about this keyword universe" or "audit all potential pages." DataForSEO is for targeted validation, not discovery sweeps.
 
 The cache file `lib/keyword-research.md` is a flat markdown table: append one row per query, keep the spend running total current. See the file for the column structure.
@@ -252,7 +284,7 @@ When the user says "build content" without specifying, Claude Code:
    - b. Pages that complete an existing cluster where the missing cluster member has keyword-research demand signal
    - c. Pages in clusters with proven performance, where keyword-research confirms the specific query has demand
    - d. Pages that fill obvious gaps in topical authority, only if keyword-research confirms demand
-5. Proposes the batch with one-line rationale per page including which data source confirmed the demand (e.g. "GSC: 47 impressions, position 23" or "autocomplete + 3 PAA hits"), then waits for user confirmation before building.
+5. Builds the batch, recording a one-line rationale per page including which data source confirmed the demand (e.g. "GSC: 47 impressions, position 23" or "autocomplete + 3 PAA hits"), and reports the rationale afterwards. The former "waits for user confirmation before building" was removed 2026-08-01 by the autonomy rule; the demand-confirmation requirement itself is unchanged and still binding.
 
 **No demand confirmation → no page.** If a candidate from the opportunity map has zero GSC impressions AND no keyword-research signal, defer it.
 
@@ -399,7 +431,7 @@ After generating any batch of pages, before running `git push`, do a quick pass:
 3. Check that data points are present and look plausible (no $1,000,000,000 welcome bonus typos)
 4. Confirm the page has internal links to relevant other pages (reviews link to comparison pages, comparison pages link to crypto pages, etc.)
 
-This isn't a checklist to mechanically complete; it's a quality gate. If something feels templated or thin, flag it and ask before deploying.
+This isn't a checklist to mechanically complete; it's a quality gate. If something feels templated or thin, fix it, or drop the page if it cannot be fixed, and say what you did in the final report. Do not hold the deploy waiting to ask (autonomy rule, 2026-08-01).
 
 ## Internal linking conventions
 
@@ -433,7 +465,7 @@ When building new pages, add 3-5 contextual internal links to existing pages. Us
 6. Commit with a descriptive message ("Add withdrawal pages for BitStarz, Mirax, 7Bit")
 7. `git push origin master` (Vercel auto-deploys). Not optional and not a question: see "Push and deploy: automatic, always" at the top of this file.
 
-Subagents never push, ever (rule added 2026-06-11 after a subagent's unauthorised, harmless but out-of-process, push of commit 5f71a93). Only the orchestrating session pushes. **Amended 2026-07-28:** the original wording of this rule added "and only on explicit user approval", which is now superseded for the orchestrating session. The approval that matters is the pre-commit show-me stop, not a separate push approval; once a diff is approved, pushing it is required rather than requested. The subagent restriction is untouched.
+Subagents never push, ever (rule added 2026-06-11 after a subagent's unauthorised, harmless but out-of-process, push of commit 5f71a93). Only the orchestrating session pushes. **Amended 2026-07-28:** the original wording of this rule added "and only on explicit user approval", which is now superseded for the orchestrating session. **Further amended 2026-08-01:** the show-me gate that amendment referred to no longer exists either, so the orchestrating session commits and pushes without any approval step. The subagent restriction is untouched and is not affected by the autonomy rule: subagents still never push, ever.
 
 ## Social presence
 
@@ -443,7 +475,7 @@ Subagents never push, ever (rule added 2026-06-11 after a subagent's unauthorise
 
 ## When in doubt
 
-If a request would violate these guidelines, flag it rather than silently complying. If a generated page feels thin, say so. If you're guessing at data, say so. The honest answer is always more valuable than a polished but generic page.
+If a request would violate these guidelines, act on your best reading and flag it in the final report rather than pausing to ask (autonomy rule, 2026-08-01). If a generated page feels thin, say so. If you're guessing at data, do not publish the guess: omit it, per verify-or-omit, which the autonomy rule does not touch. The honest answer is always more valuable than a polished but generic page.
 
 The standard isn't "is this acceptable", it's "would this make a real crypto gambler trust the site more or less?"
 
