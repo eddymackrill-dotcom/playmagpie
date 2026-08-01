@@ -326,10 +326,24 @@ first-seen date and evidence, then filter it. Do not re-derive geography multipl
 3. Apply baseline rule #3 from the 06-11 section, which survives: impressions at position
    30+ with 0 clicks are paging/rank-checker events by default, in ANY market, and are
    non-evidence for demand.
-4. What remains is the demand estimate. Note that query-dimensioned rows exclude anonymized
+4. Apply the single-country-concentration rule (added 2026-08-01, promoted from a one-off
+   call to a standing criterion by owner decision; see the STATE.md decisions log). **A query
+   whose impressions are concentrated in a SINGLE country AND which has zero clicks is
+   fingerprint-shaped and is NOT demand evidence, regardless of impression volume.** Volume is
+   not the discriminator here; geographic dispersion and click behaviour are.
+   - Worked example, exclusion: `bit starz verification`, 30 impressions, 100% Latvia, 0 clicks,
+     position 26.2. Excluded from the 2026-07-28 guide proposal despite being the highest-volume
+     query in its family.
+   - Worked example, acceptance: the surrounding verification family in the same pull
+     (`bc game kyc verification` 8 imp across 8 distinct countries at 1 imp each; `cloudbet
+     verification` 11 imp across BRA/CAN/DEU/GRC). Wide dispersion, roughly one impression per
+     country, no daily cadence: the opposite signature, and accepted as genuine demand.
+   - The two examples sat side by side in one query family, which is why the rule is worth
+     applying at row level rather than at family level.
+5. What remains is the demand estimate. Note that query-dimensioned rows exclude anonymized
    queries, so signature filtering on visible rows is a floor on bot volume, not a ceiling;
    sanity-check against page-level totals.
-5. External corroboration (autocomplete/Trends/PAA via keyword-research) remains mandatory
+6. External corroboration (autocomplete/Trends/PAA via keyword-research) remains mandatory
    for any build decision that leans on a query family the inventory touches.
 
 ## Context caveat (2026-07-07)
