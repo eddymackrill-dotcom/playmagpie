@@ -269,12 +269,21 @@ form even though the site is www-canonical. The UK property is registered on a d
 from this one. Do not infer either from the other, and do not "correct" this value to www.
 Both hosts are recorded in the STATE.md 2026-07-28 decisions entry.
 
-**Status: SET and TESTED on the .com (2026-07-28).** A `workflow_dispatch` run submitted two
-URLs and exited zero, so the credential path is exercised end to end in CI, not merely
-configured. The secret is also set on the UK repo; whether it has been exercised there is
-that repo's business to record. Note the limit of this grade: the test confirms no
-submission returned an error, and the quota decrement was not read from the log, so
-acceptance is inferred from the exit code rather than from observed state change.
+**Status: SET, TESTED and now EXERCISED AT VOLUME on the .com (2026-07-28, upgraded
+2026-08-01).** Two correction dispatch runs on 2026-08-01 submitted 9 and then 8 URLs, all
+HTTP 200, zero failed, **with the quota decrementing by exactly 9 on the first run.** The
+secret is also set on the UK repo; whether it has been exercised there is that repo's
+business to record.
+
+**The mixed host-form question is settled, on observed state change rather than inference.**
+All nine URLs in that run were the **www** form while `SITE_URL` is the **apex** property,
+and all nine were accepted and counted. The sitemap keeps emitting www, `SITE_URL` stays
+apex, and no normalisation is needed. This supersedes the weaker 2026-07-28 grade, which
+rested on a run exiting zero without the decrement being read.
+
+**What this still does NOT prove, and the distinction is load-bearing: a decrement means
+Bing accepted and counted the call, not that Bing acted on the URL.** See the verification
+standard in the Rules below. The 2026-07-25 IndexNow failure is why this is written down.
 
 It is protected twice over: GitHub masks secret values in Action logs, and
 `scripts/submit-bing.mjs` passes all of its own output through a redactor that strips both
@@ -287,15 +296,28 @@ parameter and a network error message can carry the full request URL.
   set difference, so only genuinely new URLs go. **No backfill, no bulk sitemap pushes, no
   resubmitting existing URLs.** This is the opposite of the old IndexNow posture, which
   pushed the entire 73-URL sitemap on every deploy; that posture is retired along with it.
-- **Quota is per site: 100 daily, 400 monthly**, allocated separately per property on the
-  shared account key (verified 2026-07-28 on both playmagpie.com and playmagpie.co.uk).
-  The script prints the quota before and after so the decrement is observable.
+- **Quota is per site**, allocated separately per property on the shared account key
+  (verified 2026-07-28 on both playmagpie.com and playmagpie.co.uk). The script prints the
+  quota before and after so the decrement is observable, and it is worth reading rather
+  than skipping: the decrement is the only observed evidence that a call was counted.
+  **The monthly allocation is NOT static.** Readings on the .com so far: 2026-07-28,
+  daily 100 / monthly 400. 2026-08-01, daily 98 / **monthly 3098**, a roughly sevenfold
+  rise in four days with the cause unestablished. An unverified hypothesis is that Bing
+  scales monthly quota with site trust or index size. Do not plan against the higher
+  figure as though it were permanent, and do not assert the cause. Re-read at each
+  monthly audit so the series grows; two points cannot distinguish a trend from a one-off.
 - **What counts as verified (standard set by owner 2026-07-28, carried over unchanged from
   the IndexNow rules): only URLs visibly appearing in WMT reporting count as verified.**
   An HTTP 200 is submitted-pending-confirmation and nothing more. This standard exists
   because the 07-25 session logged an IndexNow HTTP 202 as verified success when the spec
   meaning was "accepted, key validation pending", and validation subsequently failed. Do
   not record a submission as landed until the reporting shows it.
+  **Reaffirmed 2026-08-01 against a much stronger-looking result: nine HTTP 200s with a
+  matching quota decrement of nine is STILL submitted-pending-confirmation, not verified.**
+  A decrement proves the call was accepted and counted. It says nothing about whether the
+  URL was crawled or indexed. The rule is not relaxed by good evidence of the wrong thing.
+  **Currently outstanding under this standard: everything submitted since 2026-07-28**,
+  meaning the 07-28 guide submissions plus all 17 URLs from the two 08-01 dispatch runs.
 
 ## Diagnostic prompts
 
