@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
+import { casinoLastReviewed } from '@/lib/last-reviewed'
 import CTAButton from '@/components/CTAButton'
 
 // 'mirax-casino' removed 2026-07-07 (spam-update consolidation): the page
@@ -135,11 +136,17 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
               </p>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
                 {slug === 'bitstarz' && 'BitStarz Withdrawal Times & Limits in 2026'}
-                {slug === '7bit-casino' && '7Bit Casino Withdrawal: No KYC, 8 Coins, Under 10 Minutes'}
+                {slug === '7bit-casino' && '7Bit Casino Withdrawal: 8 Coins, Under 10 Minutes, EUR 2,000 Check'}
                 {slug === 'cloudbet' && 'Cloudbet Withdrawal: No Limits Once Verified, 29 Coins, Dual Regulator Cover'}
                 {slug === 'duelbits' && 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins'}
               </h1>
-              <p className="text-[#555555] text-xs mt-2">Last updated: May 17, 2026</p>
+              {/* Was a hardcoded "Last updated: May 17, 2026" on all four pages, which is
+                  the same fake-freshness pattern removed from the reviews on 2026-07-07
+                  surviving in a different component. Now reads the real registry, which
+                  only moves on a documented verification event. */}
+              <p className="text-[#555555] text-xs mt-2">
+                Facts last verified: {casinoLastReviewed[casino.slug] ?? 'May 2026'}
+              </p>
             </div>
             <div className="text-right">
               <div className="text-5xl font-extrabold text-[#7BB8D4]">{casino.withdrawalScore}</div>
@@ -378,9 +385,10 @@ function SevenBitContent() {
       <Para>
         The single thing that separates 7Bit Casino from BitStarz and Mirax on
         withdrawal is its KYC posture: no identity verification is required for
-        crypto withdrawals below a EUR 2,000 equivalent verification check, and the operator has run since the
-        casino launched in 2014. Email-and-password signup, deposit, play,
-        withdraw: no document upload at any stage of the funnel. That is rare
+        crypto withdrawals below a KYC check that is standard at EUR 2,000 equivalent,
+        applied at 7Bit&apos;s discretion and capable of being triggered earlier. The
+        casino has run since 2014. Email-and-password signup, deposit, play and
+        withdraw all stay document-free below that boundary, which is rare
         among casinos with a decade-plus payout history, and it&apos;s the reason
         7Bit earns a 9.2/10 KYC score on our rankings, the highest of the three
         casinos covered in this batch.
@@ -524,7 +532,7 @@ const SEVENBIT_FAQS = [
   {
     question: 'Can I withdraw more than I deposited if I never verified my identity?',
     answer:
-      "Below the verification threshold, yes. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Under that, crypto winnings withdraw without document verification at any size, including amounts substantially larger than the original deposit. This is the differentiator versus BitStarz and Mirax, both of which may trigger Light KYC at larger withdrawal amounts.",
+      "Below the verification threshold, yes. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Under that, crypto winnings withdraw without document verification, including amounts substantially larger than the original deposit. The differentiator versus BitStarz and Mirax is not that 7Bit never checks, it is that 7Bit publishes where its check begins while their Light KYC reserves verification at an unstated level.",
   },
   {
     question: 'Does 7Bit charge withdrawal fees on any coin?',

@@ -22,7 +22,7 @@ const META: Record<(typeof PAYMENT_METHODS_SLUGS)[number], { title: string; desc
       'BitStarz takes six cryptocurrencies (BTC, ETH, LTC, DOGE, BCH, USDT) at a $20 minimum, plus a fiat path that triggers KYC. Per-coin deposit speeds, why there is no Solana or BNB, and what opting your first deposit into the welcome bonus really costs.',
   },
   'bc-game': {
-    title: 'BC.Game Payment Methods 2026: 100+ Cryptos, $5 Minimum, No KYC',
+    title: 'BC.Game Payment Methods 2026: 100+ Cryptos, $5 Minimum Deposit',
     description:
       'BC.Game accepts 100+ cryptocurrencies at a $5 minimum deposit, with a KYC check standard at EUR 2,000 equivalent. The widest coin lineup and lowest floor in our catalogue, the network-by-network breakdown, and how the 220% rakeback welcome scales from a $5 deposit.',
   },
@@ -358,8 +358,9 @@ function CloudbetContent() {
         <Link href="/reviews/bc-game" className="text-[#7BB8D4] hover:underline">BC.Game</Link>{' '}
         or{' '}
         <Link href="/reviews/duelbits" className="text-[#7BB8D4] hover:underline">Duelbits</Link>
-        , all of which run no-KYC posture as policy rather than as &quot;light
-        until a high threshold&quot;. The category hub is{' '}
+        . BC.Game and 7Bit publish where the boundary sits, a KYC check standard at
+        EUR 2,000 equivalent, rather than reserving verification at an unstated level.
+        The category hub is{' '}
         <Link href="/no-kyc-casinos" className="text-[#7BB8D4] hover:underline">our no-KYC casinos page</Link>
         .
       </Para>
@@ -557,9 +558,8 @@ function BitStarzContent() {
         <Link href="/reviews/bitstarz/kyc" className="text-[#7BB8D4] hover:underline">
           the BitStarz KYC page
         </Link>{' '}
-        for exactly what triggers it. Players who want zero verification at any
-        size, on any path, are a better fit for a policy-level no-KYC operator
-        like{' '}
+        for exactly what triggers it. Players who would rather have a document-free
+        range with a published boundary than a discretionary one are a better fit for{' '}
         <Link href="/reviews/bc-game" className="text-[#7BB8D4] hover:underline">BC.Game</Link>{' '}
         or{' '}
         <Link href="/reviews/7bit-casino" className="text-[#7BB8D4] hover:underline">7Bit Casino</Link>
@@ -842,7 +842,7 @@ const BCGAME_FAQS = [
   {
     question: 'Does BC.Game require KYC to deposit or withdraw?',
     answer:
-      "Not at deposit. BC.Game keeps the deposit funnel document-free: you sign up with an email, a deposit address is generated immediately, and no identity documents are requested at deposit or withdrawal under standard play, at any size. That is a stronger posture than the Light KYC at Cloudbet or BitStarz, which is document-free at deposit but reserves verification for large withdrawals. The standard caveat applies: any operator can still trigger checks if anti-fraud or anti-money-laundering rules force it on a flagged account.",
+      "Not at deposit. BC.Game keeps the deposit funnel document-free: you sign up with an email, a deposit address is generated immediately, and no identity documents are requested at deposit. On the withdrawal side the range is document-free up to a KYC check that is standard at EUR 2,000 equivalent, applied at BC.Game's discretion and capable of being triggered earlier. That boundary is at least stated, unlike the Light KYC at Cloudbet or BitStarz, which is document-free at deposit but reserves verification for large withdrawals without publishing a figure. The standard caveat applies: any operator can still trigger checks if anti-fraud or anti-money-laundering rules force it on a flagged account.",
   },
   {
     question: 'Which BC.Game coin gives the fastest deposit credit?',

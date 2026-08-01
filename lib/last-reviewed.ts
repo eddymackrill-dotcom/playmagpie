@@ -32,10 +32,15 @@
 
 export const casinoLastReviewed: Record<string, string> = {
   bitstarz: 'July 2026',
-  'bc-game': 'July 2026',
+  // BC.Game and 7Bit bumped to August 2026 on the owner's 2026-08-01 direct read of
+  // both operators' LIVE terms from a non-UK exit, which established the EUR 2,000
+  // equivalent KYC check and falsified the previous no-KYC absolutism. That is a
+  // documented primary verification event, so it clears the honesty rule above. The
+  // 08-01 correction commit missed the bump; recorded here 2026-08-01.
+  'bc-game': 'August 2026',
   cloudbet: 'July 2026',
   'mirax-casino': 'July 2026',
-  '7bit-casino': 'May 2026',
+  '7bit-casino': 'August 2026',
   shuffle: 'May 2026',
   duelbits: 'June 2026',
   roobet: 'July 2026',

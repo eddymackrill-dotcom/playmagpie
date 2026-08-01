@@ -90,14 +90,16 @@ export default function NoKYCPage() {
             Best No-KYC Casinos 2026
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            Sign up in minutes. No passport, no selfie, no utility bill. These platforms let you play with full
-            crypto anonymity: deposit, play and withdraw without submitting a single document.
+            Sign up in minutes with an email address alone. These platforms keep routine crypto play document-free:
+            deposit, play and withdraw without a passport, a selfie or a utility bill, up to each operator&apos;s own
+            verification threshold. At BC.Game and 7Bit that check is standard at EUR 2,000 equivalent, applied at
+            their discretion and capable of being triggered earlier.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           {[
-            { label: 'True No-KYC Casinos', value: `${noKyc.length}`, sub: 'Zero verification required' },
+            { label: 'Document-Free Operators', value: `${noKyc.length}`, sub: 'No routine document checks' },
             { label: 'Light-KYC Options', value: `${lightKyc.length}`, sub: 'Email only, minimal checks' },
             { label: 'Fastest No-KYC', value: 'Instant', sub: 'BC.Game' },
           ].map((s) => (
@@ -116,7 +118,7 @@ export default function NoKYCPage() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">True No-KYC Casinos</h2>
-          <p className="text-[#888888] text-sm mb-2">Zero verification required: sign up and play immediately</p>
+          <p className="text-[#888888] text-sm mb-2">No routine document checks: sign up with an email and play immediately</p>
           <p className="text-[#bbbbbb] text-base leading-relaxed mb-6 max-w-3xl">
             Three of the eight crypto casinos we review are true no-KYC operators: BC.Game, 7Bit Casino and
             Duelbits all allow signup with an email address and crypto withdrawals without routine identity
@@ -143,9 +145,11 @@ export default function NoKYCPage() {
           <h2 className="text-xl font-bold text-white mb-4">Understanding No-KYC Casinos</h2>
           <div className="space-y-4 text-[#888888] text-sm leading-relaxed">
             <p>
-              <strong className="text-white">True no-KYC</strong> means you can register with an email address, deposit
-              crypto and withdraw without ever submitting identity documents. The casino never sees your name, address
-              or government ID.
+              <strong className="text-white">Document-free</strong> means you can register with an email address,
+              deposit crypto and withdraw without submitting identity documents on routine play. It does not mean the
+              operator has undertaken never to ask. BC.Game and 7Bit both run a KYC check as standard at EUR 2,000
+              equivalent, applied at their discretion and capable of being triggered earlier, so the honest description
+              is a document-free range with a stated boundary rather than an absence of verification.
             </p>
             <p>
               <strong className="text-white">Light KYC</strong> casinos require minimal upfront verification, usually
@@ -163,7 +167,7 @@ export default function NoKYCPage() {
         <section className="mt-12">
           <h2 className="text-xl font-bold text-white mb-4">No-KYC Casino Reviews</h2>
           <p className="text-[#888888] text-sm mb-5">
-            Full reviews for each no-KYC casino: verification requirements tested, withdrawal times verified.
+            Full reviews for each operator: verification posture as documented, and published withdrawal windows.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {allLowKyc.map((casino) => (

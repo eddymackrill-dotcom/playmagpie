@@ -347,8 +347,8 @@ function BitstarzContent() {
       <SectionHeading>BitStarz vs the no-KYC alternatives</SectionHeading>
       <Para>
         Among the casinos we review, BitStarz sits in the middle of the KYC spectrum:
-        lighter than a Standard-KYC operator like Roobet, but not the zero-document
-        posture of{' '}
+        lighter than a Standard-KYC operator like Roobet, but without the published
+        document-free boundary of{' '}
         <Link href="/reviews/bc-game/kyc" className="text-[#7BB8D4] hover:underline">
           BC.Game
         </Link>
@@ -409,15 +409,17 @@ function BcGameContent() {
       </Para>
       <Para>
         &quot;No KYC&quot; is a phrase a lot of casinos use loosely, so this page sets out
-        exactly what it means at BC.Game, where the one honest caveat sits, and how the
-        zero-document model compares with the Light-KYC operators players often shortlist
+        exactly what it means at BC.Game, where the boundary sits, and how the
+        document-free range compares with the Light-KYC operators players often shortlist
         alongside it.
       </Para>
 
-      <SectionHeading>What no-KYC actually means at BC.Game</SectionHeading>
+      <SectionHeading>What document-free actually means at BC.Game</SectionHeading>
       <Para>
-        Precisely stated: in the standard cashier flow, BC.Game asks for no government ID,
-        no proof of address, and no selfie verification at any crypto withdrawal amount.
+        Precisely stated: in the standard cashier flow below its verification threshold,
+        BC.Game asks for no government ID, no proof of address and no selfie verification.
+        That threshold is a KYC check standard at EUR 2,000 equivalent, applied at the
+        operator&apos;s discretion and capable of being triggered earlier.
         You create an account with an email address, fund it with any of the 100-plus
         supported cryptocurrencies, and withdraw to a wallet you control. The $5 minimum
         deposit means this applies from the smallest bankroll up. There is no
@@ -438,9 +440,10 @@ function BcGameContent() {
         monitoring at the operator layer rather than up-front document collection. In
         ordinary play that is invisible. The realistic scenario where it surfaces is
         genuinely anomalous activity: the kind that would flag at any regulated financial
-        venue. For the overwhelming majority of players, no document is ever requested,
-        which is exactly what the no-KYC rating reflects. We&apos;d rather state that
-        nuance plainly than pretend an absolute that no operator can honour.
+        venue. For players staying below the EUR 2,000 equivalent check, no document is
+        requested in the standard flow, which is what the KYC rating reflects. We&apos;d
+        rather state that boundary plainly than pretend an absolute that no operator can
+        honour.
       </Para>
 
       <SectionHeading>100+ coins and why coin choice is secondary to policy</SectionHeading>
@@ -595,8 +598,8 @@ function CloudbetContent() {
           BC.Game
         </Link>{' '}
         (which is document-free below a EUR 2,000 equivalent check) Cloudbet does retain a top-end
-        verification ceiling, so a player who wants zero documents as an absolute should
-        choose the no-KYC route. Against a routine-KYC operator, Cloudbet is far lighter:
+        verification ceiling, so a player who expects to stay under a stated threshold has
+        the clearer boundary at BC.Game. Neither route is document-free without limit. Against a routine-KYC operator, Cloudbet is far lighter:
         ordinary play is document-free and only the extreme top end is gated. The reason a
         high roller often still picks Cloudbet over a no-KYC venue is the package around
         it: no withdrawal limits once verified, a dual regulator, and a payout track

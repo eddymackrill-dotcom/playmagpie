@@ -252,7 +252,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
   shuffle: [
     {
       question: 'Is Shuffle Casino legit?',
-      answer: 'Shuffle Casino is a legitimate crypto casino licensed by Curaçao through Natural Nine B.V., operating since 2022. Is Shuffle Casino legit? Independent testing confirms fast crypto withdrawals, a functional rakeback system, and provably fair outcomes on Shuffle Original games. PlayMagpie rates Shuffle 8.2/10 for trust. As a relatively newer brand it has built a positive reputation, though it has a shorter track record than decade-old rivals like BitStarz or 7Bit Casino.',
+      answer: 'Shuffle Casino is a legitimate crypto casino licensed by Curaçao through Natural Nine B.V., operating since 2022. Is Shuffle Casino legit? Its published crypto withdrawal window is instant to 10 minutes, the rakeback system is functional, and Shuffle Original games are provably fair with independently verifiable outcomes. PlayMagpie rates Shuffle 8.2/10 for trust. As a relatively newer brand it has built a positive reputation, though it has a shorter track record than decade-old rivals like BitStarz or 7Bit Casino.',
     },
     {
       question: 'What are Shuffle Casino withdrawal times?',
@@ -286,7 +286,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
   '7bit-casino': [
     {
       question: 'Is 7Bit Casino legit?',
-      answer: '7Bit Casino is a legitimate and well-established Bitcoin casino that has operated since 2014. Is 7Bit Casino legit? Yes. With over a decade of reliable operation, document-free crypto play below a KYC check standard at EUR 2,000 equivalent, and consistent payout performance across thousands of player transactions, it is one of the most trusted Bitcoin casinos available. PlayMagpie rates 7Bit Casino 8.8/10 for trust, reflecting its long track record and player-first policies.',
+      answer: '7Bit Casino is a legitimate and well-established Bitcoin casino that has operated since 2014. Is 7Bit Casino legit? Yes. With over a decade of operation, document-free crypto play below a KYC check standard at EUR 2,000 equivalent, and no unresolved payout dispute on the public complaint records we check, it is one of the most trusted Bitcoin casinos available. PlayMagpie rates 7Bit Casino 8.8/10 for trust, reflecting its long track record and player-first policies.',
     },
     {
       question: 'What are 7Bit Casino withdrawal times?',
@@ -314,13 +314,13 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Is 7Bit Casino worth using in 2026?',
-      answer: 'This 7Bit Casino review 2026 confirms its position as a top-tier Bitcoin casino with document-free play below a EUR 2,000 equivalent verification check. Key strengths: operating since 2014 with a flawless payout track record, instant to 10-minute crypto withdrawals, a 7,000+ game library including provably fair originals, and document-free crypto play below a EUR 2,000 equivalent verification check. The 325% match up to €5,400 + 250 free spins welcome package is competitive with rivals (matches Mirax on BTC-equivalent ceiling at a meaningful spread; beats BitStarz on spin count at 250 vs 180), and 7Bit earns an 8.8/10 trust score overall. Remains a top pick for anonymity-focused players where the no-KYC posture is the decisive factor.',
+      answer: 'This 7Bit Casino review 2026 confirms its position as a top-tier Bitcoin casino with document-free play below a EUR 2,000 equivalent verification check. Key strengths: operating since 2014 with no unresolved payout dispute on the public complaint records we check, instant to 10-minute crypto withdrawals, a 7,000+ game library including provably fair originals, and document-free crypto play below a EUR 2,000 equivalent verification check. The 325% match up to €5,400 + 250 free spins welcome package is competitive with rivals (matches Mirax on BTC-equivalent ceiling at a meaningful spread; beats BitStarz on spin count at 250 vs 180), and 7Bit earns an 8.8/10 trust score overall. Remains a top pick for anonymity-focused players where the no-KYC posture is the decisive factor.',
     },
   ],
   duelbits: [
     {
       question: 'Is Duelbits legit?',
-      answer: 'Duelbits is a legitimate crypto casino and sportsbook licensed under Curacao (Antillephone N.V.), operating since 2020. Is Duelbits legit? Yes. Independent testing confirms fast crypto withdrawals, provably fair outcomes on Duelbits Originals games, and a track record of paying out winnings without dispute. PlayMagpie rates Duelbits 8.5/10 for trust, reflecting its no-KYC policy for crypto play, fast payout reliability and active streamer-friendly community since launch.',
+      answer: 'Duelbits is a legitimate crypto casino and sportsbook licensed under Curacao (Antillephone N.V.), operating since 2020. Is Duelbits legit? Yes. Its published crypto withdrawal window of instant to 5 minutes is the fastest in our catalogue, Duelbits Originals games are provably fair with independently verifiable outcomes, and we have found no unresolved payout dispute on the public complaint records we check. PlayMagpie rates Duelbits 8.5/10 for trust, reflecting its no-KYC policy for crypto play, fast payout reliability and active streamer-friendly community since launch.',
     },
     {
       question: 'What are Duelbits withdrawal times?',

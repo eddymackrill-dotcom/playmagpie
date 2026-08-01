@@ -240,11 +240,13 @@ export default function BnbCryptoCasinosPage() {
           <h2 className="text-2xl font-bold text-white mb-6">Which BNB Casino Suits Which Player</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
-              <h3 className="text-white font-semibold mb-2">For pure no-KYC anonymity</h3>
+              <h3 className="text-white font-semibold mb-2">For document-free play</h3>
               <p className="text-[#888888] text-sm leading-relaxed mb-3">
-                BC.Game, 7Bit Casino, and Duelbits run no-KYC posture as policy: no
-                document verification below a EUR 2,000 equivalent threshold. Cloudbet and Shuffle
-                run Light KYC that can trigger at larger withdrawals.
+                BC.Game and 7Bit Casino keep routine crypto play document-free below a KYC check
+                that is standard at EUR 2,000 equivalent, applied at their discretion. Duelbits
+                publishes a no-KYC posture for crypto play; we have not verified a threshold for it
+                either way, so we do not state one. Cloudbet and Shuffle run Light KYC that can
+                trigger at larger withdrawals.
               </p>
               <Link href="/no-kyc-casinos" className="text-[#7BB8D4] text-sm hover:underline">
                 See the full no-KYC list →

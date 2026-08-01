@@ -37,7 +37,7 @@ const STRIP_CARDS: CTAStripCard[] = [
 export const metadata: Metadata = {
   title: 'Fastest Withdrawal Casinos 2026: Instant Crypto Payouts',
   description:
-    'The fastest crypto casino withdrawals ranked for 2026. Every platform verified for payout speed: sub-15-minute payouts confirmed. Get your winnings instantly.',
+    'Crypto casinos ranked on payout speed for 2026, using each operator\'s published processing window alongside our withdrawal scoring. Where the fastest cashiers actually sit, and what slows the rest down.',
   alternates: {
     canonical: '/fast-withdrawal-casinos',
   },
@@ -190,7 +190,7 @@ export default function FastWithdrawalPage() {
         <section className="mt-12">
           <h2 className="text-xl font-bold text-white mb-4">Fast Withdrawal Casino Reviews</h2>
           <p className="text-[#888888] text-sm mb-5">
-            Read full reviews for each fast-payout casino: withdrawal times tested, bonus terms analysed, KYC requirements listed.
+            Read full reviews for each fast-payout casino: published withdrawal windows, bonus terms analysed, KYC posture as documented.
             For cashier-level detail we&apos;ve gone deepest on{' '}
             <Link href="/reviews/bitstarz/withdrawal" className="text-[#7BB8D4] hover:underline">BitStarz withdrawal times</Link>
             {' '}(fee-free cashier, KYC triggers and per-coin clearing times) and{' '}

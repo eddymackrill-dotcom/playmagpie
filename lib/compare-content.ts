@@ -64,7 +64,7 @@ export const compareContent: Record<string, ComparePair> = {
       },
       {
         question: 'Is BitStarz no-KYC like BC.Game?',
-        answer: 'No. BitStarz operates Light KYC. Most routine play and withdrawals don\'t require document submission, but the trigger is reserved for larger withdrawals or compliance flags. BC.Game is document-free below a KYC check standard at EUR 2,000 equivalent, applied at its discretion: register with email, deposit, play and withdraw without identity documents below that threshold at any amount, by published policy. If anonymity at any size matters to you, BC.Game wins.',
+        answer: 'No. BitStarz operates Light KYC. Most routine play and withdrawals don\'t require document submission, but the trigger is reserved for larger withdrawals or compliance flags. BC.Game is document-free below a KYC check standard at EUR 2,000 equivalent, applied at its discretion and capable of being triggered earlier: register with email, deposit, play and withdraw without identity documents below that threshold. The real difference is that BC.Game states where its boundary sits and BitStarz does not publish one at all, so if you want a document-free range you can plan around, BC.Game is the clearer choice.',
       },
       {
         question: 'How do withdrawal speeds compare between BitStarz and BC.Game?',

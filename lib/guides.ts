@@ -68,7 +68,7 @@ export const guides: Guide[] = [
     title: 'Do Crypto Casinos Require KYC?',
     slug: 'do-crypto-casinos-require-kyc',
     description:
-      'Some crypto casinos demand ID, others never ask. We break down which operators require KYC, which run no-KYC, what triggers a verification check, and which documents you’ll be asked for.',
+      'Some crypto casinos demand ID up front, others keep routine play document-free up to a stated threshold. We break down which operators verify, what triggers a check, and which documents you’ll be asked for.',
     readTime: '6 min read',
     category: 'KYC',
     published: '2026-01-01',
