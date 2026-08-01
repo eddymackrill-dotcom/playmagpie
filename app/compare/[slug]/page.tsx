@@ -15,7 +15,18 @@ const COMPARE_ALLOWLIST = [
   '7bit-casino-vs-bitstarz',
   'bc-game-vs-shuffle',
   'mirax-casino-vs-bitstarz',
+  // Added 2026-08-01. Deliberate single hand-written exception, NOT a resumption
+  // of programmatic pairs: the 2026-05-21 de-templating decision stands. See the
+  // provenance comment on the entry in lib/compare-content.ts.
+  'cloudbet-vs-roobet',
 ]
+
+// Catalogue cons suppressed on a specific pair page, matched by substring.
+// Deliberately narrow: this is not an editorial softening mechanism, it exists
+// so a page can decline to state a figure it says in prose it is re-verifying.
+const suppressedCons: Record<string, string[]> = {
+  'cloudbet-vs-roobet': ['2% fiat withdrawal fee'],
+}
 
 export const dynamicParams = false
 
@@ -274,7 +285,16 @@ export default async function ComparePage(props: PageProps<'/compare/[slug]'>) {
                 <div className="pt-4 border-t border-[#222222]">
                   <div className="text-xs font-semibold text-[#555555] uppercase tracking-wider mb-2">Cons</div>
                   <ul className="space-y-2">
-                    {c.cons.map((con) => (
+                    {/* Per-pair con suppression. Added 2026-08-01 for cloudbet-vs-roobet:
+                        Roobet's fiat-fee con carries a clause boundary that is under owner
+                        re-verification, and the page states in prose that it is not putting
+                        a figure on it here. Rendering the catalogue con would contradict
+                        that in the same viewport. The con stays published on /reviews/roobet,
+                        where the owner-verified wording lives; this suppresses it on this
+                        page only. Remove this filter once the boundary is re-verified. */}
+                    {c.cons
+                      .filter((con) => !(suppressedCons[slug] ?? []).some((frag) => con.includes(frag)))
+                      .map((con) => (
                       <li key={con} className="flex items-start gap-2 text-sm text-[#888888]">
                         <span className="text-[#444444] mt-0.5 flex-shrink-0">✗</span>
                         {con}

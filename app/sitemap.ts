@@ -112,6 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '7bit-casino-vs-bitstarz',
     'bc-game-vs-shuffle',
     'mirax-casino-vs-bitstarz',
+    'cloudbet-vs-roobet',
   ]
   const comparisonPages: MetadataRoute.Sitemap = comparisonAllowlist.map((slug) => ({
     url: `${BASE_URL}/compare/${slug}`,
