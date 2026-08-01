@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getCasinoBySlug } from '@/lib/casinos'
+import { getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
 import CTAButton from '@/components/CTAButton'
 
 const KYC_SLUGS = ['bitstarz', 'bc-game', 'cloudbet'] as const
@@ -19,7 +19,7 @@ const META: Record<(typeof KYC_SLUGS)[number], { title: string; description: str
   'bc-game': {
     title: 'BC.Game KYC: Does It Require Verification? (2026)',
     description:
-      'BC.Game runs a strict no-KYC policy: email signup, no documents ever required for crypto play or withdrawals. What that means in practice, where the operator-layer compliance line sits, and how it compares to Light-KYC rivals.',
+      'BC.Game keeps routine crypto play document-free on an email-only signup, with a KYC check standard at EUR 2,000 equivalent. What that means in practice, where the operator-layer compliance line sits, and how it compares to Light-KYC rivals.',
   },
   cloudbet: {
     title: 'Cloudbet KYC: $2,200/Day Unverified, No Limits Once Verified',
@@ -132,7 +132,7 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-            <Stat label="KYC Level" value={casino.kycLevel} />
+            <Stat label="KYC Level" value={kycDisplayLabel(casino)} />
             <Stat label="Min Deposit" value={casino.minDeposit} />
             <Stat label="Coins Supported" value={`${casino.acceptedCryptos.length}`} />
             <Stat label="Withdrawal Window" value={casino.withdrawalTime} />
@@ -339,8 +339,8 @@ function BitstarzContent() {
         we would rather flag the gap than print a number we can&apos;t stand behind. The
         practical read from player reports is that ordinary crypto withdrawals clear
         without verification and that the trigger is behaviour-and-rail driven rather
-        than a single hard ceiling. If a guaranteed-no-documents policy at any amount is
-        your decisive factor, BitStarz&apos;s Light posture isn&apos;t the right fit, and the
+        than a single hard ceiling. If staying below a documented
+        verification threshold is your decisive factor, BitStarz&apos;s Light posture isn&apos;t the right fit, and the
         next section says where to look instead.
       </Para>
 
@@ -355,7 +355,7 @@ function BitstarzContent() {
         , which requires no verification at all under an email-only signup. If you value
         BitStarz&apos;s decade-long track record and 3,000-game library and you&apos;re
         playing crypto-only at normal stakes, the Light posture rarely surfaces in
-        practice. If anonymity at any withdrawal size is the priority, a no-KYC operator
+        practice. If document-free play up to a known threshold is the priority, a threshold-based operator
         is the structurally correct choice. The category hub is{' '}
         <Link href="/no-kyc-casinos" className="text-[#7BB8D4] hover:underline">
           our no-KYC casinos page
@@ -400,10 +400,12 @@ function BcGameContent() {
     <>
       <Para>
         BC.Game has the shortest KYC section of any casino we review, because the policy
-        is the absence of one. Sign-up is email-and-password. There is no identity
-        document required to deposit, play or withdraw crypto: not at registration, not
-        at your first withdrawal, not at your hundredth. That strict no-KYC posture is
-        why BC.Game holds a 9.5/10 KYC score, the highest in our entire catalogue.
+        is the absence of one. Sign-up is email-and-password. No identity
+        document is required to deposit, play or withdraw crypto below BC.Game&apos;s
+        verification threshold: a KYC check is standard at EUR 2,000 equivalent, applied
+        at the operator&apos;s discretion and sometimes triggered earlier (owner-verified
+        against the live terms, 1 August 2026). That threshold-based posture is why
+        BC.Game holds a 9.5/10 KYC score, the highest in our entire catalogue.
       </Para>
       <Para>
         &quot;No KYC&quot; is a phrase a lot of casinos use loosely, so this page sets out
@@ -454,9 +456,9 @@ function BcGameContent() {
       <KeyList
         items={[
           'Email-only signup: no phone number or identity document required to open an account.',
-          'No KYC at deposit or withdrawal for crypto, at any amount, under the standard flow.',
+          'No documents at deposit or withdrawal for crypto below the threshold; a KYC check is standard at EUR 2,000 equivalent and applied at the operator’s discretion.',
           '100+ supported cryptocurrencies, so pick on speed and fees, since privacy is policy-level not coin-level.',
-          '$5 minimum deposit, so the no-KYC posture applies from the smallest bankroll, with no verified-tier gating.',
+          '$5 minimum deposit, so document-free play applies from the smallest bankroll up to the verification threshold.',
         ]}
       />
 
@@ -489,7 +491,7 @@ const BCGAME_FAQS = [
   {
     question: 'Does BC.Game require KYC?',
     answer:
-      'No. BC.Game operates a strict no-KYC policy for crypto play: account signup is email-and-password, and no government ID, proof of address or selfie is required to deposit, play or withdraw at any amount under the standard cashier flow. It holds the highest KYC score (9.5/10) in our catalogue for exactly this reason.',
+      'Below its threshold, no. Account signup is email-and-password, and no government ID, proof of address or selfie is required to deposit, play or withdraw under the standard cashier flow. A KYC check is standard at EUR 2,000 equivalent, applied at BC.Game’s discretion and sometimes triggered earlier (owner-verified against the live terms, 1 August 2026). It holds the highest KYC score (9.5/10) in our catalogue for the document-free range below that threshold.',
   },
   {
     question: 'Will BC.Game ever ask me for ID?',
@@ -592,7 +594,7 @@ function CloudbetContent() {
         <Link href="/reviews/bc-game/kyc" className="text-[#7BB8D4] hover:underline">
           BC.Game
         </Link>{' '}
-        (which never collects documents at any size) Cloudbet does retain a top-end
+        (which is document-free below a EUR 2,000 equivalent check) Cloudbet does retain a top-end
         verification ceiling, so a player who wants zero documents as an absolute should
         choose the no-KYC route. Against a routine-KYC operator, Cloudbet is far lighter:
         ordinary play is document-free and only the extreme top end is gated. The reason a
@@ -637,6 +639,6 @@ const CLOUDBET_FAQS = [
   {
     question: 'Is Cloudbet better than a no-KYC casino for big withdrawals?',
     answer:
-      'It depends on what you optimise for. A full no-KYC operator like BC.Game never collects documents at any size, which is the better fit if zero verification is an absolute. Cloudbet asks for one round of verification (Level 2) and in exchange removes withdrawal limits entirely, pairing that with a dual regulator and a payout record since 2013, which is why many high rollers prefer it. For pure anonymity, choose no-KYC; for uncapped payouts with strong recourse, verify at Cloudbet.',
+      'It depends on what you optimise for. BC.Game is document-free below a KYC check that is standard at EUR 2,000 equivalent and applied at its discretion, which is the better fit if you stay under that threshold. Cloudbet asks for one round of verification (Level 2) and in exchange removes withdrawal limits entirely, pairing that with a dual regulator and a payout record since 2013, which is why many high rollers prefer it. For pure anonymity, choose no-KYC; for uncapped payouts with strong recourse, verify at Cloudbet.',
   },
 ] as const

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { casinos, getCasinoBySlug } from '@/lib/casinos'
+import { casinos, getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
@@ -14,7 +14,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Native Crash', value: 'Provably-fair Original + Aviator + JetX' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None: at any size' },
+      { label: 'KYC', value: 'Check at EUR 2,000 equivalent' },
     ],
   },
   {
@@ -71,7 +71,7 @@ const CRASH_CASINO_SLUGS = ['bc-game', 'duelbits', 'shuffle', 'roobet']
 const PER_CASINO_CRASH_NOTES: Record<string, { angle: string; caveat?: string }> = {
   'bc-game': {
     angle:
-      'BC.Game runs the widest crash catalogue of the four: native Originals (Crash, Plinko, Dice and more) alongside Aviator, JetX and Spaceman from third parties. No-KYC at any withdrawal size and 100+ supported cryptocurrencies make it the cleanest crash-to-cashout path on this list.',
+      'BC.Game runs the widest crash catalogue of the four: native Originals (Crash, Plinko, Dice and more) alongside Aviator, JetX and Spaceman from third parties. Document-free play below a EUR 2,000 equivalent check and 100+ supported cryptocurrencies make it the cleanest crash-to-cashout path on this list.',
   },
   shuffle: {
     angle:
@@ -222,7 +222,7 @@ export default function CrashCasinosPage() {
                     <span className="text-xs text-[#888888]">
                       Trust <span className="text-[#7BB8D4] font-semibold">{casino.trustScore}</span>/10 ·
                       Withdrawal <span className="text-[#7BB8D4] font-semibold">{casino.withdrawalScore}</span>/10 ·
-                      KYC {casino.kycLevel}
+                      KYC {kycDisplayLabel(casino)}
                     </span>
                   </div>
                   <p className="text-[#888888] text-sm leading-relaxed mb-3">{note.angle}</p>

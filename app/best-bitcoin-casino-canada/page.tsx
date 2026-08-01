@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { casinos, casinoAcceptsCountry, type Casino } from '@/lib/casinos'
+import { casinos, casinoAcceptsCountry, type Casino, kycDisplayLabel } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
 import CTAButton from '@/components/CTAButton'
@@ -50,9 +50,9 @@ const PER_CASINO_BTC_NOTES: Record<string, string> = {
   bitstarz:
     'BitStarz is the safe Canadian default: a decade of Best Bitcoin Casino awards and sub-10-minute BTC processing. Available across every province. No cashier fees on deposits or withdrawals per the live terms; the welcome package\'s real cost is its wagering requirement, up to 40x.',
   'bc-game':
-    'BC.Game runs no KYC at any withdrawal size, the lowest entry at $5, and accepts Canadian players nationwide including Ontario. The cleanest BTC-in, BTC-out path for a Canadian who would rather not attach documents.',
+    'BC.Game keeps routine crypto play document-free with a KYC check standard at EUR 2,000 equivalent, the lowest entry at $5, and accepts Canadian players nationwide including Ontario. The cleanest BTC-in, BTC-out path for a Canadian who would rather not attach documents.',
   '7bit-casino':
-    '7Bit has the longest no-KYC record (since 2014) and clears BTC instant to 10 minutes. Available across Canada. A settled, anonymous option.',
+    '7Bit has operated since 2014 and clears BTC instant to 10 minutes. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion. Available across Canada. A settled, anonymous option.',
   cloudbet:
     'Cloudbet is the Canadian high-roller pick: no withdrawal limits once your account is fully verified ($2,200/day before that), with a ~$1 equivalent minimum deposit. Dual Curaçao plus Kahnawake licensing, the latter a Canada-based gaming commission, which some Canadian players find reassuring. Available nationwide.',
   'mirax-casino':
@@ -186,7 +186,7 @@ export default function BestBitcoinCasinoCanadaPage() {
                       {casino.name}
                     </Link>
                     <div className="text-[#555555] text-xs mt-1">
-                      {casino.licence} · {casino.kycLevel} KYC · Min {casino.minDeposit}
+                      {casino.licence} · {kycDisplayLabel(casino)} KYC · Min {casino.minDeposit}
                     </div>
                   </div>
                   <div className="text-right">

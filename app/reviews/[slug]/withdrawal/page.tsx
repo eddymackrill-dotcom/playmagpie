@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getCasinoBySlug } from '@/lib/casinos'
+import { getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
 import CTAButton from '@/components/CTAButton'
 
 // 'mirax-casino' removed 2026-07-07 (spam-update consolidation): the page
@@ -23,7 +23,7 @@ const META: Record<(typeof WITHDRAWAL_SLUGS)[number], { title: string; descripti
   '7bit-casino': {
     title: '7Bit Casino Withdrawal Times & Limits 2026',
     description:
-      '7Bit Casino pays out crypto in under 10 minutes with no KYC required at any withdrawal size. Honest breakdown of speeds across 8 supported coins.',
+      '7Bit Casino pays out crypto in under 10 minutes, with a KYC check standard at EUR 2,000 equivalent. Honest breakdown of speeds across 8 supported coins.',
   },
   cloudbet: {
     title: 'Cloudbet Withdrawal: No Limits, 10 Coins, Dual Licence',
@@ -149,7 +149,7 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
             <Stat label="Headline Window" value={casino.withdrawalTime} />
-            <Stat label="KYC" value={casino.kycLevel} />
+            <Stat label="KYC" value={kycDisplayLabel(casino)} />
             <Stat label="Min Deposit" value={casino.minDeposit} />
             <Stat label="Coins Supported" value={`${casino.acceptedCryptos.length}`} />
           </div>
@@ -327,11 +327,11 @@ function BitstarzContent() {
         documented cashier fees.{' '}
         <Link href="/reviews/7bit-casino/withdrawal" className="text-[#7BB8D4] hover:underline">7Bit</Link>{' '}
         matches BitStarz on speed and beats both on privacy. It&apos;s the only one of
-        the three with a full no-KYC posture on crypto withdrawals at any size.
+        the three that keep routine crypto withdrawals document-free below a verification threshold.
       </Para>
       <Para>
         Net read: pick BitStarz if you value the longest payout track record and the
-        fastest headline window; pick 7Bit if no-KYC at any size is the priority. For
+        fastest headline window; pick 7Bit if staying below a verification threshold is the priority. For
         a broader view of the fastest payout sites see{' '}
         <Link href="/fast-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
           the fastest crypto casinos for withdrawal
@@ -371,14 +371,14 @@ const BITSTARZ_FAQS = [
 ] as const
 
 
-/* ───────────── 7Bit: lead with no-KYC at any amount ───────────── */
+/* ───────────── 7Bit: lead with the verification threshold ───────────── */
 function SevenBitContent() {
   return (
     <>
       <Para>
         The single thing that separates 7Bit Casino from BitStarz and Mirax on
         withdrawal is its KYC posture: no identity verification is required for
-        crypto withdrawals at any amount, and that policy has held since the
+        crypto withdrawals below a EUR 2,000 equivalent verification check, and the operator has run since the
         casino launched in 2014. Email-and-password signup, deposit, play,
         withdraw: no document upload at any stage of the funnel. That is rare
         among casinos with a decade-plus payout history, and it&apos;s the reason
@@ -396,7 +396,7 @@ function SevenBitContent() {
       <Para>
         &quot;No KYC&quot; is a phrase casinos use loosely. At 7Bit it has a precise
         meaning: in the standard cashier flow, no government ID, no proof of
-        address, no selfie verification is required at any withdrawal amount.
+        address, no selfie verification is required below that threshold.
         Compliance is handled at the operator layer through transaction
         monitoring rather than upfront document collection.
       </Para>
@@ -509,7 +509,7 @@ const SEVENBIT_FAQS = [
   {
     question: 'Will 7Bit ever ask me for ID at withdrawal?',
     answer:
-      "In the standard cashier flow, no. 7Bit's no-KYC policy applies to crypto withdrawals at any amount and has held consistently since 2014. The only scenarios where verification might be requested are if account activity flags an automated compliance review (very rare for normal crypto-only play) or if you're attempting fiat-side activity. Pure crypto-in, crypto-out players don't see KYC requests.",
+      "Below the threshold, no. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. 7Bit has operated consistently since 2014. The only scenarios where verification might be requested are if account activity flags an automated compliance review (very rare for normal crypto-only play) or if you're attempting fiat-side activity. Pure crypto-in, crypto-out players don't see KYC requests.",
   },
   {
     question: 'Which 7Bit coin should I pick for fastest withdrawal?',
@@ -524,7 +524,7 @@ const SEVENBIT_FAQS = [
   {
     question: 'Can I withdraw more than I deposited if I never verified my identity?',
     answer:
-      "Yes, that is the entire point of the no-KYC model. 7Bit's policy is that crypto winnings withdraw without document verification at any size, including amounts substantially larger than the original deposit. This is the differentiator versus BitStarz and Mirax, both of which may trigger Light KYC at larger withdrawal amounts.",
+      "Below the verification threshold, yes. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Under that, crypto winnings withdraw without document verification at any size, including amounts substantially larger than the original deposit. This is the differentiator versus BitStarz and Mirax, both of which may trigger Light KYC at larger withdrawal amounts.",
   },
   {
     question: 'Does 7Bit charge withdrawal fees on any coin?',
@@ -662,7 +662,7 @@ function CloudbetContent() {
       </Para>
       <Para>
         Players whose entire reason to use crypto casinos is anonymity, and who
-        want zero KYC at any amount as policy, are better served by{' '}
+        want to stay below a verification threshold, are better served by{' '}
         <Link href="/reviews/7bit-casino/withdrawal" className="text-[#7BB8D4] hover:underline">
           7Bit Casino
         </Link>

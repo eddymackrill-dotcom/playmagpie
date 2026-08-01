@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { casinos, type Casino } from '@/lib/casinos'
+import { casinos, type Casino, kycDisplayLabel } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
 import CTAButton from '@/components/CTAButton'
@@ -16,7 +16,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Accepts BNB', value: '✓ on BNB Smart Chain' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None: at any size' },
+      { label: 'KYC', value: 'Check at EUR 2,000 equivalent' },
     ],
   },
   {
@@ -24,7 +24,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Accepts BNB', value: '✓ added to 8-coin lineup' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None: since 2014' },
+      { label: 'KYC', value: 'Check at EUR 2,000 equivalent' },
     ],
   },
   {
@@ -78,7 +78,7 @@ const PER_CASINO_BNB_NOTES: Record<string, string> = {
   cloudbet:
     'Cloudbet treats BNB as a first-class option in its 29-coin lineup. The differentiators are a no-limit withdrawal policy for fully verified accounts ($2,200/day until Level 2 verification) and dual licensing from Curaçao plus the Kahnawake Gaming Commission. Entry is now a ~$1 equivalent minimum deposit, the lowest on this list; the serious-bankroll calibration lives on the cash-out side.',
   '7bit-casino':
-    '7Bit Casino added BNB to its eight-coin lineup as a direct replacement for slower legacy chains on its deposit side. No KYC at any withdrawal size has held since 2014, which is the longest unbroken no-KYC track record across the operators here.',
+    '7Bit Casino added BNB to its eight-coin lineup as a direct replacement for slower legacy chains on its deposit side. A KYC check standard at EUR 2,000 equivalent, applied at the operator’s discretion, has held since 2014, which is the longest unbroken no-KYC track record across the operators here.',
   shuffle:
     'Shuffle accepts BNB across its 12-coin lineup alongside the native SHFL token. The rakeback-based VIP programme returns a percentage of house edge regardless of which coin you deposited, so BNB-side play earns the same SHFL rewards as USDT or BTC play.',
   duelbits:
@@ -204,7 +204,7 @@ export default function BnbCryptoCasinosPage() {
                       {casino.name}
                     </Link>
                     <div className="text-[#555555] text-xs mt-1">
-                      {casino.licence} · {casino.kycLevel} KYC · Min {casino.minDeposit}
+                      {casino.licence} · {kycDisplayLabel(casino)} KYC · Min {casino.minDeposit}
                     </div>
                   </div>
                   <div className="text-right">
@@ -243,7 +243,7 @@ export default function BnbCryptoCasinosPage() {
               <h3 className="text-white font-semibold mb-2">For pure no-KYC anonymity</h3>
               <p className="text-[#888888] text-sm leading-relaxed mb-3">
                 BC.Game, 7Bit Casino, and Duelbits run no-KYC posture as policy: no
-                document verification at any withdrawal size. Cloudbet and Shuffle
+                document verification below a EUR 2,000 equivalent threshold. Cloudbet and Shuffle
                 run Light KYC that can trigger at larger withdrawals.
               </p>
               <Link href="/no-kyc-casinos" className="text-[#7BB8D4] text-sm hover:underline">

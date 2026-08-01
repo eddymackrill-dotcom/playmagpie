@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { casinos } from '@/lib/casinos'
+import { casinos, kycDisplayLabel } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
@@ -10,7 +10,7 @@ const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: 'bc-game',
     facts: [
-      { label: 'KYC', value: 'None: no documents at any size' },
+      { label: 'KYC', value: 'Check at EUR 2,000 equivalent' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
       { label: 'Cryptos', value: '100+ supported' },
     ],
@@ -18,7 +18,7 @@ const STRIP_CARDS: CTAStripCard[] = [
   {
     slug: '7bit-casino',
     facts: [
-      { label: 'KYC', value: 'None: unbroken since 2014' },
+      { label: 'KYC', value: 'Check at EUR 2,000 equivalent' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
       { label: 'Cryptos', value: '8 supported' },
     ],
@@ -120,7 +120,7 @@ export default function NoKYCPage() {
           <p className="text-[#bbbbbb] text-base leading-relaxed mb-6 max-w-3xl">
             Three of the eight crypto casinos we review are true no-KYC operators: BC.Game, 7Bit Casino and
             Duelbits all allow signup with an email address and crypto withdrawals without routine identity
-            checks. 7Bit&apos;s no-document policy has held at any withdrawal size since 2014, and Duelbits
+            checks. 7Bit has operated since 2014 and runs a KYC check as standard at EUR 2,000 equivalent, applied at its discretion and sometimes earlier, and Duelbits
             has the fastest cashier window of the three at instant to 5 minutes.
           </p>
           <CasinoComparisonTable casinos={noKyc} />
@@ -177,7 +177,7 @@ export default function NoKYCPage() {
                     {casino.name}
                   </span>
                   <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#7BB8D4]/10 text-[#7BB8D4] border border-[#7BB8D4]/20">
-                    {casino.kycLevel} KYC
+                    {kycDisplayLabel(casino)} KYC
                   </span>
                 </div>
                 <p className="text-[#888888] text-xs">{casino.withdrawalTime}</p>

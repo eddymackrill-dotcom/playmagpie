@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getCasinoBySlug } from '@/lib/casinos'
+import { getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
 
 // The Crypto Casino Bonus & Withdrawal Transparency Report: an original-research
 // linkable asset. Every figure here is either pulled live from lib/casinos.ts
@@ -44,12 +44,12 @@ const CATCH: Record<string, { text: string; source: string }> = {
     source: 'Live T&C, owner-verified 2026-07-16',
   },
   'bc-game': {
-    text: 'The "220%" is rakeback that unlocks as you wager, not cash credited up front: a materially different value profile from a deposit match.',
-    source: 'bc.game/deposit-offer, verified 2026-05-30',
+    text: 'The "220%" is rakeback that unlocks as you wager, not cash credited up front: a materially different value profile from a deposit match. Separately corrected 1 August 2026: this site previously described BC.Game as collecting no documents at any withdrawal size. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and capable of being triggered earlier.',
+    source: 'bc.game/deposit-offer, verified 2026-05-30; KYC threshold owner-verified against live terms 2026-08-01',
   },
   '7bit-casino': {
-    text: 'Free-spin winnings carry a max-cashout cap per the published T&C; the specific figure is not documented in our verified dataset. Curaçao-only licence, no Tier-1 regulator.',
-    source: 'Published T&C, 2026-05-30; cap figure not documented',
+    text: 'Free-spin winnings carry a max-cashout cap per the published T&C; the specific figure is not documented in our verified dataset. Curaçao-only licence, no Tier-1 regulator. Separately corrected 1 August 2026: this site previously described 7Bit as requiring no KYC at any amount since 2014. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and capable of being triggered earlier.',
+    source: 'Published T&C, 2026-05-30; cap figure not documented; KYC threshold owner-verified against live terms 2026-08-01',
   },
   cloudbet: {
     text: 'The headline no-limit withdrawal policy applies to fully verified (Level 2) accounts only; until verification completes, withdrawals are capped at $2,200 a day.',
@@ -167,6 +167,17 @@ export default function TransparencyReportPage() {
             We&apos;re leaving this note here because a transparency report that quietly rewrote its own
             headline wouldn&apos;t be one.
           </p>
+          <p className="text-[#bbbbbb] text-sm leading-relaxed mt-4">
+            <strong className="text-[#d98a8a]">Correction, 1 August 2026: BC.Game and 7Bit KYC.</strong>{' '}
+            Until today this site described BC.Game as collecting no documents at any withdrawal size, and
+            7Bit as requiring no KYC at any amount since 2014. Both were wrong. On owner re-verification
+            against the live terms on 1 August 2026, from a non-UK exit, both operators run a KYC check as
+            standard at EUR 2,000 equivalent, applied at each operator&apos;s discretion and capable of being
+            triggered earlier. This was a headline claim rather than a passing sentence: it was the basis on
+            which both operators were presented as the strongest anonymity options in our catalogue, so it
+            has been retracted and replaced across every page that carried it, not softened. We have not
+            inferred thresholds for the other six operators from this finding.
+          </p>
         </section>
 
         {/* The table: the linkable artifact */}
@@ -184,7 +195,7 @@ export default function TransparencyReportPage() {
                   <Link href={`/reviews/${casino.slug}`} className="text-lg font-bold text-white hover:text-[#7BB8D4] transition-colors">
                     {casino.name}
                   </Link>
-                  <span className="text-[#555555] text-xs">{casino.kycLevel} KYC · Min {casino.minDeposit} · Withdrawal {casino.withdrawalTime}</span>
+                  <span className="text-[#555555] text-xs">{kycDisplayLabel(casino)} KYC · Min {casino.minDeposit} · Withdrawal {casino.withdrawalTime}</span>
                 </div>
                 <p className="text-[#bbbbbb] text-sm leading-relaxed mb-2">
                   <span className="text-[#7BB8D4] text-xs uppercase tracking-wide font-semibold">Headline </span>

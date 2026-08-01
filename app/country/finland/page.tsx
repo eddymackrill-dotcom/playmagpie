@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { casinos, casinoAcceptsCountry, type Casino } from '@/lib/casinos'
+import { casinos, casinoAcceptsCountry, type Casino, kycDisplayLabel } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import FactChecked from '@/components/FactChecked'
@@ -36,7 +36,7 @@ function buildFinlandCard(casino: Casino): CTAStripCard {
     slug: casino.slug,
     facts: [
       { label: 'Withdrawal', value: casino.withdrawalTime },
-      { label: 'KYC', value: casino.kycLevel },
+      { label: 'KYC', value: kycDisplayLabel(casino) },
       { label: 'Cryptos', value: `${cryptoCount} accepted` },
     ],
   }

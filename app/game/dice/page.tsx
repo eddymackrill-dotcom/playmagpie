@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { casinos, getCasinoBySlug } from '@/lib/casinos'
+import { casinos, getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
@@ -12,7 +12,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Dice Original', value: 'Foundational provably-fair dice' },
       { label: 'House edge', value: '1% (99% RTP) across slider' },
-      { label: 'KYC', value: 'None: at any size' },
+      { label: 'KYC', value: 'Check at EUR 2,000 equivalent' },
     ],
   },
   {
@@ -64,7 +64,7 @@ const DICE_CASINO_SLUGS = ['bc-game', 'duelbits', 'shuffle', 'roobet']
 const PER_CASINO_DICE_NOTES: Record<string, { angle: string }> = {
   'bc-game': {
     angle:
-      'BC.Game Dice predates much of the rest of the Originals catalogue and remains the high-frequency strategy-grinding format that drives most BC.Game Originals volume. Adjustable win-chance slider from ~1% to ~98% with multiplier scaling 1.02x to ~99x correspondingly, auto-bet cycles fast enough to validate a martingale or Fibonacci configuration over thousands of rolls in minutes. No-KYC at any withdrawal size keeps the bankroll-management iteration loop clean across all 100+ supported cryptocurrencies.',
+      'BC.Game Dice predates much of the rest of the Originals catalogue and remains the high-frequency strategy-grinding format that drives most BC.Game Originals volume. Adjustable win-chance slider from ~1% to ~98% with multiplier scaling 1.02x to ~99x correspondingly, auto-bet cycles fast enough to validate a martingale or Fibonacci configuration over thousands of rolls in minutes. Document-free play below a EUR 2,000 equivalent check keeps the bankroll-management iteration loop clean across all 100+ supported cryptocurrencies.',
   },
   shuffle: {
     angle:
@@ -103,7 +103,7 @@ const faqs = [
   },
   {
     question: 'Can I play crypto dice without KYC?',
-    answer: 'Yes, at the two no-KYC operators on this page. BC.Game and Duelbits both keep crypto play and crypto withdrawals document-free at any size, which is the posture dice grinders want for long sessions where balance fluctuates substantially in both directions. Shuffle\'s Light KYC posture means basic play doesn\'t trigger checks but cumulative wagering volume above certain thresholds may surface a compliance review. Roobet\'s Standard KYC is the strictest of the four: Level 1 personal data is required at deposit, and Levels 2-4 are triggered by withdrawal size or activity-flag patterns rather than a fixed dollar threshold. For grind-style dice where you want zero friction on the cashout side regardless of session outcome, BC.Game or Duelbits are the defaults.',
+    answer: 'Partly. Duelbits keeps crypto play and withdrawals document-free. BC.Game keeps routine crypto play document-free but runs a KYC check as standard at EUR 2,000 equivalent, applied at its discretion and sometimes earlier, which is the posture dice grinders want for long sessions where balance fluctuates substantially in both directions. Shuffle\'s Light KYC posture means basic play doesn\'t trigger checks but cumulative wagering volume above certain thresholds may surface a compliance review. Roobet\'s Standard KYC is the strictest of the four: Level 1 personal data is required at deposit, and Levels 2-4 are triggered by withdrawal size or activity-flag patterns rather than a fixed dollar threshold. For grind-style dice where you want zero friction on the cashout side regardless of session outcome, BC.Game or Duelbits are the defaults.',
   },
 ]
 
@@ -219,7 +219,7 @@ export default function DiceCasinosPage() {
                     <span className="text-xs text-[#888888]">
                       Trust <span className="text-[#7BB8D4] font-semibold">{casino.trustScore}</span>/10 ·
                       Withdrawal <span className="text-[#7BB8D4] font-semibold">{casino.withdrawalScore}</span>/10 ·
-                      KYC {casino.kycLevel}
+                      KYC {kycDisplayLabel(casino)}
                     </span>
                   </div>
                   <p className="text-[#888888] text-sm leading-relaxed mb-3">{note.angle}</p>

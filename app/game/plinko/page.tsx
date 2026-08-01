@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { casinos, getCasinoBySlug } from '@/lib/casinos'
+import { casinos, getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
@@ -98,7 +98,7 @@ const faqs = [
   },
   {
     question: 'Can I play Plinko without KYC?',
-    answer: 'Yes at BC.Game and Duelbits: both keep crypto play and crypto withdrawals document-free at any size. This matters more for Plinko than for many other formats, because Plinko\'s distribution is bimodal: most drops finish with small losses or small gains, but the occasional outlier produces a single-drop win in the high-multiplier range: exactly the cashout-size that triggers KYC reviews at Light-KYC operators. Shuffle\'s Light KYC may surface a check at the larger withdrawal end. Roobet\'s Standard KYC triggers ID verification by withdrawal size or activity flags. For Plinko specifically, where you may want to cash out an unexpected outlier multiplier without document delay, BC.Game or Duelbits are the default no-friction picks.',
+    answer: 'Partly. Duelbits keeps crypto play and withdrawals document-free. BC.Game keeps routine crypto play document-free but runs a KYC check as standard at EUR 2,000 equivalent, applied at its discretion and sometimes earlier. This matters more for Plinko than for many other formats, because Plinko\'s distribution is bimodal: most drops finish with small losses or small gains, but the occasional outlier produces a single-drop win in the high-multiplier range: exactly the cashout-size that triggers KYC reviews at Light-KYC operators. Shuffle\'s Light KYC may surface a check at the larger withdrawal end. Roobet\'s Standard KYC triggers ID verification by withdrawal size or activity flags. For Plinko specifically, where you may want to cash out an unexpected outlier multiplier without document delay, BC.Game or Duelbits are the default no-friction picks.',
   },
   {
     question: 'Which crypto casino is best for Plinko specifically?',
@@ -218,7 +218,7 @@ export default function PlinkoCasinosPage() {
                     <span className="text-xs text-[#888888]">
                       Trust <span className="text-[#7BB8D4] font-semibold">{casino.trustScore}</span>/10 ·
                       Withdrawal <span className="text-[#7BB8D4] font-semibold">{casino.withdrawalScore}</span>/10 ·
-                      KYC {casino.kycLevel}
+                      KYC {kycDisplayLabel(casino)}
                     </span>
                   </div>
                   <p className="text-[#888888] text-sm leading-relaxed mb-3">{note.angle}</p>

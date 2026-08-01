@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { COUNTRY_LIST } from '@/lib/programmatic'
-import { casinos, casinoAcceptsCountry, type Casino } from '@/lib/casinos'
+import { casinos, casinoAcceptsCountry, type Casino, kycDisplayLabel } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import FactChecked from '@/components/FactChecked'
@@ -18,7 +18,7 @@ function buildCountryCard(casino: Casino): CTAStripCard {
     slug: casino.slug,
     facts: [
       { label: 'Withdrawal', value: casino.withdrawalTime },
-      { label: 'KYC', value: casino.kycLevel },
+      { label: 'KYC', value: kycDisplayLabel(casino) },
       { label: 'Cryptos', value: `${cryptoCount} accepted` },
     ],
   }

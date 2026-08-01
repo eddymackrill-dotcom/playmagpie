@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { casinos, getFeaturedCasinos, getTopCasinos } from '@/lib/casinos'
+import { casinos, getFeaturedCasinos, getTopCasinos, kycDisplayLabel } from '@/lib/casinos'
 import HeroSection from '@/components/HeroSection'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
@@ -288,7 +288,7 @@ export default function HomePage() {
                   <span className="text-[#7BB8D4] font-bold text-sm">{casino.trustScore}/10</span>
                 </div>
                 <p className="text-[#888888] text-xs leading-relaxed">
-                  {casino.withdrawalTime} · {casino.kycLevel} KYC · {casino.bonusSummary.slice(0, 45)}…
+                  {casino.withdrawalTime} · {kycDisplayLabel(casino)} KYC · {casino.bonusSummary.slice(0, 45)}…
                 </p>
               </Link>
             ))}

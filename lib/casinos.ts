@@ -76,6 +76,16 @@ export type Casino = {
   withdrawalTime: string
   minDeposit: string
   kycLevel: 'None' | 'Light' | 'Standard' | 'Full'
+  // Display-only overrides, added 2026-08-01 with the BC.Game / 7Bit KYC
+  // correction. kycLevel is BOTH the filter key (/no-kyc-casinos membership,
+  // homepage section) and the rendered badge, so correcting the badge via
+  // kycLevel would have silently restructured those pages and forced the
+  // /no-kyc-casinos page-level decision that is deferred to the 2026-08-03
+  // audit. These two fields decouple what is DISPLAYED from what is FILTERED:
+  // set them to correct the user-facing claim, leave kycLevel alone to leave
+  // page membership untouched. Read via kycDisplayLabel() / kycDisplayNote().
+  kycLabel?: string
+  kycNote?: string
   vipProgram: boolean
   bonusSummary: string
   restrictedCountries: string[]
@@ -143,6 +153,9 @@ export const casinos: Casino[] = [
     withdrawalTime: 'Instant to 10 minutes',
     minDeposit: '$5',
     kycLevel: 'None',
+    kycLabel: 'Threshold',
+    kycNote:
+      'A KYC check is standard at EUR 2,000 equivalent. Application is at the operator’s discretion and can be triggered earlier. Below that, signup is email-only and routine crypto play does not require documents.',
     vipProgram: true,
     bonusSummary: '220% Deposit Rakeback Welcome: 4 monthly stages from 180%+40% RakeBack to 360%+140% RakeBack, locked balance unlocks as you wager (min $5)',
     restrictedCountries: ['US', 'FR', 'NL'],
@@ -152,10 +165,10 @@ export const casinos: Casino[] = [
     kycScore: 9.5,
     affiliateUrl: 'https://bc.game/i-9767kimyer-n/',
     reviewSummary:
-      'BC.Game is one of the most crypto-native casinos in the industry, operating since 2017 with a core focus on blockchain gaming. It supports over 100 cryptocurrencies for deposits and withdrawals (by far the widest selection on the market) and operates a strict no-KYC policy. The platform hosts 10,000+ games including provably fair originals, a full sportsbook, and one of the strongest VIP loyalty systems available. Withdrawals are processed almost instantly for most coins, and the $5 minimum deposit makes it accessible at any bankroll level.',
+      'BC.Game is one of the most crypto-native casinos in the industry, operating since 2017 with a core focus on blockchain gaming. It supports over 100 cryptocurrencies for deposits and withdrawals (by far the widest selection on the market) and keeps routine crypto play document-free, with a KYC check standard at EUR 2,000 equivalent and applied at its own discretion. The platform hosts 10,000+ games including provably fair originals, a full sportsbook, and one of the strongest VIP loyalty systems available. Withdrawals are processed almost instantly for most coins, and the $5 minimum deposit makes it accessible at any bankroll level.',
     pros: [
       '100+ cryptocurrencies accepted, the widest selection of any major crypto casino',
-      'Strict no-KYC policy: sign up with email only, no documents ever required',
+      'Email-only signup, with a KYC check standard at EUR 2,000 equivalent and applied at the operator’s discretion',
       'Instant to near-instant withdrawals across most supported blockchains',
       '10,000+ games including provably fair originals, slots, live dealer and sports',
       'Tiered VIP programme with dedicated managers, higher limits and cashback',
@@ -252,6 +265,9 @@ export const casinos: Casino[] = [
     withdrawalTime: 'Instant to 10 minutes',
     minDeposit: '$10',
     kycLevel: 'None',
+    kycLabel: 'Threshold',
+    kycNote:
+      'A KYC check is standard at EUR 2,000 equivalent. Application is at the operator’s discretion and can be triggered earlier. Crypto withdrawals below that threshold do not require documents.',
     vipProgram: true,
     bonusSummary: '325% match up to €5,400 + 250 free spins across the 4-deposit welcome pack, plus weekly reload bonuses',
     restrictedCountries: ['US', 'UK', 'AU', 'NL', 'FR'],
@@ -261,10 +277,10 @@ export const casinos: Casino[] = [
     kycScore: 9.2,
     affiliateUrl: 'https://7bit.partners/plmd4b5bb',
     reviewSummary:
-      '7Bit Casino has operated since 2014, making it one of the longest-running Bitcoin casinos in the industry. Over more than a decade it has built a consistent reputation for fast crypto payouts, a strict no-KYC policy for crypto withdrawals, and a broad game library. The platform supports 8 cryptocurrencies and processes withdrawals almost instantly for most coins. The game library spans 7,000+ titles including slots, table games, live dealer and provably fair originals. Weekly reload bonuses run continuously, and a structured VIP programme rewards regular players with tiered cashback and higher limits.',
+      '7Bit Casino has operated since 2014, making it one of the longest-running Bitcoin casinos in the industry. Over more than a decade it has built a consistent reputation for fast crypto payouts, document-free crypto withdrawals below its KYC threshold, and a broad game library. The platform supports 8 cryptocurrencies and processes withdrawals almost instantly for most coins. The game library spans 7,000+ titles including slots, table games, live dealer and provably fair originals. Weekly reload bonuses run continuously, and a structured VIP programme rewards regular players with tiered cashback and higher limits.',
     pros: [
       'Established since 2014, over a decade of reliable operation in the Bitcoin casino space',
-      'No KYC required for crypto withdrawals, so full anonymity is maintained',
+      'Crypto withdrawals below the operator’s KYC threshold need no documents; a check is standard at EUR 2,000 equivalent',
       'Instant to 10-minute crypto withdrawals across 8 supported coins',
       'Provably fair games available, with independently verifiable outcomes',
       'Weekly reload bonuses with transparent terms',
@@ -445,4 +461,15 @@ export function getFeaturedCasinos(): Casino[] {
 
 export function getTopCasinos(n = 5): Casino[] {
   return [...casinos].sort((a, b) => b.trustScore - a.trustScore).slice(0, n)
+}
+
+// Display helpers for KYC, added 2026-08-01. Render through these rather than
+// reading casino.kycLevel directly, so a corrected user-facing claim never
+// depends on the field that also drives page membership.
+export function kycDisplayLabel(casino: Casino): string {
+  return casino.kycLabel ?? casino.kycLevel
+}
+
+export function kycDisplayNote(casino: Casino, fallback: string): string {
+  return casino.kycNote ?? fallback
 }

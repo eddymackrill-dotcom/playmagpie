@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getCasinoBySlug } from '@/lib/casinos'
+import { getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
 import { compareContent } from '@/lib/compare-content'
 import CTAButton from '@/components/CTAButton'
 import CasinoLogo from '@/components/CasinoLogo'
@@ -119,7 +119,7 @@ export default async function ComparePage(props: PageProps<'/compare/[slug]'>) {
     { label: 'Withdrawal Score', a: `${c1.withdrawalScore}/10`, b: `${c2.withdrawalScore}/10`, win: withdrawalWin },
     { label: 'Withdrawal Time', a: c1.withdrawalTime, b: c2.withdrawalTime, win: withdrawalWin },
     { label: 'Bonus Fairness Score', a: `${c1.bonusFairnessScore}/10`, b: `${c2.bonusFairnessScore}/10`, win: bonusWin },
-    { label: 'KYC Level', a: c1.kycLevel, b: c2.kycLevel, win: kycWin },
+    { label: 'KYC Level', a: kycDisplayLabel(c1), b: kycDisplayLabel(c2), win: kycWin },
     { label: 'KYC Score', a: `${c1.kycScore}/10`, b: `${c2.kycScore}/10`, win: kycWin },
     { label: 'Min Deposit', a: c1.minDeposit, b: c2.minDeposit, win: 'tie' as const },
     { label: 'Cryptos Accepted', a: `${c1Cryptos.length}${c1HasMore ? '+' : ''}`, b: `${c2Cryptos.length}${c2HasMore ? '+' : ''}`, win: cryptoWin },

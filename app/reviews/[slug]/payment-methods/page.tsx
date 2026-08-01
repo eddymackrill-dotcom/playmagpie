@@ -24,7 +24,7 @@ const META: Record<(typeof PAYMENT_METHODS_SLUGS)[number], { title: string; desc
   'bc-game': {
     title: 'BC.Game Payment Methods 2026: 100+ Cryptos, $5 Minimum, No KYC',
     description:
-      'BC.Game accepts 100+ cryptocurrencies at a $5 minimum deposit with no KYC at any size. The widest coin lineup and lowest floor in our catalogue, the network-by-network breakdown, and how the 220% rakeback welcome scales from a $5 deposit.',
+      'BC.Game accepts 100+ cryptocurrencies at a $5 minimum deposit, with a KYC check standard at EUR 2,000 equivalent. The widest coin lineup and lowest floor in our catalogue, the network-by-network breakdown, and how the 220% rakeback welcome scales from a $5 deposit.',
   },
 }
 
@@ -124,7 +124,7 @@ export default async function PaymentMethodsPage(props: PaymentMethodsPageProps)
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
                 {slug === 'cloudbet' && 'Cloudbet Deposit Options: 29 Cryptos, ~$1 Floor, Fiat via Jeton and Vega'}
                 {slug === 'bitstarz' && 'BitStarz Deposit Options: Six Classic Coins, $20 Floor, and the Fiat-vs-Crypto KYC Fork'}
-                {slug === 'bc-game' && 'BC.Game Deposit Options: 100+ Coins, a $5 Floor, and No KYC at Any Size'}
+                {slug === 'bc-game' && 'BC.Game Deposit Options: 100+ Coins, a $5 Floor, and a EUR 2,000 Verification Threshold'}
               </h1>
               <p className="text-[#555555] text-xs mt-2">
                 Last updated: {slug === 'bitstarz' ? 'June 22, 2026' : 'May 26, 2026'}
@@ -352,7 +352,7 @@ function CloudbetContent() {
       </Para>
       <Para>
         Players whose entire reason for using crypto casinos is zero-KYC
-        anonymity at any size are better matched with{' '}
+        anonymity below a verification threshold are better matched with{' '}
         <Link href="/reviews/7bit-casino" className="text-[#7BB8D4] hover:underline">7Bit Casino</Link>,
         {' '}
         <Link href="/reviews/bc-game" className="text-[#7BB8D4] hover:underline">BC.Game</Link>{' '}
@@ -605,7 +605,7 @@ function BCGameContent() {
         If Cloudbet&apos;s cashier is built around institutional-grade licensing and a
         verification-gated no-limit withdrawal policy, BC.Game&apos;s is the opposite design:
         breadth and anonymity first. It funds on 100+ cryptocurrencies, opens at a $5 minimum,
-        and asks for no identity documents at any deposit or withdrawal size under the standard
+        and asks for no identity documents below a EUR 2,000 equivalent verification check under the standard
         flow. The whole payment side is calibrated for accessibility, which is exactly why it
         suits a different player: someone who wants to deposit whatever coin they happen to
         hold, at whatever size, without attaching a name to it.
@@ -730,13 +730,13 @@ function BCGameContent() {
         </Link>.
       </Para>
 
-      <SectionHeading>No KYC at any size: the real distinction at the cashier</SectionHeading>
+      <SectionHeading>Verification thresholds: the real distinction at the cashier</SectionHeading>
       <Para>
         This is where BC.Game separates from the two payment pages already on this site. Cloudbet and
         BitStarz both run Light KYC, meaning no documents at deposit but verification reserved for
         outsized withdrawals. BC.Game&apos;s posture is different in kind, not degree: it is no-KYC as
         policy. You sign up with an email, a deposit address is generated immediately, and no identity
-        documents are requested at deposit or at withdrawal under standard play, at any size. For a
+        documents are requested at deposit or at withdrawal under standard play below a EUR 2,000 equivalent check. For a
         player whose entire reason for using a crypto casino is keeping their identity off the
         transaction, that policy-level commitment is the deposit-side feature that matters most.
       </Para>
@@ -842,7 +842,7 @@ const BCGAME_FAQS = [
   {
     question: 'Does BC.Game require KYC to deposit or withdraw?',
     answer:
-      "No. BC.Game runs a no-KYC policy: you sign up with an email, a deposit address is generated immediately, and no identity documents are requested at deposit or withdrawal under standard play, at any size. That is a stronger posture than the Light KYC at Cloudbet or BitStarz, which is document-free at deposit but reserves verification for large withdrawals. The standard caveat applies: any operator can still trigger checks if anti-fraud or anti-money-laundering rules force it on a flagged account.",
+      "Not at deposit. BC.Game keeps the deposit funnel document-free: you sign up with an email, a deposit address is generated immediately, and no identity documents are requested at deposit or withdrawal under standard play, at any size. That is a stronger posture than the Light KYC at Cloudbet or BitStarz, which is document-free at deposit but reserves verification for large withdrawals. The standard caveat applies: any operator can still trigger checks if anti-fraud or anti-money-laundering rules force it on a flagged account.",
   },
   {
     question: 'Which BC.Game coin gives the fastest deposit credit?',

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { casinos, getCasinoBySlug, getTopCasinos } from '@/lib/casinos'
+import { casinos, getCasinoBySlug, getTopCasinos, kycDisplayLabel } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
 import BonusBanner from '@/components/BonusBanner'
@@ -20,7 +20,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     slug: 'bc-game',
     facts: [
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None: no documents at any size' },
+      { label: 'KYC', value: 'Check at EUR 2,000 equivalent' },
       { label: 'Min deposit', value: '$5' },
     ],
   },
@@ -28,7 +28,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     slug: '7bit-casino',
     facts: [
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None: since 2014' },
+      { label: 'KYC', value: 'Check at EUR 2,000 equivalent' },
       { label: 'Min deposit', value: '$10' },
     ],
   },
@@ -179,7 +179,7 @@ export default function BestCryptoCasinosPage() {
                   </span>
                   <span className="text-[#7BB8D4] font-bold text-sm">{casino.trustScore}/10</span>
                 </div>
-                <p className="text-[#888888] text-xs">{casino.withdrawalTime} · {casino.kycLevel} KYC</p>
+                <p className="text-[#888888] text-xs">{casino.withdrawalTime} · {kycDisplayLabel(casino)} KYC</p>
               </Link>
             ))}
           </div>

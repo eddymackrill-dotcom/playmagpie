@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Casino } from '@/lib/casinos'
+import { Casino, kycDisplayLabel } from '@/lib/casinos'
 import ScoreBadge from './ScoreBadge'
 import CTAButton from './CTAButton'
 import CasinoLogo from './CasinoLogo'
@@ -60,7 +60,7 @@ export default function CasinoComparisonTable({ casinos }: { casinos: Casino[] }
               </td>
               <td className="px-4 py-4 hidden lg:table-cell">
                 <span className="text-xs font-semibold text-[#f5f5f5]">
-                  {casino.kycLevel}
+                  {kycDisplayLabel(casino)}
                 </span>
               </td>
               <td className="px-4 py-4 text-center">

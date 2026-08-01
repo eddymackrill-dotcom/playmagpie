@@ -1,4 +1,4 @@
-import { Casino } from '@/lib/casinos'
+import { Casino, kycDisplayLabel } from '@/lib/casinos'
 import { ScoreBar } from './ScoreBadge'
 import ScoreBadge from './ScoreBadge'
 import CTAButton from './CTAButton'
@@ -108,7 +108,7 @@ export default function ReviewSection({ casino }: { casino: Casino }) {
         <div className="bg-[#111111] border border-[#222222] rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-3">
             <span className="px-3 py-1 rounded-full text-sm font-bold bg-[#7BB8D4]/10 text-[#7BB8D4] border border-[#7BB8D4]/20">
-              {casino.kycLevel} KYC
+              {kycDisplayLabel(casino)} KYC
             </span>
           </div>
           <p className="text-[#888888] text-sm">

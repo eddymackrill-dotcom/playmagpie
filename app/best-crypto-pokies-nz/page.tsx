@@ -22,7 +22,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Library', value: '10,000+ titles with Originals' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None: no documents at any size' },
+      { label: 'KYC', value: 'Check at EUR 2,000 equivalent' },
     ],
   },
   {
@@ -30,7 +30,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Library', value: '7,000+ titles with Originals' },
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
-      { label: 'KYC', value: 'None: since 2014' },
+      { label: 'KYC', value: 'Check at EUR 2,000 equivalent' },
     ],
   },
 ]
@@ -222,7 +222,7 @@ export default function CryptoPokiesNZPage() {
               {
                 slug: '7bit-casino',
                 name: '7Bit Casino',
-                summary: '7,000+ titles with provably-fair originals included. No-KYC since 2014 (the longest unbroken anonymous-play record on the list) and 9.1/10 withdrawal score. The 325% match up to €5,400 welcome + 250 free spins is competitive with rivals, and the cash-out side is consistently friction-free.',
+                summary: '7,000+ titles with provably-fair originals included. Operating since 2014, with a KYC check standard at EUR 2,000 equivalent (the list) and 9.1/10 withdrawal score. The 325% match up to €5,400 welcome + 250 free spins is competitive with rivals, and the cash-out side is consistently friction-free.',
               },
               {
                 slug: 'bitstarz',

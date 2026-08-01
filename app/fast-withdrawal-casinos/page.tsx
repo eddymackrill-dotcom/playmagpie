@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import { casinos } from '@/lib/casinos'
+import { casinos, kycDisplayLabel } from '@/lib/casinos'
 import CasinoComparisonTable from '@/components/CasinoComparisonTable'
 import TopRatedSection from '@/components/TopRatedSection'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
@@ -21,7 +21,7 @@ const STRIP_CARDS: CTAStripCard[] = [
     facts: [
       { label: 'Withdrawal', value: 'Instant to 10 minutes' },
       { label: 'Speed score', value: '9.3/10' },
-      { label: 'KYC', value: 'None' },
+      { label: 'KYC', value: 'Check at EUR 2,000' },
     ],
   },
   {
@@ -199,7 +199,7 @@ export default function FastWithdrawalPage() {
                   </span>
                   <span className="text-[#7BB8D4] font-bold text-sm">{casino.withdrawalScore}/10</span>
                 </div>
-                <p className="text-[#888888] text-xs">{casino.withdrawalTime} · {casino.kycLevel} KYC</p>
+                <p className="text-[#888888] text-xs">{casino.withdrawalTime} · {kycDisplayLabel(casino)} KYC</p>
               </Link>
             ))}
           </div>

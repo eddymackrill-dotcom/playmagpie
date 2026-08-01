@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "keyword-research": {
+      "source": "aaron-he-zhu/seo-geo-claude-skills",
+      "sourceType": "github",
+      "skillPath": "research/keyword-research/SKILL.md",
+      "computedHash": "169b0c0dc902a32ab5648320f4ca25cae0417b9ce7b432169d6ea902d46ad83c"
+    }
+  }
+}

@@ -44,7 +44,7 @@ export const compareContent: Record<string, ComparePair> = {
         casinoSlug: 'bc-game',
         label: 'Pick BC.Game if',
         conditions: [
-          'No-KYC at any withdrawal size is decisive for you',
+          'You want to stay below the EUR 2,000 verification threshold',
           'You hold altcoins outside BitStarz\'s six-coin cashier (XRP, TRX, SOL, BNB, ADA, MATIC, …)',
           'You want a $5 minimum deposit threshold',
           'You want the broadest crypto cashier menu in the market',
@@ -64,7 +64,7 @@ export const compareContent: Record<string, ComparePair> = {
       },
       {
         question: 'Is BitStarz no-KYC like BC.Game?',
-        answer: 'No. BitStarz operates Light KYC. Most routine play and withdrawals don\'t require document submission, but the trigger is reserved for larger withdrawals or compliance flags. BC.Game is strict no-KYC: register with email, deposit, play and withdraw without any identity documents at any amount, by published policy. If anonymity at any size matters to you, BC.Game wins.',
+        answer: 'No. BitStarz operates Light KYC. Most routine play and withdrawals don\'t require document submission, but the trigger is reserved for larger withdrawals or compliance flags. BC.Game is document-free below a KYC check standard at EUR 2,000 equivalent, applied at its discretion: register with email, deposit, play and withdraw without identity documents below that threshold at any amount, by published policy. If anonymity at any size matters to you, BC.Game wins.',
       },
       {
         question: 'How do withdrawal speeds compare between BitStarz and BC.Game?',
@@ -72,7 +72,7 @@ export const compareContent: Record<string, ComparePair> = {
       },
       {
         question: 'Which is better for high rollers, BitStarz or BC.Game?',
-        answer: 'BitStarz has the better-established VIP programme: invite-only with dedicated hosts, well-regarded for high-stakes players. BC.Game runs a transparent wagering-XP tier system where progression is visible. For high-rollers concerned primarily about reputation and host attention, BitStarz. For high-rollers who value no-KYC at any size and broader crypto support, BC.Game. For no-withdrawal-limit certainty specifically, neither: see Cloudbet for that.',
+        answer: 'BitStarz has the better-established VIP programme: invite-only with dedicated hosts, well-regarded for high-stakes players. BC.Game runs a transparent wagering-XP tier system where progression is visible. For high-rollers concerned primarily about reputation and host attention, BitStarz. For high-rollers who value document-free play below a EUR 2,000 check and broader crypto support, BC.Game. For no-withdrawal-limit certainty specifically, neither: see Cloudbet for that.',
       },
     ],
   },
@@ -144,7 +144,7 @@ export const compareContent: Record<string, ComparePair> = {
         casinoSlug: '7bit-casino',
         label: 'Pick 7Bit Casino if',
         conditions: [
-          'No-KYC at any withdrawal size is decisive for you',
+          'You want to stay below the EUR 2,000 verification threshold',
           'You want to deposit in XRP or BNB (BitStarz doesn\'t accept either)',
           'You want a $10 minimum entry',
           'You want the higher spin count in the welcome pack (250 vs 180)',
@@ -170,7 +170,7 @@ export const compareContent: Record<string, ComparePair> = {
       },
       {
         question: 'Does 7Bit Casino require KYC like BitStarz?',
-        answer: 'No. 7Bit Casino is strict no-KYC. The policy applies to all crypto withdrawals at any amount and has been continuous since 2014. BitStarz is Light KYC: most players never see a document request, but the trigger is reserved for larger withdrawals or compliance flags. If full anonymity matters at any withdrawal size, 7Bit wins decisively.',
+        answer: '7Bit runs a KYC check as standard at EUR 2,000 equivalent, applied at its discretion and sometimes triggered earlier. Below that, crypto withdrawals are document-free. 7Bit has operated since 2014. BitStarz is Light KYC: most players never see a document request, but the trigger is reserved for larger withdrawals or compliance flags. If full anonymity matters at any withdrawal size, 7Bit wins decisively.',
       },
       {
         question: 'Which has the bigger welcome bonus, 7Bit or BitStarz?',
@@ -201,7 +201,7 @@ export const compareContent: Record<string, ComparePair> = {
         conditions: [
           'You want the longer proven track record (since 2017)',
           'You hold an altcoin outside Shuffle\'s 12-coin lineup',
-          'You want no-KYC at any withdrawal size',
+          'You want to stay below the EUR 2,000 verification threshold',
           'You want the $5 minimum deposit',
         ],
       },
@@ -225,7 +225,7 @@ export const compareContent: Record<string, ComparePair> = {
       },
       {
         question: 'Does Shuffle Casino require KYC?',
-        answer: 'Shuffle operates Light KYC: most players can register, deposit and play without identity documents, but the trigger is reserved for larger withdrawal amounts or unusual activity. BC.Game is strict no-KYC throughout. If full anonymity at any withdrawal size matters to you, BC.Game is the clear pick. If light-touch verification is acceptable for the SHFL ecosystem upside, Shuffle is fine for most play.',
+        answer: 'Shuffle operates Light KYC: most players can register, deposit and play without identity documents, but the trigger is reserved for larger withdrawal amounts or unusual activity. BC.Game is document-free below a KYC check standard at EUR 2,000 equivalent, applied at its discretion. If document-free play up to that threshold matters to you, BC.Game is the clear pick. If light-touch verification is acceptable for the SHFL ecosystem upside, Shuffle is fine for most play.',
       },
       {
         question: 'What is the SHFL token and is it worth it?',

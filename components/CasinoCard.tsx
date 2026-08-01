@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Casino } from '@/lib/casinos'
+import { Casino, kycDisplayLabel } from '@/lib/casinos'
 import ScoreBadge from './ScoreBadge'
 import CTAButton from './CTAButton'
 import CasinoLogo from './CasinoLogo'
@@ -46,7 +46,7 @@ export default function CasinoCard({ casino, rank }: { casino: Casino; rank?: nu
           <div className="text-[#888888] text-xs mt-0.5">Withdrawals</div>
         </div>
         <div className="text-center border-x border-[#222222]">
-          <div className="text-[#f5f5f5] font-semibold text-sm">{casino.kycLevel}</div>
+          <div className="text-[#f5f5f5] font-semibold text-sm">{kycDisplayLabel(casino)}</div>
           <div className="text-[#888888] text-xs mt-0.5">KYC</div>
         </div>
         <div className="text-center">

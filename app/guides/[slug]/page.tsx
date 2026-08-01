@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { guides } from '@/lib/guides'
-import { casinos } from '@/lib/casinos'
+import { casinos, kycDisplayLabel } from '@/lib/casinos'
 import Link from 'next/link'
 import CTAButton from '@/components/CTAButton'
 
@@ -122,7 +122,7 @@ const guideContent: Record<string, ContentBlock[]> = {
           rationale: 'Sub-second to 3-second on-chain finality with fees under $0.01 on both. Functionally instant if the casino\'s internal processing is automated. TRC-20 is universally accepted; SOL is added at BC.Game, Cloudbet, Shuffle, Duelbits and Roobet per the casinos we review.',
         },
         {
-          priority: 'Anonymity (no-KYC at any size)',
+          priority: 'Anonymity below the verification threshold',
           recommendation: 'Any chain at a no-KYC casino: coin choice is secondary',
           rationale: 'Anonymity is the casino-side decision, not the coin-side. BC.Game, 7Bit Casino and Duelbits operate no-KYC policies in lib/casinos.ts. Within those operators, choose your coin for speed and fees. Monero is the only protocol-level-private chain but casino support is narrow.',
         },
@@ -210,8 +210,8 @@ const guideContent: Record<string, ContentBlock[]> = {
     {
       type: 'kycposture',
       items: [
-        { slug: 'bc-game', href: '/reviews/bc-game/kyc', note: 'Strict no-KYC. Email-only signup, no documents at any withdrawal size under the standard flow: the cleanest anonymity story in our catalogue.' },
-        { slug: '7bit-casino', href: '/reviews/7bit-casino', note: 'No KYC for crypto withdrawals at any amount, held since 2014. Compliance handled by transaction monitoring, not up-front document collection.' },
+        { slug: 'bc-game', href: '/reviews/bc-game/kyc', note: 'Email-only signup and document-free routine crypto play, with a KYC check standard at EUR 2,000 equivalent, applied at BC.Game’s discretion and sometimes triggered earlier.' },
+        { slug: '7bit-casino', href: '/reviews/7bit-casino', note: 'Operating since 2014. Crypto withdrawals are document-free below a KYC check that is standard at EUR 2,000 equivalent, applied at 7Bit’s discretion and sometimes triggered earlier.' },
         { slug: 'duelbits', href: '/reviews/duelbits', note: 'No KYC for crypto play and withdrawals, only basic checks on unusual activity. Most crypto payouts clear in under 5 minutes.' },
         { slug: 'bitstarz', href: '/reviews/bitstarz/kyc', note: 'Light KYC. Crypto-only play rarely triggers it; fiat-side activity or a flagged pattern can. No published dollar threshold.' },
         { slug: 'cloudbet', href: '/reviews/cloudbet/kyc', note: 'Light at scale. Withdrawals to $2,200 a day pre-verification; no limits once fully verified. Dual Curaçao + Kahnawake licence.' },
@@ -232,7 +232,7 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'p', text: 'If keeping identity documents out of the loop is your priority, the route is straightforward: choose a no-KYC operator, play crypto-only, and withdraw to a self-custodial wallet you control. Among the casinos we review, BC.Game, 7Bit Casino and Duelbits all run no-KYC policies for crypto. The key point most guides miss is that the privacy comes from the casino’s policy, not from the coin. There is no "anonymous cryptocurrency" that bypasses a casino that requires KYC, and at a no-KYC casino your coin choice is purely a speed-and-fees decision. The category hub is our no-KYC crypto casinos page.' },
 
     { type: 'h2', text: 'The honest trade-off' },
-    { type: 'p', text: 'No-KYC is not free of downsides. A casino that never collects identity documents is, almost by definition, one that operates outside the Tier-1 regulatory framework: Curaçao rather than the UKGC or MGA. That means lighter external oversight and, if a dispute ever escalates, a weaker formal recourse path than a Tier-1 licence would give you. The decision is a genuine trade between anonymity and oversight: privacy-first players are well served by the no-KYC operators, while players who weight regulatory protection more heavily should accept Light KYC as the cost of it. Neither answer is universally correct, which is exactly why this is an operator-level choice rather than an industry default.' },
+    { type: 'p', text: 'No-KYC is not free of downsides. A casino that collects identity documents only above a threshold, or not at all, is almost by definition one that operates outside the Tier-1 regulatory framework: Curaçao rather than the UKGC or MGA. That means lighter external oversight and, if a dispute ever escalates, a weaker formal recourse path than a Tier-1 licence would give you. The decision is a genuine trade between anonymity and oversight: privacy-first players are well served by the no-KYC operators, while players who weight regulatory protection more heavily should accept Light KYC as the cost of it. Neither answer is universally correct, which is exactly why this is an operator-level choice rather than an industry default.' },
     {
       type: 'plink',
       parts: [
@@ -358,7 +358,7 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Do I need KYC to withdraw crypto from an online casino?',
-      answer: 'At no-KYC casinos like BC.Game, 7Bit Casino and Duelbits, no: withdrawals process without identity documents at any amount, by policy. At Light-KYC casinos (BitStarz, Cloudbet, Mirax, Shuffle), routine withdrawals usually don\'t require KYC, but larger amounts or activity that flags compliance checks can trigger document requests. If KYC matters to you, the policy is documented in each casino\'s review.',
+      answer: 'It depends on the operator and the amount. At BC.Game and 7Bit a KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier; below that, crypto withdrawals process without documents. Duelbits runs a no-KYC policy for crypto play. At Light-KYC casinos (BitStarz, Cloudbet, Mirax, Shuffle), routine withdrawals usually don\'t require KYC, but larger amounts or activity that flags compliance checks can trigger document requests. If KYC matters to you, the policy is documented in each casino\'s review.',
     },
     {
       question: 'Which network should I use for the fastest withdrawal?',
@@ -442,7 +442,7 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Which crypto casinos don’t require KYC?',
-      answer: 'Among the casinos we review, BC.Game, 7Bit Casino and Duelbits operate no-KYC policies for crypto: no government ID or proof of address is required to deposit, play or withdraw under the standard flow. BC.Game holds the highest KYC score in our catalogue (9.5/10) on the strength of an email-only signup with no documents at any withdrawal size. Compliance at these operators is handled through transaction monitoring rather than up-front document collection.',
+      answer: 'Among the casinos we review, BC.Game, 7Bit Casino and Duelbits keep routine crypto play document-free. At BC.Game and 7Bit a KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Below those thresholds no government ID or proof of address is required to deposit, play or withdraw under the standard flow. BC.Game holds the highest KYC score in our catalogue (9.5/10) on the strength of an email-only signup with no documents at any withdrawal size. Compliance at these operators is handled through transaction monitoring rather than up-front document collection.',
     },
     {
       question: 'What triggers a KYC check at a crypto casino?',
@@ -454,7 +454,7 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Is it safe to use a no-KYC casino?',
-      answer: 'No-KYC means no document collection, not no compliance: these operators manage risk through on-chain transaction monitoring instead of identity files. The real trade-off is regulatory: a casino that never collects documents almost always operates under a Curaçao licence rather than a Tier-1 regulator (UKGC, MGA), which means lighter oversight and a weaker formal recourse path if a dispute escalates. For privacy-first players the no-document model is the appeal; players who weight regulatory protection more heavily should accept Light KYC as the cost of it.',
+      answer: 'A document-free range means no routine document collection, not no compliance: these operators manage risk through on-chain transaction monitoring instead of identity files. The real trade-off is regulatory: a casino that collects documents only above a threshold almost always operates under a Curaçao licence rather than a Tier-1 regulator (UKGC, MGA), which means lighter oversight and a weaker formal recourse path if a dispute escalates. For privacy-first players the no-document model is the appeal; players who weight regulatory protection more heavily should accept Light KYC as the cost of it.',
     },
   ],
   // Each FAQ below maps to a section actually answered in the body above
@@ -513,7 +513,7 @@ const guideRelatedPages: Record<string, { label: string; href: string; teaser: s
     { label: 'High Roller Casinos: Withdrawal Limits', href: '/high-roller-casinos#withdrawal-limits', teaser: 'For when USDT-fast meets a big win' },
   ],
   'do-crypto-casinos-require-kyc': [
-    { label: 'BC.Game KYC', href: '/reviews/bc-game/kyc', teaser: 'The no-KYC pole: email-only, no documents ever' },
+    { label: 'BC.Game KYC', href: '/reviews/bc-game/kyc', teaser: 'Email-only signup, with a check at EUR 2,000 equivalent' },
     { label: 'BitStarz KYC', href: '/reviews/bitstarz/kyc', teaser: 'Light KYC: what actually triggers verification' },
     { label: 'Cloudbet KYC', href: '/reviews/cloudbet/kyc', teaser: 'No limits, verification only at scale' },
     { label: 'Bonus & Withdrawal Transparency Report', href: '/research/crypto-casino-bonus-transparency', teaser: 'Headline offers vs the real cashout terms, all 8 sourced' },
@@ -548,8 +548,8 @@ const relatedCasinos: Record<string, { name: string; slug: string; reason: strin
     { name: 'Cloudbet', slug: 'cloudbet', reason: 'BTC, USDT, SOL and 7 more cryptos' },
   ],
   'do-crypto-casinos-require-kyc': [
-    { name: 'BC.Game', slug: 'bc-game', reason: 'Strict no-KYC: highest KYC score (9.5/10)' },
-    { name: '7Bit Casino', slug: '7bit-casino', reason: 'No KYC on crypto withdrawals since 2014' },
+    { name: 'BC.Game', slug: 'bc-game', reason: 'Document-free below EUR 2,000; highest KYC score (9.5/10)' },
+    { name: '7Bit Casino', slug: '7bit-casino', reason: 'Operating since 2014; check at EUR 2,000 equivalent' },
     { name: 'BitStarz', slug: 'bitstarz', reason: 'Light KYC: rarely triggered on crypto-only play' },
   ],
   'why-is-my-crypto-casino-withdrawal-pending': [
@@ -690,7 +690,7 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
                         <span className="text-[#7BB8D4] text-sm font-bold shrink-0">{casino.kycScore}/10</span>
                       </div>
                       <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-2">
-                        KYC: {casino.kycLevel}
+                        KYC: {kycDisplayLabel(casino)}
                       </div>
                       <p className="text-[#888888] text-sm leading-relaxed">{item.note}</p>
                     </Link>

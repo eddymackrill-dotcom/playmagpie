@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { casinos, getCasinoBySlug } from '@/lib/casinos'
+import { casinos, getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
 import { casinoLastReviewed } from '@/lib/last-reviewed'
 import ReviewSection from '@/components/ReviewSection'
 import ScoreBadge from '@/components/ScoreBadge'
@@ -16,7 +16,7 @@ const casinoMetaDescriptions: Record<string, string> = {
   'bc-game': 'BC.Game review 2026. No-KYC crypto casino: 100+ cryptocurrencies, instant withdrawals, 10,000+ games. Zero identity verification required. Rated 8.9/10.',
   cloudbet: 'Cloudbet review 2026. Trusted since 2013: $2,500 welcome package with no wagering, no withdrawal limits for verified accounts, excellent sportsbook for crypto bettors. Rated 8.7/10 by PlayMagpie.',
   'mirax-casino': 'Mirax Casino review 2026. Up to 5 BTC + 150 free spins across the 4-deposit welcome pack, 7,000+ games, fast crypto withdrawals in under 15 minutes. Rated 8.6/10.',
-  '7bit-casino': '7Bit Casino review 2026. No-KYC Bitcoin casino since 2014: instant withdrawals, 7,000+ games, weekly reload bonuses and VIP cashback. Rated 8.8/10.',
+  '7bit-casino': '7Bit Casino review 2026. Bitcoin casino since 2014, document-free below a EUR 2,000 check: instant withdrawals, 7,000+ games, weekly reload bonuses and VIP cashback. Rated 8.8/10.',
   shuffle: 'Shuffle Casino review 2026. Native SHFL token, rakeback VIP rewards, 10,000+ games and instant crypto withdrawals. 12 cryptocurrencies accepted. Rated 8.2/10.',
   duelbits: 'Duelbits review 2026. No-KYC crypto casino since 2020: Duelbits Originals, instant under-5-minute withdrawals, weekly cashback and rakeback VIP. 12 cryptos accepted. Rated 8.5/10.',
   roobet: 'Roobet review 2026. Crash-led Originals, ~6,000 slots and a sportsbook. Honest take on documented withdrawal holds on $20k+ wins, the "low-risk play" T&C clause, and the offshore-only Curaçao + Anjouan licensing. Rated 6.8/10.',
@@ -48,7 +48,7 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
   '7bit-casino': [
     {
       href: '/reviews/7bit-casino/withdrawal',
-      label: '7Bit withdrawal: no-KYC at any amount, eight coins, under 10 minutes',
+      label: '7Bit withdrawal: eight coins, under 10 minutes, EUR 2,000 check',
       teaser: 'What no-KYC actually means at the 7Bit cashier, the eight-coin lineup with per-network notes, and how the 325% / €5,400 welcome pack interacts with cash-out posture.',
     },
   ],
@@ -158,7 +158,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Does BC.Game require KYC verification?',
-      answer: 'BC.Game is a strict no-KYC casino. You can register, deposit, play and withdraw using only an email address: no identity documents, selfies or proof of address are ever required. The BC.Game no KYC policy applies to all withdrawal sizes and all 100+ supported cryptocurrencies. This makes it the top choice among privacy-focused players who want to gamble without submitting personal information to any third party.',
+      answer: 'BC.Game keeps routine crypto play document-free. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Below it you can register, deposit, play and withdraw using only an email address: no identity documents, selfies or proof of address are ever required. The BC.Game no KYC policy applies to all withdrawal sizes and all 100+ supported cryptocurrencies. This makes it the top choice among privacy-focused players who want to gamble without submitting personal information to any third party.',
     },
     {
       question: 'What are the best BC.Game bonus codes for 2026?',
@@ -286,7 +286,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
   '7bit-casino': [
     {
       question: 'Is 7Bit Casino legit?',
-      answer: '7Bit Casino is a legitimate and well-established Bitcoin casino that has operated since 2014. Is 7Bit Casino legit? Yes. With over a decade of reliable operation, a strict no-KYC policy maintained throughout, and consistent payout performance across thousands of player transactions, it is one of the most trusted Bitcoin casinos available. PlayMagpie rates 7Bit Casino 8.8/10 for trust, reflecting its long track record and player-first policies.',
+      answer: '7Bit Casino is a legitimate and well-established Bitcoin casino that has operated since 2014. Is 7Bit Casino legit? Yes. With over a decade of reliable operation, document-free crypto play below a KYC check standard at EUR 2,000 equivalent, and consistent payout performance across thousands of player transactions, it is one of the most trusted Bitcoin casinos available. PlayMagpie rates 7Bit Casino 8.8/10 for trust, reflecting its long track record and player-first policies.',
     },
     {
       question: 'What are 7Bit Casino withdrawal times?',
@@ -294,7 +294,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Does 7Bit Casino require KYC?',
-      answer: '7Bit Casino no KYC policy applies to all crypto withdrawals regardless of amount. Players registering with email only can deposit, play and withdraw cryptocurrency without ever submitting identity documents, selfies or proof of address. The 7Bit Casino no KYC policy has been consistently maintained since 2014, making it one of the most reliable privacy-preserving casinos for long-term players who value anonymity above all.',
+      answer: '7Bit keeps crypto withdrawals document-free below its verification threshold. A KYC check is standard at EUR 2,000 equivalent, applied at the operator’s discretion and sometimes triggered earlier. Players registering with email only can deposit, play and withdraw cryptocurrency without ever submitting identity documents, selfies or proof of address. The 7Bit Casino no KYC policy has been consistently maintained since 2014, making it one of the most reliable privacy-preserving casinos for long-term players who value anonymity above all.',
     },
     {
       question: 'What is the 7Bit Casino Bitcoin bonus for 2026?',
@@ -314,7 +314,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'Is 7Bit Casino worth using in 2026?',
-      answer: 'This 7Bit Casino review 2026 confirms its position as a top-tier no-KYC Bitcoin casino. Key strengths: operating since 2014 with a flawless payout track record, instant to 10-minute crypto withdrawals, a 7,000+ game library including provably fair originals, and a strict no-KYC policy throughout. The 325% match up to €5,400 + 250 free spins welcome package is competitive with rivals (matches Mirax on BTC-equivalent ceiling at a meaningful spread; beats BitStarz on spin count at 250 vs 180), and 7Bit earns an 8.8/10 trust score overall. Remains a top pick for anonymity-focused players where the no-KYC posture is the decisive factor.',
+      answer: 'This 7Bit Casino review 2026 confirms its position as a top-tier Bitcoin casino with document-free play below a EUR 2,000 equivalent verification check. Key strengths: operating since 2014 with a flawless payout track record, instant to 10-minute crypto withdrawals, a 7,000+ game library including provably fair originals, and document-free crypto play below a EUR 2,000 equivalent verification check. The 325% match up to €5,400 + 250 free spins welcome package is competitive with rivals (matches Mirax on BTC-equivalent ceiling at a meaningful spread; beats BitStarz on spin count at 250 vs 180), and 7Bit earns an 8.8/10 trust score overall. Remains a top pick for anonymity-focused players where the no-KYC posture is the decisive factor.',
     },
   ],
   duelbits: [
@@ -589,7 +589,7 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
             {[
               { label: 'Withdrawal Time', value: casino.withdrawalTime },
               { label: 'Min Deposit', value: casino.minDeposit },
-              { label: 'KYC', value: casino.kycLevel },
+              { label: 'KYC', value: kycDisplayLabel(casino) },
               { label: 'VIP', value: casino.vipProgram ? 'Yes' : 'No' },
             ].map((s) => (
               <div key={s.label} className="bg-[#111111] border border-[#222222] rounded-xl p-3 text-center">
