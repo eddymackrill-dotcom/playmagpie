@@ -61,6 +61,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
+  // Bonus sub-page allowlist, must mirror BONUS_SLUGS in
+  // app/reviews/[slug]/bonus/page.tsx. Single slug by design: see the header
+  // comment on that route before adding a second.
+  const bonusPageSlugs = ['bitstarz']
+  const casinoBonusPages: MetadataRoute.Sitemap = bonusPageSlugs.map((slug) => ({
+    url: `${BASE_URL}/reviews/${slug}/bonus`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.75,
+  }))
+
   const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
     url: `${BASE_URL}/guides/${guide.slug}`,
     lastModified: new Date(),
@@ -121,5 +132,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }))
 
-  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...casinoKycPages, ...guidePages, ...cryptoPages, ...countryPages, ...countryLegalPages, ...gamePages, ...bonusPages, ...comparisonPages]
+  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...casinoKycPages, ...casinoBonusPages, ...guidePages, ...cryptoPages, ...countryPages, ...countryLegalPages, ...gamePages, ...bonusPages, ...comparisonPages]
 }

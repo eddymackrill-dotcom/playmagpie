@@ -308,7 +308,12 @@ export default function FreeSpinsBonusPage() {
                 terms carry no cap (an earlier version of this page cited €100 there; removed on July 2026
                 re-verification). 7Bit does not publish one in the bonuses-page T&amp;C extract. Absence of a
                 published cap is not a guarantee that an outlier win pays in full; it means the ceiling, if
-                any, is not in the public terms.
+                any, is not in the public terms. For what the €100 clause covers in full, which routes it
+                names and why BitStarz has no standing no-deposit offer to attach it to, see{' '}
+                <Link href="/reviews/bitstarz/bonus" className="text-[#7BB8D4] hover:underline">
+                  our breakdown of the BitStarz no deposit bonus position
+                </Link>
+                .
               </p>
             </div>
           </div>

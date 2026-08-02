@@ -39,6 +39,11 @@ const casinoSubPages: Record<string, { href: string; label: string; teaser: stri
       label: 'BitStarz deposits: six classic coins, $20 floor, and the fiat-vs-crypto KYC fork',
       teaser: 'Per-coin deposit speeds, why there is no Solana, BNB or USDC in the lineup, and how choosing crypto over fiat keeps your verification light.',
     },
+    {
+      href: '/reviews/bitstarz/bonus',
+      label: 'BitStarz no deposit bonus: there is no standing one, and the €100 cap that governs the spins that do appear',
+      teaser: 'What T&C §1.1 actually covers, why it excludes the welcome pack, the eight-day drip on the 180 spins, and the 40x that decides whether any of it is worth taking.',
+    },
   ],
   // Mirax withdrawal sub-page absorbed into this parent review 2026-07-07
   // (spam-update consolidation): the sub-page went impression-dark in June,
@@ -126,10 +131,15 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     // /reviews/bitstarz/withdrawal sub-page owns that query cluster per the
     // validated displacement pattern. Duplicating Q&A here put the parent in
     // competition with its own sub-page on "bitstarz withdrawal" queries.
-    {
-      question: 'Does BitStarz offer a no deposit bonus?',
-      answer: 'BitStarz does not currently offer a no deposit bonus for new players in 2026. The welcome offer is a deposit-based package worth up to 5 BTC plus 180 free spins spread across your first four deposits (20 spins credited instantly on first deposit, then 20 per day for eight consecutive days per T&C §2.7). Some regions may occasionally see limited promotional no deposit free spins. Check the BitStarz promotions page for current offers available in your country, as these change regularly.',
-    },
+    // No-deposit-bonus FAQ removed 2026-08-02, same pattern and same reason as
+    // the 2026-06-11 withdrawal removal above: the dedicated
+    // /reviews/bitstarz/bonus sub-page now owns that query cluster, and leaving
+    // a near-identical Q&A here would put the parent in competition with its
+    // own sub-page on "bitstarz no deposit bonus". The parent keeps the general
+    // bonus framing in reviewSummary and the sub-page link in casinoSubPages;
+    // the specific intent, the €100 T&C §1.1 cap and the §2.7 credit schedule
+    // all move to the sub-page. This overlap was the known cannibalisation risk
+    // at proposal and this is how it was resolved.
     {
       question: 'What is the BitStarz minimum deposit?',
       answer: 'The BitStarz minimum deposit is $20 or the crypto equivalent at current exchange rates. For Bitcoin this is approximately 0.0003 BTC. Crypto deposits are processed instantly and credited to your account after one blockchain confirmation, allowing you to start playing within minutes of funding your account. No deposit fees are charged by BitStarz; standard network fees apply on the blockchain side.',
@@ -144,7 +154,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'How does BitStarz compare to other crypto casinos?',
-      answer: 'BitStarz vs competitors: BitStarz leads on trust and reputation with the highest score in our rankings (9.2/10) and the most industry awards since 2014. Compared to BC.Game, BitStarz scores higher for trust but BC.Game supports 100+ cryptocurrencies versus BitStarz\'s six. Compared to 7Bit Casino, BitStarz offers a larger BTC-denominated welcome ceiling (5 BTC vs 7Bit\'s 325% match up to €5,400) and both share fast withdrawals, but 7Bit runs a full no-KYC policy where BitStarz runs Light KYC; 7Bit\'s offer is more competitive than its old structure made it look.',
+      answer: 'BitStarz vs competitors: BitStarz leads on trust and reputation with the highest score in our rankings (9.2/10) and the most industry awards since 2014. Compared to BC.Game, BitStarz scores higher for trust but BC.Game supports 100+ cryptocurrencies versus BitStarz\'s six. Compared to 7Bit Casino, BitStarz offers a larger BTC-denominated welcome ceiling (5 BTC vs 7Bit\'s 325% match up to €5,400) and both share fast withdrawals, but 7Bit keeps play document-free below a KYC check standard at EUR 2,000 equivalent where BitStarz runs Light KYC; 7Bit\'s offer is more competitive than its old structure made it look.',
     },
   ],
   'bc-game': [
