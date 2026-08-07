@@ -56,15 +56,14 @@ export const metadata: Metadata = {
   alternates: { canonical: '/country/finland' },
   openGraph: {
     url: '/country/finland',
-    title: 'Best Crypto Casinos in Finland 2026',
-    description:
-      'Crypto casinos for Finnish players: the Veikkaus monopoly and 2027 licensing reform, the EEA winnings-tax carve-out, and FIN-FSA on-ramps Coinmotion and Northcrypto.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Casinos in Finland 2026' }],
+    title: countryEditorial.finland.title,
+    description: countryEditorial.finland.metaDescription,
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: countryEditorial.finland.title }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Crypto Casinos in Finland 2026',
-    description: 'The Veikkaus monopoly and 2027 reform, the EEA winnings-tax carve-out, and Coinmotion / Northcrypto on-ramps.',
+    title: countryEditorial.finland.title,
+    description: countryEditorial.finland.metaDescription,
     images: ['/og-image.png'],
   },
 }

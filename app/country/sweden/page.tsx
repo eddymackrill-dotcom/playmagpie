@@ -40,15 +40,14 @@ export const metadata: Metadata = {
   alternates: { canonical: '/country/sweden' },
   openGraph: {
     url: '/country/sweden',
-    title: 'Best Crypto Casinos in Sweden 2026',
-    description:
-      'Crypto casinos for Swedish players: Spellag licensing, Spelinspektionen channelisation, on-ramps via Safello / BTCX / Trijo, and the Inkomstskattelagen tax position.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Casinos in Sweden 2026' }],
+    title: countryEditorial.sweden.title,
+    description: countryEditorial.sweden.metaDescription,
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: countryEditorial.sweden.title }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Crypto Casinos in Sweden 2026',
-    description: 'Spellag licensing, Spelinspektionen channelisation, Safello/BTCX/Trijo on-ramps, and the tax position.',
+    title: countryEditorial.sweden.title,
+    description: countryEditorial.sweden.metaDescription,
     images: ['/og-image.png'],
   },
 }
