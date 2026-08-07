@@ -17,9 +17,11 @@ All four protected-page citation counts verified against
 | `search-performance-keywords-3m.csv` | Search Performance > Keywords | 3 months |
 | `ai-performance-pages.csv` | AI Performance > Pages (BETA) | Collection began ~2026-07-13 regardless of selector |
 
-No Site Explorer crawl-dates screenshot was captured this session (nothing
-matching in Downloads); if wanted for the Checkpoint A diff, pull it at the
-next glance.
+Site Explorer crawl dates WERE captured (owner, same evening): see
+`bing-crawl-dates.md` in this folder. Every captured date pre-dates the
+7 Aug deploy, confirming this baseline is clean pre-recrawl, and the
+observed 2-4 week crawl cadence puts Bing's organic re-read of the new
+titles inside Checkpoint A's window.
 
 ## Country-page baseline (the numbers Checkpoint A diffs against)
 
