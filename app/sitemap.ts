@@ -2,34 +2,52 @@ import type { MetadataRoute } from 'next'
 import { casinos } from '@/lib/casinos'
 import { guides } from '@/lib/guides'
 import { CRYPTO_LIST, COUNTRY_LIST, GAME_TYPES, BONUS_TYPES } from '@/lib/programmatic'
+import { ROUTE_LASTMOD } from '@/lib/route-lastmod'
 
 const BASE_URL = 'https://www.playmagpie.com'
 
+// Per-page lastmod (Batch 1, 2026-08-07). Previously every entry stamped
+// `new Date()`, so the sitemap asserted sitewide modification on every deploy
+// and the field carried no information (STATE.md 2026-07-28). Dates now come
+// from data-level `modified` fields where the content lives in a data file
+// (guides via lib/guides.ts) and from the git-derived floor map otherwise
+// (lib/route-lastmod.ts, see its header for semantics). A missing map entry
+// throws at build so a new URL cannot ship without a lastmod decision.
+function lm(path: string): Date {
+  const d = ROUTE_LASTMOD[path]
+  if (!d) {
+    throw new Error(
+      `sitemap: no lastmod for "${path}". Add it to lib/route-lastmod.ts (or give the page a data-level modified field and read it here).`
+    )
+  }
+  return new Date(d)
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE_URL, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
-    { url: `${BASE_URL}/best-crypto-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-    { url: `${BASE_URL}/fast-withdrawal-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-    { url: `${BASE_URL}/high-roller-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-    { url: `${BASE_URL}/no-kyc-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-    { url: `${BASE_URL}/best-crypto-pokies-nz`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
-    { url: `${BASE_URL}/bnb-crypto-casinos`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
-    { url: `${BASE_URL}/best-bitcoin-casino-canada`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/crypto-casinos-with-sportsbook`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/research/crypto-casino-bonus-transparency`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/crypto`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/country`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/game`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/bonus`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/guides`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/compare`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${BASE_URL}/methodology`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: BASE_URL, lastModified: lm('/'), changeFrequency: 'daily', priority: 1 },
+    { url: `${BASE_URL}/best-crypto-casinos`, lastModified: lm('/best-crypto-casinos'), changeFrequency: 'daily', priority: 0.9 },
+    { url: `${BASE_URL}/fast-withdrawal-casinos`, lastModified: lm('/fast-withdrawal-casinos'), changeFrequency: 'daily', priority: 0.9 },
+    { url: `${BASE_URL}/high-roller-casinos`, lastModified: lm('/high-roller-casinos'), changeFrequency: 'daily', priority: 0.9 },
+    { url: `${BASE_URL}/no-kyc-casinos`, lastModified: lm('/no-kyc-casinos'), changeFrequency: 'daily', priority: 0.9 },
+    { url: `${BASE_URL}/best-crypto-pokies-nz`, lastModified: lm('/best-crypto-pokies-nz'), changeFrequency: 'daily', priority: 0.85 },
+    { url: `${BASE_URL}/bnb-crypto-casinos`, lastModified: lm('/bnb-crypto-casinos'), changeFrequency: 'daily', priority: 0.85 },
+    { url: `${BASE_URL}/best-bitcoin-casino-canada`, lastModified: lm('/best-bitcoin-casino-canada'), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/crypto-casinos-with-sportsbook`, lastModified: lm('/crypto-casinos-with-sportsbook'), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/research/crypto-casino-bonus-transparency`, lastModified: lm('/research/crypto-casino-bonus-transparency'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/crypto`, lastModified: lm('/crypto'), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/country`, lastModified: lm('/country'), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/game`, lastModified: lm('/game'), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/bonus`, lastModified: lm('/bonus'), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/guides`, lastModified: lm('/guides'), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/compare`, lastModified: lm('/compare'), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/about`, lastModified: lm('/about'), changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE_URL}/methodology`, lastModified: lm('/methodology'), changeFrequency: 'monthly', priority: 0.5 },
   ]
 
   const casinoReviewPages: MetadataRoute.Sitemap = casinos.map((casino) => ({
     url: `${BASE_URL}/reviews/${casino.slug}`,
-    lastModified: new Date(),
+    lastModified: lm(`/reviews/${casino.slug}`),
     changeFrequency: 'weekly',
     priority: 0.8,
   }))
@@ -37,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const withdrawalPageSlugs = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits']
   const casinoWithdrawalPages: MetadataRoute.Sitemap = withdrawalPageSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/withdrawal`,
-    lastModified: new Date(),
+    lastModified: lm(`/reviews/${slug}/withdrawal`),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))
@@ -47,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paymentMethodsSlugs = ['cloudbet', 'bitstarz', 'bc-game']
   const casinoPaymentMethodsPages: MetadataRoute.Sitemap = paymentMethodsSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/payment-methods`,
-    lastModified: new Date(),
+    lastModified: lm(`/reviews/${slug}/payment-methods`),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))
@@ -56,7 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const kycPageSlugs = ['bitstarz', 'bc-game', 'cloudbet']
   const casinoKycPages: MetadataRoute.Sitemap = kycPageSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/kyc`,
-    lastModified: new Date(),
+    lastModified: lm(`/reviews/${slug}/kyc`),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))
@@ -67,28 +85,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const bonusPageSlugs = ['bitstarz']
   const casinoBonusPages: MetadataRoute.Sitemap = bonusPageSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/bonus`,
-    lastModified: new Date(),
+    lastModified: lm(`/reviews/${slug}/bonus`),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))
 
+  // Guides carry real per-guide dates in lib/guides.ts (`modified`), the
+  // data-level pattern the rest of the site is converging on.
   const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
     url: `${BASE_URL}/guides/${guide.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date(guide.modified),
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
 
   const cryptoPages: MetadataRoute.Sitemap = CRYPTO_LIST.map((crypto) => ({
     url: `${BASE_URL}/crypto/${crypto.slug}`,
-    lastModified: new Date(),
+    lastModified: lm(`/crypto/${crypto.slug}`),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))
 
   const countryPages: MetadataRoute.Sitemap = COUNTRY_LIST.map((country) => ({
     url: `${BASE_URL}/country/${country.slug}`,
-    lastModified: new Date(),
+    lastModified: lm(`/country/${country.slug}`),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))
@@ -97,21 +117,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const legalSubpageSlugs = ['canada', 'australia']
   const countryLegalPages: MetadataRoute.Sitemap = legalSubpageSlugs.map((slug) => ({
     url: `${BASE_URL}/country/${slug}/legal`,
-    lastModified: new Date(),
+    lastModified: lm(`/country/${slug}/legal`),
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
 
   const gamePages: MetadataRoute.Sitemap = GAME_TYPES.map((game) => ({
     url: `${BASE_URL}/game/${game.slug}`,
-    lastModified: new Date(),
+    lastModified: lm(`/game/${game.slug}`),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))
 
   const bonusPages: MetadataRoute.Sitemap = BONUS_TYPES.map((bonus) => ({
     url: `${BASE_URL}/bonus/${bonus.slug}`,
-    lastModified: new Date(),
+    lastModified: lm(`/bonus/${bonus.slug}`),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))
@@ -127,7 +147,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
   const comparisonPages: MetadataRoute.Sitemap = comparisonAllowlist.map((slug) => ({
     url: `${BASE_URL}/compare/${slug}`,
-    lastModified: new Date(),
+    lastModified: lm(`/compare/${slug}`),
     changeFrequency: 'monthly',
     priority: 0.65,
   }))

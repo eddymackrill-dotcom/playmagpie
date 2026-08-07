@@ -141,6 +141,7 @@ Run after every content push. ~10 minutes.
 
 - Vercel deploy went green (no failed build)
 - Sitemap includes all new URLs (curl https://www.playmagpie.com/sitemap.xml | grep [new-slug])
+- **Sitemap lastmod is per-page as of 2026-08-07 and must stay honest: a content change to a data-driven page bumps its `modified` field in the same commit** (guides: `lib/guides.ts`; countries: `lib/country-content.ts`; other routes fall back to the git-derived floor map `lib/route-lastmod.ts`, see its header). A NEW URL needs either a data-level date or a `lib/route-lastmod.ts` entry, or the build fails by design. Never revert any entry to `new Date()`: that is the sitewide-daily-modification signal removed on 2026-08-07.
 - Bing URL submission for any new URL in this batch: see the dedicated section below. IndexNow was removed on 2026-07-28 (closed unsolved) and replaced by the Bing Webmaster API.
 - At least one spot-check rendered correctly on production (pick the most editorially complex page in the batch)
 - Mobile spot-check on at least one page (single-column stack, CTAs tappable, no overflow)
