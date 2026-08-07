@@ -3,6 +3,7 @@ import { casinos } from '@/lib/casinos'
 import { guides } from '@/lib/guides'
 import { CRYPTO_LIST, COUNTRY_LIST, GAME_TYPES, BONUS_TYPES } from '@/lib/programmatic'
 import { ROUTE_LASTMOD } from '@/lib/route-lastmod'
+import { countryEditorial } from '@/lib/country-content'
 
 const BASE_URL = 'https://www.playmagpie.com'
 
@@ -106,9 +107,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
+  // Countries carry data-level dates in lib/country-content.ts (`modified`),
+  // which override the floor map: editing one country's copy bumps that URL
+  // alone, not all ten (the failure mode a shared source file would create).
   const countryPages: MetadataRoute.Sitemap = COUNTRY_LIST.map((country) => ({
     url: `${BASE_URL}/country/${country.slug}`,
-    lastModified: lm(`/country/${country.slug}`),
+    lastModified: new Date(countryEditorial[country.slug].modified),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))

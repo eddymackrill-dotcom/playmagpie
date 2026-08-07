@@ -25,7 +25,9 @@ export const COUNTRY_LIST = [
   { name: 'Sweden', slug: 'sweden', currency: 'SEK' },
   { name: 'Finland', slug: 'finland', currency: 'EUR' },
   { name: 'Japan', slug: 'japan', currency: 'JPY' },
-]
+  // `as const` so slugs are literal types: lib/country-content.ts keys its
+  // editorial Record on this union, making a missing country a BUILD ERROR.
+] as const
 
 // Poker removed 2026-05-30: no operator in the catalogue is a genuine
 // top pick for poker (Evolution live poker is available but the table-game

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { casinos, casinoAcceptsCountry, type Casino, kycDisplayLabel } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+import { countryEditorial } from '@/lib/country-content'
 import FactChecked from '@/components/FactChecked'
 import { countryLastReviewed } from '@/lib/last-reviewed'
 
@@ -47,10 +48,11 @@ const FINLAND_STRIP_CARDS: CTAStripCard[] = [...eligibleCasinos]
   .slice(0, 3)
   .map(buildFinlandCard)
 
+// Title/H1/description come from lib/country-content.ts (Batch 1 de-templating,
+// 2026-08-07): one editorial source for the shell across all 10 country pages.
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos in Finland 2026: Veikkaus, the 2027 Reform & Tax',
-  description:
-    'Crypto casinos for Finnish players in 2026. The Veikkaus monopoly runs until the licensed market opens on 1 July 2027, the EEA winnings-tax carve-out, and Coinmotion / Northcrypto on-ramping.',
+  title: countryEditorial.finland.title,
+  description: countryEditorial.finland.metaDescription,
   alternates: { canonical: '/country/finland' },
   openGraph: {
     url: '/country/finland',
@@ -154,7 +156,7 @@ export default function FinlandPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">EUR · Finland</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            Best Crypto Casinos in Finland 2026
+            {countryEditorial.finland.h1}
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Finland is the last of the Nordic gambling monopolies, and it is on the clock. Veikkaus keeps

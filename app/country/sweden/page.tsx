@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { casinos, casinoAcceptsCountry, type Casino, kycDisplayLabel } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
+import { countryEditorial } from '@/lib/country-content'
 import FactChecked from '@/components/FactChecked'
 import { countryLastReviewed } from '@/lib/last-reviewed'
 
@@ -31,10 +32,11 @@ const SWEDEN_STRIP_CARDS: CTAStripCard[] = [...eligibleCasinos]
   .slice(0, 3)
   .map(buildSwedenCard)
 
+// Title/H1/description come from lib/country-content.ts (Batch 1 de-templating,
+// 2026-08-07): one editorial source for the shell across all 10 country pages.
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos in Sweden 2026: Spelinspektionen, On-Ramps & Tax',
-  description:
-    'Crypto casinos for Swedish players in 2026. Spellag one-bonus rule, Spelinspektionen channelisation 72–82% online casino, Safello MiCA-CASP, BTCX, Trijo on-ramping.',
+  title: countryEditorial.sweden.title,
+  description: countryEditorial.sweden.metaDescription,
   alternates: { canonical: '/country/sweden' },
   openGraph: {
     url: '/country/sweden',
@@ -133,7 +135,7 @@ export default function SwedenPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">SEK · Sweden</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            Best Crypto Casinos in Sweden 2026
+            {countryEditorial.sweden.h1}
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Swedish online gambling sits in a licensed-but-restrictive regime. Spelinspektionen&apos;s tight rules push

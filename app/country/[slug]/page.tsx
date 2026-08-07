@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { COUNTRY_LIST } from '@/lib/programmatic'
 import { casinos, casinoAcceptsCountry, type Casino, kycDisplayLabel } from '@/lib/casinos'
+import { countryEditorial, type CountrySlug } from '@/lib/country-content'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 import FactChecked from '@/components/FactChecked'
@@ -39,8 +40,13 @@ export async function generateMetadata(
   const { slug } = await props.params
   const country = COUNTRY_LIST.find((c) => c.slug === slug)
   if (!country) return {}
-  const title = `Best Crypto Casinos in ${country.name} 2026`
-  const description = `Top crypto casinos for ${country.name} players. Compare bonuses, payment methods and withdrawal speeds for ${country.currency} users.`
+  // NO FALLBACK by design: the editorial shell comes from lib/country-content.ts,
+  // enforced complete at compile time. A missing entry must never silently
+  // revert to a template string (Batch 1 de-templating, 2026-08-07).
+  const ed = countryEditorial[slug as CountrySlug]
+  if (!ed) throw new Error(`No countryEditorial entry for "${slug}": add it to lib/country-content.ts`)
+  const title = ed.title
+  const description = ed.metaDescription
   return {
     title,
     description,
@@ -190,7 +196,17 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
   const { slug } = await props.params
   const country = COUNTRY_LIST.find((c) => c.slug === slug)
   if (!country) notFound()
+  // NO FALLBACK: editorial shell from lib/country-content.ts (see generateMetadata).
+  // Static segments (sweden/finland) never reach this route, so template must exist.
+  const ed = countryEditorial[slug as CountrySlug]
+  if (!ed?.template) {
+    throw new Error(`No countryEditorial template for "${slug}": add it to lib/country-content.ts`)
+  }
+  const t = ed.template
   const hasLegalSubpage = LEGAL_SUBPAGE_SLUGS.has(slug)
+  if (hasLegalSubpage && !t.legalCrossLink) {
+    throw new Error(`"${slug}" has a legal sub-page but no legalCrossLink in lib/country-content.ts`)
+  }
   const hasBtcPage = BTC_PAGE_SLUGS.has(slug)
 
   const contentParagraphs = countryContext[slug] ?? []
@@ -233,33 +249,31 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
             <span className="text-[#7BB8D4] text-sm font-medium">{country.currency}</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            Best Crypto Casinos in {country.name} 2026
+            {ed.h1}
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            Top crypto casinos for {country.name} players. Compare bonuses, payment methods and withdrawal speeds for {country.currency} users.
+            {t.intro}
           </p>
           {countryLastReviewed[slug] && <FactChecked date={countryLastReviewed[slug]} />}
         </div>
 
         <CasinoCTAStrip
-          framing={`Top 3 by trust score among operators accepting ${country.name} accounts. Restricted-territory filter applied.`}
+          framing={t.stripFraming}
           cards={stripCards}
         />
 
         <section className="mb-12 prose prose-invert max-w-none">
           <h2 className="text-2xl font-bold text-white mb-4">
-            Crypto Casinos for {country.name} Players
+            {t.contextHeading}
           </h2>
           {contentParagraphs.map((paragraph, i) => (
             <p key={i} className="text-[#888888] leading-relaxed mb-4 last:mb-0">{paragraph}</p>
           ))}
-          {hasLegalSubpage && (
+          {hasLegalSubpage && t.legalCrossLink && (
             <p className="text-[#888888] leading-relaxed mt-4">
-              For the full breakdown of {country.name}&apos;s crypto gambling laws, covering the operator-versus-player
-              distinction, what the statutes actually say, enforcement in practice, and how winnings and crypto
-              are taxed, see our guide to{' '}
+              {t.legalCrossLink.before}
               <Link href={`/country/${slug}/legal`} className="text-[#7BB8D4] hover:underline font-medium">
-                whether crypto gambling is legal in {country.name}
+                {t.legalCrossLink.anchor}
               </Link>.
             </p>
           )}
@@ -287,9 +301,9 @@ export default async function CountryPage(props: PageProps<'/country/[slug]'>) {
         )}
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-2">All Crypto Casinos Ranked</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">{t.rankingHeading}</h2>
           <p className="text-[#888888] text-sm mb-6">
-            Independent rankings. Verify each platform accepts {country.name} accounts before depositing.
+            {t.rankingNote}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {eligibleCasinos.map((casino, i) => (
