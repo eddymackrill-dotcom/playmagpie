@@ -58,4 +58,4 @@ export const BONUS_TYPES = [
   { name: 'Free Spins', slug: 'free-spins' },
   { name: 'VIP Bonus', slug: 'vip-bonus' },
   { name: 'High Roller Bonus', slug: 'high-roller-bonus' },
-]
+] as const

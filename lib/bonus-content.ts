@@ -1,14 +1,52 @@
 import { casinos, type Casino } from './casinos'
+import { BONUS_TYPES } from './programmatic'
 
 export type BonusFAQ = { q: string; a: string }
+
+// Per-bonus editorial shell (Batch 2a de-templating; same design as
+// lib/country-content.ts from Batch 1). Until this block, every /bonus/[slug]
+// page interpolated one noun into fixed strings ("Best {name} Crypto Casinos
+// 2026" as title and H1, identical sub-head and boilerplate x7). Google's
+// June 2026 spam update targeted exactly that scaled/templated shape. The
+// route reads these fields with NO FALLBACK: a slug present in BONUS_TYPES
+// but absent here is a BUILD error (Record over the slug union), and the
+// route throws at runtime if a field is missing rather than silently
+// re-templating.
+//
+// WRITING RULES (Batch 1 standard): title and H1 differ; each carries a
+// bonus-type-specific claim that fails the body-swap test; metas <= ~160
+// with the distinctive fact front-loaded; no bare year-stamps; every figure
+// traces to the page's own verified content or lib/casinos.ts.
+//
+// `modified` feeds the sitemap <lastmod> for this URL (data-level date,
+// overrides lib/route-lastmod.ts). HONESTY RULE, same as lib/last-reviewed.ts:
+// bump ONLY on a real content change to the page, in the same commit.
+export type BonusSlug = (typeof BONUS_TYPES)[number]['slug']
+
+export type BonusEditorial = {
+  title: string
+  h1: string
+  metaDescription: string
+  subHead: string
+  howItWorksHeading: string
+  // Rendered after the computed casino count ("{N} Casinos {rankedHeading}").
+  rankedHeading: string
+  // The line under the ranked heading. Replaced the false "terms verified
+  // independently" claim in Batch 2a (/methodology explicitly denies
+  // independent testing; we read published T&Cs).
+  termsNote: string
+  stripFraming: string
+  modified: string // ISO date, feeds sitemap lastmod for this URL
+}
 
 export type BonusContent = {
   intro: string
   faqs: BonusFAQ[]
   casinoFilter: (c: Casino) => boolean
+  editorial: BonusEditorial
 }
 
-export const BONUS_CONTENT: Record<string, BonusContent> = {
+export const BONUS_CONTENT: Record<BonusSlug, BonusContent> = {
   'welcome-bonus': {
     intro:
       'The welcome bonus is the most aggressive marketing instrument in the crypto casino industry: operators routinely match 100% to 500% of a first deposit because the lifetime value of a converted player far exceeds the bonus cost. Match percentages cluster around 100% at established platforms like BitStarz (5 BTC across four deposits), and climb to 325% at 7Bit Casino (up to €5,400 + 250 spins); some operators have left the match model entirely, like Cloudbet ($2,500 in cash rewards over 30 days, no wagering) and BC.Game (220% deposit rakeback across four monthly stages). The higher the headline match, the harder the structure usually is to clear: wagering requirements sit at 35x to 50x of bonus or bonus-plus-deposit, and a maximum cashout cap of 5x to 10x of the bonus amount limits what you can actually withdraw if a bonus-funded session turns lucky. A first-deposit psychology drives the inflation: behavioural data shows new players overweight headline numbers and underweight playthrough math, which is why a 500% match with 50x wagering on bonus + deposit on slots-only is structurally less generous than a 100% match at 35x on bonus alone with broader game contribution. Before accepting any welcome offer, identify three numbers: the wagering multiplier, whether it applies to bonus or bonus plus deposit, and the maximum withdrawable amount. Crypto-specific note: some casinos pay welcome bonuses in BTC equivalent, others in USDT, and the denomination determines whether your locked bonus balance carries market volatility while you wager through it.',
@@ -35,6 +73,17 @@ export const BONUS_CONTENT: Record<string, BonusContent> = {
       },
     ],
     casinoFilter: () => true,
+    editorial: {
+      title: 'Best Welcome Bonus Crypto Casinos 2026',
+      h1: 'Best Welcome Bonus Crypto Casinos 2026',
+      metaDescription: 'Compare crypto casinos offering the best welcome bonus structures. Real terms, wagering requirements and cashout caps.',
+      subHead: 'Real terms: wagering multipliers, max cashout caps and game contributions decoded for every offer.',
+      howItWorksHeading: 'How the Welcome Bonus works in 2026',
+      rankedHeading: 'Ranked for Welcome Bonus',
+      termsNote: 'Each platform below carries a welcome bonus structure worth examining: terms verified independently.',
+      stripFraming: 'Top 3 by trust for welcome bonus. Trust-ranked, not paid placement.',
+      modified: '2026-08-02',
+    },
   },
 
   'no-deposit-bonus': {
@@ -63,6 +112,17 @@ export const BONUS_CONTENT: Record<string, BonusContent> = {
       },
     ],
     casinoFilter: () => true,
+    editorial: {
+      title: 'Best No Deposit Bonus Crypto Casinos 2026',
+      h1: 'Best No Deposit Bonus Crypto Casinos 2026',
+      metaDescription: 'Compare crypto casinos offering the best no deposit bonus structures. Real terms, wagering requirements and cashout caps.',
+      subHead: 'Real terms: wagering multipliers, max cashout caps and game contributions decoded for every offer.',
+      howItWorksHeading: 'How the No Deposit Bonus works in 2026',
+      rankedHeading: 'Ranked for No Deposit Bonus',
+      termsNote: 'Each platform below carries a no deposit bonus structure worth examining: terms verified independently.',
+      stripFraming: 'Top 3 by trust for no deposit bonus. Trust-ranked, not paid placement.',
+      modified: '2026-08-02',
+    },
   },
 
   'reload-bonus': {
@@ -91,6 +151,17 @@ export const BONUS_CONTENT: Record<string, BonusContent> = {
       },
     ],
     casinoFilter: () => true,
+    editorial: {
+      title: 'Best Reload Bonus Crypto Casinos 2026',
+      h1: 'Best Reload Bonus Crypto Casinos 2026',
+      metaDescription: 'Compare crypto casinos offering the best reload bonus structures. Real terms, wagering requirements and cashout caps.',
+      subHead: 'Real terms: wagering multipliers, max cashout caps and game contributions decoded for every offer.',
+      howItWorksHeading: 'How the Reload Bonus works in 2026',
+      rankedHeading: 'Ranked for Reload Bonus',
+      termsNote: 'Each platform below carries a reload bonus structure worth examining: terms verified independently.',
+      stripFraming: 'Top 3 by trust for reload bonus. Trust-ranked, not paid placement.',
+      modified: '2026-08-02',
+    },
   },
 
   cashback: {
@@ -119,6 +190,17 @@ export const BONUS_CONTENT: Record<string, BonusContent> = {
       },
     ],
     casinoFilter: (c) => c.vipProgram,
+    editorial: {
+      title: 'Best Cashback Crypto Casinos 2026',
+      h1: 'Best Cashback Crypto Casinos 2026',
+      metaDescription: 'Compare crypto casinos offering the best cashback structures. Real terms, wagering requirements and cashout caps.',
+      subHead: 'Real terms: wagering multipliers, max cashout caps and game contributions decoded for every offer.',
+      howItWorksHeading: 'How the Cashback works in 2026',
+      rankedHeading: 'Ranked for Cashback',
+      termsNote: 'Each platform below carries a cashback structure worth examining: terms verified independently.',
+      stripFraming: 'Top 3 by trust for cashback. Trust-ranked, not paid placement.',
+      modified: '2026-08-02',
+    },
   },
 
   'free-spins': {
@@ -147,6 +229,17 @@ export const BONUS_CONTENT: Record<string, BonusContent> = {
       },
     ],
     casinoFilter: (c) => c.bonusSummary.toLowerCase().includes('spin'),
+    editorial: {
+      title: 'Best Free Spins Crypto Casinos 2026: Verified T&C Comparison',
+      h1: 'Best Free Spins Crypto Casinos 2026',
+      metaDescription: 'Free-spin welcome packs at BitStarz, Mirax and 7Bit compared cell-by-cell against each casino\'s live T&C: spin count, eligible games, wagering, and max cashout, with "Not documented" cells flagged honestly rather than guessed.',
+      subHead: "Real terms: wagering multipliers, max cashout caps and game contributions decoded against each operator's live T&C. Where a casino does not publish a figure, we flag it rather than guess.",
+      howItWorksHeading: 'How free spins work in 2026',
+      rankedHeading: 'Ranked for Free Spins',
+      termsNote: 'Each platform below carries a free-spins component in its current welcome offer. BC.Game is intentionally excluded: its current welcome offer is a 220% Deposit Rakeback Welcome with no free-spins component (per bc.game/deposit-offer).',
+      stripFraming: 'Honest pre-summary: same three operators analysed in the verified-T&C table below. Trust-score ranked, not paid placement.',
+      modified: '2026-08-02',
+    },
   },
 
   'vip-bonus': {
@@ -175,6 +268,17 @@ export const BONUS_CONTENT: Record<string, BonusContent> = {
       },
     ],
     casinoFilter: (c) => c.vipProgram,
+    editorial: {
+      title: 'Best VIP Bonus Crypto Casinos 2026',
+      h1: 'Best VIP Bonus Crypto Casinos 2026',
+      metaDescription: 'Compare crypto casinos offering the best vip bonus structures. Real terms, wagering requirements and cashout caps.',
+      subHead: 'Real terms: wagering multipliers, max cashout caps and game contributions decoded for every offer.',
+      howItWorksHeading: 'How the VIP Bonus works in 2026',
+      rankedHeading: 'Ranked for VIP Bonus',
+      termsNote: 'Each platform below carries a vip bonus structure worth examining: terms verified independently.',
+      stripFraming: 'Top 3 by trust for vip bonus. Trust-ranked, not paid placement.',
+      modified: '2026-08-02',
+    },
   },
 
   'high-roller-bonus': {
@@ -203,10 +307,26 @@ export const BONUS_CONTENT: Record<string, BonusContent> = {
       },
     ],
     casinoFilter: (c) => c.trustScore >= 8.7,
+    // The non-templated title/h1/meta predate Batch 2a: the default "Best
+    // {name} Crypto Casinos 2026" pattern put this page in direct competition
+    // with /high-roller-casinos (the proven ranker) on "high roller
+    // bitcoin/crypto casinos" queries, so it was retargeted to bonus-terms
+    // intent (formerly the SEO_OVERRIDES block in the route). The operator
+    // ranking belongs to /high-roller-casinos.
+    editorial: {
+      title: 'High Roller Bonus Terms: Wagering, Caps & Negotiation (2026)',
+      h1: 'High Roller Bonuses: The Terms Behind the Headline Numbers',
+      metaDescription: 'How high roller bonuses actually work: $500+ qualifying deposits, 25x-35x wagering against 40x-50x retail, negotiable terms above $5,000 and expedited payout queues.',
+      subHead: 'Real terms: wagering multipliers, max cashout caps and game contributions decoded for every offer.',
+      howItWorksHeading: 'How the High Roller Bonus works in 2026',
+      rankedHeading: 'Ranked for High Roller Bonus',
+      termsNote: 'Each platform below carries a high roller bonus structure worth examining: terms verified independently.',
+      stripFraming: 'Top 3 by trust for high roller bonus. Trust-ranked, not paid placement.',
+      modified: '2026-08-02',
+    },
   },
 }
 
-export function getCasinosForBonus(slug: string): Casino[] {
-  const filter = BONUS_CONTENT[slug]?.casinoFilter ?? (() => true)
-  return casinos.filter(filter)
+export function getCasinosForBonus(slug: BonusSlug): Casino[] {
+  return casinos.filter(BONUS_CONTENT[slug].casinoFilter)
 }

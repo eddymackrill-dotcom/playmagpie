@@ -136,14 +136,18 @@ const STRIP_CARDS: CTAStripCard[] = [
   },
 ]
 
+// Title, H1, meta and per-slug boilerplate live in the 'free-spins' editorial
+// entry of lib/bonus-content.ts (Batch 2a data layer), same source the dynamic
+// /bonus/[slug] template reads. Static segment, same data discipline.
+const editorial = BONUS_CONTENT['free-spins'].editorial
+
 export const metadata: Metadata = {
-  title: 'Best Free Spins Crypto Casinos 2026: Verified T&C Comparison',
-  description:
-    'Free-spin welcome packs at BitStarz, Mirax and 7Bit compared cell-by-cell against each casino\'s live T&C: spin count, eligible games, wagering, and max cashout, with "Not documented" cells flagged honestly rather than guessed.',
+  title: editorial.title,
+  description: editorial.metaDescription,
   alternates: { canonical: '/bonus/free-spins' },
   openGraph: {
     url: '/bonus/free-spins',
-    title: 'Best Free Spins Crypto Casinos 2026: Verified T&C Comparison',
+    title: editorial.title,
     description:
       'Verified per-casino free-spins data: spin count, wagering, max cashout. Three operators compared against their live T&C, gaps flagged honestly.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Free Spins Crypto Casinos 2026' }],
@@ -204,22 +208,20 @@ export default function FreeSpinsBonusPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">🎰 Free Spins</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            Best Free Spins Crypto Casinos 2026
+            {editorial.h1}
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            Real terms: wagering multipliers, max cashout caps and game contributions decoded against
-            each operator&apos;s live T&amp;C. Where a casino does not publish a figure, we flag it
-            rather than guess.
+            {editorial.subHead}
           </p>
         </div>
 
         <CasinoCTAStrip
-          framing="Honest pre-summary: same three operators analysed in the verified-T&C table below. Trust-score ranked, not paid placement."
+          framing={editorial.stripFraming}
           cards={STRIP_CARDS}
         />
 
         <section className="mb-12 prose prose-invert max-w-none">
-          <h2 className="text-2xl font-bold text-white mb-4">How free spins work in 2026</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">{editorial.howItWorksHeading}</h2>
           <p className="text-[#888888] leading-relaxed whitespace-pre-line">{content.intro}</p>
         </section>
 
@@ -321,12 +323,10 @@ export default function FreeSpinsBonusPage() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">
-            {matching.length} {matching.length === 1 ? 'Casino' : 'Casinos'} Ranked for Free Spins
+            {matching.length} {matching.length === 1 ? 'Casino' : 'Casinos'} {editorial.rankedHeading}
           </h2>
           <p className="text-[#888888] text-sm mb-6">
-            Each platform below carries a free-spins component in its current welcome offer.
-            BC.Game is intentionally excluded: its current welcome offer is a 220% Deposit Rakeback
-            Welcome with no free-spins component (per bc.game/deposit-offer).
+            {editorial.termsNote}
           </p>
           {matching.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

@@ -4,6 +4,7 @@ import { guides } from '@/lib/guides'
 import { CRYPTO_LIST, COUNTRY_LIST, GAME_TYPES, BONUS_TYPES } from '@/lib/programmatic'
 import { ROUTE_LASTMOD } from '@/lib/route-lastmod'
 import { countryEditorial } from '@/lib/country-content'
+import { BONUS_CONTENT } from '@/lib/bonus-content'
 
 const BASE_URL = 'https://www.playmagpie.com'
 
@@ -133,9 +134,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
+  // Bonus pages carry data-level dates in lib/bonus-content.ts (`editorial.modified`,
+  // Batch 2a), which override the floor map: editing one bonus page's copy bumps
+  // that URL alone, not all seven. Covers /bonus/free-spins too (static segment,
+  // same data source).
   const bonusPages: MetadataRoute.Sitemap = BONUS_TYPES.map((bonus) => ({
     url: `${BASE_URL}/bonus/${bonus.slug}`,
-    lastModified: lm(`/bonus/${bonus.slug}`),
+    lastModified: new Date(BONUS_CONTENT[bonus.slug].editorial.modified),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))

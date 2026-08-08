@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { BONUS_TYPES } from '@/lib/programmatic'
-import { BONUS_CONTENT, getCasinosForBonus } from '@/lib/bonus-content'
+import { BONUS_CONTENT, getCasinosForBonus, type BonusSlug } from '@/lib/bonus-content'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
@@ -45,21 +45,10 @@ const STRIP_BY_BONUS: Record<string, CTAStripCard[]> = {
   ],
 }
 
-// Per-slug SEO overrides. The default "Best {name} Crypto Casinos 2026"
-// pattern put /bonus/high-roller-bonus in direct competition with
-// /high-roller-casinos (the proven ranker) on "high roller bitcoin/crypto
-// casinos" queries. GSC showed the bonus page absorbing the head query at a
-// worse position than the page that should own it. The override retargets
-// this page to bonus-terms intent; the operator ranking belongs to
-// /high-roller-casinos.
-const SEO_OVERRIDES: Record<string, { title: string; description: string; h1: string }> = {
-  'high-roller-bonus': {
-    title: 'High Roller Bonus Terms: Wagering, Caps & Negotiation (2026)',
-    description:
-      'How high roller bonuses actually work: $500+ qualifying deposits, 25x-35x wagering against 40x-50x retail, negotiable terms above $5,000 and expedited payout queues.',
-    h1: 'High Roller Bonuses: The Terms Behind the Headline Numbers',
-  },
-}
+// Titles, H1s, metas and per-slug boilerplate live in lib/bonus-content.ts
+// (`editorial`, Batch 2a data layer). The route reads them with NO fallback:
+// a missing entry is a compile error (Record over the slug union) and a
+// missing field throws below rather than re-templating.
 
 // Contextual cross-links rendered after the intro. The high-roller entry
 // hands the operator-ranking query to /high-roller-casinos and carries the
@@ -97,11 +86,10 @@ export async function generateMetadata(
   const { slug } = await props.params
   const bonus = BONUS_TYPES.find((b) => b.slug === slug)
   if (!bonus) return {}
-  const override = SEO_OVERRIDES[slug]
-  const title = override?.title ?? `Best ${bonus.name} Crypto Casinos 2026`
-  const description =
-    override?.description ??
-    `Compare crypto casinos offering the best ${bonus.name.toLowerCase()} structures. Real terms, wagering requirements and cashout caps.`
+  const editorial = BONUS_CONTENT[bonus.slug].editorial
+  if (!editorial) throw new Error(`bonus/[slug]: no editorial entry for "${slug}" in lib/bonus-content.ts`)
+  const title = editorial.title
+  const description = editorial.metaDescription
   return {
     title,
     description,
@@ -121,9 +109,11 @@ export default async function BonusPage(props: PageProps<'/bonus/[slug]'>) {
   const bonus = BONUS_TYPES.find((b) => b.slug === slug)
   if (!bonus) notFound()
 
-  const content = BONUS_CONTENT[slug]
+  const content = BONUS_CONTENT[slug as BonusSlug]
   if (!content) notFound()
-  const matching = getCasinosForBonus(slug)
+  const editorial = content.editorial
+  if (!editorial) throw new Error(`bonus/[slug]: no editorial entry for "${slug}" in lib/bonus-content.ts`)
+  const matching = getCasinosForBonus(slug as BonusSlug)
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -169,32 +159,32 @@ export default async function BonusPage(props: PageProps<'/bonus/[slug]'>) {
             <span className="text-[#7BB8D4] text-sm font-medium">{bonus.name}</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            {SEO_OVERRIDES[slug]?.h1 ?? `Best ${bonus.name} Crypto Casinos 2026`}
+            {editorial.h1}
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
-            Real terms: wagering multipliers, max cashout caps and game contributions decoded for every offer.
+            {editorial.subHead}
           </p>
         </div>
 
         {STRIP_BY_BONUS[slug] && (
           <CasinoCTAStrip
-            framing={`Top 3 by trust for ${bonus.name.toLowerCase()}. Trust-ranked, not paid placement.`}
+            framing={editorial.stripFraming}
             cards={STRIP_BY_BONUS[slug]}
           />
         )}
 
         <section className="mb-12 prose prose-invert max-w-none">
-          <h2 className="text-2xl font-bold text-white mb-4">How the {bonus.name} works in 2026</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">{editorial.howItWorksHeading}</h2>
           <p className="text-[#888888] leading-relaxed whitespace-pre-line">{content.intro}</p>
           {CROSS_LINKS_BY_BONUS[slug]}
         </section>
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-2">
-            {matching.length} {matching.length === 1 ? 'Casino' : 'Casinos'} Ranked for {bonus.name}
+            {matching.length} {matching.length === 1 ? 'Casino' : 'Casinos'} {editorial.rankedHeading}
           </h2>
           <p className="text-[#888888] text-sm mb-6">
-            Each platform below carries a {bonus.name.toLowerCase()} structure worth examining: terms verified independently.
+            {editorial.termsNote}
           </p>
           {matching.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
