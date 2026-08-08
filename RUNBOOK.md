@@ -30,6 +30,14 @@ report on. Run this instead:
    /fast-withdrawal-casinos (absorbed the withdrawals guide), /high-roller-casinos (flagship),
    /reviews/bitstarz/kyc (formerly carried FAQ rich results). Record any FAQ rich-result
    return: it is the earliest trust-restoration signal.
+2b. DE-TEMPLATING CRAWL WATCH (temporary; drop each list when its window closes).
+   Single-URL inspection last-crawled dates vs the baseline in STATE.md Next decided actions:
+   - Batch 1, 10 /country/[slug] pages, window closes ~2026-08-21 (Checkpoint B: if NONE of
+     Sweden/Netherlands/Australia has re-crawled by then, stop the de-templating programme).
+   - Batch 2a, 7 /bonus pages, window closes ~2026-08-22 (baseline 2026-08-08: cashback 08-01,
+     no-deposit 07-25, reload 07-19, welcome 07-03, vip 06-25, high-roller 06-25, free-spins
+     never crawled). A first-ever crawl of /bonus/free-spins = the welcome-bonus carrier link
+     worked; log it when it appears.
 3. Optional, 1 DataForSEO call max: live SERP check on "high roller crypto casinos" (Canada).
    Present in top 100 = serving is returning.
 4. Bing glance (added 2026-07-13, Bing Webmaster Tools live via GSC import): Search Performance
