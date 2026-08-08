@@ -53,8 +53,23 @@ const STRIP_BY_BONUS: Record<string, CTAStripCard[]> = {
 // Contextual cross-links rendered after the intro. The high-roller entry
 // hands the operator-ranking query to /high-roller-casinos and carries the
 // only contextual prose inbound link to /game/live-dealer (crawl-discovery
-// rule: the link ships from a page modified in the same batch).
+// rule: the link ships from a page modified in the same batch). The
+// welcome-bonus entry is the Batch 2a carrier link for /bonus/free-spins,
+// which was "URL is unknown to Google" (never crawled) at the 2026-08-08
+// pre-ship snapshot: same crawl-discovery rule, host page modified in the
+// same commit.
 const CROSS_LINKS_BY_BONUS: Record<string, ReactNode> = {
+  'welcome-bonus': (
+    <p className="text-[#888888] leading-relaxed mt-4">
+      The spin side of those same packages runs on different math: headline counts convert to cash
+      through spin value, eligible games and win caps, and the clause-level figures the three
+      spin-carrying operators actually publish are compared in our{' '}
+      <Link href="/bonus/free-spins" className="text-[#7BB8D4] hover:underline">
+        verified free spins terms table
+      </Link>
+      .
+    </p>
+  ),
   'high-roller-bonus': (
     <p className="text-[#888888] leading-relaxed mt-4">
       This page covers the bonus structures only. For the operator ranking itself (withdrawal caps,

@@ -150,11 +150,11 @@ export const metadata: Metadata = {
     title: editorial.title,
     description:
       'Verified per-casino free-spins data: spin count, wagering, max cashout. Three operators compared against their live T&C, gaps flagged honestly.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Free Spins Crypto Casinos 2026' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: editorial.title }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Free Spins Crypto Casinos 2026',
+    title: editorial.title,
     description: 'BitStarz / Mirax / 7Bit free-spins terms compared against live T&C with verified-vs-not-documented cells flagged.',
     images: ['/og-image.png'],
   },
