@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: editorial.h1,
     description:
       'Crypto casinos with the best crash game selection: Originals, Aviator and provably-fair seed verification.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Crash Casinos 2026' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: editorial.h1 }],
   },
   twitter: {
     card: 'summary_large_image',
