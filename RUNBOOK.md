@@ -38,6 +38,12 @@ report on. Run this instead:
      no-deposit 07-25, reload 07-19, welcome 07-03, vip 06-25, high-roller 06-25, free-spins
      never crawled). A first-ever crawl of /bonus/free-spins = the welcome-bonus carrier link
      worked; log it when it appears.
+   - Batch 2b, 5 /crypto + 3 /game pages, window closes ~2026-08-24 (baseline 2026-08-10:
+     all five crypto 07-09; dice 07-29, plinko 05-30, crash 05-28). /crypto/bnb is not on
+     the watch (unchanged by design).
+   - GATE for 2c/2d (drafts in reports/batch2bcd-drafts.md): first country-page crawl date
+     >= 2026-08-07 observed during this check fires their execution early; otherwise they
+     run at Checkpoint B (2026-08-21), subject to its stop condition.
 3. Optional, 1 DataForSEO call max: live SERP check on "high roller crypto casinos" (Canada).
    Present in top 100 = serving is returning.
 4. Bing glance (added 2026-07-13, Bing Webmaster Tools live via GSC import): Search Performance
