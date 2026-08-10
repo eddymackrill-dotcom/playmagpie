@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { casinos, getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
+import { gameEditorial } from '@/lib/game-content'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
@@ -33,21 +34,25 @@ const STRIP_CARDS: CTAStripCard[] = [
   },
 ]
 
+// Title, H1, meta and the ranked heading live in the 'dice' entry of
+// lib/game-content.ts (Batch 2b data layer), the Sweden/Finland static-
+// segment pattern.
+const editorial = gameEditorial['dice']
+
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos for Dice 2026: Provably-Fair Originals & 99% RTP',
-  description:
-    'Crypto casinos with the best dice game selection in 2026. BC.Game, Shuffle, Duelbits and Roobet compared on native provably-fair Originals, adjustable win-chance and house edge.',
+  title: editorial.title,
+  description: editorial.metaDescription,
   alternates: { canonical: '/game/dice' },
   openGraph: {
     url: '/game/dice',
-    title: 'Best Crypto Casinos for Dice 2026',
+    title: editorial.h1,
     description:
       'Crypto casinos with the best dice selection: provably-fair Originals, 99% standard RTP and full seed verification.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Dice Casinos 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Crypto Casinos for Dice 2026',
+    title: editorial.h1,
     description: 'BC.Game, Shuffle, Duelbits and Roobet compared on provably-fair dice Originals, win-chance maths and KYC posture.',
     images: ['/og-image.png'],
   },
@@ -155,7 +160,7 @@ export default function DiceCasinosPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">🎲 Dice Games</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            Best Crypto Casinos for Dice 2026
+            {editorial.h1}
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Dice is the original provably-fair crypto game: dating to the earliest Bitcoin casinos and still the
@@ -184,7 +189,7 @@ export default function DiceCasinosPage() {
         />
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-2">Top Casinos for Dice</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">{editorial.rankedHeading}</h2>
           <p className="text-[#888888] text-sm mb-6">
             Filtered to platforms running a native provably-fair Dice Original. Ranked by trust score. See the
             per-casino notes below for the operational angle on each.

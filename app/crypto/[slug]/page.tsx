@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { CRYPTO_LIST } from '@/lib/programmatic'
+import { cryptoEditorial } from '@/lib/crypto-content'
 import { casinos, type Casino, kycDisplayLabel } from '@/lib/casinos'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
@@ -49,24 +50,23 @@ export async function generateStaticParams() {
   return CRYPTO_LIST.map((c) => ({ slug: c.slug }))
 }
 
-// BNB is repositioned as the chain/coin reference page only. The commercial
-// "best BNB casinos" listicle lives at /bnb-crypto-casinos with explicit
-// canonical separation. See the BNB branch in this file's body for the
-// informational-only treatment, and the metadata switch immediately below
-// for the matching title/description/canonical for crypto/bnb.
+// Titles, H1s, metas and per-coin boilerplate live in lib/crypto-content.ts
+// (Batch 2b data layer). The route reads them with NO fallback: a missing
+// entry is a compile error (Record over the slug union) and a missing field
+// throws below rather than re-templating. BNB remains the chain/coin
+// reference page only; the commercial "best BNB casinos" listicle lives at
+// /bnb-crypto-casinos with explicit canonical separation, and BNB's bespoke
+// shell strings moved into the Record verbatim.
 export async function generateMetadata(
   props: PageProps<'/crypto/[slug]'>
 ): Promise<Metadata> {
   const { slug } = await props.params
   const crypto = CRYPTO_LIST.find((c) => c.slug === slug)
   if (!crypto) return {}
-  const isBNB = crypto.symbol === 'BNB'
-  const title = isBNB
-    ? 'BNB on Crypto Casinos: Chain Mechanics, Fees, Networks'
-    : `Best ${crypto.name} Casinos 2026`
-  const description = isBNB
-    ? 'How BNB works at crypto casinos: BNB Smart Chain mechanics, confirmation times, fee character. For the ranked list of BNB-accepting operators, see /bnb-crypto-casinos.'
-    : `Top crypto casinos accepting ${crypto.name}. Compare bonuses, withdrawal times and fees.`
+  const editorial = cryptoEditorial[crypto.slug]
+  if (!editorial) throw new Error(`crypto/[slug]: no editorial entry for "${slug}" in lib/crypto-content.ts`)
+  const title = editorial.title
+  const description = editorial.metaDescription
   return {
     title,
     description,
@@ -101,6 +101,8 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
 
   const matching = casinos.filter((c) => casinoAcceptsCrypto(c, crypto.symbol))
   const intro = intros[crypto.symbol] ?? ''
+  const editorial = cryptoEditorial[crypto.slug]
+  if (!editorial) throw new Error(`crypto/[slug]: no editorial entry for "${slug}" in lib/crypto-content.ts`)
   const isBNB = crypto.symbol === 'BNB'
   const isDOGE = crypto.symbol === 'DOGE'
   // DOGE strengthening: lead with a commercial comparison table of every
@@ -110,19 +112,15 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
   // split, and /crypto/dogecoin already outranks that whole experiment).
   const dogeRanked = isDOGE ? [...matching].sort((a, b) => b.trustScore - a.trustScore) : []
 
-  const headingLabel = isBNB
-    ? `BNB at Crypto Casinos: Chain Mechanics & Networks`
-    : `Best ${crypto.name} Casinos 2026`
-  const subHeadingLabel = isBNB
-    ? `BNB Smart Chain mechanics, deposit-side behaviour, and fee character at crypto casinos. The ranked listicle of BNB-accepting operators lives at /bnb-crypto-casinos.`
-    : `Top crypto casinos accepting ${crypto.name}. Compare bonuses, withdrawal times and fees.`
+  const headingLabel = editorial.h1
+  const subHeadingLabel = editorial.subHead
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
-      { '@type': 'ListItem', position: 2, name: isBNB ? 'BNB Reference' : `${crypto.name} Casinos`, item: `https://www.playmagpie.com/crypto/${crypto.slug}` },
+      { '@type': 'ListItem', position: 2, name: editorial.breadcrumbLabel, item: `https://www.playmagpie.com/crypto/${crypto.slug}` },
     ],
   }
 
@@ -136,7 +134,7 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
         <nav className="flex items-center gap-2 text-sm text-[#888888] mb-8">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <span>/</span>
-          <span className="text-[#f5f5f5]">{isBNB ? 'BNB Reference' : `${crypto.name} Casinos`}</span>
+          <span className="text-[#f5f5f5]">{editorial.breadcrumbLabel}</span>
         </nav>
 
         <div className="mb-10">
@@ -150,7 +148,7 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
         {!isDOGE && (
           <section className="mb-12 prose prose-invert max-w-none">
             <h2 className="text-2xl font-bold text-white mb-4">
-              {isBNB ? 'How BNB behaves at crypto casinos' : `Gambling with ${crypto.name}`}
+              {editorial.introHeading}
             </h2>
             <p className="text-[#888888] leading-relaxed">{intro}</p>
           </section>
@@ -158,7 +156,7 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
 
         {STRIP_BY_CRYPTO[slug] && (
           <CasinoCTAStrip
-            framing={`Top 3 ${crypto.symbol}-accepting operators by trust score. Not paid placement.`}
+            framing={editorial.stripFraming}
             cards={STRIP_BY_CRYPTO[slug]}
           />
         )}
@@ -242,10 +240,10 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
         ) : (
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-2">
-              {matching.length} {crypto.name} {matching.length === 1 ? 'Casino' : 'Casinos'} Ranked
+              {matching.length} {editorial.rankedHeading}
             </h2>
             <p className="text-[#888888] text-sm mb-6">
-              Every platform below accepts {crypto.symbol} for deposits and withdrawals.
+              {editorial.rankedNote}
             </p>
             {matching.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -261,7 +259,7 @@ export default async function CryptoPage(props: PageProps<'/crypto/[slug]'>) {
 
         {isDOGE && (
           <section className="mt-12 prose prose-invert max-w-none">
-            <h2 className="text-2xl font-bold text-white mb-4">How Dogecoin behaves at crypto casinos</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">{editorial.introHeading}</h2>
             <p className="text-[#888888] leading-relaxed">{intro}</p>
           </section>
         )}

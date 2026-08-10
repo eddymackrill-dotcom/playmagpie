@@ -5,6 +5,8 @@ import { CRYPTO_LIST, COUNTRY_LIST, GAME_TYPES, BONUS_TYPES } from '@/lib/progra
 import { ROUTE_LASTMOD } from '@/lib/route-lastmod'
 import { countryEditorial } from '@/lib/country-content'
 import { BONUS_CONTENT } from '@/lib/bonus-content'
+import { cryptoEditorial } from '@/lib/crypto-content'
+import { gameEditorial } from '@/lib/game-content'
 
 const BASE_URL = 'https://www.playmagpie.com'
 
@@ -101,9 +103,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  // Crypto pages carry data-level dates in lib/crypto-content.ts (Batch 2b),
+  // which override the floor map: editing one coin's copy bumps that URL alone.
   const cryptoPages: MetadataRoute.Sitemap = CRYPTO_LIST.map((crypto) => ({
     url: `${BASE_URL}/crypto/${crypto.slug}`,
-    lastModified: lm(`/crypto/${crypto.slug}`),
+    lastModified: new Date(cryptoEditorial[crypto.slug].modified),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))
@@ -127,9 +131,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  // Game statics carry data-level dates in lib/game-content.ts (Batch 2b).
   const gamePages: MetadataRoute.Sitemap = GAME_TYPES.map((game) => ({
     url: `${BASE_URL}/game/${game.slug}`,
-    lastModified: lm(`/game/${game.slug}`),
+    lastModified: new Date(gameEditorial[game.slug].modified),
     changeFrequency: 'weekly',
     priority: 0.75,
   }))

@@ -12,7 +12,7 @@ export const CRYPTO_LIST = [
   { symbol: 'DOGE', name: 'Dogecoin', slug: 'dogecoin' },
   { symbol: 'SOL', name: 'Solana', slug: 'solana' },
   { symbol: 'BNB', name: 'BNB', slug: 'bnb' },
-]
+] as const
 
 export const COUNTRY_LIST = [
   { name: 'Canada', slug: 'canada', currency: 'CAD' },
@@ -48,7 +48,7 @@ export const GAME_TYPES = [
   { name: 'Crash', slug: 'crash' },
   { name: 'Dice', slug: 'dice' },
   { name: 'Plinko', slug: 'plinko' },
-]
+] as const
 
 export const BONUS_TYPES = [
   { name: 'Welcome Bonus', slug: 'welcome-bonus' },

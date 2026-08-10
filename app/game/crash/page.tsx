@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { casinos, getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
+import { gameEditorial } from '@/lib/game-content'
 import CasinoCard from '@/components/CasinoCard'
 import CasinoCTAStrip, { type CTAStripCard } from '@/components/CasinoCTAStrip'
 
@@ -35,21 +36,25 @@ const STRIP_CARDS: CTAStripCard[] = [
   },
 ]
 
+// Title, H1, meta and the ranked heading live in the 'crash' entry of
+// lib/game-content.ts (Batch 2b data layer), the Sweden/Finland static-
+// segment pattern.
+const editorial = gameEditorial['crash']
+
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos for Crash Games 2026: Aviator, JetX, Originals',
-  description:
-    'Crypto casinos with the best crash game selection in 2026. BC.Game, Shuffle, Duelbits and Roobet compared on native Originals, Aviator coverage, RTP and KYC posture.',
+  title: editorial.title,
+  description: editorial.metaDescription,
   alternates: { canonical: '/game/crash' },
   openGraph: {
     url: '/game/crash',
-    title: 'Best Crypto Casinos for Crash Games 2026',
+    title: editorial.h1,
     description:
       'Crypto casinos with the best crash game selection: Originals, Aviator and provably-fair seed verification.',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Crash Casinos 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Crypto Casinos for Crash Games 2026',
+    title: editorial.h1,
     description: 'BC.Game, Shuffle, Duelbits and Roobet compared on crash Originals, Aviator coverage and provably-fair verification.',
     images: ['/og-image.png'],
   },
@@ -158,7 +163,7 @@ export default function CrashCasinosPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">📈 Crash Games</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            Best Crypto Casinos for Crash Games 2026
+            {editorial.h1}
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Crash is one of the few casino formats that became popular through crypto and stayed there. The mechanic is
@@ -188,7 +193,7 @@ export default function CrashCasinosPage() {
         />
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-2">Top Casinos for Crash Games</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">{editorial.rankedHeading}</h2>
           <p className="text-[#888888] text-sm mb-6">
             Filtered to platforms with native provably-fair crash Originals. Ranked by trust score. See the per-casino notes below for the operational angle on each.
           </p>
