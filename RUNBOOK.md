@@ -31,19 +31,30 @@ report on. Run this instead:
    /reviews/bitstarz/kyc (formerly carried FAQ rich results). Record any FAQ rich-result
    return: it is the earliest trust-restoration signal.
 2b. DE-TEMPLATING CRAWL WATCH (temporary; drop each list when its window closes).
-   Single-URL inspection last-crawled dates vs the baseline in STATE.md Next decided actions:
-   - Batch 1, 10 /country/[slug] pages, window closes ~2026-08-21 (Checkpoint B: if NONE of
-     Sweden/Netherlands/Australia has re-crawled by then, stop the de-templating programme).
-   - Batch 2a, 7 /bonus pages, window closes ~2026-08-22 (baseline 2026-08-08: cashback 08-01,
-     no-deposit 07-25, reload 07-19, welcome 07-03, vip 06-25, high-roller 06-25, free-spins
-     never crawled). A first-ever crawl of /bonus/free-spins = the welcome-bonus carrier link
-     worked; log it when it appears.
-   - Batch 2b, 5 /crypto + 3 /game pages, window closes ~2026-08-24 (baseline 2026-08-10:
-     all five crypto 07-09; dice 07-29, plinko 05-30, crash 05-28). /crypto/bnb is not on
-     the watch (unchanged by design).
-   - GATE for 2c/2d (drafts in reports/batch2bcd-drafts.md): first country-page crawl date
-     >= 2026-08-07 observed during this check fires their execution early; otherwise they
-     run at Checkpoint B (2026-08-21), subject to its stop condition.
+   Single-URL inspection last-crawled dates vs the baselines in STATE.md Next decided actions.
+   Covers all three shipped batches, 25 URLs total:
+   - Batch 1 (deployed 07 Aug), 10 /country/[slug] pages, 14-day window ends ~21 Aug.
+   - Batch 2a (deployed 08 Aug), 7 /bonus pages, window ends ~22 Aug (baseline 2026-08-08:
+     cashback 08-01, no-deposit 07-25, reload 07-19, welcome 07-03, vip 06-25, high-roller
+     06-25, free-spins never crawled; a first-ever crawl of /bonus/free-spins = the
+     welcome-bonus carrier link worked; log it when it appears).
+   - Batch 2b (deployed 10 Aug), 5 /crypto + 3 /game pages, window ends ~24 Aug (baseline
+     2026-08-10: all five crypto 07-09; dice 07-29, plinko 05-30, crash 05-28). /crypto/bnb
+     is not on the watch (unchanged by design).
+
+   **STANDING TRIGGER, checked first every time: ANY Google crawl date >= 2026-08-07 on a
+   changed URL -> execute 2c and 2d immediately from reports/batch2bcd-drafts.md. No
+   redrafting, no new approval needed; the drafts are owner-approved as committed.**
+
+   The two dated checkpoints:
+   - **Checkpoint B, ~21 Aug (Google):** if Sweden/Netherlands/Australia show NO recrawl by
+     then, STOP the de-templating programme and diagnose before touching the remaining URLs;
+     the problem is upstream of page content.
+   - **Checkpoint A, ~21 Aug (Bing/AI):** re-export and compare vs
+     reports/bing-baseline-2026-08-07/. The crawl-date gate applies (a reading only counts
+     against a page Bing has re-read); /country/australia/legal's regression floor is 23,
+     NOT its 10-Aug demand-driven 207. A clean pass opens the reviews batch under the
+     match-phrase-invariant rule.
 3. Optional, 1 DataForSEO call max: live SERP check on "high roller crypto casinos" (Canada).
    Present in top 100 = serving is returning.
 4. Bing glance (added 2026-07-13, Bing Webmaster Tools live via GSC import): Search Performance
