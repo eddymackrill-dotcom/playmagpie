@@ -314,3 +314,147 @@ constraints), and any Google-side effect (the suppression makes Google
 unmeasurable; this is a Bing/AI-channel programme and its metrics are
 citations, not positions, consistent with the one-off exception framing
 recorded in STATE.md on 2026-08-11).
+
+---
+
+# Addendum (2026-08-11, owner-directed): trigger test, prediction markets, sub-national scope, matrix trackers
+
+## A1. The trigger test
+
+Derived from the two owner examples, both verified this session.
+Kalshi/Washington checks out in full: preliminary injunction granted
+20 July 2026 (King County Superior Court, AG Nick Brown), appeal filed
+late July, Neal Katyal engaged as Kalshi's lead national counsel,
+conflicting federal rulings (Minnesota 27 July blocking state
+enforcement, Utah against Kalshi, Michigan 7 August rejecting Coinbase
+Financial Markets), WA stay ruling expected imminently. Italy is weaker
+than the headline: it is the LAND-BASED reorganisation decree (venue
+distances, licence auctions, ADM centralisation) rejected by the PM's
+office and dropped from the 2026 agenda: B2B, status-quo-preserving,
+no player consequence, non-English.
+
+**THE TEST. A page or tracker is justified only when ALL THREE hold:**
+
+1. **An unresolved own-position question**: an individual is actively
+   asking a first-person question about their own situation ("can I
+   still use...", "is it legal for me...", "why is my... blocked",
+   "are X legal in my state") whose answer is currently uncertain or
+   changing. Operator-facing and B2B stories fail here.
+2. **A dated forward event**: a scheduled or imminent ruling, deadline,
+   report or commencement guarantees the question gets re-asked and the
+   answer changes. "Resolved" and "status quo preserved" fail.
+3. **Primary-sourceable in a language we publish**: the position can be
+   verified to statutes, court orders or regulator statements in
+   English (verify-or-omit feasibility), and meaningful demand is
+   English-language.
+
+"A regulatory story exists" is not the trigger. "Trade press covered
+it" is not the trigger. Evergreen verticals (Curacao licence explainer,
+source-of-funds) are justified on a different basis (standing demand)
+and are not scored by this test.
+
+**Applied to every Part 1 event:**
+
+| Event | 1: own-position q | 2: dated forward event | 3: English/sourceable | Verdict |
+|---|---|---|---|---|
+| Australia bill | yes | 17 Aug report; 1 Jan 2027 | yes | **PASS** (held asset) |
+| Canada/Alberta | yes, short-lived | no (event resolved 13 Jul) | yes | **UPDATE ONLY**: additive section, not a tracker |
+| NZ 1 Dec deadline | yes | 1 Dec 2026, statutory | yes | **PASS** |
+| Ireland GRAI | yes | Dec 2026 in-person milestone | yes | **PASS** |
+| Brazil | yes (payment blocks) | rolling ordinances | Portuguese-dominant | **FAIL for us** (criterion 3) |
+| India | yes | recurring blocking waves, no single date | yes | **CONDITIONAL PASS** (authority-lean; promotion-risk check first) |
+| US sweepstakes | yes, per state | next state action + pending DOJ response | yes | **PASS, strong** |
+| Japan | yes (players have been charged) | ISP-blocking decision pending | partly | **CONDITIONAL PASS** (publisher-risk posture caps it) |
+| Netherlands KSA | partly (bank blocks) | none dated | partly Dutch | **FAIL standalone**; feeds the payments/source-of-funds vertical |
+| Germany GGL | partly | none dated | partly German | **FAIL standalone**; same vertical |
+| Philippines | no | n/a | yes | **FAIL** |
+| Curacao LOK | trust question, not event | none | yes | Not scored: evergreen guide, different justification |
+| Finland 2027 | yes | 1 Jul 2027 | yes | **PASS**, timing far |
+| UK white paper | yes | 1 Sep levy invoice; FRA decision | yes | PASS on the test, **excluded by the .co.uk boundary** |
+| Italy decree | no | no (dropped from agenda) | no | **FAIL** (the owner's read confirmed): radar line only |
+| Kalshi / prediction markets | yes, acutely | WA stay ruling imminent; appeals; more states | yes (court records) | **PASS, the archetype**: and no canonical status page exists anywhere |
+
+## A2. New vertical: prediction markets
+
+**Scores well enough to displace the pilot tracker candidate.** Demand:
+no site data (the vertical is absent from our tree), but the query
+shape is exactly the Australia surge pattern ("is kalshi legal in
+washington", "can I use polymarket in the US", "did [state] ban
+prediction markets") and the news cadence is currently weekly.
+Credibility: our authority is casino-shaped, but the contested question
+IS "is this gambling?": state gambling regulators versus CFTC
+preemption, which puts the story squarely on a gambling-legality
+site's beat, and the format competencies (status tracking,
+player-vs-operator framing, primary sources, court dates) transfer
+whole. The audience is also closer than it looks: Polymarket and
+Coinbase Financial Markets users are crypto-native, our exact reader.
+Funnel: zero affiliate relationships, authority-only today; prediction
+platforms do run referral programmes but that is unexplored and NOT
+part of this proposal. Cannibalisation: none, nothing on the site
+touches it. **Artefact: /tracker/prediction-markets-legality, timeline
+format with a compact active-cases table** (WA, MN, UT, MI plus
+whatever is live at build time): NOT a 50-state matrix, because the
+story is litigation-driven and concentrated in a handful of courts.
+First entries seed from the verified July-August record above; the
+imminent WA stay ruling is the first live update.
+
+## A3. Sub-national jurisdictions
+
+Scope widens from ~15 countries to 80+ jurisdictions (50 US states,
+10+ provinces/territories, 6+ AU states, 16 German Länder). Two
+consequences stated plainly: (1) the addressable QUERY set grows
+enormously, because "in my state" questions are the natural
+first-person form of criterion 1; (2) the binding constraint becomes
+the verification rota, not URLs: a 50-row matrix is one URL and fifty
+standing verification obligations. Sub-national coverage therefore
+enters ONLY through matrix/tracker rows with per-row dates and a
+capped row count, never as per-jurisdiction pages.
+
+**The US specifically: yes, a US-focused matrix tracker outranks the
+Tier 2 country pages.** Against India and Japan it wins on demand
+(largest English legality-query market), sourceability (statutes and
+AG orders in English), event cadence (state actions at least monthly
+all year) and risk (no promotion-criminalisation exposure); it ties
+them on funnel (zero for all three). Tier 2 reorders to: (1) US
+sweepstakes matrix tracker, (2) prediction-markets tracker (A2),
+(3) India, (4) Japan, with Brazil unchanged on watch.
+
+## A4. Matrix trackers as a format variant
+
+**Template:** rows = jurisdictions; columns = Status (banned /
+restricted / litigation / permitted-by-silence), Last changed (date +
+one-line event), What it means for you (the per-row player-impact
+verdict, one sentence), Source (statute or order, linked). Above the
+matrix: the same status-line + maintained impact-verdict blocks as the
+timeline format; below it: a dated update log recording row changes
+(the log entry IS the audit trail for a row edit). Rows admitted only
+with a sourced status: no padding rows for jurisdictions with nothing
+verifiable to say, so a US sweeps matrix launches at the ~17
+banned-or-restricted states plus active-litigation states, not 50.
+
+**Per-row burden and the staleness kill rule:** every row carries its
+own as-of date. At each monthly audit, rows older than 90 days get
+re-verified or their status visibly downgraded to "unverified since
+[date]"; a matrix with more than 20% downgraded rows is archived under
+the tracker kill rule. This is the honest version of the owner's
+warning: a matrix with ten stale rows is worse than no matrix, so
+staleness is surfaced per-row, on the page, rather than discovered by
+readers.
+
+**Which format pilots first: the TIMELINE tracker, on prediction
+markets.** Three reasons. The timeline format is already proven on
+this site (the Australia update section is one, at 347 citations); the
+prediction-markets story is the purest trigger-test pass found in this
+entire exercise (acute own-position uncertainty, imminent dated
+rulings, English court records, and a genuine citation vacuum with no
+canonical status page anywhere); and its maintenance burden is a
+handful of active cases rather than fifty rows. The US sweepstakes
+MATRIX becomes the first scale addition if the pilot passes, which
+also sequences the format risk: prove the cheap format before funding
+the expensive one. **Pilot amendment to Part 4: the pilot tracker slot
+goes to /tracker/prediction-markets-legality; the US sweeps matrix
+moves to first-scale. Pages A (source-of-funds) and B (Ireland legal)
+unchanged. The cap fork is unchanged: 3 September slots, Option 1
+recommended.**
+
+Addendum sources: [GeekWire on Kalshi/Washington](https://www.geekwire.com/2026/kalshi-brings-in-former-u-s-solicitor-general-as-washington-state-gambling-case-escalates/), [SBC News on the Italy decree](https://sbcnews.co.uk/retail/2026/08/06/italy-decree-2026/), [Meloni rejection](https://sbcnews.co.uk/featurednews/2026/08/03/meloni-italy-retail-2026/), [Focus GN](https://focusgn.com/government-rejects-draft-land-based-gambling-reforms-in-italy).
