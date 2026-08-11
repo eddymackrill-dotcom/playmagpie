@@ -160,6 +160,39 @@ appears (daily cadence, desktop-heavy, zero-click, deep positions, keyword-list 
 append it to the inventory with first-seen date and evidence. Do not re-derive geography
 multipliers.
 
+### Weekly: regulatory radar (run with the weekly check, ~45 min; added 2026-08-11, Option D launch)
+
+1. Sweep, skim-level, for gambling-regulatory events worldwide: iGaming Business, SBC News,
+   AGB (Asia), iGaming Today, Focus GN (Africa/LatAm), Yogonet (LatAm), plus regulator
+   newsrooms on the active-story list (currently: APH/Australia, AGLC/AiGC, GRAI, ACMA, KSA,
+   GGL, Spelinspektionen, DGOJ/Spain, SPA/Brazil, MeitY/India, PAGCOR, GCGRA, PlayCity,
+   Sri Lanka COPF, and US state AG feeds for sweepstakes/prediction-market states), plus web
+   searches on any story with a live tracker.
+2. For each new event: one line in reports/regulatory-radar.md (append-only): date found,
+   jurisdiction, event, source, trigger-test tags (own-position? dated-forward?
+   English-sourceable?), proposed artefact (new page / tracker update / matrix row / radar
+   only). Tags are recorded for the portfolio correlation analysis, not used to drop
+   entries (breadth strategy, owner decision 2026-08-11).
+3. Events matching an EXISTING artefact go to its update queue; ship same-session where the
+   source is in hand (the ~30 min loop: dated log entry, verdict re-date, `modified` bump in
+   lib/tracker-content.ts or the page's data layer, push, single-URL Bing dispatch line for
+   the owner).
+4. New-artefact candidates append to the build queue in
+   reports/regulatory-programme-build-plan.md Part 4 (readiness-ranked).
+5. STALENESS PASS (binding): single pages and timeline trackers whose newest dated element
+   exceeds 60 days are updated that week or archived with a dated closing entry. Matrix rows
+   over 90 days are re-verified or visibly downgraded to "unverified since [date]"; a matrix
+   over 20% downgraded is archived. Never leave stale claims live.
+6. MEASUREMENT (owner Bing AI Performance pull at the weekly glance): record citations per
+   regulatory artefact in reports/regulatory-portfolio.md (7/30/60-day columns). Monthly:
+   portfolio review: hit rate (15+ citations/30d = hit) and what correlates (format,
+   jurisdiction size, event type, trigger tags).
+
+Current dated tripwires (also in STATE.md): Australia Senate committee report 17 Aug 2026
+(scaffold ready in reports/au-senate-scaffold-2026-08-17.md); prediction-markets WA stay
+ruling (imminent; tracker reviewBy 25 Aug); Canada/Alberta grey-market deadline 13 Oct 2026;
+Oklahoma sweepstakes ban effective 1 Nov 2026; NZ licensed-only deadline 1 Dec 2026.
+
 ## Post-batch checklist
 
 Run after every content push. ~10 minutes.
