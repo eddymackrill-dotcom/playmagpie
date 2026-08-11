@@ -7,6 +7,7 @@ import { countryEditorial } from '@/lib/country-content'
 import { BONUS_CONTENT } from '@/lib/bonus-content'
 import { cryptoEditorial } from '@/lib/crypto-content'
 import { gameEditorial } from '@/lib/game-content'
+import { TRACKER_LIST, trackerShell } from '@/lib/tracker-content'
 
 const BASE_URL = 'https://www.playmagpie.com'
 
@@ -166,5 +167,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }))
 
-  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...casinoKycPages, ...casinoBonusPages, ...guidePages, ...cryptoPages, ...countryPages, ...countryLegalPages, ...gamePages, ...bonusPages, ...comparisonPages]
+  // Regulatory trackers (programme launch 2026-08-11): living pages, dates
+  // data-level from lib/tracker-content.ts, bumped on every logged update.
+  const trackerPages: MetadataRoute.Sitemap = TRACKER_LIST.map((t) => ({
+    url: `${BASE_URL}/tracker/${t.slug}`,
+    lastModified: new Date(trackerShell[t.slug].modified),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...casinoKycPages, ...casinoBonusPages, ...guidePages, ...cryptoPages, ...countryPages, ...countryLegalPages, ...gamePages, ...bonusPages, ...comparisonPages, ...trackerPages]
 }

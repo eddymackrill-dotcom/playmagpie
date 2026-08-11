@@ -1,0 +1,271 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { trackerShell } from '@/lib/tracker-content'
+
+// Prediction-markets legality tracker (programme launch 2026-08-11).
+// LITIGATION-LED skeleton: the federal-question pipeline leads, the active
+// cases carry the page, the update log records movement. Deliberately a
+// different structure from the sweepstakes matrix tracker: that page is
+// jurisdiction-status-led. AUTHORITY-ONLY: no affiliate relationship with
+// any platform named here; nothing on this page recommends an operator.
+//
+// Query cluster + portfolio metadata: lib/tracker-content.ts. Update
+// workflow: append a dated log entry, re-date the verdict, bump
+// `modified`, push, single-URL Bing dispatch. Corrections are dated
+// entries, never silent rewrites.
+
+const shell = trackerShell['prediction-markets-legality']
+
+export const metadata: Metadata = {
+  title: shell.title,
+  description: shell.metaDescription,
+  alternates: { canonical: '/tracker/prediction-markets-legality' },
+  openGraph: {
+    url: '/tracker/prediction-markets-legality',
+    title: shell.h1,
+    description: shell.metaDescription,
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: shell.h1 }],
+  },
+  twitter: { card: 'summary_large_image', title: shell.h1, description: shell.metaDescription, images: ['/og-image.png'] },
+}
+
+// The pipeline: current stage marked. Order is chronological.
+const PIPELINE = [
+  { stage: 'CFTC proposed rule on event contracts published', date: '10 Jun 2026', current: false },
+  { stage: 'Federal comment period closed', date: 'late Jul 2026', current: false },
+  { stage: 'Washington preliminary injunction against Kalshi', date: '20 Jul 2026', current: false },
+  { stage: 'Kalshi appeal filed; stay motion pending', date: 'late Jul 2026', current: true },
+  { stage: 'Washington stay ruling', date: 'expected imminently', current: false },
+  { stage: 'CFTC final rule', date: 'pending, no date', current: false },
+]
+
+const CASES = [
+  {
+    court: 'Washington (King County Superior Court)',
+    party: 'Kalshi v. state enforcement',
+    status: 'Preliminary injunction GRANTED against Kalshi on 20 July 2026: Judge John McHale found the platform likely ran an illegal gambling operation under state law, rejecting the CFTC-preemption defence. Kalshi has appealed to the Washington Court of Appeals and asked the judge to pause the injunction pending appeal; it was still operating in Washington as of early August, with the stay ruling expected imminently.',
+    lean: 'against preemption',
+  },
+  {
+    court: 'Minnesota (federal court)',
+    party: 'Kalshi',
+    status: 'Order of 27 July 2026 BLOCKED Minnesota from enforcing its prediction-market ban: the federal court leaned toward CFTC jurisdiction.',
+    lean: 'for preemption',
+  },
+  {
+    court: 'Utah (federal court)',
+    party: 'Kalshi',
+    status: 'Ruling went AGAINST Kalshi: the court held the state can restrict the platform.',
+    lean: 'against preemption',
+  },
+  {
+    court: 'Michigan (federal court)',
+    party: 'Coinbase Financial Markets',
+    status: "Ruling of 7 August 2026 REJECTED Coinbase Financial Markets' bid to operate its own prediction market against state objection.",
+    lean: 'against preemption',
+  },
+]
+
+const LOG = [
+  {
+    date: '11 Aug 2026',
+    text: 'Tracker opened. Kalshi remains live in Washington three weeks after the injunction, pending the stay ruling. Neal Katyal, former US Acting Solicitor General, is now lead national counsel for Kalshi across its state cases, a signal the company is positioning the preemption question for higher courts.',
+  },
+  {
+    date: '7 Aug 2026',
+    text: 'Michigan federal court rejected Coinbase Financial Markets. The federal-court split now runs at least three ways across Minnesota, Utah and Michigan.',
+  },
+  {
+    date: '27 Jul 2026',
+    text: 'Minnesota federal court blocked that state from enforcing its prediction-market ban, the strongest ruling so far for the preemption side.',
+  },
+  {
+    date: '20 Jul 2026',
+    text: 'Washington preliminary injunction granted against Kalshi (Attorney General Nick Brown). The core holding: federal commodities oversight does not, at this stage, override state gambling law.',
+  },
+  {
+    date: '10 Jun 2026',
+    text: 'CFTC published a proposed rule for event-contract markets with a 45-day comment period: most sports event contracts would be permissible, with bans on manipulation-prone and violence-linked contracts. A final rule would reshape every state case.',
+  },
+]
+
+const SOURCES = [
+  { label: 'GeekWire: Kalshi brings in former US Solicitor General as Washington case escalates', href: 'https://www.geekwire.com/2026/kalshi-brings-in-former-u-s-solicitor-general-as-washington-state-gambling-case-escalates/' },
+  { label: 'KUOW: judge blocks Kalshi in WA', href: 'https://www.kuow.org/law/2026-07-21/judge-blocks-kalshi-in-wa-ruling-the-platform-likely-ran-illegal-gambling-operation' },
+  { label: 'InGame: Utah judge latest to rule state can restrict Kalshi', href: 'https://www.ingame.com/utah-kalshi-status-prediction-market-rulings/' },
+  { label: 'CNBC: CFTC prediction-markets rule proposal', href: 'https://www.cnbc.com/2026/05/27/prediction-markets-white-house-cftc-kalshi-polmarket-gensler.html' },
+  { label: 'PYMNTS: CFTC investigation of Polymarket', href: 'https://www.pymnts.com/legal/2026/cftc-investigation-of-polymarket-broadens-compliance-questions-for-prediction-markets/' },
+  { label: 'Congressional Research Service: prediction markets policy issues', href: 'https://www.congress.gov/crs-product/IF13187' },
+]
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.playmagpie.com' },
+    { '@type': 'ListItem', position: 2, name: 'Prediction Markets Legality Tracker', item: 'https://www.playmagpie.com/tracker/prediction-markets-legality' },
+  ],
+}
+
+export default function PredictionMarketsTrackerPage() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <nav className="flex items-center gap-2 text-sm text-[#888888] mb-8">
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <span>/</span>
+          <span className="text-[#f5f5f5]">Prediction Markets Tracker</span>
+        </nav>
+
+        <div className="mb-8">
+          <div className="inline-flex items-center gap-2 bg-[#7BB8D4]/10 border border-[#7BB8D4]/20 rounded-full px-4 py-1.5 mb-4">
+            <span className="text-[#7BB8D4] text-sm font-medium">Living tracker · updated as rulings land</span>
+          </div>
+          <h1 className="text-4xl font-extrabold text-white mb-4">{shell.h1}</h1>
+          <p className="text-[#888888] text-lg leading-relaxed">
+            One question is being litigated in parallel across American courts: when the CFTC supervises an
+            event-contract market, can a state still call it illegal gambling? Kalshi, Polymarket, Robinhood and
+            Coinbase Financial Markets are all downstream of the answer. This page tracks the cases and what they
+            mean for whether you can actually use these platforms, dated at every step.
+          </p>
+        </div>
+
+        {/* Pipeline */}
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-white mb-4">Where the question stands</h2>
+          <ol className="space-y-2">
+            {PIPELINE.map((s) => (
+              <li key={s.stage} className={`flex items-start gap-3 rounded-xl border px-4 py-3 ${s.current ? 'border-[#7BB8D4]/40 bg-[#7BB8D4]/[0.06]' : 'border-[#222222] bg-[#111111]'}`}>
+                <span className={`text-xs font-semibold mt-0.5 whitespace-nowrap ${s.current ? 'text-[#7BB8D4]' : 'text-[#555555]'}`}>{s.date}</span>
+                <span className={`text-sm ${s.current ? 'text-[#f5f5f5] font-medium' : 'text-[#bbbbbb]'}`}>{s.stage}{s.current ? ' ← current stage' : ''}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        {/* Player impact verdict */}
+        <section className="mb-10">
+          <div className="bg-[#7BB8D4]/[0.06] border border-[#7BB8D4]/20 rounded-2xl p-6">
+            <h2 className="text-xl font-bold text-white mb-3">What this means for you, as of 11 August 2026</h2>
+            <div className="space-y-3 text-[#bbbbbb] text-sm leading-relaxed">
+              <p>
+                Nothing in any of these cases targets the individual user: every action so far runs against the
+                platforms. If you hold positions on a platform that loses in your state, the practical risks are
+                account restrictions, forced offboarding and position unwinding on the operator&apos;s timetable,
+                not enforcement against you.
+              </p>
+              <p>
+                In Washington specifically, Kalshi was still operating in early August despite the injunction,
+                because the stay question is unresolved. That can change on the day the ruling lands; if you are
+                in Washington, treat continued access as provisional. Elsewhere, availability currently differs
+                platform by platform and state by state, and the federal split means neither side can claim the
+                settled answer yet.
+              </p>
+              <p className="text-[#888888]">
+                We have no commercial relationship with any platform named on this page. This is legal-status
+                tracking, not a recommendation to use any of them.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* The core question */}
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-white mb-3">The question being litigated</h2>
+          <p className="text-[#888888] text-sm leading-relaxed mb-3">
+            Kalshi operates a CFTC-designated exchange and argues that federal commodities oversight preempts
+            state gambling law: if the CFTC supervises the market, a state cannot separately prosecute it as
+            gambling. States reply that an event contract on sports or politics is a bet, whatever the venue
+            registration says, and that gambling regulation has always been state police power. Washington&apos;s
+            Judge McHale sided with the state at the preliminary stage; Minnesota&apos;s federal court leaned the
+            other way a week later. Utah and Michigan have both since ruled for their states. A CFTC final rule,
+            or an appellate decision, is what eventually collapses this split; until then the answer genuinely
+            differs by courtroom.
+          </p>
+          <p className="text-[#888888] text-sm leading-relaxed">
+            Polymarket sits in the same storm at a different angle: its main exchange is offshore and claims to
+            block US users, while a smaller CFTC-approved exchange it acquired serves the US, a dual structure
+            now drawing its own CFTC compliance questions. Robinhood, DraftKings and FanDuel offer event
+            contracts under existing brokerage or wagering frameworks, so a preemption answer reshapes their
+            products too.
+          </p>
+        </section>
+
+        {/* Active cases */}
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-white mb-4">Active cases and rulings</h2>
+          <div className="overflow-x-auto rounded-2xl border border-[#222222]">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-[#111111] border-b border-[#222222] text-left">
+                  <th className="px-4 py-3 text-[#888888] font-semibold">Court</th>
+                  <th className="px-4 py-3 text-[#888888] font-semibold">Platform</th>
+                  <th className="px-4 py-3 text-[#888888] font-semibold">Status</th>
+                  <th className="px-4 py-3 text-[#888888] font-semibold whitespace-nowrap">Leans</th>
+                </tr>
+              </thead>
+              <tbody>
+                {CASES.map((c) => (
+                  <tr key={c.court} className="border-b border-[#222222] last:border-0 align-top">
+                    <td className="px-4 py-3 text-[#f5f5f5] font-medium whitespace-nowrap">{c.court}</td>
+                    <td className="px-4 py-3 text-[#bbbbbb] whitespace-nowrap">{c.party}</td>
+                    <td className="px-4 py-3 text-[#bbbbbb] leading-relaxed">{c.status}</td>
+                    <td className="px-4 py-3 text-[#7BB8D4] whitespace-nowrap">{c.lean}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[#555555] text-xs mt-3">
+            Wisconsin, New York and Illinois have also moved against event-contract platforms through regulators
+            or litigation; those disputes are earlier-stage and join the table when a ruling or formal order is
+            on the record.
+          </p>
+        </section>
+
+        {/* Update log */}
+        <section className="mb-10">
+          <h2 className="text-xl font-bold text-white mb-4">Update log</h2>
+          <div className="space-y-4">
+            {LOG.map((e) => (
+              <div key={e.date + e.text.slice(0, 20)} className="border-l-2 border-[#7BB8D4]/40 pl-4">
+                <div className="text-[#7BB8D4] text-xs font-semibold mb-1">{e.date}</div>
+                <p className="text-[#888888] text-sm leading-relaxed">{e.text}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-[#555555] text-xs mt-4">
+            This tracker is updated as rulings land; entries are append-only and corrections are made as dated
+            entries, never silent rewrites. Next scheduled review: 25 August 2026, earlier if the Washington
+            stay ruling arrives first.
+          </p>
+        </section>
+
+        {/* Related */}
+        <section className="mb-10">
+          <p className="text-[#888888] text-sm leading-relaxed">
+            The state-versus-operator pattern here runs right through gambling law: for the equivalent story in
+            traditional casino form, see our state-by-state{' '}
+            <Link href="/tracker/us-sweepstakes-casinos-by-state" className="text-[#7BB8D4] hover:underline">
+              sweepstakes casino ban tracker
+            </Link>
+            , where fourteen states have already answered their version of the question.
+          </p>
+        </section>
+
+        {/* Sources */}
+        <section className="mt-10 pt-8 border-t border-[#222222]">
+          <h2 className="text-sm font-bold text-[#f5f5f5] mb-3 uppercase tracking-wider">Sources</h2>
+          <ul className="space-y-1.5">
+            {SOURCES.map((s) => (
+              <li key={s.href} className="text-sm">
+                <a href={s.href} target="_blank" rel="noopener noreferrer" className="text-[#7BB8D4] hover:underline">{s.label}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    </>
+  )
+}

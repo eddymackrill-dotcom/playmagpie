@@ -25,7 +25,9 @@
 // throws), so a new URL cannot silently ship without a lastmod decision.
 
 export const ROUTE_LASTMOD: Record<string, string> = {
-  '/': '2026-08-01',
+  // Bumped 2026-08-11: homepage gains the "Latest regulatory updates" block
+  // (carrier surface for the tracker family).
+  '/': '2026-08-11',
   '/best-crypto-casinos': '2026-08-01',
   '/fast-withdrawal-casinos': '2026-08-01',
   '/high-roller-casinos': '2026-07-16',

@@ -185,6 +185,65 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Latest regulatory updates: dated one-liners into the living
+            legality pages. Hand-maintained, max 4 items, newest first; this
+            block is also the carrier link surface for new trackers (the
+            homepage is the site's most-crawled URL). */}
+        <section className="py-10">
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-[#f5f5f5]">Latest regulatory updates</h2>
+            <p className="text-[#888888] text-sm mt-1.5">
+              Gambling law moves weekly. These are the live stories we track with dated, sourced updates.
+            </p>
+          </div>
+          <ul className="space-y-3">
+            <li className="text-sm leading-relaxed">
+              <span className="text-[#7BB8D4] font-semibold whitespace-nowrap">11 Aug 2026</span>{' '}
+              <span className="text-[#888888]">
+                Kalshi is enjoined in Washington but still live pending a stay ruling, while Minnesota, Utah and
+                Michigan split on the same question: our new{' '}
+                <Link href="/tracker/prediction-markets-legality" className="text-[#7BB8D4] hover:underline">
+                  prediction markets legality tracker
+                </Link>{' '}
+                follows the litigation ruling by ruling.
+              </span>
+            </li>
+            <li className="text-sm leading-relaxed">
+              <span className="text-[#7BB8D4] font-semibold whitespace-nowrap">11 Aug 2026</span>{' '}
+              <span className="text-[#888888]">
+                Fourteen US states now ban or enforce against sweepstakes casinos, with Oklahoma&apos;s ban
+                effective 1 November: every state row is dated and sourced on our{' '}
+                <Link href="/tracker/us-sweepstakes-casinos-by-state" className="text-[#7BB8D4] hover:underline">
+                  sweepstakes casinos by state tracker
+                </Link>
+                .
+              </span>
+            </li>
+            <li className="text-sm leading-relaxed">
+              <span className="text-[#7BB8D4] font-semibold whitespace-nowrap">11 Aug 2026</span>{' '}
+              <span className="text-[#888888]">
+                Alberta&apos;s licensed online market went live on 13 July with a 13 October grey-market
+                deadline: the dated update is on our guide to{' '}
+                <Link href="/country/canada/legal" className="text-[#7BB8D4] hover:underline">
+                  whether crypto gambling is legal in Canada
+                </Link>
+                .
+              </span>
+            </li>
+            <li className="text-sm leading-relaxed">
+              <span className="text-[#7BB8D4] font-semibold whitespace-nowrap">11 Aug 2026</span>{' '}
+              <span className="text-[#888888]">
+                Australia&apos;s Gambling Reform Bill reaches its Senate committee report on 17 August: where the
+                bill stands, and what it does not change for players, on our guide to{' '}
+                <Link href="/country/australia/legal" className="text-[#7BB8D4] hover:underline">
+                  whether crypto gambling is legal in Australia
+                </Link>
+                .
+              </span>
+            </li>
+          </ul>
+        </section>
+
         {/* By region & focus: surfaces deeper intent pages */}
         <section className="py-10">
           <div className="mb-7">
