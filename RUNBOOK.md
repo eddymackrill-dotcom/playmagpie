@@ -41,6 +41,10 @@ report on. Run this instead:
    - Batch 2b (deployed 10 Aug), 5 /crypto + 3 /game pages, window ends ~24 Aug (baseline
      2026-08-10: all five crypto 07-09; dice 07-29, plinko 05-30, crash 05-28). /crypto/bnb
      is not on the watch (unchanged by design).
+   - Regulatory ships (11 Aug), BING recrawl glance (owner Site Explorer look at the weekly
+     WMT glance): /tracker/prediction-markets-legality, /tracker/us-sweepstakes-casinos-by-state,
+     /country/australia/legal, /country/canada/legal. Drop each from this line once its first
+     post-ship Bing crawl is observed.
 
    **STANDING TRIGGER, checked first every time: ANY Google crawl date >= 2026-08-07 on a
    changed URL -> execute 2c and 2d immediately from reports/batch2bcd-drafts.md. No
