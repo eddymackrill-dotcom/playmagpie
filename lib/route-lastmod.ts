@@ -78,7 +78,9 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   '/country/japan': '2026-08-01',
   '/country/sweden': '2026-08-01',
   '/country/finland': '2026-08-01',
-  '/country/canada/legal': '2026-06-22',
+  // Bumped 2026-08-11: additive Alberta-launch update section. reviewBy
+  // tripwire 2026-10-13 (grey-market compliance deadline) in STATE.md.
+  '/country/canada/legal': '2026-08-11',
   // Bumped 2026-08-11: additive Gambling Reform Bill update section (the
   // freshness signal is load-bearing for this URL's AI-citation surge).
   // reviewBy tripwire 2026-09-01 in STATE.md.
