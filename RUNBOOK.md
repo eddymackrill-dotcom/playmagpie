@@ -379,8 +379,16 @@ parameter and a network error message can carry the full request URL.
   matching quota decrement of nine is STILL submitted-pending-confirmation, not verified.**
   A decrement proves the call was accepted and counted. It says nothing about whether the
   URL was crawled or indexed. The rule is not relaxed by good evidence of the wrong thing.
-  **Currently outstanding under this standard: everything submitted since 2026-07-28**,
-  meaning the 07-28 guide submissions plus all 17 URLs from the two 08-01 dispatch runs.
+  **Outstanding list RECONCILED AND CLOSED 2026-08-17** against the owner's WMT URL
+  Submission export (reports/playmagpie.com_SubmittedUrls_8_17_2026.csv): 53 of 54
+  distinct URLs dispatched since 2026-07-28 verified visible in WMT reporting; the one
+  absentee is the apex-host test artifact from the 07-28 both-host-forms test, closed
+  without action. Full diff in reports/bing-ledger-reconciliation-2026-08-17.md. The
+  standard itself is unchanged: every dispatch after 2026-08-17 09:20 Pacific starts as
+  submitted-pending-confirmation and closes only at the next export pull or WMT glance.
+  (Superseded original line, kept for the record: "Currently outstanding under this
+  standard: everything submitted since 2026-07-28", meaning the 07-28 guide submissions
+  plus all 17 URLs from the two 08-01 dispatch runs.)
 
 ## Diagnostic prompts
 
