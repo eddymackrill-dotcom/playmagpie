@@ -17,6 +17,19 @@ Prompts in this file are tested templates. Adjust placeholders in [brackets] bef
 
 ## Recurring prompts
 
+### DAILY until the Senate report lands (added 2026-08-17; retire this section when it ships)
+
+Owner glance at the committee inquiry page
+(https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/GamblingReform48P):
+has the report been tabled? No report = no action, nothing written, nothing from hearing
+coverage (abort branch 1, active since 17 Aug when the reporting date passed with status
+"Submissions Closed"). On landing: execute reports/au-senate-execution-runbook-2026-08-17.md.
+**Success criterion under the inverted gate (2026-08-17): POSITIVE confirmation that the
+Senate section is VISIBLE on the live /country/australia/legal page after deploy, BEFORE the
+Bing dispatch fires.** A forgotten REPORT-PENDING token now silently drops its section from
+production rather than failing the build, so a green deploy proves nothing about the fill;
+only seeing the section live does.
+
 ### Weekly WHILE SUPPRESSED: recovery check (replaces the full weekly, ~5 min)
 
 In force while the June 2026 spam-update suppression stands (see STATE.md). Do NOT run the
@@ -56,9 +69,20 @@ report on. Run this instead:
      the problem is upstream of page content.
    - **Checkpoint A, ~21 Aug (Bing/AI):** re-export and compare vs
      reports/bing-baseline-2026-08-07/. The crawl-date gate applies (a reading only counts
-     against a page Bing has re-read); /country/australia/legal's regression floor is 23,
-     NOT its 10-Aug demand-driven 207. A clean pass opens the reviews batch under the
+     against a page Bing has re-read). A clean pass opens the reviews batch under the
      match-phrase-invariant rule.
+     **Regression floor RESET (2026-08-17): trailing-7-day basis, not the static 23.** The
+     08-07 floor of 23 is three orders of magnitude stale against the current daily curve
+     (regime change began 07 Aug; peak 283/day on 14 Aug), so "no drop below 23" can no
+     longer detect a real regression on /country/australia/legal. At the checkpoint, compute
+     each protected page's trailing-7-day citation level from the owner export and read
+     regression against that, not against the 08-07 snapshot.
+   - **Checkpoint A+B addition, BREADTH VERDICT (added 2026-08-17):** the two trackers and
+     /country/canada/legal reach day 10 on 21 Aug, the age the withdrawal guide was when it
+     started moving. They stand 0-for-3 in page stats at day 6 (17 Aug read). **Zero across
+     all three at day 10 RETIRES the breadth programme and reweights the September slate
+     toward the withdrawal/KYC process cluster**, where replication is compounding (guide
+     102 to 168, now the #3 asset).
 3. Optional, 1 DataForSEO call max: live SERP check on "high roller crypto casinos" (Canada).
    Present in top 100 = serving is returning.
 4. Bing glance (added 2026-07-13, Bing Webmaster Tools live via GSC import): Search Performance
@@ -369,6 +393,10 @@ parameter and a network error message can carry the full request URL.
   scales monthly quota with site trust or index size. Do not plan against the higher
   figure as though it were permanent, and do not assert the cause. Re-read at each
   monthly audit so the series grows; two points cannot distinguish a trend from a one-off.
+  **PLANNING NOTE (2026-08-17, three readings in): the monthly figure is noise. 400
+  (07-28), 3098 (08-01), 1500 (08-17): no pattern, cause never established. Plan all
+  submission work against the stable DAILY 100 only, and treat the monthly number as a
+  reading to record, not a budget to spend.**
 - **What counts as verified (standard set by owner 2026-07-28, carried over unchanged from
   the IndexNow rules): only URLs visibly appearing in WMT reporting count as verified.**
   An HTTP 200 is submitted-pending-confirmation and nothing more. This standard exists
