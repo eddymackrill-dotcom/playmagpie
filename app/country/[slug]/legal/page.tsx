@@ -168,6 +168,26 @@ const legalContent: Record<string, LegalContent> = {
       { type: 'p', text: 'What the bill regulates is wagering advertising and harm reduction, not casino legality. Schedule 1 bans the broadcast of wagering ads during live sport coverage between 6am and 8.30pm, caps them at three an hour on free-to-air television in that window, bans the broadcasting of odds, and extends the prohibitions to sporting venues and uniforms and to gambling promotion by athletes, celebrities and influencers. The measures are slated to commence on 1 January 2027.' },
       { type: 'p', text: 'The live negotiation is over inducements: sign-up offers, bonus bets and the promotions that arrive by app and email. Witnesses at the Senate inquiry criticised the bill for leaving online inducements untouched, the government has been in talks with the opposition on curbing them, and the Coalition, the Greens and several crossbenchers argue the bill falls short of the Murphy inquiry recommendations. Senate amendments are a realistic prospect, and what emerges may be stricter than what was introduced.' },
       { type: 'callout', title: 'What this changes for a player: nothing, so far', text: 'Every operative measure in the bill targets licensed wagering operators, broadcasters and advertisers. Nothing in it creates an offence for the individual playing at an offshore casino, and nothing in it changes the position set out on this page: providing an online casino to Australians is already prohibited under section 15, and the player is not the target of the Act. As of 11 August 2026 that line holds. This section will be updated as the bill progresses.' },
+      // ======================================================================
+      // SENATE-REPORT SCAFFOLD (fenced, prepared 2026-08-16; gate INVERTED
+      // 2026-08-17 after no report was tabled on the 17th). Every block below
+      // carries a [REPORT-PENDING: ...] token and CANNOT ship: the production
+      // fence after legalContent EXCLUDES token-carrying blocks from Vercel
+      // builds (they render locally for preview), and the repointed hard gate
+      // fails the build if a token would render anywhere else. Execution-day
+      // grep gate unchanged (reports/au-senate-execution-runbook-2026-08-17.md).
+      // Fill slots ONLY from the report document on aph.gov.au
+      // (GamblingReform48P inquiry page), never from hearing coverage. Cut any
+      // slot the report does not occasion (deleting a fenced block keeps the
+      // ship additive vs production). The 11-Aug section above stays
+      // byte-identical.
+      { type: 'h2', text: 'Update, [REPORT-PENDING: date the report was tabled]: what the Senate committee recommended' },
+      { type: 'p', text: 'The Senate Environment and Communications Legislation Committee, which closed submissions on 24 July and heard two days of evidence in Canberra on 3 and 4 August, was due to report on 17 August 2026. [REPORT-PENDING: confirm the report was tabled and state the majority recommendation, pass / pass with amendments / do not pass, from the report document itself].' },
+      { type: 'p', text: '[REPORT-PENDING: dissenting reports or additional comments, by party, one line each, from the report document. Do not write positions from hearing coverage as if they were dissents. Cut this block if there are none.]' },
+      { type: 'p', text: 'The live issue going into the report was inducements: witnesses criticised the bill for leaving sign-up offers and bonus bets untouched. [REPORT-PENDING: what the report recommends on inducements, if anything, from the report document. Cut the whole block if it is silent.]' },
+      { type: 'p', text: '[REPORT-PENDING: the next step the report sets up, such as Senate vote timing, only if the report states it. Cut this block otherwise.]' },
+      { type: 'callout', title: 'What this changes for a player', text: '[REPORT-PENDING: only if true per the report: as of (date), the player position described on this page is unchanged. If any recommendation touches player-facing law, describe that instead. Verify against the report before writing either.]' },
+      // ==================== END 17 AUG SCAFFOLD =============================
     ],
     faqs: [
       { question: 'Is it illegal to use an offshore crypto casino in Australia?', answer: 'Not for the player. The Interactive Gambling Act 2001 makes it an offence to provide an online casino to people in Australia, but the offence falls on the operator, not the customer. There is no provision penalising an individual for using an offshore casino, and we found no case of a player being penalised. The risks are commercial, such as blocked access and sites that may not pay out, not criminal.' },
@@ -185,15 +205,50 @@ const legalContent: Record<string, LegalContent> = {
       { label: 'ATO: crypto asset prizes and gambling winnings', href: 'https://www.ato.gov.au/individuals-and-families/investments-and-assets/crypto-asset-investments/transactions-acquiring-and-disposing-of-crypto-assets/crypto-asset-prizes-and-gambling-winnings' },
       { label: 'Interactive Gambling Amendment (Gambling Reform) Bill 2026 (Parliament of Australia)', href: 'https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7520' },
       { label: 'DSS: delivering meaningful reform to reduce gambling harms', href: 'https://ministers.dss.gov.au/media-releases/19071' },
+      { label: '[REPORT-PENDING: Senate committee report title]', href: '[REPORT-PENDING: direct report document URL from the GamblingReform48P inquiry page]' },
     ],
   },
+}
+
+// Production fence for the Senate-report scaffold (INVERTED 2026-08-17; the
+// 2026-08-16 version FAILED any Vercel build while a token remained, which
+// deploy-froze the whole site once the report did not land on the 17th).
+// Mechanism now: on production builds (VERCEL set), every block or source
+// entry carrying a [REPORT-PENDING: ...] token is EXCLUDED from the content
+// the page renders, so the scaffold is absent from production HTML in any
+// form while local/dev builds still render it (tokens visibly ugly) for
+// execution-day preview. The hard gate is REPOINTED, not removed: if a token
+// survives the exclusion anywhere it would render (lead, faqs, meta strings,
+// h1, hubAnchor), the build still fails, so leaking remains structurally
+// impossible. Execution-day flow unchanged: filling the slots and deleting
+// the tokens is what brings the section into production.
+const SCAFFOLD_TOKEN = 'REPORT-PENDING'
+const isProductionBuild = Boolean(process.env.VERCEL)
+
+const publishedLegalContent: Record<string, LegalContent> = !isProductionBuild
+  ? legalContent
+  : Object.fromEntries(
+      Object.entries(legalContent).map(([slug, content]) => [
+        slug,
+        {
+          ...content,
+          blocks: content.blocks.filter((b) => !JSON.stringify(b).includes(SCAFFOLD_TOKEN)),
+          sources: content.sources.filter((s) => !JSON.stringify(s).includes(SCAFFOLD_TOKEN)),
+        },
+      ])
+    )
+
+if (isProductionBuild && JSON.stringify(publishedLegalContent).includes(SCAFFOLD_TOKEN)) {
+  throw new Error(
+    'country/[slug]/legal: a REPORT-PENDING token would render in production output (it sits outside the excludable blocks/sources arrays); build blocked'
+  )
 }
 
 export async function generateMetadata(
   props: PageProps<'/country/[slug]/legal'>
 ): Promise<Metadata> {
   const { slug } = await props.params
-  const content = legalContent[slug]
+  const content = publishedLegalContent[slug]
   if (!content) return {}
   return {
     title: content.metaTitle,
@@ -217,7 +272,7 @@ export async function generateMetadata(
 export default async function CountryLegalPage(props: PageProps<'/country/[slug]/legal'>) {
   const { slug } = await props.params
   const country = COUNTRY_LIST.find((c) => c.slug === slug)
-  const content = legalContent[slug]
+  const content = publishedLegalContent[slug]
   if (!country || !content) notFound()
 
   const pageUrl = `https://www.playmagpie.com/country/${slug}/legal`
