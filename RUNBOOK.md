@@ -111,6 +111,15 @@ report on. Run this instead:
    recovery follows the classifier re-running, most plausibly at the next spam update,
    which arrives on no published schedule (historically ~2 to ~8 months apart). This step
    is the tripwire.
+5b. GA4 owner checklist (added 2026-08-18, retire each item once done and logged in STATE):
+   (a) affiliate_click KEY-EVENT FLAG: after the event first appears in Admin > Data
+   display > Events (up to 24h after its first live fire), toggle "Mark as key event".
+   Until the flag is set, Key events stays 0 on every channel and conversions remain
+   invisible; (b) optional, for per-operator breakdowns: create the event-scoped custom
+   dimension "operator" under Admin > Data display > Custom definitions; (c) the FIRST
+   affiliate_click data read folds into the next GA4 28-day pull (alongside the
+   assistant-channel read): events by page_path and operator, minus any logged owner
+   test clicks per the owner-browsing rule.
 6. Production quick-check: latest deploy green, sitemap fetches, 2 random pages HTTP 200.
 7. Append one line to the STATE.md "Recovery log" section (format documented there).
 8. **Trigger: streak >= 7 consecutive non-zero days = recovery confirmed.** Lift the velocity
