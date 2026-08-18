@@ -5,6 +5,15 @@ import Footer from '@/components/Footer'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from '@vercel/analytics/next'
+import AffiliateClickTracker from '@/components/AffiliateClickTracker'
+import { casinos } from '@/lib/casinos'
+
+// hostname -> operator slug for the outbound-click tracker. Computed here
+// (server side) from lib/casinos.ts so the catalogue stays the single
+// source of truth and its 30KB+ module never enters the client bundle.
+const AFFILIATE_OPERATORS_BY_HOST: Record<string, string> = Object.fromEntries(
+  casinos.map((c) => [new URL(c.affiliateUrl).hostname.replace(/^www\./, ''), c.slug])
+)
 
 export const metadata: Metadata = {
   title: {
@@ -47,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <GoogleAnalytics gaId="G-9ZJ8WY3PS8" />
+        <AffiliateClickTracker operatorsByHost={AFFILIATE_OPERATORS_BY_HOST} />
         <SpeedInsights />
         <Analytics />
       </body>
