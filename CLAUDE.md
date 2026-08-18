@@ -69,6 +69,10 @@ This exists because both failure modes are silent. A corrected page that never r
 
 Not to be confused with "Corrections are published, never silently rewritten" further down this file. That rule governs what the READER sees, meaning a visible dated correction note on any page where a failed claim was load-bearing. This rule governs what the SEARCH ENGINE sees. A correction usually needs both, and neither substitutes for the other.
 
+## Measurement-change commits: no lastmod bump, no dispatch (rule added 2026-08-18)
+
+A commit that changes only analytics or tracking code, with zero rendered-content change (byte-verified DOM, like the affiliate_click tracker ship of 2026-08-18), must NOT bump any sitemap lastmod and must NOT be Bing-dispatched. Lastmod honesty and dispatch quota both exist for content the search engine should re-read; measurement plumbing is not that. Verify at ship time: rendered DOM byte-identical, sitemap date set unchanged, no dispatch line in the report.
+
 ## VELOCITY FREEZE (in force since 2026-07-07, June 2026 spam-update recovery)
 
 **No new .com pages.** No new URLs may be added to the site until serving recovery is confirmed. Recovery is confirmed when GSC shows **7 or more consecutive days of non-zero site-wide impressions** (dataState=all; the raw site-wide count, no filters). Claude Code refuses new-page requests during the freeze and cites this rule, including pages that would otherwise pass every demand gate.

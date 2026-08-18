@@ -86,6 +86,16 @@ report on. Run this instead:
      all three at day 10 RETIRES the breadth programme and reweights the September slate
      toward the withdrawal/KYC process cluster**, where replication is compounding (guide
      102 to 168, now the #3 asset).
+   - **CHECKPOINT-SESSION INPUTS, consolidated 2026-08-18 (confirm all five are in hand
+     before running the 21 Aug session):** (1) the breadth verdict above (trackers +
+     canada/legal at day 10); (2) Checkpoint A regression floors on the trailing-7-day
+     basis, not the static 23; (3) a FRESH owner AI Performance pull, which also carries
+     the SENATE-CATALYST NATURAL EXPERIMENT: does /country/australia/legal's daily
+     citation rate (+146/day pre-catalyst) move after the 17-18 Aug report-and-amendments
+     news cycle; (4) the owner WMT URL Submission glance: the legal page's row should
+     flip 08-11 to 08-18, which closes the open ledger entry; (5) Senate debate/vote
+     watch status (possible owner-triggered third entry; if it fired, its ship is its
+     own session, not checkpoint work).
 3. Optional, 1 DataForSEO call max: live SERP check on "high roller crypto casinos" (Canada).
    Present in top 100 = serving is returning.
 4. Bing glance (added 2026-07-13, Bing Webmaster Tools live via GSC import): Search Performance
@@ -112,14 +122,15 @@ report on. Run this instead:
    which arrives on no published schedule (historically ~2 to ~8 months apart). This step
    is the tripwire.
 5b. GA4 owner checklist (added 2026-08-18, retire each item once done and logged in STATE):
-   (a) affiliate_click KEY-EVENT FLAG: after the event first appears in Admin > Data
-   display > Events (up to 24h after its first live fire), toggle "Mark as key event".
-   Until the flag is set, Key events stays 0 on every channel and conversions remain
-   invisible; (b) optional, for per-operator breakdowns: create the event-scoped custom
-   dimension "operator" under Admin > Data display > Custom definitions; (c) the FIRST
-   affiliate_click data read folds into the next GA4 28-day pull (alongside the
-   assistant-channel read): events by page_path and operator, minus any logged owner
-   test clicks per the owner-browsing rule.
+   (a) affiliate_click KEY-EVENT FLAG, one-time, actionable ~19 Aug: after the event
+   first appears in Admin > Data display > Events (up to 24h after its first live fire,
+   which happened 18 Aug), toggle "Mark as key event". Until the flag is set, Key events
+   stays 0 on every channel and conversions remain invisible; (b) PARKED: the optional
+   event-scoped custom dimension "operator" (Admin > Data display > Custom definitions);
+   revisit when per-operator report breakdowns are actually needed; (c) the next GA4
+   28-day pull now reads THREE legs and is a SEPTEMBER-SLATE INPUT: assistant-channel
+   sessions (vs the flat-21 baseline), affiliate_click by page and channel, and the
+   discounted owner test click of 18 Aug (logged in STATE) per the owner-browsing rule.
 6. Production quick-check: latest deploy green, sitemap fetches, 2 random pages HTTP 200.
 7. Append one line to the STATE.md "Recovery log" section (format documented there).
 8. **Trigger: streak >= 7 consecutive non-zero days = recovery confirmed.** Lift the velocity
@@ -247,6 +258,13 @@ Run after every content push. ~10 minutes.
 - Mobile spot-check on at least one page (single-column stack, CTAs tappable, no overflow)
 - Manual indexing requests in GSC for any substantive new pages (use www host explicitly; apex returns "URL unknown")
 - If any new page is in a low-crawl section (/bonus/*, /crypto/*, /game/* leaves), confirm ≥1 inbound contextual prose link from a same-batch-modified frequently-crawled page (per CLAUDE.md internal-linking rule)
+- **Affiliate-link rel hygiene (standing rule, 2026-08-18): every affiliate link MUST
+  carry `rel="sponsored"`.** The affiliate_click tracker's delegated handler keys off
+  that attribute (components/AffiliateClickTracker.tsx), so a CTA shipped without it
+  still navigates fine but SILENTLY VANISHES from measurement, which is exactly the
+  invisible-failure shape this repo guards against. Enforce at review on any page or
+  component touching CTAs: new affiliate anchors go through CTAButton `external` (which
+  sets the full rel) or carry `sponsored` explicitly.
 - Grep for em dashes in content touched this batch: must be zero. Em dashes (the "—" character) are a primary AI-content tell and are banned in all user-facing content (per CLAUDE.md "Never use em dashes"). Run `grep -rc "—" app lib --include='*.tsx' --include='*.ts'` and confirm every file reports 0. If anything is non-zero, rewrite it (comma, full stop, colon, or parentheses, never a spaced hyphen) before deploy. The internal `lib/*.md` working notes are out of scope; only `.tsx`/`.ts` content files must be clean.
 - Confirm every page planned this session was actually built: cross-check planned-vs-shipped before wrap. (Was "approved-vs-shipped"; there is no approval step as of 2026-08-01, but the cross-check is still worth running for the reason below.) (Added 2026-06-27 after the /country/finland hub was approved earlier in a session but initially missed in the batch and only caught later. List what was approved, tick each against what shipped.)
 - **Never stage with `git add -A` or `git add .`** Stage explicit paths, or run `git status`
