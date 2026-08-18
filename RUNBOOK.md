@@ -17,18 +17,21 @@ Prompts in this file are tested templates. Adjust placeholders in [brackets] bef
 
 ## Recurring prompts
 
-### DAILY until the Senate report lands (added 2026-08-17; retire this section when it ships)
+### RETIRED 2026-08-18: the daily Senate-report glance (report tabled 17 Aug, executed 18 Aug)
 
-Owner glance at the committee inquiry page
-(https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Environment_and_Communications/GamblingReform48P):
-has the report been tabled? No report = no action, nothing written, nothing from hearing
-coverage (abort branch 1, active since 17 Aug when the reporting date passed with status
-"Submissions Closed"). On landing: execute reports/au-senate-execution-runbook-2026-08-17.md.
-**Success criterion under the inverted gate (2026-08-17): POSITIVE confirmation that the
-Senate section is VISIBLE on the live /country/australia/legal page after deploy, BEFORE the
-Bing dispatch fires.** A forgotten REPORT-PENDING token now silently drops its section from
-production rather than failing the build, so a green deploy proves nothing about the fill;
-only seeing the section live does.
+The report was tabled 17 August 2026 and the update shipped same-cycle on 18 August
+(commit b4949cf): the Senate-report entry plus a separate news-sourced entry on the
+government's own amendments. The first execution through the inverted gate PASSED the
+positive visual confirmation (both sections visible in live served HTML before dispatch).
+The daily inquiry-page glance is retired.
+
+**ACTIVE WATCH replacing it: the Senate debate outcome.** The amendments were reported
+(SBS, 17 Aug) as expected to be debated the Tuesday after tabling. If the bill passes, in
+any form, that is a possible THIRD additive entry on /country/australia/legal,
+OWNER-TRIGGERED: the owner flags the passage event, and the entry is written from the
+parliamentary record (bill homepage / Hansard), not from news alone. The same positive
+visibility check applies to any future fill on this page. The page's reviewBy is
+event-driven on this watch (the 1 Sep date is superseded; see the 2026-08-18 STATE entry).
 
 ### Weekly WHILE SUPPRESSED: recovery check (replaces the full weekly, ~5 min)
 
@@ -216,10 +219,12 @@ multipliers.
    portfolio review: hit rate (15+ citations/30d = hit) and what correlates (format,
    jurisdiction size, event type, trigger tags).
 
-Current dated tripwires (also in STATE.md): Australia Senate committee report 17 Aug 2026
-(scaffold ready in reports/au-senate-scaffold-2026-08-17.md); prediction-markets WA stay
-ruling (imminent; tracker reviewBy 25 Aug); Canada/Alberta grey-market deadline 13 Oct 2026;
-Oklahoma sweepstakes ban effective 1 Nov 2026; NZ licensed-only deadline 1 Dec 2026.
+Current dated tripwires (also in STATE.md): Australia Senate DEBATE/VOTE on the Gambling
+Reform Bill (report tabled 17 Aug and shipped 18 Aug; passage = possible third additive
+entry, owner-triggered, see the retired-daily-glance section above); prediction-markets WA
+stay ruling (imminent; tracker reviewBy 25 Aug); Canada/Alberta grey-market deadline
+13 Oct 2026; Oklahoma sweepstakes ban effective 1 Nov 2026; NZ licensed-only deadline
+1 Dec 2026.
 
 ## Post-batch checklist
 
