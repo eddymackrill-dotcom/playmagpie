@@ -83,12 +83,11 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   // Bumped 2026-08-11: additive Alberta-launch update section. reviewBy
   // tripwire 2026-10-13 (grey-market compliance deadline) in STATE.md.
   '/country/canada/legal': '2026-08-11',
-  // Bumped 2026-08-18: two additive entries, the Senate committee report
-  // (tabled 17 Aug, filled from the report document) and the government's
-  // own amendments (news-sourced). Freshness stays load-bearing for this
-  // URL's AI citations. reviewBy now event-driven: next milestone is the
-  // Senate vote (see STATE.md 2026-08-18 entry).
-  '/country/australia/legal': '2026-08-18',
+  // Bumped 2026-08-20: Entry 3, Senate passage 19 Aug (bill homepage anchor,
+  // "Passed Both Houses"; news colour attributed in text; commencement dates
+  // omitted pending the Act as made). Next event: royal assent, one-line
+  // addendum, owner-triggered.
+  '/country/australia/legal': '2026-08-20',
   '/game/crash': '2026-08-01',
   '/game/dice': '2026-08-01',
   '/game/plinko': '2026-08-01',
