@@ -25,13 +25,13 @@ government's own amendments. The first execution through the inverted gate PASSE
 positive visual confirmation (both sections visible in live served HTML before dispatch).
 The daily inquiry-page glance is retired.
 
-**ACTIVE WATCH replacing it: the Senate debate outcome.** The amendments were reported
-(SBS, 17 Aug) as expected to be debated the Tuesday after tabling. If the bill passes, in
-any form, that is a possible THIRD additive entry on /country/australia/legal,
-OWNER-TRIGGERED: the owner flags the passage event, and the entry is written from the
-parliamentary record (bill homepage / Hansard), not from news alone. The same positive
-visibility check applies to any future fill on this page. The page's reviewBy is
-event-driven on this watch (the 1 Sep date is superseded; see the 2026-08-18 STATE entry).
+**RETIRED 2026-08-20: the Senate debate/vote watch.** The bill passed both houses
+(House 18 Aug, Senate 19 Aug) and Entry 3 shipped same-cycle on 20 Aug (commit 7014b71),
+written from the parliamentary record with the positive visibility check passed.
+**Replacement, one line: royal assent = a one-line dated addendum to Entry 3 when it
+lands, OWNER-TRIGGERED; the addendum also states the commencement dates from the Act as
+made (deliberately omitted from Entry 3 because the as-passed text was unfetchable).**
+The same positive visibility check applies to that addendum and any future fill here.
 
 ### Weekly WHILE SUPPRESSED: recovery check (replaces the full weekly, ~5 min)
 
@@ -122,10 +122,9 @@ report on. Run this instead:
    which arrives on no published schedule (historically ~2 to ~8 months apart). This step
    is the tripwire.
 5b. GA4 owner checklist (added 2026-08-18, retire each item once done and logged in STATE):
-   (a) affiliate_click KEY-EVENT FLAG, one-time, actionable ~19 Aug: after the event
-   first appears in Admin > Data display > Events (up to 24h after its first live fire,
-   which happened 18 Aug), toggle "Mark as key event". Until the flag is set, Key events
-   stays 0 on every channel and conversions remain invisible; (b) PARKED: the optional
+   (a) DONE 2026-08-20 (owner): affiliate_click marked as key event in GA4 Admin; Key
+   events accumulate from 20 Aug, so channel-level conversion visibility starts then;
+   (b) PARKED: the optional
    event-scoped custom dimension "operator" (Admin > Data display > Custom definitions);
    revisit when per-operator report breakdowns are actually needed; (c) the next GA4
    28-day pull now reads THREE legs and is a SEPTEMBER-SLATE INPUT: assistant-channel
@@ -239,12 +238,12 @@ multipliers.
    portfolio review: hit rate (15+ citations/30d = hit) and what correlates (format,
    jurisdiction size, event type, trigger tags).
 
-Current dated tripwires (also in STATE.md): Australia Senate DEBATE/VOTE on the Gambling
-Reform Bill (report tabled 17 Aug and shipped 18 Aug; passage = possible third additive
-entry, owner-triggered, see the retired-daily-glance section above); prediction-markets WA
-stay ruling (imminent; tracker reviewBy 25 Aug); Canada/Alberta grey-market deadline
-13 Oct 2026; Oklahoma sweepstakes ban effective 1 Nov 2026; NZ licensed-only deadline
-1 Dec 2026.
+Current dated tripwires (also in STATE.md): Gambling Reform Bill ROYAL ASSENT (bill
+passed both houses 18-19 Aug, Entry 3 shipped 20 Aug; assent = one-line owner-triggered
+addendum carrying the commencement dates from the Act as made); prediction-markets WA
+stay ruling LANDED (stay denied; tracker update due, on the 21 Aug session list);
+Canada/Alberta grey-market deadline 13 Oct 2026; Oklahoma sweepstakes ban effective
+1 Nov 2026; NZ licensed-only deadline 1 Dec 2026.
 
 ## Post-batch checklist
 
