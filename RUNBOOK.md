@@ -17,6 +17,64 @@ Prompts in this file are tested templates. Adjust placeholders in [brackets] bef
 
 ## Recurring prompts
 
+### DAILY while the August 2026 spam update rolls out (added 2026-08-20)
+
+Two-line check, ~2 minutes, every day until the rollout completes:
+1. Serving: by-day site-wide GSC impressions, last 14 days (dataState=all). Record
+   non-zero days and the streak. Non-zero on a settled day changes the day: report it
+   before doing anything else.
+2. **Rollout status: check the Google Search Status Dashboard for the August 2026 spam
+   update (began 18 Aug ~09:27 PT; "a few days" expected; June's took ~2 days).**
+   The moment it shows COMPLETE, the post-rollout protocol below TRIGGERS, and the
+   rollout outcome (recovered / partial / no change) is logged to the recovery log per
+   the update-watch rule.
+
+**UPDATE WATCH stays DAILY until serving resumes or the owner rules otherwise, even
+after this rollout completes.** That tripwire has lapsed three times (last catch was two
+days late); it does not go back to weekly on its own. If this rollout completes with no
+serving change, the next reassessment window is a possible CORE update (coverage notes
+one often follows a spam update; hypothesis, not schedule), which the daily dashboard
+glance also catches.
+
+### POST-ROLLOUT PROTOCOL (written 2026-08-20; triggers when the dashboard shows the August 2026 spam update COMPLETE)
+
+Sequencing is an OWNER DECISION, made 20 Aug with both branches on record: ship first,
+then request indexing on the finished site, once. Do not reorder.
+
+**STEP 1, AT TRIGGER: the 2c/2d deploy session.** 12 pages (2c: 6 compare rewrites; 2d:
+6 statics; the historic "remaining 14" count included the two approved EXCLUSIONS,
+/high-roller-casinos and /bnb-crypto-casinos, which stay excluded). The drafts are
+committed and owner-approved in reports/batch2bcd-drafts.md, but approval does not skip
+the gates: **full gate discipline applies, PLUS a staleness re-verify, because the
+drafts are 2+ weeks old at execution: re-check every operator fact and date in all 12
+pages against the current catalogue and the pages' own claims before ship.** Owner
+show-me as normal. Bing dispatch per the standard loop (two runs, 6+6, within the cap).
+
+**STEP 2, THE FOLLOWING MORNING: the Request Indexing campaign begins.** The
+one-morning gap is deliberate: it lets Step 1's lastmod bumps and the push-triggered
+auto-dispatch land before any manual request, so nothing races.
+
+**CAMPAIGN MECHANICS (owner action):** GSC URL Inspection (www host, always) > Request
+Indexing, one URL at a time, working top to bottom through
+`reports/request-indexing-list-2026-08.md`, which is also the campaign log: date each
+row as requested. Budget assumption ~10/day (undocumented quota; **if the tool refuses
+a request, stop for the day and log it in the list file**). Roughly 2 minutes alongside
+the daily serving check; ~42 unique URLs; expected duration 4-5 days.
+
+**WHAT IT IS AND ISN'T, for the record:** Request Indexing forces a fetch. It does not
+force re-evaluation and it does not force serving. Indexing was never the problem
+(97 per cent of pages stayed indexed through the suppression); the problem is that the
+classifier may be evaluating pre-reform bytes: zero Google recrawls of any changed page
+in 13+ days means the June-profile versions of up to 25 rewritten pages are what Google
+last saw, and after Step 1 that number covers all 37 reformed URLs plus the regulatory
+pages.
+
+**SUCCESS OBSERVABLE:** the crawl watch shows Google crawl dates advancing PAST the
+request dates on requested URLs. That same signal answers the STOP-branch diagnosis:
+prompt fetches = the zero-crawl pattern was ordinary scheduling; requests sitting
+unactioned = evidence of a suppression-linked crawl throttle, a different finding with
+its own follow-up.
+
 ### RETIRED 2026-08-18: the daily Senate-report glance (report tabled 17 Aug, executed 18 Aug)
 
 The report was tabled 17 August 2026 and the update shipped same-cycle on 18 August
