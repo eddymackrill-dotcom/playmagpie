@@ -25,6 +25,11 @@ section of the same date). Runs AFTER the 2c/2d deploy per the owner's
   Google has NEVER crawled, then resume top-to-bottom from row 11.** A
   granted request on a never-crawled URL is the highest-information
   probe the campaign has.
+- Row 2 note (2026-08-22, later): /country/australia changed again AFTER
+  its request was made (IGA-sentence owner override, same date). The
+  crawl-watch observable is unchanged (a Google crawl date past
+  2026-08-22); a fetch after 22 August picks up the override wording
+  rather than the 17 August version. No re-request needed.
 
 How to use: work top to bottom, ~10 requests/day (undocumented quota; if
 GSC refuses a request, stop for the day and note it here). Put the
@@ -53,7 +58,7 @@ was double-checked against the known change history before exclusion.
 | # | URL | Last change | Last crawl | Verdict | Requested |
 |---|---|---|---|---|---|
 | 1 | /country/australia/legal | 2026-08-20 | 2026-06-20 | VERIFIED-STALE (Google has NEVER fetched any of the four dated entries; two-month gap on the site's top AI asset) | 2026-08-22 |
-| 2 | /country/australia | 2026-08-17 | 2026-07-12 | VERIFIED-STALE | 2026-08-22 |
+| 2 | /country/australia | 2026-08-22 (IGA sentence, owner override; changed again AFTER the request was made) | 2026-07-12 | VERIFIED-STALE | 2026-08-22 |
 
 ## Tier 1: sentinels + trust layer
 
