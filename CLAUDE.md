@@ -51,6 +51,31 @@ Everything else is left alone. That explicitly includes false operator facts, in
 
 The rule above is about **what you stop for and what you go looking for.** It is not permission to invent. Do not confuse the two. Publishing a number you cannot source is not covered by "accuracy corrections are not priority work": that rule governs existing claims, not new ones you author.
 
+## Materiality threshold for owner escalation (owner decision 2026-08-22, .com)
+
+Do not escalate a decision to the owner unless a wrong answer would cost money, create legal or compliance exposure, or change what a reader does. Everything below that bar is a session judgement call: take it, log it in one line, and move on.
+
+**Two tests, both must fail before you escalate:**
+
+1. **VOLATILITY.** Is this the kind of fact that actually changes? Fees, caps, bonus amounts, processing times and thresholds change and are treated as volatile. Structural and regulatory facts (which jurisdictions an operator restricts, whether a licensing regime is walled, whether an operator offers a product category) do not meaningfully drift and are treated as stable.
+
+2. **CONSEQUENCE.** If this is wrong, what happens? If the error costs a reader money, misstates a legal position, or sends them somewhere they should not go, escalate. If the worst case is that the site is slightly over-cautious and loses a click, do not escalate.
+
+**Applied to unfetchable primaries.** Verify-or-omit governs VOLATILE figures and is unchanged for those. For STABLE facts where the primary is unfetchable and the catalogue carries a verbatim owner read: ship the catalogue value, log it in one line, and do not omit it, hold the page, or ask. Re-verification of stable facts rides along with owner visits already happening for other reasons. It never generates a visit of its own and never generates a question.
+
+**Permanently unfetchable sources.** Where a primary cannot be fetched for structural reasons, mark it ONCE in the catalogue as permanently unfetchable with the reason. After that it is a known condition, not a finding, and is not re-raised on each figure that depends on it. Standing entry: Roobet terms and conditions, JavaScript shell, does not render to a fetch. Catalogue values from the owner's May 2026 verbatim read stand for stable facts. Permanent condition, settled, do not re-raise.
+
+**Report format.** Split the report's judgement section in two:
+
+- **LOGGED**: calls taken under the autonomy rule, one line each, no response wanted. This is the default and most reports will have only this section.
+- **NEEDS YOUR CALL**: only items failing both tests above. If there are none, say "no decisions needed" explicitly. A report with no decisions in it is a normal report, not an incomplete one.
+
+Never present a settled matter as an open question in order to be thorough. Thoroughness is putting it in the log, not putting it in front of the owner.
+
+**Proportionality.** Weigh every escalation against what the site is facing. Google serving has been suppressed since 27 June and the streak is 0/7. Owner attention spent on a low-consequence wording call is attention not spent on serving, propagation, or the September slate. When in doubt about whether something clears the bar, it does not.
+
+**Ratified and closed.** The Roobet Ontario call (22 Aug, shipped on the catalogue's verbatim paragraph 3.5 read when the live terms proved unfetchable) is RATIFIED as correct under this rule. Settled. Do not re-raise.
+
 ## Counter-argument on record, as logged advice and NOT a blocker (2026-08-01)
 
 The owner has weighed this and decided. **Do not re-raise it.** Recorded so a cold read sees both sides.

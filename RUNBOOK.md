@@ -71,7 +71,8 @@ the daily serving check; ~42 unique URLs; expected duration 4-5 days.
 
 **WHAT IT IS AND ISN'T, for the record:** Request Indexing forces a fetch. It does not
 force re-evaluation and it does not force serving. Indexing was never the problem
-(97 per cent of pages stayed indexed through the suppression); the problem is that the
+(82 of 87 pages, 94 per cent, stayed indexed through the suppression per the 07-07
+census); the problem is that the
 classifier may be evaluating pre-reform bytes: zero Google recrawls of any changed page
 in 13+ days means the June-profile versions of up to 25 rewritten pages are what Google
 last saw, and after Step 1 that number covers all 37 reformed URLs plus the regulatory

@@ -4,6 +4,22 @@ Campaign log for the post-rollout Request Indexing protocol (RUNBOOK
 section of the same date). Runs AFTER the 2c/2d deploy per the owner's
 20 Aug sequencing decision: one campaign over the finished site.
 
+## Campaign log
+
+- **Day 1, 2026-08-22 (owner): rows 1-10 requested, GSC refused nothing
+  before the owner stopped at 10, consistent with the ~10/day
+  undocumented quota. 32 of 42 URLs outstanding (rows 11-43).** Note on
+  timing: day 1 ran the SAME DAY as the 2c/2d ship, not the following
+  morning the protocol sketched; the actual request dates govern, since
+  the crawl watch keys off them.
+- **CRAWL WATCH OPEN against the 10 requested rows: the observable is a
+  Google crawl date advancing PAST 2026-08-22 on each (single-URL
+  inspection).** Per the protocol this doubles as the Checkpoint B
+  STOP-branch diagnosis: prompt fetches = the zero-crawl pattern was
+  ordinary low-priority scheduling; requests sitting unactioned =
+  evidence of a suppression-linked crawl throttle, a different and worse
+  finding with its own follow-up.
+
 How to use: work top to bottom, ~10 requests/day (undocumented quota; if
 GSC refuses a request, stop for the day and note it here). Put the
 request date in the "Requested" column as each URL is submitted (GSC URL
@@ -30,17 +46,17 @@ was double-checked against the known change history before exclusion.
 
 | # | URL | Last change | Last crawl | Verdict | Requested |
 |---|---|---|---|---|---|
-| 1 | /country/australia/legal | 2026-08-20 | 2026-06-20 | VERIFIED-STALE (Google has NEVER fetched any of the four dated entries; two-month gap on the site's top AI asset) | |
-| 2 | /country/australia | 2026-08-17 | 2026-07-12 | VERIFIED-STALE | |
+| 1 | /country/australia/legal | 2026-08-20 | 2026-06-20 | VERIFIED-STALE (Google has NEVER fetched any of the four dated entries; two-month gap on the site's top AI asset) | 2026-08-22 |
+| 2 | /country/australia | 2026-08-17 | 2026-07-12 | VERIFIED-STALE | 2026-08-22 |
 
 ## Tier 1: sentinels + trust layer
 
 | # | URL | Last change | Last crawl | Verdict | Requested |
 |---|---|---|---|---|---|
-| 3 | /reviews/bitstarz/kyc | 2026-08-01 | 2026-07-31 | VERIFIED-STALE (08-01 correction batch) | |
-| 4 | /reviews/bitstarz/withdrawal | 2026-08-01 | 2026-07-13 | VERIFIED-STALE | |
-| 5 | /reviews/mirax-casino | 2026-08-02 | 2026-07-30 | VERIFIED-STALE | |
-| 6 | /fast-withdrawal-casinos | 2026-08-22 (2d rewrite shipped, commit 47a05b4) | 2026-07-28 | VERIFIED-STALE, requestable now (one request covers the 08-01 correction and the 2d rewrite) | |
+| 3 | /reviews/bitstarz/kyc | 2026-08-01 | 2026-07-31 | VERIFIED-STALE (08-01 correction batch) | 2026-08-22 |
+| 4 | /reviews/bitstarz/withdrawal | 2026-08-01 | 2026-07-13 | VERIFIED-STALE | 2026-08-22 |
+| 5 | /reviews/mirax-casino | 2026-08-02 | 2026-07-30 | VERIFIED-STALE | 2026-08-22 |
+| 6 | /fast-withdrawal-casinos | 2026-08-22 (2d rewrite shipped, commit 47a05b4) | 2026-07-28 | VERIFIED-STALE, requestable now (one request covers the 08-01 correction and the 2d rewrite) | 2026-08-22 |
 | - | /high-roller-casinos | 2026-07-16 | 2026-07-30 | ALREADY-CRAWLED, excluded (also 2d-excluded flagship) | n/a |
 | - | /methodology | 2026-07-17 | 2026-08-03 | ALREADY-CRAWLED, excluded | n/a |
 | - | /about | 2026-07-07 | 2026-07-09 | ALREADY-CRAWLED, excluded | n/a |
@@ -49,10 +65,10 @@ was double-checked against the known change history before exclusion.
 
 | # | URL | Last change | Last crawl | Verdict | Requested |
 |---|---|---|---|---|---|
-| 7 | /country/canada | 2026-08-07 | 2026-06-24 | VERIFIED-STALE | |
-| 8 | /country/japan | 2026-08-07 | 2026-05-27 | VERIFIED-STALE (worst gap in the batch) | |
-| 9 | /country/new-zealand | 2026-08-07 | 2026-07-07 | VERIFIED-STALE | |
-| 10 | /country/ireland | 2026-08-07 | 2026-07-07 | VERIFIED-STALE | |
+| 7 | /country/canada | 2026-08-07 | 2026-06-24 | VERIFIED-STALE | 2026-08-22 |
+| 8 | /country/japan | 2026-08-07 | 2026-05-27 | VERIFIED-STALE (worst gap in the batch) | 2026-08-22 |
+| 9 | /country/new-zealand | 2026-08-07 | 2026-07-07 | VERIFIED-STALE | 2026-08-22 |
+| 10 | /country/ireland | 2026-08-07 | 2026-07-07 | VERIFIED-STALE | 2026-08-22 |
 | 11 | /country/germany | 2026-08-07 | 2026-07-07 | VERIFIED-STALE | |
 | 12 | /country/norway | 2026-08-07 | 2026-07-07 | VERIFIED-STALE | |
 | 13 | /country/finland | 2026-08-07 | 2026-07-09 | VERIFIED-STALE | |
@@ -121,8 +137,9 @@ the 2c/2d ship per the post-rollout protocol Step 2.
 ## What this campaign is and is not (from the protocol, restated here)
 
 Request Indexing forces a FETCH. It does not force re-evaluation or
-serving. Indexing was never the problem (the census kept 97% of pages
-indexed); visibility of the reformed bytes to the classifier is. The
+serving. Indexing was never the problem (the 07-07 census kept 82 of 87
+pages indexed, 94 per cent); visibility of the reformed bytes to the
+classifier is. The
 success observable is crawl dates advancing past request dates on the
 crawl watch, which also answers the STOP-branch diagnosis: if requested
 fetches happen promptly, the 13-day zero-crawl pattern was ordinary

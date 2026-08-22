@@ -384,6 +384,12 @@ export const casinos: Casino[] = [
     // exclusion is driven via casinoAcceptsCountry() which matches full names only,
     // so this list also serves as the authoritative restricted-jurisdictions copy
     // on the review page.
+    // PERMANENTLY UNFETCHABLE PRIMARY (marked 2026-08-22 per the CLAUDE.md
+    // materiality rule): roobet.com/terms is a JavaScript shell and does not
+    // render to a fetch. Known condition, not a finding; do not re-raise it per
+    // figure. For STABLE facts (this restriction list included) the owner's
+    // May 2026 verbatim read stands; VOLATILE Roobet figures (fees, caps,
+    // processing clauses) stay under verify-or-omit and the owner-glance gates.
     restrictedCountries: [
       'Aruba', 'Australia', 'Belgium', 'Bonaire', 'Cuba', 'Curacao', 'Cyprus', 'Denmark',
       'Germany', 'Gibraltar', 'Haiti', 'Israel', 'Iran', 'Iraq', 'Malta', 'Myanmar',
