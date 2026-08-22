@@ -49,23 +49,23 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos With a Sportsbook 2026: Ranked',
+  title: 'Crypto Casinos With a Real Sportsbook: Five Operators Ranked',
   description:
-    'Five casinos in our catalogue run a real sportsbook alongside the casino: Cloudbet, Roobet, BC.Game, Shuffle and Duelbits. Ranked by trust, with the honest per-operator breakdown.',
+    'Five of our eight operators run a real sportsbook beside the casino: Cloudbet, Roobet, BC.Game, Shuffle and Duelbits. Trust-ranked, with per-operator notes.',
   alternates: {
     canonical: '/crypto-casinos-with-sportsbook',
   },
   openGraph: {
     url: '/crypto-casinos-with-sportsbook',
-    title: 'Best Crypto Casinos With a Sportsbook 2026: Ranked',
+    title: 'Crypto Casinos With a Real Sportsbook: Five Operators Ranked',
     description:
-      'Five catalogue operators pair a crypto casino with a sportsbook. Cloudbet leads on market depth; Duelbits on payout speed. Full per-operator breakdown.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Casinos With a Sportsbook 2026' }],
+      'Five operators run a real sportsbook beside the casino: Cloudbet, Roobet, BC.Game, Shuffle and Duelbits. Trust-ranked.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Crypto Casinos With a Real Sportsbook: Five Operators Ranked' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Crypto Casinos With a Sportsbook 2026',
-    description: 'The five crypto casinos that also run a sportsbook, ranked by trust with honest per-operator notes.',
+    title: 'Crypto Casinos With a Real Sportsbook: Five Operators Ranked',
+    description: 'The five crypto casinos that run a real sportsbook, trust-ranked with per-operator notes.',
     images: ['/og-image.png'],
   },
 }
@@ -123,7 +123,7 @@ export default function CryptoSportsbookPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">Casino + Sportsbook</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4 leading-tight">
-            Best Crypto Casinos With a Sportsbook 2026
+            Sportsbook Crypto Casinos: The Five That Actually Run a Book
           </h1>
           <p className="text-[#888888] text-lg max-w-3xl leading-relaxed">
             Five of the eight casinos in our ratings run a genuine sportsbook alongside the

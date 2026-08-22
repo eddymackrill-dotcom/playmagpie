@@ -28,14 +28,17 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   // Bumped 2026-08-11: homepage gains the "Latest regulatory updates" block
   // (carrier surface for the tracker family).
   '/': '2026-08-11',
-  '/best-crypto-casinos': '2026-08-01',
-  '/fast-withdrawal-casinos': '2026-08-01',
+  // The six 2d statics bumped 2026-08-22: Batch 2d de-templating (new titles,
+  // H1s, metas per reports/batch2bcd-drafts.md). /high-roller-casinos and
+  // /bnb-crypto-casinos are the two approved exclusions and stay unbumped.
+  '/best-crypto-casinos': '2026-08-22',
+  '/fast-withdrawal-casinos': '2026-08-22',
   '/high-roller-casinos': '2026-07-16',
-  '/no-kyc-casinos': '2026-08-01',
-  '/best-crypto-pokies-nz': '2026-08-01',
+  '/no-kyc-casinos': '2026-08-22',
+  '/best-crypto-pokies-nz': '2026-08-22',
   '/bnb-crypto-casinos': '2026-08-01',
-  '/best-bitcoin-casino-canada': '2026-08-01',
-  '/crypto-casinos-with-sportsbook': '2026-08-01',
+  '/best-bitcoin-casino-canada': '2026-08-22',
+  '/crypto-casinos-with-sportsbook': '2026-08-22',
   '/research/crypto-casino-bonus-transparency': '2026-08-01',
   '/crypto': '2026-07-07',
   '/country': '2026-06-22',

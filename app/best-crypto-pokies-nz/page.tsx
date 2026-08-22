@@ -36,23 +36,23 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Best Crypto Pokies for NZ Players 2026: Slot Libraries Compared',
+  title: 'Crypto Pokies for NZ Players: Slot Libraries Compared',
   description:
-    'The best crypto pokies sites for New Zealand players in 2026. Slot library size, providers, provably-fair originals and NZD-friendly crypto deposit options compared.',
+    'Slot libraries from 3,000 to 10,000+ titles compared for New Zealand players: providers, provably-fair originals and NZD-friendly crypto deposit routes.',
   alternates: {
     canonical: '/best-crypto-pokies-nz',
   },
   openGraph: {
     url: '/best-crypto-pokies-nz',
-    title: 'Best Crypto Pokies for NZ Players 2026: Slot Libraries Compared',
+    title: 'Crypto Pokies for NZ Players: Slot Libraries Compared',
     description:
-      'Crypto pokies sites ranked for NZ players: library size, providers, provably-fair originals and NZD-to-crypto deposit options.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Pokies NZ 2026' }],
+      'Slot libraries from 3,000 to 10,000+ titles compared for NZ players: providers, originals and NZD on-ramps.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Crypto Pokies for NZ Players: Slot Libraries Compared' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Crypto Pokies for NZ Players 2026: Slot Libraries Compared',
-    description: 'Crypto pokies sites ranked for NZ players: library size, providers and NZD-to-crypto deposit options.',
+    title: 'Crypto Pokies for NZ Players: Slot Libraries Compared',
+    description: 'Slot libraries compared for NZ players: providers, provably-fair originals and NZD on-ramps.',
     images: ['/og-image.png'],
   },
 }
@@ -132,7 +132,7 @@ export default function CryptoPokiesNZPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">🇳🇿 NZ Crypto Pokies</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            Best Crypto Pokies for NZ Players 2026
+            Crypto Pokies in New Zealand: Library Size, Providers, NZD On-Ramps
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             What NZ players actually want from a pokies site is a real-money library worth playing, not 50 reskinned

@@ -35,24 +35,24 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Best Crypto Casinos 2026: Top Bitcoin & USDT Sites Ranked',
+  title: 'Best Crypto Casinos, Ranked on Payouts, Terms and Trust',
   description:
-    'The best Bitcoin and crypto casinos ranked for 2026. Compare withdrawal speeds, bonus value and KYC requirements. Play with BTC, ETH, USDT, SOL and more.',
+    'Eight operators ranked on withdrawal speed, bonus terms and KYC posture, BTC to SOL. Trust-scored from published terms and complaint records, not ad spend.',
   alternates: {
     canonical: '/best-crypto-casinos',
   },
   openGraph: {
     url: '/best-crypto-casinos',
-    title: 'Best Crypto Casinos 2026: Top Bitcoin & USDT Sites Ranked',
+    title: 'Best Crypto Casinos, Ranked on Payouts, Terms and Trust',
     description:
-      'The best Bitcoin and crypto casinos ranked for 2026. Compare withdrawal speeds, bonus value and KYC requirements.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Casinos 2026' }],
+      'Eight operators ranked on withdrawal speed, bonus terms and KYC posture. Trust-scored from published terms, not ad spend.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Crypto Casinos, Ranked on Payouts, Terms and Trust' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Crypto Casinos 2026: Top Bitcoin & USDT Sites Ranked',
+    title: 'Best Crypto Casinos, Ranked on Payouts, Terms and Trust',
     description:
-      'The best Bitcoin and crypto casinos ranked for 2026: fast withdrawals, fair bonuses, minimal KYC.',
+      'Eight crypto casinos ranked on payouts, terms and trust, BTC to SOL.',
     images: ['/og-image.png'],
   },
 }
@@ -86,7 +86,7 @@ export default function BestCryptoCasinosPage() {
 
         <div className="mb-10">
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            Best Crypto Casinos in 2026
+            The Best Crypto Casinos, Ranked by What We Can Verify
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             We&apos;ve ranked the top Bitcoin and crypto casinos by withdrawal speed, bonus value, KYC friction and

@@ -16,21 +16,21 @@ import CTAButton from '@/components/CTAButton'
 // Newton, Bitbuy, Wealthsimple. Roobet's Ontario restriction: lib/casinos.ts restrictedCountries.
 
 export const metadata: Metadata = {
-  title: 'Best Bitcoin Casino Canada 2026: Ranked, With the Ontario Catch',
+  title: 'Best Bitcoin Casino Canada: Ranked, With the Ontario Catch',
   description:
-    'All 8 reviewed casinos accept Canadian players for Bitcoin, but one (Roobet) restricts Ontario specifically. Ranked by trust, with the province-by-province detail and CRA tax note Canadian players need.',
+    'All 8 reviewed casinos take Canadian Bitcoin players; Roobet alone restricts Ontario by name. Ranked by trust, with the provincial detail and the CRA tax note.',
   alternates: { canonical: '/best-bitcoin-casino-canada' },
   openGraph: {
     url: '/best-bitcoin-casino-canada',
-    title: 'Best Bitcoin Casino Canada 2026',
+    title: 'Best Bitcoin Casino Canada: Ranked, With the Ontario Catch',
     description:
-      'All 8 reviewed casinos accept Canadian players for Bitcoin (Roobet excludes Ontario), ranked, with the provincial and CRA tax detail.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Bitcoin Casino Canada 2026' }],
+      'All 8 reviewed casinos take Canadian Bitcoin players; Roobet alone restricts Ontario by name. Ranked by trust.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Bitcoin Casino Canada: Ranked, With the Ontario Catch' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Bitcoin Casino Canada 2026',
-    description: 'All 8 reviewed casinos accept Canadian players for Bitcoin (Roobet excludes Ontario), ranked, with provincial and CRA tax detail.',
+    title: 'Best Bitcoin Casino Canada: Ranked, With the Ontario Catch',
+    description: 'All 8 reviewed casinos take Canadian Bitcoin players; Roobet alone restricts Ontario. Ranked by trust.',
     images: ['/og-image.png'],
   },
 }
@@ -97,7 +97,7 @@ export default function BestBitcoinCasinoCanadaPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">Bitcoin · Canada · CAD</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4 leading-tight">
-            Best Bitcoin Casino Canada 2026
+            Bitcoin Casinos for Canada: One Ontario Carve-Out, Ranked Around It
           </h1>
           <p className="text-[#888888] text-lg max-w-3xl leading-relaxed">
             Canada is one of the most crypto-friendly markets we cover, and all eight casinos we review

@@ -34,23 +34,23 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Best No-KYC Casinos 2026: Play Without ID Verification',
+  title: 'No-KYC Casinos: Where the Document Thresholds Actually Sit',
   description:
-    'Play without identity checks. The best no-KYC crypto casinos for 2026 let you sign up, deposit and withdraw without submitting documents. Ranked and rated.',
+    'The no-KYC label usually ends at a threshold: EUR 2,000 equivalent at the operators we verified against live terms. Where anonymity stops, casino by casino.',
   alternates: {
     canonical: '/no-kyc-casinos',
   },
   openGraph: {
     url: '/no-kyc-casinos',
-    title: 'Best No-KYC Casinos 2026: Play Without ID Verification',
+    title: 'No-KYC Casinos: Where the Document Thresholds Actually Sit',
     description:
-      'The best no-KYC crypto casinos for 2026: sign up, deposit and withdraw without submitting identity documents.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best No-KYC Casinos 2026' }],
+      'Document-light crypto casinos ranked honestly: where the verification thresholds actually sit, operator by operator.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'No-KYC Casinos: Where the Document Thresholds Actually Sit' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best No-KYC Casinos 2026: Play Without ID Verification',
-    description: 'Top no-KYC crypto casinos for 2026: play instantly without submitting ID documents.',
+    title: 'No-KYC Casinos: Where the Document Thresholds Actually Sit',
+    description: 'Where the no-KYC label actually stops: verification thresholds ranked, operator by operator.',
     images: ['/og-image.png'],
   },
 }
@@ -87,7 +87,7 @@ export default function NoKYCPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">🔓 Zero Verification</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            Best No-KYC Casinos 2026
+            No-KYC Crypto Casinos, Honestly Ranked: Thresholds Included
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Sign up in minutes with an email address alone. These platforms keep routine crypto play document-free:

@@ -35,23 +35,23 @@ const STRIP_CARDS: CTAStripCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Fastest Withdrawal Casinos 2026: Instant Crypto Payouts',
+  title: 'Fastest Withdrawal Crypto Casinos: Published Windows Ranked',
   description:
-    'Crypto casinos ranked on payout speed for 2026, using each operator\'s published processing window alongside our withdrawal scoring. Where the fastest cashiers actually sit, and what slows the rest down.',
+    'Payout speed ranked from each operator\'s published window, instant-to-5-minutes at the front. What the fastest cashiers do differently and what slows the rest.',
   alternates: {
     canonical: '/fast-withdrawal-casinos',
   },
   openGraph: {
     url: '/fast-withdrawal-casinos',
-    title: 'Fastest Withdrawal Casinos 2026: Instant Crypto Payouts',
+    title: 'Fastest Withdrawal Crypto Casinos: Published Windows Ranked',
     description:
-      'The fastest crypto casino withdrawals ranked for 2026. Sub-15-minute payouts verified. Get your winnings instantly.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Fastest Withdrawal Casinos 2026' }],
+      'Payout speed ranked from each operator\'s published processing window, instant-to-5-minutes at the front.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Fastest Withdrawal Crypto Casinos: Published Windows Ranked' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fastest Withdrawal Casinos 2026: Instant Crypto Payouts',
-    description: 'Sub-15-minute crypto payouts verified. The fastest paying crypto casinos ranked for 2026.',
+    title: 'Fastest Withdrawal Crypto Casinos: Published Windows Ranked',
+    description: 'Crypto casino payout speed ranked from published windows, instant-to-5-minutes at the front.',
     images: ['/og-image.png'],
   },
 }
@@ -88,7 +88,7 @@ export default function FastWithdrawalPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">Verified Payout Times</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4">
-            Fastest Withdrawal Casinos 2026
+            Fast Withdrawal Casinos: Ranked on the Windows Operators Publish
           </h1>
           <p className="text-[#888888] text-lg max-w-2xl leading-relaxed">
             Ranked purely on payout speed. Every casino below has been verified for crypto withdrawal times.
