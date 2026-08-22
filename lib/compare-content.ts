@@ -45,41 +45,47 @@ export type CompareEditorial = {
 }
 
 export const compareEditorial: Record<ComparePairSlug, CompareEditorial> = {
+  // Batch 2c copy (2026-08-22): per-pair verdict-led titles and metas replace
+  // the shared "{A} vs {B} (2026): Which Is Better?" stem. Every clause traces
+  // to the pair's own compareContent verdict or lib/casinos.ts scores; the 7Bit
+  // and BC.Game lines deliberately say "document-light" / lead on altcoin
+  // breadth, never "no KYC at any amount" (absolutism retracted 2026-08-01).
+  // Staleness re-verified at ship (2026-08-22) per the post-rollout protocol.
   'bitstarz-vs-bc-game': {
-    title: 'BitStarz vs BC.Game (2026): Which Is Better?',
+    title: 'BitStarz vs BC.Game: Match Structure or Rakeback Model',
     metaDescription:
-      'BitStarz vs BC.Game: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
-    modified: '2026-08-01',
+      'No single winner: BitStarz suits BTC players who want the 5 BTC match-plus-spins pack; BC.Game suits altcoin holders at a $5 minimum. The structural split.',
+    modified: '2026-08-22',
   },
   'cloudbet-vs-bitstarz': {
-    title: 'Cloudbet vs BitStarz (2026): Which Is Better?',
+    title: 'Cloudbet vs BitStarz: Sportsbook Reach or Casino Legacy',
     metaDescription:
-      'Cloudbet vs BitStarz: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
-    modified: '2026-08-01',
+      'The split: Cloudbet brings the sportsbook and verified no-limit cashouts; BitStarz the cleaner casino-only pick with the 5 BTC welcome. Which fits your play.',
+    modified: '2026-08-22',
   },
   '7bit-casino-vs-bitstarz': {
-    title: '7Bit Casino vs BitStarz (2026): Which Is Better?',
+    title: '7Bit vs BitStarz: Privacy Posture Against Bonus Muscle',
     metaDescription:
-      '7Bit Casino vs BitStarz: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
-    modified: '2026-08-01',
+      '7Bit is the pick when document-light play decides it; BitStarz brings the bigger BTC welcome and the louder brand. Both 12-year operators, 0.4 apart on trust.',
+    modified: '2026-08-22',
   },
   'bc-game-vs-shuffle': {
-    title: 'BC.Game vs Shuffle (2026): Which Is Better?',
+    title: 'BC.Game vs Shuffle: Scores vs the SHFL Token Layer',
     metaDescription:
-      'BC.Game vs Shuffle: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
-    modified: '2026-08-01',
+      'BC.Game wins every scoring dimension we publish; Shuffle counters with SHFL token rewards the scores do not capture. Which model pays for your play style.',
+    modified: '2026-08-22',
   },
   'mirax-casino-vs-bitstarz': {
-    title: 'Mirax Casino vs BitStarz (2026): Which Is Better?',
+    title: 'Mirax vs BitStarz: Same 5 BTC Ceiling, Different Shape',
     metaDescription:
-      'Mirax Casino vs BitStarz: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
-    modified: '2026-08-01',
+      'Both packs top out at 5 BTC over four deposits; Mirax front-loads 1.5 BTC + 100 spins on D1, BitStarz spreads 180 spins. History is the real difference.',
+    modified: '2026-08-22',
   },
   'cloudbet-vs-roobet': {
-    title: 'Cloudbet vs Roobet (2026): Which Is Better?',
+    title: 'Cloudbet vs Roobet: Trust Gap vs the Originals Suite',
     metaDescription:
-      'Cloudbet vs Roobet: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
-    modified: '2026-08-01',
+      'Cloudbet for most players: trust 8.7 against 6.8, no withdrawal limits once verified. Roobet answers with Crash and Originals. Where each case actually holds.',
+    modified: '2026-08-22',
   },
 }
 
