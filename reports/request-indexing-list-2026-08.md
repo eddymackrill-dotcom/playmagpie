@@ -40,7 +40,7 @@ was double-checked against the known change history before exclusion.
 | 3 | /reviews/bitstarz/kyc | 2026-08-01 | 2026-07-31 | VERIFIED-STALE (08-01 correction batch) | |
 | 4 | /reviews/bitstarz/withdrawal | 2026-08-01 | 2026-07-13 | VERIFIED-STALE | |
 | 5 | /reviews/mirax-casino | 2026-08-02 | 2026-07-30 | VERIFIED-STALE | |
-| 6 | /fast-withdrawal-casinos | 2026-08-01, 2d rewrite pending | 2026-07-28 | VERIFIED-STALE now; request AFTER its 2d rewrite ships (one request covers both) | |
+| 6 | /fast-withdrawal-casinos | 2026-08-22 (2d rewrite shipped, commit 47a05b4) | 2026-07-28 | VERIFIED-STALE, requestable now (one request covers the 08-01 correction and the 2d rewrite) | |
 | - | /high-roller-casinos | 2026-07-16 | 2026-07-30 | ALREADY-CRAWLED, excluded (also 2d-excluded flagship) | n/a |
 | - | /methodology | 2026-07-17 | 2026-08-03 | ALREADY-CRAWLED, excluded | n/a |
 | - | /about | 2026-07-07 | 2026-07-09 | ALREADY-CRAWLED, excluded | n/a |
@@ -85,36 +85,38 @@ was double-checked against the known change history before exclusion.
 | 30 | /crypto/solana | 2026-08-10 | 2026-07-09 | VERIFIED-STALE | |
 | 31 | /game/dice | 2026-08-10 | 2026-07-29 | VERIFIED-STALE | |
 
-## Tier 5: Batch 2c/2d, PENDING-DEPLOY (12 pages; ship at rollout completion, then fill dates and request)
+## Tier 5: Batch 2c/2d, SHIPPED 2026-08-22 (commits 66857ec compare copy, 47a05b4 statics), requestable now
 
-2c compare (6), current crawl dates recorded 2026-08-20:
-
-| # | URL | Last change | Last crawl (20 Aug) | Verdict | Requested |
-|---|---|---|---|---|---|
-| 32 | /compare/cloudbet-vs-roobet | fill at ship | never | PENDING-DEPLOY (published 08-01, still unknown to Google: second never-crawled URL on the board) | |
-| 33 | /compare/mirax-casino-vs-bitstarz | fill at ship | 2026-06-09 | PENDING-DEPLOY | |
-| 34 | /compare/cloudbet-vs-bitstarz | fill at ship | 2026-06-24 | PENDING-DEPLOY | |
-| 35 | /compare/7bit-casino-vs-bitstarz | fill at ship | 2026-06-24 | PENDING-DEPLOY | |
-| 36 | /compare/bc-game-vs-shuffle | fill at ship | 2026-07-17 | PENDING-DEPLOY | |
-| 37 | /compare/bitstarz-vs-bc-game | fill at ship | 2026-07-21 | PENDING-DEPLOY | |
-
-2d statics (6), current crawl dates recorded 2026-08-20:
+2c compare (6), crawl dates recorded 2026-08-20, all predate the ship by construction:
 
 | # | URL | Last change | Last crawl (20 Aug) | Verdict | Requested |
 |---|---|---|---|---|---|
-| 38 | /crypto-casinos-with-sportsbook | fill at ship | 2026-06-08 | PENDING-DEPLOY | |
-| 39 | /best-bitcoin-casino-canada | fill at ship | 2026-07-09 | PENDING-DEPLOY | |
-| 40 | /no-kyc-casinos | fill at ship | 2026-07-20 | PENDING-DEPLOY (already stale from the 08-01 correction; the 2d rewrite is the liability fix for its meta) | |
-| 41 | /best-crypto-pokies-nz | fill at ship | 2026-08-03 | PENDING-DEPLOY | |
-| 42 | /best-crypto-casinos | fill at ship | 2026-08-03 | PENDING-DEPLOY | |
-| 43 | /fast-withdrawal-casinos | see Tier 1 row 6 | | (listed once; request after 2d ships) | n/a |
+| 32 | /compare/cloudbet-vs-roobet | 2026-08-22 | never | VERIFIED-STALE (published 08-01, still unknown to Google: second never-crawled URL on the board) | |
+| 33 | /compare/mirax-casino-vs-bitstarz | 2026-08-22 | 2026-06-09 | VERIFIED-STALE | |
+| 34 | /compare/cloudbet-vs-bitstarz | 2026-08-22 | 2026-06-24 | VERIFIED-STALE | |
+| 35 | /compare/7bit-casino-vs-bitstarz | 2026-08-22 | 2026-06-24 | VERIFIED-STALE | |
+| 36 | /compare/bc-game-vs-shuffle | 2026-08-22 | 2026-07-17 | VERIFIED-STALE | |
+| 37 | /compare/bitstarz-vs-bc-game | 2026-08-22 | 2026-07-21 | VERIFIED-STALE | |
+
+2d statics (6), crawl dates recorded 2026-08-20, all predate the ship by construction:
+
+| # | URL | Last change | Last crawl (20 Aug) | Verdict | Requested |
+|---|---|---|---|---|---|
+| 38 | /crypto-casinos-with-sportsbook | 2026-08-22 | 2026-06-08 | VERIFIED-STALE | |
+| 39 | /best-bitcoin-casino-canada | 2026-08-22 | 2026-07-09 | VERIFIED-STALE | |
+| 40 | /no-kyc-casinos | 2026-08-22 | 2026-07-20 | VERIFIED-STALE (was already stale from the 08-01 correction; the shipped 2d rewrite is the liability fix for its meta) | |
+| 41 | /best-crypto-pokies-nz | 2026-08-22 | 2026-08-03 | VERIFIED-STALE | |
+| 42 | /best-crypto-casinos | 2026-08-22 | 2026-08-03 | VERIFIED-STALE | |
+| 43 | /fast-withdrawal-casinos | see Tier 1 row 6 | | (listed once; its 2d rewrite has shipped, requestable now) | n/a |
 
 ## Count and duration
 
-31 URLs requestable from the existing deploy set (Tiers 0-4) + 12 at
-2c/2d ship (Tier 5, one URL shared with Tier 1) = 42 unique requests.
-At ~10/day: 4 to 5 owner mornings, ~2 minutes each alongside the daily
-serving check.
+All 42 unique URLs are now requestable: 31 from the pre-22-Aug deploy set
+(Tiers 0-4) + 11 more numbered rows that joined at the 2c/2d ship on
+2026-08-22 (Tier 5; /fast-withdrawal-casinos is shared with Tier 1 and
+counted once). At ~10/day: 4 to 5 owner mornings, ~2 minutes each
+alongside the daily serving check. The campaign starts the morning after
+the 2c/2d ship per the post-rollout protocol Step 2.
 
 ## What this campaign is and is not (from the protocol, restated here)
 

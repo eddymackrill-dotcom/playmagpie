@@ -36,7 +36,15 @@ serving change, the next reassessment window is a possible CORE update (coverage
 one often follows a spam update; hypothesis, not schedule), which the daily dashboard
 glance also catches.
 
-### POST-ROLLOUT PROTOCOL (written 2026-08-20; triggers when the dashboard shows the August 2026 spam update COMPLETE)
+### POST-ROLLOUT PROTOCOL (written 2026-08-20; triggered and STEP 1 EXECUTED 2026-08-22)
+
+**STATUS 2026-08-22: the trigger fired (dashboard: update complete, 18 Aug + 2d16h) and
+Step 1 is DONE under the owner's 22 Aug show-me waiver: 2c/2d shipped (commits f71f7d6,
+66857ec, 47a05b4), staleness re-verified, all 12 confirmed live, two dispatches fired
+(runs 32562095219 + 32562157055, both pending WMT confirmation). STEP 2 IS THE OWNER'S
+NEXT MORNING: the Request Indexing campaign below, list fully requestable (42 rows).
+Rollout outcome logged: NO CHANGE; update watch stays DAILY. Full record in the
+2026-08-22 decisions entry.**
 
 Sequencing is an OWNER DECISION, made 20 Aug with both branches on record: ship first,
 then request indexing on the finished site, once. Do not reorder.
