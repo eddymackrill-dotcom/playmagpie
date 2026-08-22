@@ -147,12 +147,16 @@ report on. Run this instead:
      longer detect a real regression on /country/australia/legal. At the checkpoint, compute
      each protected page's trailing-7-day citation level from the owner export and read
      regression against that, not against the 08-07 snapshot.
-   - **Checkpoint A+B addition, BREADTH VERDICT (added 2026-08-17):** the two trackers and
+   - ~~**Checkpoint A+B addition, BREADTH VERDICT (added 2026-08-17):** the two trackers and
      /country/canada/legal reach day 10 on 21 Aug, the age the withdrawal guide was when it
      started moving. They stand 0-for-3 in page stats at day 6 (17 Aug read). **Zero across
      all three at day 10 RETIRES the breadth programme and reweights the September slate
      toward the withdrawal/KYC process cluster**, where replication is compounding (guide
-     102 to 168, now the #3 asset).
+     102 to 168, now the #3 asset).~~ **[VERDICT ADOPTED 2026-08-22, BREADTH PROGRAMME
+     RETIRED (owner decision): 0-for-3 across the full window to 20 Aug, adopted on day-9
+     data with the one-day slip recorded. September reweights to the withdrawal/KYC process
+     cluster. Existing trackers stay live under the staleness rules below; retirement stops
+     NEW breadth builds. See the STATE 2026-08-22 close-out decisions entry.]**
    - **CHECKPOINT-SESSION INPUTS, consolidated 2026-08-18 (confirm all five are in hand
      before running the 21 Aug session):** (1) the breadth verdict above (trackers +
      canada/legal at day 10); (2) Checkpoint A regression floors on the trailing-7-day
@@ -289,7 +293,11 @@ multipliers.
    jurisdiction, event, source, trigger-test tags (own-position? dated-forward?
    English-sourceable?), proposed artefact (new page / tracker update / matrix row / radar
    only). Tags are recorded for the portfolio correlation analysis, not used to drop
-   entries (breadth strategy, owner decision 2026-08-11).
+   entries ~~(breadth strategy, owner decision 2026-08-11)~~. **[Breadth RETIRED
+   2026-08-22 (owner decision): the radar sweep and updates to EXISTING artefacts
+   continue, but NEW breadth artefacts are no longer built; new-artefact candidates
+   queue only where they serve the withdrawal/KYC process cluster or a September-slate
+   decision.]**
 3. Events matching an EXISTING artefact go to its update queue; ship same-session where the
    source is in hand (the ~30 min loop: dated log entry, verdict re-date, `modified` bump in
    lib/tracker-content.ts or the page's data layer, push, single-URL Bing dispatch line for

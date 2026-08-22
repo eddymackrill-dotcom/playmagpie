@@ -14,11 +14,17 @@ section of the same date). Runs AFTER the 2c/2d deploy per the owner's
   the crawl watch keys off them.
 - **CRAWL WATCH OPEN against the 10 requested rows: the observable is a
   Google crawl date advancing PAST 2026-08-22 on each (single-URL
-  inspection).** Per the protocol this doubles as the Checkpoint B
+  inspection). First read not before 25 Aug, so a null is meaningful.**
+  Per the protocol this doubles as the Checkpoint B
   STOP-branch diagnosis: prompt fetches = the zero-crawl pattern was
   ordinary low-priority scheduling; requests sitting unactioned =
   evidence of a suppression-linked crawl throttle, a different and worse
   finding with its own follow-up.
+- **Day 2 ordering note (2026-08-22 close-out): lead with row 17
+  /bonus/free-spins and row 32 /compare/cloudbet-vs-roobet, the two URLs
+  Google has NEVER crawled, then resume top-to-bottom from row 11.** A
+  granted request on a never-crawled URL is the highest-information
+  probe the campaign has.
 
 How to use: work top to bottom, ~10 requests/day (undocumented quota; if
 GSC refuses a request, stop for the day and note it here). Put the
