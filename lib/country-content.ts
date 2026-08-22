@@ -77,9 +77,15 @@ export const countryEditorial: Record<CountrySlug, CountryEditorial> = {
     h1: 'Crypto Casinos in Australia: The IGA Targets Operators, Not You',
     metaDescription: "Australia's IGA restricts operators, not players. ACMA blocks sites at DNS, banks block AUD transfers, and the ATO can treat the funding itself as a CGT event.",
     // 2026-08-17: sentence-level intro correction (VPN caveat added), commit-record only
-    modified: '2026-08-17',
+    // 2026-08-22: owner override (decisions log, same date): the 08-17 VPN caveat is
+    // replaced with "difficult to detect", scoped by the sentence to the two state-side
+    // frictions; citable basis = Senate committee report para 2.92 (VPN traffic outside
+    // the blocking regime, already cited on /country/australia/legal). Objection made,
+    // considered, overruled by the owner. Do not revert in either direction without a
+    // new owner decision.
+    modified: '2026-08-22',
     template: {
-      intro: "The IGA restricts operators rather than players, so the real frictions are ACMA's DNS blocks and banks refusing AUD transfers. VPNs and crypto are how AU players route around both, though VPN use breaches most operators' terms and can void winnings.",
+      intro: "The IGA restricts operators rather than players, so the real frictions are ACMA's DNS blocks and banks refusing AUD transfers. VPNs and crypto are how AU players route around both, which is difficult to detect.",
       stripFraming: 'Top 3 by trust score. Check each operator’s restricted-territory terms for Australian accounts before depositing.',
       contextHeading: 'Playing From Australia: The Real Frictions',
       rankingHeading: 'Every Operator Ranked: Check AU Terms First',
