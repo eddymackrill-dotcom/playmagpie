@@ -15,13 +15,81 @@ export type ComparePair = {
   faqs: { question: string; answer: string }[]
 }
 
+// Single source of truth for which compare pages exist (Batch 2c, 2026-08-22).
+// Previously duplicated as COMPARE_ALLOWLIST in app/compare/[slug]/page.tsx and
+// comparisonAllowlist in app/sitemap.ts; both now import this. Only these pairs
+// are pre-rendered and indexed. Non-allowlisted pairs 404 via dynamicParams =
+// false (Helpful Content fix: template-cannibalisation across 42 generated
+// pairs caused indexation failure, de-templated 2026-05-21). cloudbet-vs-roobet
+// added 2026-08-01 as a deliberate single hand-written exception, NOT a
+// resumption of programmatic pairs; see its provenance comment below.
+export const COMPARE_PAIRS = [
+  'bitstarz-vs-bc-game',
+  'cloudbet-vs-bitstarz',
+  '7bit-casino-vs-bitstarz',
+  'bc-game-vs-shuffle',
+  'mirax-casino-vs-bitstarz',
+  'cloudbet-vs-roobet',
+] as const
+
+export type ComparePairSlug = (typeof COMPARE_PAIRS)[number]
+
+// Per-pair shell: title, meta description, sitemap lastmod. The route reads
+// these with no fallback; a missing entry is a build/runtime error by design.
+// `modified` feeds app/sitemap.ts directly and bumps ONLY when that pair's
+// content actually changes (honest-lastmod rule, 2026-08-07).
+export type CompareEditorial = {
+  title: string
+  metaDescription: string
+  modified: string
+}
+
+export const compareEditorial: Record<ComparePairSlug, CompareEditorial> = {
+  'bitstarz-vs-bc-game': {
+    title: 'BitStarz vs BC.Game (2026): Which Is Better?',
+    metaDescription:
+      'BitStarz vs BC.Game: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
+    modified: '2026-08-01',
+  },
+  'cloudbet-vs-bitstarz': {
+    title: 'Cloudbet vs BitStarz (2026): Which Is Better?',
+    metaDescription:
+      'Cloudbet vs BitStarz: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
+    modified: '2026-08-01',
+  },
+  '7bit-casino-vs-bitstarz': {
+    title: '7Bit Casino vs BitStarz (2026): Which Is Better?',
+    metaDescription:
+      '7Bit Casino vs BitStarz: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
+    modified: '2026-08-01',
+  },
+  'bc-game-vs-shuffle': {
+    title: 'BC.Game vs Shuffle (2026): Which Is Better?',
+    metaDescription:
+      'BC.Game vs Shuffle: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
+    modified: '2026-08-01',
+  },
+  'mirax-casino-vs-bitstarz': {
+    title: 'Mirax Casino vs BitStarz (2026): Which Is Better?',
+    metaDescription:
+      'Mirax Casino vs BitStarz: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
+    modified: '2026-08-01',
+  },
+  'cloudbet-vs-roobet': {
+    title: 'Cloudbet vs Roobet (2026): Which Is Better?',
+    metaDescription:
+      'Cloudbet vs Roobet: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.',
+    modified: '2026-08-01',
+  },
+}
+
 // The keys of compareContent define which compare pages actually render.
 // app/compare/[slug]/page.tsx 404s any slug not present here, regardless of
 // what's pre-rendered. app/compare/page.tsx derives its tile grid from
-// Object.keys(compareContent). The COMPARE_ALLOWLIST constants in
-// app/compare/[slug]/page.tsx and app/sitemap.ts must stay in sync with these
-// keys manually. They control pre-rendering and sitemap inclusion respectively.
-export const compareContent: Record<string, ComparePair> = {
+// Object.keys(compareContent). Keyed on the COMPARE_PAIRS union (2026-08-22),
+// so adding a pair to the list without content (or removing content while the
+// pair remains listed) fails typecheck rather than drifting silently.
+export const compareContent: Record<ComparePairSlug, ComparePair> = {
   'bitstarz-vs-bc-game': {
     intro:
       "Two of the most-searched names in crypto casinos, two completely different theories of what a crypto casino should be. BitStarz has been the industry's reputation benchmark since 2014, accumulating awards and a 9.2/10 PlayMagpie trust score on the back of consistent reliability rather than feature breadth. BC.Game took the opposite path, launching in 2017 and going wider on crypto support than anyone else (100+ accepted cryptocurrencies versus BitStarz's six), keeping routine crypto play document-free up to a KYC check that is standard at EUR 2,000 equivalent. The right pick depends entirely on whether you value institutional reputation or crypto-native flexibility.",

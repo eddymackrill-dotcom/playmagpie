@@ -2,24 +2,13 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
-import { compareContent } from '@/lib/compare-content'
+import { compareContent, compareEditorial, COMPARE_PAIRS, type ComparePairSlug } from '@/lib/compare-content'
 import CTAButton from '@/components/CTAButton'
 import CasinoLogo from '@/components/CasinoLogo'
 
-// Comparison allowlist: only these pairs are pre-rendered and indexed.
-// Non-allowlisted pairs 404 via dynamicParams = false (Helpful Content fix:
-// template-cannibalisation across 42 generated pairs caused indexation failure).
-const COMPARE_ALLOWLIST = [
-  'bitstarz-vs-bc-game',
-  'cloudbet-vs-bitstarz',
-  '7bit-casino-vs-bitstarz',
-  'bc-game-vs-shuffle',
-  'mirax-casino-vs-bitstarz',
-  // Added 2026-08-01. Deliberate single hand-written exception, NOT a resumption
-  // of programmatic pairs: the 2026-05-21 de-templating decision stands. See the
-  // provenance comment on the entry in lib/compare-content.ts.
-  'cloudbet-vs-roobet',
-]
+// The pair allowlist lives in lib/compare-content.ts (COMPARE_PAIRS) as of
+// Batch 2c (2026-08-22); this route and app/sitemap.ts both import it, so the
+// old mirror-drift risk between the two hand-maintained copies is gone.
 
 // Catalogue cons suppressed on a specific pair page, matched by substring.
 // Deliberately narrow: this is not an editorial softening mechanism, it exists
@@ -31,7 +20,7 @@ const suppressedCons: Record<string, string[]> = {
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  return COMPARE_ALLOWLIST.map((slug) => ({ slug }))
+  return COMPARE_PAIRS.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata(props: PageProps<'/compare/[slug]'>): Promise<Metadata> {
@@ -41,8 +30,12 @@ export async function generateMetadata(props: PageProps<'/compare/[slug]'>): Pro
   const c1 = getCasinoBySlug(slug.slice(0, vsIdx))
   const c2 = getCasinoBySlug(slug.slice(vsIdx + 4))
   if (!c1 || !c2) return {}
-  const title = `${c1.name} vs ${c2.name} (2026): Which Is Better?`
-  const description = `${c1.name} vs ${c2.name}: independent head-to-head comparison of withdrawal speed, bonus fairness, KYC policy, supported cryptos and trust scores. Find out which wins in 2026.`
+  const editorial = compareEditorial[slug as ComparePairSlug]
+  // No fallback by design (Batch 2a/2b pattern): a pair without shell data is
+  // a build defect, not a page to render with generated strings.
+  if (!editorial) throw new Error(`compare: no editorial entry for "${slug}" in lib/compare-content.ts`)
+  const title = editorial.title
+  const description = editorial.metaDescription
   return {
     title,
     description,
@@ -77,7 +70,7 @@ export default async function ComparePage(props: PageProps<'/compare/[slug]'>) {
   const c2 = getCasinoBySlug(slug.slice(vsIdx + 4))
   if (!c1 || !c2) notFound()
 
-  const content = compareContent[slug]
+  const content = compareContent[slug as ComparePairSlug]
   if (!content) notFound()
 
   const overallWin = cmp(c1.trustScore, c2.trustScore)

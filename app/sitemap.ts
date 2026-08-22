@@ -8,6 +8,7 @@ import { BONUS_CONTENT } from '@/lib/bonus-content'
 import { cryptoEditorial } from '@/lib/crypto-content'
 import { gameEditorial } from '@/lib/game-content'
 import { TRACKER_LIST, trackerShell } from '@/lib/tracker-content'
+import { COMPARE_PAIRS, compareEditorial } from '@/lib/compare-content'
 
 const BASE_URL = 'https://www.playmagpie.com'
 
@@ -151,18 +152,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  // Comparison allowlist, must mirror COMPARE_ALLOWLIST in app/compare/[slug]/page.tsx
-  const comparisonAllowlist = [
-    'bitstarz-vs-bc-game',
-    'cloudbet-vs-bitstarz',
-    '7bit-casino-vs-bitstarz',
-    'bc-game-vs-shuffle',
-    'mirax-casino-vs-bitstarz',
-    'cloudbet-vs-roobet',
-  ]
-  const comparisonPages: MetadataRoute.Sitemap = comparisonAllowlist.map((slug) => ({
+  // Compare pages: allowlist and dates are data-level in lib/compare-content.ts
+  // (Batch 2c, 2026-08-22), the same single-source pattern as bonus/crypto/game.
+  // Editing one pair's shell bumps that URL alone. The floor-map compare entries
+  // in lib/route-lastmod.ts are fallback-only from this commit on.
+  const comparisonPages: MetadataRoute.Sitemap = COMPARE_PAIRS.map((slug) => ({
     url: `${BASE_URL}/compare/${slug}`,
-    lastModified: lm(`/compare/${slug}`),
+    lastModified: new Date(compareEditorial[slug].modified),
     changeFrequency: 'monthly',
     priority: 0.65,
   }))
