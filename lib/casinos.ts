@@ -1,5 +1,20 @@
-// Roobet factual profile + reputational findings verified May 2026 against primary sources:
-// - Restricted territories + 2% fiat withdrawal fee on 11+/30-day: roobet.com/terms §3.5 + §10.8 (user-verified from live ToS)
+// Roobet factual profile + reputational findings. Terms provenance: OWNER-SUPPLIED
+// full ToS + Bonus and Promotion Policy text, read 2026-08-25 (supersedes the May 2026
+// read as current provenance; the live terms page is a JS shell, so owner-supplied
+// browser text is the standing route for this primary). Key clauses from that read:
+// - §3.5 restricted territories: COUNTRY-LEVEL list only. Canada is not on it and
+//   Ontario is not mentioned anywhere (the May 2026 read's Ontario entry was removed
+//   2026-08-25). Australia and the United Kingdom ARE listed.
+// - §10.8: 2% fee on each fiat withdrawal from the 10th INCLUSIVE once 10+ fiat
+//   withdrawals occur in a ROLLING 30-DAY window. Fiat only; §10.10-§10.11 set no fee
+//   on crypto withdrawals. §9.7: 1% fee on all successful fiat deposits.
+// - NOT IN TERMS (established by absence across both documents, 2026-08-25 read):
+//   no withdrawal maximum of any kind (§10.2 reserves the right to set a MINIMUM
+//   only) and no weekend or business-day processing clause (§11.2 covers only slight
+//   verification-check delays). Treat both as established-absent, not unverified;
+//   do not reintroduce either claim.
+// - Bonus Policy v4.8, last updated 17 Jul 2025; the ToS carries no version stamp.
+// Reputational findings below verified May 2026 unless dated otherwise:
 // - Operating entity Raw Entertainment B.V., Curaçao reg. 157205: Casino.Guru + AskGamblers profiles (Dec 2025)
 // - $84,000 unsolved AskGamblers complaint: https://www.askgamblers.com/casino-complaints/roobet-casino-account-wrongfully-locked-after-requesting-usd84-000-withdrawal-1
 // - Pattern of $20k-$115k withdrawal holds resolved via AskGamblers mediation: https://www.askgamblers.com/online-casinos/reviews/roobet-casino-casino/complaints
@@ -374,26 +389,27 @@ export const casinos: Casino[] = [
     logo: '/logos/roobet.png',
     licence: 'Curaçao (Raw Entertainment B.V., reg. 157205) + Anjouan ALSI-202507005',
     acceptedCryptos: ['BTC', 'ETH', 'LTC', 'USDT', 'USDC', 'XRP', 'TRX', 'DOGE', 'SOL', 'SUI', 'BNB'],
-    withdrawalTime: '~15 minutes for most crypto; BTC up to 24 hours; no weekend processing',
+    withdrawalTime: '~15 minutes for most crypto; BTC up to 24 hours',
     minDeposit: '$10',
     kycLevel: 'Standard',
     vipProgram: true,
     bonusSummary: 'No traditional welcome bonus: 7-day 20% net-loss cashback capped near $1,400 plus a $5 sportsbook free bet (code MAXBONUS)',
-    // Full territory list lifted verbatim from roobet.com/terms §3.5 (user-verified
-    // May 2026). Stored as full country names rather than ISO codes for country-page
-    // exclusion is driven via casinoAcceptsCountry() which matches full names only,
-    // so this list also serves as the authoritative restricted-jurisdictions copy
-    // on the review page.
+    // Full territory list from roobet.com/terms §3.5, re-read 2026-08-25 from
+    // OWNER-SUPPLIED full ToS text (supersedes the May 2026 read). The list is
+    // COUNTRY-LEVEL only: Canada is not on it and Ontario is not mentioned; the
+    // May 2026 read's 'Ontario' entry was removed 2026-08-25 as contradicted by
+    // the primary. Stored as full country names rather than ISO codes because
+    // country-page exclusion runs via casinoAcceptsCountry(), which matches full
+    // names only, so this list also serves as the authoritative
+    // restricted-jurisdictions copy on the review page.
     // PERMANENTLY UNFETCHABLE PRIMARY (marked 2026-08-22 per the CLAUDE.md
     // materiality rule): roobet.com/terms is a JavaScript shell and does not
     // render to a fetch. Known condition, not a finding; do not re-raise it per
-    // figure. For STABLE facts (this restriction list included) the owner's
-    // May 2026 verbatim read stands; VOLATILE Roobet figures (fees, caps,
-    // processing clauses) stay under verify-or-omit and the owner-glance gates.
+    // figure. WORKING ROUTE: owner-supplied browser text (used 2026-08-25).
     restrictedCountries: [
       'Aruba', 'Australia', 'Belgium', 'Bonaire', 'Cuba', 'Curacao', 'Cyprus', 'Denmark',
       'Germany', 'Gibraltar', 'Haiti', 'Israel', 'Iran', 'Iraq', 'Malta', 'Myanmar',
-      'Netherlands', 'Nicaragua', 'North Korea', 'Ontario', 'Portugal', 'Saba',
+      'Netherlands', 'Nicaragua', 'North Korea', 'Portugal', 'Saba',
       'Saint Maarten', 'Saint Martin', 'South Sudan', 'Spain', 'Statia', 'Syria',
       'Sweden', 'United States', 'United Kingdom', 'Yemen', 'Zimbabwe',
     ],
@@ -420,13 +436,13 @@ export const casinos: Casino[] = [
       'No traditional welcome bonus, only a 7-day 20% net-loss cashback capped near $1,400 plus a $5 sports free bet; value only realised on losses',
       'Notably wide restricted-territory list: UK, US, Germany, Netherlands, Sweden, Australia, Belgium, Denmark, Portugal, Spain, Cyprus, Malta and more excluded',
       'Twitch banned Roobet streams in October 2022 alongside Stake, Rollbit and Duelbits, so content presence is now Kick-led; ASCI in India referred Roobet to the Ministry of Information & Broadcasting in February 2025 over alleged UPI payment-partner claims',
-      '$200,000/day withdrawal cap and no weekend cashout processing, both material constraints for the high-roller use case despite the Roowards VIP structure',
-      '2% fiat withdrawal fee triggered on the 10th and every subsequent fiat cashout in a rolling 30-day window (per terms §10.8)',
+      'The cashier terms give Roobet wide discretion: enhanced due diligence can delay or decline a withdrawal with Roobet able to decline to explain the investigation (terms §10.4), and multiple pending withdrawals can be rejected and consolidated into one (§10.3)',
+      '2% fiat withdrawal fee triggered on the 10th and every subsequent fiat cashout in a rolling 30-day window (terms §10.8, fiat only; the terms set no fee on crypto withdrawals), plus a 1% fee on all successful fiat deposits (§9.7)',
     ],
     featured: false,
     badges: ['Crash Originals', 'Sportsbook', 'Crypto'],
     withdrawalCaveat:
-      'Headline processing time is ~15 minutes for most cryptos (no weekend cashier). The honest caveat: AskGamblers carries multiple resolved-but-multi-day delay cases against Roobet at $20k+, and one publicly Unsolved $84,000 account-lock case. Expect KYC re-triggers on any sizeable cashout regardless of account tenure.',
+      'Headline processing time is ~15 minutes for most cryptos. The honest caveat: AskGamblers carries multiple resolved-but-multi-day delay cases against Roobet at $20k+, and one publicly Unsolved $84,000 account-lock case. Expect KYC re-triggers on any sizeable cashout regardless of account tenure.',
   },
 ]
 

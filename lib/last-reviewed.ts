@@ -43,7 +43,13 @@ export const casinoLastReviewed: Record<string, string> = {
   '7bit-casino': 'August 2026',
   shuffle: 'May 2026',
   duelbits: 'June 2026',
-  roobet: 'July 2026',
+  // Roobet bumped to August 2026 on the owner-supplied full ToS + Bonus and
+  // Promotion Policy text read 2026-08-25 (the three-clause glance): §10.8 fee
+  // rule confirmed with fiat-only + rolling-30-day qualifiers, §9.7 1% fiat
+  // deposit fee added, §3.5 re-read country-level (Ontario entry removed as
+  // contradicted), withdrawal cap + weekend clause established NOT IN TERMS.
+  // Documented primary verification event, clears the honesty rule above.
+  roobet: 'August 2026',
 }
 
 export const countryLastReviewed: Record<string, string> = {

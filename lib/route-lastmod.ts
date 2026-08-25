@@ -25,21 +25,22 @@
 // throws), so a new URL cannot silently ship without a lastmod decision.
 
 export const ROUTE_LASTMOD: Record<string, string> = {
-  // Bumped 2026-08-11: homepage gains the "Latest regulatory updates" block
-  // (carrier surface for the tracker family).
-  '/': '2026-08-11',
-  // The six 2d statics bumped 2026-08-22: Batch 2d de-templating (new titles,
-  // H1s, metas per reports/batch2bcd-drafts.md). /high-roller-casinos and
-  // /bnb-crypto-casinos are the two approved exclusions and stay unbumped.
-  '/best-crypto-casinos': '2026-08-22',
-  '/fast-withdrawal-casinos': '2026-08-22',
+  // Bumped 2026-08-25 (Roobet catalogue correction ripple): the roobet
+  // withdrawalTime string, cons and withdrawalCaveat changed on the 2026-08-25
+  // owner terms read (weekend clause and $200k/day cap removed as NOT IN TERMS,
+  // fee rule qualified), and every page rendering those fields changed bytes.
+  // /high-roller-casinos and /no-kyc-casinos exclude Roobet by filter and are
+  // unaffected; both stay unbumped.
+  '/': '2026-08-25',
+  '/best-crypto-casinos': '2026-08-25',
+  '/fast-withdrawal-casinos': '2026-08-25',
   '/high-roller-casinos': '2026-07-16',
   '/no-kyc-casinos': '2026-08-22',
-  '/best-crypto-pokies-nz': '2026-08-22',
-  '/bnb-crypto-casinos': '2026-08-01',
-  '/best-bitcoin-casino-canada': '2026-08-22',
-  '/crypto-casinos-with-sportsbook': '2026-08-22',
-  '/research/crypto-casino-bonus-transparency': '2026-08-01',
+  '/best-crypto-pokies-nz': '2026-08-25',
+  '/bnb-crypto-casinos': '2026-08-25',
+  '/best-bitcoin-casino-canada': '2026-08-25',
+  '/crypto-casinos-with-sportsbook': '2026-08-25',
+  '/research/crypto-casino-bonus-transparency': '2026-08-25',
   '/crypto': '2026-07-07',
   '/country': '2026-06-22',
   '/game': '2026-07-16',
@@ -55,7 +56,9 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   '/reviews/7bit-casino': '2026-08-02',
   '/reviews/shuffle': '2026-08-02',
   '/reviews/duelbits': '2026-08-02',
-  '/reviews/roobet': '2026-08-02',
+  // Bumped 2026-08-25: roobet catalogue fields (see block comment at '/') plus
+  // the Ontario FAQ correction and the payout-limits FAQ rewrite on the page.
+  '/reviews/roobet': '2026-08-25',
   '/reviews/bitstarz/withdrawal': '2026-08-01',
   '/reviews/7bit-casino/withdrawal': '2026-08-01',
   '/reviews/cloudbet/withdrawal': '2026-08-01',

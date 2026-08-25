@@ -37,20 +37,20 @@ export const gameEditorial: Record<GameSlug, GameEditorial> = {
     h1: 'Crash Games: Four Operators Run Native Provably-Fair Originals',
     metaDescription: 'Four operators in our rankings run native provably-fair Crash Originals: BC.Game, Shuffle, Duelbits and Roobet. Aviator and JetX coverage, RTP, verification.',
     rankedHeading: 'The Four Crash Operators, Ranked',
-    modified: '2026-08-10',
+    modified: '2026-08-25', // bumped 2026-08-25: Roobet withdrawalTime/caveat correction renders on this page
   },
   dice: {
     title: 'Dice Crypto Casinos: Provably-Fair Originals at 99% RTP',
     h1: 'Dice: The Original Provably-Fair Game, Still 99% RTP',
     metaDescription: 'Dice pays 99% RTP at every win-chance setting, the highest of any common casino format. The four operators with native provably-fair Dice Originals, compared.',
     rankedHeading: 'The Four Dice Originals Operators, Ranked',
-    modified: '2026-08-10',
+    modified: '2026-08-25', // bumped 2026-08-25: Roobet withdrawalTime/caveat correction renders on this page
   },
   plinko: {
     title: 'Plinko Crypto Casinos: Row Count, Volatility, Originals',
     h1: 'Plinko: Eight to Sixteen Rows Between Steady and 1,000x',
     metaDescription: 'Row count sets the volatility: 8 rows plays steady, 16 rows reaches roughly 1,000x. The four operators running native provably-fair Plinko Originals, compared.',
     rankedHeading: 'The Four Plinko Operators, Ranked',
-    modified: '2026-08-10',
+    modified: '2026-08-25', // bumped 2026-08-25: Roobet withdrawalTime/caveat correction renders on this page
   },
 }

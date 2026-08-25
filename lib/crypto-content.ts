@@ -56,7 +56,7 @@ export const cryptoEditorial: Record<CryptoSlug, CryptoEditorial> = {
     rankedNote: 'Every operator below takes BTC at the cashier, deposits and withdrawals both.',
     stripFraming: 'Top 3 by trust among BTC operators. Not paid placement.',
     breadcrumbLabel: 'Bitcoin Casinos',
-    modified: '2026-08-10',
+    modified: '2026-08-25', // bumped 2026-08-25: Roobet withdrawalTime/caveat correction renders on this page
   },
   ethereum: {
     title: 'Ethereum Casinos: ETH Deposits, Gas Fees, Real Speed',
@@ -68,7 +68,7 @@ export const cryptoEditorial: Record<CryptoSlug, CryptoEditorial> = {
     rankedNote: 'Each platform below accepts ETH directly; check gas conditions before routine small withdrawals.',
     stripFraming: 'Top 3 ETH-accepting operators by trust. Not paid placement.',
     breadcrumbLabel: 'Ethereum Casinos',
-    modified: '2026-08-10',
+    modified: '2026-08-25', // bumped 2026-08-25: Roobet withdrawalTime/caveat correction renders on this page
   },
   usdt: {
     title: 'USDT Casinos: Tether on TRC-20 as the Gambling Default',
@@ -80,7 +80,7 @@ export const cryptoEditorial: Record<CryptoSlug, CryptoEditorial> = {
     rankedNote: 'Each platform below accepts USDT, most across more than one network.',
     stripFraming: 'Top 3 by trust for USDT play. Not paid placement.',
     breadcrumbLabel: 'Tether Casinos',
-    modified: '2026-08-10',
+    modified: '2026-08-25', // bumped 2026-08-25: Roobet withdrawalTime/caveat correction renders on this page
   },
   // The strongest pre-crash Google signal in the crypto tree (524 imp/wk at
   // pos 45.6, pollution-clean, per the CLAUDE.md audit-list item), so this
@@ -95,7 +95,7 @@ export const cryptoEditorial: Record<CryptoSlug, CryptoEditorial> = {
     rankedNote: 'Every operator below takes DOGE both directions, deposit and cashout.',
     stripFraming: 'Top 3 by trust among DOGE operators. Not paid placement.',
     breadcrumbLabel: 'Dogecoin Casinos',
-    modified: '2026-08-10',
+    modified: '2026-08-25', // bumped 2026-08-25: Roobet withdrawalTime/caveat correction renders on this page
   },
   solana: {
     title: 'Solana Casinos: Sub-Second Finality, Fees Under $0.001',
@@ -107,7 +107,7 @@ export const cryptoEditorial: Record<CryptoSlug, CryptoEditorial> = {
     rankedNote: 'The subset of our ratings with native SOL deposits and withdrawals; the coverage gap is closing quarter by quarter.',
     stripFraming: 'Top 3 by trust with native SOL support. Not paid placement.',
     breadcrumbLabel: 'Solana Casinos',
-    modified: '2026-08-10',
+    modified: '2026-08-25', // bumped 2026-08-25: Roobet withdrawalTime/caveat correction renders on this page
   },
   // Bespoke informational shell from the 2026-05 BNB reposition, entered
   // verbatim: /crypto/bnb is the chain/coin reference page and the
@@ -123,6 +123,6 @@ export const cryptoEditorial: Record<CryptoSlug, CryptoEditorial> = {
     rankedNote: 'Every platform below accepts BNB for deposits and withdrawals.',
     stripFraming: 'Top 3 BNB-accepting operators by trust score. Not paid placement.',
     breadcrumbLabel: 'BNB Reference',
-    modified: '2026-08-01',
+    modified: '2026-08-25', // bumped 2026-08-25: Roobet withdrawalTime correction renders in the BNB table
   },
 }
