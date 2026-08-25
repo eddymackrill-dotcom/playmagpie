@@ -104,11 +104,21 @@ A commit that changes only analytics or tracking code, with zero rendered-conten
 
 **Permitted content work during the freeze:** (1) consolidation (merging pages into stronger parents with 301s, which reduces URL count); (2) strengthening existing pages (factual fixes, depth improvements, honesty passes); (3) the trust layer: /methodology (the one sanctioned new URL, shipped 2026-07-07), /about upgrades, and the last-reviewed-date convention. Nothing else ships.
 
-**AMENDMENT 2026-08-01 (owner decision; SUPERSEDES the 2026-07-27 one-guide-a-month amendment): FOUR PAGES PER CALENDAR MONTH, matching the UK repo.**
+**AMENDMENT 2026-08-01 (owner decision; SUPERSEDES the 2026-07-27 one-guide-a-month amendment): FOUR PAGES PER CALENDAR MONTH, matching the UK repo.** **[FIGURES SUPERSEDED 2026-08-25 by the amendment below: 8/month, session cap 4. The ceiling-not-target principle, the no-rollover rule and the count-by-ship-month rule carry forward unchanged.]**
 
 **4 published pages per calendar month is the rule.** It is a CEILING, not a target: publishing fewer because only those were genuinely ready is correct, and padding toward 4 violates the depth rules. Unused months do not roll over. Count each page against the calendar month it actually ships in.
 
 **Session cap: 2 pages (owner-approved 2026-08-01).** Proposed by Claude Code and explicitly adopted by the owner, not a default. Load-bearing rather than cosmetic: the diagnosed risk profile was publishing velocity on a young domain, so 4 pages arriving in one session is a materially different signal from 4 arriving across a month. Two per session, four per calendar month. Commit each page separately.
+
+**AMENDMENT 2026-08-25 (owner decision; SUPERSEDES the 2026-08-01 figures above): EIGHT PAGES PER CALENDAR MONTH, SESSION CAP 4, effective immediately including August 2026.**
+
+**Amendment A: the monthly cap is 8**, effective for August 2026 onward (August stood at 4 of 8 when this took effect). Owner rationale, recorded: Google serving has been at zero since 27 June and the August 2026 spam update completed 21 August with no change, so there is no serving position left to lose, while the Bing and assistant-citation channel is growing and responds to new pages in the clusters where citations already land. Counter-consideration, recorded so it is not lost: publishing velocity is a signal the spam classifier can read, and a step change during active suppression is visible to any later reassessment. The owner has weighed this and directed the change. **This raises the cap while the suppression stands; it does NOT change the recovery definition** (7 consecutive days of non-zero site-wide GSC impressions, dataState=all, raw count), which remains the measure of recovery for every other purpose.
+
+**Amendment B: the session cap is 4.** Precedent: the 2c/2d ship (22 Aug) put 12 pages live in one session with all gates green and byte-verified diffs. Distinction recorded: those were title/meta/H1 changes to existing pages; a new-page build is heavier per unit, so 4 is the ceiling and not a target. Commit each page separately, as before.
+
+**What neither amendment changes (raising volume does not raise tolerance):** verify-or-omit on every operator figure (volume is never a reason to ship an unverified number); demand evidence behind every page (grounding queries, Bing keywords, or citation data; the retired breadth programme is the precedent: three artefacts built without demand evidence returned zero citations in two weeks); all gates (title not equal to H1, meta at or under 160 counted properly, em-dash zero, banned phrases zero, build green); rel="sponsored" on every affiliate link; honest per-page lastmod, explicit propagation, positive live confirmation, and ledger entries held pending until a WMT export row.
+
+**Reversion condition:** if Google serving resumes and then falls back to zero, or if a future update lands with the site still suppressed and publishing rate is a plausible contributor, revisit both caps before continuing, and record the review either way rather than letting the higher caps persist by default.
 
 **Cluster scope: LIFTED (owner decision 2026-08-01).** The guides/informational-only restriction from the 07-27 amendment is REMOVED. Rationale on record: guides-only was the conservative setting under a near-total freeze; at four pages a month it is the wrong constraint and would block operator-coverage work the catalogue needs. All clusters are eligible again, including commercial and operator pages.
 
