@@ -58,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  const withdrawalPageSlugs = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits']
+  const withdrawalPageSlugs = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits', 'roobet']
   const casinoWithdrawalPages: MetadataRoute.Sitemap = withdrawalPageSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/withdrawal`,
     lastModified: lm(`/reviews/${slug}/withdrawal`),

@@ -9,7 +9,12 @@ import CTAButton from '@/components/CTAButton'
 // went impression-dark in June, was dropped from the index by the June 2026
 // spam update (re-crawled 06-29, then rejected), and its unique facts were
 // folded into the parent review's FAQ block. Old URL 301s to the parent.
-const WITHDRAWAL_SLUGS = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits'] as const
+// 'roobet' added 2026-08-25: the fourth August page, unblocked by the owner's
+// full ToS + Bonus Policy read of the same date (the three-clause glance).
+// Every clause-numbered fact on the page traces to that read; the terms page
+// itself is on the permanently-unfetchable list (JS shell), owner-supplied
+// text is the route.
+const WITHDRAWAL_SLUGS = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits', 'roobet'] as const
 
 export function generateStaticParams() {
   return WITHDRAWAL_SLUGS.map((slug) => ({ slug }))
@@ -35,6 +40,11 @@ const META: Record<(typeof WITHDRAWAL_SLUGS)[number], { title: string; descripti
     title: 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins',
     description:
       'Duelbits has the fastest headline withdrawal window in our catalogue (instant to 5 minutes) with no KYC on crypto withdrawals across 12 coins. How the speed, the no-KYC posture and the cashback-clean cashier fit together.',
+  },
+  roobet: {
+    title: 'Roobet Withdrawal: Fees, Holds and the Terms That Matter',
+    description:
+      'Roobet sets no withdrawal cap and no crypto cashout fee in its terms; fiat cashouts hit a 2% fee from the 10th in a rolling 30 days. The clauses, verified.',
   },
 }
 
@@ -95,6 +105,8 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
       ? SEVENBIT_FAQS
       : slug === 'cloudbet'
       ? CLOUDBET_FAQS
+      : slug === 'roobet'
+      ? ROOBET_FAQS
       : DUELBITS_FAQS
 
   const faqSchema = {
@@ -139,6 +151,7 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
                 {slug === '7bit-casino' && '7Bit Casino Withdrawal: 8 Coins, Under 10 Minutes, EUR 2,000 Check'}
                 {slug === 'cloudbet' && 'Cloudbet Withdrawal: No Limits Once Verified, 29 Coins, Dual Regulator Cover'}
                 {slug === 'duelbits' && 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins'}
+                {slug === 'roobet' && 'Roobet Withdrawal: No Cap in the Terms, Wide Discretion at the Cashier'}
               </h1>
               {/* Was a hardcoded "Last updated: May 17, 2026" on all four pages, which is
                   the same fake-freshness pattern removed from the reviews on 2026-07-07
@@ -170,6 +183,15 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
               continuously since 2013 under dual Curaçao and Kahnawake licences.
             </p>
           )}
+          {slug === 'roobet' && (
+            <p className="text-[#bbbbbb] text-base leading-relaxed mb-6">
+              Roobet&apos;s Terms of Service, read in full on 25 August 2026, set no withdrawal maximum and
+              no fee on crypto withdrawals; the one published fee is 2% on each fiat withdrawal from the
+              10th onwards in a rolling 30-day window (§10.8), plus 1% on fiat deposits (§9.7). Most crypto
+              pays out in around 15 minutes, but the terms hand the cashier wide verification discretion,
+              and the public complaint record shows what that looks like on large wins.
+            </p>
+          )}
 
           <div className="flex gap-3 flex-wrap">
             <CTAButton href={casino.affiliateUrl} label={`Play at ${casino.name}`} variant="primary" size="lg" external />
@@ -181,6 +203,7 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
         {slug === '7bit-casino' && <SevenBitContent />}
         {slug === 'cloudbet' && <CloudbetContent />}
         {slug === 'duelbits' && <DuelbitsContent />}
+        {slug === 'roobet' && <RoobetContent />}
 
         <section className="mt-12 pt-10 border-t border-[#222222]">
           <h2 className="text-xl font-bold text-white mb-2">{casino.name} Withdrawal FAQ</h2>
@@ -887,5 +910,135 @@ const DUELBITS_FAQS = [
     question: 'Is Duelbits safe to use given it only launched in 2020?',
     answer:
       "Duelbits operates under a Curaçao (Antillephone N.V.) licence and has run a no-KYC, fast-payout cashier since its 2020 launch, earning an 8.5/10 trust score in our ratings. The honest caveat we list in the review is the Curaçao-only licensing. There's no Tier-1 regulator (MGA, UKGC) backing it, the same offshore profile as most crypto-native casinos. For withdrawal reliability specifically, the under-5-minute window and no-KYC posture are the load-bearing strengths.",
+  },
+] as const
+
+/* ───────────── Roobet: added 2026-08-25. Every clause-numbered fact traces to the
+   owner-supplied full ToS + Bonus and Promotion Policy text read 2026-08-25 (the
+   terms page is a JS shell; owner-supplied text is the standing route). The page
+   leads with what the terms DO NOT say, because that is Roobet's distinct story:
+   no cap and no weekend clause, but wide cashier discretion. ───────────── */
+function RoobetContent() {
+  return (
+    <>
+      <Para>
+        Most withdrawal pages on this site start with a speed number. Roobet&apos;s starts with two
+        absences, because they are what a full read of its current Terms of Service (25 August 2026)
+        actually establishes. First: the terms set no withdrawal maximum of any kind. Clause 10.2
+        reserves Roobet&apos;s right to set a <em>minimum</em> withdrawal, and no daily or
+        per-transaction ceiling appears anywhere in the document. Second: there is no weekend or
+        business-day processing clause. Clause 11.2 mentions only slight delays from verification
+        checks. If you have read elsewhere (including, previously, on this site) that Roobet caps
+        withdrawals at $200,000 a day or does not process cashouts at weekends, neither claim is in
+        the current terms.
+      </Para>
+      <Para>
+        The headline speed itself is ordinary for this catalogue: around 15 minutes for most of the
+        11 supported coins, with Bitcoin quoted at up to 24 hours. What replaces a cap in the Roobet
+        structure is discretion, and that is the part worth understanding before a large cashout.
+      </Para>
+
+      <SectionHeading>The one fee that exists, and the two that do not</SectionHeading>
+      <Para>
+        Crypto withdrawals carry no casino-side fee anywhere in the terms (clauses 10.10 to 10.11 set
+        none); only the blockchain network fee applies, and the network takes that, not Roobet. The
+        fee the terms do publish is fiat-specific, under clause 10.8: once you make 10 or more fiat
+        withdrawals within a rolling 30-day period, a 2% fee applies to each additional withdrawal,
+        including the tenth. Two details matter and are commonly misreported: it is fiat only, so a
+        crypto-in, crypto-out player never meets it, and the window is a rolling 30 days, not a
+        calendar month or a lifetime count. Fiat users also pay on the way in: clause 9.7 applies a
+        1% fee to all successful fiat deposits.
+      </Para>
+
+      <SectionHeading>What the terms let the cashier do</SectionHeading>
+      <Para>
+        The clauses that actually shape a Roobet withdrawal are the discretionary ones, and they are
+        specific:
+      </Para>
+      <KeyList
+        items={[
+          'Deposits must be wagered before withdrawal (clause 10.1), so an unwagered deposited balance is not withdrawable as-is.',
+          'Multiple pending withdrawals can be rejected and consolidated into a single request (10.3).',
+          'A withdrawal can be refused where identity is not verified, the payment method is not confirmed as yours, an information request is outstanding, or the minimum wager is not met (10.5).',
+          'Enhanced due diligence can delay or decline a withdrawal, and Roobet may decline to explain the nature of the investigation (10.4).',
+          'Withdrawals must go back to the deposit method unless you supply proof of ownership for another (10.7), and can be split across multiple deposit methods (10.9).',
+          'A withdrawal sent to a wrong wallet address is solely your liability (10.11), so check the address character by character.',
+        ]}
+      />
+      <Para>
+        Separately, clause 4.9 lets Roobet demand KYC at any time and restrict deposit or withdrawal
+        functions until it completes. Roobet runs Standard KYC in our ratings, and this clause is why
+        a cashout can stall on verification regardless of how long the account has existed. If your
+        payout is sitting in pending, our guide to{' '}
+        <Link href="/guides/why-is-my-crypto-casino-withdrawal-pending" className="text-[#7BB8D4] hover:underline">
+          diagnosing a pending crypto casino withdrawal
+        </Link>{' '}
+        covers how to tell a verification hold from a network delay.
+      </Para>
+
+      <SectionHeading>The bonus interaction that blocks cashouts</SectionHeading>
+      <Para>
+        Roobet&apos;s bonus documents add two restrictions worth knowing before you take a deposit
+        bonus. While a deposit-bonus wagering requirement is active, no rakeback of any kind accrues
+        (Bonus and Promotion Policy, clause 5.5), and sportsbook bets are barred entirely (Terms of
+        Service, clause 12.5). A player who deposits on a bonus and then tries to cash out early is
+        therefore running into clause 10.1&apos;s wager-first rule and the bonus lock at the same
+        time. On document versions: the Bonus and Promotion Policy is stamped version 4.8, last
+        updated 17 July 2025; the Terms of Service carry no version stamp, so we date our read
+        (25 August 2026) rather than the document.
+      </Para>
+
+      <SectionHeading>The complaint record is the real constraint</SectionHeading>
+      <Para>
+        Nothing above is unusual for an offshore operator on paper. What sets Roobet apart is the
+        documented record of how the discretion gets used at the high end: AskGamblers carries
+        complaints at roughly $20,000, $84,000, $97,000, $111,000 and $115,000 where verified
+        accounts saw cashouts held in routine verification for days, and the $84,000 case is publicly
+        listed as unsolved. Most were eventually paid. That record, not any published limit, is why
+        Roobet holds the lowest withdrawal score in our catalogue (6.5) and why we treat it as a
+        modest-stakes venue. For how that trade compares against the operator we rate highest on
+        cash-out structure, see{' '}
+        <Link href="/compare/cloudbet-vs-roobet" className="text-[#7BB8D4] hover:underline">
+          Cloudbet vs Roobet
+        </Link>
+        ; for venues ranked on payout speed alone, see{' '}
+        <Link href="/fast-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
+          the fastest crypto casinos for withdrawal
+        </Link>
+        , or the sibling breakdown of{' '}
+        <Link href="/reviews/duelbits/withdrawal" className="text-[#7BB8D4] hover:underline">
+          Duelbits&apos; under-5-minute payouts
+        </Link>
+        .
+      </Para>
+    </>
+  )
+}
+
+const ROOBET_FAQS = [
+  {
+    question: 'Does Roobet have a maximum withdrawal limit?',
+    answer:
+      'Not in its terms. On a full read of the current Roobet Terms of Service (25 August 2026), clause 10.2 reserves the right to set a minimum withdrawal only, and no daily or per-transaction maximum appears anywhere in the document. An earlier version of our coverage cited a $200,000-a-day ceiling; that figure is not in the terms and we have withdrawn it. In practice the constraint on large cashouts is not a published number but verification discretion under clause 10.4, which the public complaint record shows being applied to five-figure and six-figure wins.',
+  },
+  {
+    question: 'What fees does Roobet charge on withdrawals?',
+    answer:
+      'None on crypto: clauses 10.10 to 10.11 set no casino-side fee, and only the blockchain network fee applies. On fiat, clause 10.8 applies a 2% fee to each fiat withdrawal from the 10th onwards once you reach 10 or more fiat withdrawals in a rolling 30-day period, the tenth included. Fiat deposits also carry a 1% fee under clause 9.7. A crypto-in, crypto-out player meets neither fiat fee.',
+  },
+  {
+    question: 'Does Roobet process withdrawals at weekends?',
+    answer:
+      'The terms contain no weekend or business-day processing clause at all: clause 11.2 mentions only slight delays from verification checks. We previously repeated a no-weekend-processing claim and have withdrawn it, since it appears nowhere in the current terms. If a Roobet payout sits past the published window (~15 minutes for most crypto, up to 24 hours for Bitcoin), the likely cause is a verification or due-diligence check, not the day of the week.',
+  },
+  {
+    question: 'Why is my Roobet withdrawal stuck on pending?',
+    answer:
+      'The terms give four named refusal grounds under clause 10.5: identity not verified, payment method not confirmed as yours, an outstanding information request, or minimum wager not met. Beyond those, clause 10.4 allows enhanced due diligence that can delay or decline a withdrawal, with Roobet able to decline to explain the investigation, and clause 4.9 lets KYC be demanded at any time with cashier functions restricted until it completes. Check first that your deposit is fully wagered (clause 10.1) and that no document request is sitting unanswered in your account.',
+  },
+  {
+    question: 'Can I withdraw from Roobet while a bonus is active?',
+    answer:
+      "Deposits must be wagered before withdrawal under clause 10.1, and an active deposit-bonus wagering requirement adds its own lock: while one is running, Bonus and Promotion Policy clause 5.5 suspends rakeback of any kind and Terms of Service clause 12.5 bars sportsbook bets. Clear the wagering requirement, or forfeit the bonus where Roobet's flow allows it, before expecting the balance to be withdrawable.",
   },
 ] as const

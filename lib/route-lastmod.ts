@@ -63,6 +63,9 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   '/reviews/7bit-casino/withdrawal': '2026-08-01',
   '/reviews/cloudbet/withdrawal': '2026-08-01',
   '/reviews/duelbits/withdrawal': '2026-08-01',
+  // New URL 2026-08-25: the fourth August page, built on the owner's full
+  // Roobet terms read of the same date.
+  '/reviews/roobet/withdrawal': '2026-08-25',
   '/reviews/cloudbet/payment-methods': '2026-08-01',
   '/reviews/bitstarz/payment-methods': '2026-08-01',
   '/reviews/bc-game/payment-methods': '2026-08-01',
