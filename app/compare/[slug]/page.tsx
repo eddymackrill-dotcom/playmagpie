@@ -13,9 +13,11 @@ import CasinoLogo from '@/components/CasinoLogo'
 // Catalogue cons suppressed on a specific pair page, matched by substring.
 // Deliberately narrow: this is not an editorial softening mechanism, it exists
 // so a page can decline to state a figure it says in prose it is re-verifying.
-const suppressedCons: Record<string, string[]> = {
-  'cloudbet-vs-roobet': ['2% fiat withdrawal fee'],
-}
+// EMPTY as of 2026-08-25: the cloudbet-vs-roobet fee suppression was removed
+// when the s10.8 boundary was verified on the owner's full Roobet terms read
+// (fiat-only, rolling 30 days, from the 10th inclusive). The mechanism stays
+// for future re-verification windows.
+const suppressedCons: Record<string, string[]> = {}
 
 export const dynamicParams = false
 
@@ -278,13 +280,10 @@ export default async function ComparePage(props: PageProps<'/compare/[slug]'>) {
                 <div className="pt-4 border-t border-[#222222]">
                   <div className="text-xs font-semibold text-[#555555] uppercase tracking-wider mb-2">Cons</div>
                   <ul className="space-y-2">
-                    {/* Per-pair con suppression. Added 2026-08-01 for cloudbet-vs-roobet:
-                        Roobet's fiat-fee con carries a clause boundary that is under owner
-                        re-verification, and the page states in prose that it is not putting
-                        a figure on it here. Rendering the catalogue con would contradict
-                        that in the same viewport. The con stays published on /reviews/roobet,
-                        where the owner-verified wording lives; this suppresses it on this
-                        page only. Remove this filter once the boundary is re-verified. */}
+                    {/* Per-pair con suppression (mechanism kept, map currently empty).
+                        Added 2026-08-01 for the cloudbet-vs-roobet fee boundary; removed
+                        2026-08-25 when the s10.8 rule was verified on the owner's full
+                        Roobet terms read. */}
                     {c.cons
                       .filter((con) => !(suppressedCons[slug] ?? []).some((frag) => con.includes(frag)))
                       .map((con) => (

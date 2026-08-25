@@ -204,8 +204,9 @@ export default function TransparencyReportPage() {
                 {casino.slug === 'roobet' ? (
                   <div className="text-[#bbbbbb] text-sm leading-relaxed bg-[#0d0d0d] border border-[#222222] rounded-xl p-4 mt-2">
                     <span className="text-[#d98a8a] text-xs uppercase tracking-wide font-semibold">The catch </span>
-                    Per Roobet&apos;s published terms (§10.8): a 2% fee applies from the 10th fiat withdrawal onwards in a
-                    rolling 30-day window, alongside a stated $200,000/day cap and no weekend cashier processing. Separately,
+                    Per Roobet&apos;s published terms (§10.8, verified on a full terms read 25 August 2026): a 2% fee applies
+                    from the 10th fiat withdrawal onwards in a rolling 30-day window, fiat only; crypto withdrawals carry no
+                    fee in the terms, and fiat deposits carry a 1% fee (§9.7). Separately,
                     AskGamblers hosts documented player complaints of multi-day withdrawal holds on large wins ($20k–$115k),
                     one of which, an $84,000 case, is publicly listed as <strong className="text-white">Unsolved as of June 2026</strong>.{' '}
                     <span className="text-[#888888]">
@@ -267,8 +268,9 @@ export default function TransparencyReportPage() {
             <div className="bg-[#0d0d0d] border border-[#222222] rounded-2xl p-5">
               <div className="text-[#d98a8a] text-xs uppercase tracking-wide font-semibold mb-2">Roobet: documented record</div>
               <p className="text-[#bbbbbb] text-sm leading-relaxed">
-                Per Roobet&apos;s published terms (§10.8), a 2% fee applies from the 10th fiat withdrawal onwards in a rolling
-                30-day window, alongside a stated $200,000/day cap and no weekend cashier processing. Separately, AskGamblers
+                Per Roobet&apos;s published terms (§10.8, verified on a full terms read 25 August 2026), a 2% fee applies from
+                the 10th fiat withdrawal onwards in a rolling 30-day window, fiat only; crypto withdrawals carry no fee in the
+                terms, and fiat deposits carry a 1% fee (§9.7). Separately, AskGamblers
                 hosts documented player complaints of multi-day withdrawal holds on large wins ($20k–$115k), one of which,
                 an $84,000 case, is publicly listed as <strong className="text-white">Unsolved as of June 2026</strong>.{' '}
                 <span className="text-[#888888]">

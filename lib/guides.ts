@@ -88,7 +88,7 @@ export const guides: Guide[] = [
     readTime: '9 min read',
     category: 'Withdrawals',
     published: '2026-07-28',
-    modified: '2026-07-28',
+    modified: '2026-08-25', // Roobet weekend-clause correction (not in terms, 08-25 owner read)
     updated: 'July 2026',
   },
   // Added 2026-08-01, page 1 of the owner-approved August slate (STATE.md).
@@ -107,7 +107,7 @@ export const guides: Guide[] = [
     readTime: '8 min read',
     category: 'Withdrawals',
     published: '2026-08-01',
-    modified: '2026-08-01',
+    modified: '2026-08-25', // Roobet cap+weekend correction (not in terms, 08-25 owner read)
     updated: 'August 2026',
   },
 ]

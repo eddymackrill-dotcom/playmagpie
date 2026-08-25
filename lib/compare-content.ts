@@ -85,7 +85,10 @@ export const compareEditorial: Record<ComparePairSlug, CompareEditorial> = {
     title: 'Cloudbet vs Roobet: Trust Gap vs the Originals Suite',
     metaDescription:
       'Cloudbet for most players: trust 8.7 against 6.8, no withdrawal limits once verified. Roobet answers with Crash and Originals. Where each case actually holds.',
-    modified: '2026-08-22',
+    // 2026-08-25: fee boundary unsuppressed (s10.8 verified on the owner's full
+    // terms read), $200k-cap and weekend claims withdrawn (not in terms), Ontario
+    // removed from the restricted-territory condition.
+    modified: '2026-08-25',
   },
 }
 
@@ -169,8 +172,8 @@ export const compareContent: Record<ComparePairSlug, ComparePair> = {
       "Most comparisons on this site come down to fit: which operator matches how you play. This one does not, and it would be dishonest to present it as though it did. Cloudbet and Roobet are superficially similar (both crypto casino plus sportsbook, both Curaçao-licensed, both running rakeback-style VIP schemes) and then they diverge on the thing that matters most once you have won something: what happens when you ask for the money. Cloudbet's architecture removes withdrawal limits entirely after one round of verification. Roobet carries a public complaint record of multi-day holds on large cash-outs, and one case still listed as unsolved. Our scoring reflects that gap rather than splitting the difference: 8.7 against 6.8 on trust, 9.0 against 6.5 on withdrawals.",
     positioning: [
       "Where Roobet genuinely wins is the product. Roobet Originals are the draw, with Crash as the flagship alongside Mines, Towers, Dice, Plinko and the Snoop-branded HotBox variant, all provably fair, sitting on roughly 6,000 third-party slots. Roowards 2.0 is a 30-tier rakeback programme paying drops every 30 minutes, which is a materially different rhythm from a VIP ladder you climb over months. Entry is $10. Cloudbet's game library is the lighter of the two and it does not run an Originals suite at all; what it has instead is a sportsbook widely regarded as best-in-class for crypto, 29 supported coins against Roobet's 11, fiat rails via Jeton and Vega, and a minimum deposit around $1.",
-      "The cash-out mechanics are where the two stop being comparable. Cloudbet publishes a tier: $2,200 a day until Level 2 verification is complete, and no withdrawal limit at all afterwards, backed by dual Curaçao and Kahnawake licensing and a payout record running since 2013. Roobet publishes a $200,000 daily ceiling and does not process cashouts at weekends, so a Saturday request can sit until Monday as a matter of policy. Headline speeds are closer than the scores suggest, around 15 minutes for most crypto at Roobet against instant-for-most at Cloudbet, but headline speed is not what separates them.",
-      "One number is missing from this page on purpose. Roobet operates a percentage fee on fiat withdrawals past a threshold inside a rolling window. We have published our reading of where that boundary falls in the Roobet review, and a current dated secondary source reads it differently, so the exact trigger point is being re-checked against the live terms. This page does not restate it while that is open. Crypto withdrawals, which are the relevant path for most players at either operator, are not affected by it.",
+      "The cash-out mechanics are where the two stop being comparable. Cloudbet publishes a tier: $2,200 a day until Level 2 verification is complete, and no withdrawal limit at all afterwards, backed by dual Curaçao and Kahnawake licensing and a payout record running since 2013. Roobet's terms set no withdrawal maximum either (on a full read of its current Terms of Service, 25 August 2026, clause 10.2 reserves a minimum only), but they hand the cashier wide discretion: enhanced due diligence can delay or decline a withdrawal with Roobet able to decline to explain the investigation (10.4), and multiple pending withdrawals can be rejected and consolidated into one (10.3). Headline speeds are closer than the scores suggest, around 15 minutes for most crypto at Roobet against instant-for-most at Cloudbet, but headline speed is not what separates them.",
+      "The fee picture is now verified against Roobet's current terms (full read, 25 August 2026) and it is fiat-only. Clause 10.8: once you make 10 or more fiat withdrawals in a rolling 30-day period, a 2% fee applies to each additional withdrawal including the tenth. Fiat deposits carry a 1% fee (9.7). Crypto withdrawals, which are the relevant path for most players at either operator, carry no fee anywhere in the terms.",
     ],
     scenarios: [
       {
@@ -190,7 +193,7 @@ export const compareContent: Record<ComparePairSlug, ComparePair> = {
           'Crash and the Originals suite are what you actually came to play, since Cloudbet has no equivalent',
           'You want rakeback that pays out every 30 minutes rather than tier progression over months',
           'You are playing at stakes where a cash-out never approaches the amounts in its complaint record',
-          'You are not playing from a restricted territory: the Roobet list is unusually wide and includes the UK, US, Germany, Netherlands, Sweden, Australia and Ontario',
+          'You are not playing from a restricted territory: the Roobet list is unusually wide and includes the UK, US, Germany, Netherlands, Sweden and Australia',
         ],
       },
     ],
@@ -199,7 +202,7 @@ export const compareContent: Record<ComparePairSlug, ComparePair> = {
     faqs: [
       {
         question: 'Which pays out faster, Cloudbet or Roobet?',
-        answer: 'On published windows they are closer than the scores suggest. Cloudbet states most withdrawals are instant with some taking up to 24 hours; Roobet publishes around 15 minutes for most crypto, up to 24 hours for Bitcoin, and does not process cashouts at weekends. The weekend clause is the real difference in ordinary use, because it can add two days to a Saturday request at Roobet and nothing at Cloudbet. Our withdrawal scores (9.0 against 6.5) are not a speed ranking: they price in the documented holds at Roobet on large cash-outs, which is a separate question from how fast a routine payout clears.',
+        answer: 'On published windows they are closer than the scores suggest. Cloudbet states most withdrawals are instant with some taking up to 24 hours; Roobet publishes around 15 minutes for most crypto and up to 24 hours for Bitcoin. (An earlier version of this answer said Roobet does not process cashouts at weekends; a full read of its current terms on 25 August 2026 found no weekend or business-day processing clause, so that claim is withdrawn.) Our withdrawal scores (9.0 against 6.5) are not a speed ranking: they price in the documented holds at Roobet on large cash-outs, which is a separate question from how fast a routine payout clears.',
       },
       {
         question: 'Does Roobet hold large withdrawals?',
@@ -207,11 +210,11 @@ export const compareContent: Record<ComparePairSlug, ComparePair> = {
       },
       {
         question: 'What are the withdrawal limits at Cloudbet and Roobet?',
-        answer: 'Cloudbet caps accounts at $2,200 a day until Level 2 verification is complete and applies no withdrawal limit at all afterwards, per its published cashier policy. Roobet publishes a $200,000 a day ceiling with no weekend processing. On paper Roobet\'s ceiling is far higher and irrelevant to almost everyone; in practice Cloudbet\'s is the more useful structure, because it is a cap you can remove in advance rather than a number you are unlikely to reach.',
+        answer: 'Cloudbet caps accounts at $2,200 a day until Level 2 verification is complete and applies no withdrawal limit at all afterwards, per its published cashier policy. Roobet\'s terms set no withdrawal maximum at all: on a full read of its current Terms of Service (25 August 2026), clause 10.2 reserves the right to set a minimum only, and no daily ceiling appears anywhere. The practical difference is not the number but the structure: Cloudbet tells you in advance exactly what removes its cap, while Roobet\'s terms leave withdrawals subject to open-ended due-diligence discretion (clause 10.4), which is where its documented large-cashout holds live.',
       },
       {
         question: 'Does Roobet charge a withdrawal fee?',
-        answer: 'On fiat withdrawals, yes: Roobet applies a percentage fee once you pass a threshold inside a rolling window. This page deliberately does not state the trigger point, because our published reading of the clause conflicts with a current dated secondary source and the wording is being re-checked against the live terms. We would rather tell you a fee exists and that we are verifying its boundary than restate a figure while it is in question. Crypto withdrawals, which is how most players cash out at either operator, do not attract it. Cloudbet does not apply an equivalent fiat cash-out fee.',
+        answer: 'On fiat withdrawals, yes, and the boundary is now verified against the current terms (full read, 25 August 2026): under clause 10.8, once you make 10 or more fiat withdrawals in a rolling 30-day period, a 2% fee applies to each additional withdrawal including the tenth. Fiat deposits separately carry a 1% fee under clause 9.7. Crypto withdrawals, which is how most players cash out at either operator, carry no fee anywhere in the terms. Cloudbet does not apply an equivalent fiat cash-out fee. (This page previously declined to state the trigger point while our reading was being re-checked; the re-check is done and the figure above is the verified one.)',
       },
       {
         question: 'Which has the better welcome offer?',

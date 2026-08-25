@@ -376,7 +376,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What countries does Roobet restrict?',
-      answer: 'Roobet\'s restricted-territories list under terms §3.5 is unusually wide for a Curaçao operator: Aruba, Australia, Belgium, Bonaire, Cuba, Curaçao, Cyprus, Denmark, Germany, Gibraltar, Haiti, Israel, Iran, Iraq, Malta, Myanmar, Netherlands, Nicaragua, North Korea, Ontario (province of Canada), Portugal, Saba, Saint Maarten, Saint Martin, South Sudan, Spain, Statia, Syria, Sweden, United States, United Kingdom, Yemen and Zimbabwe. That excludes the UK, US, most of Western and Northern Europe, Australia and Ontario specifically. Verify your jurisdiction is not on the live list before depositing, as restricted-territory accounts are subject to closure and fund forfeiture under terms clause 6.4.',
+      answer: 'Roobet\'s restricted-territories list under terms §3.5 (re-read in full 25 August 2026) is unusually wide for a Curaçao operator and works at country level: Aruba, Australia, Belgium, Bonaire, Cuba, Curaçao, Cyprus, Denmark, Germany, Gibraltar, Haiti, Israel, Iran, Iraq, Malta, Myanmar, Netherlands, Nicaragua, North Korea, Portugal, Saba, Saint Maarten, Saint Martin, South Sudan, Spain, Statia, Syria, Sweden, United States, United Kingdom, Yemen and Zimbabwe. That excludes the UK, US, most of Western and Northern Europe, and Australia. Canada is not on the list. Verify your jurisdiction is not on the live list before depositing, as restricted-territory accounts are subject to closure and fund forfeiture under terms clause 6.4.',
     },
     {
       question: 'Is Roobet no-KYC?',
@@ -384,7 +384,7 @@ const casinoFAQs: Record<string, { question: string; answer: string }[]> = {
     },
     {
       question: 'What are Roobet withdrawal limits?',
-      answer: 'Roobet\'s headline daily withdrawal cap is $200,000 USD-equivalent. The minimum withdrawal is $10 in crypto or $15 in fiat. Crypto withdrawals are stated at ~15 minutes for most coins, with Bitcoin specifically listed at up to 24 hours; fiat withdrawals run 1-5 days. There is no weekend cashier processing. Per Roobet\'s terms §10.8, a 2% fee applies to the 10th and each subsequent fiat withdrawal in any rolling 30-day window.',
+      answer: 'Roobet\'s terms set no withdrawal maximum: on a full read of the current Terms of Service (25 August 2026), §10.2 reserves the right to set a minimum only, and no daily or per-transaction ceiling appears anywhere. The minimum withdrawal is $10 in crypto or $15 in fiat. Crypto withdrawals are stated at ~15 minutes for most coins, with Bitcoin specifically listed at up to 24 hours; fiat withdrawals run 1-5 days. On fees, the terms are specific: a 2% fee applies to the 10th and each subsequent fiat withdrawal in any rolling 30-day window (§10.8, fiat only; crypto withdrawals carry no fee in the terms), and fiat deposits carry a 1% fee (§9.7).',
     },
     {
       question: 'Why was Roobet banned from Twitch?',

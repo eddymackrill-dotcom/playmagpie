@@ -58,14 +58,18 @@ export const countryEditorial: Record<CountrySlug, CountryEditorial> = {
   canada: {
     title: 'Crypto Casinos in Canada: The Ontario Split',
     h1: 'Crypto Casinos in Canada: Ontario Plays by Different Rules to the Rest',
-    metaDescription: "Canada regulates gambling province by province, and Ontario's iGaming regime is the outlier. Roobet's terms exclude Ontario by name while accepting the rest.",
-    modified: '2026-08-07',
+    // 2026-08-25 correction: the meta and rankingNote previously said Roobet's terms
+    // exclude Ontario by name. The owner-supplied full ToS read of 2026-08-25 shows
+    // s3.5 is country-level and mentions neither Canada nor Ontario; both strings
+    // corrected, modified bumped same commit.
+    metaDescription: "Canada regulates gambling province by province, and Ontario's iGaming regime is the outlier. What the split means for offshore crypto play, ranked by trust.",
+    modified: '2026-08-25',
     template: {
       intro: 'Gambling law is provincial here, and Ontario runs its own licensed regime. What the split means before the first CAD on-ramp.',
       stripFraming: 'Top 3 by trust score for Canadian players. Ontario players: check each operator’s terms for the provincial carve-out.',
       contextHeading: "How Canada's Provincial Split Works",
       rankingHeading: 'Our Full Ranking for Canadian Players',
-      rankingNote: "Independent rankings. Provincial rules differ, and Ontario carve-outs can appear in operator terms (Roobet's does); check yours before depositing.",
+      rankingNote: 'Independent rankings. Provincial rules differ, and provincial carve-outs can appear in operator terms; check yours before depositing.',
       legalCrossLink: {
         before: 'Whether any of this is legal from a Canadian sofa is its own question, with a provincial answer rather than a federal one. The statutes, the Ontario regime and the tax treatment are covered in our guide to ',
         anchor: 'whether crypto gambling is legal in Canada',

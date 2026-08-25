@@ -6,31 +6,34 @@ import TopRatedSection from '@/components/TopRatedSection'
 import CTAButton from '@/components/CTAButton'
 
 // Bitcoin-axis page for Canada. Differentiated from /country/canada (multi-coin hub) by
-// the province-specific BTC casino-availability angle: Roobet's terms restrict ONTARIO
-// specifically (not all Canada), so an Ontario player's eligible BTC list differs from
-// the rest of Canada's. That provincial carve-out is the page's spine and is page-specific
-// in a way the hub only gestures at.
+// the BTC-cashier angle: per-operator Bitcoin mechanics for a Canadian player, plus the
+// Ontario licensing context (a fact about Ontario's regime, not about any operator's
+// terms). CORRECTION 2026-08-25: this page previously claimed Roobet's terms restrict
+// Ontario by name. The owner-supplied full ToS read of 2026-08-25 shows s3.5 lists
+// restricted territories by COUNTRY only; Canada is not listed and Ontario is not
+// mentioned. The claim is retracted with a dated on-page correction note (it was the
+// page's spine, so the corrections-are-published policy applies).
 // Verified facts reused from the countryContext block in app/country/[slug]/page.tsx
 // (verified May 2026): crypto legal in Canada; CRA treats crypto as a commodity for tax;
 // Ontario operates its own licensed framework, other provinces less prescriptive; on-ramps
-// Newton, Bitbuy, Wealthsimple. Roobet's Ontario restriction: lib/casinos.ts restrictedCountries.
+// Newton, Bitbuy, Wealthsimple.
 
 export const metadata: Metadata = {
-  title: 'Best Bitcoin Casino Canada: Ranked, With the Ontario Catch',
+  title: 'Best Bitcoin Casino Canada: All Eight Ranked by Trust',
   description:
-    'All 8 reviewed casinos take Canadian Bitcoin players; Roobet alone restricts Ontario by name. Ranked by trust, with the provincial detail and the CRA tax note.',
+    'All 8 reviewed casinos take Canadian Bitcoin players; none draws a provincial line in its terms. Ranked by trust, with the Ontario context and CRA tax note.',
   alternates: { canonical: '/best-bitcoin-casino-canada' },
   openGraph: {
     url: '/best-bitcoin-casino-canada',
-    title: 'Best Bitcoin Casino Canada: Ranked, With the Ontario Catch',
+    title: 'Bitcoin Casinos for Canada: Eight Operators, One Provincial Question',
     description:
-      'All 8 reviewed casinos take Canadian Bitcoin players; Roobet alone restricts Ontario by name. Ranked by trust.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Best Bitcoin Casino Canada: Ranked, With the Ontario Catch' }],
+      'All 8 reviewed casinos take Canadian Bitcoin players, and none draws a provincial line in its terms. Ranked by trust.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Bitcoin Casinos for Canada: Eight Operators, One Provincial Question' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Bitcoin Casino Canada: Ranked, With the Ontario Catch',
-    description: 'All 8 reviewed casinos take Canadian Bitcoin players; Roobet alone restricts Ontario. Ranked by trust.',
+    title: 'Bitcoin Casinos for Canada: Eight Operators, One Provincial Question',
+    description: 'All 8 reviewed casinos take Canadian Bitcoin players, and none draws a provincial line in its terms. Ranked by trust.',
     images: ['/og-image.png'],
   },
 }
@@ -44,8 +47,7 @@ const breadcrumbSchema = {
   ],
 }
 
-// BTC-cashier notes per casino, Canada-framed. Roobet's note carries the Ontario carve-out.
-// Facts from lib/casinos.ts.
+// BTC-cashier notes per casino, Canada-framed. Facts from lib/casinos.ts.
 const PER_CASINO_BTC_NOTES: Record<string, string> = {
   bitstarz:
     'BitStarz is the safe Canadian default: a decade of Best Bitcoin Casino awards and sub-10-minute BTC processing. Available across every province. No cashier fees on deposits or withdrawals per the live terms; the welcome package\'s real cost is its wagering requirement, up to 40x.',
@@ -62,7 +64,7 @@ const PER_CASINO_BTC_NOTES: Record<string, string> = {
   shuffle:
     'Shuffle clears BTC instant to 10 minutes with SHFL rakeback on Bitcoin play. Light KYC can trigger on larger cashouts. Available across Canada.',
   roobet:
-    'Roobet is the one province-specific case on this list: its terms restrict Ontario specifically, so it is open to Canadians outside Ontario only. It is also the lowest-trust option, with BTC withdrawals quoted up to 24 hours and documented multi-day holds on large wins. If you are in Ontario, the seven above are your list; if you are elsewhere in Canada, treat Roobet as small-stakes-only.',
+    'Roobet accepts Canadian players: its restricted-territories list (terms s3.5, read 2026-08-25) works by country and does not include Canada. It is the lowest-trust option here, with BTC withdrawals quoted up to 24 hours and documented multi-day holds on large wins, so treat it as small-stakes-only wherever in Canada you play from.',
 }
 
 function casinoAcceptsBTC(c: Casino): boolean {
@@ -70,13 +72,12 @@ function casinoAcceptsBTC(c: Casino): boolean {
 }
 
 export default function BestBitcoinCasinoCanadaPage() {
-  // casinoAcceptsCountry(c, 'canada') returns true for all eight: Roobet restricts the token
-  // 'Ontario', not 'Canada', so it renders here with the Ontario carve-out called out in copy.
+  // casinoAcceptsCountry(c, 'canada') returns true for all eight: no operator's
+  // restricted-territories list includes Canada (Roobet's s3.5 re-read 2026-08-25
+  // is country-level and lists neither Canada nor any province).
   const eligible = casinos
     .filter((c) => casinoAcceptsCountry(c, 'canada') && casinoAcceptsBTC(c))
     .sort((a, b) => b.trustScore - a.trustScore)
-  // Ontario-eligible subset excludes Roobet (its terms restrict Ontario).
-  const ontarioEligible = eligible.filter((c) => !c.restrictedCountries.includes('Ontario'))
   const top = eligible[0]
 
   return (
@@ -97,39 +98,44 @@ export default function BestBitcoinCasinoCanadaPage() {
             <span className="text-[#7BB8D4] text-sm font-medium">Bitcoin · Canada · CAD</span>
           </div>
           <h1 className="text-4xl font-extrabold text-white mb-4 leading-tight">
-            Bitcoin Casinos for Canada: One Ontario Carve-Out, Ranked Around It
+            Bitcoin Casinos for Canada: Eight Operators, One Provincial Question
           </h1>
           <p className="text-[#888888] text-lg max-w-3xl leading-relaxed">
             Canada is one of the most crypto-friendly markets we cover, and all eight casinos we review
-            accept Canadian players for Bitcoin. The catch is provincial, not national: one operator
-            restricts Ontario specifically, so where you live changes your shortlist. Here is the ranked
-            list, the Ontario exception, and the CRA detail that affects how you fund a deposit.
+            accept Canadian players for Bitcoin. None of them draws a provincial line in its terms. The
+            provincial question is about Ontario&apos;s own licensed market, not about operator
+            restrictions: here is the ranked list, the Ontario context, and the CRA detail that affects
+            how you fund a deposit.
           </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
           <Stat label="Casinos accepting Canada" value={`${eligible.length}`} sub="of 8 reviewed" />
-          <Stat label="Open to Ontario" value={`${ontarioEligible.length}`} sub="Roobet restricts Ontario" />
+          <Stat label="Provincial lines in operator terms" value="0" sub="Country-level lists only" />
           <Stat label="CRA treats crypto as" value="Commodity" sub="Disposal can be taxable" />
           <Stat label="BTC settlement" value="~10 min" sub="Per block, fees float" />
         </div>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">The Ontario exception</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">The Ontario question</h2>
           <div className="prose prose-invert max-w-none text-[#bbbbbb] leading-relaxed space-y-4">
             <p>
-              Canada does not regulate online gambling federally. Ontario runs its own licensed framework,
-              while other provinces are less prescriptive, and that provincial split shows up directly in
-              which offshore casinos accept you. Of the eight on this page, seven accept players in every
-              province. Roobet is the exception: its terms restrict Ontario specifically, so it is open to
-              Canadians outside Ontario only.
+              Canada does not regulate online gambling federally. Ontario runs its own licensed
+              online-gambling framework, while other provinces are less prescriptive, and some offshore
+              operators choose to draw a line at provinces that license their own markets. What the terms
+              of the eight operators on this page actually say is simpler: every restricted-territories
+              list we have verified works at country level, and none of them lists Canada or any Canadian
+              province. Wherever you are in Canada, all eight are open to you on their own terms.
             </p>
             <p>
-              The practical takeaway is simple. If you are in Ontario, your Bitcoin shortlist is the seven
-              operators that serve the whole country (BitStarz, BC.Game, 7Bit, Cloudbet, Mirax, Duelbits
-              and Shuffle). If you are elsewhere in Canada, all eight are open to you, though Roobet sits
-              at the bottom of the trust ranking for separate reasons covered below. No other operator on
-              this list draws a provincial line.
+              <strong className="text-[#f5f5f5]">Correction, 25 August 2026:</strong> an earlier version
+              of this page, including its title, said Roobet&apos;s terms restrict Ontario by name and
+              built the ranking around that carve-out. On a full read of Roobet&apos;s current Terms of
+              Service (25 August 2026), the restricted-territories clause (s3.5) lists countries only:
+              Canada is not on the list and Ontario is not mentioned anywhere in the document. We have
+              retracted the claim rather than softening it. Whether any operator blocks Ontario players
+              in practice is a separate question its terms do not answer; we state only what the terms
+              say.
             </p>
           </div>
         </section>
@@ -162,8 +168,7 @@ export default function BestBitcoinCasinoCanadaPage() {
         <section className="my-12">
           <h2 className="text-2xl font-bold text-white mb-2">The {eligible.length} Bitcoin Casinos for Canadian Players: Ranked</h2>
           <p className="text-[#888888] text-sm mb-6">
-            Ranked by trust score. All accept Canadian Bitcoin deposits; Roobet is the one that restricts
-            Ontario. Verified against the data in{' '}
+            Ranked by trust score. All eight accept Canadian Bitcoin deposits. Verified against the data in{' '}
             <code className="text-[#7BB8D4] bg-[#111111] px-1.5 py-0.5 rounded text-xs">lib/casinos.ts</code>.
           </p>
           <CasinoComparisonTable casinos={eligible} />
@@ -171,7 +176,7 @@ export default function BestBitcoinCasinoCanadaPage() {
 
         <TopRatedSection
           title="Top 3 Bitcoin Picks for Canada"
-          subtitle="The three highest-trust operators accepting Canadian players (all open to Ontario)"
+          subtitle="The three highest-trust operators accepting Canadian players"
           casinos={eligible.slice(0, 3)}
         />
 
@@ -283,7 +288,7 @@ const FAQS = [
   {
     question: 'Which Bitcoin casinos accept Ontario players?',
     answer:
-      'Seven of the eight we review accept Ontario players: BitStarz, BC.Game, 7Bit, Cloudbet, Mirax, Duelbits and Shuffle. Roobet is the exception, as its terms restrict Ontario specifically. Ontario runs its own licensed online-gambling framework, which is why some offshore operators draw a line at the province. Players in other Canadian provinces can use all eight.',
+      'By their own terms, all eight casinos we review accept Canadian players and none restricts Ontario or any other province: every restricted-territories list we have verified works at country level, and Canada is not on any of them. Ontario runs its own licensed online-gambling framework, so Ontario players also have the regulated iGaming Ontario market as an alternative to offshore play. (An earlier version of this answer said Roobet restricts Ontario by name; a full read of its current terms on 25 August 2026 found no mention of Ontario, and we corrected the page.)',
   },
   {
     question: 'Do Canadian players pay tax on Bitcoin used at a casino?',
@@ -303,6 +308,6 @@ const FAQS = [
   {
     question: 'How many casinos accept Canadian players for Bitcoin?',
     answer:
-      'All eight casinos in our catalogue accept Canadian Bitcoin deposits, the widest acceptance of any market we cover, with the single caveat that Roobet restricts Ontario. That reflects how crypto-friendly the Canadian environment is relative to more restrictive markets.',
+      'All eight casinos in our catalogue accept Canadian Bitcoin deposits, the widest acceptance of any market we cover, and none of their terms draws a line at any Canadian province. That reflects how crypto-friendly the Canadian environment is relative to more restrictive markets.',
   },
 ] as const

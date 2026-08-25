@@ -300,7 +300,7 @@ const guideContent: Record<string, ContentBlock[]> = {
 
     { type: 'h2', text: 'What the casinos we review actually publish about timing' },
     { type: 'p', text: 'Published payout windows across the eight casinos we review run from instant to 24 hours, which means "pending" only becomes unusual once you are past the operator’s own stated window. Those figures are the operators’ published or documented processing times as recorded in our catalogue, not stopwatch measurements taken by us, and we describe them that way deliberately.' },
-    { type: 'p', text: 'For crypto payouts, Duelbits publishes instant to five minutes, BitStarz under ten minutes, and BC.Game, 7Bit and Shuffle instant to ten minutes. Mirax runs instant to fifteen. Cloudbet states that most withdrawals are instant with some taking up to 24 hours, which is the widest published window among the group and is verified against its own help centre. Roobet is the outlier in a way that matters for this guide: around fifteen minutes for most crypto, up to 24 hours for Bitcoin, and no weekend processing, so a Saturday cash-out there can legitimately sit until Monday.' },
+    { type: 'p', text: 'For crypto payouts, Duelbits publishes instant to five minutes, BitStarz under ten minutes, and BC.Game, 7Bit and Shuffle instant to ten minutes. Mirax runs instant to fifteen. Cloudbet states that most withdrawals are instant with some taking up to 24 hours, which is the widest published window among the group and is verified against its own help centre. Roobet publishes around fifteen minutes for most crypto and up to 24 hours for Bitcoin; its current terms, read in full on 25 August 2026, carry no weekend-processing clause, so a payout sitting past those windows there points to a verification check rather than the calendar.' },
     {
       type: 'plink',
       parts: [
@@ -369,7 +369,7 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'h2', text: 'A cap meters your money, it does not refuse it' },
     { type: 'p', text: 'Hitting a daily ceiling is not a failed withdrawal, and reading it as one is the most common unnecessary panic in this whole area. The balance stays yours and pays out across consecutive requests until it is gone. The practical cost is time and the mild indignity of doing the same thing four days running, not risk to the money.' },
     { type: 'p', text: 'Cloudbet publishes the clearest documented example in our catalogue, and it is a tier rather than a flat rule: accounts are capped at $2,200 a day until Level 2 verification is complete, and carry no withdrawal limit at all once it is. That is the single most useful number on this page, because it tells you the cap is something you can remove in advance rather than something you negotiate afterwards. It is verified against Cloudbet’s own help centre.' },
-    { type: 'p', text: 'Roobet publishes a $200,000 a day ceiling, which is high enough to be irrelevant to most players, but pairs it with something that is not: no weekend cashout processing. Its constraint is as much calendar as amount, and a Saturday request can legitimately sit until Monday without anything being wrong.' },
+    { type: 'p', text: 'Roobet is the opposite structure: on a full read of its current Terms of Service (25 August 2026), the terms set no withdrawal maximum at all, with clause 10.2 reserving only the right to set a minimum. What replaces the arithmetic of a cap is discretion: clause 10.4 lets enhanced due diligence delay or decline a withdrawal, with Roobet able to decline to explain the nature of the investigation, and clause 10.3 lets multiple pending withdrawals be rejected and consolidated into one. An earlier version of this paragraph cited a $200,000 daily ceiling and a no-weekend-processing rule; neither appears anywhere in the current terms, and both claims are withdrawn.' },
     { type: 'p', text: 'The reason the distinction matters is that a cap is arithmetic and a hold is a judgement. You can calculate exactly when a capped balance finishes paying out. You cannot calculate when a review ends.' },
 
     { type: 'h2', text: 'The verification threshold: what is actually documented' },
@@ -554,7 +554,7 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
     {
       question: 'How long should a crypto casino withdrawal stay pending before I worry?',
       answer:
-        'Use the operator’s own published window plus one processing cycle as the threshold. Among the casinos we review, published crypto payout times run from instant to five minutes at Duelbits, under ten minutes at BitStarz, instant to ten at BC.Game, 7Bit and Shuffle, instant to fifteen at Mirax, and instant to 24 hours at Cloudbet. Roobet publishes around fifteen minutes for most crypto but up to 24 hours for Bitcoin and does not process at weekends, so a Saturday request there can legitimately sit until Monday. Anything inside those windows is behaving normally; past them, contact support.',
+        'Use the operator’s own published window plus one processing cycle as the threshold. Among the casinos we review, published crypto payout times run from instant to five minutes at Duelbits, under ten minutes at BitStarz, instant to ten at BC.Game, 7Bit and Shuffle, instant to fifteen at Mirax, and instant to 24 hours at Cloudbet. Roobet publishes around fifteen minutes for most crypto but up to 24 hours for Bitcoin. Anything inside those windows is behaving normally; past them, contact support.',
     },
     {
       question: 'Why does my withdrawal show as pending with no transaction ID?',
@@ -681,7 +681,7 @@ const relatedCasinos: Record<string, { name: string; slug: string; reason: strin
   'why-is-my-crypto-casino-withdrawal-pending': [
     { name: 'Duelbits', slug: 'duelbits', reason: 'Publishes instant to 5-minute crypto payouts' },
     { name: 'Cloudbet', slug: 'cloudbet', reason: 'Tiered limits: $2,200/day before Level 2 verification' },
-    { name: 'Roobet', slug: 'roobet', reason: 'The documented-holds case: no weekend processing' },
+    { name: 'Roobet', slug: 'roobet', reason: 'The documented-holds case: multi-day verification holds on record' },
   ],
   // Roobet is deliberately NOT in this strip. The page's holds section is about
   // its complaint record, and pairing that argument with an affiliate card for
