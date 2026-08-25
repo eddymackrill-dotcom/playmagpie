@@ -6,6 +6,31 @@ section of the same date). Runs AFTER the 2c/2d deploy per the owner's
 
 ## Campaign log
 
+- **Day 2, 2026-08-25 (owner): 8 requested, zero GSC refusals: rows 44,
+  45, 46, 47, 48 (the five 2026-08-25 new URLs), row 17
+  (/bonus/free-spins, never-crawled), row 32 (/compare/cloudbet-vs-roobet,
+  never-crawled), and row 49 (/tracker/prediction-markets-legality, added
+  to the list at request time; it was never a campaign row because it was
+  unchanged when the list was built, and its WA stay-ruling update shipped
+  2026-08-25 morning).** NOT submitted: rows 2 (/country/australia) and 39
+  (/best-bitcoin-casino-canada): URL Inspection returned "already indexed"
+  and the owner did not submit. **The distinction, recorded so it is not
+  re-derived: indexed status is NOT crawl recency.** Both carry changes
+  Google has not fetched (Canada's Ontario correction shipped 2026-08-25;
+  the AU hub's IGA override pushed 2026-08-22 20:50 UTC, after Google's
+  15:24 fetch that day), so both stay REQUESTABLE and move to the TOP of
+  the return list.
+  **COUNT RECONCILIATION after day 2 (supersedes all prior figures): 48
+  unique campaign URLs (rows 1-49 minus the two duplicate listings, rows
+  16 and 43, plus the row-49 addition); 18 requested (10 on day 1 + 8 on
+  day 2); 30 outstanding.**
+- **CRAWL WATCH OPENED on the day-2 eight: the observable is a Google
+  crawl date advancing past 2026-08-25 per URL.** Note the asymmetry that
+  makes this batch the better experiment: five of the eight (rows 44-48)
+  plus the two never-crawled originals (rows 17, 32) have NEVER been
+  fetched by Google, so ANY crawl on those is unambiguous evidence the
+  request mechanism works on new pages, which the 22 August batch (all
+  previously-indexed URLs) could not test.
 - **Day 1, 2026-08-22 (owner): rows 1-10 requested, GSC refused nothing
   before the owner stopped at 10, consistent with the ~10/day
   undocumented quota. 32 of 42 URLs outstanding (rows 11-43).** Note on
@@ -80,7 +105,7 @@ was double-checked against the known change history before exclusion.
 | # | URL | Last change | Last crawl | Verdict | Requested |
 |---|---|---|---|---|---|
 | 1 | /country/australia/legal | 2026-08-20 | 2026-06-20 | VERIFIED-STALE (Google has NEVER fetched any of the four dated entries; two-month gap on the site's top AI asset) | 2026-08-22 |
-| 2 | /country/australia | 2026-08-22 (IGA sentence, owner override; changed again AFTER the request was made) | 2026-07-12 | VERIFIED-STALE | 2026-08-22 |
+| 2 | /country/australia | 2026-08-22 (IGA sentence, owner override; changed again AFTER the request was made) | 2026-08-22 15:24 UTC (pre-override fetch) | VERIFIED-STALE for the override wording. **2026-08-25 note: NOT re-submitted on day 2; URL Inspection returned "already indexed" and the owner skipped it. Indexed is not crawl recency: Google holds the 17 Aug wording. REQUESTABLE, top of the return list.** | 2026-08-22 (day 1; override re-request pending) |
 
 ## Tier 1: sentinels + trust layer
 
@@ -113,7 +138,7 @@ was double-checked against the known change history before exclusion.
 
 | # | URL | Last change | Last crawl | Verdict | Requested |
 |---|---|---|---|---|---|
-| 17 | /bonus/free-spins | 2026-08-08 | never | VERIFIED-STALE, never crawled at all (chronic orphan; a granted request here also answers the 06-11 orphan question) | |
+| 17 | /bonus/free-spins | 2026-08-08 | never | VERIFIED-STALE, never crawled at all (chronic orphan; a granted request here also answers the 06-11 orphan question) | 2026-08-25 |
 | 18 | /bonus/welcome-bonus | 2026-08-08 | 2026-07-03 | VERIFIED-STALE (carries the free-spins carrier link) | |
 | 19 | /bonus/vip-bonus | 2026-08-08 | 2026-06-25 | VERIFIED-STALE | |
 | 20 | /bonus/high-roller-bonus | 2026-08-08 | 2026-06-25 | VERIFIED-STALE | |
@@ -140,7 +165,7 @@ was double-checked against the known change history before exclusion.
 
 | # | URL | Last change | Last crawl (20 Aug) | Verdict | Requested |
 |---|---|---|---|---|---|
-| 32 | /compare/cloudbet-vs-roobet | 2026-08-25 (fee unsuppressed + cap/weekend withdrawn) | never | VERIFIED-STALE (published 08-01, still unknown to Google: second never-crawled URL on the board) | |
+| 32 | /compare/cloudbet-vs-roobet | 2026-08-25 (fee unsuppressed + cap/weekend withdrawn) | never | VERIFIED-STALE (published 08-01, still unknown to Google: second never-crawled URL on the board) | 2026-08-25 |
 | 33 | /compare/mirax-casino-vs-bitstarz | 2026-08-22 | 2026-06-09 | VERIFIED-STALE | |
 | 34 | /compare/cloudbet-vs-bitstarz | 2026-08-22 | 2026-06-24 | VERIFIED-STALE | |
 | 35 | /compare/7bit-casino-vs-bitstarz | 2026-08-22 | 2026-06-24 | VERIFIED-STALE | |
@@ -152,7 +177,7 @@ was double-checked against the known change history before exclusion.
 | # | URL | Last change | Last crawl (20 Aug) | Verdict | Requested |
 |---|---|---|---|---|---|
 | 38 | /crypto-casinos-with-sportsbook | 2026-08-22 | 2026-06-08 | VERIFIED-STALE | |
-| 39 | /best-bitcoin-casino-canada | 2026-08-25 (Ontario correction, page rebuilt off the carve-out spine) | 2026-07-09 | VERIFIED-STALE | |
+| 39 | /best-bitcoin-casino-canada | 2026-08-25 (Ontario correction, page rebuilt off the carve-out spine) | 2026-07-09 | VERIFIED-STALE. **2026-08-25 note: NOT submitted on day 2; URL Inspection returned "already indexed" and the owner skipped it. Indexed is not crawl recency: Google has never fetched the Ontario correction. REQUESTABLE, top of the return list.** | |
 | 40 | /no-kyc-casinos | 2026-08-22 | 2026-07-20 | VERIFIED-STALE (was already stale from the 08-01 correction; the shipped 2d rewrite is the liability fix for its meta) | |
 | 41 | /best-crypto-pokies-nz | 2026-08-22 | 2026-08-03 | VERIFIED-STALE | |
 | 42 | /best-crypto-casinos | 2026-08-22 | 2026-08-03 | VERIFIED-STALE | |
@@ -162,16 +187,17 @@ was double-checked against the known change history before exclusion.
 
 | # | URL | Last change | Last crawl | Verdict | Requested |
 |---|---|---|---|---|---|
-| 44 | /reviews/roobet/withdrawal | 2026-08-25 (published) | never | NEW URL, requestable (first crawl doubles as an indexing probe on a fresh URL) | |
+| 44 | /reviews/roobet/withdrawal | 2026-08-25 (published) | never | NEW URL (first crawl doubles as an indexing probe on a fresh URL) | 2026-08-25 |
 
 ## Added 2026-08-25 (night): the September-slate four, deployed under the amended caps
 
 | # | URL | Last change | Last crawl | Verdict | Requested |
 |---|---|---|---|---|---|
-| 45 | /guides/crypto-casino-verification-process | 2026-08-25 (published) | never | NEW URL, requestable | |
-| 46 | /reviews/roobet/kyc | 2026-08-25 (published) | never | NEW URL, requestable | |
-| 47 | /reviews/bc-game/withdrawal | 2026-08-25 (published) | never | NEW URL, requestable | |
-| 48 | /guides/is-crypto-safe-at-australian-casinos | 2026-08-25 (published) | never | NEW URL, requestable | |
+| 45 | /guides/crypto-casino-verification-process | 2026-08-25 (published) | never | NEW URL | 2026-08-25 |
+| 46 | /reviews/roobet/kyc | 2026-08-25 (published) | never | NEW URL | 2026-08-25 |
+| 47 | /reviews/bc-game/withdrawal | 2026-08-25 (published) | never | NEW URL | 2026-08-25 |
+| 48 | /guides/is-crypto-safe-at-australian-casinos | 2026-08-25 (published) | never | NEW URL | 2026-08-25 |
+| 49 | /tracker/prediction-markets-legality | 2026-08-25 (WA stay-ruling update) | unknown (never inspected; not on the 20 Aug sweep because it was then unchanged) | Added at request time, day 2 | 2026-08-25 |
 
 ## Count and duration
 
@@ -179,9 +205,12 @@ All 42 unique URLs are now requestable: 31 from the pre-22-Aug deploy set
 (Tiers 0-4) + 11 more numbered rows that joined at the 2c/2d ship on
 2026-08-22 (Tier 5; /fast-withdrawal-casinos is shared with Tier 1 and
 counted once). Row 44 (/reviews/roobet/withdrawal, published 2026-08-25)
-made the campaign 43 unique URLs; rows 45-48 (the September-slate four,
-deployed 2026-08-25 night) make it 47, with 10 requested on day 1 and 37
-outstanding. At ~10/day: 4 to 5 owner mornings, ~2 minutes each
+made the campaign 43 unique URLs; rows 45-48 (the slate four, deployed
+2026-08-25) and row 49 (the tracker, added at request time on day 2)
+make it 48. **After day 2 (2026-08-25): 18 requested, 30 outstanding.
+Return-day order: rows 2 and 39 first (the two "already indexed"
+skips carrying unfetched changes), then top to bottom through the
+undated rows.** At ~10/day: 4 to 5 owner mornings, ~2 minutes each
 alongside the daily serving check. The campaign starts the morning after
 the 2c/2d ship per the post-rollout protocol Step 2.
 

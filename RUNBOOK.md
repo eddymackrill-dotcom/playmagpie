@@ -165,6 +165,12 @@ report on. Run this instead:
      data with the one-day slip recorded. September reweights to the withdrawal/KYC process
      cluster. Existing trackers stay live under the staleness rules below; retirement stops
      NEW breadth builds. See the STATE 2026-08-22 close-out decisions entry.]**
+     **[2026-08-25 note: the first reweighted slate (verification-process guide,
+     roobet/kyc, bc-game/withdrawal, AU crypto-safety guide) was built and DEPLOYED
+     2026-08-25 under the amended caps (8/month, 4/session; CLAUDE.md 2026-08-25
+     amendment), closing August at 8 of 8. Nothing is pending build; September needs
+     a FRESH slate derived from the citation evidence, and the cluster-reweight
+     direction here stands for it.]**
    - **CHECKPOINT-SESSION INPUTS, consolidated 2026-08-18 (confirm all five are in hand
      before running the 21 Aug session):** (1) the breadth verdict above (trackers +
      canada/legal at day 10); (2) Checkpoint A regression floors on the trailing-7-day
