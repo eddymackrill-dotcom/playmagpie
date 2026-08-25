@@ -1,4 +1,15 @@
-# September 2026 slate: APPROVED DRAFTS (built 2026-08-25, DO NOT SHIP IN AUGUST)
+# September 2026 slate: EXECUTED SAME DAY (deployed 2026-08-25 under the amended caps)
+
+**STATUS UPDATE 2026-08-25 (night): all four pages DEPLOYED in commit
+ee42e76 after the owner's velocity amendments (monthly cap 8, session
+cap 4, effective including August). August closed at 8 of 8; these four
+counted against AUGUST, not September, and the September slate is now
+EMPTY. The staleness re-verify ran at deploy (Cloudbet re-fetched same
+day; nothing failed). This file is retained as the build record and the
+Part 1 omissions list is the starting point for the fresh September
+slate.**
+
+# [Original header] September 2026 slate: APPROVED DRAFTS (built 2026-08-25, DO NOT SHIP IN AUGUST)
 
 Status: drafts held for a SEPTEMBER ship, same pattern as 2c/2d
 (reports/batch2bcd-drafts.md). Built during the owner's two-week absence

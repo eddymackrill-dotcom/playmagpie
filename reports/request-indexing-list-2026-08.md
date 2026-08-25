@@ -164,13 +164,24 @@ was double-checked against the known change history before exclusion.
 |---|---|---|---|---|---|
 | 44 | /reviews/roobet/withdrawal | 2026-08-25 (published) | never | NEW URL, requestable (first crawl doubles as an indexing probe on a fresh URL) | |
 
+## Added 2026-08-25 (night): the September-slate four, deployed under the amended caps
+
+| # | URL | Last change | Last crawl | Verdict | Requested |
+|---|---|---|---|---|---|
+| 45 | /guides/crypto-casino-verification-process | 2026-08-25 (published) | never | NEW URL, requestable | |
+| 46 | /reviews/roobet/kyc | 2026-08-25 (published) | never | NEW URL, requestable | |
+| 47 | /reviews/bc-game/withdrawal | 2026-08-25 (published) | never | NEW URL, requestable | |
+| 48 | /guides/is-crypto-safe-at-australian-casinos | 2026-08-25 (published) | never | NEW URL, requestable | |
+
 ## Count and duration
 
 All 42 unique URLs are now requestable: 31 from the pre-22-Aug deploy set
 (Tiers 0-4) + 11 more numbered rows that joined at the 2c/2d ship on
 2026-08-22 (Tier 5; /fast-withdrawal-casinos is shared with Tier 1 and
 counted once). Row 44 (/reviews/roobet/withdrawal, published 2026-08-25)
-makes the campaign 43 unique URLs; 10 requested on day 1, 33 outstanding. At ~10/day: 4 to 5 owner mornings, ~2 minutes each
+made the campaign 43 unique URLs; rows 45-48 (the September-slate four,
+deployed 2026-08-25 night) make it 47, with 10 requested on day 1 and 37
+outstanding. At ~10/day: 4 to 5 owner mornings, ~2 minutes each
 alongside the daily serving check. The campaign starts the morning after
 the 2c/2d ship per the post-rollout protocol Step 2.
 
