@@ -52,9 +52,9 @@ export const trackerShell: Record<TrackerSlug, TrackerShell> = {
   'prediction-markets-legality': {
     title: 'Prediction Markets Legality State by State: Kalshi, CFTC',
     h1: 'Are Prediction Markets Legal? The Live State-vs-CFTC Scorecard',
-    metaDescription: 'Kalshi is enjoined in Washington but still operating pending a stay ruling; Minnesota, Utah and Michigan split three ways. The litigation, tracked with dates.',
-    modified: '2026-08-11',
-    reviewBy: '2026-08-25',
+    metaDescription: 'Kalshi lost its Washington stay: sports and election markets must be geofenced out of the state by 2 September. Minnesota, Utah and Michigan split three ways.',
+    modified: '2026-08-25',
+    reviewBy: '2026-09-02',
     portfolio: {
       format: 'timeline',
       jurisdictionCount: 7,

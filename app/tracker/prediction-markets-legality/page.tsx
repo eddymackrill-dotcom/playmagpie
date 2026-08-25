@@ -34,8 +34,10 @@ const PIPELINE = [
   { stage: 'CFTC proposed rule on event contracts published', date: '10 Jun 2026', current: false },
   { stage: 'Federal comment period closed', date: 'late Jul 2026', current: false },
   { stage: 'Washington preliminary injunction against Kalshi', date: '20 Jul 2026', current: false },
-  { stage: 'Kalshi appeal filed; stay motion pending', date: 'late Jul 2026', current: true },
-  { stage: 'Washington stay ruling', date: 'expected imminently', current: false },
+  { stage: 'Kalshi appeal filed; stay motion pending', date: 'late Jul 2026', current: false },
+  { stage: 'Washington stay DENIED at both levels; geofencing ordered', date: '13 Aug 2026', current: false },
+  { stage: 'IP and residency-based geofence deadline, met by Kalshi', date: '19 Aug 2026', current: false },
+  { stage: 'Multi-source geofence deadline ($120,000/day fines beyond it)', date: '2 Sep 2026', current: true },
   { stage: 'CFTC final rule', date: 'pending, no date', current: false },
 ]
 
@@ -43,7 +45,7 @@ const CASES = [
   {
     court: 'Washington (King County Superior Court)',
     party: 'Kalshi v. state enforcement',
-    status: 'Preliminary injunction GRANTED against Kalshi on 20 July 2026: Judge John McHale found the platform likely ran an illegal gambling operation under state law, rejecting the CFTC-preemption defence. Kalshi has appealed to the Washington Court of Appeals and asked the judge to pause the injunction pending appeal; it was still operating in Washington as of early August, with the stay ruling expected imminently.',
+    status: 'Preliminary injunction GRANTED against Kalshi on 20 July 2026: Judge John McHale found the platform likely ran an illegal gambling operation under state law, rejecting the CFTC-preemption defence. Kalshi then lost the stay at BOTH levels: a Court of Appeals commissioner denied the emergency stay and McHale declined to pause his own injunction. On 13 August McHale ordered Kalshi to geofence Washington users out of sports, elections, politics, entertainment, culture, tech and science, and "mentions" markets: an IP and residency-based geofence by 19 August (which Kalshi met) and a multi-source geofence by 2 September, on pain of $120,000 a day in fines. Commodities, climate, economics and finance markets remain available. The appeal itself continues.',
     lean: 'against preemption',
   },
   {
@@ -68,6 +70,10 @@ const CASES = [
 
 const LOG = [
   {
+    date: '25 Aug 2026',
+    text: 'The Washington stay ruling landed against Kalshi at both levels: a Court of Appeals commissioner denied the emergency stay and Judge McHale declined to pause his own injunction. On 13 August McHale ordered Kalshi to geofence Washington users out of sports, elections, politics, entertainment, culture, tech and science, and "mentions" markets, on two deadlines: an IP and residency-based geofence by 19 August, which Kalshi met (Washington users saw the restrictions take effect from 19 to 21 August), and a multi-source geofence by 2 September, carrying $120,000 a day in fines if missed. Commodities, climate, economics and finance markets stay available in the state. The underlying appeal continues, and Kalshi can still ask a full Court of Appeals panel or the Washington Supreme Court to revisit the stay.',
+  },
+  {
     date: '11 Aug 2026',
     text: 'Tracker opened. Kalshi remains live in Washington three weeks after the injunction, pending the stay ruling. Neal Katyal, former US Acting Solicitor General, is now lead national counsel for Kalshi across its state cases, a signal the company is positioning the preemption question for higher courts.',
   },
@@ -90,6 +96,9 @@ const LOG = [
 ]
 
 const SOURCES = [
+  { label: 'Washington Attorney General: judge orders Kalshi to cease numerous Washington operations (13 Aug 2026)', href: 'https://www.atg.wa.gov/news/news-releases/judge-orders-kalshi-cease-numerous-washington-operations' },
+  { label: 'OPB: Kalshi ordered to sharply curtail operations in Washington state', href: 'https://www.opb.org/article/2026/08/14/kalshi-ordered-sharply-curtail-operations-washington-state/' },
+  { label: 'Sports Betting Dime: Kalshi starts blocking access to sports event contracts in Washington', href: 'https://www.sportsbettingdime.com/news/industry/kalshi-starts-blocking-access-to-sports-event-contracts-in-washington/' },
   { label: 'GeekWire: Kalshi brings in former US Solicitor General as Washington case escalates', href: 'https://www.geekwire.com/2026/kalshi-brings-in-former-u-s-solicitor-general-as-washington-state-gambling-case-escalates/' },
   { label: 'KUOW: judge blocks Kalshi in WA', href: 'https://www.kuow.org/law/2026-07-21/judge-blocks-kalshi-in-wa-ruling-the-platform-likely-ran-illegal-gambling-operation' },
   { label: 'InGame: Utah judge latest to rule state can restrict Kalshi', href: 'https://www.ingame.com/utah-kalshi-status-prediction-market-rulings/' },
@@ -147,7 +156,7 @@ export default function PredictionMarketsTrackerPage() {
         {/* Player impact verdict */}
         <section className="mb-10">
           <div className="bg-[#7BB8D4]/[0.06] border border-[#7BB8D4]/20 rounded-2xl p-6">
-            <h2 className="text-xl font-bold text-white mb-3">What this means for you, as of 11 August 2026</h2>
+            <h2 className="text-xl font-bold text-white mb-3">What this means for you, as of 25 August 2026</h2>
             <div className="space-y-3 text-[#bbbbbb] text-sm leading-relaxed">
               <p>
                 Nothing in any of these cases targets the individual user: every action so far runs against the
@@ -156,11 +165,14 @@ export default function PredictionMarketsTrackerPage() {
                 not enforcement against you.
               </p>
               <p>
-                In Washington specifically, Kalshi was still operating in early August despite the injunction,
-                because the stay question is unresolved. That can change on the day the ruling lands; if you are
-                in Washington, treat continued access as provisional. Elsewhere, availability currently differs
-                platform by platform and state by state, and the federal split means neither side can claim the
-                settled answer yet.
+                In Washington the provisional period is over: since 19 August, Kalshi has been blocking
+                Washington users from sports, elections, politics, entertainment, culture, tech and science, and
+                &quot;mentions&quot; markets under the 13 August geofencing order, and from 2 September the block
+                must work from more than IP address alone. Commodities, climate, economics and finance markets
+                remain available in the state. If you hold Washington positions in a blocked category, expect
+                offboarding and position unwinding on Kalshi&apos;s timetable. Elsewhere, availability still
+                differs platform by platform and state by state, and the federal split means neither side can
+                claim the settled answer yet.
               </p>
               <p className="text-[#888888]">
                 We have no commercial relationship with any platform named on this page. This is legal-status
@@ -237,8 +249,8 @@ export default function PredictionMarketsTrackerPage() {
           </div>
           <p className="text-[#555555] text-xs mt-4">
             This tracker is updated as rulings land; entries are append-only and corrections are made as dated
-            entries, never silent rewrites. Next scheduled review: 25 August 2026, earlier if the Washington
-            stay ruling arrives first.
+            entries, never silent rewrites. Next scheduled review: 2 September 2026, the Washington multi-source
+            geofence deadline, earlier if an appellate ruling arrives first.
           </p>
         </section>
 
