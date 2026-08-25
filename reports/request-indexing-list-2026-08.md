@@ -30,6 +30,20 @@ section of the same date). Runs AFTER the 2c/2d deploy per the owner's
   crawl-watch observable is unchanged (a Google crawl date past
   2026-08-22); a fetch after 22 August picks up the override wording
   rather than the 17 August version. No re-request needed.
+  **CORRECTED 2026-08-25: the actual fetch was 22 Aug 15:24 UTC, five and
+  a half hours BEFORE the override push (20:50 UTC), so Google holds the
+  17 Aug wording. The note's assumption (any post-request fetch picks up
+  the override) was wrong for this timing. A re-request IS queued, LOW
+  priority: on a future campaign day, after the never-crawled pair and
+  the remaining rows 11-43. The override-specific observable is a crawl
+  after 22 Aug 20:50 UTC.**
+- **CRAWL WATCH FIRST READ, 2026-08-25: CLEAN, 10 of 10.** Every
+  requested row shows a Google fetch on 2026-08-22 between 15:24 and
+  15:28 UTC (baselines ranged 20 Jun to 31 Jul), i.e. same-day action on
+  the requests. STOP-branch verdict: ordinary low-priority scheduling,
+  NOT a suppression-linked crawl throttle; Checkpoint B is closed and
+  Request Indexing is a working lever on this site. Next observable per
+  remaining row: crawl date advancing past that row's request date.
 
 How to use: work top to bottom, ~10 requests/day (undocumented quota; if
 GSC refuses a request, stop for the day and note it here). Put the

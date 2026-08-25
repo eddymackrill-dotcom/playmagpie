@@ -147,6 +147,14 @@ report on. Run this instead:
      longer detect a real regression on /country/australia/legal. At the checkpoint, compute
      each protected page's trailing-7-day citation level from the owner export and read
      regression against that, not against the 08-07 snapshot.
+     **[BASIS CHANGED 2026-08-25 (owner decision): per-page DAILY series is PERMANENTLY
+     UNAVAILABLE from the AI Performance UI (site-wide dailies + per-page window totals
+     only; on the CLAUDE.md permanently-unfetchable list, never re-raised per pull). The
+     trailing-7-day per-page computation above is therefore not computable as written.
+     Operative basis: DIFFERENCED CONSECUTIVE PULLS, i.e. difference each page's
+     cumulative total between successive exports and divide by the days between them
+     (series points 17 Aug, 22 Aug, 25 Aug onward). The Checkpoint A regression read
+     itself was resolved CLEAN on 2026-08-22 and the 21 Aug checkpoint is closed.]**
    - ~~**Checkpoint A+B addition, BREADTH VERDICT (added 2026-08-17):** the two trackers and
      /country/canada/legal reach day 10 on 21 Aug, the age the withdrawal guide was when it
      started moving. They stand 0-for-3 in page stats at day 6 (17 Aug read). **Zero across
@@ -163,7 +171,10 @@ report on. Run this instead:
      basis, not the static 23; (3) a FRESH owner AI Performance pull, which also carries
      the SENATE-CATALYST NATURAL EXPERIMENT: does /country/australia/legal's daily
      citation rate (+146/day pre-catalyst) move after the 17-18 Aug report-and-amendments
-     news cycle; (4) the owner WMT URL Submission glance: the legal page's row should
+     news cycle **[CLOSED UNCOMPUTABLE 2026-08-25: needs the per-page daily series, which
+     is permanently unavailable (owner decision; see the Checkpoint A basis-change note
+     above); closed rather than carried. The site-wide daily series, a weak proxy, showed
+     no post-report surge]**; (4) the owner WMT URL Submission glance: the legal page's row should
      flip 08-11 to 08-18, which closes the open ledger entry; (5) Senate debate/vote
      watch status (possible owner-triggered third entry; if it fired, its ship is its
      own session, not checkpoint work).
