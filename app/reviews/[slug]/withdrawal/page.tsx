@@ -14,7 +14,12 @@ import CTAButton from '@/components/CTAButton'
 // Every clause-numbered fact on the page traces to that read; the terms page
 // itself is on the permanently-unfetchable list (JS shell), owner-supplied
 // text is the route.
-const WITHDRAWAL_SLUGS = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits', 'roobet'] as const
+// 'bc-game' added 2026-08-25 (September slate page 3, deployed under the
+// amended caps): the 2026-06-22 deferral, built once positive non-pollution
+// Bing signal appeared. Facts from lib/casinos.ts + the 2026-08-01 owner
+// threshold verification; per-coin fees/minimums omitted (no fetchable
+// primary).
+const WITHDRAWAL_SLUGS = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits', 'roobet', 'bc-game'] as const
 
 export function generateStaticParams() {
   return WITHDRAWAL_SLUGS.map((slug) => ({ slug }))
@@ -45,6 +50,11 @@ const META: Record<(typeof WITHDRAWAL_SLUGS)[number], { title: string; descripti
     title: 'Roobet Withdrawal: Fees, Holds and the Terms That Matter',
     description:
       'Roobet sets no withdrawal cap and no crypto cashout fee in its terms; fiat cashouts hit a 2% fee from the 10th in a rolling 30 days. The clauses, verified.',
+  },
+  'bc-game': {
+    title: 'BC.Game Withdrawal: Speeds, the EUR 2,000 Check, 100+ Coins',
+    description:
+      'BC.Game processes crypto withdrawals instant to 10 minutes across 100+ coins, document-free below a KYC check standard at EUR 2,000 equivalent. How it works.',
   },
 }
 
@@ -107,6 +117,8 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
       ? CLOUDBET_FAQS
       : slug === 'roobet'
       ? ROOBET_FAQS
+      : slug === 'bc-game'
+      ? BCGAME_FAQS
       : DUELBITS_FAQS
 
   const faqSchema = {
@@ -152,6 +164,7 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
                 {slug === 'cloudbet' && 'Cloudbet Withdrawal: No Limits Once Verified, 29 Coins, Dual Regulator Cover'}
                 {slug === 'duelbits' && 'Duelbits Withdrawal: Under 5 Minutes, No KYC, 12 Coins'}
                 {slug === 'roobet' && 'Roobet Withdrawal: No Cap in the Terms, Wide Discretion at the Cashier'}
+                {slug === 'bc-game' && 'BC.Game Withdrawals: Document-Free Below the Threshold'}
               </h1>
               {/* Was a hardcoded "Last updated: May 17, 2026" on all four pages, which is
                   the same fake-freshness pattern removed from the reviews on 2026-07-07
@@ -192,6 +205,15 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
               and the public complaint record shows what that looks like on large wins.
             </p>
           )}
+          {slug === 'bc-game' && (
+            <p className="text-[#bbbbbb] text-base leading-relaxed mb-6">
+              BC.Game withdrawals are crypto-native and quick: instant to 10 minutes on the headline
+              window, across the widest coin set we track at 100+ currencies. The structural fact that
+              shapes them is the threshold: a KYC check is standard at EUR 2,000 equivalent (verified
+              against the live terms, 1 August 2026), applied at operator discretion and capable of
+              triggering earlier, so routine play below that level stays document-free.
+            </p>
+          )}
 
           <div className="flex gap-3 flex-wrap">
             <CTAButton href={casino.affiliateUrl} label={`Play at ${casino.name}`} variant="primary" size="lg" external />
@@ -204,6 +226,7 @@ export default async function WithdrawalPage(props: PageProps<'/reviews/[slug]/w
         {slug === 'cloudbet' && <CloudbetContent />}
         {slug === 'duelbits' && <DuelbitsContent />}
         {slug === 'roobet' && <RoobetContent />}
+        {slug === 'bc-game' && <BcGameContent />}
 
         <section className="mt-12 pt-10 border-t border-[#222222]">
           <h2 className="text-xl font-bold text-white mb-2">{casino.name} Withdrawal FAQ</h2>
@@ -1040,5 +1063,114 @@ const ROOBET_FAQS = [
     question: 'Can I withdraw from Roobet while a bonus is active?',
     answer:
       "Deposits must be wagered before withdrawal under clause 10.1, and an active deposit-bonus wagering requirement adds its own lock: while one is running, Bonus and Promotion Policy clause 5.5 suspends rakeback of any kind and Terms of Service clause 12.5 bars sportsbook bets. Clear the wagering requirement, or forfeit the bonus where Roobet's flow allows it, before expecting the balance to be withdrawable.",
+  },
+] as const
+
+/* ── BC.Game: added 2026-08-25 (September slate page 3). Spine: the
+   threshold-gated document-free cashout path, which no sibling leads with,
+   plus the 100+-coin mechanics. Sources: lib/casinos.ts (headline window,
+   coin set, $5 entry, licence) + the 2026-08-01 owner live-terms threshold
+   verification. Per-coin fees and minimums are NOT in the catalogue and no
+   fetchable primary exists (BC.Game 403s fetchers): omitted, and the page
+   says so in prose rather than filling from secondaries. ── */
+function BcGameContent() {
+  return (
+    <>
+      <Para>
+        BC.Game&apos;s withdrawal story is a speed figure attached to a threshold. The headline
+        window in our catalogue is instant to 10 minutes for crypto, and what decides whether
+        your cashout is a two-minute event or a document exercise is not the coin, it is the
+        amount: a KYC check is standard at EUR 2,000 equivalent, verified against the live
+        terms on 1 August 2026, applied at the operator&apos;s discretion and capable of being
+        triggered earlier. Below that level, routine crypto play stays document-free on an
+        email-only signup. Above it, expect the document sequence before the payout moves.
+      </Para>
+
+      <SectionHeading>The window, and what it does not include</SectionHeading>
+      <Para>
+        Instant-to-10-minutes is casino-side processing: request to broadcast. On-chain
+        confirmation is the network&apos;s business, and with 100+ supported currencies the
+        rail choice is genuinely yours: a stablecoin on a fast network clears in seconds once
+        broadcast, Bitcoin waits on block times. The split between a casino-side delay and a
+        network delay, and how to tell them apart with the transaction ID, is the subject of{' '}
+        <Link href="/guides/why-is-my-crypto-casino-withdrawal-pending" className="text-[#7BB8D4] hover:underline">
+          our pending-withdrawal diagnostic
+        </Link>
+        .
+      </Para>
+
+      <SectionHeading>The threshold in practice</SectionHeading>
+      <Para>
+        The EUR 2,000-equivalent check is a floor for when verification becomes normal, not a
+        ceiling on when it is possible: the operator&apos;s discretion clause means a check can
+        arrive earlier on flagged behaviour. What the threshold model buys you, compared with
+        a discretion-only posture, is predictability: stay under it and the document-free path
+        is the standard experience rather than a favour. The wording matters, and we state it
+        the way the retraction that produced it requires: this is a check standard AT a
+        threshold, not a promise that no documents are ever required.{' '}
+        <Link href="/reviews/bc-game/kyc" className="text-[#7BB8D4] hover:underline">
+          The BC.Game KYC breakdown
+        </Link>{' '}
+        covers what the check asks for, and{' '}
+        <Link href="/guides/crypto-casino-verification-process" className="text-[#7BB8D4] hover:underline">
+          the verification process guide
+        </Link>{' '}
+        covers what happens once it triggers.
+      </Para>
+
+      <SectionHeading>Fees: what we can and cannot verify</SectionHeading>
+      <Para>
+        We do not publish a per-coin withdrawal fee or minimum for BC.Game because no source
+        we can verify documents them; the live cashier shows the current figure per coin at
+        request time, and that is the honest place to read it. Standard blockchain network
+        fees always apply on any operator. The $5 minimum deposit in our catalogue makes
+        BC.Game the lowest entry point we track, which pairs naturally with the document-free
+        routine-play path for small-stakes players.
+      </Para>
+
+      <SectionHeading>Where BC.Game sits in the withdrawal rankings</SectionHeading>
+      <Para>
+        On the headline window BC.Game sits with the fast pack (instant to 10 minutes,
+        alongside 7Bit and Shuffle; Duelbits leads the catalogue at instant to 5), and its
+        differentiator is the threshold-plus-coin-set combination rather than raw speed. The
+        full speed table lives at{' '}
+        <Link href="/fast-withdrawal-casinos" className="text-[#7BB8D4] hover:underline">
+          the fastest crypto casinos for withdrawal
+        </Link>
+        , and the scores behind this page are on{' '}
+        <Link href="/reviews/bc-game" className="text-[#7BB8D4] hover:underline">
+          the main BC.Game review
+        </Link>
+        .
+      </Para>
+    </>
+  )
+}
+
+const BCGAME_FAQS = [
+  {
+    question: 'How long do BC.Game withdrawals take?',
+    answer:
+      'The headline window in our catalogue is instant to 10 minutes of casino-side processing for crypto. Total wall-clock time then depends on the network you chose: a stablecoin on a fast chain arrives in seconds after broadcast, Bitcoin waits on block confirmations. If a payout sits past the window, the usual causes are a verification check or an unfinished bonus lock rather than the coin.',
+  },
+  {
+    question: 'Does BC.Game ask for documents when I withdraw?',
+    answer:
+      'Below a KYC check that is standard at EUR 2,000 equivalent (verified against the live terms, 1 August 2026), routine crypto withdrawals are document-free. The check is applied at operator discretion and can trigger earlier on flagged activity, so treat the figure as the point where verification becomes normal rather than a guarantee it cannot happen sooner.',
+  },
+  {
+    question: 'Is there a BC.Game withdrawal fee?',
+    answer:
+      'No source we can verify documents a casino-side withdrawal fee schedule for BC.Game, so we do not publish one either way: the live cashier displays the current figure per coin at request time, and blockchain network fees always apply regardless of operator. What we can say from the catalogue is that the entry point is the lowest we track, at a $5 minimum deposit.',
+  },
+  {
+    question: 'Can I withdraw a different coin than I deposited at BC.Game?',
+    answer:
+      'BC.Game does not publish the rule anywhere we can verify, so we will not assert it. What determines the answer at any operator is whether the cashier holds balances per-coin or converts internally, and whether its terms require withdrawals to return to the deposit method. Check the cashier flow with a small amount first, and if a swap matters to you, the safe pattern is converting inside your own wallet rather than relying on the casino to do it.',
+  },
+  {
+    question: 'Why is my BC.Game withdrawal stuck on pending?',
+    answer:
+      'Start with the transaction ID: if one exists, the payout has been broadcast and the delay is network-side; if none exists, the funds have not left the casino, and the usual causes are a verification check (standard at EUR 2,000 equivalent, possible earlier), an unfinished bonus wagering requirement locking the balance, or batched processing. Our pending-withdrawal guide walks the full diagnostic in about a minute.',
   },
 ] as const

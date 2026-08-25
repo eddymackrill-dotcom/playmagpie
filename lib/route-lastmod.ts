@@ -69,9 +69,17 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   '/reviews/cloudbet/payment-methods': '2026-08-01',
   '/reviews/bitstarz/payment-methods': '2026-08-01',
   '/reviews/bc-game/payment-methods': '2026-08-01',
-  '/reviews/bitstarz/kyc': '2026-08-01',
-  '/reviews/bc-game/kyc': '2026-08-01',
-  '/reviews/cloudbet/kyc': '2026-08-01',
+  // The three existing KYC pages bumped 2026-08-25: the hardcoded June date
+  // was swapped to the last-reviewed registry, the cross-link grid gained the
+  // roobet card, and the BC.Game grid label was corrected off the retracted
+  // "None" wording. Rendered bytes changed on all three.
+  '/reviews/bitstarz/kyc': '2026-08-25',
+  '/reviews/bc-game/kyc': '2026-08-25',
+  '/reviews/cloudbet/kyc': '2026-08-25',
+  // New URLs 2026-08-25: September slate pages 2 and 3, deployed under the
+  // amended caps.
+  '/reviews/roobet/kyc': '2026-08-25',
+  '/reviews/bc-game/withdrawal': '2026-08-25',
   '/reviews/bitstarz/bonus': '2026-08-02',
   '/crypto/bitcoin': '2026-08-01',
   '/crypto/ethereum': '2026-08-01',

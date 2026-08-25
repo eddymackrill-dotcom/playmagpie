@@ -241,6 +241,15 @@ const guideContent: Record<string, ContentBlock[]> = {
         '.',
       ],
     },
+    // Scope line added 2026-08-25 when the verification-process guide shipped.
+    {
+      type: 'plink',
+      parts: [
+        'Scope note: this page owns policy and who, meaning which operators verify and what they ask for. What the process itself looks like once a check triggers, stage by stage, is covered in ',
+        { text: 'our guide to the crypto casino verification process', href: '/guides/crypto-casino-verification-process' },
+        '.',
+      ],
+    },
   ],
 
   'why-is-my-crypto-casino-withdrawal-pending': [
@@ -432,6 +441,104 @@ const guideContent: Record<string, ContentBlock[]> = {
         '.',
       ],
     },
+    // Scope line added 2026-08-25 when the verification-process guide shipped.
+    {
+      type: 'plink',
+      parts: [
+        'Scope note: this page owns the money side of a big cashout. What the verification itself looks like once it triggers, step by step, is covered in ',
+        { text: 'our guide to the crypto casino verification process', href: '/guides/crypto-casino-verification-process' },
+        ', and which operators verify at all is covered in ',
+        { text: 'the KYC requirements guide', href: '/guides/do-crypto-casinos-require-kyc' },
+        '.',
+      ],
+    },
+  ],
+  // September slate page 1 (drafted and deployed 2026-08-25). SCOPE: the
+  // MECHANICS of verification. Policy-and-who stays with
+  // do-crypto-casinos-require-kyc; the money stays with
+  // large-crypto-casino-withdrawals. Sources per claim inline below; no
+  // turnaround figures exist to publish and the page says so.
+  'crypto-casino-verification-process': [
+    { type: 'p', text: 'Verification at a crypto casino is a document sequence, not a single event: identity first, then proof of address, then, where the amounts justify it, source of funds, with your withdrawal limits restricted while each stage is under review. This page walks that sequence in the order it actually happens, sourced from the operators whose processes we can verify. Where no operator publishes a figure, and that includes verification turnaround times, this guide says so instead of inventing one.' },
+    { type: 'h2', text: 'When verification actually triggers' },
+    { type: 'p', text: 'Entry-level identity is thin at most crypto casinos. Cloudbet’s Level 1, per its own help centre (read 25 August 2026), requires a phone number, and routine crypto play at threshold operators runs on an email signup. The escalation points are what matter. First, cashout size: BC.Game and 7Bit Casino run a KYC check as standard at EUR 2,000 equivalent, applied at the operator’s discretion and capable of being triggered earlier, per a direct reading of both operators’ live terms on 1 August 2026. Second, compliance discretion with no threshold at all: Roobet’s Terms of Service (full read, 25 August 2026) let it demand KYC at any time under clause 4.9 and restrict deposit and withdrawal functions until the check completes. The practical rule: the trigger is the operator’s call, not yours, and a clean account history does not exempt you.' },
+    { type: 'h2', text: 'The document sequence' },
+    { type: 'p', text: 'The verifiable model is Cloudbet’s Level 2, which its help centre specifies as three items: a photo ID such as a national ID, a proof of address such as a utility bill, and face verification. That order (identity, then address, then a liveness check) is the standard shape of the sequence wherever it runs. Expect each item to be reviewed separately, and expect a rejected photo (glare, cropped corners, expired document) to restart that item rather than the whole sequence.' },
+    {
+      type: 'plink',
+      parts: [
+        'Which documents each operator asks for, and which operators ask at all, is the territory of ',
+        { text: 'our guide to whether crypto casinos require KYC', href: '/guides/do-crypto-casinos-require-kyc' },
+        '; this page is about what happens once the request lands.',
+      ],
+    },
+    { type: 'h2', text: 'The under-review state' },
+    { type: 'p', text: 'While documents are under review, the cashier does not simply pause: it gates. Cloudbet’s help centre states it directly: if you have submitted verification documents and are waiting for approval, your withdrawal limits remain restricted until the review is complete. Generalise that honestly and you get the under-review state everywhere: the balance is not gone, it is gated; deposits usually still work; and nothing about a review implies an accusation. What you should not do is stack new withdrawal requests on top of a gated one, since terms commonly allow pending requests to be rejected and consolidated (Roobet’s clause 10.3 says exactly that).' },
+    { type: 'h2', text: 'Refusal grounds, from the one operator that publishes them' },
+    { type: 'p', text: 'Most operators refuse withdrawals under a general compliance clause. Roobet’s terms are unusually specific, and useful for exactly that reason: clause 10.5 names four refusal grounds (identity not verified, payment method not confirmed as the account holder’s, an outstanding information request, minimum wager not met), and clause 10.4 adds enhanced due diligence that can delay or decline a withdrawal with the operator able to decline to explain the nature of the investigation. Read those four grounds as the categories to self-check anywhere: is your identity verified, is the destination provably yours, is there an unanswered document request in your inbox, and is your deposit fully wagered.' },
+    { type: 'h2', text: 'Source-of-funds escalation' },
+    {
+      type: 'plink',
+      parts: [
+        'At genuinely large or accumulated cashouts, the sequence grows a fourth stage: source-of-funds documentation, meaning evidence of where the money you gambled with came from. It is the slowest stage because it is judged rather than matched against a template. The money side of that moment, caps, thresholds and what a large win actually triggers, belongs to ',
+        { text: 'our guide to large crypto casino withdrawals', href: '/guides/large-crypto-casino-withdrawals' },
+        '.',
+      ],
+    },
+    { type: 'h2', text: 'How long does it take? The honest answer' },
+    { type: 'p', text: 'No operator we can verify publishes a verification turnaround, and we will not invent one. What determines it is observable: how many stages the check involves, whether your documents pass first time, and whether the review is automated matching or human judgement (source-of-funds always the latter). The complaint record shows the tail risk rather than the average: documented cases exist of verified accounts re-checked at the moment of a large cashout, with the review running days. Plan around the tail if the money matters: complete verification before you need a payout, not during one.' },
+    {
+      type: 'plink',
+      parts: [
+        'If your withdrawal is already sitting in pending and you are not sure whether verification is the cause, ',
+        { text: 'our guide to diagnosing a pending crypto casino withdrawal', href: '/guides/why-is-my-crypto-casino-withdrawal-pending' },
+        ' separates a compliance hold from a network delay using the transaction ID.',
+      ],
+    },
+  ],
+  // September slate page 4 (drafted and deployed 2026-08-25). AU question
+  // guide. ANTI-CANNIBALISATION CONTROLS, binding: zero legality verdicts,
+  // scope line in the opening block, legality linked never restated. Only
+  // Roobet's AU restriction is claimed by name (ToS s3.5, owner read
+  // 2026-08-25).
+  'is-crypto-safe-at-australian-casinos': [
+    {
+      type: 'plink',
+      parts: [
+        'The crypto part is the safest link in the chain: on-chain deposits and withdrawals work the same from Australia as anywhere. The real risks sit around it: operator terms, the custody gap while funds sit with an offshore operator, and the state-side frictions on the fiat rails. Whether any of this is legal for you is a different question with its own page: see ',
+        { text: 'whether crypto gambling is legal in Australia', href: '/country/australia/legal' },
+        '. This page stays on the safety mechanics.',
+      ],
+    },
+    { type: 'h2', text: 'The operator-terms risk comes first' },
+    { type: 'p', text: 'The largest avoidable risk for an Australian player is depositing at an operator whose own terms exclude Australia. It is not hypothetical: Roobet lists Australia in its restricted territories (Terms of Service clause 3.5, read in full on 25 August 2026), and restricted-territory accounts there are exposed to closure and fund forfeiture under clause 6.4. We do not publish acceptance claims for the other operators we review because we have not verified their restriction lists to the same standard, and that is precisely the point: the list lives in each operator’s own terms, it is the first thing to read before an AUD-equivalent ever leaves your wallet, and an operator that takes your deposit is not thereby confirming you were allowed to make it.' },
+    { type: 'h2', text: 'The custody gap' },
+    { type: 'p', text: 'An offshore casino balance is not a bank deposit and not an exchange account under AUSTRAC supervision: it is an unsecured claim on an operator regulated, at best, by an offshore licensing body. The practical rule is deposit-to-play, not deposit-to-store. Keep the bankroll on the site no longer than the session needs, and treat anything you would mind losing as misplaced the moment it is not in a wallet you control. This is an editorial judgement, and it is the same one we apply in our reviews when we score custody-adjacent risk.' },
+    { type: 'h2', text: 'The state-side frictions, briefly' },
+    {
+      type: 'plink',
+      parts: [
+        'Australia’s frictions on this market are aimed at operators and payment rails rather than at the technology: DNS-level blocking of offshore sites and banks declining gambling-coded AUD transfers are the two a player actually meets, and the crypto rail is how AU players route around both in practice. The mechanics, the statute behind them and the 2026 reform bill are covered on ',
+        { text: 'the Australia legality page', href: '/country/australia/legal' },
+        ' and ',
+        { text: 'the Australia country hub', href: '/country/australia' },
+        '; this page does not restate them.',
+      ],
+    },
+    { type: 'h2', text: 'The tax mechanic worth knowing before you fund' },
+    { type: 'p', text: 'The ATO treats crypto as a CGT asset, so disposing of it, and funding a casino deposit can be a disposal, can itself be a taxable event separate from anything that happens at the casino, while casual gambling winnings are generally not assessable income for individuals. The trap is therefore on the funding side, not the winning side: moving a long-held, appreciated coin into a deposit can crystallise a gain. General information, not tax advice; the country hub covers the on-ramp detail.' },
+    { type: 'h2', text: 'The safest funding path' },
+    { type: 'p', text: 'Consumer protection in this chain lives at the regulated on-ramp, not at the casino. AUSTRAC-registered exchanges (CoinSpot, Independent Reserve and Swyftx are the majors Australians actually use) are the supervised step; everything after the withdrawal from the exchange is on you and the operator’s terms. Buy on a registered exchange, send on-chain, play with what you sent, and withdraw winnings back to a wallet you control rather than letting them sit.' },
+    {
+      type: 'plink',
+      parts: [
+        'If a payout does stall, the diagnostic lives in ',
+        { text: 'our guide to pending crypto casino withdrawals', href: '/guides/why-is-my-crypto-casino-withdrawal-pending' },
+        ', and what verification will look like if it triggers is in ',
+        { text: 'the verification process guide', href: '/guides/crypto-casino-verification-process' },
+        '.',
+      ],
+    },
   ],
 }
 
@@ -605,6 +712,61 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
         'When the requirements appear only after the win. Verification that was never mentioned while you were depositing, arriving the week you cash out something substantial, is a different signal from a check applied consistently at a published threshold, and so is a stated reason that changes each time you ask. Ordinary process is consistent across players and amounts and has an end date somebody will commit to. Roobet is the case where the public record is heaviest: AskGamblers carries complaints at roughly $20,000 to $115,000 involving multi-day holds, with one $84,000 case listed as unsolved.',
     },
   ],
+  // Each FAQ maps to a section actually answered in the body above.
+  'crypto-casino-verification-process': [
+    {
+      question: 'How long does crypto casino verification take?',
+      answer:
+        'No operator we can verify publishes a turnaround figure, and we will not invent one. What determines the wait is observable: how many stages your check involves (identity and address checks are usually template-matched; source-of-funds review is human judgement and always slower), whether your documents pass first time, and whether the request landed before or during a withdrawal. The documented tail risk is days rather than hours on large cashouts, which is why completing verification before you need a payout is the single most useful move this page recommends.',
+    },
+    {
+      question: 'Can I withdraw while my verification is under review?',
+      answer:
+        'Expect the cashier to be gated. Cloudbet states it directly in its help centre: if you have submitted verification documents and are waiting for approval, your withdrawal limits remain restricted until the review is complete. Terms elsewhere commonly allow pending withdrawal requests to be rejected and consolidated into one (Roobet clause 10.3), so stacking new requests on top of a gated one achieves nothing. Deposits usually continue to work during a review.',
+    },
+    {
+      question: 'Why was I asked to verify again after years on the same account?',
+      answer:
+        'Because most terms permit exactly that. Roobet clause 4.9 is the explicit version: KYC can be demanded at any time, with deposit and withdrawal functions restricted until it completes, and account age grants no exemption. The documented pattern across public complaint records is re-verification triggering at the moment of a large cashout, which is the moment the operator re-scores its own risk.',
+    },
+    {
+      question: 'What actually gets a withdrawal refused during verification?',
+      answer:
+        'The one operator that publishes named refusal grounds is Roobet, and its four (terms clause 10.5) are the categories to self-check anywhere: identity not verified, the payment method or wallet not confirmed as the account holder’s, an outstanding information request sitting unanswered, and the minimum wager not met. Beyond those, enhanced due diligence clauses (Roobet 10.4) allow delay or refusal with the operator able to decline to explain the investigation.',
+    },
+    {
+      question: 'Do all crypto casinos run this process?',
+      answer:
+        'No. Postures range from document-free routine play up to a threshold (BC.Game and 7Bit run a KYC check as standard at EUR 2,000 equivalent, at operator discretion and sometimes earlier) through Light KYC to Standard. Which operators verify at all, and what they ask for, is covered in our guide to whether crypto casinos require KYC; this page covers what happens once a check actually triggers.',
+    },
+  ],
+  'is-crypto-safe-at-australian-casinos': [
+    {
+      question: 'Is the crypto itself the risky part for Australian players?',
+      answer:
+        'No. On-chain deposits and withdrawals work identically from Australia as from anywhere else. The genuine risks are around the coin, not in it: an operator whose terms exclude Australia, the custody gap while your balance sits with an offshore operator, and the funding-side tax mechanics. Rank your attention in that order.',
+    },
+    {
+      question: 'Can a casino close my account for playing from Australia?',
+      answer:
+        'If its terms restrict Australia, yes, and it does not have to warn you first. The verified example: Roobet lists Australia in its restricted territories (terms clause 3.5), with restricted-territory accounts exposed to closure and fund forfeiture under clause 6.4. An operator accepting your deposit is not confirmation you were allowed to make it. Read the restricted-territories clause of any operator before funding; it is a two-minute check that removes the largest avoidable risk on this page.',
+    },
+    {
+      question: 'Is it legal to use a crypto casino from Australia?',
+      answer:
+        'That is a different question from safety, and it has its own page: our guide to whether crypto gambling is legal in Australia covers the Interactive Gambling Act, the blocking regime and the 2026 reform bill. This page deliberately makes no legality claims.',
+    },
+    {
+      question: 'Do I pay tax on crypto casino winnings in Australia?',
+      answer:
+        'The trap is on the funding side rather than the winning side. The ATO treats crypto as a CGT asset, so disposing of an appreciated coin to fund a deposit can itself be a taxable event, while casual gambling winnings are generally not assessable income for individuals. General information rather than tax advice: the numbers depend on your cost basis, and a professional should confirm your position.',
+    },
+    {
+      question: 'What is the safest way to fund a crypto casino from Australia?',
+      answer:
+        'Buy on an AUSTRAC-registered exchange (CoinSpot, Independent Reserve and Swyftx are the majors), send on-chain to the casino, play with what you sent, and withdraw winnings back to a wallet you control rather than leaving a balance on the site. Consumer protection in this chain lives at the regulated exchange, not at the offshore operator, so keep the unprotected leg as short as the session allows.',
+    },
+  ],
 }
 
 // Per-guide intent-page links. Pairs with the worked examples, pointing readers
@@ -650,6 +812,19 @@ const guideRelatedPages: Record<string, { label: string; href: string; teaser: s
     { label: 'Cloudbet KYC', href: '/reviews/cloudbet/kyc', teaser: 'The $2,200 daily cap and what Level 2 verification removes' },
     { label: 'Bonus & Withdrawal Transparency Report', href: '/research/crypto-casino-bonus-transparency', teaser: 'Sourced cashout terms, and our published correction record' },
   ],
+  'crypto-casino-verification-process': [
+    { label: 'Do Crypto Casinos Require KYC?', href: '/guides/do-crypto-casinos-require-kyc', teaser: 'Policy and who: which operators verify, and what they ask for' },
+    { label: 'Large Crypto Casino Withdrawals', href: '/guides/large-crypto-casino-withdrawals', teaser: 'The money side: caps, thresholds and what a big win triggers' },
+    { label: 'Why Is My Crypto Casino Withdrawal Pending?', href: '/guides/why-is-my-crypto-casino-withdrawal-pending', teaser: 'Already stuck? Split a compliance hold from a network delay' },
+    { label: 'Cloudbet KYC', href: '/reviews/cloudbet/kyc', teaser: 'The published two-level model this page sources' },
+    { label: 'Roobet Withdrawal', href: '/reviews/roobet/withdrawal', teaser: 'The clause-level cashier terms behind the refusal grounds' },
+  ],
+  'is-crypto-safe-at-australian-casinos': [
+    { label: 'Is Crypto Gambling Legal in Australia?', href: '/country/australia/legal', teaser: 'The legality question this page deliberately does not answer' },
+    { label: 'Crypto Casinos in Australia', href: '/country/australia', teaser: 'The market picture: frictions, on-ramps and operator fit' },
+    { label: 'Why Is My Crypto Casino Withdrawal Pending?', href: '/guides/why-is-my-crypto-casino-withdrawal-pending', teaser: 'The diagnostic for a stalled payout' },
+    { label: 'Roobet Review', href: '/reviews/roobet', teaser: 'The operator whose terms restrict Australia by name' },
+  ],
 }
 
 const relatedCasinos: Record<string, { name: string; slug: string; reason: string }[]> = {
@@ -691,6 +866,18 @@ const relatedCasinos: Record<string, { name: string; slug: string; reason: strin
     { name: 'BC.Game', slug: 'bc-game', reason: 'Document-free routine play, with a check standard at EUR 2,000' },
     { name: 'BitStarz', slug: 'bitstarz', reason: 'Live terms record no deposit or withdrawal fees at any size' },
   ],
+  // Roobet deliberately absent (its clauses are cited as the refusal-grounds
+  // example; the large-withdrawals precedent applies).
+  'crypto-casino-verification-process': [
+    { name: 'Cloudbet', slug: 'cloudbet', reason: 'The published two-level model: $2,200/day until Level 2, no limits after' },
+    { name: 'BC.Game', slug: 'bc-game', reason: 'Document-free routine play below the EUR 2,000-equivalent check' },
+    { name: 'BitStarz', slug: 'bitstarz', reason: 'Light KYC, and a fee-free cashier per its live terms' },
+  ],
+  // 'is-crypto-safe-at-australian-casinos' deliberately has NO casino strip:
+  // Roobet's terms restrict Australia (s3.5) and the other operators' AU
+  // postures are unverified (ISO-list provenance gap), so an affiliate strip
+  // on this page would recommend operators the page cannot vouch AU access
+  // for. The route's ?? [] fallback renders nothing.
 }
 
 export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
@@ -776,7 +963,7 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
         <div className="mb-2">
           <span className="text-xs text-[#7BB8D4] font-semibold uppercase tracking-widest">{guide.category}</span>
         </div>
-        <h1 className="text-3xl font-extrabold text-white mb-3">{guide.title}</h1>
+        <h1 className="text-3xl font-extrabold text-white mb-3">{guide.h1 ?? guide.title}</h1>
         <div className="flex items-center gap-3 text-sm text-[#888888] mb-10">
           <span>{guide.readTime}</span>
           <span>·</span>

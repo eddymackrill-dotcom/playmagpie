@@ -58,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  const withdrawalPageSlugs = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits', 'roobet']
+  const withdrawalPageSlugs = ['bitstarz', '7bit-casino', 'cloudbet', 'duelbits', 'roobet', 'bc-game']
   const casinoWithdrawalPages: MetadataRoute.Sitemap = withdrawalPageSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/withdrawal`,
     lastModified: lm(`/reviews/${slug}/withdrawal`),
@@ -77,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // KYC sub-page allowlist, must mirror KYC_SLUGS in app/reviews/[slug]/kyc/page.tsx
-  const kycPageSlugs = ['bitstarz', 'bc-game', 'cloudbet']
+  const kycPageSlugs = ['bitstarz', 'bc-game', 'cloudbet', 'roobet']
   const casinoKycPages: MetadataRoute.Sitemap = kycPageSlugs.map((slug) => ({
     url: `${BASE_URL}/reviews/${slug}/kyc`,
     lastModified: lm(`/reviews/${slug}/kyc`),

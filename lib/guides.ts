@@ -21,6 +21,11 @@ export type Guide = {
   published: string
   modified: string
   updated: string
+  // Optional distinct on-page H1. Added 2026-08-25: the route previously
+  // rendered `title` as both the document title and the H1, which fails the
+  // title-not-equal-to-H1 gate for new guides. When absent, the route falls
+  // back to `title`, so the four pre-2026-08-25 guides render unchanged.
+  h1?: string
 }
 
 // 'how-crypto-casino-withdrawals-work' removed 2026-07-07 (spam-update
@@ -72,8 +77,8 @@ export const guides: Guide[] = [
     readTime: '6 min read',
     category: 'KYC',
     published: '2026-01-01',
-    modified: '2026-05-21',
-    updated: 'May 2026',
+    modified: '2026-08-25', // scope line + link to the new verification-process guide (real content change)
+    updated: 'August 2026',
   },
   // Added 2026-07-28 under the monthly editorial-guide exception to the velocity
   // freeze (owner decision 2026-07-27, CLAUDE.md). Scope is deliberately the
@@ -107,7 +112,48 @@ export const guides: Guide[] = [
     readTime: '8 min read',
     category: 'Withdrawals',
     published: '2026-08-01',
-    modified: '2026-08-25', // Roobet cap+weekend correction (not in terms, 08-25 owner read)
+    modified: '2026-08-25', // Roobet cap+weekend correction + verification-process scope line (both 08-25)
+    updated: 'August 2026',
+  },
+  // Added 2026-08-25, page 1 of the September slate (built as drafts 2026-08-25,
+  // deployed same day under the amended caps; reports/september-slate-2026-09-drafts.md).
+  // SCOPE (binding, resolves the split open since the August page-3 close):
+  // do-crypto-casinos-require-kyc owns POLICY AND WHO; large-crypto-casino-
+  // withdrawals owns THE MONEY; this guide owns THE MECHANICS: what happens
+  // from the moment verification is requested to the moment it resolves.
+  // Sources: Cloudbet help centre (machine-fetched 2026-08-25, re-verified at
+  // deploy same day), Roobet ToS owner read 2026-08-25, BC.Game/7Bit EUR 2,000
+  // owner verification 2026-08-01. No turnaround figures exist to publish and
+  // the page says so in prose.
+  {
+    title: 'Crypto Casino Verification: What Actually Happens',
+    h1: 'The Crypto Casino Verification Process, Step by Step',
+    slug: 'crypto-casino-verification-process',
+    description:
+      'What happens once a crypto casino asks you to verify: the document sequence, the under-review state, refusal grounds and source-of-funds escalation, sourced.',
+    readTime: '8 min read',
+    category: 'KYC',
+    published: '2026-08-25',
+    modified: '2026-08-25',
+    updated: 'August 2026',
+  },
+  // Added 2026-08-25, page 4 of the September slate. AU question guide on the
+  // 45-citation Research query. ANTI-CANNIBALISATION CONTROLS (binding): zero
+  // legality verdicts anywhere on the page, scope line in the opening block,
+  // every legality-shaped sentence links /country/australia/legal rather than
+  // restating it. Only Roobet's AU restriction is claimed by name (ToS s3.5,
+  // owner read 2026-08-25); no other operator's AU posture is asserted (the
+  // ISO-coded restriction lists carry no per-field provenance).
+  {
+    title: 'Is Crypto Safe at Australian Casinos? The Real Risks',
+    h1: 'Using Crypto at Online Casinos From Australia: What Is Actually Risky',
+    slug: 'is-crypto-safe-at-australian-casinos',
+    description:
+      'Crypto at offshore casinos from Australia: the real risks are operator terms, custody and payment rails, not the technology. Sourced, legality linked.',
+    readTime: '7 min read',
+    category: 'Crypto',
+    published: '2026-08-25',
+    modified: '2026-08-25',
     updated: 'August 2026',
   },
 ]

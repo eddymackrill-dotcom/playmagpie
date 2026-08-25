@@ -2,9 +2,14 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getCasinoBySlug, kycDisplayLabel } from '@/lib/casinos'
+import { casinoLastReviewed } from '@/lib/last-reviewed'
 import CTAButton from '@/components/CTAButton'
 
-const KYC_SLUGS = ['bitstarz', 'bc-game', 'cloudbet'] as const
+// 'roobet' added 2026-08-25 (September slate page 2, deployed under the
+// amended caps). Every clause-numbered Roobet fact traces to the owner's
+// 2026-08-25 full ToS read; the terms page is permanently unfetchable
+// (JS shell), owner-supplied text is the route.
+const KYC_SLUGS = ['bitstarz', 'bc-game', 'cloudbet', 'roobet'] as const
 
 export function generateStaticParams() {
   return KYC_SLUGS.map((slug) => ({ slug }))
@@ -25,6 +30,11 @@ const META: Record<(typeof KYC_SLUGS)[number], { title: string; description: str
     title: 'Cloudbet KYC: $2,200/Day Unverified, No Limits Once Verified',
     description:
       'Cloudbet pairs Light KYC with a published tier structure: withdraw up to $2,200 a day with no documents, unlimited once Level 2 verification completes. What Level 2 asks for and what the dual licence means for it.',
+  },
+  roobet: {
+    title: 'Roobet KYC: ID Checks, Triggers and What the Terms Allow',
+    description:
+      'Roobet requires ID at signup level and can demand full KYC at any time under clause 4.9; no fixed threshold is published. The triggers and clauses, verified.',
   },
 }
 
@@ -79,7 +89,13 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
   }
 
   const faqs =
-    slug === 'bitstarz' ? BITSTARZ_FAQS : slug === 'bc-game' ? BCGAME_FAQS : CLOUDBET_FAQS
+    slug === 'bitstarz'
+      ? BITSTARZ_FAQS
+      : slug === 'bc-game'
+      ? BCGAME_FAQS
+      : slug === 'roobet'
+      ? ROOBET_FAQS
+      : CLOUDBET_FAQS
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -122,8 +138,17 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
                 {slug === 'bitstarz' && 'BitStarz KYC: What Triggers Verification in 2026'}
                 {slug === 'bc-game' && 'BC.Game KYC: The Short Answer Is There Isn’t One'}
                 {slug === 'cloudbet' && 'Cloudbet KYC: Unlimited Withdrawals, Verification Only at Scale'}
+                {slug === 'roobet' && 'Roobet Verification: No Published Threshold, Wide Discretion'}
               </h1>
-              <p className="text-[#555555] text-xs mt-2">Last updated: June 2, 2026</p>
+              {/* Was a hardcoded "Last updated: June 2, 2026" on all three pages, the
+                  fake-freshness pattern removed from the reviews on 2026-07-07 and from
+                  the withdrawal sub-pages the same day. Swapped to the registry
+                  2026-08-25 when the roobet page joined: a new page cannot ship under
+                  a false hardcoded date, and the registry only moves on documented
+                  verification events. */}
+              <p className="text-[#555555] text-xs mt-2">
+                Facts last verified: {casinoLastReviewed[casino.slug] ?? 'May 2026'}
+              </p>
             </div>
             <div className="text-right">
               <div className="text-5xl font-extrabold text-[#7BB8D4]">{casino.kycScore}</div>
@@ -147,6 +172,7 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
         {slug === 'bitstarz' && <BitstarzContent />}
         {slug === 'bc-game' && <BcGameContent />}
         {slug === 'cloudbet' && <CloudbetContent />}
+        {slug === 'roobet' && <RoobetContent />}
 
         <section className="mt-12 pt-10 border-t border-[#222222]">
           <h2 className="text-xl font-bold text-white mb-2">{casino.name} KYC FAQ</h2>
@@ -169,10 +195,14 @@ export default async function KycPage(props: PageProps<'/reviews/[slug]/kyc'>) {
             KYC posture is an operator-level decision, not a coin-level one. Cross-shop the verification
             policy at the other casinos in our ratings:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <KycCrossLink slug="bitstarz" name="BitStarz" level="Light" current={slug} />
-            <KycCrossLink slug="bc-game" name="BC.Game" level="None" current={slug} />
+            {/* Label corrected 2026-08-25: was the retracted "None" (the 08-01
+                EUR 2,000 threshold verification governs; the badge convention is
+                "Threshold"). */}
+            <KycCrossLink slug="bc-game" name="BC.Game" level="Threshold" current={slug} />
             <KycCrossLink slug="cloudbet" name="Cloudbet" level="Light (at scale)" current={slug} />
+            <KycCrossLink slug="roobet" name="Roobet" level="Standard" current={slug} />
           </div>
           <p className="text-[#888888] text-sm mt-6">
             For the category view of casinos that keep routine crypto play document-free, see{' '}
@@ -643,5 +673,119 @@ const CLOUDBET_FAQS = [
     question: 'Is Cloudbet better than a no-KYC casino for big withdrawals?',
     answer:
       'It depends on what you optimise for. BC.Game is document-free below a KYC check that is standard at EUR 2,000 equivalent and applied at its discretion, which is the better fit if you stay under that threshold. Cloudbet asks for one round of verification (Level 2) and in exchange removes withdrawal limits entirely, pairing that with a dual regulator and a payout record since 2013, which is why many high rollers prefer it. For pure anonymity, choose no-KYC; for uncapped payouts with strong recourse, verify at Cloudbet.',
+  },
+] as const
+
+/* ── Roobet: added 2026-08-25 (September slate page 2). Structurally distinct
+   from siblings by design: bc-game leads with a threshold, cloudbet with a
+   published tier; this page leads with the ABSENCE of a published threshold
+   and the any-time discretion clause. Sources: owner full ToS read 2026-08-25
+   (clauses 3.5, 4.9, 6.4, 10.4, 10.5, 10.7); catalogue Standard posture;
+   AskGamblers public complaint record for observed triggers. ── */
+function RoobetContent() {
+  return (
+    <>
+      <Para>
+        Roobet runs Standard KYC, and the honest headline is what it does NOT publish: a
+        threshold. There is no stated dollar figure at which verification triggers.
+        What its Terms of Service do publish, on a full read dated 25 August 2026, is
+        the discretion: clause 4.9 lets Roobet demand KYC at any time and restrict
+        deposit and withdrawal functions until the check completes. Basic personal data
+        gets you playing; government ID, proof of address and source-of-funds
+        escalation arrive when the operator decides they should.
+      </Para>
+
+      <SectionHeading>Clause 4.9: the any-time check</SectionHeading>
+      <Para>
+        Most operators tie verification to a number. Roobet ties it to judgement:
+        clause 4.9 attaches no threshold, no schedule and no account-age exemption, so
+        a check can land on a two-year-old account as legitimately as on a two-day-old
+        one. In practice the public complaint record shows where that judgement
+        concentrates: observed triggers across documented AskGamblers cases run from
+        around $10,000 to well above $50,000 depending on account history, and those
+        are observations from the public record, not a policy Roobet publishes.
+      </Para>
+
+      <SectionHeading>What verification gates at the cashier</SectionHeading>
+      <Para>
+        The verification-linked clauses do the real work. Clause 10.5 names four
+        withdrawal refusal grounds: identity not verified, payment method not
+        confirmed as the account holder&apos;s, an outstanding information request,
+        and minimum wager not met. Clause 10.4 adds enhanced due diligence that can
+        delay or decline a withdrawal, with Roobet able to decline to explain the
+        nature of the investigation. Clause 10.7 requires withdrawals to return to
+        the deposit method unless you supply proof of ownership for another. Every
+        one of those is a verification question wearing a cashier uniform, which is
+        why completing KYC before a win matters more here than at threshold
+        operators.
+      </Para>
+
+      <SectionHeading>The territory dimension</SectionHeading>
+      <Para>
+        Verification is also where territory enforcement bites. Roobet&apos;s
+        restricted list (clause 3.5) works at country level and is unusually wide,
+        including the UK, US, Germany, Netherlands, Sweden and Australia; Canada is
+        not on it. Restricted-territory accounts risk closure and fund forfeiture
+        under clause 6.4, and an identity document is exactly how a restricted
+        location surfaces. The full list lives on{' '}
+        <Link href="/reviews/roobet" className="text-[#7BB8D4] hover:underline">
+          the main Roobet review
+        </Link>
+        .
+      </Para>
+
+      <SectionHeading>What this means before you deposit</SectionHeading>
+      <Para>
+        If document-free play is the priority, Roobet is the wrong pick: BC.Game
+        keeps routine crypto play document-free below a check standard at EUR 2,000
+        equivalent (see{' '}
+        <Link href="/reviews/bc-game/kyc" className="text-[#7BB8D4] hover:underline">
+          BC.Game KYC
+        </Link>
+        ), and{' '}
+        <Link href="/no-kyc-casinos" className="text-[#7BB8D4] hover:underline">
+          the no-KYC hub
+        </Link>{' '}
+        ranks the postures side by side. If you play at Roobet anyway, verify before
+        you win: the payout side of that advice, including the documented multi-day
+        holds at $20,000 and above, is covered in{' '}
+        <Link href="/reviews/roobet/withdrawal" className="text-[#7BB8D4] hover:underline">
+          the Roobet withdrawal breakdown
+        </Link>
+        , and the step-by-step of what a triggered check looks like is in{' '}
+        <Link href="/guides/crypto-casino-verification-process" className="text-[#7BB8D4] hover:underline">
+          our verification process guide
+        </Link>
+        .
+      </Para>
+    </>
+  )
+}
+
+const ROOBET_FAQS = [
+  {
+    question: 'Does Roobet require ID?',
+    answer:
+      'At entry, basic personal data; for full verification, yes. Roobet runs Standard KYC: government ID, proof of address and source-of-funds escalation are triggered by withdrawal size, account flags or compliance review rather than at signup. Terms clause 4.9 (full read, 25 August 2026) lets Roobet demand KYC at any time and restrict deposit and withdrawal functions until it completes, so treat ID as a when, not an if.',
+  },
+  {
+    question: 'Is there a KYC threshold at Roobet?',
+    answer:
+      'No published one. Unlike operators that state a figure, Roobet\'s terms attach no dollar threshold to verification. The public complaint record shows observed triggers from around $10,000 to well above $50,000 depending on account history, but those are observations from documented AskGamblers cases, not a policy Roobet publishes, and a check can arrive earlier under clause 4.9.',
+  },
+  {
+    question: 'Can Roobet re-verify an already verified account?',
+    answer:
+      'Yes. Clause 4.9 carries no exemption for previously verified or long-standing accounts, and the documented pattern in the public record is precisely re-verification triggering at the moment of a large cashout. Expect a KYC re-trigger on any sizeable win regardless of account tenure, and expect clause 10.4 due diligence to be the mechanism if the amount is large.',
+  },
+  {
+    question: 'What documents does Roobet ask for?',
+    answer:
+      'The Standard set: government-issued photo ID, proof of address, and source-of-funds documentation where the amounts justify it, with clause 10.7 separately requiring proof of ownership for any withdrawal method you did not deposit from. For how that document sequence runs stage by stage at any operator, see our crypto casino verification process guide.',
+  },
+  {
+    question: 'Can I avoid Roobet KYC by only using crypto?',
+    answer:
+      'No. Clause 4.9 applies regardless of payment rail: crypto-only play changes what triggers a check in practice, not whether Roobet is entitled to run one. Players who want a genuinely document-free routine-play path are better matched to threshold operators like BC.Game or 7Bit, both of which run a check standard at EUR 2,000 equivalent rather than at operator discretion alone.',
   },
 ] as const
