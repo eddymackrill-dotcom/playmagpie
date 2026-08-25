@@ -31,7 +31,12 @@
 //   June 2026 (Vero/FIN-FSA/Veikkaus reform sourcing).
 
 export const casinoLastReviewed: Record<string, string> = {
-  bitstarz: 'July 2026',
+  // BitStarz bumped to August 2026 on the owner-supplied full T&C browser read
+  // of 2026-08-25 (document stamp 25 Jun 2025): payout-method list, s8.7.10
+  // no-fee confirmation, s8.7.1/s8.7.3/s8.7.8 processing clauses, s9.9 1x
+  // wagering, s3.6 territory read, s13.1 dormancy fee. Documented primary
+  // verification event; full capture in the provenance block in lib/casinos.ts.
+  bitstarz: 'August 2026',
   // BC.Game and 7Bit bumped to August 2026 on the owner's 2026-08-01 direct read of
   // both operators' LIVE terms from a non-UK exit, which established the EUR 2,000
   // equivalent KYC check and falsified the previous no-KYC absolutism. That is a

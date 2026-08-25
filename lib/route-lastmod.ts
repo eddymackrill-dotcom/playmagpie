@@ -49,7 +49,11 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   '/compare': '2026-06-22',
   '/about': '2026-07-07',
   '/methodology': '2026-07-17',
-  '/reviews/bitstarz': '2026-08-02',
+  // Bumped 2026-08-25: the last-reviewed registry moved bitstarz to August
+  // 2026 on the owner's full T&C read, and the rendered "Facts last verified"
+  // line changed on the parent review and the withdrawal sub-page (the kyc
+  // sub-page was bumped in the slate deploy commit).
+  '/reviews/bitstarz': '2026-08-25',
   '/reviews/bc-game': '2026-08-02',
   '/reviews/cloudbet': '2026-08-02',
   '/reviews/mirax-casino': '2026-08-02',
@@ -59,7 +63,7 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   // Bumped 2026-08-25: roobet catalogue fields (see block comment at '/') plus
   // the Ontario FAQ correction and the payout-limits FAQ rewrite on the page.
   '/reviews/roobet': '2026-08-25',
-  '/reviews/bitstarz/withdrawal': '2026-08-01',
+  '/reviews/bitstarz/withdrawal': '2026-08-25',
   '/reviews/7bit-casino/withdrawal': '2026-08-01',
   '/reviews/cloudbet/withdrawal': '2026-08-01',
   '/reviews/duelbits/withdrawal': '2026-08-01',

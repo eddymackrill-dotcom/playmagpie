@@ -124,6 +124,37 @@ export type Casino = {
 }
 
 export const casinos: Casino[] = [
+  // BITSTARZ TERMS PROVENANCE (owner-supplied full Terms and Conditions, browser
+  // read 2026-08-25; document's own "last updated" stamp: 25 June 2025).
+  // PERMANENTLY UNFETCHABLE PRIMARY: bitstarz.com region-blocks fetchers (known
+  // since 2026-07-16). Owner-supplied browser text is the standing route, same
+  // treatment as the Roobet terms. Verified from the 2026-08-25 read:
+  // - PayID: NOT IN TERMS, no mention anywhere; established-absent, not
+  //   unverified. CAVEAT: s8.6.1 says available methods appear in the product
+  //   UI, so a UI-only deposit option cannot be ruled out from the terms and
+  //   would need an owner glance at the logged-in deposit page.
+  // - Payout methods named: Visa OCT, Mastercard Payment Transfer, bank
+  //   transfer EUR-only at 3-10 banking days, and for USD depositors a closed
+  //   e-wallet list (EcoPayz, Interac, Instadebit, IDebit, MiFinity,
+  //   MuchBetter). NO AUD payout route named.
+  // - s8.7.13 withdrawals return to the deposit method. s8.7.10 neither
+  //   BitStarz nor its processor charges withdrawal fees (cross-reference: the
+  //   genuine contrast with Roobet's s10.8 2% fiat rule, published on the
+  //   compare and withdrawal pages). s8.7.1 withdrawals attempted within 1
+  //   hour, longer in some cases. s8.7.8 large wins need game-provider
+  //   verification. s8.7.3 substantial wins may be paid in monthly
+  //   instalments. s9.9 1x wagering on deposits before withdrawal. s13.1
+  //   dormant accounts after 6 months, minimum 5 EUR monthly administrative
+  //   fee (a dormancy fee, not a cashier fee; the published no-cashier-fee
+  //   claims stay true).
+  // - s3.6 restricted countries: AUSTRALIA IS NOT LISTED (Australians can
+  //   register and play). s4.3.2 separately blacklists Australia for all
+  //   NetEnt games. FLAGGED CONTRADICTION, logged 2026-08-25 and NOT corrected
+  //   per the owner's standing priority decision: the ISO-coded
+  //   restrictedCountries field below includes 'AU', which this read
+  //   contradicts. The ISO list renders nowhere (casinoAcceptsCountry matches
+  //   full names only), so no published page carries the wrong claim; correct
+  //   the field when correction work resumes.
   {
     name: 'BitStarz',
     slug: 'bitstarz',
