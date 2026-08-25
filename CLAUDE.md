@@ -74,7 +74,7 @@ Never present a settled matter as an open question in order to be thorough. Thor
 
 **Proportionality.** Weigh every escalation against what the site is facing. Google serving has been suppressed since 27 June and the streak is 0/7. Owner attention spent on a low-consequence wording call is attention not spent on serving, propagation, or the September slate. When in doubt about whether something clears the bar, it does not.
 
-**Ratified and closed.** The Roobet Ontario call (22 Aug, shipped on the catalogue's verbatim paragraph 3.5 read when the live terms proved unfetchable) is RATIFIED as correct under this rule. Settled. Do not re-raise.
+**Ratified and closed.** The Roobet Ontario call (22 Aug, shipped on the catalogue's verbatim paragraph 3.5 read when the live terms proved unfetchable) is RATIFIED as correct under this rule. Settled. Do not re-raise. **Outcome note, 2026-08-25: the ride-along re-verify this precedent relies on happened at the owner's 25 Aug full-terms read and CAUGHT AN ERROR: the current §3.5 lists countries only and does not mention Ontario, so the Ontario claim was corrected site-wide that day. This is the mechanism functioning as designed (ship the stable fact, correct it at the next owner visit), and the precedent STANDS: the ratified call was about process, not about the fact's permanence. The underlying fact is superseded; do not cite the old Ontario reading from this paragraph.**
 
 ## Counter-argument on record, as logged advice and NOT a blocker (2026-08-01)
 

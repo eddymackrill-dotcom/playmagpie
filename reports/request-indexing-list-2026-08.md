@@ -37,6 +37,14 @@ section of the same date). Runs AFTER the 2c/2d deploy per the owner's
   priority: on a future campaign day, after the never-crawled pair and
   the remaining rows 11-43. The override-specific observable is a crawl
   after 22 Aug 20:50 UTC.**
+- **2026-08-25 afternoon note: the Roobet correction session changed ~20 URLs
+  (catalogue ripple + direct edits), so several rows' "Last change" dates are
+  now later than shown; every affected row remains VERIFIED-STALE a fortiori
+  (a later change can only widen the change-to-crawl gap). Rows 32 and 39
+  updated explicitly (dispatched to Bing this session); one NEW campaign row
+  added at the end: /reviews/roobet/withdrawal (row 44). Reminder from the
+  morning read: /country/australia (row 2) needs a LOW-PRIORITY re-request
+  after rows 11-43, since its 22 Aug fetch predates the IGA-override push.**
 - **CRAWL WATCH FIRST READ, 2026-08-25: CLEAN, 10 of 10.** Every
   requested row shows a Google fetch on 2026-08-22 between 15:24 and
   15:28 UTC (baselines ranged 20 Jun to 31 Jul), i.e. same-day action on
@@ -132,7 +140,7 @@ was double-checked against the known change history before exclusion.
 
 | # | URL | Last change | Last crawl (20 Aug) | Verdict | Requested |
 |---|---|---|---|---|---|
-| 32 | /compare/cloudbet-vs-roobet | 2026-08-22 | never | VERIFIED-STALE (published 08-01, still unknown to Google: second never-crawled URL on the board) | |
+| 32 | /compare/cloudbet-vs-roobet | 2026-08-25 (fee unsuppressed + cap/weekend withdrawn) | never | VERIFIED-STALE (published 08-01, still unknown to Google: second never-crawled URL on the board) | |
 | 33 | /compare/mirax-casino-vs-bitstarz | 2026-08-22 | 2026-06-09 | VERIFIED-STALE | |
 | 34 | /compare/cloudbet-vs-bitstarz | 2026-08-22 | 2026-06-24 | VERIFIED-STALE | |
 | 35 | /compare/7bit-casino-vs-bitstarz | 2026-08-22 | 2026-06-24 | VERIFIED-STALE | |
@@ -144,18 +152,25 @@ was double-checked against the known change history before exclusion.
 | # | URL | Last change | Last crawl (20 Aug) | Verdict | Requested |
 |---|---|---|---|---|---|
 | 38 | /crypto-casinos-with-sportsbook | 2026-08-22 | 2026-06-08 | VERIFIED-STALE | |
-| 39 | /best-bitcoin-casino-canada | 2026-08-22 | 2026-07-09 | VERIFIED-STALE | |
+| 39 | /best-bitcoin-casino-canada | 2026-08-25 (Ontario correction, page rebuilt off the carve-out spine) | 2026-07-09 | VERIFIED-STALE | |
 | 40 | /no-kyc-casinos | 2026-08-22 | 2026-07-20 | VERIFIED-STALE (was already stale from the 08-01 correction; the shipped 2d rewrite is the liability fix for its meta) | |
 | 41 | /best-crypto-pokies-nz | 2026-08-22 | 2026-08-03 | VERIFIED-STALE | |
 | 42 | /best-crypto-casinos | 2026-08-22 | 2026-08-03 | VERIFIED-STALE | |
 | 43 | /fast-withdrawal-casinos | see Tier 1 row 6 | | (listed once; its 2d rewrite has shipped, requestable now) | n/a |
+
+## Added 2026-08-25: the fourth August page
+
+| # | URL | Last change | Last crawl | Verdict | Requested |
+|---|---|---|---|---|---|
+| 44 | /reviews/roobet/withdrawal | 2026-08-25 (published) | never | NEW URL, requestable (first crawl doubles as an indexing probe on a fresh URL) | |
 
 ## Count and duration
 
 All 42 unique URLs are now requestable: 31 from the pre-22-Aug deploy set
 (Tiers 0-4) + 11 more numbered rows that joined at the 2c/2d ship on
 2026-08-22 (Tier 5; /fast-withdrawal-casinos is shared with Tier 1 and
-counted once). At ~10/day: 4 to 5 owner mornings, ~2 minutes each
+counted once). Row 44 (/reviews/roobet/withdrawal, published 2026-08-25)
+makes the campaign 43 unique URLs; 10 requested on day 1, 33 outstanding. At ~10/day: 4 to 5 owner mornings, ~2 minutes each
 alongside the daily serving check. The campaign starts the morning after
 the 2c/2d ship per the post-rollout protocol Step 2.
 
