@@ -6,6 +6,28 @@ section of the same date). Runs AFTER the 2c/2d deploy per the owner's
 
 ## Campaign log
 
+- **DAY-2 CRAWL WATCH VERDICT, 2026-09-04: PROVEN. Request Indexing works
+  on URLs Google has never seen.** Six never-crawled URLs (rows 32, 44,
+  45, 46, 47, 48) plus the tracker (row 49) were fetched 2026-08-25
+  between 16:24 and 16:28 UTC, roughly 15 minutes after their 16:11-16:15
+  UTC requests, and all are now "Submitted and indexed" with clean
+  canonicals (single-URL inspections, 2026-09-04). The one FAILURE is row
+  17, /bonus/free-spins: requested the same morning alongside the six
+  that succeeded, still "URL is unknown to Google" ten days later. It has
+  now resisted a hub tile, a carrier link, an accepted Bing submission
+  (08 Aug row in the SubmittedUrls export) and an explicit indexing
+  request. Graded a PAGE-SPECIFIC failure, NOT a mechanism failure;
+  added to the 7 September audit scope as an orphan diagnosis.
+- **ROWS 2 AND 39 ARE MOOT, 2026-09-04: both were fetched UNREQUESTED on
+  2026-08-25 at 16:28 UTC.** /country/australia's fetch post-dates the
+  22 Aug 20:50 UTC IGA-override push, and /best-bitcoin-casino-canada's
+  post-dates the 25 Aug 11:10 UTC Ontario-correction push, so Google
+  holds the current wording on both. The queued low-priority AU
+  re-request is moot too. Neither row needs a campaign slot.
+- **COUNT RECONCILIATION 2026-09-04 (supersedes the day-2 figures): 48
+  unique campaign URLs; 18 requested; both "already indexed" skips
+  satisfied by organic fetches; 30 outstanding. Resume top to bottom at
+  row 11.**
 - **Day 2, 2026-08-25 (owner): 8 requested, zero GSC refusals: rows 44,
   45, 46, 47, 48 (the five 2026-08-25 new URLs), row 17
   (/bonus/free-spins, never-crawled), row 32 (/compare/cloudbet-vs-roobet,
@@ -105,7 +127,7 @@ was double-checked against the known change history before exclusion.
 | # | URL | Last change | Last crawl | Verdict | Requested |
 |---|---|---|---|---|---|
 | 1 | /country/australia/legal | 2026-08-20 | 2026-06-20 | VERIFIED-STALE (Google has NEVER fetched any of the four dated entries; two-month gap on the site's top AI asset) | 2026-08-22 |
-| 2 | /country/australia | 2026-08-22 (IGA sentence, owner override; changed again AFTER the request was made) | 2026-08-22 15:24 UTC (pre-override fetch) | VERIFIED-STALE for the override wording. **2026-08-25 note: NOT re-submitted on day 2; URL Inspection returned "already indexed" and the owner skipped it. Indexed is not crawl recency: Google holds the 17 Aug wording. REQUESTABLE, top of the return list.** | 2026-08-22 (day 1; override re-request pending) |
+| 2 | /country/australia | 2026-08-22 (IGA sentence, owner override; changed again AFTER the request was made) | 2026-08-25 16:28 UTC (unrequested organic fetch, post-override) | **MOOT 2026-09-04: fetched unrequested 25 Aug 16:28 UTC, after the 22 Aug 20:50 UTC override push, so Google holds the current wording. No re-request needed; the queued low-priority re-request is cancelled.** | n/a (satisfied organically) |
 
 ## Tier 1: sentinels + trust layer
 
@@ -138,7 +160,7 @@ was double-checked against the known change history before exclusion.
 
 | # | URL | Last change | Last crawl | Verdict | Requested |
 |---|---|---|---|---|---|
-| 17 | /bonus/free-spins | 2026-08-08 | never | VERIFIED-STALE, never crawled at all (chronic orphan; a granted request here also answers the 06-11 orphan question) | 2026-08-25 |
+| 17 | /bonus/free-spins | 2026-08-08 | never | **FAILURE 2026-09-04: still "URL is unknown to Google" ten days after the 25 Aug request, while all six never-crawled peers requested the same morning were fetched in ~15 minutes. Page-specific, not mechanism. On the 7 Sep audit scope as an orphan diagnosis.** | 2026-08-25 (unactioned) |
 | 18 | /bonus/welcome-bonus | 2026-08-08 | 2026-07-03 | VERIFIED-STALE (carries the free-spins carrier link) | |
 | 19 | /bonus/vip-bonus | 2026-08-08 | 2026-06-25 | VERIFIED-STALE | |
 | 20 | /bonus/high-roller-bonus | 2026-08-08 | 2026-06-25 | VERIFIED-STALE | |
@@ -177,7 +199,7 @@ was double-checked against the known change history before exclusion.
 | # | URL | Last change | Last crawl (20 Aug) | Verdict | Requested |
 |---|---|---|---|---|---|
 | 38 | /crypto-casinos-with-sportsbook | 2026-08-22 | 2026-06-08 | VERIFIED-STALE | |
-| 39 | /best-bitcoin-casino-canada | 2026-08-25 (Ontario correction, page rebuilt off the carve-out spine) | 2026-07-09 | VERIFIED-STALE. **2026-08-25 note: NOT submitted on day 2; URL Inspection returned "already indexed" and the owner skipped it. Indexed is not crawl recency: Google has never fetched the Ontario correction. REQUESTABLE, top of the return list.** | |
+| 39 | /best-bitcoin-casino-canada | 2026-08-25 (Ontario correction, page rebuilt off the carve-out spine) | 2026-08-25 16:28 UTC (unrequested organic fetch, post-correction) | **MOOT 2026-09-04: fetched unrequested 25 Aug 16:28 UTC, five hours after the 11:10 UTC correction push, so Google holds the corrected page. No request needed.** | n/a (satisfied organically) |
 | 40 | /no-kyc-casinos | 2026-08-22 | 2026-07-20 | VERIFIED-STALE (was already stale from the 08-01 correction; the shipped 2d rewrite is the liability fix for its meta) | |
 | 41 | /best-crypto-pokies-nz | 2026-08-22 | 2026-08-03 | VERIFIED-STALE | |
 | 42 | /best-crypto-casinos | 2026-08-22 | 2026-08-03 | VERIFIED-STALE | |
@@ -207,12 +229,12 @@ All 42 unique URLs are now requestable: 31 from the pre-22-Aug deploy set
 counted once). Row 44 (/reviews/roobet/withdrawal, published 2026-08-25)
 made the campaign 43 unique URLs; rows 45-48 (the slate four, deployed
 2026-08-25) and row 49 (the tracker, added at request time on day 2)
-make it 48. **After day 2 (2026-08-25): 18 requested, 30 outstanding.
-Return-day order: rows 2 and 39 first (the two "already indexed"
-skips carrying unfetched changes), then top to bottom through the
-undated rows.** At ~10/day: 4 to 5 owner mornings, ~2 minutes each
-alongside the daily serving check. The campaign starts the morning after
-the 2c/2d ship per the post-rollout protocol Step 2.
+make it 48. **After day 2 (2026-08-25): 18 requested, 30 outstanding.**
+**RECONCILED 2026-09-04: rows 2 and 39 are MOOT (both fetched
+unrequested on 25 Aug carrying their current wording), so the return-day
+order is simply top to bottom from row 11 through the undated rows: 30
+outstanding at ~10/day, roughly 3 owner mornings, ~2 minutes each
+alongside the daily serving check.**
 
 ## What this campaign is and is not (from the protocol, restated here)
 
