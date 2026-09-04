@@ -101,9 +101,12 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   '/country/japan': '2026-08-01',
   '/country/sweden': '2026-08-01',
   '/country/finland': '2026-08-01',
-  // Bumped 2026-08-11: additive Alberta-launch update section. reviewBy
-  // tripwire 2026-10-13 (grey-market compliance deadline) in STATE.md.
-  '/country/canada/legal': '2026-08-11',
+  // Bumped 2026-09-04: verification pass against alberta.ca + Gowling WLG
+  // (revenue split, election-betting ban, centralised self-exclusion vs
+  // Ontario, 13 Oct transition endpoint refined, Ontario 2025 revenue);
+  // Ontario FAQ line updated to launched-market wording. reviewBy tripwire
+  // 2026-10-13 (transition endpoint, Gowling-verified) in STATE.md.
+  '/country/canada/legal': '2026-09-04',
   // Bumped 2026-08-20: Entry 3, Senate passage 19 Aug (bill homepage anchor,
   // "Passed Both Houses"; news colour attributed in text; commencement dates
   // omitted pending the Act as made). Next event: royal assent, one-line

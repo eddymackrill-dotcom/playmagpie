@@ -72,8 +72,8 @@ export const trackerShell: Record<TrackerSlug, TrackerShell> = {
   'us-sweepstakes-casinos-by-state': {
     title: 'US Sweepstakes Casinos by State: Ban Dates and Enforcement',
     h1: 'Sweepstakes Casinos in the US: Where They Are Banned, State by State',
-    metaDescription: '14 states have banned or enforce against sweepstakes casinos; Oklahoma joins 1 November 2026. Every state row dated and sourced, including the unresolved ones.',
-    modified: '2026-08-11',
+    metaDescription: 'Sweepstakes casino bans state by state, every row dated and sourced: California, New York, Tennessee, Louisiana, Iowa and more. Oklahoma joins 1 Nov 2026.',
+    modified: '2026-09-04',
     reviewBy: '2026-11-01',
     portfolio: {
       format: 'matrix',
