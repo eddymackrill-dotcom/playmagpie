@@ -221,6 +221,36 @@ was double-checked against the known change history before exclusion.
 | 48 | /guides/is-crypto-safe-at-australian-casinos | 2026-08-25 (published) | never | NEW URL | 2026-08-25 |
 | 49 | /tracker/prediction-markets-legality | 2026-08-25 (WA stay-ruling update) | unknown (never inspected; not on the 20 Aug sweep because it was then unchanged) | Added at request time, day 2 | 2026-08-25 |
 
+## Added 2026-09-04: the two breadth artefacts, TOP of the next owner morning
+
+The breadth-programme reopening (owner decision 2026-09-04) needs the
+citation test made decidable: zero citations cannot be attributed to
+content while the grounding indexes may hold stale or no bytes. Crawl
+state established by single-URL inspection 2026-09-04:
+
+| # | URL | Last change | Last crawl | Verdict | Requested |
+|---|---|---|---|---|---|
+| 50 | /tracker/us-sweepstakes-casinos-by-state | 2026-09-04 (legislative catch-up, this session) | **never ("URL is unknown to Google"): live since 11 Aug, in the sitemap, Bing-accepted 11 Aug, NEVER fetched by Google** | VERIFIED-STALE in the strongest sense; request FIRST | |
+| 51 | /country/canada/legal | 2026-09-04 (Alberta verification pass, this session) | 2026-06-20 06:41 (predates every breadth-era change: the 11 Aug Alberta section AND this session's update) | VERIFIED-STALE, 2.5-month gap | |
+
+(/tracker/prediction-markets-legality already holds a current fetch:
+requested and crawled 2026-08-25, updated and dispatched again
+2026-09-04; re-request only if its crawl date fails to advance past
+2026-09-04 on a later read.)
+
+**THE READ CONDITION, recorded so the breadth test is decidable:**
+citations are measured from the date the grounding index holds each
+page's current bytes, NOT from publication. Two index facts per page:
+Google crawl state is inspectable above; the citation channel grounds on
+BING's index, where both pages were accepted 11 Aug (SubmittedUrls) but
+crawl state is unverifiable from here (the owner Site Explorer glance,
+already pending for the reviews batch, covers it). Comparable pages
+showed first citations within roughly two to three weeks of current
+content being available, so a zero measured 21+ days AFTER confirmed
+current bytes in the grounding index is attributable to content rather
+than plumbing. No retirement date or kill condition is set here: under
+the 2026-09-04 no-unilateral-retirement rule that is the owner's to set.
+
 ## Count and duration
 
 All 42 unique URLs are now requestable: 31 from the pre-22-Aug deploy set
