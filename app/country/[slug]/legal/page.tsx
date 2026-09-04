@@ -2,6 +2,25 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { COUNTRY_LIST } from '@/lib/programmatic'
+import { ROUTE_LASTMOD } from '@/lib/route-lastmod'
+
+// Per-page displayed date (fix 2026-09-05; defect found 2026-09-04 and
+// deferred to this deliberate pass). Source: ROUTE_LASTMOD, the honest
+// per-page lastmod the sitemap already asserts for these routes, so the
+// visible header, Article dateModified and sitemap <lastmod> cannot
+// diverge. Month granularity preserved from the old static string. A
+// missing map entry throws at build time, matching the lm() design in
+// app/sitemap.ts.
+const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+function legalPageLastmod(slug: string): string {
+  const iso = ROUTE_LASTMOD[`/country/${slug}/legal`]
+  if (!iso) throw new Error(`country/[slug]/legal: no ROUTE_LASTMOD entry for /country/${slug}/legal`)
+  return iso
+}
+function updatedLabel(slug: string): string {
+  const [y, m] = legalPageLastmod(slug).split('-')
+  return `Updated ${MONTH_NAMES[Number(m) - 1]} ${y}`
+}
 
 // =============================================================================
 // Legal sub-pages: /country/[slug]/legal
@@ -312,7 +331,7 @@ export default async function CountryLegalPage(props: PageProps<'/country/[slug]
     author: { '@type': 'Organization', name: 'PlayMagpie', url: 'https://www.playmagpie.com' },
     publisher: { '@type': 'Organization', name: 'PlayMagpie', url: 'https://www.playmagpie.com' },
     datePublished: '2026-06-20',
-    dateModified: '2026-06-20',
+    dateModified: legalPageLastmod(slug),
     url: pageUrl,
     mainEntityOfPage: pageUrl,
   }
@@ -347,7 +366,7 @@ export default async function CountryLegalPage(props: PageProps<'/country/[slug]
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">{content.h1}</h1>
         <div className="flex items-center gap-3 text-sm text-[#888888] mb-8">
-          <span>Updated June 2026</span>
+          <span>{updatedLabel(slug)}</span>
           <span>·</span>
           <span>Sourced to primary legislation</span>
         </div>
