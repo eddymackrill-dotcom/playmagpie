@@ -4,6 +4,7 @@ import { guides } from '@/lib/guides'
 import { CRYPTO_LIST, COUNTRY_LIST, GAME_TYPES, BONUS_TYPES } from '@/lib/programmatic'
 import { ROUTE_LASTMOD } from '@/lib/route-lastmod'
 import { countryEditorial } from '@/lib/country-content'
+import { COMPLIANCE_LASTMOD } from '@/lib/compliance-feed'
 import { BONUS_CONTENT } from '@/lib/bonus-content'
 import { cryptoEditorial } from '@/lib/crypto-content'
 import { gameEditorial } from '@/lib/game-content'
@@ -47,6 +48,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/bonus`, lastModified: lm('/bonus'), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/guides`, lastModified: lm('/guides'), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/compare`, lastModified: lm('/compare'), changeFrequency: 'weekly', priority: 0.8 },
+    // Compliance feed hub (2026-09-05): data-level lastmod = newest entry
+    // date in lib/compliance-feed.ts, honest by construction. The RSS
+    // mirror /compliance/feed.xml is deliberately NOT in the sitemap.
+    { url: `${BASE_URL}/compliance`, lastModified: new Date(COMPLIANCE_LASTMOD), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/about`, lastModified: lm('/about'), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/methodology`, lastModified: lm('/methodology'), changeFrequency: 'monthly', priority: 0.5 },
   ]

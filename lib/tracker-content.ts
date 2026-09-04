@@ -53,7 +53,7 @@ export const trackerShell: Record<TrackerSlug, TrackerShell> = {
     title: 'Prediction Markets Legality State by State: Kalshi, CFTC',
     h1: 'Are Prediction Markets Legal? The Live State-vs-CFTC Scorecard',
     metaDescription: 'Kalshi\'s 2 September Washington geofence deadline has passed with no public compliance statement from either side. The state-vs-CFTC split, tracked and dated.',
-    modified: '2026-09-04',
+    modified: '2026-09-05', // compliance-feed pointer link added (rendered change)
     reviewBy: '2026-10-02',
     portfolio: {
       format: 'timeline',
@@ -73,7 +73,7 @@ export const trackerShell: Record<TrackerSlug, TrackerShell> = {
     title: 'US Sweepstakes Casinos by State: Ban Dates and Enforcement',
     h1: 'Sweepstakes Casinos in the US: Where They Are Banned, State by State',
     metaDescription: 'Sweepstakes casino bans state by state, every row dated and sourced: California, New York, Tennessee, Louisiana, Iowa and more. Oklahoma joins 1 Nov 2026.',
-    modified: '2026-09-04',
+    modified: '2026-09-05', // compliance-feed pointer link added (rendered change)
     reviewBy: '2026-11-01',
     portfolio: {
       format: 'matrix',

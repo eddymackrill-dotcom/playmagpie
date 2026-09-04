@@ -216,7 +216,8 @@ export default function SweepstakesMatrixPage() {
             <Link href="/tracker/prediction-markets-legality" className="text-[#7BB8D4] hover:underline">
               prediction markets legality tracker
             </Link>
-            .
+            . Developments from both trackers, and from jurisdictions beyond the US, are logged in our dated{' '}
+            <Link href="/compliance" className="text-[#7BB8D4] hover:underline">compliance news feed</Link>.
           </p>
         </section>
 

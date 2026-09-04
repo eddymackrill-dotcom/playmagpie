@@ -275,7 +275,9 @@ export default function PredictionMarketsTrackerPage() {
             <Link href="/tracker/us-sweepstakes-casinos-by-state" className="text-[#7BB8D4] hover:underline">
               sweepstakes casino ban tracker
             </Link>
-            , where fourteen states have already answered their version of the question.
+            , where fourteen states have already answered their version of the question. Developments from
+            both trackers, and from the jurisdictions beyond them, are logged in our dated{' '}
+            <Link href="/compliance" className="text-[#7BB8D4] hover:underline">compliance news feed</Link>.
           </p>
         </section>
 

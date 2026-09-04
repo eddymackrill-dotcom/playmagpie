@@ -326,6 +326,13 @@ multipliers.
    source is in hand (the ~30 min loop: dated log entry, verdict re-date, `modified` bump in
    lib/tracker-content.ts or the page's data layer, push, single-URL Bing dispatch line for
    the owner).
+3b. **COMPLIANCE FEED (added 2026-09-05; /compliance, data in lib/compliance-feed.ts):
+   every event shipped under step 3 ALSO gets a short dated feed entry in the same
+   session** (summary + link to the deep surface + sources; the feed's sitemap lastmod
+   follows the newest entry automatically). Cadence rides this weekly radar loop, not its
+   own schedule, so the feed cannot lapse separately from the radar: if the radar ran and
+   shipped nothing, the feed correctly gets nothing. This line exists because surfaces
+   outside STATE and the RUNBOOK never reach a session (the invisible-work pattern).
 4. New-artefact candidates append to the build queue in
    reports/regulatory-programme-build-plan.md Part 4 (readiness-ranked).
 5. STALENESS PASS (binding): single pages and timeline trackers whose newest dated element
