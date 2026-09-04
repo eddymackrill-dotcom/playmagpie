@@ -109,6 +109,10 @@ export type Casino = {
   bonusFairnessScore: number
   kycScore: number
   affiliateUrl: string
+  // Optional dated status note rendered on the parent review only. Use for
+  // time-boxed factual notes (e.g. rumour checks) that need a visible date;
+  // remove or update rather than letting one go stale.
+  statusNote?: { date: string; text: string }
   reviewSummary: string
   pros: string[]
   cons: string[]
@@ -418,6 +422,17 @@ export const casinos: Casino[] = [
     name: 'Roobet',
     slug: 'roobet',
     logo: '/logos/roobet.png',
+    // statusNote added 2026-09-05 (slate session, verify-at-build): search
+    // queries asking whether Roobet went bankrupt appear in both grounding
+    // and Bing keyword data. Verified at write: two web sweeps (2026-09-04
+    // and 2026-09-05 sessions) surfaced no credible report of bankruptcy or
+    // insolvency, while 2026-dated industry coverage (bonus/VIP reviews)
+    // treats Roobet as operating; the owner re-verified its live terms
+    // 2026-08-25. Time-boxed: re-check or remove at the monthly audit.
+    statusNote: {
+      date: 'September 2026',
+      text: 'Searches asking whether Roobet has gone bankrupt keep circulating. We find no credible report of bankruptcy or insolvency: current industry coverage treats Roobet as operating normally, and we re-verified its full terms via a direct read on 25 August 2026. If that changes, this note changes.',
+    },
     licence: 'Curaçao (Raw Entertainment B.V., reg. 157205) + Anjouan ALSI-202507005',
     acceptedCryptos: ['BTC', 'ETH', 'LTC', 'USDT', 'USDC', 'XRP', 'TRX', 'DOGE', 'SOL', 'SUI', 'BNB'],
     withdrawalTime: '~15 minutes for most crypto; BTC up to 24 hours',

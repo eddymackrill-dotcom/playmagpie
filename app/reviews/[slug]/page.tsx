@@ -401,7 +401,15 @@ export async function generateMetadata(props: PageProps<'/reviews/[slug]'>): Pro
   const { slug } = await props.params
   const casino = getCasinoBySlug(slug)
   if (!casino) return {}
-  const title = `${casino.name} Review 2026: Scores, Bonuses & Withdrawal Times`
+  // Per-casino title overrides (CTR pass, 2026-09-05). Cloudbet takes 17 of
+  // the site's 24 Bing clicks and its clicking queries are trust-shaped
+  // ("is cloudbet casino legit" clicked at pos 8.3), so its title answers
+  // that intent. Other casinos keep the shared template; do not add
+  // overrides without measured query evidence.
+  const titleOverrides: Record<string, string> = {
+    cloudbet: 'Cloudbet Review 2026: Is It Legit? Licences, Limits, Payouts',
+  }
+  const title = titleOverrides[slug] ?? `${casino.name} Review 2026: Scores, Bonuses & Withdrawal Times`
   const description = casinoMetaDescriptions[slug] ?? casino.reviewSummary.slice(0, 155)
   return {
     title,
@@ -588,6 +596,12 @@ export default async function ReviewPage(props: PageProps<'/reviews/[slug]'>) {
               <div className="text-[#888888] text-sm">Trust Score / 10</div>
             </div>
           </div>
+          {casino.statusNote && (
+            <div className="bg-[#111111] border border-[#222222] rounded-2xl p-4 mb-4">
+              <span className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mr-2">Status note · {casino.statusNote.date}</span>
+              <span className="text-[#888888] text-sm leading-relaxed">{casino.statusNote.text}</span>
+            </div>
+          )}
 
           <div className="flex flex-wrap gap-2 mb-6">
             {casino.badges.map((badge) => (

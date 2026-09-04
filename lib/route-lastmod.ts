@@ -55,14 +55,15 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   // sub-page was bumped in the slate deploy commit).
   '/reviews/bitstarz': '2026-08-25',
   '/reviews/bc-game': '2026-08-02',
-  '/reviews/cloudbet': '2026-08-02',
+  // Bumped 2026-09-05: CTR-pass per-casino title override (trust-intent title).
+  '/reviews/cloudbet': '2026-09-05',
   '/reviews/mirax-casino': '2026-08-02',
   '/reviews/7bit-casino': '2026-08-02',
   '/reviews/shuffle': '2026-08-02',
   '/reviews/duelbits': '2026-08-02',
-  // Bumped 2026-08-25: roobet catalogue fields (see block comment at '/') plus
-  // the Ontario FAQ correction and the payout-limits FAQ rewrite on the page.
-  '/reviews/roobet': '2026-08-25',
+  // Bumped 2026-09-05: dated bankruptcy-rumour status note (verify-at-build,
+  // time-boxed; re-check at monthly audits).
+  '/reviews/roobet': '2026-09-05',
   '/reviews/bitstarz/withdrawal': '2026-08-25',
   '/reviews/7bit-casino/withdrawal': '2026-08-01',
   '/reviews/cloudbet/withdrawal': '2026-08-01',
