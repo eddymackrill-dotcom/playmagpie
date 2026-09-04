@@ -165,6 +165,11 @@ report on. Run this instead:
      data with the one-day slip recorded. September reweights to the withdrawal/KYC process
      cluster. Existing trackers stay live under the staleness rules below; retirement stops
      NEW breadth builds. See the STATE 2026-08-22 close-out decisions entry.]**
+     **[RETIREMENT PROVENANCE CORRECTED 2026-09-04: recommendation adopted without
+     explicit owner instruction, REOPENED 2026-09-04 (owner decision). New breadth
+     builds are permitted again; all three artefacts stay live and maintained. The
+     withdrawal/KYC reweight stands on its own evidence and is unaffected. See the
+     STATE 2026-09-04 decisions entry and the CLAUDE.md no-unilateral-retirement rule.]**
      **[2026-08-25 note: the first reweighted slate (verification-process guide,
      roobet/kyc, bc-game/withdrawal, AU crypto-safety guide) was built and DEPLOYED
      2026-08-25 under the amended caps (8/month, 4/session; CLAUDE.md 2026-08-25
@@ -310,11 +315,13 @@ multipliers.
    jurisdiction, event, source, trigger-test tags (own-position? dated-forward?
    English-sourceable?), proposed artefact (new page / tracker update / matrix row / radar
    only). Tags are recorded for the portfolio correlation analysis, not used to drop
-   entries ~~(breadth strategy, owner decision 2026-08-11)~~. **[Breadth RETIRED
+   entries (breadth strategy, owner decision 2026-08-11, REINSTATED 2026-09-04). ~~**[Breadth RETIRED
    2026-08-22 (owner decision): the radar sweep and updates to EXISTING artefacts
    continue, but NEW breadth artefacts are no longer built; new-artefact candidates
    queue only where they serve the withdrawal/KYC process cluster or a September-slate
-   decision.]**
+   decision.]**~~ **[The struck 08-22 retirement was a recommendation adopted without
+   explicit owner instruction; REOPENED 2026-09-04 (owner decision): new breadth
+   artefacts are permitted again. See the STATE 2026-09-04 decisions entry.]**
 3. Events matching an EXISTING artefact go to its update queue; ship same-session where the
    source is in hand (the ~30 min loop: dated log entry, verdict re-date, `modified` bump in
    lib/tracker-content.ts or the page's data layer, push, single-URL Bing dispatch line for

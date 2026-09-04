@@ -51,6 +51,18 @@ Everything else is left alone. That explicitly includes false operator facts, in
 
 The rule above is about **what you stop for and what you go looking for.** It is not permission to invent. Do not confuse the two. Publishing a number you cannot source is not covered by "accuracy corrections are not priority work": that rule governs existing claims, not new ones you author.
 
+## Nothing is retired without an explicit owner instruction (owner decision 2026-09-04)
+
+No programme, page, watch, tracker, experiment or line of work is retired, closed, settled, or marked do-not-re-raise unless the owner has said so in words that name the thing being retired.
+
+This applies regardless of how strong the evidence for retirement is. A session may RECOMMEND retirement, with its evidence, in the LOGGED section of a report. It may not enact one, and it may not record one as an owner decision.
+
+**Silence is not assent.** If the owner does not respond to a retirement recommendation, the thing stays live and the recommendation may be restated once. An unanswered recommendation must never be written into the decisions log as an owner decision.
+
+Where a prior entry records a retirement that cannot be traced to an explicit owner instruction, annotate it: recommendation adopted without explicit instruction, reopened 2026-09-04. Do not delete the history.
+
+The reverse still holds in full: settled items the owner HAS settled stay settled and are not re-litigated. (Worked example of the failure this rule prevents: the 2026-08-22 breadth-programme retirement was recorded as an owner decision but originated as a chat-assistant recommendation the owner did not affirmatively make; it was reopened 2026-09-04. See the decisions log.)
+
 ## Materiality threshold for owner escalation (owner decision 2026-08-22, .com)
 
 Do not escalate a decision to the owner unless a wrong answer would cost money, create legal or compliance exposure, or change what a reader does. Everything below that bar is a session judgement call: take it, log it in one line, and move on.
