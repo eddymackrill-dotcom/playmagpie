@@ -145,6 +145,14 @@ export const casinos: Casino[] = [
   //   owner's BitStarz affiliate-manager contact, or s12.2 24/7 live chat,
   //   for a dated, named answer. /reviews/bitstarz/payid states exactly this
   //   position and updates when the answer lands.
+  //   AMENDMENT 2026-09-05 (owner decision, same day): several affiliate
+  //   sites REPORT PayID available at BitStarz; recorded as SECOND-HAND AND
+  //   UNVERIFIED (no primary exists), published on the payid page in
+  //   attributed form only ("several affiliate sites report..., though we
+  //   have not verified it directly"), never as fact. State of knowledge:
+  //   established-absent from the terms, unverified in practice, reported
+  //   positive by unverified secondaries. The affiliate-manager answer
+  //   replaces the attributed sentence when it lands.
   // - Payout methods named: Visa OCT, Mastercard Payment Transfer, bank
   //   transfer EUR-only at 3-10 banking days, and for USD depositors a closed
   //   e-wallet list (EcoPayz, Interac, Instadebit, IDebit, MiFinity,

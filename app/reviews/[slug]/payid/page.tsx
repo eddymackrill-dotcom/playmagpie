@@ -72,7 +72,7 @@ export default async function PayidPage(props: PageProps<'/reviews/[slug]/payid'
     {
       question: 'Does BitStarz accept PayID deposits?',
       answer:
-        'We cannot verify it either way, and we will not copy an answer from other affiliate sites. PayID appears nowhere in the BitStarz Terms and Conditions (full document read 25 August 2026, document last updated 25 June 2025), but section 8.6.1 says available payment methods appear on the website itself, so the terms cannot settle what the Australian cashier shows. We have asked through the operator channel and this page will carry the dated answer when it lands.',
+        'Several affiliate sites report that it does, though we have not verified it directly and the claim is second-hand. PayID appears nowhere in the BitStarz Terms and Conditions (full document read 25 August 2026, document last updated 25 June 2025), and section 8.6.1 says available payment methods appear on the website itself, so the terms cannot settle what the Australian cashier shows and we cannot access that cashier from outside Australia. We have asked through the operator channel and this page will carry the dated answer when it lands.',
     },
     {
       question: 'Can Australians play at BitStarz at all?',
@@ -136,14 +136,21 @@ export default async function PayidPage(props: PageProps<'/reviews/[slug]/payid'
         <div className="bg-[#7BB8D4]/[0.06] border border-[#7BB8D4]/20 rounded-2xl p-6 mb-10">
           <div className="text-[#7BB8D4] text-xs font-bold uppercase tracking-widest mb-2">PayID status: unverified, and here is the provenance</div>
           <p className="text-[#bbbbbb] text-sm leading-relaxed">
-            We read the full BitStarz Terms and Conditions on 25 August 2026 (the document&apos;s own stamp:
-            last updated 25 June 2025). PayID appears nowhere in them. That is not the same as &quot;not
+            Several affiliate sites report PayID is available at BitStarz, though we have not verified it
+            directly. Here is why we hold that claim at arm&apos;s length rather than repeating it as fact. We
+            read the full BitStarz Terms and Conditions on 25 August 2026 (the document&apos;s own stamp: last
+            updated 25 June 2025), and PayID appears nowhere in them. That is not the same as &quot;not
             accepted&quot;: section 8.6.1 says the available payment methods appear on the website, so the
             cashier can carry options the terms never name, and the Australian cashier view is exactly what we
-            cannot access from outside Australia. We will not fill that gap by copying other affiliate sites,
-            because operator payment claims are the class of claim that gets duplicated between sites and is
-            wrong about half the time. We have put the question to the operator channel; when a dated, named
-            answer arrives, it goes here.
+            cannot access from outside Australia. So the state of knowledge is: second-hand reports say yes,
+            the operator&apos;s own terms are silent, and Australian bank rails are generally unavailable at
+            offshore crypto casinos for the structural reasons on our legality page. Operator payment claims
+            are the class of claim that gets duplicated between affiliate sites and is wrong about half the
+            time, which is why we will not adopt the report as our own. We have put the question to the
+            operator channel; when a dated, named answer arrives, it replaces this paragraph. One safety note
+            while it is unresolved: if PayID does not appear in your own cashier, do not route a deposit
+            through a third-party intermediary claiming to bridge it; that gap is exactly where fake
+            middleman services live.
           </p>
         </div>
 
