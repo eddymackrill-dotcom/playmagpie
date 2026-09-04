@@ -72,7 +72,11 @@ export const ROUTE_LASTMOD: Record<string, string> = {
   // Roobet terms read of the same date.
   '/reviews/roobet/withdrawal': '2026-08-25',
   '/reviews/cloudbet/payment-methods': '2026-08-01',
-  '/reviews/bitstarz/payment-methods': '2026-08-01',
+  // Bumped 2026-09-05: reciprocal scope link to the new payid sub-page
+  // (bitstarz-conditional render; only this URL's DOM changed).
+  '/reviews/bitstarz/payment-methods': '2026-09-05',
+  // New URL 2026-09-05 (September slate slot 4): the AU funding-routes page.
+  '/reviews/bitstarz/payid': '2026-09-05',
   '/reviews/bc-game/payment-methods': '2026-08-01',
   // The three existing KYC pages bumped 2026-08-25: the hardcoded June date
   // was swapped to the last-reviewed registry, the cross-link grid gained the

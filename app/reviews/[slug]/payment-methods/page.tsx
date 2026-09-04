@@ -588,6 +588,14 @@ function BitStarzContent() {
         route in; for a coin-first depositor already holding BTC, ETH or LTC, the
         lineup takes those directly with no forced conversion.
       </Para>
+      <Para>
+        Funding from Australia is its own question, including whether PayID works (short version: not in the
+        terms, not verifiable from outside, and we say exactly that):{' '}
+        <Link href="/reviews/bitstarz/payid" className="text-[#7BB8D4] hover:underline">
+          the BitStarz PayID and Australian funding page
+        </Link>{' '}
+        owns that route; this page keeps the full method detail.
+      </Para>
     </>
   )
 }

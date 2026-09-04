@@ -81,6 +81,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
+  // PayID sub-page allowlist, must mirror PAYID_SLUGS in
+  // app/reviews/[slug]/payid/page.tsx (2026-09-05, bitstarz only)
+  const payidPageSlugs = ['bitstarz']
+  const casinoPayidPages: MetadataRoute.Sitemap = payidPageSlugs.map((slug) => ({
+    url: `${BASE_URL}/reviews/${slug}/payid`,
+    lastModified: lm(`/reviews/${slug}/payid`),
+    changeFrequency: 'weekly',
+    priority: 0.75,
+  }))
+
   // KYC sub-page allowlist, must mirror KYC_SLUGS in app/reviews/[slug]/kyc/page.tsx
   const kycPageSlugs = ['bitstarz', 'bc-game', 'cloudbet', 'roobet']
   const casinoKycPages: MetadataRoute.Sitemap = kycPageSlugs.map((slug) => ({
@@ -177,5 +187,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...casinoKycPages, ...casinoBonusPages, ...guidePages, ...cryptoPages, ...countryPages, ...countryLegalPages, ...gamePages, ...bonusPages, ...comparisonPages, ...trackerPages]
+  return [...staticPages, ...casinoReviewPages, ...casinoWithdrawalPages, ...casinoPaymentMethodsPages, ...casinoPayidPages, ...casinoKycPages, ...casinoBonusPages, ...guidePages, ...cryptoPages, ...countryPages, ...countryLegalPages, ...gamePages, ...bonusPages, ...comparisonPages, ...trackerPages]
 }

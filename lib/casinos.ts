@@ -133,10 +133,18 @@ export const casinos: Casino[] = [
   // PERMANENTLY UNFETCHABLE PRIMARY: bitstarz.com region-blocks fetchers (known
   // since 2026-07-16). Owner-supplied browser text is the standing route, same
   // treatment as the Roobet terms. Verified from the 2026-08-25 read:
-  // - PayID: NOT IN TERMS, no mention anywhere; established-absent, not
-  //   unverified. CAVEAT: s8.6.1 says available methods appear in the product
-  //   UI, so a UI-only deposit option cannot be ruled out from the terms and
-  //   would need an owner glance at the logged-in deposit page.
+  // - PayID: NOT IN TERMS as of the 2026-08-25 read, no mention anywhere.
+  //   s8.6.1 says available methods appear in the product UI, so the terms
+  //   cannot settle availability either way. CASHIER AVAILABILITY UNVERIFIED
+  //   AND NOT OWNER-VERIFIABLE (corrected 2026-09-05: the owner cannot log in
+  //   from Australia, and s3.6 restricts the UK, so no Australian logged-in
+  //   cashier view is available to them; the earlier "owner glance at the
+  //   deposit page" unblock route is impossible and is withdrawn). Do NOT
+  //   assert PayID either way, and do NOT source it from secondary affiliate
+  //   sites (the claim class that gets copied wrong). UNBLOCK ROUTE: the
+  //   owner's BitStarz affiliate-manager contact, or s12.2 24/7 live chat,
+  //   for a dated, named answer. /reviews/bitstarz/payid states exactly this
+  //   position and updates when the answer lands.
   // - Payout methods named: Visa OCT, Mastercard Payment Transfer, bank
   //   transfer EUR-only at 3-10 banking days, and for USD depositors a closed
   //   e-wallet list (EcoPayz, Interac, Instadebit, IDebit, MiFinity,
