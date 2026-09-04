@@ -4,6 +4,7 @@ import { guides } from '@/lib/guides'
 import { casinos, kycDisplayLabel } from '@/lib/casinos'
 import Link from 'next/link'
 import CTAButton from '@/components/CTAButton'
+import TxidLookup from '@/components/TxidLookup'
 
 export async function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }))
@@ -59,6 +60,10 @@ type ContentBlock =
       type: 'plink'
       parts: (string | { text: string; href: string })[]
     }
+  // Input-dependent lookup layer (slate 2026-09-05): renders the API-free
+  // TxidLookup client component. The block carries no data; the component
+  // is self-contained. Used by crypto-casino-withdrawal-txid only.
+  | { type: 'txidlookup' }
 
 const guideContent: Record<string, ContentBlock[]> = {
   'how-crypto-casino-withdrawals-work': [
@@ -261,6 +266,14 @@ const guideContent: Record<string, ContentBlock[]> = {
     { type: 'p', text: 'Whether a transaction ID exists yet is the one fact that tells you whether the delay belongs to the casino or to the blockchain. A transaction ID, usually labelled TXID or transaction hash, is the long string of letters and numbers that identifies a transaction on-chain. It is created at the moment the casino broadcasts your payout, not at the moment you request it. So its presence or absence is a clean dividing line.' },
     { type: 'p', text: 'Look in the casino cashier under withdrawal or transaction history and open the pending entry. If a TXID is shown, copy it and paste it into the explorer for the network you withdrew on: Tronscan for TRC-20, Solscan for Solana, Etherscan for Ethereum and ERC-20 tokens, BscScan for BNB Smart Chain, and mempool.space for Bitcoin. If no TXID is shown, there is nothing to look up, because nothing has been broadcast. That absence is not a bug in the interface. It is the answer.' },
     { type: 'p', text: 'One caveat worth knowing before you draw conclusions: some platforms display a TXID field that stays blank until the payout clears internal review, and a few populate it only after the first confirmation. If the field exists but is empty, treat that as state one below.' },
+    {
+      type: 'plink',
+      parts: [
+        'The one-click version of that lookup, with a chain selector, plus how to read confirmations, the sent-but-not-received checklist and who to contact with what, lives in ',
+        { text: 'our TXID tracking guide', href: '/guides/crypto-casino-withdrawal-txid' },
+        ', which owns the on-chain half of this diagnostic; this page keeps the casino-side half.',
+      ],
+    },
 
     { type: 'h2', text: 'State 1: no transaction ID, so the casino still holds the funds' },
     { type: 'p', text: 'If no TXID exists, your money has not left the casino, and no amount of blockchain analysis will explain the delay. This is the state where contacting support is worth doing, and it is also the state that covers most genuinely long waits. Five things commonly cause it.' },
@@ -540,6 +553,64 @@ const guideContent: Record<string, ContentBlock[]> = {
       ],
     },
   ],
+  // Slate 2026-09-05, page 1. Scope: verifying ON-CHAIN. No operator figures.
+  'crypto-casino-withdrawal-txid': [
+    { type: 'h2', text: 'The short answer' },
+    { type: 'p', text: 'Every crypto withdrawal that has actually been sent has a transaction ID, usually labelled TXID or transaction hash: the long string that identifies your payout on the blockchain itself. Once you have it, you do not need to trust the casino cashier, support chat or anyone else, because the chain is a public record and you can read your withdrawal directly off it. This page is the doing side of that check: where the TXID lives, a one-click lookup for the networks casinos actually pay out on, and how to read what the explorer shows you.' },
+    {
+      type: 'plink',
+      parts: [
+        'One scope note before the tool: this guide owns verifying the withdrawal on-chain. If your cashier shows no TXID at all, or you want the full three-state diagnostic of why a payout goes pending in the first place, that lives in ',
+        { text: 'the pending withdrawals guide', href: '/guides/why-is-my-crypto-casino-withdrawal-pending' },
+        ', which owns the casino-side half of this problem.',
+      ],
+    },
+    { type: 'h2', text: 'Find your TXID first' },
+    { type: 'p', text: 'Open the casino cashier and go to the withdrawal or transaction history. The pending or completed entry for your payout should carry the TXID, sometimes behind a details or expand control. Copy the whole string exactly: explorers match on the full hash, and a truncated paste finds nothing. If the field is empty or absent, the casino has not broadcast the transaction yet, and there is nothing on-chain to check; that situation is casino-side and belongs to the pending guide linked above.' },
+    { type: 'h2', text: 'Check it on-chain' },
+    { type: 'p', text: 'Pick the network you actually withdrew on, paste the TXID, and the button opens the public explorer for that chain with your transaction. The network matters: a TRC-20 USDT withdrawal is invisible to Etherscan, and vice versa, because they are different blockchains. The cashier entry states the network next to the withdrawal.' },
+    { type: 'txidlookup' },
+    { type: 'h2', text: 'How to read what you see' },
+    { type: 'p', text: 'Three outcomes cover almost every lookup. First, the transaction is shown as confirmed: the money left, the chain agrees, and if it is not in your wallet the problem is at the receiving end, most often a wrong or old address, a missing memo or tag where the receiving platform requires one, or a wallet that has not refreshed. Second, the transaction exists but shows zero or few confirmations: it is in flight, and no one can speed it up or lose it at that point; Bitcoin produces a block roughly every ten minutes on average, Ethereum finalises in minutes, and Tron and Solana are usually a matter of seconds to low minutes end to end. Third, the explorer finds nothing at all: the TXID was never broadcast or was copied wrong, so re-copy it carefully, and if it still finds nothing, the withdrawal has not actually left the casino regardless of what the cashier status says.' },
+    { type: 'h2', text: 'Sent but not received: the checklist' },
+    { type: 'p', text: 'A confirmed transaction that has not arrived is the most stressful outcome and usually the most fixable. Check, in order: that the receiving address on the explorer matches the address you meant to withdraw to; that the network matches what your receiving wallet or exchange supports, because a token sent on the wrong network needs the receiving platform\'s help rather than the casino\'s; that any required memo, tag or destination code was included, since exchanges commonly credit memo-less deposits only after a manual support ticket; and that you are looking at the right asset in the receiving wallet, because a token can arrive without appearing until it is added to the wallet\'s display list. If the explorer shows your funds sitting at the correct address and your platform still has not credited them, the ticket goes to the receiving platform with the TXID attached, not to the casino.' },
+    { type: 'h2', text: 'Who to contact, with what' },
+    { type: 'p', text: 'The TXID decides who owns the problem. No TXID: the casino owns it, and the pending guide covers how long to wait and how to chase. TXID with confirmations and the right address: the receiving platform owns it, and your TXID is exactly what their support needs. TXID confirmed to a wrong address you control: move on the receiving side. Confirmed to an address you do not control and did not enter: stop and treat it as a security incident, because withdrawals do not rewrite their own destinations.' },
+  ],
+  // Slate 2026-09-05, page 2 (the marginal call, approved flagged). Scope:
+  // payment RAILS for Australians. Law and site-blocking stay with
+  // /country/australia/legal (frozen, untouched); operator ranking stays
+  // with the /country/australia hub.
+  'paypal-blocked-casino-australia': [
+    { type: 'h2', text: 'The short answer' },
+    { type: 'p', text: 'PayPal treats gambling as a restricted category: merchants need PayPal\'s prior approval to take gambling payments at all, and, as its acceptable use policy is consistently reported, no online casino serving Australians holds that approval. There is also nothing on the Australian side for PayPal to approve, because providing an online casino to people in Australia is itself prohibited under the Interactive Gambling Act, so no licensed Australian online casino exists to become a PayPal gambling merchant. The deposit does not fail because you did something wrong. It fails because both ends of the rail are closed.' },
+    { type: 'h2', text: 'What the law actually blocks, and what it does not' },
+    { type: 'p', text: 'The Interactive Gambling Act 2001 makes it an offence to PROVIDE an online casino to people in Australia; it does not penalise the individual playing at one. Separately, since June 2024, licensed Australian wagering operators cannot accept credit cards or cryptocurrency, but that payment ban covers licensed sports and race betting, not online casinos, which were already prohibited outright. The practical consequence for payments: the regulated Australian rails, PayPal included, do not connect to casino gambling at all, and offshore casinos that serve Australians work on rails outside that system.' },
+    {
+      type: 'plink',
+      parts: [
+        'The full legal position, including the operator-versus-player line and ACMA\'s site blocking, is on ',
+        { text: 'our Australia crypto gambling law page', href: '/country/australia/legal' },
+        ', which owns that analysis; this page owns the payment side only.',
+      ],
+    },
+    { type: 'h2', text: 'What Australians actually run into' },
+    { type: 'p', text: 'The common experiences are a casino cashier that simply never lists PayPal, a PayPal payment that is declined at the point of transfer, or a third-party processor that drops the transaction during review. Some offshore sites advertise e-wallet logos loosely, so the honest rule of thumb is that any casino serving Australians and claiming frictionless PayPal deposits deserves suspicion rather than excitement: the rail it is claiming does not officially connect.' },
+    { type: 'h2', text: 'Where crypto fits, stated plainly' },
+    { type: 'p', text: 'Crypto is the rail offshore casinos actually run on: an on-chain transfer needs no acquiring bank, no card scheme and no PayPal-style intermediary, which is precisely why the operators we review are crypto-first. That is a statement about how the plumbing works, not a recommendation to bypass anything: playing at an offshore casino remains unregulated for an Australian, with no local recourse if a withdrawal is frozen, and the safety trade-offs are real.' },
+    {
+      type: 'plink',
+      parts: [
+        'If you are weighing that trade seriously, ',
+        { text: 'our guide to whether crypto is safe at Australian casinos', href: '/guides/is-crypto-safe-at-australian-casinos' },
+        ' covers the actual risks, and ',
+        { text: 'the Australia casino hub', href: '/country/australia' },
+        ' carries the operator side.',
+      ],
+    },
+    { type: 'h2', text: 'The one thing not to do' },
+    { type: 'p', text: 'Workarounds that route PayPal money through gift cards, peer-to-peer transfers to strangers, or third-party top-up services add a counterparty you cannot pursue, usually violate the terms of every service in the chain, and are the classic shape of a scam aimed at exactly the person searching for this page. If a deposit path needs a stranger in the middle, the answer is no.' },
+  ],
 }
 
 // FAQ data per guide. Only include questions actually answered in the guide content
@@ -767,6 +838,42 @@ const guideFAQs: Record<string, { question: string; answer: string }[]> = {
         'Buy on an AUSTRAC-registered exchange (CoinSpot, Independent Reserve and Swyftx are the majors), send on-chain to the casino, play with what you sent, and withdraw winnings back to a wallet you control rather than leaving a balance on the site. Consumer protection in this chain lives at the regulated exchange, not at the offshore operator, so keep the unprotected leg as short as the session allows.',
     },
   ],
+  'crypto-casino-withdrawal-txid': [
+    {
+      question: 'Where do I find my casino withdrawal TXID?',
+      answer: 'In the casino cashier, under withdrawal or transaction history: open the entry for your payout and the TXID (transaction hash) is shown there, sometimes behind a details control. It is created when the casino broadcasts the payment, not when you request it, so an empty TXID field means nothing has been sent yet.',
+    },
+    {
+      question: 'What does it mean if the explorer cannot find my TXID?',
+      answer: 'Either the TXID was copied incompletely, you are looking on the wrong network, or the transaction was never actually broadcast. Re-copy the full string and confirm the network shown in the cashier. If a correct TXID on the correct network still returns nothing, the withdrawal has not left the casino, whatever the cashier status says.',
+    },
+    {
+      question: 'My withdrawal is confirmed on-chain but not in my wallet. Who do I contact?',
+      answer: 'The receiving side, with the TXID attached. If the explorer shows the funds confirmed at your correct address, the casino has done its part; the usual causes are a missing memo or tag at an exchange, a token not yet added to your wallet display, or a network mismatch. The receiving platform\'s support resolves those, and the TXID is exactly the evidence they ask for.',
+    },
+    {
+      question: 'Can a casino or anyone speed up a transaction that is already on-chain?',
+      answer: 'Generally no. Once broadcast, the transaction confirms at the pace of the network: Bitcoin averages a block roughly every ten minutes, while Tron and Solana usually settle in seconds to low minutes. A payment stuck at zero confirmations for a long period is rare and chain-specific; the practical answer is that neither you nor casino support can hurry the chain, which is also why a confirmed TXID is such a clean proof of payment.',
+    },
+  ],
+  'paypal-blocked-casino-australia': [
+    {
+      question: 'Why will PayPal not work at any online casino in Australia?',
+      answer: 'Two closed doors at once. PayPal treats gambling as a restricted category needing its prior merchant approval, and no online casino serving Australians is reported to hold that approval; separately, providing an online casino to people in Australia is prohibited under the Interactive Gambling Act, so there is no licensed Australian online casino that could become an approved PayPal merchant in the first place.',
+    },
+    {
+      question: 'Is it illegal for me to try to deposit at an offshore casino from Australia?',
+      answer: 'The Interactive Gambling Act targets the operator, not the player: there is no offence for the individual Australian playing at an offshore casino. What you give up is regulation and recourse, because an offshore site sits outside every Australian consumer-protection mechanism. The full legal position is on our Australia legality page.',
+    },
+    {
+      question: 'Did the 2024 payment ban block casino deposits?',
+      answer: 'No. The June 2024 ban stops licensed Australian wagering operators (sports and race betting) from accepting credit cards and cryptocurrency. Online casinos were not part of it because providing them to Australians was already prohibited outright. The rail you cannot use at a licensed bookmaker and the casino rail that never existed are two different closures.',
+    },
+    {
+      question: 'Should I use a workaround service to deposit with PayPal money?',
+      answer: 'No. Routing money through gift cards, peer-to-peer transfers or third-party top-up middlemen inserts a counterparty you cannot pursue, breaches the terms of the services involved, and is the classic shape of scams aimed at people searching for exactly this. If a deposit path requires a stranger in the middle, treat the answer as no.',
+    },
+  ],
 }
 
 // Per-guide intent-page links. Pairs with the worked examples, pointing readers
@@ -824,6 +931,16 @@ const guideRelatedPages: Record<string, { label: string; href: string; teaser: s
     { label: 'Crypto Casinos in Australia', href: '/country/australia', teaser: 'The market picture: frictions, on-ramps and operator fit' },
     { label: 'Why Is My Crypto Casino Withdrawal Pending?', href: '/guides/why-is-my-crypto-casino-withdrawal-pending', teaser: 'The diagnostic for a stalled payout' },
     { label: 'Roobet Review', href: '/reviews/roobet', teaser: 'The operator whose terms restrict Australia by name' },
+  ],
+  'crypto-casino-withdrawal-txid': [
+    { label: 'Why Is My Crypto Casino Withdrawal Pending?', href: '/guides/why-is-my-crypto-casino-withdrawal-pending', teaser: 'The casino-side half: the three states and what resolves each' },
+    { label: 'Fast Withdrawal Casinos', href: '/fast-withdrawal-casinos', teaser: 'Operators ranked on published payout windows' },
+    { label: 'Best Crypto for Gambling', href: '/guides/best-crypto-for-gambling', teaser: 'Why the network you withdraw on decides how long you wait' },
+  ],
+  'paypal-blocked-casino-australia': [
+    { label: 'Is Crypto Gambling Legal in Australia?', href: '/country/australia/legal', teaser: 'The law side this page deliberately points to rather than restates' },
+    { label: 'Is Crypto Safe at Australian Casinos?', href: '/guides/is-crypto-safe-at-australian-casinos', teaser: 'The honest risk trade if you are considering the crypto rail' },
+    { label: 'Crypto Casinos in Australia', href: '/country/australia', teaser: 'The operator side: who serves Australians and on what terms' },
   ],
 }
 
@@ -1018,6 +1135,8 @@ export default async function GuidePage(props: PageProps<'/guides/[slug]'>) {
                   )
                 })}
               </div>
+            ) : block.type === 'txidlookup' ? (
+              <TxidLookup key={i} />
             ) : block.type === 'plink' ? (
               <p key={i} className="text-[#888888] leading-relaxed">
                 {block.parts.map((part, idx) =>

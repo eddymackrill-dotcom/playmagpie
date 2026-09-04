@@ -89,11 +89,11 @@ export const guides: Guide[] = [
     title: 'Why Is My Crypto Casino Withdrawal Pending?',
     slug: 'why-is-my-crypto-casino-withdrawal-pending',
     description:
-      'A pending withdrawal is in one of three states, and only one of them is the casino’s to fix. How to tell which, using the transaction ID, and what actually resolves each.',
+      "A pending withdrawal is in one of three states, and only one is the casino's to fix. Paste your TXID, see which state you're in, and what resolves each one.",
     readTime: '9 min read',
     category: 'Withdrawals',
     published: '2026-07-28',
-    modified: '2026-08-25', // Roobet weekend-clause correction (not in terms, 08-25 owner read)
+    modified: '2026-09-05', // CTR meta sharpen + txid-guide carrier link and scope line (slate 2026-09-05)
     updated: 'July 2026',
   },
   // Added 2026-08-01, page 1 of the owner-approved August slate (STATE.md).
@@ -155,5 +155,49 @@ export const guides: Guide[] = [
     published: '2026-08-25',
     modified: '2026-08-25',
     updated: 'August 2026',
+  },
+  // Added 2026-09-05, page 1 of the owner-approved September slate (two-page
+  // slate, reports/2026-09-05-september-slate-full.md). SCOPE, binding: this
+  // guide owns VERIFYING THE WITHDRAWAL ON-CHAIN (finding the TXID, reading
+  // the explorer, the sent-but-not-received path). It does NOT own why a
+  // withdrawal is pending casino-side, which stays with
+  // why-is-my-crypto-casino-withdrawal-pending; reciprocal scope lines on
+  // both. Demand: 147 grounding citations ("crypto casino withdrawal txid"),
+  // zero human keyword rows; visit case is a HYPOTHESIS (open field per the
+  // 4 Sep Copilot probe). Interactive layer: components/TxidLookup.tsx,
+  // API-free by design. No operator figures are stated anywhere in it.
+  {
+    title: 'Track a Crypto Casino Withdrawal by TXID',
+    h1: 'Your Withdrawal Has a TXID (or It Does Not): How to Check It On-Chain',
+    slug: 'crypto-casino-withdrawal-txid',
+    description:
+      "Your withdrawal either has a TXID or it doesn't, and that splits the problem in two. Find it, check it on-chain in one click, and read what the explorer shows.",
+    readTime: '7 min read',
+    category: 'Withdrawals',
+    published: '2026-09-05',
+    modified: '2026-09-05',
+    updated: 'September 2026',
+  },
+  // Added 2026-09-05, page 2 of the owner-approved September slate (the
+  // marginal call, approved with the flag read). SCOPE, binding: this guide
+  // owns PAYMENT-RAIL blocking for Australians (why a PayPal deposit fails,
+  // what the 2024 payment ban actually covers, where crypto rails fit). It
+  // does NOT own law and site-blocking, which stays with
+  // /country/australia/legal (frozen page, untouched), and it does NOT rank
+  // operators, which stays with the /country/australia hub. Demand: 33
+  // grounding citations ("paypal blocked casino australia"); visit case is a
+  // HYPOTHESIS. PayPal AUP fact attributed as consistently reported (the
+  // primary truncates to fetchers; see the 2026-09-05 decisions entry).
+  {
+    title: 'PayPal Casino Deposits in Australia: Why They Fail',
+    h1: 'Why You Cannot Deposit at a Casino With PayPal From Australia',
+    slug: 'paypal-blocked-casino-australia',
+    description:
+      'PayPal treats gambling as approval-only and no casino serving Australians holds it. Why deposits fail, what the law actually blocks, and where crypto fits.',
+    readTime: '6 min read',
+    category: 'Payments',
+    published: '2026-09-05',
+    modified: '2026-09-05',
+    updated: 'September 2026',
   },
 ]
